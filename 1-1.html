@@ -125,7 +125,20 @@
     .contact-email:hover{color:#D4956C;border-bottom-color:#D4956C}
     .contact-highlight{font-weight:700;color:#B87658}
 
-    /* Media elements global responsiveness */
+    /* --- Axis spacing fix for small screens --- */
+.chart-y-axis { left: 10px; }
+.chart-area   { left: 68px; }
+.chart-x-axis { left: 68px; }
+.chart-y-label{ left: 0; font-size: 11px; }
+
+@media (max-width: 414px){
+  .chart-y-axis { left: 12px; font-size: 10px; }
+  .chart-y-label{ left: 2px; font-size: 10px; letter-spacing: .4px; }
+  .chart-area   { left: 72px; }
+  .chart-x-axis { left: 72px; }
+}
+
+/* Media elements global responsiveness */
     img,svg,canvas,iframe,video{max-width:100%;height:auto;display:block;border:0;border-radius:12px}
 
     @media print{ body{background:#fff;padding:0} .container{box-shadow:none;border:0} }
