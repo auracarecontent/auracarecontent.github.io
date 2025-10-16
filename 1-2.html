@@ -1,13 +1,883 @@
-<!doctype html>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Day — coming soon</title>
-<style>
-  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;display:grid;place-items:center;min-height:100vh}
-  .card{max-width:720px;padding:24px;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-  .muted{color:#6b7280}
-</style>
-<div class="card">
-  <h1>Mobile preview — coming soon</h1>
-  <p class="muted">This page is a temporary placeholder. Final HTML will be uploaded shortly.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2: Tired After Rest</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
+            background: #FAF8F2;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            background: #FFFEFB;
+            border-radius: 20px;
+            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem;
+        }
+
+        .day-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            font-weight: 700;
+            opacity: 0.95;
+        }
+
+        .section {
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            font-size: 1.75rem;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #172737;
+            line-height: 22px;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .daily-focus {
+            background: rgba(184, 118, 88, 0.05);
+            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        }
+
+        .text-content {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .text-secondary {
+            color: #656565;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #B87658;
+        }
+
+        .bullet-list {
+            margin: 1.5rem 0;
+        }
+
+        .bullet-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .bullet-dot {
+            width: 6px;
+            height: 6px;
+            background: #B87658;
+            border-radius: 50%;
+            margin-top: 7px;
+            flex-shrink: 0;
+        }
+
+        .orange-bg {
+            background: rgba(184, 118, 88, 0.1);
+        }
+
+        .info-box {
+            background: rgba(184, 118, 88, 0.1);
+            padding: 18px;
+            border-radius: 16px;
+            border: 1px solid rgba(184, 118, 88, 0.2);
+            margin: 1.5rem 0;
+        }
+
+        .info-box-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .check-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .check-mark {
+            color: #10B981;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .column-box {
+            background: rgba(184, 118, 88, 0.08);
+            padding: 1.25rem;
+            border-radius: 12px;
+            border-left: 3px solid;
+        }
+
+        .column-box h3 {
+            font-size: 15px;
+            margin-bottom: 0.75rem;
+        }
+
+        .sympathetic {
+            border-left-color: #dc2626;
+        }
+
+        .parasympathetic {
+            border-left-color: #10B981;
+        }
+
+        .pattern-grid {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .pattern-row {
+            padding: 16px;
+            border-radius: 12px;
+            border-left: 3px solid;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 2fr;
+            gap: 1rem;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .pattern-time {
+            font-weight: 600;
+            font-size: 14px;
+            color: #172737;
+        }
+
+        .pattern-type {
+            font-weight: 600;
+            font-size: 13px;
+            color: #656565;
+        }
+
+        .pattern-action {
+            font-size: 13px;
+            font-weight: 500;
+            color: #8C8C8C;
+        }
+
+        .pattern-orange {
+            background: rgba(184, 118, 88, 0.08);
+            border-left-color: #B87658;
+        }
+
+        .pattern-amber {
+            background: rgba(212, 149, 108, 0.08);
+            border-left-color: #D4956C;
+        }
+
+        .pattern-blue {
+            background: rgba(59, 130, 246, 0.08);
+            border-left-color: #3b82f6;
+        }
+
+        .pattern-indigo {
+            background: rgba(99, 102, 241, 0.08);
+            border-left-color: #6366f1;
+        }
+
+        .science-fact {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 16px;
+            border-radius: 12px;
+            border-left: 3px solid #10B981;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .fact-icon {
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .fact-title {
+            font-weight: 600;
+            font-size: 14px;
+            color: #172737;
+            margin-bottom: 0.5rem;
+            line-height: 20px;
+        }
+
+        .fact-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+        }
+
+        .reference-text {
+            font-size: 11px;
+            font-weight: 500;
+            color: #8C8C8C;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        .evening-section {
+            background: rgba(99, 102, 241, 0.05);
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .evening-box {
+            background: white;
+            padding: 18px;
+            border-radius: 16px;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .evening-box-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .evening-tip {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(184, 118, 88, 0.05);
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 0.75rem;
+        }
+
+        .tip-emoji {
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .tip-text {
+            flex: 1;
+        }
+
+        .tip-action {
+            font-weight: 600;
+            font-size: 14px;
+            color: #172737;
+        }
+
+        .tip-effect {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+        }
+
+        .tip-reference {
+            font-size: 11px;
+            font-weight: 500;
+            color: #8C8C8C;
+            font-style: italic;
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        .biomarker-card {
+            background: rgba(184, 118, 88, 0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            transition: width 1s ease-out;
+        }
+
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 18px;
+        }
+
+        .reflection-section {
+            background: rgba(168, 85, 247, 0.05);
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .reflection-question {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .action-section {
+            background: rgba(16, 185, 129, 0.08);
+            border-bottom: 3px solid #10B981;
+        }
+
+        .action-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .action-content {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .action-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .action-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 0.75rem;
+            line-height: 20px;
+        }
+
+        .action-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .action-highlight {
+            background: rgba(184, 118, 88, 0.1);
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 3px solid #B87658;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .action-steps {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 2.5rem;
+        }
+
+        .footer h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .footer-final {
+            font-size: 18px;
+            font-weight: 700;
+            padding: 1.5rem 2rem;
+            line-height: 28px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+
+        .footer-cta {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 2rem;
+            padding: 1.25rem 2rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-cta {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 2rem;
+            padding: 1.25rem 2rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-contact {
+            font-size: 15px;
+            font-weight: 600;
+            margin-top: 2rem;
+            padding: 1.5rem 2rem;
+            background: white;
+            color: #172737;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            line-height: 24px;
+        }
+
+        .contact-email {
+            color: #B87658;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            border-bottom: 2px solid #B87658;
+            transition: all 0.2s;
+        }
+
+        .contact-email:hover {
+            color: #D4956C;
+            border-bottom-color: #D4956C;
+        }
+
+        .contact-highlight {
+            font-weight: 700;
+            color: #B87658;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="day-label">Day 2</div>
+            <h1>Tired After Rest</h1>
+            <div class="subtitle">Why Rest Doesn't Restore You</div>
+        </div>
+
+        <!-- Daily Focus -->
+        <div class="section daily-focus">
+            <div class="section-header">
+                <span class="section-icon">😃</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <p class="text-content">
+                You took a break, but your body never truly exhaled. Real rest begins only when your nervous system feels safe enough to switch off.
+            </p>
+            <p class="text-content">
+                Today you'll discover why even after sleep, weekends, or "doing nothing," you might still wake up tense and drained — and what helps your body enter real recovery.
+            </p>
+        </div>
+
+        <!-- Why It Matters -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <p class="text-content">
+                You can spend a weekend resting, yet still feel heavy on Monday. That's because rest without regulation isn't recovery.
+            </p>
+            <p class="text-content">
+                When your mind stays alert — checking messages, planning, or worrying — your body never fully switches off. Energy goes to vigilance, not renewal.
+            </p>
+            <p class="text-content">
+                True rest happens only when your body receives one clear signal:
+            </p>
+            <div class="info-box">
+                <p class="text-content" style="margin: 0; text-align: center;">
+                    🩵 <strong>"We're safe. It's time to repair."</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- Why You Might Wake Up Unrefreshed -->
+        <div class="section orange-bg">
+            <div class="section-header">
+                <span class="section-icon">😴</span>
+                <h2>Why You Might Wake Up Unrefreshed</h2>
+            </div>
+            <p class="text-content">
+                Your autonomic nervous system (ANS) runs two intertwined modes:
+            </p>
+
+            <div class="two-column">
+                <div class="column-box sympathetic">
+                    <h3>Sympathetic ("fight or flight")</h3>
+                    <p class="text-content" style="margin: 0;">Mobilizes energy</p>
+                </div>
+                <div class="column-box parasympathetic">
+                    <h3>Parasympathetic ("rest and repair")</h3>
+                    <p class="text-content" style="margin: 0;">Restores it</p>
+                </div>
+            </div>
+
+            <p class="text-content">
+                In modern life, the "fight-or-flight" mode rarely turns off completely. Mental load, late-night light, and constant input keep subtle stress signals active.
+            </p>
+            <p class="text-content">
+                Muscles stay slightly contracted, breathing shallow, heart rate a little elevated — a quiet "on-guard" state that blocks full restoration.
+            </p>
+        </div>
+
+        <!-- Meet the Vagus Nerve -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Meet Your Body's Switch — the Vagus Nerve</h2>
+            </div>
+            <p class="text-content">
+                Your vagus nerve is the body's built-in "off switch" for stress.
+            </p>
+            <p class="text-content">
+                When it activates, heart rate slows and heart rate variability (HRV) rises — a sign that your body can move flexibly between effort and recovery.
+            </p>
+            <p class="text-content highlight-text">
+                Higher HRV means your system is balanced and resilient.
+            </p>
+            
+            <div class="info-box">
+                <div class="info-box-title">You can gently strengthen vagal tone through:</div>
+                <div class="check-item">
+                    <span class="check-mark">✓</span>
+                    <div>Slow, paced breathing (especially longer exhalations)</div>
+                </div>
+                <div class="check-item">
+                    <span class="check-mark">✓</span>
+                    <div>Quiet rhythmic movement like walking or stretching</div>
+                </div>
+                <div class="check-item">
+                    <span class="check-mark">✓</span>
+                    <div>Mindful awareness or HRV biofeedback (~6 breaths per minute)</div>
+                </div>
+            </div>
+
+            <p class="text-content">
+                These simple cues improve HRV and lower stress hormones within minutes.
+            </p>
+            <p class="reference-text">
+                Ma et al., 2017, Front Hum Neurosci; Lehrer & Gevirtz, 2014, Front Psychol.
+            </p>
+        </div>
+
+        <!-- Recovery Pattern Table -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📊</span>
+                <h2>Daily Recovery Pattern</h2>
+            </div>
+
+            <div class="pattern-grid">
+                <div class="pattern-row pattern-orange">
+                    <div class="pattern-time">Morning</div>
+                    <div class="pattern-type">2–5 min slow nasal breathing + daylight</div>
+                    <div class="pattern-action">Clears residual cortisol; steadies HR</div>
+                </div>
+                <div class="pattern-row pattern-amber">
+                    <div class="pattern-time">Midday</div>
+                    <div class="pattern-type">5-min relaxed walk or stretch</div>
+                    <div class="pattern-action">Releases tension; raises HRV</div>
+                </div>
+                <div class="pattern-row pattern-blue">
+                    <div class="pattern-time">Evening</div>
+                    <div class="pattern-type">Quiet transition, no screens</div>
+                    <div class="pattern-action">Allows parasympathetic dominance</div>
+                </div>
+                <div class="pattern-row pattern-indigo">
+                    <div class="pattern-time">Night</div>
+                    <div class="pattern-type">Dim light + 2 min slow exhale breathing</div>
+                    <div class="pattern-action">Lowers HR and prepares deep sleep</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Science Facts -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Why Rest Can Fail</h2>
+            </div>
+            
+            <div class="science-fact">
+                <div class="fact-icon">💤</div>
+                <div>
+                    <div class="fact-title">Even thinking about work activates stress circuits</div>
+                    <div class="fact-desc">Brosschot et al., 2021, Nat Rev Neurosci.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">💓</div>
+                <div>
+                    <div class="fact-title">Slow breathing with long exhalations increases vagal tone and HRV</div>
+                    <div class="fact-desc">Zaccaro et al., 2018, Front Hum Neurosci.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">HRV biofeedback improves resilience and emotion regulation</div>
+                    <div class="fact-desc">Lehrer & Gevirtz, 2014, Front Psychol.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">💡</div>
+                <div>
+                    <div class="fact-title">Bright evening light delays melatonin and shortens deep-sleep duration</div>
+                    <div class="fact-desc">Gooley et al., 2011, J Clin Endocrinol Metab.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biomarkers -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <p class="text-content">
+                Certain blood markers reflect how well your recovery system functions — and the % next to each shows how strongly this marker influences your ability to rest and restore balance.
+            </p>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <span class="section-icon">💫</span>
+                    <div class="biomarker-name">Magnesium (RBC)</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%">60%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Supports calm nerve signaling and smooth muscle relaxation. Low magnesium is linked with lower HRV and higher stress reactivity (Jahnen-Dechent & Ketteler, 2012, Clin Kidney J).
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <span class="section-icon">🔥</span>
+                    <div class="biomarker-name">hs-CRP</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 50%">50%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Indicates low-grade inflammation that keeps stress circuits active and interferes with restorative sleep (Ridker et al., 2018, Circulation Research).
+                </div>
+            </div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="section reflection-section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <p class="reflection-question">
+                When you "rest," does your body feel loose and light — or tight and guarded?
+            </p>
+            <p class="reflection-question">
+                Which cue — breath, light, movement, or quiet — helps you let go most easily?
+            </p>
+        </div>
+
+        <!-- Action Plan -->
+        <div class="section action-section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Digital Sunset</h2>
+            </div>
+            
+            <div class="action-box">
+                <p class="text-content">
+                    <strong>Keep your morning light from Day 1 — this is your anchor.</strong>
+                </p>
+                <p class="text-content">
+                    Add one new habit today:
+                </p>
+
+                <div class="action-highlight">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                        <span class="section-icon">💡</span>
+                        <strong>Digital Sunset</strong>
+                    </div>
+                    Turn off bright screens one hour before bed. Use warm light, quiet music, or a paper book instead.
+                </div>
+
+                <div class="action-steps">
+                    <p class="text-content">
+                        Before lying down, practice 2 minutes of slow breathing (inhale 4 sec, exhale 6–8 sec) or a short shoulder stretch.
+                    </p>
+                    <p class="text-content" style="margin: 0;">
+                        These simple cues lower HR, raise HRV, and signal your body it's safe to recover (Zaccaro et al., 2018; Lehrer & Gevirtz, 2014).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evening Section -->
+        <div class="section evening-section">
+            <div class="section-header">
+                <span class="section-icon">🌙</span>
+                <h2>Evening Matters Too — Calming Cortisol Before Bed</h2>
+            </div>
+            
+            <div class="evening-box">
+                <p class="text-content">
+                    Avoid strong light and emotional stimulation after 9 p.m.; both delay melatonin and reduce next-day energy (Gooley et al., 2011).
+                </p>
+                <p class="text-content" style="margin: 0;">
+                    A quiet wind-down — reading, dim light, or slow breathing — lets cortisol fall naturally and prepares your body for deeper recovery.
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="section-header">
+                <span class="section-icon">🌞</span>
+                <h2>Why This Works</h2>
+            </div>
+            <p class="footer-text">
+                When your vagus nerve is engaged, heart rate drops and HRV rises — clear signs that your body has shifted from vigilance to repair.
+            </p>
+            <p class="footer-text">
+                Slow breathing, gentle movement, and light discipline give your nervous system permission to rest deeply.
+            </p>
+            <p class="footer-final">
+                ✨ Remember: Rest isn't the absence of activity — it's the presence of safety. Give your body that signal, and real recovery begins.
+            </p>
+            <p class="footer-contact">
+                📩 <span class="contact-highlight">Write to us if you're interested in a personalised lab panel at the best price</span> — with your own detailed report after the results are ready.<br><br>
+                <strong>Contact us at <a href="mailto:care@aura.care" class="contact-email">care@aura.care</a> to learn more.</strong>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
