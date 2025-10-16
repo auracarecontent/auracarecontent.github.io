@@ -458,6 +458,40 @@
             }
         }
     </style>
+
+<style>
+  :root{
+    --primary:#B87658; --secondary:#D4956C;
+    --bg:#FAF8F2; --surface:#FFFEFB; --border:rgba(0,0,0,.05);
+    --text:#172737; --text-2:#656565; --text-3:#8C8C8C; --success:#10B981;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);-webkit-text-size-adjust:100%}
+  body{font-family:system-ui,-apple-system,"SF Pro Text","Segoe UI",Roboto,Arial,sans-serif;line-height:1.6;letter-spacing:.2px}
+  *,*::before,*::after{box-sizing:border-box;max-width:100%}
+  .container{max-width:720px;margin:0 auto;background:var(--surface);border-radius:20px;
+             box-shadow:0 3px 6px rgba(23,39,55,.12);overflow:hidden;border:1px solid var(--border)}
+  .wrap{padding:16px}
+  @media (min-width:480px){.wrap{padding:18px}}
+  @media (min-width:768px){.wrap{padding:20px}}
+  h1{font-size:22px;font-weight:700;line-height:22px;margin:0 0 12px}
+  h2{font-size:18px;font-weight:700;line-height:22px;margin:16px 0 8px}
+  h3{font-size:16px;font-weight:600;line-height:20px;margin:14px 0 8px}
+  p,.text{font-size:14px;font-weight:500;line-height:20px;color:var(--text)}
+  .muted{color:var(--text-3)}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px;
+        box-shadow:0 2px 6px rgba(23,39,55,.08);margin:12px 0}
+  ul,ol{padding-left:18px} li{margin:6px 0}
+  img,svg,canvas,iframe,video{max-width:100%;height:auto;display:block;border-radius:12px;border:0}
+  .scroll-x{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{width:100%;border-collapse:collapse;background:var(--surface)}
+  th,td{padding:8px;border-bottom:1px solid #f0f0f0;font-size:13px}
+  th{text-align:left;font-weight:600;color:var(--text-2)}
+  a.button,.btn{display:inline-block;text-decoration:none;font-size:14px;font-weight:500;
+     padding:10px 14px;border-radius:12px;border:1px solid var(--border);
+     background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff}
+  @media (max-width:480px){ .wrap{padding:12px} }
+</style>
+
 </head>
 <body>
     <div class="container">
