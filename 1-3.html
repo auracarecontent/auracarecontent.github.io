@@ -1,13 +1,771 @@
-<!doctype html>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Day — coming soon</title>
-<style>
-  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;display:grid;place-items:center;min-height:100vh}
-  .card{max-width:720px;padding:24px;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-  .muted{color:#6b7280}
-</style>
-<div class="card">
-  <h1>Mobile preview — coming soon</h1>
-  <p class="muted">This page is a temporary placeholder. Final HTML will be uploaded shortly.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3: The Clarity Comeback</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
+            background: #FAF8F2;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            background: #FFFEFB;
+            border-radius: 20px;
+            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem;
+        }
+
+        .day-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            font-weight: 700;
+            opacity: 0.95;
+        }
+
+        .section {
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            font-size: 1.75rem;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #172737;
+            line-height: 22px;
+        }
+
+        .daily-focus {
+            background: rgba(184, 118, 88, 0.05);
+            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        }
+
+        .text-content {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #B87658;
+        }
+
+        .bullet-list {
+            margin: 1.5rem 0;
+        }
+
+        .bullet-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .bullet-dot {
+            width: 6px;
+            height: 6px;
+            background: #B87658;
+            border-radius: 50%;
+            margin-top: 7px;
+            flex-shrink: 0;
+        }
+
+        .orange-bg {
+            background: rgba(184, 118, 88, 0.1);
+        }
+
+        .info-box {
+            background: rgba(184, 118, 88, 0.1);
+            padding: 18px;
+            border-radius: 16px;
+            border: 1px solid rgba(184, 118, 88, 0.2);
+            margin: 1.5rem 0;
+        }
+
+        .info-box-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .check-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .check-mark {
+            color: #10B981;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .pattern-grid {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .pattern-row {
+            padding: 16px;
+            border-radius: 12px;
+            border-left: 3px solid;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 2fr;
+            gap: 1rem;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .pattern-time {
+            font-weight: 600;
+            font-size: 14px;
+            color: #172737;
+        }
+
+        .pattern-type {
+            font-weight: 600;
+            font-size: 13px;
+            color: #656565;
+        }
+
+        .pattern-action {
+            font-size: 13px;
+            font-weight: 500;
+            color: #8C8C8C;
+        }
+
+        .pattern-orange {
+            background: rgba(184, 118, 88, 0.08);
+            border-left-color: #B87658;
+        }
+
+        .pattern-amber {
+            background: rgba(212, 149, 108, 0.08);
+            border-left-color: #D4956C;
+        }
+
+        .pattern-blue {
+            background: rgba(59, 130, 246, 0.08);
+            border-left-color: #3b82f6;
+        }
+
+        .pattern-indigo {
+            background: rgba(99, 102, 241, 0.08);
+            border-left-color: #6366f1;
+        }
+
+        .science-fact {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 16px;
+            border-radius: 12px;
+            border-left: 3px solid #10B981;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .fact-icon {
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .fact-title {
+            font-weight: 600;
+            font-size: 14px;
+            color: #172737;
+            margin-bottom: 0.5rem;
+            line-height: 20px;
+        }
+
+        .fact-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+        }
+
+        .reference-text {
+            font-size: 11px;
+            font-weight: 500;
+            color: #8C8C8C;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        .biomarker-card {
+            background: rgba(184, 118, 88, 0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            transition: width 1s ease-out;
+        }
+
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 18px;
+        }
+
+        .reflection-section {
+            background: rgba(168, 85, 247, 0.05);
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .reflection-question {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .action-section {
+            background: rgba(16, 185, 129, 0.08);
+            border-bottom: 3px solid #10B981;
+        }
+
+        .action-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .action-content {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .action-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .action-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 0.75rem;
+            line-height: 20px;
+        }
+
+        .action-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .action-highlight {
+            background: rgba(184, 118, 88, 0.1);
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 3px solid #B87658;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .action-steps {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .evening-section {
+            background: rgba(99, 102, 241, 0.05);
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .evening-box {
+            background: white;
+            padding: 18px;
+            border-radius: 16px;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 2.5rem;
+        }
+
+        .footer h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .footer-final {
+            font-size: 18px;
+            font-weight: 700;
+            padding: 1.5rem 2rem;
+            line-height: 28px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+
+        .footer-contact {
+            font-size: 15px;
+            font-weight: 600;
+            margin-top: 2rem;
+            padding: 1.5rem 2rem;
+            background: white;
+            color: #172737;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            line-height: 24px;
+        }
+
+        .contact-email {
+            color: #B87658;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            border-bottom: 2px solid #B87658;
+            transition: all 0.2s;
+        }
+
+        .contact-email:hover {
+            color: #D4956C;
+            border-bottom-color: #D4956C;
+        }
+
+        .contact-highlight {
+            font-weight: 700;
+            color: #B87658;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="day-label">Day 3</div>
+            <h1>The Clarity Comeback</h1>
+            <div class="subtitle">From Brain Fog to Focus</div>
+        </div>
+
+        <!-- Daily Focus -->
+        <div class="section daily-focus">
+            <div class="section-header">
+                <span class="section-icon">😃</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <p class="text-content">
+                Learn why your mind feels hazy and slow — and how balanced rhythm, nourishment, and short resets can bring clarity back.
+            </p>
+            <p class="text-content">
+                Today you'll discover how your brain shifts from "survival mode" to "focused mode" when energy, blood flow, and glucose are steady.
+            </p>
+        </div>
+
+        <!-- Why It Matters -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <p class="text-content">
+                Brain fog isn't about laziness — it's a biological signal: "My brain is running low on fuel."
+            </p>
+            <p class="text-content">
+                Your brain makes up only 2% of body weight yet consumes ~20% of your daily energy. When glucose fluctuates or circulation slows, even simple tasks demand extra effort.
+            </p>
+            <p class="text-content">
+                Restoring focus means supporting the brain's natural rhythm — oxygen, hydration, nutrients, and gentle mental breaks.
+            </p>
+        </div>
+
+        <!-- Why Focus Fades -->
+        <div class="section orange-bg">
+            <div class="section-header">
+                <span class="section-icon">😴</span>
+                <h2>Why Focus Fades</h2>
+            </div>
+            <p class="text-content">
+                Skipping meals, high-sugar snacks, dehydration, and chronic stress all destabilize your brain's fuel system. When glucose drops or rises sharply, neurons fire less efficiently.
+            </p>
+            <p class="text-content">
+                The prefrontal cortex — your decision-making center — "dims," reducing focus, memory, and motivation.
+            </p>
+            <p class="text-content">
+                At the same time, poor sleep lowers insulin sensitivity and increases morning fog.
+            </p>
+        </div>
+
+        <!-- Meet Your Brain's Fuel System -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Meet Your Brain's Fuel System</h2>
+            </div>
+            <p class="text-content">
+                Your brain thrives on a steady energy supply:
+            </p>
+            
+            <div class="info-box">
+                <div class="check-item">
+                    <span class="check-mark">✓</span>
+                    <div><strong>Stable glucose</strong> provides consistent fuel for neurons</div>
+                </div>
+                <div class="check-item">
+                    <span class="check-mark">✓</span>
+                    <div><strong>Adequate hydration</strong> keeps blood flow and oxygen delivery smooth</div>
+                </div>
+                <div class="check-item">
+                    <span class="check-mark">✓</span>
+                    <div><strong>Micronutrients</strong> like B-vitamins and folate support neurotransmitter synthesis</div>
+                </div>
+                <div class="check-item">
+                    <span class="check-mark">✓</span>
+                    <div><strong>Short "oxygen resets"</strong> — like standing up or stretching for 2 minutes each hour — increase cerebral blood flow and help maintain clarity throughout the day</div>
+                </div>
+            </div>
+
+            <p class="reference-text">
+                Spencer et al., 2020, Nutrition Reviews; Benton & Donahue, 2021, Front Nutr; Petersen et al., 2020, J Appl Physiol.
+            </p>
+        </div>
+
+        <!-- Focus Pattern Table -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📊</span>
+                <h2>Daily Focus Pattern</h2>
+            </div>
+
+            <div class="pattern-grid">
+                <div class="pattern-row pattern-orange">
+                    <div class="pattern-time">Morning</div>
+                    <div class="pattern-type">Balanced breakfast with protein + fiber</div>
+                    <div class="pattern-action">Stabilizes glucose and mental energy</div>
+                </div>
+                <div class="pattern-row pattern-amber">
+                    <div class="pattern-time">Mid-morning</div>
+                    <div class="pattern-type">2-min movement / stretch</div>
+                    <div class="pattern-action">Boosts blood flow and alertness</div>
+                </div>
+                <div class="pattern-row pattern-blue">
+                    <div class="pattern-time">Afternoon</div>
+                    <div class="pattern-type">Water or herbal tea break</div>
+                    <div class="pattern-action">Restores hydration and focus</div>
+                </div>
+                <div class="pattern-row pattern-indigo">
+                    <div class="pattern-time">Evening</div>
+                    <div class="pattern-type">Dim light + gentle wind-down</div>
+                    <div class="pattern-action">Prevents late-day overstimulation</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Science Facts -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — What Sharpens Clarity</h2>
+            </div>
+            
+            <div class="science-fact">
+                <div class="fact-icon">🍎</div>
+                <div>
+                    <div class="fact-title">Stable glucose = stable focus</div>
+                    <div class="fact-desc">Spencer et al., 2020, Nutrition Reviews.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">💧</div>
+                <div>
+                    <div class="fact-title">Mild dehydration (1–2%) reduces concentration and memory by 10–15%</div>
+                    <div class="fact-desc">Benton & Donahue, 2021, Front Nutr.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🚶‍♀️</div>
+                <div>
+                    <div class="fact-title">Five minutes of movement increases brain blood flow and alertness within 10 minutes</div>
+                    <div class="fact-desc">Petersen et al., 2020, J Appl Physiol.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Low vitamin B12 or folate impairs neurotransmitter balance and attention</div>
+                    <div class="fact-desc">Malouf & Areosa Sastre, 2016, Cochrane Database Syst Rev.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biomarkers -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <p class="text-content">
+                Certain blood markers reflect how well your brain's energy and attention systems function — and the % next to each shows how strongly this marker influences your mental clarity and focus.
+            </p>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <span class="section-icon">🎯</span>
+                    <div class="biomarker-name">Glucose (fasting)</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 70%">70%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Affects stability of mental energy and concentration; large swings can cause post-meal fatigue (Spencer et al., 2020, Nutrition Reviews).
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <span class="section-icon">⚡</span>
+                    <div class="biomarker-name">Vitamin B12</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%">60%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Supports nerve conduction and neurotransmitter production (Malouf & Areosa Sastre, 2016, Cochrane Database Syst Rev).
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <span class="section-icon">🌱</span>
+                    <div class="biomarker-name">Folate (B9)</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%">55%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Works with B12 in methylation and neurotransmitter synthesis; low levels may cause mental slowness (Kennedy, 2016, Nutrients).
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <span class="section-icon">📈</span>
+                    <div class="biomarker-name">HbA1c</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 65%">65%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects average glucose control over 2–3 months; high values are linked to brain fog and reduced attention (Palta et al., 2017, Diabetes Care).
+                </div>
+            </div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="section reflection-section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <p class="reflection-question">
+                When do you notice your focus fading most — morning, afternoon, or evening?
+            </p>
+            <p class="reflection-question">
+                Is it linked to meals, screens, or mental overload?
+            </p>
+        </div>
+
+        <!-- Action Plan -->
+        <div class="section action-section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Micro-Pause for Focus</h2>
+            </div>
+            
+            <div class="action-box">
+                <p class="text-content">
+                    <strong>Keep your morning light and digital sunset from previous days — they stabilize your rhythm.</strong>
+                </p>
+                <p class="text-content">
+                    Add one new step today:
+                </p>
+
+                <div class="action-highlight">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                        <span class="section-icon">🧠</span>
+                        <strong>Micro-Pause Breaks</strong>
+                    </div>
+                    Every hour, take 2 minutes to stand, stretch, or breathe slowly. If possible, open a window or step outside for fresh air.
+                </div>
+
+                <div class="action-steps">
+                    <p class="text-content" style="margin: 0;">
+                        These brief resets increase oxygen to your brain and refresh focus faster than caffeine (Petersen et al., 2020).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evening Section -->
+        <div class="section evening-section">
+            <div class="section-header">
+                <span class="section-icon">🌙</span>
+                <h2>Evening Matters Too — Protect Tomorrow's Clarity</h2>
+            </div>
+            
+            <div class="evening-box">
+                <p class="text-content">
+                    Late screens and heavy meals disrupt glucose balance and sleep depth (Gooley et al., 2011, JCEM).
+                </p>
+                <p class="text-content" style="margin: 0;">
+                    End your day with dim light and hydration — your brain needs water and rest to clear metabolic by-products during sleep (Xie et al., 2013, Science).
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="section-header">
+                <span class="section-icon">🌞</span>
+                <h2>Why This Works</h2>
+            </div>
+            <p class="footer-text">
+                When glucose, oxygen, and hydration stay steady, your neurons fire in sync and focus feels natural again.
+            </p>
+            <p class="footer-text">
+                Small movement breaks and balanced nutrition protect mental energy throughout the day.
+            </p>
+            <p class="footer-final">
+                ✨ Remember: Clarity isn't about trying harder — it's about fueling your brain smarter.
+            </p>
+            <p class="footer-contact">
+                📩 <span class="contact-highlight">Write to us if you're interested in a personalised lab panel at the best price</span> — with your own detailed report after the results are ready.<br><br>
+                <strong>Contact us at <a href="mailto:care@aura.care" class="contact-email">care@aura.care</a> to learn more.</strong>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
