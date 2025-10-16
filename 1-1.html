@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 1: The Cortisol Reboot</title>
+    <title>Day 1: The Cortisol Reboot — Mobile</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Base reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
             background: #FAF8F2;
-            padding: 2rem;
-            line-height: 1.5;
+            padding: 16px; /* mobile-friendly */
+            line-height: 1.6;
+            color: #172737;
+            letter-spacing: .2px;
         }
 
+        /* Container */
         .container {
-            max-width: 1080px;
+            max-width: 720px; /* was 1080px */
             margin: 0 auto;
             background: #FFFEFB;
             border-radius: 20px;
@@ -28,639 +28,221 @@
             border: 1px solid rgba(0, 0, 0, 0.04);
         }
 
+        /* Header */
         .header {
             background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem;
+            color: #fff;
+            padding: 24px; /* was 3rem */
         }
-
         .day-label {
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
+            font-size: 12px; font-weight: 700; letter-spacing: 0.3px;
+            margin-bottom: 12px; text-transform: uppercase;
         }
+        h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+        .subtitle { font-size: 18px; font-weight: 700; opacity: .95; }
 
-        h1 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            line-height: 1.3;
-        }
+        /* Sections */
+        .section { padding: 16px 20px; border-bottom: 1px solid #F0F0F0; }
+        .daily-focus { background: rgba(184, 118, 88, 0.05); border-bottom: 2px solid rgba(184, 118, 88, 0.2); }
+        .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .section-icon { font-size: 1.5rem; }
+        h2 { font-size: 18px; font-weight: 700; color: #172737; line-height: 22px; }
+        h3 { font-size: 16px; font-weight: 600; color: #172737; line-height: 20px; }
 
-        .subtitle {
-            font-size: 18px;
-            font-weight: 700;
-            opacity: 0.95;
-        }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 12px; line-height: 20px; }
+        .text-secondary { color: #656565; }
+        .highlight-text { font-weight: 600; color: #B87658; }
 
-        .section {
-            padding: 2rem 2.5rem;
-            border-bottom: 1px solid #F0F0F0;
-        }
+        /* Lists */
+        .bullet-list { margin: 12px 0; }
+        .bullet-item { display: flex; gap: 12px; margin-bottom: 12px; font-size: 14px; font-weight: 500; color: #172737; line-height: 20px; }
+        .bullet-dot { width: 6px; height: 6px; background: #B87658; border-radius: 50%; margin-top: 8px; flex-shrink: 0; }
 
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
+        .orange-bg { background: rgba(184,118,88,.1); }
 
-        .section-icon {
-            font-size: 1.75rem;
-        }
-
-        h2 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #172737;
-            line-height: 22px;
-        }
-
-        h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            line-height: 20px;
-        }
-
-        .daily-focus {
-            background: rgba(184, 118, 88, 0.05);
-            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
-        }
-
-        .text-content {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
-        }
-
-        .text-secondary {
-            color: #656565;
-        }
-
-        .highlight-text {
-            font-weight: 600;
-            color: #B87658;
-        }
-
-        .bullet-list {
-            margin: 1.5rem 0;
-        }
-
-        .bullet-item {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
-        }
-
-        .bullet-dot {
-            width: 6px;
-            height: 6px;
-            background: #B87658;
-            border-radius: 50%;
-            margin-top: 7px;
-            flex-shrink: 0;
-        }
-
-        .orange-bg {
-            background: rgba(184, 118, 88, 0.1);
-        }
-
+        /* Info box */
         .info-box {
             background: rgba(184, 118, 88, 0.1);
-            padding: 18px;
+            padding: 16px;
             border-radius: 16px;
             border: 1px solid rgba(184, 118, 88, 0.2);
-            margin: 1.5rem 0;
+            margin: 12px 0;
         }
+        .info-box-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; line-height: 20px; }
+        .check-item { display: flex; gap: 10px; margin-bottom: 10px; font-size: 14px; font-weight: 500; }
+        .check-mark { color: #10B981; font-weight: 700; font-size: 16px; }
 
-        .info-box-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
-        }
+        /* Rhythm */
+        .rhythm-comparison { display: flex; gap: 16px; justify-content: center; margin: 16px 0; flex-wrap: wrap; }
+        .rhythm-box { text-align: center; }
+        .rhythm-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; line-height: 20px; }
+        .rhythm-desc { font-size: 13px; font-weight: 500; color: #656565; }
+        .healthy { color: #10B981; }
+        .flattened { color: #dc2626; }
 
-        .check-item {
-            display: flex;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
-        }
-
-        .check-mark {
-            color: #10B981;
-            font-weight: 700;
-            font-size: 16px;
-        }
-
-        .rhythm-comparison {
-            display: flex;
-            gap: 3rem;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-
-        .rhythm-box {
-            text-align: center;
-        }
-
-        .rhythm-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            line-height: 20px;
-        }
-
-        .rhythm-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-        }
-
-        .healthy {
-            color: #10B981;
-        }
-
-        .flattened {
-            color: #dc2626;
-        }
-
-        /* Chart Section */
-        .chart-section {
-            background: #FFFEFB;
-            padding: 2rem 2.5rem;
-            border-bottom: 1px solid #F0F0F0;
-        }
-
+        /* Chart */
+        .chart-section { background: #FFFEFB; padding: 16px 20px; border-bottom: 1px solid #F0F0F0; }
         .chart-title {
-            text-align: center;
-            font-size: 18px;
-            font-weight: 700;
-            color: #172737;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            line-height: 22px;
+            text-align: center; font-size: 18px; font-weight: 700; color: #172737;
+            margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 12px; line-height: 22px;
         }
-
         .chart-container {
             background: rgba(184, 118, 88, 0.05);
-            padding: 2rem;
+            padding: 16px;
             border-radius: 16px;
-            margin-bottom: 2rem;
+            margin-bottom: 16px;
             border: 1px solid rgba(0, 0, 0, 0.04);
         }
-
         .chart-wrapper {
-            background: white;
+            background: #fff;
             border-radius: 12px;
-            padding: 2rem;
+            padding: 12px;
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
             position: relative;
-            height: 400px;
+            /* height removed -> responsive */
+            /* height: 400px; */
+            aspect-ratio: 16/9; /* keep proportion on mobile */
         }
-
         .chart-y-axis {
-            position: absolute;
-            left: 10px;
-            top: 20px;
-            bottom: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            font-size: 11px;
-            font-weight: 500;
-            color: #8C8C8C;
+            position: absolute; left: 8px; top: 12px; bottom: 44px;
+            display: flex; flex-direction: column; justify-content: space-between;
+            font-size: 11px; font-weight: 500; color: #8C8C8C;
         }
-
         .chart-y-label {
-            position: absolute;
-            left: -10px;
-            top: 50%;
-            transform: translateY(-50%) rotate(-90deg);
-            font-size: 11px;
-            font-weight: 600;
-            color: #656565;
-            white-space: nowrap;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            position: absolute; left: -10px; top: 50%; transform: translateY(-50%) rotate(-90deg);
+            font-size: 11px; font-weight: 600; color: #656565; white-space: nowrap; text-transform: uppercase; letter-spacing: .5px;
         }
-
-        .chart-area {
-            margin-left: 70px;
-            margin-right: 20px;
-            height: calc(100% - 60px);
-            position: relative;
-        }
-
-        .chart-grid {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .grid-line {
-            border-top: 1px solid #F0F0F0;
-        }
-
-        .chart-svg {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-        }
-
+        .chart-area { margin-left: 60px; margin-right: 12px; height: calc(100% - 44px); position: relative; }
+        .chart-grid { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; }
+        .grid-line { border-top: 1px solid #F0F0F0; }
+        .chart-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
         .chart-x-axis {
-            position: absolute;
-            bottom: 30px;
-            left: 70px;
-            right: 20px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 11px;
-            font-weight: 600;
-            color: #656565;
+            position: absolute; bottom: 20px; left: 60px; right: 12px;
+            display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; color: #656565;
         }
+        .chart-x-label { text-align: center; font-size: 11px; font-weight: 600; color: #656565; margin-top: 8px; text-transform: uppercase; letter-spacing: .5px; }
 
-        .chart-x-label {
-            text-align: center;
-            font-size: 11px;
-            font-weight: 600;
-            color: #656565;
-            margin-top: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .pattern-grid {
-            display: grid;
-            gap: 0.75rem;
-        }
-
+        /* Pattern grid */
+        .pattern-grid { display: grid; gap: 12px; }
         .pattern-row {
-            padding: 16px;
-            border-radius: 12px;
-            border-left: 3px solid;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr 2fr;
-            gap: 1rem;
-            align-items: center;
+            padding: 14px; border-radius: 12px; border-left: 3px solid;
+            display: grid; grid-template-columns: 1fr; gap: 8px; align-items: center;
             box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
         }
+        .pattern-time { font-weight: 600; font-size: 14px; }
+        .pattern-type { font-weight: 600; font-size: 13px; color: #656565; }
+        .pattern-action { font-size: 13px; font-weight: 500; color: #8C8C8C; }
+        .pattern-orange { background: rgba(184,118,88,.08); border-left-color: #B87658; }
+        .pattern-amber { background: rgba(212,149,108,.08); border-left-color: #D4956C; }
+        .pattern-yellow { background: rgba(234,179,8,.08); border-left-color: #eab308; }
+        .pattern-blue { background: rgba(59,130,246,.08); border-left-color: #3b82f6; }
+        .pattern-indigo { background: rgba(99,102,241,.08); border-left-color: #6366f1; }
 
-        .pattern-time {
-            font-weight: 600;
-            font-size: 14px;
-            color: #172737;
-        }
-
-        .pattern-type {
-            font-weight: 600;
-            font-size: 13px;
-            color: #656565;
-        }
-
-        .pattern-action {
-            font-size: 13px;
-            font-weight: 500;
-            color: #8C8C8C;
-        }
-
-        .pattern-orange {
-            background: rgba(184, 118, 88, 0.08);
-            border-left-color: #B87658;
-        }
-
-        .pattern-amber {
-            background: rgba(212, 149, 108, 0.08);
-            border-left-color: #D4956C;
-        }
-
-        .pattern-yellow {
-            background: rgba(234, 179, 8, 0.08);
-            border-left-color: #eab308;
-        }
-
-        .pattern-blue {
-            background: rgba(59, 130, 246, 0.08);
-            border-left-color: #3b82f6;
-        }
-
-        .pattern-indigo {
-            background: rgba(99, 102, 241, 0.08);
-            border-left-color: #6366f1;
-        }
-
+        /* Science facts */
         .science-fact {
-            background: rgba(16, 185, 129, 0.08);
-            padding: 16px;
-            border-radius: 12px;
-            border-left: 3px solid #10B981;
-            margin-bottom: 1rem;
-            display: flex;
-            gap: 1rem;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+            background: rgba(16,185,129,.08); padding: 14px; border-radius: 12px;
+            border-left: 3px solid #10B981; margin-bottom: 12px; display: flex; gap: 12px;
+            box-shadow: 0 2px 4px rgba(23,39,55,.08);
         }
+        .fact-icon { font-size: 1.5rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; margin-bottom: 6px; line-height: 20px; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 18px; }
+        .reference-text { font-size: 11px; font-weight: 500; color: #8C8C8C; font-style: italic; margin-top: 8px; }
 
-        .fact-icon {
-            font-size: 1.75rem;
-            flex-shrink: 0;
-        }
-
-        .fact-title {
-            font-weight: 600;
-            font-size: 14px;
-            color: #172737;
-            margin-bottom: 0.5rem;
-            line-height: 20px;
-        }
-
-        .fact-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            line-height: 18px;
-        }
-
-        .reference-text {
-            font-size: 11px;
-            font-weight: 500;
-            color: #8C8C8C;
-            font-style: italic;
-            margin-top: 1rem;
-        }
-
-        .evening-section {
-            background: rgba(99, 102, 241, 0.05);
-            border-bottom: 1px solid #F0F0F0;
-        }
-
+        /* Evening */
+        .evening-section { background: rgba(99, 102, 241, 0.05); border-bottom: 1px solid #F0F0F0; }
         .evening-box {
-            background: white;
-            padding: 18px;
-            border-radius: 16px;
-            margin-top: 1.5rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+            background: #fff; padding: 16px; border-radius: 16px; margin-top: 12px;
+            border: 1px solid rgba(0,0,0,.04); box-shadow: 0 2px 4px rgba(23,39,55,.08);
         }
-
-        .evening-box-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
-        }
-
+        .evening-box-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; line-height: 20px; }
         .evening-tip {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: rgba(184, 118, 88, 0.05);
-            padding: 12px;
-            border-radius: 12px;
-            margin-bottom: 0.75rem;
+            display: flex; align-items: center; gap: 12px;
+            background: rgba(184,118,88,.05); padding: 10px; border-radius: 12px; margin-bottom: 8px;
         }
+        .tip-emoji { font-size: 1.5rem; flex-shrink: 0; }
+        .tip-text { flex: 1; }
+        .tip-action { font-weight: 600; font-size: 14px; }
+        .tip-effect { font-size: 13px; font-weight: 500; color: #656565; }
+        .tip-reference { font-size: 11px; font-weight: 500; color: #8C8C8C; font-style: italic; display: block; margin-top: 4px; }
 
-        .tip-emoji {
-            font-size: 1.75rem;
-            flex-shrink: 0;
-        }
-
-        .tip-text {
-            flex: 1;
-        }
-
-        .tip-action {
-            font-weight: 600;
-            font-size: 14px;
-            color: #172737;
-        }
-
-        .tip-effect {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-        }
-
-        .tip-reference {
-            font-size: 11px;
-            font-weight: 500;
-            color: #8C8C8C;
-            font-style: italic;
-            display: block;
-            margin-top: 0.25rem;
-        }
-
+        /* Biomarker cards */
         .biomarker-card {
-            background: rgba(184, 118, 88, 0.08);
-            padding: 18px;
-            border-radius: 16px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+            background: rgba(184,118,88,.08); padding: 16px; border-radius: 16px;
+            margin-bottom: 12px; border: 1px solid rgba(0,0,0,.04); box-shadow: 0 2px 4px rgba(23,39,55,.08);
         }
-
-        .biomarker-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .biomarker-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            line-height: 20px;
-        }
-
-        .progress-bar {
-            background: #E6E6E6;
-            border-radius: 12px;
-            height: 28px;
-            overflow: hidden;
-            margin-bottom: 0.75rem;
-        }
-
+        .biomarker-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .biomarker-name { font-size: 16px; font-weight: 600; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 24px; overflow: hidden; margin-bottom: 8px; }
         .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 12px;
-            color: white;
-            font-weight: 700;
-            font-size: 12px;
-            letter-spacing: 0.3px;
-            transition: width 1s ease-out;
+            height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex; align-items: center; justify-content: flex-end; padding-right: 12px;
+            color: #fff; font-weight: 700; font-size: 12px; letter-spacing: .3px; transition: width 1s ease-out;
         }
+        .biomarker-desc { font-size: 13px; font-weight: 500; color: #656565; margin-top: 8px; line-height: 18px; }
 
-        .biomarker-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            margin-top: 0.75rem;
-            line-height: 18px;
-        }
+        /* Reflection */
+        .reflection-section { background: rgba(168, 85, 247, 0.05); border-bottom: 1px solid #F0F0F0; }
+        .reflection-question { font-size: 14px; font-weight: 500; margin-bottom: 12px; line-height: 20px; }
 
-        .reflection-section {
-            background: rgba(168, 85, 247, 0.05);
-            border-bottom: 1px solid #F0F0F0;
-        }
-
-        .reflection-question {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
-        }
-
-        .action-section {
-            background: rgba(16, 185, 129, 0.08);
-            border-bottom: 3px solid #10B981;
-        }
-
+        /* Action */
+        .action-section { background: rgba(16, 185, 129, 0.08); border-bottom: 3px solid #10B981; }
         .action-box {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.1);
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            background: #fff; padding: 16px; border-radius: 16px;
+            box-shadow: 0 3px 6px rgba(23,39,55,.1); border: 1px solid rgba(0,0,0,.04);
         }
-
-        .action-content {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .action-icon {
-            font-size: 2.5rem;
-            flex-shrink: 0;
-        }
-
-        .action-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            margin-bottom: 0.75rem;
-            line-height: 20px;
-        }
-
-        .action-text {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
-        }
-
+        .action-content { display: flex; gap: 12px; margin-bottom: 12px; }
+        .action-icon { font-size: 2rem; flex-shrink: 0; }
+        .action-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; line-height: 20px; }
+        .action-text { font-size: 14px; font-weight: 500; line-height: 20px; }
         .action-highlight {
-            background: rgba(184, 118, 88, 0.1);
-            padding: 18px;
-            border-radius: 12px;
-            border-left: 3px solid #B87658;
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
+            background: rgba(184,118,88,.1); padding: 14px; border-radius: 12px; border-left: 3px solid #B87658;
+            font-size: 14px; font-weight: 500; line-height: 20px;
         }
 
+        /* Footer */
         .footer {
             background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 2.5rem;
+            color: #fff;
+            padding: 20px; /* was 2.5rem */
         }
-
-        .footer h2 {
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-text {
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            line-height: 20px;
-        }
-
-        .footer-final {
-            font-size: 16px;
-            font-weight: 600;
-            padding-top: 1rem;
-            line-height: 20px;
-        }
-
+        .footer h2 { color: #fff; margin-bottom: 12px; }
+        .footer-text { font-size: 14px; font-weight: 500; margin-bottom: 10px; line-height: 20px; }
+        .footer-final { font-size: 16px; font-weight: 600; padding-top: 10px; line-height: 20px; }
         .footer-cta {
-            font-size: 18px;
-            font-weight: 700;
-            margin-top: 2rem;
-            padding: 1.25rem 2rem;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            text-align: center;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-size: 16px; font-weight: 700; margin-top: 16px; padding: 12px 16px;
+            background: rgba(255,255,255,.15); border-radius: 16px; border: 2px solid rgba(255,255,255,.3);
+            text-align: center; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0,0,0,.1);
         }
-
         .footer-contact {
-            font-size: 15px;
-            font-weight: 600;
-            margin-top: 2rem;
-            padding: 1.5rem 2rem;
-            background: white;
-            color: #172737;
-            border-radius: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.8);
-            text-align: center;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-            line-height: 24px;
+            font-size: 14px; font-weight: 600; margin-top: 16px; padding: 14px 16px;
+            background: #fff; color: #172737; border-radius: 16px;
+            border: 2px solid rgba(255,255,255,.8); text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,.15);
+            line-height: 22px;
         }
-
         .contact-email {
-            color: #B87658;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            border-bottom: 2px solid #B87658;
-            transition: all 0.2s;
+            color: #B87658; text-decoration: none; font-weight: 700; font-size: 16px;
+            border-bottom: 2px solid #B87658; transition: all .2s;
         }
+        .contact-email:hover { color: #D4956C; border-bottom-color: #D4956C; }
+        .contact-highlight { font-weight: 700; color: #B87658; }
 
-        .contact-email:hover {
-            color: #D4956C;
-            border-bottom-color: #D4956C;
-        }
+        /* Make media responsive globally */
+        img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block; border: 0; border-radius: 12px; }
 
-        .contact-highlight {
-            font-weight: 700;
-            color: #B87658;
-        }
-
+        /* Print tweaks */
         @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
+            body { background: #fff; padding: 0; }
+            .container { box-shadow: none; border: 0; }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            body { padding: 12px; }
+            .section, .chart-section { padding: 12px; }
+            .chart-y-axis { left: 6px; bottom: 36px; }
+            .chart-area { margin-left: 48px; margin-right: 8px; }
+            .chart-x-axis { left: 48px; right: 8px; bottom: 16px; }
         }
     </style>
 </head>
@@ -743,25 +325,13 @@
             <p class="text-content">
                 Every morning, light entering your eyes activates your brain's master clock — the suprachiasmatic nucleus. Within minutes, it sends a signal through the HPA axis, triggering a rapid cortisol surge known as the <strong>Cortisol Awakening Response (CAR)</strong>.
             </p>
-            
+
             <div class="info-box">
                 <div class="info-box-title">This is your body's built-in "ON" switch:</div>
-                <div class="check-item">
-                    <span class="check-mark">✓</span>
-                    <div>Boosts blood flow to the brain and muscles</div>
-                </div>
-                <div class="check-item">
-                    <span class="check-mark">✓</span>
-                    <div>Raises alertness and motivation</div>
-                </div>
-                <div class="check-item">
-                    <span class="check-mark">✓</span>
-                    <div>Mobilizes glucose for quick energy</div>
-                </div>
-                <div class="check-item">
-                    <span class="check-mark">✓</span>
-                    <div>Supports emotional stability and focus</div>
-                </div>
+                <div class="check-item"><span class="check-mark">✓</span><div>Boosts blood flow to the brain and muscles</div></div>
+                <div class="check-item"><span class="check-mark">✓</span><div>Raises alertness and motivation</div></div>
+                <div class="check-item"><span class="check-mark">✓</span><div>Mobilizes glucose for quick energy</div></div>
+                <div class="check-item"><span class="check-mark">✓</span><div>Supports emotional stability and focus</div></div>
             </div>
 
             <p class="text-content">
@@ -782,9 +352,7 @@
             <p class="text-content">
                 Alongside cortisol, your body also produces <strong>DHEA-S</strong> — another hormone made in the adrenal glands. DHEA-S acts like a buffer and stabilizer, balancing cortisol's effects. While cortisol mobilizes energy and focus, DHEA-S protects your brain, mood, and immune function from stress overload.
             </p>
-            <p class="text-content">
-                A healthy cortisol-to-DHEA ratio supports resilience, calm energy, and steady emotional tone throughout the day.
-            </p>
+            <p class="text-content">A healthy cortisol-to-DHEA ratio supports resilience, calm energy, and steady emotional tone throughout the day.</p>
         </div>
 
         <!-- Chart Section -->
@@ -793,53 +361,29 @@
                 <span class="section-icon">📊</span>
                 Your Cortisol Rhythm Throughout the Day
             </div>
-            
+
             <div class="chart-container">
                 <div class="chart-wrapper">
                     <div class="chart-y-axis">
-                        <span>20</span>
-                        <span>16</span>
-                        <span>12</span>
-                        <span>8</span>
-                        <span>4</span>
-                        <span>0</span>
+                        <span>20</span><span>16</span><span>12</span><span>8</span><span>4</span><span>0</span>
                     </div>
                     <div class="chart-y-label">Cortisol Level (μg/dL)</div>
-                    
+
                     <div class="chart-area">
                         <div class="chart-grid">
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
-                            <div class="grid-line"></div>
+                            <div class="grid-line"></div><div class="grid-line"></div><div class="grid-line"></div>
+                            <div class="grid-line"></div><div class="grid-line"></div><div class="grid-line"></div>
                         </div>
-                        
-                        <svg class="chart-svg" viewBox="0 0 600 300" preserveAspectRatio="none">
+
+                        <svg class="chart-svg" viewBox="0 0 600 300" preserveAspectRatio="none" aria-label="Cortisol trend line">
                             <defs>
                                 <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stop-color="#B87658" />
-                                    <stop offset="100%" stop-color="#D4956C" />
+                                    <stop offset="0%" stop-color="#B87658" /><stop offset="100%" stop-color="#D4956C" />
                                 </linearGradient>
-                                <filter id="glow">
-                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                                    <feMerge>
-                                        <feMergeNode in="coloredBlur"/>
-                                        <feMergeNode in="SourceGraphic"/>
-                                    </feMerge>
-                                </filter>
+                                <filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
                             </defs>
-                            
-                            <path
-                                d="M 0,240 L 100,50 L 250,190 L 400,210 L 500,215 L 600,225"
-                                fill="none"
-                                stroke="url(#lineGradient)"
-                                stroke-width="4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                            
+                            <path d="M 0,240 L 100,50 L 250,190 L 400,210 L 500,215 L 600,225"
+                                  fill="none" stroke="url(#lineGradient)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                             <circle cx="0" cy="240" r="6" fill="#B87658" />
                             <circle cx="100" cy="50" r="10" fill="#B87658" filter="url(#glow)" />
                             <circle cx="250" cy="190" r="6" fill="#B87658" />
@@ -848,45 +392,20 @@
                             <circle cx="600" cy="225" r="6" fill="#B87658" />
                         </svg>
                     </div>
-                    
+
                     <div class="chart-x-axis">
-                        <span>6 AM</span>
-                        <span>8 AM</span>
-                        <span>12 PM</span>
-                        <span>3 PM</span>
-                        <span>6 PM</span>
-                        <span>10 PM</span>
+                        <span>6 AM</span><span>8 AM</span><span>12 PM</span><span>3 PM</span><span>6 PM</span><span>10 PM</span>
                     </div>
                 </div>
                 <div class="chart-x-label">Time of Day</div>
             </div>
 
             <div class="pattern-grid">
-                <div class="pattern-row pattern-orange">
-                    <div class="pattern-time">6 – 8 a.m.</div>
-                    <div class="pattern-type">Sharp rise (CAR)</div>
-                    <div class="pattern-action">Wakes body and mind, boosts alertness</div>
-                </div>
-                <div class="pattern-row pattern-amber">
-                    <div class="pattern-time">12 p.m.</div>
-                    <div class="pattern-type">Gentle decline</div>
-                    <div class="pattern-action">Maintains focus and calm energy</div>
-                </div>
-                <div class="pattern-row pattern-yellow">
-                    <div class="pattern-time">1 – 3 p.m.</div>
-                    <div class="pattern-type">Small lift</div>
-                    <div class="pattern-action">Counters afternoon slump</div>
-                </div>
-                <div class="pattern-row pattern-blue">
-                    <div class="pattern-time">6 p.m.</div>
-                    <div class="pattern-type">Gradual fall</div>
-                    <div class="pattern-action">Prepares for rest</div>
-                </div>
-                <div class="pattern-row pattern-indigo">
-                    <div class="pattern-time">10 p.m. +</div>
-                    <div class="pattern-type">Lowest</div>
-                    <div class="pattern-action">Enables tissue repair & deep sleep</div>
-                </div>
+                <div class="pattern-row pattern-orange"><div class="pattern-time">6 – 8 a.m.</div><div class="pattern-type">Sharp rise (CAR)</div><div class="pattern-action">Wakes body and mind, boosts alertness</div></div>
+                <div class="pattern-row pattern-amber"><div class="pattern-time">12 p.m.</div><div class="pattern-type">Gentle decline</div><div class="pattern-action">Maintains focus and calm energy</div></div>
+                <div class="pattern-row pattern-yellow"><div class="pattern-time">1 – 3 p.m.</div><div class="pattern-type">Small lift</div><div class="pattern-action">Counters afternoon slump</div></div>
+                <div class="pattern-row pattern-blue"><div class="pattern-time">6 p.m.</div><div class="pattern-type">Gradual fall</div><div class="pattern-action">Prepares for rest</div></div>
+                <div class="pattern-row pattern-indigo"><div class="pattern-time">10 p.m. +</div><div class="pattern-type">Lowest</div><div class="pattern-action">Enables tissue repair & deep sleep</div></div>
             </div>
         </div>
 
@@ -896,111 +415,48 @@
                 <span class="section-icon">🌿</span>
                 <h2>Science Facts — What Makes Morning Energy Work</h2>
             </div>
-            
-            <div class="science-fact">
-                <div class="fact-icon">🧠</div>
-                <div>
-                    <div class="fact-title">Your brain wakes up with hormones, not alarms</div>
-                    <div class="fact-desc">The morning cortisol peak clears mental fog and stabilizes mood.</div>
-                </div>
-            </div>
-
-            <div class="science-fact">
-                <div class="fact-icon">💤</div>
-                <div>
-                    <div class="fact-title">Flat curve = slow start</div>
-                    <div class="fact-desc">When the rise is weak or delayed, energy and focus lag behind — even after full sleep.</div>
-                </div>
-            </div>
-
-            <div class="science-fact">
-                <div class="fact-icon">☀️</div>
-                <div>
-                    <div class="fact-title">Light leads the rhythm</div>
-                    <div class="fact-desc">5–10 minutes of daylight soon after waking strengthens your cortisol curve and improves evening sleep quality.</div>
-                </div>
-            </div>
-
-            <p class="reference-text">
-                Based on research in Psychological Medicine 2013; Psychoneuroendocrinology 2009; Endocrine Reviews 2024.
-            </p>
+            <div class="science-fact"><div class="fact-icon">🧠</div><div><div class="fact-title">Your brain wakes up with hormones, not alarms</div><div class="fact-desc">The morning cortisol peak clears mental fog and stabilizes mood.</div></div></div>
+            <div class="science-fact"><div class="fact-icon">💤</div><div><div class="fact-title">Flat curve = slow start</div><div class="fact-desc">When the rise is weak or delayed, energy and focus lag behind — even after full sleep.</div></div></div>
+            <div class="science-fact"><div class="fact-icon">☀️</div><div><div class="fact-title">Light leads the rhythm</div><div class="fact-desc">5–10 minutes of daylight soon after waking strengthens your cortisol curve and improves evening sleep quality.</div></div></div>
+            <p class="reference-text">Based on research in Psychological Medicine 2013; Psychoneuroendocrinology 2009; Endocrine Reviews 2024.</p>
         </div>
 
         <!-- Biomarkers -->
         <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧬</span>
-                <h2>What About Labs?</h2>
-            </div>
-            <p class="text-content">
-                Certain blood markers directly reflect how well your morning rhythm and stress-energy balance work.
-            </p>
-
+            <div class="section-header"><span class="section-icon">🧬</span><h2>What About Labs?</h2></div>
+            <p class="text-content">Certain blood markers directly reflect how well your morning rhythm and stress-energy balance work.</p>
             <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">🌅</span>
-                    <div class="biomarker-name">Cortisol AM (8 a.m.)</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 80%">80%</div>
-                </div>
-                <div class="biomarker-desc">
-                    Strong effect on morning energy, alertness, and emotional stability
-                </div>
+                <div class="biomarker-header"><span class="section-icon">🌅</span><div class="biomarker-name">Cortisol AM (8 a.m.)</div></div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 80%">80%</div></div>
+                <div class="biomarker-desc">Strong effect on morning energy, alertness, and emotional stability</div>
             </div>
-
             <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">🛡️</span>
-                    <div class="biomarker-name">DHEA-S</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 65%">65%</div>
-                </div>
-                <div class="biomarker-desc">
-                    Balances cortisol, supports stress resilience and stable mood
-                </div>
+                <div class="biomarker-header"><span class="section-icon">🛡️</span><div class="biomarker-name">DHEA-S</div></div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 65%">65%</div></div>
+                <div class="biomarker-desc">Balances cortisol, supports stress resilience and stable mood</div>
             </div>
-
-            <p class="reference-text">
-                References: Law & Clow 2020 — Stress; Kumari et al. 2009 — Psychoneuroendocrinology; Endocrine Reviews 2024.
-            </p>
+            <p class="reference-text">References: Law & Clow 2020 — Stress; Kumari et al. 2009 — Psychoneuroendocrinology; Endocrine Reviews 2024.</p>
         </div>
 
         <!-- Reflection -->
         <div class="section reflection-section">
-            <div class="section-header">
-                <span class="section-icon">💭</span>
-                <h2>Reflection Prompt</h2>
-            </div>
-            <p class="reflection-question">
-                What's the first cue your body gets in the morning — light, phone, or movement?
-            </p>
-            <p class="reflection-question">
-                How could you make your first 10 minutes more circadian-friendly?
-            </p>
+            <div class="section-header"><span class="section-icon">💭</span><h2>Reflection Prompt</h2></div>
+            <p class="reflection-question">What's the first cue your body gets in the morning — light, phone, or movement?</p>
+            <p class="reflection-question">How could you make your first 10 minutes more circadian-friendly?</p>
         </div>
 
         <!-- Action Plan -->
         <div class="section action-section">
-            <div class="section-header">
-                <span class="section-icon">✅</span>
-                <h2>Plan to Action — Morning in Fresh Air</h2>
-            </div>
-            
+            <div class="section-header"><span class="section-icon">✅</span><h2>Plan to Action — Morning in Fresh Air</h2></div>
             <div class="action-box">
                 <div class="action-content">
                     <div class="action-icon">🌞</div>
                     <div>
                         <div class="action-title">Step outside within 30 minutes of waking</div>
-                        <p class="action-text">
-                            Spend at least 5 minutes outdoors, letting daylight and fresh air reach your eyes and skin — even if it's cloudy. Avoid checking your phone first; look at the sky instead.
-                        </p>
+                        <p class="action-text">Spend at least 5 minutes outdoors, letting daylight and fresh air reach your eyes and skin — even if it's cloudy. Avoid checking your phone first; look at the sky instead.</p>
                     </div>
                 </div>
-                
-                <div class="action-highlight">
-                    <span class="section-icon" style="float: left; margin-right: 0.75rem;">☀️</span>
+                <div class="action-highlight"><span class="section-icon" style="float:left;margin-right:12px;">☀️</span>
                     This simple cue resets your brain's master clock, boosts morning alertness, and supports a stronger natural cortisol rhythm for the day ahead. It's the most effective, natural "energy supplement" you can take — and it's free.
                 </div>
             </div>
@@ -1008,75 +464,24 @@
 
         <!-- Evening Section -->
         <div class="section evening-section">
-            <div class="section-header">
-                <span class="section-icon">🌙</span>
-                <h2>Evening Matters Too — Lower Cortisol Before Bed</h2>
-            </div>
-            <p class="text-content">
-                To wake up clear, your cortisol must first fall at night. Bright screens, strong emotions, or heavy exercise after 9 p.m. keep it high, delaying melatonin release and deep sleep.
-            </p>
-            
+            <div class="section-header"><span class="section-icon">🌙</span><h2>Evening Matters Too — Lower Cortisol Before Bed</h2></div>
+            <p class="text-content">To wake up clear, your cortisol must first fall at night. Bright screens, strong emotions, or heavy exercise after 9 p.m. keep it high, delaying melatonin release and deep sleep.</p>
             <div class="evening-box">
-                <div class="evening-box-title">
-                    Simple ways to calm evening cortisol:
-                </div>
-                
-                <div class="evening-tip">
-                    <span class="tip-emoji">📖</span>
-                    <div class="tip-text">
-                        <span class="tip-action">Read 6 minutes</span>
-                        <span class="tip-effect"> — stress ↓ ≈ 68%</span>
-                        <span class="tip-reference">Mindlab International, 2009.</span>
-                    </div>
-                </div>
-
-                <div class="evening-tip">
-                    <span class="tip-emoji">🤗</span>
-                    <div class="tip-text">
-                        <span class="tip-action">Hug 20 seconds</span>
-                        <span class="tip-effect"> — oxytocin ↑, cortisol ↓</span>
-                        <span class="tip-reference">Ditzen et al., Psychoneuroendocrinology 2007.</span>
-                    </div>
-                </div>
-
-                <div class="evening-tip">
-                    <span class="tip-emoji">🚶‍♀️</span>
-                    <div class="tip-text">
-                        <span class="tip-action">Walk 10 minutes</span>
-                        <span class="tip-effect"> — cortisol ↓ ≈ 15%</span>
-                        <span class="tip-reference">Lee et al., Int J Environ Res Public Health 2024.</span>
-                    </div>
-                </div>
-
-                <div class="evening-tip">
-                    <span class="tip-emoji">🕯</span>
-                    <div class="tip-text">
-                        <span class="tip-action">Dim light after 9 p.m.</span>
-                        <span class="tip-effect"> — tells your brain it's night</span>
-                        <span class="tip-reference">Gooley et al., J Clin Endocrinol Metab 2011.</span>
-                    </div>
-                </div>
+                <div class="evening-box-title">Simple ways to calm evening cortisol:</div>
+                <div class="evening-tip"><span class="tip-emoji">📖</span><div class="tip-text"><span class="tip-action">Read 6 minutes</span><span class="tip-effect"> — stress ↓ ≈ 68%</span><span class="tip-reference">Mindlab International, 2009.</span></div></div>
+                <div class="evening-tip"><span class="tip-emoji">🤗</span><div class="tip-text"><span class="tip-action">Hug 20 seconds</span><span class="tip-effect"> — oxytocin ↑, cortisol ↓</span><span class="tip-reference">Ditzen et al., Psychoneuroendocrinology 2007.</span></div></div>
+                <div class="evening-tip"><span class="tip-emoji">🚶‍♀️</span><div class="tip-text"><span class="tip-action">Walk 10 minutes</span><span class="tip-effect"> — cortisol ↓ ≈ 15%</span><span class="tip-reference">Lee et al., Int J Environ Res Public Health 2024.</span></div></div>
+                <div class="evening-tip"><span class="tip-emoji">🕯</span><div class="tip-text"><span class="tip-action">Dim light after 9 p.m.</span><span class="tip-effect"> — tells your brain it's night</span><span class="tip-reference">Gooley et al., J Clin Endocrinol Metab 2011.</span></div></div>
             </div>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <div class="section-header">
-                <span class="section-icon">🌞</span>
-                <h2>Why This Works</h2>
-            </div>
-            <p class="footer-text">
-                Morning light → resets your master clock → stronger cortisol rise
-            </p>
-            <p class="footer-text">
-                Evening calm → lets cortisol fall → deeper sleep
-            </p>
-            <p class="footer-final">
-                Together, they rebuild your body's natural energy rhythm.
-            </p>
-            <p class="footer-cta">
-                Get ready to wake up supercharged with Aura.
-            </p>
+            <div class="section-header"><span class="section-icon">🌞</span><h2>Why This Works</h2></div>
+            <p class="footer-text">Morning light → resets your master clock → stronger cortisol rise</p>
+            <p class="footer-text">Evening calm → lets cortisol fall → deeper sleep</p>
+            <p class="footer-final">Together, they rebuild your body's natural energy rhythm.</p>
+            <p class="footer-cta">Get ready to wake up supercharged with Aura.</p>
             <p class="footer-contact">
                 📩 <span class="contact-highlight">Write to us if you're interested in a personalised lab panel at the best price</span> — with your own detailed report after the results are ready.<br><br>
                 <strong>Contact us at <a href="mailto:care@aura.care" class="contact-email">care@aura.care</a> to learn more.</strong>
