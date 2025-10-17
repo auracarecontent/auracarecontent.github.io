@@ -22,7 +22,7 @@
             max-width: 1080px;
             margin: 0 auto;
             background: #FFFEFB;
-            border-radius: 20px;
+            border-radius: 0;
             box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
             overflow: hidden;
             border: 1px solid rgba(0, 0, 0, 0.04);
@@ -32,6 +32,7 @@
             background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
             color: white;
             padding: 3rem;
+            border-radius: 0;
         }
 
         .day-label {
@@ -243,7 +244,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            font-size: 11px;
+            font-size: 9px;
             font-weight: 500;
             color: #8C8C8C;
         }
@@ -253,7 +254,7 @@
             left: -10px;
             top: 50%;
             transform: translateY(-50%) rotate(-90deg);
-            font-size: 11px;
+            font-size: 9px;
             font-weight: 600;
             color: #656565;
             white-space: nowrap;
@@ -294,14 +295,14 @@
             right: 20px;
             display: flex;
             justify-content: space-between;
-            font-size: 11px;
+            font-size: 9px;
             font-weight: 600;
             color: #656565;
         }
 
         .chart-x-label {
             text-align: center;
-            font-size: 11px;
+            font-size: 9px;
             font-weight: 600;
             color: #656565;
             margin-top: 0.5rem;
@@ -669,73 +670,22 @@
                 padding: 0;
             }
         }
-    </style>
-
-<style>
-  :root{
-    --primary:#B87658; --secondary:#D4956C;
-    --bg:#FAF8F2; --surface:#FFFEFB; --border:rgba(0,0,0,.05);
-    --text:#172737; --text-2:#656565; --text-3:#8C8C8C; --success:#10B981;
-  }
-  /* Base reset */
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);-webkit-text-size-adjust:100%}
-  body{font-family:system-ui,-apple-system,"SF Pro Text","Segoe UI",Roboto,Arial,sans-serif;line-height:1.6;letter-spacing:.2px}
-  *,*::before,*::after{box-sizing:border-box;max-width:100%}
-
-  /* Layout container (non-destructive: only styles, no structural wrap) */
-  .container{max-width:720px;margin:0 auto;background:var(--surface);
-             border-radius:20px;box-shadow:0 3px 6px rgba(23,39,55,.12);overflow:hidden;border:1px solid var(--border)}
-  .wrap{padding:16px}
-  @media (min-width:480px){.wrap{padding:18px}}
-  @media (min-width:768px){.wrap{padding:20px}}
-
-  /* Headings & text per brand */
-  h1{font-size:22px;font-weight:700;line-height:22px;margin:0 0 12px}
-  h2{font-size:18px;font-weight:700;line-height:22px;margin:16px 0 8px}
-  h3{font-size:16px;font-weight:600;line-height:20px;margin:14px 0 8px}
-  p,.text{font-size:14px;font-weight:500;line-height:20px;color:var(--text)}
-  .muted{color:var(--text-3)}
-
-  /* Cards */
-  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px;
-        box-shadow:0 2px 6px rgba(23,39,55,.08);margin:12px 0}
-
-  /* Media responsive */
-  img,svg,canvas,iframe,video{max-width:100%;height:auto;display:block;border-radius:12px;border:0}
-
-  /* Tables */
-  .scroll-x{overflow-x:auto;-webkit-overflow-scrolling:touch}
-  table{width:100%;border-collapse:collapse;background:var(--surface)}
-  th,td{padding:8px;border-bottom:1px solid #f0f0f0;font-size:13px}
-  th{text-align:left;font-weight:600;color:var(--text-2)}
-
-  /* Buttons */
-  a.button,.btn{display:inline-block;text-decoration:none;font-size:14px;font-weight:500;
-     padding:10px 14px;border-radius:12px;border:1px solid var(--border);
-     background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff}
-
-  /* --- Chart/WebView fixes (match your previous day-1 final) --- */
-  .chart-wrapper{position:relative;width:100%;aspect-ratio:16/9;background:#fff;border-radius:12px;padding:8px;
-                 box-shadow:inset 0 2px 4px rgba(0,0,0,.05)}
-  .chart-y-axis{position:absolute;left:10px;top:12px;bottom:36px;display:flex;flex-direction:column;
-                justify-content:space-between;font-size:11px;font-weight:500;color:#8C8C8C;pointer-events:none}
-  .chart-y-label{position:absolute;left:0;top:50%;transform:translateY(-50%) rotate(-90deg);
-                 font-size:11px;font-weight:600;color:#656565;white-space:nowrap;text-transform:uppercase;letter-spacing:.5px;pointer-events:none}
-  .chart-area{position:absolute;left:68px;right:8px;top:8px;bottom:36px}
-  .chart-grid{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between}
-  .grid-line{border-top:1px solid #F0F0F0}
-  .chart-svg{position:absolute;inset:0;width:100%;height:100%}
-  .chart-x-axis{position:absolute;left:68px;right:8px;bottom:8px;display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:#656565}
-  .chart-x-label{text-align:center;font-size:11px;font-weight:600;color:#656565;margin-top:8px;text-transform:uppercase;letter-spacing:.5px}
-
-  @media (max-width:414px){
-    .chart-y-axis{left:12px;font-size:10px}
-    .chart-y-label{left:2px;font-size:10px;letter-spacing:.4px}
-    .chart-area{left:72px}
-    .chart-x-axis{left:72px}
-  }
+    
+/* --- App overrides (injected) --- */
+@media (max-width: 480px){
+  body{padding:12px}
+  .section{padding:16px}
+}
+.container{max-width:720px}
+.container, .header, .footer{border-radius:0 !important}
+.footer-final, .footer-cta, .footer-contact{border-radius:0 !important}
+.chart-container{ padding:0; background:transparent; border:none }
+.chart-wrapper{ padding:0; height:auto }
+.chart-frame{ background:#fff; border-radius:12px; box-shadow:inset 0 2px 4px rgba(0,0,0,.05); padding:0 }
+.chart-embed{ position:relative; width:100%; aspect-ratio:16/9 }
+.chart-embed > svg{ position:absolute; inset:0; width:100%; height:100%; display:block }
+.chart-x-label{ display:none !important }
 </style>
-
 </head>
 <body>
     <div class="container">
@@ -869,24 +819,20 @@
             
             
 <div class="chart-container">
-  <div class="chart-wrapper" style="padding:8px;aspect-ratio:auto;">
-    <div class="chart-frame">
-      <svg class="chart" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Cortisol over day">
+  <div class="chart-frame">
+    <div class="chart-embed">
+      <svg viewBox="0 0 640 360" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Cortisol over day">
         <defs>
           <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="#B87658"/><stop offset="100%" stop-color="#D4956C"/>
           </linearGradient>
           <style>
-            .axis{stroke:#eaeaea;stroke-width:1}
             .grid{stroke:#EFEFEF;stroke-width:1}
-            .label{font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; fill:#656565}
-            .ylabel{font: 9px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; fill:#656565; letter-spacing:.5px; text-transform:uppercase}
-            .title{font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; fill:#172737; font-weight:700}
+            .label{font:12px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;fill:#656565}
+            .ylabel{font:10px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;fill:#656565;letter-spacing:.5px;text-transform:uppercase}
           </style>
         </defs>
-
-        <rect x="64" y="24" width="552" height="276" rx="12" ry="12" fill="white"/>
-
+        <rect x="64" y="24" width="552" height="276" rx="12" ry="12" fill="#ffffff" stroke="#EAEAEA"/>
         <g stroke-linecap="square">
           <line class="grid" x1="64" y1="300" x2="616" y2="300"/>
           <line class="grid" x1="64" y1="254" x2="616" y2="254"/>
@@ -895,9 +841,6 @@
           <line class="grid" x1="64" y1="116" x2="616" y2="116"/>
           <line class="grid" x1="64" y1="70"  x2="616" y2="70"/>
         </g>
-
-        <rect x="64" y="24" width="552" height="276" fill="none" stroke="#EAEAEA" rx="12" ry="12"/>
-
         <g text-anchor="end">
           <text class="label" x="56" y="304">0</text>
           <text class="label" x="56" y="258">4</text>
@@ -906,11 +849,9 @@
           <text class="label" x="56" y="120">16</text>
           <text class="label" x="56" y="74">20</text>
         </g>
-
         <g transform="translate(24,162) rotate(-90)">
           <text class="ylabel" text-anchor="middle">CORTISOL LEVEL (μG/DL)</text>
         </g>
-
         <g text-anchor="middle">
           <text class="label" x="96"  y="332">6 AM</text>
           <text class="label" x="168" y="332">8 AM</text>
@@ -918,10 +859,8 @@
           <text class="label" x="408" y="332">3 PM</text>
           <text class="label" x="496" y="332">6 PM</text>
           <text class="label" x="584" y="332">10 PM</text>
+          <text class="ylabel" x="344" y="352">TIME OF DAY</text>
         </g>
-
-        <text class="ylabel" x="344" y="352" text-anchor="middle">TIME OF DAY</text>
-
         <polyline fill="none" stroke="url(#lineGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
           points="96,282 168,140 312,230 408,246 496,252 584,258"/>
         <g fill="#B87658">
@@ -935,39 +874,10 @@
       </svg>
     </div>
   </div>
-  <div class="chart-x-label">Time of Day</div>
 </div>
 
-<div class="pattern-grid">
-                <div class="pattern-row pattern-orange">
-                    <div class="pattern-time">6 – 8 a.m.</div>
-                    <div class="pattern-type">Sharp rise (CAR)</div>
-                    <div class="pattern-action">Wakes body and mind, boosts alertness</div>
-                </div>
-                <div class="pattern-row pattern-amber">
-                    <div class="pattern-time">12 p.m.</div>
-                    <div class="pattern-type">Gentle decline</div>
-                    <div class="pattern-action">Maintains focus and calm energy</div>
-                </div>
-                <div class="pattern-row pattern-yellow">
-                    <div class="pattern-time">1 – 3 p.m.</div>
-                    <div class="pattern-type">Small lift</div>
-                    <div class="pattern-action">Counters afternoon slump</div>
-                </div>
-                <div class="pattern-row pattern-blue">
-                    <div class="pattern-time">6 p.m.</div>
-                    <div class="pattern-type">Gradual fall</div>
-                    <div class="pattern-action">Prepares for rest</div>
-                </div>
-                <div class="pattern-row pattern-indigo">
-                    <div class="pattern-time">10 p.m. +</div>
-                    <div class="pattern-type">Lowest</div>
-                    <div class="pattern-action">Enables tissue repair & deep sleep</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Science Facts -->
+</div>
+<!-- Science Facts -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌿</span>
