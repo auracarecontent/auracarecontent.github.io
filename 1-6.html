@@ -341,11 +341,11 @@
     </style>
 
 <style>
-/* --- App edge overrides (header/footer only) --- */
+/* --- App-ready edge overrides (header/footer only) --- */
 .container { border-radius: 0 !important; max-width: 720px; margin: 0 auto; }
 .header, .hero, .intro, .top,
 .footer, .outro, .final, .ending { border-radius: 0 !important; }
-/* Flatten outermost section corners if they are plain sections */
+/* If first/last are plain sections, remove their outer radii */
 .container > :first-child {
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
@@ -354,11 +354,14 @@
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
-/* Cards nested directly in header/footer should also be flat */
+/* Cards nested directly in header/footer should be flat too */
 .header .card, .footer .card { border-radius: 0 !important; }
-/* Mobile niceties */
+
+/* Mobile niceties (do not change inner design) */
 img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block; }
-@media (max-width: 480px){ body { padding: 12px; } }
+@media (max-width: 480px){
+  body { padding: 12px; }
+}
 </style>
 
 </head>
@@ -569,27 +572,24 @@ img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block;
                 <h2>Plan to Action — The 3:1 Balance Rule</h2>
             </div>
             
-            <div class="action-box">
-                <p class="text-content">
-                    <strong>By now, you've built a rhythm of light, rest, and focus that supports steady energy.</strong>
-                </p>
-                <p class="text-content">
-                    Today, add one new step to protect that balance:
-                </p>
+            <p class="text-content">
+                <strong>By now, you've built a rhythm of light, rest, and focus that supports steady energy.</strong>
+            </p>
+            <p class="text-content">
+                Today, add one new step to protect that balance:
+            </p>
 
-                <div class="action-highlight">
-                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
-                        <span class="section-icon">💠</span>
-                        <strong>The 3:1 Balance Rule</strong>
-                    </div>
+            <div class="action-highlight">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <span class="section-icon">💠</span>
+                    <strong>The 3:1 Balance Rule</strong>
+                </div>
+                <p style="margin-bottom: 1rem;">
                     For every three blocks of focused work or mental effort, schedule one block of recovery — a 5-minute walk, deep breathing, or quiet daylight break.
-                </div>
-
-                <div class="action-steps">
-                    <p class="text-content" style="margin: 0;">
-                        This rhythm keeps your nervous system regulated and prevents hidden mitochondrial strain (Kim et al., 2018; Picard & McEwen, 2018).
-                    </p>
-                </div>
+                </p>
+                <p style="margin: 0; font-size: 13px; color: #656565;">
+                    This rhythm keeps your nervous system regulated and prevents hidden mitochondrial strain (Kim et al., 2018; Picard & McEwen, 2018).
+                </p>
             </div>
         </div>
 
