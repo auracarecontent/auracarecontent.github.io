@@ -387,11 +387,11 @@
     </style>
 
 <style>
-/* --- App edge overrides (header/footer only) --- */
+/* --- App-ready layout (header/footer flattened, inner content intact) --- */
 .container { border-radius: 0 !important; max-width: 720px; margin: 0 auto; }
 .header, .hero, .intro, .top,
 .footer, .outro, .final, .ending { border-radius: 0 !important; }
-/* Flatten outermost section corners if they are plain sections */
+/* If first/last sections are generic, flatten their outer corners */
 .container > :first-child {
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
@@ -400,9 +400,9 @@
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
-/* Cards nested directly in header/footer should also be flat */
+/* Cards nested directly in header/footer should be flat too */
 .header .card, .footer .card { border-radius: 0 !important; }
-/* Mobile niceties */
+/* Responsive media + small mobile padding */
 img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block; }
 @media (max-width: 480px){ body { padding: 12px; } }
 </style>
@@ -626,27 +626,24 @@ img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block;
                 <h2>Plan to Action — 15 Minutes of Clarity</h2>
             </div>
             
-            <div class="action-box">
-                <p class="text-content">
-                    <strong>Keep your morning light, digital sunset, and micro-pause breaks from previous days — they're your rhythm anchors.</strong>
-                </p>
-                <p class="text-content">
-                    Add one step today:
-                </p>
+            <p class="text-content">
+                <strong>Keep your morning light, digital sunset, and micro-pause breaks from previous days — they're your rhythm anchors.</strong>
+            </p>
+            <p class="text-content">
+                Add one step today:
+            </p>
 
-                <div class="action-highlight">
-                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
-                        <span class="section-icon">📓</span>
-                        <strong>Morning Planning Journal</strong>
-                    </div>
+            <div class="action-highlight">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <span class="section-icon">📓</span>
+                    <strong>Morning Planning Journal</strong>
+                </div>
+                <p style="margin-bottom: 1rem;">
                     Spend 15 minutes before screens outlining 3 key priorities and time blocks. During the day, note what energized or distracted you.
-                </div>
-
-                <div class="action-steps">
-                    <p class="text-content" style="margin: 0;">
-                        This builds attention awareness and re-trains your dopamine system to reward progress instead of novelty (Baumeister & Masicampo, 2010, Psychol Sci).
-                    </p>
-                </div>
+                </p>
+                <p style="margin: 0; font-size: 13px; color: #656565;">
+                    This builds attention awareness and re-trains your dopamine system to reward progress instead of novelty (Baumeister & Masicampo, 2010, Psychol Sci).
+                </p>
             </div>
         </div>
 
