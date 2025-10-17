@@ -621,6 +621,29 @@
   }
 </style>
 
+
+<style>
+/* --- App edge overrides: remove rounded corners on top/bottom surfaces only --- */
+.container { border-radius: 0 !important; }
+/* common top/bottom section classnames */
+.header, .hero, .intro, .top,
+.footer, .outro, .final, .ending { border-radius: 0 !important; }
+/* if top/bottom are generic sections: remove their edge radii */
+.container > :first-child {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+.container > :last-child {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+/* For cards nested directly in header/footer blocks */
+.header .card, .footer .card { border-radius: 0 !important; }
+/* Keep internal cards as-is (no changes). Mobile niceties */
+img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block; }
+@media (max-width: 480px){ body { padding: 12px; } }
+</style>
+
 </head>
 <body>
     <div class="container">
