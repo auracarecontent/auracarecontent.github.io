@@ -435,11 +435,11 @@
     </style>
 
 <style>
-/* --- App edge overrides (header/footer only) --- */
+/* --- App-ready layout (header/footer flattened, inner content intact) --- */
 .container { border-radius: 0 !important; max-width: 720px; margin: 0 auto; }
 .header, .hero, .intro, .top,
 .footer, .outro, .final, .ending { border-radius: 0 !important; }
-/* Flatten outermost section corners if they are plain sections */
+/* If first/last sections are generic, flatten their outer corners */
 .container > :first-child {
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
@@ -448,9 +448,9 @@
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
-/* Cards nested directly in header/footer should also be flat */
+/* Cards nested directly in header/footer should be flat too */
 .header .card, .footer .card { border-radius: 0 !important; }
-/* Mobile niceties */
+/* Responsive media + small mobile padding */
 img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block; }
 @media (max-width: 480px){ body { padding: 12px; } }
 </style>
@@ -698,44 +698,39 @@ img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block;
                 <h2>Plan to Action — The Micro-Win Protocol</h2>
             </div>
             
-            <div class="action-box">
-                <p class="text-content">
-                    <strong>Keep your morning light, digital sunset, and daily planning from earlier days — they stabilize your rhythm.</strong>
-                </p>
-                <p class="text-content">
-                    Add one new habit today:
-                </p>
+            <p class="text-content">
+                <strong>Keep your morning light, digital sunset, and daily planning from earlier days — they stabilize your rhythm.</strong>
+            </p>
+            <p class="text-content">
+                Add one new habit today:
+            </p>
 
-                <div class="action-highlight">
-                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
-                        <span class="section-icon">🪴</span>
-                        <strong>Micro-Start List</strong>
+            <div class="action-highlight">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <span class="section-icon">🪴</span>
+                    <strong>Micro-Start List</strong>
+                </div>
+                <div class="action-list">
+                    <div class="action-item">
+                        <span class="action-number">1.</span>
+                        <div>Each morning, list one or two tasks you've been avoiding</div>
                     </div>
-                    <div class="action-list">
-                        <div class="action-item">
-                            <span class="action-number">1.</span>
-                            <div>Each morning, list one or two tasks you've been avoiding</div>
-                        </div>
-                        <div class="action-item">
-                            <span class="action-number">2.</span>
-                            <div>Define only the first step (≤ 10 minutes)</div>
-                        </div>
-                        <div class="action-item">
-                            <span class="action-number">3.</span>
-                            <div>Begin it before checking messages</div>
-                        </div>
-                        <div class="action-item">
-                            <span class="action-number">4.</span>
-                            <div>Record completion — no matter how small — in your journal</div>
-                        </div>
+                    <div class="action-item">
+                        <span class="action-number">2.</span>
+                        <div>Define only the first step (≤ 10 minutes)</div>
+                    </div>
+                    <div class="action-item">
+                        <span class="action-number">3.</span>
+                        <div>Begin it before checking messages</div>
+                    </div>
+                    <div class="action-item">
+                        <span class="action-number">4.</span>
+                        <div>Record completion — no matter how small — in your journal</div>
                     </div>
                 </div>
-
-                <div class="action-steps">
-                    <p class="text-content" style="margin: 0;">
-                        These micro-wins teach your brain that effort feels safe and rewarding (Murayama et al., 2015; Inzlicht et al., 2018).
-                    </p>
-                </div>
+                <p style="margin: 1rem 0 0 0; font-size: 13px; color: #656565;">
+                    These micro-wins teach your brain that effort feels safe and rewarding (Murayama et al., 2015; Inzlicht et al., 2018).
+                </p>
             </div>
         </div>
 
