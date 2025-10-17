@@ -572,63 +572,11 @@
     </style>
 
 <style>
-  :root{
-    --primary:#B87658; --secondary:#D4956C;
-    --bg:#FAF8F2; --surface:#FFFEFB; --border:rgba(0,0,0,.05);
-    --text:#172737; --text-2:#656565; --text-3:#8C8C8C; --success:#10B981;
-  }
-  /* Reset + base */
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);-webkit-text-size-adjust:100%}
-  body{font-family:system-ui,-apple-system,"SF Pro Text","Segoe UI",Roboto,Arial,sans-serif;line-height:1.6;letter-spacing:.2px}
-  *,*::before,*::after{box-sizing:border-box;max-width:100%}
-  /* Layout */
-  .container{max-width:720px;margin:0 auto;background:var(--surface);border-radius:20px;
-             box-shadow:0 3px 6px rgba(23,39,55,.12);overflow:hidden;border:1px solid var(--border)}
-  .wrap{padding:16px}
-  @media (min-width:480px){.wrap{padding:18px}}
-  @media (min-width:768px){.wrap{padding:20px}}
-  /* Headings & text */
-  h1{font-size:22px;font-weight:700;line-height:22px;margin:0 0 12px}
-  h2{font-size:18px;font-weight:700;line-height:22px;margin:16px 0 8px}
-  h3{font-size:16px;font-weight:600;line-height:20px;margin:14px 0 8px}
-  p,.text{font-size:14px;font-weight:500;line-height:20px;color:var(--text)}
-  .muted{color:var(--text-3)}
-  /* Cards */
-  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px;
-        box-shadow:0 2px 6px rgba(23,39,55,.08);margin:12px 0}
-  /* Lists */
-  ul,ol{padding-left:18px}
-  li{margin:6px 0}
-  /* Media */
-  img,svg,canvas,iframe,video{max-width:100%;height:auto;display:block;border-radius:12px}
-  /* Tables */
-  .scroll-x{overflow-x:auto;-webkit-overflow-scrolling:touch}
-  table{width:100%;border-collapse:collapse;background:var(--surface)}
-  th,td{padding:8px;border-bottom:1px solid #f0f0f0;font-size:13px}
-  th{text-align:left;font-weight:600;color:var(--text-2)}
-  /* Buttons/links */
-  a.button,.btn{display:inline-block;text-decoration:none;font-size:14px;font-weight:500;
-     padding:10px 14px;border-radius:12px;border:1px solid var(--border);
-     background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff}
-  /* Utility */
-  .badge{font-size:12px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;display:inline-block;
-         padding:4px 8px;border-radius:999px;color:var(--primary);background:rgba(184,118,88,.1)}
-  .section{padding:16px;border-bottom:1px solid #f0f0f0}
-  .section:last-child{border-bottom:0}
-  /* Mobile tweaks */
-  @media (max-width:480px){
-    .wrap{padding:12px}
-  }
-</style>
-
-
-<style>
-/* --- App edge overrides: remove rounded corners on top/bottom surfaces only --- */
-.container { border-radius: 0 !important; }
-/* common top/bottom section classnames */
+/* --- App-ready edge overrides (header/footer only) --- */
+.container { border-radius: 0 !important; max-width: 720px; margin: 0 auto; }
 .header, .hero, .intro, .top,
 .footer, .outro, .final, .ending { border-radius: 0 !important; }
-/* if top/bottom are generic sections: remove their edge radii */
+/* Flatten top/bottom section corners if needed */
 .container > :first-child {
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
@@ -637,11 +585,13 @@
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
-/* For cards nested directly in header/footer blocks */
+/* Cards inside header/footer are also flat */
 .header .card, .footer .card { border-radius: 0 !important; }
-/* Keep internal cards as-is (no changes). Mobile niceties */
+/* Mobile optimization */
 img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block; }
-@media (max-width: 480px){ body { padding: 12px; } }
+@media (max-width: 480px){
+  body { padding: 12px; }
+}
 </style>
 
 </head>
@@ -888,30 +838,27 @@ img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block;
                 <h2>Plan to Action — Digital Sunset</h2>
             </div>
             
-            <div class="action-box">
-                <p class="text-content">
-                    <strong>Keep your morning light from Day 1 — this is your anchor.</strong>
-                </p>
-                <p class="text-content">
-                    Add one new habit today:
-                </p>
+            <p class="text-content">
+                <strong>Keep your morning light from Day 1 — this is your anchor.</strong>
+            </p>
+            <p class="text-content">
+                Add one new habit today:
+            </p>
 
-                <div class="action-highlight">
-                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
-                        <span class="section-icon">💡</span>
-                        <strong>Digital Sunset</strong>
-                    </div>
+            <div class="action-highlight">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <span class="section-icon">💡</span>
+                    <strong>Digital Sunset</strong>
+                </div>
+                <p style="margin-bottom: 1rem;">
                     Turn off bright screens one hour before bed. Use warm light, quiet music, or a paper book instead.
-                </div>
-
-                <div class="action-steps">
-                    <p class="text-content">
-                        Before lying down, practice 2 minutes of slow breathing (inhale 4 sec, exhale 6–8 sec) or a short shoulder stretch.
-                    </p>
-                    <p class="text-content" style="margin: 0;">
-                        These simple cues lower HR, raise HRV, and signal your body it's safe to recover (Zaccaro et al., 2018; Lehrer & Gevirtz, 2014).
-                    </p>
-                </div>
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    Before lying down, practice 2 minutes of slow breathing (inhale 4 sec, exhale 6–8 sec) or a short shoulder stretch.
+                </p>
+                <p style="margin: 0; font-size: 13px; color: #656565;">
+                    These simple cues lower HR, raise HRV, and signal your body it's safe to recover (Zaccaro et al., 2018; Lehrer & Gevirtz, 2014).
+                </p>
             </div>
         </div>
 
