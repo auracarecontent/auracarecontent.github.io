@@ -572,11 +572,11 @@
     </style>
 
 <style>
-/* --- App-ready edge overrides (header/footer only) --- */
+/* --- App-ready layout (header/footer flattened, inner content intact) --- */
 .container { border-radius: 0 !important; max-width: 720px; margin: 0 auto; }
 .header, .hero, .intro, .top,
 .footer, .outro, .final, .ending { border-radius: 0 !important; }
-/* Flatten top/bottom section corners if needed */
+/* If first/last children are generic sections, also flatten them */
 .container > :first-child {
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
@@ -585,13 +585,11 @@
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
-/* Cards inside header/footer are also flat */
+/* Cards nested directly in header/footer should be flat too */
 .header .card, .footer .card { border-radius: 0 !important; }
-/* Mobile optimization */
+/* Responsive media + small mobile padding */
 img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block; }
-@media (max-width: 480px){
-  body { padding: 12px; }
-}
+@media (max-width: 480px){ body { padding: 12px; } }
 </style>
 
 </head>
