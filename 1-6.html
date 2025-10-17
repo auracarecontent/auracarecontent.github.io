@@ -339,6 +339,28 @@
             }
         }
     </style>
+
+<style>
+/* --- App edge overrides (header/footer only) --- */
+.container { border-radius: 0 !important; max-width: 720px; margin: 0 auto; }
+.header, .hero, .intro, .top,
+.footer, .outro, .final, .ending { border-radius: 0 !important; }
+/* Flatten outermost section corners if they are plain sections */
+.container > :first-child {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+.container > :last-child {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+/* Cards nested directly in header/footer should also be flat */
+.header .card, .footer .card { border-radius: 0 !important; }
+/* Mobile niceties */
+img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block; }
+@media (max-width: 480px){ body { padding: 12px; } }
+</style>
+
 </head>
 <body>
     <div class="container">
