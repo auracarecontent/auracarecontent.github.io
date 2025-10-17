@@ -371,11 +371,11 @@
     </style>
 
 <style>
-/* --- App edge overrides (header/footer only) --- */
+/* --- App-ready layout (header/footer flattened, inner content intact) --- */
 .container { border-radius: 0 !important; max-width: 720px; margin: 0 auto; }
 .header, .hero, .intro, .top,
 .footer, .outro, .final, .ending { border-radius: 0 !important; }
-/* Flatten top/bottom section corners if present */
+/* If first/last sections are generic, flatten their outer corners */
 .container > :first-child {
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
@@ -384,9 +384,9 @@
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
-/* Cards nested directly in header/footer should be flat */
+/* Cards nested directly in header/footer should be flat too */
 .header .card, .footer .card { border-radius: 0 !important; }
-/* Mobile niceties */
+/* Responsive media + small mobile padding */
 img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block; }
 @media (max-width: 480px){ body { padding: 12px; } }
 </style>
@@ -568,29 +568,27 @@ img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block;
                 <h2>Plan to Action — The Color Challenge</h2>
             </div>
             
-            <div class="action-box">
-                <p class="text-content">
-                    You've spent this week rebuilding your natural rhythm — morning light, calm evenings, mindful focus, small planning rituals, micro-wins, and steady recovery breaks that keep your energy balanced.
-                </p>
-                <p class="text-content">
-                    <strong>Today, you'll complete the circle by adding nourishment that fuels that rhythm from within.</strong>
-                </p>
+            <p class="text-content">
+                You've spent this week rebuilding your natural rhythm — morning light, calm evenings, mindful focus, small planning rituals, micro-wins, and steady recovery breaks that keep your energy balanced.
+            </p>
+            <p class="text-content">
+                <strong>Today, you'll complete the circle by adding nourishment that fuels that rhythm from within.</strong>
+            </p>
 
-                <div class="color-challenge">
-                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
-                        <span class="section-icon">🥗</span>
-                        <strong style="font-size: 15px; color: #172737;">Add three natural colors to your plate</strong>
-                    </div>
-                    <p class="text-content" style="margin-bottom: 0.75rem;">
-                        Green, red, orange, purple, or blue. Each shade provides antioxidants that protect your cells from stress and support clear, calm energy.
-                    </p>
-                    <p class="text-content" style="margin-bottom: 0.75rem;">
-                        Think spinach with berries, tomato with olive oil, or roasted carrots with herbs.
-                    </p>
-                    <p class="text-content" style="margin: 0; font-weight: 600; color: #10B981;">
-                        💠 Do it today — your body now has the rhythm and structure; give it the color to keep that balance alive.
-                    </p>
+            <div class="color-challenge">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                    <span class="section-icon">🥗</span>
+                    <strong style="font-size: 15px; color: #172737;">Add three natural colors to your plate</strong>
                 </div>
+                <p class="text-content" style="margin-bottom: 0.75rem;">
+                    Green, red, orange, purple, or blue. Each shade provides antioxidants that protect your cells from stress and support clear, calm energy.
+                </p>
+                <p class="text-content" style="margin-bottom: 0.75rem;">
+                    Think spinach with berries, tomato with olive oil, or roasted carrots with herbs.
+                </p>
+                <p class="text-content" style="margin: 0; font-weight: 600; color: #10B981;">
+                    💠 Do it today — your body now has the rhythm and structure; give it the color to keep that balance alive.
+                </p>
             </div>
         </div>
 
