@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Day 3 — Junk Food Traps & Dopamine Loops (App Final)</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,'SF Pro','Roboto','Segoe UI',sans-serif;
+      background:#FAF8F2;
+      padding:2rem;
+      line-height:1.5;
+      color:#172737;
+    }
+    /* Container — remove outer rounding per app spec */
+    .container{
+      max-width:1000px;
+      margin:0 auto;
+      background:#FFFEFB;
+      border-radius:0; /* ensure no rounded corners */
+      box-shadow:0 3px 6px rgba(23,39,55,.15);
+      overflow:visible; /* avoid clipping at edges */
+      border:1px solid rgba(0,0,0,.04);
+    }
+    /* Header — keep gradient/colors, add subtle divider */
+    .header{
+      background:linear-gradient(135deg,#B87658 0%,#D4956C 100%);
+      color:#fff;
+      padding:3rem 2.5rem;
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .day-label{font-size:12px;font-weight:700;letter-spacing:.3px;margin-bottom:1rem;text-transform:uppercase}
+    h1{font-size:22px;font-weight:700;margin-bottom:.75rem;line-height:1.3;color:#fff}
+    .section{padding:2rem 2.5rem;border-bottom:1px solid #F0F0F0}
+    .section-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
+    .section-icon{font-size:1.75rem}
+    h2{font-size:18px;font-weight:700;color:#172737;line-height:22px}
+    h3{font-size:16px;font-weight:600;color:#172737;line-height:20px}
+    .text-content{font-size:14px;font-weight:500;color:#172737;margin-bottom:1rem;line-height:20px}
+    .text-secondary{color:#656565}
+    .highlight-text{font-weight:600;color:#B87658}
+    .intro-section{background:rgba(184,118,88,.05);border-bottom:2px solid rgba(184,118,88,.2)}
+    .info-box{background:rgba(184,118,88,.1);padding:18px;border-radius:16px;border:1px solid rgba(184,118,88,.2);margin:1.5rem 0}
+    .check-item{display:flex;gap:.75rem;margin-bottom:.75rem;font-size:14px;font-weight:500;color:#172737;line-height:20px}
+    .check-mark{color:#10B981;font-weight:700;font-size:16px}
+    .biomarker-card{background:rgba(184,118,88,.08);padding:18px;border-radius:16px;margin-bottom:1.5rem;border:1px solid rgba(0,0,0,.04);box-shadow:0 2px 4px rgba(23,39,55,.08)}
+    .biomarker-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+    .biomarker-name{font-size:16px;font-weight:600;color:#172737;line-height:20px;flex:1}
+    .biomarker-percentage{font-size:18px;font-weight:700;color:#B87658;margin-left:auto}
+    .progress-bar{background:#E6E6E6;border-radius:12px;height:28px;overflow:hidden;margin-bottom:.75rem;position:relative}
+    .progress-fill{height:100%;background:linear-gradient(90deg,#B87658 0%,#D4956C 100%);transition:width 1s ease-out;border-radius:12px}
+    .biomarker-desc{font-size:13px;font-weight:500;color:#656565;margin-top:.5rem;line-height:18px}
+    .reference-text{font-size:11px;font-weight:500;color:#8C8C8C;font-style:italic;margin-top:.5rem}
+    .supplement-card{background:#fff;padding:18px;border-radius:16px;margin-bottom:1.5rem;border-left:3px solid #B87658;box-shadow:0 2px 4px rgba(23,39,55,.08)}
+    .supplement-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
+    .supplement-name{font-size:16px;font-weight:600;color:#172737;line-height:20px}
+    .supplement-desc{font-size:14px;font-weight:500;color:#172737;line-height:20px;margin-bottom:.5rem}
+    .science-fact{background:rgba(16,185,129,.08);padding:18px;border-radius:12px;border-left:3px solid #10B981;margin:1.5rem 0;display:flex;gap:1rem;box-shadow:0 2px 4px rgba(23,39,55,.08)}
+    .fact-icon{font-size:1.75rem;flex-shrink:0}
+    .fact-content{flex:1}
+    .fact-title{font-weight:600;font-size:14px;color:#172737;margin-bottom:.5rem;line-height:20px}
+    .fact-desc{font-size:13px;font-weight:500;color:#656565;line-height:18px}
+    .action-section{background:rgba(16,185,129,.08);border-bottom:3px solid #10B981}
+    .action-highlight{background:rgba(184,118,88,.1);padding:18px;border-radius:12px;border-left:3px solid #B87658;font-size:14px;font-weight:500;color:#172737;line-height:20px}
+    .action-content{display:flex;gap:1rem;margin-bottom:1.5rem}
+    .action-icon{font-size:2.5rem;flex-shrink:0}
+    .action-text{flex:1}
+    .action-title{font-size:16px;font-weight:600;color:#172737;margin-bottom:.75rem;line-height:20px}
+    .action-desc{font-size:14px;font-weight:500;color:#172737;line-height:20px}
+    .quote-box{background:rgba(184,118,88,.05);padding:2rem;border-radius:16px;text-align:center;margin:2rem 0;border:1px solid rgba(184,118,88,.15)}
+    .quote-text{font-size:16px;font-weight:600;color:#172737;line-height:24px;font-style:italic}
+    .disclaimer-box{background:rgba(239,68,68,.08);padding:18px;border-radius:16px;border-left:3px solid #ef4444;margin:1.5rem 0;box-shadow:0 2px 4px rgba(23,39,55,.08)}
+    .disclaimer-title{font-size:14px;font-weight:600;color:#172737;margin-bottom:.75rem;line-height:20px}
+    /* Footer — keep gradient/colors, add divider, no rounding */
+    .footer{
+      background:linear-gradient(135deg,#B87658 0%,#D4956C 100%);
+      color:#fff;
+      padding:3rem 2.5rem;
+      position:relative;
+      border-top:1px solid rgba(0,0,0,.06);
+    }
+    .footer::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:4px;
+      background:linear-gradient(90deg,#D4956C 0%,#B87658 50%,#D4956C 100%);
+    }
+    .footer h2{color:#fff;margin-bottom:1.5rem;font-size:22px;display:flex;align-items:center;gap:.75rem}
+    .footer-text{font-size:16px;font-weight:500;margin-bottom:1.5rem;line-height:24px;opacity:.95}
+    .footer-email{color:#fff;font-weight:700;text-decoration:none;font-size:18px;display:inline-block;padding:14px 28px;background:rgba(255,255,255,.2);border-radius:12px;border:2px solid #fff;transition:all .3s ease;margin-top:.5rem}
+    .footer-email:hover{background:#fff;color:#B87658;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+    .footer-cta-wrapper{text-align:center;margin-top:1rem}
+    /* Mobile tweaks for app viewport */
+    @media (max-width:640px){
+      body{padding:0}
+      .header{padding:2rem 1.25rem}
+      .section{padding:1.25rem 1rem}
+      .footer{padding:2rem 1.25rem}
+    }
+    @media print{body{background:#fff;padding:0}.container{box-shadow:none;border:none}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="day-label">DAY 3</div>
+      <h1>Junk Food Traps & Dopamine Loops</h1>
+    </div>
+
+    <div class="section intro-section">
+      <div class="section-header"><span class="section-icon">🤯</span><h2>Why Junk Food Feels Irresistible</h2></div>
+      <div class="text-content">That bag of chips or ice cream after work isn't just about taste — it's brain chemistry.</div>
+      <div class="text-content">Ultra-processed foods are engineered to hit the "bliss point" — the exact mix of sugar, salt, and fat that makes your brain light up with dopamine, the reward chemical.</div>
+      <div class="text-content">Each bite feels satisfying, but the pleasure fades fast — and you're left wanting more.</div>
+      <div class="text-content highlight-text">✨ Your brain isn't addicted to food — it's chasing the next dopamine hit.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><span class="section-icon">🧠</span><h2>Inside the Dopamine Loop</h2></div>
+      <div class="text-content">Dopamine isn't about pleasure — it's about motivation. It pushes you to seek the thing that made you feel good last time.</div>
+      <div class="text-content">When you eat highly processed foods often, dopamine receptors become less sensitive — so you need more stimulation (more food, more flavor, more crunch).</div>
+      <div class="text-content">Over time, the brain's reward system gets rewired to respond stronger to junk food cues (ads, smells, stress) than to natural rewards like movement or social connection.</div>
+      <div class="science-fact"><span class="fact-icon section-icon">💡</span><div class="fact-content"><div class="fact-desc">Studies show that frequent consumption of ultra-processed foods desensitizes dopamine pathways similarly to addictive behaviors (Nature Neuroscience 2021; Cell Metabolism 2020).</div></div></div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><span class="section-icon">🍔</span><h2>How Junk Food Hijacks Energy and Mood</h2></div>
+      <div class="text-content">These foods spike blood sugar, flood dopamine, and then drop both — leaving you tired, foggy, and craving again.</div>
+      <div class="text-content">The brain interprets the low as "danger," sending hunger signals even when you're full.</div>
+      <div class="text-content">Stress, sleep deprivation, and scrolling through social media all worsen this cycle, amplifying the need for quick rewards.</div>
+      <div class="text-content highlight-text">🌿 Breaking it starts with balance — not restriction.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><span class="section-icon">🥦</span><h2>How to Break the Loop Naturally</h2></div>
+      <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Rebuild real reward.</span> Replace processed snacks with something that still feels rewarding — crunchy veggies with hummus, dark chocolate, or nuts.</div></div>
+      <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Move for dopamine.</span> Just 10 minutes of brisk walking or dancing raises dopamine naturally.</div></div>
+      <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Sleep for sensitivity.</span> Deep sleep resets your dopamine receptors. One late night = more cravings tomorrow.</div></div>
+      <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Crowd out, don't cut out.</span> Add color and nutrients — your brain will soon prefer the calm of real food.</div></div>
+      <div class="reference-text" style="margin-top:1.5rem">📚 Harvard Health 2024; Frontiers in Nutrition 2023; Nature Neuroscience 2021.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><span class="section-icon">🧪</span><h2>What About Labs?</h2></div>
+
+      <div class="biomarker-card">
+        <div class="biomarker-header"><span class="section-icon">🩸</span><div class="biomarker-name">Glucose & A1c</div><div class="biomarker-percentage">70%</div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+        <div class="biomarker-desc">Reflect energy stability. Frequent spikes mirror the crash-and-crave cycle.</div>
+        <div class="reference-text">📚 Zeevi et al., 2015, Cell Metabolism.</div>
+      </div>
+
+      <div class="biomarker-card">
+        <div class="biomarker-header"><span class="section-icon">🧠</span><div class="biomarker-name">Cortisol (AM / PM Curve)</div><div class="biomarker-percentage">65%</div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div>
+        <div class="biomarker-desc">High evening cortisol strengthens emotional eating patterns.</div>
+        <div class="reference-text">📚 Rosmond et al., 2002, J Intern Med.</div>
+      </div>
+
+      <div class="biomarker-card">
+        <div class="biomarker-header"><span class="section-icon">🧩</span><div class="biomarker-name">Vitamin B12</div><div class="biomarker-percentage">60%</div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+        <div class="biomarker-desc">Key for dopamine and serotonin synthesis. Low = low motivation, low focus.</div>
+        <div class="reference-text">📚 Malouf & Areosa Sastre, 2016, Cochrane Rev.</div>
+      </div>
+
+      <div class="biomarker-card">
+        <div class="biomarker-header"><span class="section-icon">💫</span><div class="biomarker-name">Magnesium (RBC)</div><div class="biomarker-percentage">55%</div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:55%"></div></div>
+        <div class="biomarker-desc">Essential for dopamine receptor sensitivity and stress control.</div>
+        <div class="reference-text">📚 Serefko et al., 2016, Pharmacol Reports.</div>
+      </div>
+
+      <div class="biomarker-card">
+        <div class="biomarker-header"><span class="section-icon">☀️</span><div class="biomarker-name">Vitamin D (25-OH)</div><div class="biomarker-percentage">50%</div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div>
+        <div class="biomarker-desc">Supports dopamine neuron health and reward regulation.</div>
+        <div class="reference-text">📚 Eyles et al., 2013, Front Neuroanat.</div>
+      </div>
+
+      <div class="text-content highlight-text" style="margin-top:2rem">✨ Together, these markers show how your biology shapes willpower — and how restoring balance makes cravings fade naturally.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><span class="section-icon">💊</span><h2>Smart Support — Only If Labs Say So</h2></div>
+      <div class="disclaimer-box">
+        <div class="disclaimer-title">🧾 Disclaimer</div>
+        <div class="text-content" style="margin-bottom:0">Supplements should be used only after reviewing lab results with a qualified healthcare professional. They fine-tune true imbalances, not habits.</div>
+      </div>
+
+      <div class="supplement-card">
+        <div class="supplement-header"><span class="section-icon">🪨</span><div class="supplement-name">Magnesium</div></div>
+        <div class="supplement-desc">Improves dopamine sensitivity and reduces stress-related cravings.</div>
+        <div class="reference-text">📚 NIH ODS 2023.</div>
+      </div>
+
+      <div class="supplement-card">
+        <div class="supplement-header"><span class="section-icon">🧩</span><div class="supplement-name">L-Tyrosine</div></div>
+        <div class="supplement-desc">Amino acid building block for dopamine; may help if low B12 or protein intake.</div>
+        <div class="reference-text">📚 Front Pharmacol 2020.</div>
+      </div>
+
+      <div class="supplement-card">
+        <div class="supplement-header"><span class="section-icon">☀️</span><div class="supplement-name">Vitamin D & Omega-3</div></div>
+        <div class="supplement-desc">Support brain plasticity and mood balance.</div>
+        <div class="reference-text">📚 Mayo Clinic 2024.</div>
+      </div>
+
+      <div class="text-content highlight-text" style="margin-top:2rem">🧠 Supplements support brain chemistry; daily habits rebuild it.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><span class="section-icon">🚶‍♀️</span><h2>Science Spark</h2></div>
+      <div class="text-content">Research shows that even one week without ultra-processed foods increases dopamine receptor sensitivity — making natural rewards (like music, connection, and movement) feel stronger again.</div>
+      <div class="reference-text">📚 Hall et al., Cell Metabolism 2019; Nature Neuroscience 2021.</div>
+    </div>
+
+    <div class="section action-section">
+      <div class="action-highlight">
+        <div class="action-content"><span class="action-icon">🚀</span><div class="action-text"><div class="action-title">Plan to Action — Rebuild Your Reward Loop</div><div class="action-desc">Keep building your habit chain:</div></div></div>
+        <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Day 1:</span> Eat protein or fiber before sweets — to steady dopamine and glucose.</div></div>
+        <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Day 2:</span> Replenish minerals before salt — to calm adrenal stress.</div></div>
+        <div class="check-item"><span class="check-mark">🌿</span><div><span class="highlight-text">Today:</span> When you crave junk food, swap one snack for a real-food version that still feels rewarding — like nuts, fruit, or dark chocolate.</div></div>
+        <div class="text-content" style="margin-top:1.5rem">Over time, your brain learns that pleasure can come without crashes.</div>
+        <div class="text-content highlight-text">✨ Feed satisfaction, not addiction.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="quote-box">
+        <div class="quote-text">Your brain loves reward — it's how you're wired for joy and learning.<br>You don't need to fight dopamine; you just need to teach it better options.</div>
+      </div>
+      <div class="text-content" style="text-align:center;font-size:16px;font-weight:600;margin-top:2rem">✨ Pleasure isn't the problem — imbalance is. Balance the chemistry, and freedom follows.</div>
+    </div>
+
+    <div class="footer">
+      <h2>📩 Get Your Personalized Lab Panel</h2>
+      <div class="footer-text">Write to us if you're interested in a personalised lab panel at the best price — with your own detailed report after the results are ready.</div>
+      <div class="footer-cta-wrapper"><a href="mailto:care@aura.care" class="footer-email">📧 care@aura.care</a></div>
+    </div>
+  </div>
+</body>
+</html>
