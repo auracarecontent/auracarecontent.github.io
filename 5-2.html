@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 1 — The Vagus Reset: Train Calm Like a Muscle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
+            background: #FAF8F2;
+            color: #172737;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .screen {
+            max-width: 520px;
+            margin: 0 auto;
+            background: #FFFEFB;
+            border-left: 1px solid rgba(0,0,0,0.04);
+            border-right: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.06);
+        }
+
+        /* HEADER (top block, no rounded corners) */
+        .header {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: #FFFFFF;
+            padding: 2rem 1.5rem;
+        }
+
+        .day-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* GENERIC SECTION */
+        .section {
+            padding: 1.5rem 1.5rem;
+            border-bottom: 1px solid #EFEFEF;
+            background: #FFFEFB;
+        }
+
+        /* INTRO section tinted */
+        .intro-section {
+            background: rgba(184,118,88,0.05);
+            border-bottom: 2px solid rgba(184,118,88,0.2);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-icon {
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #172737;
+            line-height: 1.3;
+        }
+
+        .text-content {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #B87658;
+        }
+
+        /* LISTS */
+        .bullet-list {
+            margin: 0.75rem 0 1rem 1rem;
+            padding-left: 1rem;
+        }
+
+        .bullet-item {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        /* SCIENCE FACT + ACTION + WARNING BLOCKS */
+        .science-fact,
+        .action-box,
+        .reflection-box,
+        .warning-box {
+            padding: 1rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+            border-left-width: 3px;
+            border-left-style: solid;
+            border-radius: 0; /* no rounding */
+        }
+
+        .science-fact {
+            background: rgba(16,185,129,0.08);
+            border-left-color: #10B981;
+        }
+
+        .action-box {
+            background: rgba(16,185,129,0.08);
+            border-left-color: #10B981;
+        }
+
+        .reflection-box {
+            background: rgba(184,118,88,0.08);
+            border-left-color: #B87658;
+        }
+
+        .warning-box {
+            background: rgba(239,68,68,0.08);
+            border-left-color: #ef4444;
+        }
+
+        .action-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+        }
+
+        .reflection-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .fact-item {
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+        }
+        .fact-item:last-child { margin-bottom: 0; }
+
+        /* TABLE (biomarkers) */
+        .biomarker-table-wrapper {
+            margin-top: 1rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .biomarker-table {
+            width: 100%;
+            min-width: 320px;
+            border-collapse: collapse;
+            background: #FFFFFF;
+            border: 1px solid #E6E6E6;
+        }
+
+        .biomarker-table th {
+            background: rgba(184,118,88,0.1);
+            padding: 12px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            color: #172737;
+            border: 1px solid #E6E6E6;
+            line-height: 1.4;
+        }
+
+        .biomarker-table td {
+            padding: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+            border: 1px solid #E6E6E6;
+        }
+
+        .biomarker-table tr:nth-child(even) {
+            background: rgba(184,118,88,0.03);
+        }
+
+        .biomarker-name {
+            font-weight: 600;
+            color: #B87658;
+        }
+
+        /* STEPS */
+        .step-item {
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+        }
+
+        .step-number {
+            font-weight: 700;
+            color: #10B981;
+            flex-shrink: 0;
+            line-height: 1.4;
+        }
+
+        /* VIDEO */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            padding-bottom: 56.25%;
+            margin: 1rem 0 1.5rem 0;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* QUOTE / TOMORROW TEASER */
+        .quote-box {
+            background: rgba(184,118,88,0.05);
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .quote-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .tomorrow-text {
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.4;
+            margin-top: 2rem;
+        }
+
+        /* FOOTER (bottom block, same brand gradient, square) */
+        .footer {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: #FFFFFF;
+            padding: 2rem 1.5rem 3rem 1.5rem;
+            position: relative;
+        }
+
+        .footer-topline {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #D4956C 0%, #B87658 50%, #D4956C 100%);
+        }
+
+        .footer-headline {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .footer-text {
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.4;
+            color: #FFFFFF;
+            opacity: 0.95;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-cta-wrapper {
+            text-align: center;
+        }
+
+        .footer-email {
+            color: #FFFFFF;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 16px;
+            display: inline-block;
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid #FFFFFF;
+            line-height: 1.4;
+        }
+
+        @media (min-width: 481px) {
+            .header { padding: 2.5rem 2rem; }
+            .section { padding: 2rem 2rem; }
+            .footer { padding: 2.5rem 2rem 3rem 2rem; }
+        }
+
+        @media print {
+            body {
+                background: #FFFFFF;
+            }
+            .screen {
+                max-width: 100%;
+                box-shadow: none;
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+
+        <!-- DAY HEADER -->
+        <section class="header">
+            <div class="day-label">DAY 1</div>
+            <h1>The Vagus Reset: Train Calm Like a Muscle</h1>
+        </section>
+
+        <!-- DAILY FOCUS -->
+        <section class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">😌</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Today you'll discover how your vagus nerve works as the body's natural "calm switch" — a powerful pathway connecting your brain, heart, lungs, and gut.
+            </div>
+            <div class="text-content highlight-text">
+                You'll learn how slow breathing activates it in just minutes, restoring balance, lowering stress, and improving digestion and focus.
+            </div>
+        </section>
+
+        <!-- MEET YOUR VAGUS -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Meet Your Vagus — The Nerve of Calm</h2>
+            </div>
+            <div class="text-content">
+                It starts in the brainstem and travels down to your heart and digestive organs.
+            </div>
+            <div class="text-content">
+                When you slow your breathing and lengthen your exhale, pressure receptors in your lungs and chest send calming signals through the vagus nerve back to your brain — lowering heart rate and cortisol.
+            </div>
+            <div class="text-content">
+                This process, called <span class="highlight-text">respiratory sinus arrhythmia</span>, is a direct reflection of vagal activity.
+            </div>
+            <div class="text-content">
+                High heart-rate variability (HRV) — the small, healthy changes between heartbeats — means your vagus is active and flexible.
+            </div>
+            <div class="text-content highlight-text">
+                Low HRV means your stress brake is weak.
+            </div>
+        </section>
+
+        <!-- WHY IT MATTERS -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why the Vagus Nerve Matters</h2>
+            </div>
+            <div class="text-content">
+                The vagus nerve forms the main branch of your parasympathetic nervous system — the "rest and digest" mode that restores calm after stress.
+            </div>
+            <div class="text-content">
+                When vagal tone is strong, your body quickly recovers from tension:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">Your heart rate stabilizes,</li>
+                <li class="bullet-item">Digestion flows smoothly,</li>
+                <li class="bullet-item">Sleep becomes deeper,</li>
+                <li class="bullet-item">Focus and mood improve.</li>
+            </ul>
+            <div class="text-content">
+                When tone is weak, you stay in a constant "on" state — tense, wired, and fatigued.
+            </div>
+            <div class="text-content highlight-text">
+                Strengthening vagal tone is like fitness training for your nervous system. Each slow breath is a rep.
+            </div>
+        </section>
+
+        <!-- SCIENCE FACTS -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts — Why Slow Breathing Works</h2>
+            </div>
+            
+            <div class="science-fact">
+                <div class="fact-item">
+                    <span class="highlight-text">🫁</span> Breathing around 6 breaths per minute (5 s in / 5 s out) increases vagal tone and HRV — confirmed by multiple randomized trials and meta-analyses (Lehrer et al., Frontiers in Physiology, 2020).
+                </div>
+                <div class="fact-item">
+                    <span class="highlight-text">💤</span> Even five minutes of paced breathing measurably reduces anxiety and blood pressure (Nivison & Hagerman, Psychophysiology, 2016).
+                </div>
+                <div class="fact-item">
+                    <span class="highlight-text">🧠</span> A balanced vagal tone supports memory, attention, and emotional stability (Porges, Polyvagal Theory, 2011).
+                </div>
+            </div>
+        </section>
+
+        <!-- LAB MARKERS -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                Certain blood markers reflect how well your nervous system manages stress and recovery:
+            </div>
+
+            <div class="biomarker-table-wrapper">
+                <table class="biomarker-table">
+                    <thead>
+                        <tr>
+                            <th>Biomarker</th>
+                            <th>How It Relates to Vagal Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="biomarker-name">Cortisol (AM / PM)</span></td>
+                            <td>Flattened rhythm or high evening levels weaken vagal responsiveness and delay recovery (Kumari et al., Psychoneuroendocrinology 2009).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="biomarker-name">DHEA-S</span></td>
+                            <td>Buffers cortisol's effects, promoting emotional resilience (Kalman et al., Stress 2018).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="biomarker-name">Magnesium</span></td>
+                            <td>Low magnesium heightens stress reactivity and lowers HRV (DiNicolantonio et al., Open Heart 2018).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="biomarker-name">Vitamin B12 &amp; Folate</span></td>
+                            <td>Support nerve conduction and calm energy (Stoney et al., Biological Psychology 2018).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="biomarker-name">HbA1c</span></td>
+                            <td>Blood-sugar swings increase sympathetic drive and reduce HRV (Huang et al., Diabetologia 2011).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="biomarker-name">Thyroid (TSH, FT4)</span></td>
+                            <td>Imbalances can alter heart rhythm and autonomic control (Ablimit et al., Endocrine Connections 2020).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-content highlight-text">
+                Regular tracking of these markers helps reveal how lifestyle changes influence your stress-recovery pattern.
+            </div>
+        </section>
+
+        <!-- REFLECTION -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            
+            <div class="reflection-box">
+                <div class="reflection-text">
+                    When stress appears, what happens first — your breath or your shoulders?
+                </div>
+                <div class="reflection-text">
+                    Can you notice the exact moment your body tightens — and try one long exhale instead?
+                </div>
+            </div>
+        </section>
+
+        <!-- PLAN TO ACTION -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Vagus Activation Flow</h2>
+            </div>
+
+            <div class="action-box">
+                <div class="action-title">Goal: activate your vagus nerve through slow breathing and rhythmic side movement.</div>
+                <div class="text-content" style="margin-bottom: 1rem;">Time: 5 minutes (morning or mid-afternoon).</div>
+                <div class="text-content highlight-text" style="margin-bottom: 0;">Pro tip: Try it after waking or before stressful meetings — it's a quick reset for both mind and body.</div>
+            </div>
+
+            <div class="warning-box">
+                <div class="warning-title">⚠️ Safety Note</div>
+                <div class="text-content" style="margin-bottom: 0.5rem;">
+                    If you feel dizzy or tight in your back, reduce the range of motion or stay seated.
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    People with spinal or shoulder injuries should perform a smaller movement without leaning.
+                </div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">1️⃣</span>
+                <div><span class="highlight-text">Start tall and relaxed.</span> Sit or stand with feet grounded, shoulders soft.</div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">2️⃣</span>
+                <div><span class="highlight-text">Inhale</span> deeply through your nose, letting your chest and belly expand.</div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">3️⃣</span>
+                <div><span class="highlight-text">As you exhale,</span> cross your arms gently over your shoulders — like a self-hug — and lean slightly to the right, releasing air slowly.</div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">4️⃣</span>
+                <div><span class="highlight-text">Inhale again,</span> return to the center, open your chest.</div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">5️⃣</span>
+                <div><span class="highlight-text">Exhale</span> and lean to the left, keeping the breath long and smooth.</div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">6️⃣</span>
+                <div><span class="highlight-text">Continue</span> alternating sides for about 5 minutes (8–10 gentle cycles).</div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">7️⃣</span>
+                <div><span class="highlight-text">Finish</span> with one full inhale and a long exhale, letting your shoulders drop completely.</div>
+            </div>
+
+            <div class="video-container">
+                <iframe
+                    src="https://www.youtube.com/embed/iSLfF5NX0p8"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.5rem;">
+                <span class="highlight-text">Why this works:</span>
+            </div>
+            <div class="text-content">
+                Cross-arm pressure stimulates vagal sensory fibers in the chest and shoulder area, while the slow side bends massage internal organs and improve blood flow through the abdomen.
+            </div>
+            <div class="text-content">
+                Combined with deep breathing, this activates the vagus nerve, calms the heartbeat, and lowers muscle tension — creating a whole-body relaxation response (Field et al., Complementary Therapies in Medicine 2016; Lehrer &amp; Vaschillo, Applied Psychophysiology and Biofeedback 2017).
+            </div>
+
+            <div class="action-box" style="margin-top: 1.5rem;">
+                <div class="action-title">What to Expect:</div>
+                
+                <div class="step-item">
+                    <span class="step-number">1️⃣</span>
+                    <div>Noticeable relaxation and slower heartbeat</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">2️⃣</span>
+                    <div>Release of tension in shoulders and abdomen</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">3️⃣</span>
+                    <div>Easier, steadier breathing rhythm</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">4️⃣</span>
+                    <div>Improved emotional clarity and focus</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">5️⃣</span>
+                    <div>A calm, balanced state that lasts beyond the session</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENING -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-icon">🌙</span>
+                <h2>Evening Matters Too — Keep the Brake On</h2>
+            </div>
+            <div class="text-content">
+                Repeat one minute of slow breathing before bed.
+            </div>
+            <div class="text-content">
+                Long exhalations at night promote parasympathetic dominance, improve sleep onset, and reduce nocturnal awakenings (Stein et al., Sleep Medicine Reviews, 2019).
+            </div>
+        </section>
+
+        <!-- QUOTE + TOMORROW -->
+        <section class="section">
+            <div class="quote-box">
+                <div class="quote-text">
+                    Every slow exhale tells your brain: I am safe.<br><br>
+                    Repeated daily, these signals rewire your autonomic pattern — lowering cortisol, improving mood, and restoring calm digestion and steady energy.
+                </div>
+            </div>
+            <div class="tomorrow-text">
+                ✨ Tomorrow: you'll build on this foundation with a Cold Wake-Up routine — a fast, evidence-based way to train resilience and keep your vagus strong.
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-topline"></div>
+            <div class="footer-headline">📩 Get Your Personalized Lab Panel</div>
+            <div class="footer-text">
+                Write to us if you're interested in a personalised lab panel at the best price — with your own detailed report after the results are ready.
+            </div>
+            <div class="footer-cta-wrapper">
+                <a class="footer-email" href="mailto:care@aura.care">📧 care@aura.care</a>
+            </div>
+        </footer>
+
+    </main>
+</body>
+</html>
