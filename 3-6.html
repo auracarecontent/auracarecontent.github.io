@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6 — Emotional Eating vs. Real Hunger</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
+            background: #FAF8F2;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #FFFEFB;
+            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem;
+        }
+
+        .day-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .section {
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            font-size: 1.75rem;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #172737;
+            line-height: 22px;
+        }
+
+        .text-content {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #B87658;
+        }
+
+        .intro-section {
+            background: rgba(184, 118, 88, 0.05);
+            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        }
+
+        .comparison-table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            background: white;
+            border: 1px solid #E6E6E6;
+        }
+
+        .comparison-table th {
+            background: rgba(184, 118, 88, 0.1);
+            padding: 16px;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            border: 1px solid #E6E6E6;
+        }
+
+        .comparison-table td {
+            padding: 14px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+            border: 1px solid #E6E6E6;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: rgba(184, 118, 88, 0.03);
+        }
+
+        .check-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .check-mark {
+            color: #10B981;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .biomarker-card {
+            background: rgba(184, 118, 88, 0.08);
+            padding: 18px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 20px;
+            flex: 1;
+        }
+
+        .biomarker-percentage {
+            font-size: 18px;
+            font-weight: 700;
+            color: #B87658;
+            margin-left: auto;
+        }
+
+        .progress-bar {
+            background: #E6E6E6;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            transition: width 1s ease-out;
+        }
+
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.5rem;
+            line-height: 18px;
+        }
+
+        .reference-text {
+            font-size: 11px;
+            font-weight: 500;
+            color: #8C8C8C;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        .supplement-card {
+            background: white;
+            padding: 18px;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid #B87658;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .supplement-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .supplement-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .supplement-desc {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+            margin-bottom: 0.5rem;
+        }
+
+        .science-fact {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            display: flex;
+            gap: 1rem;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .fact-icon {
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .fact-content {
+            flex: 1;
+        }
+
+        .fact-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+        }
+
+        .action-section {
+            background: rgba(16, 185, 129, 0.08);
+            border-bottom: 3px solid #10B981;
+        }
+
+        .action-highlight {
+            background: rgba(184, 118, 88, 0.1);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .action-content {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .action-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .action-text {
+            flex: 1;
+        }
+
+        .action-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 0.75rem;
+            line-height: 20px;
+        }
+
+        .action-desc {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .quote-box {
+            background: rgba(184, 118, 88, 0.05);
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            border: 1px solid rgba(184, 118, 88, 0.15);
+        }
+
+        .quote-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 24px;
+            font-style: italic;
+        }
+
+        .disclaimer-box {
+            background: rgba(239, 68, 68, 0.08);
+            padding: 18px;
+            border-left: 3px solid #ef4444;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .disclaimer-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 0.75rem;
+            line-height: 20px;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem 2.5rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #D4956C 0%, #B87658 50%, #D4956C 100%);
+        }
+
+        .footer h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .footer-text {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            line-height: 24px;
+            opacity: 0.95;
+        }
+
+        .footer-email {
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 18px;
+            display: inline-block;
+            padding: 14px 28px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .footer-email:hover {
+            background: white;
+            color: #B87658;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-cta-wrapper {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+        }
+    </style>
+
+<style>
+/* === Aura App Final — structural overrides (colors preserved) === */
+*{box-sizing:border-box}
+body{background:#FAF8F2;margin:0;padding:2rem;line-height:1.5}
+.aura-app-final{max-width:1000px;margin:0 auto;background:#FFFEFB;border-radius:0 !important;box-shadow:0 3px 6px rgba(23,39,55,.12);border:1px solid rgba(0,0,0,.04)}
+/* Ensure no outer rounding on header/footer/container */
+header, footer, .header, .footer, .container, .wrap, .page, .page-wrap { border-radius:0 !important; }
+/* Mobile-friendly padding */
+@media (max-width:640px){
+  body{padding:0}
+  header, .header{padding:2rem 1.25rem !important}
+  section, .section, .content, .main, .container, .wrap{padding:1.25rem 1rem}
+  footer, .footer{padding:2rem 1.25rem !important}
+}
+@media print{
+  body{background:#fff;padding:0}
+  .aura-app-final{box-shadow:none;border:none}
+}
+
+</style>
+</head>
+<body>
+<div class="aura-app-final">
+
+    <div class="container">
+        <div class="header">
+            <div class="day-label">DAY 6</div>
+            <h1>Emotional Eating vs. Real Hunger</h1>
+        </div>
+
+        <div class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>When Comfort Feels Like Hunger</h2>
+            </div>
+            <div class="text-content">
+                Sometimes you're not eating because your body needs fuel — you're eating because your mind needs relief.
+            </div>
+            <div class="text-content">
+                Stress, loneliness, or fatigue can trigger the same brain areas that signal hunger.
+            </div>
+            <div class="text-content">
+                Cortisol rises, glucose fluctuates, and the body starts craving "fast comfort" — something sweet, creamy, or crunchy.
+            </div>
+            <div class="text-content highlight-text">
+                ✨ Emotional hunger comes suddenly and feels urgent; real hunger builds gradually and is satisfied with real food.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>The Biology of Emotional Eating</h2>
+            </div>
+            <div class="text-content">
+                When you're under stress, cortisol and adrenaline prepare the body for action.
+            </div>
+            <div class="text-content">
+                At first, appetite drops — but as cortisol stays high, it flips: your brain seeks sugar or fat to refuel the stress response.
+            </div>
+            <div class="text-content">
+                This creates a reward loop — eat → dopamine spike → brief calm → guilt or fatigue → repeat.
+            </div>
+            <div class="science-fact">
+                <span class="fact-icon">💡</span>
+                <div class="fact-content">
+                    <div class="fact-desc">Chronic stress keeps insulin and cortisol out of sync, leading to cravings and unstable energy (Harvard Health 2023; Psychoneuroendocrinology 2022).</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">⚙️</span>
+                <h2>How to Tell the Difference</h2>
+            </div>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Real Hunger</th>
+                        <th>Emotional Hunger</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Builds slowly</td>
+                        <td>Appears suddenly</td>
+                    </tr>
+                    <tr>
+                        <td>Satisfied by any balanced meal</td>
+                        <td>Craves specific comfort foods</td>
+                    </tr>
+                    <tr>
+                        <td>Comes every 3–4 h</td>
+                        <td>Can appear right after eating</td>
+                    </tr>
+                    <tr>
+                        <td>Fades after fullness</td>
+                        <td>Persists even when full</td>
+                    </tr>
+                    <tr>
+                        <td>Feels in the stomach</td>
+                        <td>Feels in the head or chest</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="text-content highlight-text" style="margin-top: 1.5rem;">
+                🌿 Learning this difference helps you nourish, not numb, your body.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🍎</span>
+                <h2>What Helps Break the Pattern</h2>
+            </div>
+            
+            <div class="check-item">
+                <span class="check-mark">✅</span>
+                <div><span class="highlight-text">Pause before eating.</span> Ask: What am I feeling — hunger or stress?</div>
+            </div>
+
+            <div class="check-item">
+                <span class="check-mark">✅</span>
+                <div><span class="highlight-text">Sip water or tea first.</span> Thirst and tension can mimic hunger.</div>
+            </div>
+
+            <div class="check-item">
+                <span class="check-mark">✅</span>
+                <div><span class="highlight-text">Name the emotion.</span> Labeling ("I feel anxious") reduces cortisol by activating logic circuits.</div>
+            </div>
+
+            <div class="check-item">
+                <span class="check-mark">✅</span>
+                <div><span class="highlight-text">Do a mini reset.</span> Stretch, step outside, or take three deep breaths — many cravings fade in minutes.</div>
+            </div>
+
+            <div class="check-item">
+                <span class="check-mark">✅</span>
+                <div><span class="highlight-text">Add steady meals.</span> Skipping meals makes stress eating more likely later.</div>
+            </div>
+
+            <div class="reference-text" style="margin-top: 1.5rem;">
+                📚 Front Psychol 2021; Cleveland Clinic 2023.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧪</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                Your emotional hunger often mirrors your body's stress rhythm. These labs show how:
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <span class="section-icon">💫</span>
+                    <div class="biomarker-name">Cortisol (AM/PM Curve)</div>
+                    <div class="biomarker-percentage">70%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 70%;"></div>
+                </div>
+                <div class="biomarker-desc">Flattened or reversed rhythm = stress fatigue pattern.</div>
+                <div class="reference-text">📚 Rosmond et al., 2002, J Intern Med.</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <span class="section-icon">🩸</span>
+                    <div class="biomarker-name">Glucose & Insulin</div>
+                    <div class="biomarker-percentage">65%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 65%;"></div>
+                </div>
+                <div class="biomarker-desc">Frequent spikes = stress-eating loops.</div>
+                <div class="reference-text">📚 Cell Metab 2015.</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <span class="section-icon">🪨</span>
+                    <div class="biomarker-name">Magnesium (RBC)</div>
+                    <div class="biomarker-percentage">55%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;"></div>
+                </div>
+                <div class="biomarker-desc">Low levels = weaker stress resilience.</div>
+                <div class="reference-text">📚 Pharmacol Reports 2016.</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <span class="section-icon">☀️</span>
+                    <div class="biomarker-name">Vitamin D</div>
+                    <div class="biomarker-percentage">45%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;"></div>
+                </div>
+                <div class="biomarker-desc">Supports serotonin and mood balance.</div>
+                <div class="reference-text">📚 Front Neuroanat 2013.</div>
+            </div>
+
+            <div class="text-content highlight-text" style="margin-top: 2rem;">
+                ✨ Together, these markers reveal whether stress is driving your appetite more than true energy needs.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💊</span>
+                <h2>Smart Support — Only If Labs Say So</h2>
+            </div>
+
+            <div class="disclaimer-box">
+                <div class="disclaimer-title">🧾 Disclaimer</div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Supplements should be used only after lab testing and with professional guidance.
+                </div>
+            </div>
+
+            <div class="supplement-card">
+                <div class="supplement-header">
+                    <span class="section-icon">🪨</span>
+                    <div class="supplement-name">Magnesium Glycinate</div>
+                </div>
+                <div class="supplement-desc">Reduces cortisol reactivity and emotional cravings.</div>
+                <div class="reference-text">📚 NIH ODS 2023.</div>
+            </div>
+
+            <div class="supplement-card">
+                <div class="supplement-header">
+                    <span class="section-icon">🌞</span>
+                    <div class="supplement-name">Vitamin D + Omega-3s</div>
+                </div>
+                <div class="supplement-desc">Support mood stability and dopamine balance.</div>
+                <div class="reference-text">📚 Mayo Clinic 2024.</div>
+            </div>
+
+            <div class="supplement-card">
+                <div class="supplement-header">
+                    <span class="section-icon">💊</span>
+                    <div class="supplement-name">B-Complex</div>
+                </div>
+                <div class="supplement-desc">Helps regulate neurotransmitters involved in stress response.</div>
+                <div class="reference-text">📚 Cleveland Clinic 2023.</div>
+            </div>
+
+            <div class="text-content highlight-text" style="margin-top: 2rem;">
+                🧠 Supplements can calm the system, but mindful habits reshape it.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🚶‍♀️</span>
+                <h2>Science Spark</h2>
+            </div>
+            <div class="text-content">
+                Just 10 minutes of deep breathing or slow walking reduces cortisol by ≈ 20 % and curbs stress-driven eating.
+            </div>
+            <div class="reference-text">
+                📚 Front Psychol 2021; Harvard Health 2023.
+            </div>
+        </div>
+
+        <div class="section action-section">
+            <div class="action-highlight">
+                <div class="action-content">
+                    <span class="action-icon">🚀</span>
+                    <div class="action-text">
+                        <div class="action-title">Plan to Action — Pause Before the Bite</div>
+                        <div class="action-desc">
+                            Keep your progress growing:
+                        </div>
+                    </div>
+                </div>
+                <div class="check-item">
+                    <span class="check-mark">✅</span>
+                    <div><span class="highlight-text">Day 1:</span> Eat protein or fiber before sweets — steady dopamine & glucose.</div>
+                </div>
+                <div class="check-item">
+                    <span class="check-mark">✅</span>
+                    <div><span class="highlight-text">Day 2:</span> Replenish minerals before salt — support adrenal calm.</div>
+                </div>
+                <div class="check-item">
+                    <span class="check-mark">✅</span>
+                    <div><span class="highlight-text">Day 3:</span> Swap junk food for real, satisfying foods.</div>
+                </div>
+                <div class="check-item">
+                    <span class="check-mark">✅</span>
+                    <div><span class="highlight-text">Day 4:</span> Walk 10 minutes after meals — smooth energy.</div>
+                </div>
+                <div class="check-item">
+                    <span class="check-mark">✅</span>
+                    <div><span class="highlight-text">Day 5:</span> Add protein to every meal — fuel your cells.</div>
+                </div>
+                <div class="check-item">
+                    <span class="check-mark">🌿</span>
+                    <div><span class="highlight-text">Today:</span> Before eating, pause for one minute and ask "Am I hungry or stressed?"</div>
+                </div>
+                <div class="text-content" style="margin-top: 1.5rem;">
+                    If it's stress, breathe deeply or drink water first. Most cravings fade within five minutes.
+                </div>
+                <div class="text-content highlight-text">
+                    ✨ You can't always control stress, but you can control your pause.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="quote-box">
+                <div class="quote-text">
+                    Food can comfort — and that's okay.<br>
+                    But real comfort comes when you understand what your body truly needs.
+                </div>
+            </div>
+            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 2rem;">
+                ✨ Balance starts with awareness — one mindful pause at a time.
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                Write to us if you're interested in a personalised lab panel at the best price — with your own detailed report after the results are ready.
+            </div>
+            <div class="footer-cta-wrapper">
+                <a href="mailto:care@aura.care" class="footer-email">📧 care@aura.care</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

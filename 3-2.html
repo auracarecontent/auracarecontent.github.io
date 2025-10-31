@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Day 2 — Salty Cravings & Stress Hormones (App Final)</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,'SF Pro','Roboto','Segoe UI',sans-serif;
+      background:#FAF8F2;
+      padding:2rem;
+      line-height:1.5;
+      color:#172737;
+    }
+    /* Container — remove outer rounding per app spec */
+    .container{
+      max-width:1000px;
+      margin:0 auto;
+      background:#FFFEFB;
+      border-radius:0; /* was 20px */
+      box-shadow:0 3px 6px rgba(23,39,55,.15);
+      overflow:visible; /* avoid clipping edges */
+      border:1px solid rgba(0,0,0,.04);
+    }
+    /* Header — keep gradient/colors, add subtle divider */
+    .header{
+      background:linear-gradient(135deg,#B87658 0%,#D4956C 100%);
+      color:#fff;
+      padding:3rem 2.5rem;
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .day-label{
+      font-size:12px;font-weight:700;letter-spacing:.3px;margin-bottom:1rem;text-transform:uppercase;
+    }
+    h1{font-size:22px;font-weight:700;margin-bottom:.75rem;line-height:1.3;color:#fff}
+    .section{padding:2rem 2.5rem;border-bottom:1px solid #F0F0F0}
+    .section-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
+    .section-icon{font-size:1.75rem}
+    h2{font-size:18px;font-weight:700;color:#172737;line-height:22px}
+    h3{font-size:16px;font-weight:600;color:#172737;line-height:20px}
+    .text-content{font-size:14px;font-weight:500;color:#172737;margin-bottom:1rem;line-height:20px}
+    .text-secondary{color:#656565}
+    .highlight-text{font-weight:600;color:#B87658}
+    .intro-section{background:rgba(184,118,88,.05);border-bottom:2px solid rgba(184,118,88,.2)}
+    .info-box{background:rgba(184,118,88,.1);padding:18px;border-radius:16px;border:1px solid rgba(184,118,88,.2);margin:1.5rem 0}
+    .check-item{display:flex;gap:.75rem;margin-bottom:.75rem;font-size:14px;font-weight:500;color:#172737;line-height:20px}
+    .check-mark{color:#10B981;font-weight:700;font-size:16px}
+    .biomarker-card{background:rgba(184,118,88,.08);padding:18px;border-radius:16px;margin-bottom:1.5rem;border:1px solid rgba(0,0,0,.04);box-shadow:0 2px 4px rgba(23,39,55,.08)}
+    .biomarker-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+    .biomarker-name{font-size:16px;font-weight:600;color:#172737;line-height:20px;flex:1}
+    .biomarker-percentage{font-size:18px;font-weight:700;color:#B87658;margin-left:auto}
+    .progress-bar{background:#E6E6E6;border-radius:12px;height:28px;overflow:hidden;margin-bottom:.75rem;position:relative}
+    .progress-fill{height:100%;background:linear-gradient(90deg,#B87658 0%,#D4956C 100%);transition:width 1s ease-out;border-radius:12px}
+    .biomarker-desc{font-size:13px;font-weight:500;color:#656565;margin-top:.5rem;line-height:18px}
+    .reference-text{font-size:11px;font-weight:500;color:#8C8C8C;font-style:italic;margin-top:.5rem}
+    .supplement-card{background:#fff;padding:18px;border-radius:16px;margin-bottom:1.5rem;border-left:3px solid #B87658;box-shadow:0 2px 4px rgba(23,39,55,.08)}
+    .supplement-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
+    .supplement-name{font-size:16px;font-weight:600;color:#172737;line-height:20px}
+    .supplement-desc{font-size:14px;font-weight:500;color:#172737;line-height:20px;margin-bottom:.5rem}
+    .science-fact{background:rgba(16,185,129,.08);padding:18px;border-radius:12px;border-left:3px solid #10B981;margin:1.5rem 0;display:flex;gap:1rem;box-shadow:0 2px 4px rgba(23,39,55,.08)}
+    .fact-icon{font-size:1.75rem;flex-shrink:0}
+    .fact-content{flex:1}
+    .fact-title{font-weight:600;font-size:14px;color:#172737;margin-bottom:.5rem;line-height:20px}
+    .fact-desc{font-size:13px;font-weight:500;color:#656565;line-height:18px}
+    .action-section{background:rgba(16,185,129,.08);border-bottom:3px solid #10B981}
+    .action-highlight{background:rgba(184,118,88,.1);padding:18px;border-radius:12px;border-left:3px solid #B87658;font-size:14px;font-weight:500;color:#172737;line-height:20px}
+    .action-content{display:flex;gap:1rem;margin-bottom:1.5rem}
+    .action-icon{font-size:2.5rem;flex-shrink:0}
+    .action-text{flex:1}
+    .action-title{font-size:16px;font-weight:600;color:#172737;margin-bottom:.75rem;line-height:20px}
+    .action-desc{font-size:14px;font-weight:500;color:#172737;line-height:20px}
+    .quote-box{background:rgba(184,118,88,.05);padding:2rem;border-radius:16px;text-align:center;margin:2rem 0;border:1px solid rgba(184,118,88,.15)}
+    .quote-text{font-size:16px;font-weight:600;color:#172737;line-height:24px;font-style:italic}
+    .disclaimer-box{background:rgba(239,68,68,.08);padding:18px;border-radius:16px;border-left:3px solid #ef4444;margin:1.5rem 0;box-shadow:0 2px 4px rgba(23,39,55,.08)}
+    .disclaimer-title{font-size:14px;font-weight:600;color:#172737;margin-bottom:.75rem;line-height:20px}
+    /* Footer — keep gradient/colors, add divider, no rounding */
+    .footer{
+      background:linear-gradient(135deg,#B87658 0%,#D4956C 100%);
+      color:#fff;
+      padding:3rem 2.5rem;
+      position:relative;
+      border-top:1px solid rgba(0,0,0,.06);
+    }
+    .footer::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:4px;
+      background:linear-gradient(90deg,#D4956C 0%,#B87658 50%,#D4956C 100%);
+    }
+    .footer h2{color:#fff;margin-bottom:1.5rem;font-size:22px;display:flex;align-items:center;gap:.75rem}
+    .footer-text{font-size:16px;font-weight:500;margin-bottom:1.5rem;line-height:24px;opacity:.95}
+    .footer-email{color:#fff;font-weight:700;text-decoration:none;font-size:18px;display:inline-block;padding:14px 28px;background:rgba(255,255,255,.2);border-radius:12px;border:2px solid #fff;transition:all .3s ease;margin-top:.5rem}
+    .footer-email:hover{background:#fff;color:#B87658;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+    .footer-cta-wrapper{text-align:center;margin-top:1rem}
+    /* Mobile tweaks for app viewport */
+    @media (max-width:640px){
+      body{padding:0}
+      .header{padding:2rem 1.25rem}
+      .section{padding:1.25rem 1rem}
+      .footer{padding:2rem 1.25rem}
+    }
+    @media print{body{background:#fff;padding:0}.container{box-shadow:none;border:none}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="day-label">DAY 2</div>
+      <h1>Salty Cravings & Stress Hormones</h1>
+    </div>
+
+    <div class="section intro-section">
+      <div class="section-header"><span class="section-icon">🧂</span><h2>When You Crave Salt, Your Body Is Talking</h2></div>
+      <div class="text-content">Reaching for salty snacks after a long, stressful day isn't random — it's your body's built-in balancing act.</div>
+      <div class="text-content">When you're tired, anxious, sweating, or working out hard, your adrenal glands release cortisol and aldosterone — hormones that manage stress and salt balance.</div>
+      <div class="text-content">Under chronic stress or heavy sweating, these rhythms flatten, and your body starts craving salt to restore minerals it's losing.</div>
+      <div class="text-content highlight-text">✨ Salt cravings are your system whispering: "I'm drained — help me recharge."</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><span class="section-icon">🧠</span><h2>Inside the Stress-Salt Connection</h2></div>
+      <div class="text-content">When cortisol rises, your body flushes sodium and magnesium faster through urine and sweat.</div>
+      <div class="text-content">At the same time, adrenaline raises blood flow and pressure, using even more electrolytes to stay balanced.</div>
+      <div class="text-content">Low electrolytes = fatigue, brain fog, headaches, and that irresistible pull toward something salty.</div>
+      <div class="science-fact"><span class="fact-icon section-icon">💡</span><div class="fact-content"><div class="fact-desc">People who exercise intensely, use saunas, or live in hot climates can lose up to 2–3 g of sodium daily (Journal of Applied Physiology 2021; Endocrine Reviews 2022).</div></div></div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><span class="section-icon">⚙️</span><h2>Adrenal Balance 101</h2></div>
+      <div class="text-content">Your adrenal glands act like mini energy regulators — controlling stress, blood pressure, and minerals.</div>
+      <div class="text-content">When they're overworked or dehydrated, aldosterone can drop, causing low blood pressure, dizziness, or cravings for salt after workouts or long days.</div>
+      <div class="text-content highlight-text">🌿 Rebuilding balance means re-hydrating smartly, resting enough, and replenishing electrolytes through real food — not processed snacks.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><span class="section-icon">🧂</span><h2>Healthy Ways to Answer Salt Cravings</h2></div>
+      <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Choose mineral-rich salts.</span> Sea salt or Himalayan salt adds trace minerals your body actually needs.</div></div>
+      <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Add electrolyte-rich foods:</span> avocado, pumpkin seeds, olives, leafy greens, coconut water.</div></div>
+      <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Replenish after sweating.</span> A glass of mineral water or sugar-free electrolyte mix restores sodium, magnesium, and potassium.</div></div>
+      <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Avoid over-salting processed foods.</span> They replace minerals with refined sodium and additives.</div></div>
+      <div class="reference-text" style="margin-top:1.5rem">📚 Cleveland Clinic 2023; Journal of Applied Physiology 2021.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><span class="section-icon">🧪</span><h2>What About Labs?</h2></div>
+
+      <div class="biomarker-card">
+        <div class="biomarker-header"><span class="section-icon">💫</span><div class="biomarker-name">Cortisol (AM / PM Curve)</div><div class="biomarker-percentage">70%</div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+        <div class="biomarker-desc">Shows your stress rhythm. A flattened curve = burnout-related salt cravings.</div>
+        <div class="reference-text">📚 Rosmond et al., 2002, J Intern Med.</div>
+      </div>
+
+      <div class="biomarker-card">
+        <div class="biomarker-header"><span class="section-icon">💧</span><div class="biomarker-name">Aldosterone + Renin Ratio</div><div class="biomarker-percentage">65%</div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div>
+        <div class="biomarker-desc">Reflects adrenal control of sodium & pressure. Low ratio = salt-loss pattern.</div>
+        <div class="reference-text">📚 Bornstein et al., 2019, Endocrine Reviews.</div>
+      </div>
+
+      <div class="biomarker-card">
+        <div class="biomarker-header"><span class="section-icon">🩸</span><div class="biomarker-name">Electrolytes (Sodium, Potassium, Chloride)</div><div class="biomarker-percentage">60%</div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+        <div class="biomarker-desc">Show fluid balance under stress or heat. Low sodium is a common trigger for cravings.</div>
+        <div class="reference-text">📚 Mayo Clinic 2024.</div>
+      </div>
+
+      <div class="biomarker-card">
+        <div class="biomarker-header"><span class="section-icon">🪨</span><div class="biomarker-name">Magnesium (RBC)</div><div class="biomarker-percentage">55%</div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:55%"></div></div>
+        <div class="biomarker-desc">Supports nerve calm and blood-pressure stability; low = higher salt needs.</div>
+        <div class="reference-text">📚 Serefko et al., 2016, Pharmacol Reports.</div>
+      </div>
+
+      <div class="biomarker-card">
+        <div class="biomarker-header"><span class="section-icon">☀️</span><div class="biomarker-name">Vitamin D (25-OH)</div><div class="biomarker-percentage">45%</div></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:45%"></div></div>
+        <div class="biomarker-desc">Helps regulate renin-angiotensin system and pressure rhythm.</div>
+        <div class="reference-text">📚 Cleveland Clinic 2023.</div>
+      </div>
+
+      <div class="text-content highlight-text" style="margin-top:2rem">✨ Together, these labs reveal your "stress-mineral map" — showing whether cravings come from habit, heat, or hormonal imbalance.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><span class="section-icon">💊</span><h2>Smart Support — Only If Labs Say So</h2></div>
+      <div class="disclaimer-box">
+        <div class="disclaimer-title">🧾 Disclaimer</div>
+        <div class="text-content" style="margin-bottom:0">Supplements should be used only after lab testing and professional guidance. They correct real deficiencies — not stress itself.</div>
+      </div>
+
+      <div class="supplement-card">
+        <div class="supplement-header"><span class="section-icon">🪨</span><div class="supplement-name">Magnesium Citrate or Glycinate</div></div>
+        <div class="supplement-desc">Replaces minerals lost through stress and sweat, supports calm focus.</div>
+        <div class="reference-text">📚 NIH ODS 2023.</div>
+      </div>
+
+      <div class="supplement-card">
+        <div class="supplement-header"><span class="section-icon">💧</span><div class="supplement-name">Sugar-Free Electrolyte Mix (Sodium + Potassium + Magnesium)</div></div>
+        <div class="supplement-desc">Replenishes after workouts, saunas, or long days in heat.</div>
+        <div class="reference-text">📚 Journal of Applied Physiology 2021.</div>
+      </div>
+
+      <div class="supplement-card">
+        <div class="supplement-header"><span class="section-icon">☀️</span><div class="supplement-name">Vitamin D + B5 (Pantothenic acid)</div></div>
+        <div class="supplement-desc">Supports adrenal recovery and balanced energy.</div>
+        <div class="reference-text">📚 Cleveland Clinic 2023.</div>
+      </div>
+
+      <div class="text-content highlight-text" style="margin-top:2rem">🧠 Supplements fine-tune your system; hydration and rest build true resilience.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><span class="section-icon">🚶‍♀️</span><h2>Science Spark</h2></div>
+      <div class="text-content">Mild dehydration of just 1–2 % can raise cortisol by ≈ 15 % and intensify cravings for salty or crunchy foods — especially after sweating or exercise.</div>
+      <div class="reference-text">📚 Popkin et al., Nutrition Reviews 2019; Front Physiol 2021.</div>
+    </div>
+
+    <div class="section action-section">
+      <div class="action-highlight">
+        <div class="action-content"><span class="action-icon">🚀</span><div class="action-text"><div class="action-title">Plan to Action — Minerals Before Salt</div><div class="action-desc">Keep building your new habits:</div></div></div>
+        <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Yesterday's step:</span> before sweets, eat a few bites of protein or fiber — to steady your glucose and dopamine.</div></div>
+        <div class="check-item"><span class="check-mark">🌿</span><div><span class="highlight-text">Today's step:</span> after exercise or stress, drink mineral water or add a sugar-free electrolyte mix before salty food.</div></div>
+        <div class="text-content" style="margin-top:1.5rem">This helps your body restore sodium, potassium, and magnesium naturally — often stopping the craving within minutes.</div>
+        <div class="text-content highlight-text">✨ Fuel balance first — flavor second.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="quote-box">
+        <div class="quote-text">Salt cravings aren't bad habits — they're messages from your stress system and sweat glands.<br>When you restore minerals and hydration, your energy steadies and your body quiets its alarms.</div>
+      </div>
+      <div class="text-content" style="text-align:center;font-size:16px;font-weight:600;margin-top:2rem">✨ Listen to what your body needs — then give it balance, not bandaids.</div>
+    </div>
+
+    <div class="footer">
+      <h2>📩 Get Your Personalized Lab Panel</h2>
+      <div class="footer-text">Write to us if you're interested in a personalised lab panel at the best price — with your own detailed report after the results are ready.</div>
+      <div class="footer-cta-wrapper"><a href="mailto:care@aura.care" class="footer-email">📧 care@aura.care</a></div>
+    </div>
+  </div>
+</body>
+</html>
