@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day 2 — The Vagus Pathway: Your Hidden Calm Switch</title>
     <style>
         * {
@@ -14,99 +14,78 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
             background: #FAF8F2;
-            padding: 2rem;
+            color: #172737;
             line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-        }
-
-        .container {
-            max-width: 1000px;
+        .screen {
+            max-width: 520px;
             margin: 0 auto;
             background: #FFFEFB;
-            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-left: 1px solid rgba(0,0,0,0.04);
+            border-right: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.06);
         }
 
+        /* HEADER */
         .header {
             background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 2rem 1.5rem;
-            }
+            color: #FFFFFF;
+            padding: 2rem 1.5rem;
         }
 
         .day-label {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             letter-spacing: 0.3px;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             text-transform: uppercase;
         }
 
         h1 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
-            margin-bottom: 0.75rem;
             line-height: 1.3;
         }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 20px;
-            }
-        }
-
+        /* SECTION BLOCKS */
         .section {
-            padding: 2rem 2.5rem;
-            border-bottom: 1px solid #F0F0F0;
+            padding: 1.5rem 1.5rem;
+            border-bottom: 1px solid #EFEFEF;
+            background: #FFFEFB;
         }
 
-        @media (max-width: 768px) {
-            .section {
-                padding: 1.5rem 1.25rem;
-            }
+        .intro-section {
+            background: rgba(184,118,88,0.05);
+            border-bottom: 2px solid rgba(184,118,88,0.2);
         }
 
         .section-header {
             display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .section-icon {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
+            line-height: 1.2;
         }
 
         h2 {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             color: #172737;
-            line-height: 22px;
-        }
-
-        @media (max-width: 768px) {
-            h2 {
-                font-size: 16px;
-            }
+            line-height: 1.3;
         }
 
         .text-content {
             font-size: 14px;
             font-weight: 500;
             color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
         }
 
         .highlight-text {
@@ -114,87 +93,58 @@
             color: #B87658;
         }
 
-        .intro-section {
-            background: rgba(184, 118, 88, 0.05);
-            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
-        }
-
+        /* LISTS */
         .bullet-list {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
+            margin: 0.75rem 0 1rem 1rem;
+            padding-left: 1rem;
         }
 
         .bullet-item {
             font-size: 14px;
             font-weight: 500;
             color: #172737;
+            line-height: 1.4;
             margin-bottom: 0.5rem;
-            line-height: 20px;
         }
 
-        .biomarker-table {
-            width: 100%;
-            margin: 1.5rem 0;
-            border-collapse: collapse;
-            background: white;
-            border: 1px solid #E6E6E6;
-        }
-
-        .biomarker-table th {
-            background: rgba(184, 118, 88, 0.1);
-            padding: 16px;
-            text-align: left;
-            font-size: 15px;
-            font-weight: 600;
-            color: #172737;
-            border: 1px solid #E6E6E6;
-        }
-
-        @media (max-width: 768px) {
-            .biomarker-table th {
-                padding: 12px;
-                font-size: 14px;
-            }
-        }
-
-        .biomarker-table td {
-            padding: 14px 16px;
-            font-size: 13px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 18px;
-            border: 1px solid #E6E6E6;
-        }
-
-        @media (max-width: 768px) {
-            .biomarker-table td {
-                padding: 10px 12px;
-                font-size: 12px;
-            }
-        }
-
-        .biomarker-table tr:nth-child(even) {
-            background: rgba(184, 118, 88, 0.03);
-        }
-
-        .biomarker-name {
-            font-weight: 600;
-            color: #B87658;
+        /* INFO / CALLOUT BLOCKS */
+        .science-fact,
+        .action-box,
+        .reflection-box,
+        .warning-box {
+            padding: 1rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+            border-left-width: 3px;
+            border-left-style: solid;
+            border-radius: 0;
         }
 
         .science-fact {
-            background: rgba(16, 185, 129, 0.08);
-            padding: 18px;
-            border-left: 3px solid #10B981;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+            background: rgba(16,185,129,0.08);
+            border-left-color: #10B981;
+        }
+
+        .action-box {
+            background: rgba(16,185,129,0.08);
+            border-left-color: #10B981;
+        }
+
+        .reflection-box {
+            background: rgba(184,118,88,0.08);
+            border-left-color: #B87658;
+        }
+
+        .warning-box {
+            background: rgba(239,68,68,0.08);
+            border-left-color: #ef4444;
         }
 
         .fact-item {
             font-size: 13px;
             font-weight: 500;
             color: #172737;
-            line-height: 20px;
+            line-height: 1.4;
             margin-bottom: 0.75rem;
         }
 
@@ -202,11 +152,104 @@
             margin-bottom: 0;
         }
 
+        .action-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+        }
+
+        .reflection-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .reflection-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .warning-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        /* TABLE */
+        .biomarker-table-wrapper {
+            margin-top: 1rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .biomarker-table {
+            width: 100%;
+            min-width: 320px;
+            border-collapse: collapse;
+            background: #FFFFFF;
+            border: 1px solid #E6E6E6;
+        }
+
+        .biomarker-table th {
+            background: rgba(184,118,88,0.1);
+            padding: 12px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            color: #172737;
+            border: 1px solid #E6E6E6;
+            line-height: 1.4;
+        }
+
+        .biomarker-table td {
+            padding: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+            border: 1px solid #E6E6E6;
+        }
+
+        .biomarker-table tr:nth-child(even) {
+            background: rgba(184,118,88,0.03);
+        }
+
+        .biomarker-name {
+            font-weight: 600;
+            color: #B87658;
+        }
+
+        /* STEPS */
+        .step-item {
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+        }
+
+        .step-number {
+            font-weight: 700;
+            color: #10B981;
+            flex-shrink: 0;
+            line-height: 1.4;
+        }
+
+        /* VIDEO */
         .video-container {
             position: relative;
             width: 100%;
+            max-width: 100%;
             padding-bottom: 56.25%;
-            margin: 2rem 0;
+            margin: 1rem 0 1.5rem 0;
             background: #000;
             overflow: hidden;
         }
@@ -220,111 +263,42 @@
             border: none;
         }
 
-        .action-box {
-            background: rgba(16, 185, 129, 0.08);
-            padding: 18px;
-            border-left: 3px solid #10B981;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .action-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
-        }
-
-        .step-item {
-            display: flex;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
-        }
-
-        .step-number {
-            font-weight: 700;
-            color: #10B981;
-            flex-shrink: 0;
-        }
-
-        .reflection-box {
-            background: rgba(184, 118, 88, 0.08);
-            padding: 18px;
-            border-left: 3px solid #B87658;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .reflection-text {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            line-height: 18px;
-            margin-bottom: 0.5rem;
-        }
-
-        .reflection-text:last-child {
-            margin-bottom: 0;
-        }
-
-        .warning-box {
-            background: rgba(239, 68, 68, 0.08);
-            padding: 18px;
-            border-left: 3px solid #ef4444;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .warning-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #172737;
-            margin-bottom: 0.75rem;
-            line-height: 20px;
-        }
-
+        /* QUOTE / TOMORROW */
         .quote-box {
-            background: rgba(184, 118, 88, 0.05);
-            padding: 2rem;
+            background: rgba(184,118,88,0.05);
+            border: 1px solid rgba(184,118,88,0.15);
             text-align: center;
-            margin: 2rem 0;
-            border: 1px solid rgba(184, 118, 88, 0.15);
-        }
-
-        @media (max-width: 768px) {
-            .quote-box {
-                padding: 1.5rem;
-            }
+            padding: 1.5rem 1rem;
+            margin: 1.5rem 0;
         }
 
         .quote-text {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             color: #172737;
-            line-height: 24px;
+            line-height: 1.5;
             font-style: italic;
         }
 
+        .tomorrow-text {
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.4;
+            margin-top: 2rem;
+        }
+
+        /* FOOTER */
         .footer {
             background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem 2.5rem;
+            color: #FFFFFF;
+            padding: 2rem 1.5rem 3rem 1.5rem;
             position: relative;
         }
 
-        @media (max-width: 768px) {
-            .footer {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        .footer::before {
-            content: '';
+        .footer-topline {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
@@ -333,83 +307,71 @@
             background: linear-gradient(90deg, #D4956C 0%, #B87658 50%, #D4956C 100%);
         }
 
-        .footer h2 {
-            color: white;
-            margin-bottom: 1.5rem;
-            font-size: 22px;
+        .footer-headline {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.4;
+            margin-bottom: 1rem;
             display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        @media (max-width: 768px) {
-            .footer h2 {
-                font-size: 18px;
-            }
+            align-items: flex-start;
+            gap: 0.5rem;
         }
 
         .footer-text {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 500;
-            margin-bottom: 1.5rem;
-            line-height: 24px;
+            line-height: 1.4;
+            color: #FFFFFF;
             opacity: 0.95;
-        }
-
-        @media (max-width: 768px) {
-            .footer-text {
-                font-size: 14px;
-            }
-        }
-
-        .footer-email {
-            color: white;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 18px;
-            display: inline-block;
-            padding: 14px 28px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid white;
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .footer-email {
-                font-size: 16px;
-                padding: 12px 24px;
-            }
-        }
-
-        .footer-email:hover {
-            background: white;
-            color: #B87658;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1.25rem;
         }
 
         .footer-cta-wrapper {
             text-align: center;
-            margin-top: 1rem;
+        }
+
+        .footer-email {
+            color: #FFFFFF;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 16px;
+            display: inline-block;
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid #FFFFFF;
+            line-height: 1.4;
+        }
+
+        @media (min-width: 481px) {
+            .header { padding: 2.5rem 2rem; }
+            .section { padding: 2rem 2rem; }
+            .footer { padding: 2.5rem 2rem 3rem 2rem; }
         }
 
         @media print {
             body {
-                background: white;
-                padding: 0;
+                background: #FFFFFF;
+            }
+            .screen {
+                max-width: 100%;
+                box-shadow: none;
+                border: none;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
+    <main class="screen">
+
+        <!-- HEADER -->
+        <section class="header">
             <div class="day-label">DAY 2</div>
             <h1>The Vagus Pathway: Your Hidden Calm Switch</h1>
-        </div>
+        </section>
 
-        <div class="section intro-section">
+        <!-- DAILY FOCUS -->
+        <section class="section intro-section">
             <div class="section-header">
                 <span class="section-icon">😌</span>
                 <h2>Daily Focus</h2>
@@ -423,9 +385,10 @@
             <div class="text-content highlight-text">
                 Gentle touch in these areas can quiet your body's stress signals, lower heart rate, and bring back a sense of ease in minutes.
             </div>
-        </div>
+        </section>
 
-        <div class="section">
+        <!-- HIDDEN CALM SWITCH -->
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">🧠</span>
                 <h2>Meet the Hidden Calm Switch</h2>
@@ -439,9 +402,10 @@
             <div class="text-content highlight-text">
                 That's why a soft hand on the neck, a warm shower, or even putting on headphones can feel instantly grounding — these actions stimulate vagal pathways designed to sense warmth, rhythm, and care.
             </div>
-        </div>
+        </section>
 
-        <div class="section">
+        <!-- WHY IT MATTERS -->
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">☀️</span>
                 <h2>Why It Matters</h2>
@@ -460,14 +424,14 @@
             <div class="text-content highlight-text">
                 By re-activating the vagus through gentle sensory input, you help your body shift back into recovery mode — the state where digestion, focus, and repair naturally improve.
             </div>
-        </div>
+        </section>
 
-        <div class="section">
+        <!-- SCIENCE FACTS -->
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">💡</span>
                 <h2>Science Facts — Touch and the Vagus</h2>
             </div>
-            
             <div class="science-fact">
                 <div class="fact-item">
                     <span class="highlight-text">🖐</span> Light touch and pressure on areas supplied by the auricular branch of the vagus nerve lower sympathetic activity and slow heart rate (Frangos et al., Brain Stimulation 2015).
@@ -479,9 +443,10 @@
                     <span class="highlight-text">💤</span> Massage of the neck and shoulder muscles increases parasympathetic tone — meaning it activates your body's calm and recovery system — and lowers cortisol within minutes (Field et al., Complementary Therapies in Medicine 2016).
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
+        <!-- LAB MARKERS -->
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">🧬</span>
                 <h2>What About Labs?</h2>
@@ -490,44 +455,46 @@
                 These biomarkers can show whether chronic stress is keeping your "calm switch" off — and how your recovery system responds over time:
             </div>
 
-            <table class="biomarker-table">
-                <thead>
-                    <tr>
-                        <th>Biomarker</th>
-                        <th>What It Reveals About Stress Balance</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="biomarker-name">Cortisol (AM / PM)</span></td>
-                        <td>Persistently high = nervous system stuck in alert mode (Kumari et al., Psychoneuroendocrinology 2009).</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">DHEA-S</span></td>
-                        <td>Protects brain and mood from cortisol overload (Kalman et al., Stress 2018).</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Magnesium</span></td>
-                        <td>Deficiency increases neck muscle tension and nerve excitability (DiNicolantonio et al., Open Heart 2018).</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Thyroid (TSH, FT4)</span></td>
-                        <td>Low thyroid function slows circulation, raising neck stiffness (Ablimit et al., Endocrine Connections 2020).</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="biomarker-table-wrapper">
+                <table class="biomarker-table">
+                    <thead>
+                        <tr>
+                            <th>Biomarker</th>
+                            <th>What It Reveals About Stress Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="biomarker-name">Cortisol (AM / PM)</span></td>
+                            <td>Persistently high = nervous system stuck in alert mode (Kumari et al., Psychoneuroendocrinology 2009).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="biomarker-name">DHEA-S</span></td>
+                            <td>Protects brain and mood from cortisol overload (Kalman et al., Stress 2018).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="biomarker-name">Magnesium</span></td>
+                            <td>Deficiency increases neck muscle tension and nerve excitability (DiNicolantonio et al., Open Heart 2018).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="biomarker-name">Thyroid (TSH, FT4)</span></td>
+                            <td>Low thyroid function slows circulation, raising neck stiffness (Ablimit et al., Endocrine Connections 2020).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <div class="text-content highlight-text">
                 Tracking these markers helps you see whether physical tension is reflecting deeper stress imbalance.
             </div>
-        </div>
+        </section>
 
-        <div class="section">
+        <!-- REFLECTION PROMPT -->
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">💭</span>
                 <h2>Reflection Prompt</h2>
             </div>
-            
             <div class="reflection-box">
                 <div class="reflection-text">
                     Where do you feel stress first — your jaw, shoulders, or chest?
@@ -536,9 +503,10 @@
                     Can you use touch instead of effort to signal calm back to your body?
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
+        <!-- PLAN TO ACTION -->
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">✅</span>
                 <h2>Plan to Action — Vagus Ear & Neck Massage</h2>
@@ -631,9 +599,10 @@
                     <div>A clearer, more focused mind after just a few minutes</div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
+        <!-- EVENING -->
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">🌙</span>
                 <h2>Evening Matters Too — Release Neck Tension Before Sleep</h2>
@@ -644,9 +613,10 @@
             <div class="text-content">
                 This small habit reduces nighttime stress and improves sleep quality (Field et al., 2016).
             </div>
-        </div>
+        </section>
 
-        <div class="section">
+        <!-- QUOTE + TOMORROW -->
+        <section class="section">
             <div class="quote-box">
                 <div class="quote-text">
                     Your vagus nerve listens not only to breath but also to touch.<br><br>
@@ -654,20 +624,23 @@
                     With daily practice, you'll notice fewer headaches, looser shoulders, and a quieter mind.
                 </div>
             </div>
-            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 2rem;">
+            <div class="tomorrow-text">
                 ✨ Tomorrow: you'll learn how to use a specific breathing reflex — the physiological sigh — to quickly release inner tension and reset your focus.
             </div>
-        </div>
+        </section>
 
-        <div class="footer">
-            <h2>📩 Get Your Personalized Lab Panel</h2>
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-topline"></div>
+            <div class="footer-headline">📩 Get Your Personalized Lab Panel</div>
             <div class="footer-text">
                 Write to us if you're interested in a personalised lab panel at the best price — with your own detailed report after the results are ready.
             </div>
             <div class="footer-cta-wrapper">
-                <a href="mailto:care@aura.care" class="footer-email">📧 care@aura.care</a>
+                <a class="footer-email" href="mailto:care@aura.care">📧 care@aura.care</a>
             </div>
-        </div>
-    </div>
+        </footer>
+
+    </main>
 </body>
 </html>
