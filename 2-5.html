@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 5 — Hidden Hunger: Full Stomach, Low Energy</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 5 — Vagus Touch Therapy: Rebuild Safety From Within</title>
     <style>
         * {
             margin: 0;
@@ -14,77 +14,78 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
             background: #FAF8F2;
-            padding: 2rem;
+            color: #172737;
             line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            max-width: 1000px;
+        .screen {
+            max-width: 520px;
             margin: 0 auto;
             background: #FFFEFB;
-            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-left: 1px solid rgba(0,0,0,0.04);
+            border-right: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.06);
         }
 
+        /* HEADER */
         .header {
             background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem;
-        }
-
-        .week-label {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            margin-bottom: 0.5rem;
-            opacity: 0.9;
+            color: #FFFFFF;
+            padding: 2rem 1.5rem;
         }
 
         .day-label {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             letter-spacing: 0.3px;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             text-transform: uppercase;
         }
 
         h1 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
-            margin-bottom: 0.75rem;
             line-height: 1.3;
         }
 
+        /* SECTIONS */
         .section {
-            padding: 2rem 2.5rem;
-            border-bottom: 1px solid #F0F0F0;
+            padding: 1.5rem 1.5rem;
+            border-bottom: 1px solid #EFEFEF;
+            background: #FFFEFB;
+        }
+
+        .intro-section {
+            background: rgba(184,118,88,0.05);
+            border-bottom: 2px solid rgba(184,118,88,0.2);
         }
 
         .section-header {
             display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .section-icon {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
+            line-height: 1.2;
         }
 
         h2 {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             color: #172737;
-            line-height: 22px;
+            line-height: 1.3;
         }
 
         .text-content {
             font-size: 14px;
             font-weight: 500;
             color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
         }
 
         .highlight-text {
@@ -92,250 +93,207 @@
             color: #B87658;
         }
 
-        .intro-section {
-            background: rgba(184, 118, 88, 0.05);
-            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
-        }
-
         .bullet-list {
-            margin: 1.5rem 0;
+            margin: 0.75rem 0 1rem 1rem;
+            padding-left: 1rem;
         }
 
         .bullet-item {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
             font-size: 14px;
             font-weight: 500;
             color: #172737;
-            line-height: 20px;
-        }
-
-        .bullet-dot {
-            width: 6px;
-            height: 6px;
-            background: #B87658;
-            margin-top: 7px;
-            flex-shrink: 0;
-        }
-
-        .check-item {
-            display: flex;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
-        }
-
-        .check-mark {
-            color: #10B981;
-            font-weight: 700;
-            font-size: 16px;
-        }
-
-        .biomarker-card {
-            background: rgba(184, 118, 88, 0.08);
-            padding: 18px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .biomarker-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .biomarker-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            line-height: 20px;
-            flex: 1;
-        }
-
-        .biomarker-percentage {
-            font-size: 18px;
-            font-weight: 700;
-            color: #B87658;
-            margin-left: auto;
-        }
-
-        .progress-bar {
-            background: #E6E6E6;
-            height: 28px;
-            overflow: hidden;
-            margin-bottom: 0.75rem;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
-            transition: width 1s ease-out;
-        }
-
-        .biomarker-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            margin-top: 0.5rem;
-            line-height: 18px;
-        }
-
-        .reference-text {
-            font-size: 11px;
-            font-weight: 500;
-            color: #8C8C8C;
-            font-style: italic;
-            margin-top: 0.5rem;
-        }
-
-        .supplement-card {
-            background: white;
-            padding: 18px;
-            margin-bottom: 1.5rem;
-            border-left: 3px solid #B87658;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .supplement-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .supplement-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            line-height: 20px;
-        }
-
-        .supplement-desc {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
+            line-height: 1.4;
             margin-bottom: 0.5rem;
         }
 
-        .science-fact {
-            background: rgba(16, 185, 129, 0.08);
-            padding: 18px;
-            border-left: 3px solid #10B981;
-            margin: 1.5rem 0;
-            display: flex;
-            gap: 1rem;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        /* TABLE */
+        .biomarker-table-wrapper {
+            margin-top: 1rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
-        .fact-icon {
-            font-size: 1.75rem;
-            flex-shrink: 0;
+        .biomarker-table {
+            width: 100%;
+            min-width: 320px;
+            border-collapse: collapse;
+            background: #FFFFFF;
+            border: 1px solid #E6E6E6;
         }
 
-        .fact-content {
-            flex: 1;
+        .biomarker-table th {
+            background: rgba(184,118,88,0.1);
+            padding: 12px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            color: #172737;
+            border: 1px solid #E6E6E6;
+            line-height: 1.4;
         }
 
-        .fact-desc {
+        .biomarker-table td {
+            padding: 12px;
             font-size: 13px;
             font-weight: 500;
-            color: #656565;
-            line-height: 18px;
+            color: #172737;
+            line-height: 1.4;
+            border: 1px solid #E6E6E6;
         }
 
-        .action-section {
-            background: rgba(16, 185, 129, 0.08);
-            border-bottom: 3px solid #10B981;
+        .biomarker-table tr:nth-child(even) {
+            background: rgba(184,118,88,0.03);
         }
 
-        .action-highlight {
-            background: rgba(184, 118, 88, 0.1);
-            padding: 18px;
-            border-left: 3px solid #B87658;
-            font-size: 14px;
+        .biomarker-name {
+            font-weight: 600;
+            color: #B87658;
+        }
+
+        /* CALLOUT BLOCKS */
+        .science-fact,
+        .action-box,
+        .reflection-box,
+        .warning-box {
+            padding: 1rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+            border-left-width: 3px;
+            border-left-style: solid;
+            border-radius: 0;
+        }
+
+        .science-fact {
+            background: rgba(16,185,129,0.08);
+            border-left-color: #10B981;
+        }
+
+        .action-box {
+            background: rgba(16,185,129,0.08);
+            border-left-color: #10B981;
+        }
+
+        .reflection-box {
+            background: rgba(184,118,88,0.08);
+            border-left-color: #B87658;
+        }
+
+        .warning-box {
+            background: rgba(239,68,68,0.08);
+            border-left-color: #ef4444;
+        }
+
+        .fact-item {
+            font-size: 13px;
             font-weight: 500;
             color: #172737;
-            line-height: 20px;
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
         }
 
-        .action-content {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .action-icon {
-            font-size: 2.5rem;
-            flex-shrink: 0;
-        }
-
-        .action-text {
-            flex: 1;
+        .fact-item:last-child {
+            margin-bottom: 0;
         }
 
         .action-title {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             color: #172737;
+            line-height: 1.4;
             margin-bottom: 0.75rem;
-            line-height: 20px;
         }
 
-        .action-desc {
+        .reflection-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        /* STEPS */
+        .step-item {
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
             font-size: 14px;
             font-weight: 500;
             color: #172737;
-            line-height: 20px;
+            line-height: 1.4;
         }
 
+        .step-number {
+            font-weight: 700;
+            color: #10B981;
+            flex-shrink: 0;
+            line-height: 1.4;
+        }
+
+        /* VIDEO */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            padding-bottom: 56.25%;
+            margin: 1rem 0 1.5rem 0;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* QUOTE / TOMORROW */
         .quote-box {
-            background: rgba(184, 118, 88, 0.05);
-            padding: 2rem;
+            background: rgba(184,118,88,0.05);
+            border: 1px solid rgba(184,118,88,0.15);
             text-align: center;
-            margin: 2rem 0;
-            border: 1px solid rgba(184, 118, 88, 0.15);
+            padding: 1.5rem 1rem;
+            margin: 1.5rem 0;
         }
 
         .quote-text {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             color: #172737;
-            line-height: 24px;
+            line-height: 1.5;
             font-style: italic;
         }
 
-        .disclaimer-box {
-            background: rgba(239, 68, 68, 0.08);
-            padding: 18px;
-            border-left: 3px solid #ef4444;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .disclaimer-title {
-            font-size: 14px;
+        .tomorrow-text {
+            text-align: center;
+            font-size: 15px;
             font-weight: 600;
             color: #172737;
-            margin-bottom: 0.75rem;
-            line-height: 20px;
+            line-height: 1.4;
+            margin-top: 2rem;
         }
 
+        /* FOOTER */
         .footer {
             background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem 2.5rem;
+            color: #FFFFFF;
+            padding: 2rem 1.5rem 3rem 1.5rem;
             position: relative;
         }
 
-        .footer::before {
-            content: '';
+        .footer-topline {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
@@ -344,419 +302,348 @@
             background: linear-gradient(90deg, #D4956C 0%, #B87658 50%, #D4956C 100%);
         }
 
-        .footer h2 {
-            color: white;
-            margin-bottom: 1.5rem;
-            font-size: 22px;
+        .footer-headline {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.4;
+            margin-bottom: 1rem;
             display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            align-items: flex-start;
+            gap: 0.5rem;
         }
 
         .footer-text {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 500;
-            margin-bottom: 1.5rem;
-            line-height: 24px;
+            line-height: 1.4;
+            color: #FFFFFF;
             opacity: 0.95;
-        }
-
-        .footer-email {
-            color: white;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 18px;
-            display: inline-block;
-            padding: 14px 28px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid white;
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
-        }
-
-        .footer-email:hover {
-            background: white;
-            color: #B87658;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1.25rem;
         }
 
         .footer-cta-wrapper {
             text-align: center;
-            margin-top: 1rem;
+        }
+
+        .footer-email {
+            color: #FFFFFF;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 16px;
+            display: inline-block;
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid #FFFFFF;
+            line-height: 1.4;
+        }
+
+        @media (min-width: 481px) {
+            .header { padding: 2.5rem 2rem; }
+            .section { padding: 2rem 2rem; }
+            .footer { padding: 2.5rem 2rem 3rem 2rem; }
         }
 
         @media print {
             body {
-                background: white;
-                padding: 0;
+                background: #FFFFFF;
+            }
+            .screen {
+                max-width: 100%;
+                box-shadow: none;
+                border: none;
             }
         }
     </style>
-
-<style>
-/* === Aura App Final — structural overrides (colors preserved) === */
-*{box-sizing:border-box}
-body{background:#FAF8F2;margin:0;padding:2rem;line-height:1.5}
-.aura-app-final{max-width:1000px;margin:0 auto;background:#FFFEFB;border-radius:0 !important;box-shadow:0 3px 6px rgba(23,39,55,.12);border:1px solid rgba(0,0,0,.04)}
-/* Make sure page edges (outer header/footer/containers) have no rounding */
-header, footer, .header, .footer, .container, .wrap, .page, .page-wrap { border-radius:0 !important; }
-/* Provide consistent inner section padding on mobile */
-@media (max-width:640px){
-  body{padding:0}
-  header, .header{padding:2rem 1.25rem !important}
-  section, .section, .content, .main, .container, .wrap{padding:1.25rem 1rem}
-  footer, .footer{padding:2rem 1.25rem !important}
-}
-@media print{
-  body{background:#fff;padding:0}
-  .aura-app-final{box-shadow:none;border:none}
-}
-
-</style>
 </head>
 <body>
-<div class="aura-app-final">
+    <main class="screen">
 
-    <div class="container">
-        <div class="header">
+        <!-- HEADER -->
+        <section class="header">
             <div class="day-label">DAY 5</div>
-            <h1>Hidden Hunger: Full Stomach, Low Energy</h1>
-        </div>
+            <h1>Vagus Touch Therapy: Rebuild Safety From Within</h1>
+        </section>
 
-        <div class="section intro-section">
+        <!-- DAILY FOCUS -->
+        <section class="section intro-section">
             <div class="section-header">
-                <span class="section-icon">😴</span>
-                <h2>When Eating Enough Isn't Enough</h2>
+                <span class="section-icon">🤲</span>
+                <h2>Daily Focus</h2>
             </div>
             <div class="text-content">
-                You can have a full plate and still feel drained.
+                Today you'll learn how your body recognizes safety through touch — not just emotion.
             </div>
             <div class="text-content">
-                That's because your body doesn't run on calories alone — it runs on nutrients that help every cell make energy.
-            </div>
-            <div class="text-content">
-                Low iron, B vitamins, or protein mean your mitochondria can't turn food into fuel efficiently.
+                When you place your hands over your chest or belly, specialized nerve fibers send signals to the brain that slow your heartbeat, lower cortisol, and release tension.
             </div>
             <div class="text-content highlight-text">
-                ✨ Hidden hunger isn't about how much you eat — it's about what your cells are missing.
+                This gentle practice helps rebuild calm after stress and teaches your body to feel supported from the inside out.
             </div>
-        </div>
+        </section>
 
-        <div class="section">
+        <!-- WHY TOUCH CALMS -->
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">🧠</span>
-                <h2>Inside Cellular Energy</h2>
+                <h2>Why Touch Calms the Nervous System</h2>
             </div>
             <div class="text-content">
-                Every time you eat, nutrients act like spark plugs that power your cells.
+                From birth, your body learns to associate steady, warm contact with safety.
             </div>
             <div class="text-content">
-                Protein provides amino acids to build enzymes and repair tissues.
+                Touch-sensitive nerves in the skin — called C-tactile fibers — connect directly to brain regions that regulate heart rate, emotion, and social bonding.
             </div>
             <div class="text-content">
-                Iron and B12 carry oxygen into cells so mitochondria can make ATP — your body's real energy currency.
+                When these fibers are activated, they trigger the vagus nerve to lower heart rate and increase oxytocin, the "connection hormone."
             </div>
             <div class="text-content">
-                Magnesium and B vitamins turn food into usable fuel by activating hundreds of metabolic reactions.
+                That's why a hug, a hand on your heart, or even self-touch can slow breathing and quiet your mind.
             </div>
-            <div class="text-content">
-                When even one of these nutrients is low, your energy system slows — like a car running on half a battery.
-            </div>
-            <div class="science-fact">
-                <span class="fact-icon">💡</span>
-                <div class="fact-content">
-                    <div class="fact-desc">Research shows that up to 40 % of adults lack key micronutrients linked to fatigue and poor focus (NIH ODS 2023; Mayo Clinic 2024).</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">⚙️</span>
-                <h2>How Hidden Hunger Sneaks In</h2>
-            </div>
-            
-            <div class="bullet-list">
-                <div class="bullet-item">
-                    <div class="bullet-dot"></div>
-                    <div>Skipping protein-rich foods or eating mostly carbs.</div>
-                </div>
-
-                <div class="bullet-item">
-                    <div class="bullet-dot"></div>
-                    <div>Relying on refined grains, missing minerals and B vitamins.</div>
-                </div>
-
-                <div class="bullet-item">
-                    <div class="bullet-dot"></div>
-                    <div>Chronic stress or gut issues reducing absorption.</div>
-                </div>
-
-                <div class="bullet-item">
-                    <div class="bullet-dot"></div>
-                    <div>Restrictive dieting, vegan/vegetarian diets without planning.</div>
-                </div>
-            </div>
-
             <div class="text-content highlight-text">
-                🌿 Result: you eat enough volume but lack key nutrients — energy drops, focus fades, recovery slows.
+                You don't have to talk yourself into calm — your skin already knows the language.
             </div>
-        </div>
+        </section>
 
-        <div class="section">
+        <!-- HOW STRESS BLOCKS -->
+        <section class="section">
             <div class="section-header">
-                <span class="section-icon">🥦</span>
-                <h2>How to Refuel Your Cells</h2>
+                <span class="section-icon">☀️</span>
+                <h2>How Stress Blocks the Safety Signal</h2>
+            </div>
+            <div class="text-content">
+                When stress is chronic, the body becomes touch-deprived — muscles tighten, posture closes, and the vagus nerve becomes less responsive.
+            </div>
+            <div class="text-content">
+                This can lead to:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">faster heartbeat,</li>
+                <li class="bullet-item">shallow breathing,</li>
+                <li class="bullet-item">anxiety or emotional numbness,</li>
+                <li class="bullet-item">and trouble relaxing even in comfort.</li>
+            </ul>
+            <div class="text-content">
+                Reintroducing a soothing touch — even through your own hands — helps reverse this.
+            </div>
+            <div class="text-content highlight-text">
+                Each calm, steady touch strengthens the body's ability to recover faster from emotional or physical tension.
+            </div>
+        </section>
+
+        <!-- SCIENCE FACTS -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts — Touch and Vagal Calm</h2>
             </div>
             
-            <div class="check-item">
-                <span class="check-mark">✅</span>
-                <div><span class="highlight-text">Prioritize protein:</span> aim for 20–30 g per meal from eggs, fish, legumes, or tofu.</div>
+            <div class="science-fact">
+                <div class="fact-item">
+                    <span class="highlight-text">🧠</span> Gentle self-touch or hand placement over the chest increases parasympathetic (vagal) activity and heart-rate variability (McGlone et al., Neuroscience &amp; Biobehavioral Reviews 2014).
+                </div>
+                <div class="fact-item">
+                    <span class="highlight-text">🤍</span> Touch increases oxytocin — a hormone that builds trust and emotional connection — and lowers cortisol, the main stress hormone, helping you feel calmer and more emotionally balanced (Walker et al., Psychoneuroendocrinology 2017).
+                </div>
+                <div class="fact-item">
+                    <span class="highlight-text">💤</span> Warm hand placement on the chest before sleep enhances relaxation and shortens time to fall asleep (Sato et al., Sleep Health 2020).
+                </div>
+                <div class="fact-item">
+                    <span class="highlight-text">🩺</span> Regular self-soothing touch practices lower blood pressure and stress perception (Field, Complementary Therapies in Medicine 2016).
+                </div>
             </div>
+        </section>
 
-            <div class="check-item">
-                <span class="check-mark">✅</span>
-                <div><span class="highlight-text">Add iron foods:</span> beef, lentils, pumpkin seeds, spinach (pair plant sources with vitamin C).</div>
-            </div>
-
-            <div class="check-item">
-                <span class="check-mark">✅</span>
-                <div><span class="highlight-text">Don't skip B-rich foods:</span> eggs, salmon, chickpeas, oats.</div>
-            </div>
-
-            <div class="check-item">
-                <span class="check-mark">✅</span>
-                <div><span class="highlight-text">Cook in cast-iron cookware:</span> it can raise iron content in meals.</div>
-            </div>
-
-            <div class="reference-text" style="margin-top: 1.5rem;">
-                📚 Cleveland Clinic 2024; NIH Dietary Guidelines 2023.
-            </div>
-        </div>
-
-        <div class="section">
+        <!-- LAB MARKERS -->
+        <section class="section">
             <div class="section-header">
-                <span class="section-icon">🧪</span>
+                <span class="section-icon">🧬</span>
                 <h2>What About Labs?</h2>
             </div>
             <div class="text-content">
-                These markers reveal if "hidden hunger" is behind your fatigue.
+                Your body's stress response and emotional regulation are visible in several biomarkers:
             </div>
 
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">🩸</span>
-                    <div class="biomarker-name">Ferritin</div>
-                    <div class="biomarker-percentage">70%</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 70%;"></div>
-                </div>
-                <div class="biomarker-desc">Shows iron storage. Low (< 40 µg/L) = common reason for fatigue despite eating well.</div>
-                <div class="reference-text">📚 Beard et al., 2006, Am J Clin Nutr.</div>
+            <div class="biomarker-table-wrapper">
+                <table class="biomarker-table">
+                    <thead>
+                        <tr>
+                            <th>Biomarker</th>
+                            <th>What It Shows About Emotional Calm</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="biomarker-name">Cortisol (AM / PM)</span></td>
+                            <td>Lower levels reflect stronger recovery after stress (Kumari et al., 2009).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="biomarker-name">DHEA-S</span></td>
+                            <td>Supports emotional resilience and balances cortisol (Kalman et al., 2018).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="biomarker-name">Magnesium</span></td>
+                            <td>Low magnesium amplifies tension and stress sensitivity (DiNicolantonio et al., 2018).</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </section>
 
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">🧩</span>
-                    <div class="biomarker-name">Vitamin B12</div>
-                    <div class="biomarker-percentage">65%</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 65%;"></div>
-                </div>
-                <div class="biomarker-desc">Key for red-blood-cell and nerve energy. Low = mental fog + tiredness.</div>
-                <div class="reference-text">📚 Malouf & Areosa Sastre, 2016, Cochrane Rev.</div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">💫</span>
-                    <div class="biomarker-name">Folate (B9)</div>
-                    <div class="biomarker-percentage">60%</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 60%;"></div>
-                </div>
-                <div class="biomarker-desc">Works with B12 for cell repair; deficiency worsens fatigue.</div>
-                <div class="reference-text">📚 NIH ODS 2023.</div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">🪨</span>
-                    <div class="biomarker-name">Magnesium (RBC)</div>
-                    <div class="biomarker-percentage">55%</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 55%;"></div>
-                </div>
-                <div class="biomarker-desc">Cofactor in ATP production; low levels slow metabolism.</div>
-                <div class="reference-text">📚 Serefko et al., 2016, Pharmacol Reports.</div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">🍗</span>
-                    <div class="biomarker-name">Albumin / Total Protein</div>
-                    <div class="biomarker-percentage">50%</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 50%;"></div>
-                </div>
-                <div class="biomarker-desc">Reflects protein intake & absorption. Low = insufficient amino acids for energy enzymes.</div>
-                <div class="reference-text">📚 Clin Nutr 2022.</div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">☀️</span>
-                    <div class="biomarker-name">Vitamin D (25-OH)</div>
-                    <div class="biomarker-percentage">45%</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 45%;"></div>
-                </div>
-                <div class="biomarker-desc">Supports muscle strength & mitochondrial health.</div>
-                <div class="reference-text">📚 Front Endocrinol 2021.</div>
-            </div>
-
-            <div class="text-content highlight-text" style="margin-top: 2rem;">
-                ✨ Together, these markers explain why energy can drop even when your plate looks full.
-            </div>
-        </div>
-
-        <div class="section">
+        <!-- REFLECTION PROMPT -->
+        <section class="section">
             <div class="section-header">
-                <span class="section-icon">💊</span>
-                <h2>Smart Support — Only If Labs Say So</h2>
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            
+            <div class="reflection-box">
+                <div class="reflection-text">
+                    How do you usually calm yourself when stressed — distraction, effort, or stillness?
+                </div>
+                <div class="reflection-text">
+                    Can you replace one moment of "self-control" today with a moment of self-comfort?
+                </div>
+            </div>
+        </section>
+
+        <!-- PLAN TO ACTION -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Vagus Self-Holding Calm</h2>
             </div>
 
-            <div class="disclaimer-box">
-                <div class="disclaimer-title">🧾 Disclaimer</div>
+            <div class="action-box">
+                <div class="action-title">Goal: restore emotional balance and signal safety through touch.</div>
+                <div class="text-content" style="margin-bottom: 1rem;">Time: 5 minutes, any time you feel tense or emotionally overwhelmed.</div>
+                <div class="text-content highlight-text" style="margin-bottom: 0;">Pro tip: Try this before sleep, after arguments, or during travel to instantly ground your nervous system.</div>
+            </div>
+
+            <div class="warning-box">
+                <div class="warning-title">⚠️ Safety Note</div>
                 <div class="text-content" style="margin-bottom: 0;">
-                    Supplements should be used only after lab testing and under professional guidance.
+                    If physical touch feels triggering, start by resting your hands on neutral areas like shoulders or upper arms instead of the chest.
                 </div>
             </div>
 
-            <div class="supplement-card">
-                <div class="supplement-header">
-                    <span class="section-icon">🩸</span>
-                    <div class="supplement-name">Iron (bisglycinate form)</div>
-                </div>
-                <div class="supplement-desc">Restore only if ferritin < 40 µg/L.</div>
-                <div class="reference-text">📚 Mayo Clinic 2024.</div>
+            <div class="step-item">
+                <span class="step-number">1️⃣</span>
+                <div>Find a quiet spot. Sit or lie down comfortably.</div>
             </div>
 
-            <div class="supplement-card">
-                <div class="supplement-header">
-                    <span class="section-icon">🧩</span>
-                    <div class="supplement-name">Vitamin B12 (methylcobalamin or hydroxocobalamin)</div>
-                </div>
-                <div class="supplement-desc">Boosts energy if low.</div>
-                <div class="reference-text">📚 Cochrane Rev 2016.</div>
+            <div class="step-item">
+                <span class="step-number">2️⃣</span>
+                <div>Place one hand on your chest and the other on your belly.</div>
             </div>
 
-            <div class="supplement-card">
-                <div class="supplement-header">
-                    <span class="section-icon">🪨</span>
-                    <div class="supplement-name">Magnesium Glycinate + B-Complex</div>
-                </div>
-                <div class="supplement-desc">Support mitochondrial function & reduce fatigue.</div>
-                <div class="reference-text">📚 NIH ODS 2023.</div>
+            <div class="step-item">
+                <span class="step-number">3️⃣</span>
+                <div>Inhale deeply through your nose for 4 seconds, feeling both hands rise.</div>
             </div>
 
-            <div class="supplement-card">
-                <div class="supplement-header">
-                    <span class="section-icon">☀️</span>
-                    <div class="supplement-name">Vitamin D3 (K2 combo)</div>
-                </div>
-                <div class="supplement-desc">If blood level < 30 ng/mL.</div>
-                <div class="reference-text">📚 Cleveland Clinic 2023.</div>
+            <div class="step-item">
+                <span class="step-number">4️⃣</span>
+                <div>Exhale slowly for 6 seconds, noticing your heartbeat under your top hand.</div>
             </div>
 
-            <div class="text-content highlight-text" style="margin-top: 2rem;">
-                🧠 Supplements correct deficiencies; real recovery starts with nutrient-dense meals.
+            <div class="step-item">
+                <span class="step-number">5️⃣</span>
+                <div>Stay still for 2–3 minutes, focusing on warmth and steady rhythm.</div>
             </div>
-        </div>
 
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🚶‍♀️</span>
-                <h2>Science Spark</h2>
+            <div class="step-item">
+                <span class="step-number">6️⃣</span>
+                <div>If emotions arise, let them flow — your body is releasing stored tension.</div>
+            </div>
+
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/6Ig3_-XvzOo" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.5rem;">
+                <span class="highlight-text">Why this works:</span>
             </div>
             <div class="text-content">
-                People with ferritin below 40 µg/L show ~30 % lower aerobic capacity and slower oxygen uptake — improving iron stores restores vitality within weeks.
+                Your palms transmit warmth and gentle pressure that activate vagal sensory fibers, increasing oxytocin and lowering cortisol.
             </div>
-            <div class="reference-text">
-                📚 Hinton et al., J Appl Physiol 2014; Beard et al., Am J Clin Nutr 2006.
+            <div class="text-content">
+                This "bottom-up" approach bypasses overthinking and directly tells your brain you're safe (McGlone 2014; Field 2016).
             </div>
-        </div>
 
-        <div class="section action-section">
-            <div class="action-highlight">
-                <div class="action-content">
-                    <span class="action-icon">🚀</span>
-                    <div class="action-text">
-                        <div class="action-title">Plan to Action — Add Protein Power</div>
-                        <div class="action-desc">
-                            Keep stacking your energy habits:
-                        </div>
-                    </div>
+            <div class="action-box" style="margin-top: 1.5rem;">
+                <div class="action-title">What to Expect:</div>
+                
+                <div class="step-item">
+                    <span class="step-number">1️⃣</span>
+                    <div>Noticeable drop in stress and inner tension</div>
                 </div>
-                <div class="check-item">
-                    <span class="check-mark">✅</span>
-                    <div><span class="highlight-text">Day 1:</span> Eat protein or fiber before sweets — to steady glucose and dopamine.</div>
+
+                <div class="step-item">
+                    <span class="step-number">2️⃣</span>
+                    <div>Calmer heartbeat and easier breathing</div>
                 </div>
-                <div class="check-item">
-                    <span class="check-mark">✅</span>
-                    <div><span class="highlight-text">Day 2:</span> Replenish minerals before salt — to calm adrenal stress.</div>
+
+                <div class="step-item">
+                    <span class="step-number">3️⃣</span>
+                    <div>Warmth spreading through the chest and belly</div>
                 </div>
-                <div class="check-item">
-                    <span class="check-mark">✅</span>
-                    <div><span class="highlight-text">Day 3:</span> Swap junk food for real, satisfying foods that reward your brain.</div>
+
+                <div class="step-item">
+                    <span class="step-number">4️⃣</span>
+                    <div>A sense of emotional safety and relaxation</div>
                 </div>
-                <div class="check-item">
-                    <span class="check-mark">✅</span>
-                    <div><span class="highlight-text">Day 4:</span> Walk 10 minutes after meals — to stabilize energy.</div>
-                </div>
-                <div class="check-item">
-                    <span class="check-mark">🌿</span>
-                    <div><span class="highlight-text">Today:</span> Make sure every meal contains a visible protein source — eggs, fish, beans, or yogurt.</div>
-                </div>
-                <div class="text-content" style="margin-top: 1.5rem;">
-                    Protein slows glucose swings and gives your cells raw material to create lasting energy.
-                </div>
-                <div class="text-content highlight-text">
-                    ✨ Full plate ≠ full power — protein makes the difference.
+
+                <div class="step-item">
+                    <span class="step-number">5️⃣</span>
+                    <div>Deeper sleep and more grounded mood</div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
+        <!-- EVENING -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-icon">🌙</span>
+                <h2>Evening Matters Too — Touch Before Sleep</h2>
+            </div>
+            <div class="text-content">
+                Placing a warm hand over your heart for one minute before bed increases vagal tone and improves sleep depth (Sato et al., 2020).
+            </div>
+            <div class="text-content">
+                Repeat your slow 4–6 breathing and let your body sink into stillness.
+            </div>
+        </section>
+
+        <!-- QUOTE + TOMORROW -->
+        <section class="section">
             <div class="quote-box">
                 <div class="quote-text">
-                    You don't need more food — you need the right nutrients.<br>
-                    When you feed your cells what they're missing, tiredness fades and focus returns.
+                    Touch communicates what words can't — safety, connection, presence.<br><br>
+                    Each gentle contact strengthens your vagus nerve, balances emotion, and helps your body relearn what calm feels like.
                 </div>
             </div>
-            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 2rem;">
-                ✨ Energy isn't just calories — it's chemistry you can nourish.
+            <div class="tomorrow-text">
+                ✨ Tomorrow: you'll explore how posture and chest openness directly affect your breath, heart rhythm, and energy — and how expanding space in your body can instantly expand calm.
             </div>
-        </div>
+        </section>
 
-        <div class="footer">
-            <h2>📩 Get Your Personalized Lab Panel</h2>
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-topline"></div>
+            <div class="footer-headline">📩 Get Your Personalized Lab Panel</div>
             <div class="footer-text">
                 Write to us if you're interested in a personalised lab panel at the best price — with your own detailed report after the results are ready.
             </div>
             <div class="footer-cta-wrapper">
-                <a href="mailto:care@aura.care" class="footer-email">📧 care@aura.care</a>
+                <a class="footer-email" href="mailto:care@aura.care">📧 care@aura.care</a>
             </div>
-        </div>
-    </div>
+        </footer>
 
-</div>
+    </main>
 </body>
 </html>
