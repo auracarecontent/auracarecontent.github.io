@@ -1,12 +1,12 @@
 {
-  "version": "1.0.0",
-  "lastUpdated": "2025-11-04T00:00:00Z",
+  "version": "1.0.1",
+  "lastUpdated": "2025-11-04T00:40:00Z",
   "weeks": [
     {
       "id": "1",
       "week": 1,
       "title": "The Wake-Up Week",
-      "subtitle": "Begin your personalized health journey",
+      "subtitle": "Begin your personalized health journey!",
       "icon": "sunny-outline",
       "iconColor": "#8B7355",
       "status": "available",
