@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 5 — Hidden Hunger: Full Stomach, Low Energy</title>
+    <title>Day 5 — How Salt and Sugar Hijack Your Nervous System</title>
     <style>
         * {
             margin: 0;
@@ -18,8 +18,14 @@
             line-height: 1.5;
         }
 
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+        }
+
         .container {
-            max-width: 1000px;
+            max-width: 520px;
             margin: 0 auto;
             background: #FFFEFB;
             box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
@@ -33,12 +39,10 @@
             padding: 3rem;
         }
 
-        .week-label {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            margin-bottom: 0.5rem;
-            opacity: 0.9;
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1.5rem;
+            }
         }
 
         .day-label {
@@ -56,9 +60,21 @@
             line-height: 1.3;
         }
 
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+        }
+
         .section {
             padding: 2rem 2.5rem;
             border-bottom: 1px solid #F0F0F0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 1.5rem 1.25rem;
+            }
         }
 
         .section-header {
@@ -77,6 +93,12 @@
             font-weight: 700;
             color: #172737;
             line-height: 22px;
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 16px;
+            }
         }
 
         .text-content {
@@ -98,130 +120,16 @@
         }
 
         .bullet-list {
-            margin: 1.5rem 0;
+            margin: 1rem 0;
+            padding-left: 1.5rem;
         }
 
         .bullet-item {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
             font-size: 14px;
             font-weight: 500;
             color: #172737;
-            line-height: 20px;
-        }
-
-        .bullet-dot {
-            width: 6px;
-            height: 6px;
-            background: #B87658;
-            margin-top: 7px;
-            flex-shrink: 0;
-        }
-
-        .check-item {
-            display: flex;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
-        }
-
-        .check-mark {
-            color: #10B981;
-            font-weight: 700;
-            font-size: 16px;
-        }
-
-        .biomarker-card {
-            background: rgba(184, 118, 88, 0.08);
-            padding: 18px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .biomarker-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .biomarker-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            line-height: 20px;
-            flex: 1;
-        }
-
-        .biomarker-percentage {
-            font-size: 18px;
-            font-weight: 700;
-            color: #B87658;
-            margin-left: auto;
-        }
-
-        .progress-bar {
-            background: #E6E6E6;
-            height: 28px;
-            overflow: hidden;
-            margin-bottom: 0.75rem;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
-            transition: width 1s ease-out;
-        }
-
-        .biomarker-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            margin-top: 0.5rem;
-            line-height: 18px;
-        }
-
-        .reference-text {
-            font-size: 11px;
-            font-weight: 500;
-            color: #8C8C8C;
-            font-style: italic;
-            margin-top: 0.5rem;
-        }
-
-        .supplement-card {
-            background: white;
-            padding: 18px;
-            margin-bottom: 1.5rem;
-            border-left: 3px solid #B87658;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .supplement-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .supplement-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            line-height: 20px;
-        }
-
-        .supplement-desc {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
             margin-bottom: 0.5rem;
+            line-height: 20px;
         }
 
         .science-fact {
@@ -229,534 +137,443 @@
             padding: 18px;
             border-left: 3px solid #10B981;
             margin: 1.5rem 0;
-            display: flex;
-            gap: 1rem;
             box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
         }
 
-        .fact-icon {
-            font-size: 1.75rem;
-            flex-shrink: 0;
-        }
-
-        .fact-content {
-            flex: 1;
-        }
-
-        .fact-desc {
+        .fact-item {
             font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            line-height: 18px;
-        }
-
-        .action-section {
-            background: rgba(16, 185, 129, 0.08);
-            border-bottom: 3px solid #10B981;
-        }
-
-        .action-highlight {
-            background: rgba(184, 118, 88, 0.1);
-            padding: 18px;
-            border-left: 3px solid #B87658;
-            font-size: 14px;
             font-weight: 500;
             color: #172737;
             line-height: 20px;
+            margin-bottom: 0.75rem;
         }
 
-        .action-content {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+        .fact-item:last-child {
+            margin-bottom: 0;
         }
 
-        .action-icon {
-            font-size: 2.5rem;
-            flex-shrink: 0;
+        .info-box {
+            background: rgba(184, 118, 88, 0.05);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
         }
 
-        .action-text {
-            flex: 1;
+        .action-box {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
         }
 
         .action-title {
             font-size: 16px;
             font-weight: 600;
             color: #172737;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             line-height: 20px;
         }
 
-        .action-desc {
+        .step-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
             font-size: 14px;
             font-weight: 500;
             color: #172737;
             line-height: 20px;
         }
 
-        .quote-box {
-            background: rgba(184, 118, 88, 0.05);
-            padding: 2rem;
-            text-align: center;
-            margin: 2rem 0;
-            border: 1px solid rgba(184, 118, 88, 0.15);
+        .step-number {
+            font-weight: 700;
+            color: #10B981;
+            flex-shrink: 0;
         }
 
-        .quote-text {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            line-height: 24px;
-            font-style: italic;
-        }
-
-        .disclaimer-box {
-            background: rgba(239, 68, 68, 0.08);
+        .reflection-box {
+            background: rgba(184, 118, 88, 0.08);
             padding: 18px;
-            border-left: 3px solid #ef4444;
+            border-left: 3px solid #B87658;
             margin: 1.5rem 0;
             box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
         }
 
-        .disclaimer-title {
-            font-size: 14px;
+        .reflection-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+            margin-bottom: 0.5rem;
+        }
+
+        .reflection-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .biomarker-table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .biomarker-table thead {
+            background: rgba(184, 118, 88, 0.08);
+        }
+
+        .biomarker-table th {
+            padding: 14px 16px;
+            text-align: left;
+            font-size: 13px;
             font-weight: 600;
             color: #172737;
-            margin-bottom: 0.75rem;
-            line-height: 20px;
+            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        }
+
+        .biomarker-table td {
+            padding: 14px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .biomarker-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .biomarker-name {
+            font-weight: 600;
+            color: #172737;
         }
 
         .footer {
             background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
             color: white;
             padding: 3rem 2.5rem;
-            position: relative;
         }
 
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #D4956C 0%, #B87658 50%, #D4956C 100%);
+        @media (max-width: 768px) {
+            .footer {
+                padding: 2rem 1.5rem;
+            }
         }
 
-        .footer h2 {
-            color: white;
-            margin-bottom: 1.5rem;
-            font-size: 22px;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+        .footer-contact {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1.5rem;
+            margin: 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
         }
 
-        .footer-text {
-            font-size: 16px;
+        .footer-contact p {
+            font-size: 14px;
             font-weight: 500;
-            margin-bottom: 1.5rem;
-            line-height: 24px;
-            opacity: 0.95;
+            line-height: 20px;
+            margin: 0;
         }
 
-        .footer-email {
-            color: white;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 18px;
+        .contact-highlight {
+            font-weight: 600;
+        }
+
+        .contact-email {
             display: inline-block;
-            padding: 14px 28px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid white;
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
-        }
-
-        .footer-email:hover {
             background: white;
             color: #B87658;
+            padding: 12px 32px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            margin-top: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s;
+        }
+
+        .contact-email:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
-
-        .footer-cta-wrapper {
-            text-align: center;
-            margin-top: 1rem;
-        }
-
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-        }
     </style>
-
-<style>
-/* === Aura App Final — structural overrides (colors preserved) === */
-*{box-sizing:border-box}
-body{background:#FAF8F2;margin:0;padding:2rem;line-height:1.5}
-.aura-app-final{max-width:1000px;margin:0 auto;background:#FFFEFB;border-radius:0 !important;box-shadow:0 3px 6px rgba(23,39,55,.12);border:1px solid rgba(0,0,0,.04)}
-/* Make sure page edges (outer header/footer/containers) have no rounding */
-header, footer, .header, .footer, .container, .wrap, .page, .page-wrap { border-radius:0 !important; }
-/* Provide consistent inner section padding on mobile */
-@media (max-width:640px){
-  body{padding:0}
-  header, .header{padding:2rem 1.25rem !important}
-  section, .section, .content, .main, .container, .wrap{padding:1.25rem 1rem}
-  footer, .footer{padding:2rem 1.25rem !important}
-}
-@media print{
-  body{background:#fff;padding:0}
-  .aura-app-final{box-shadow:none;border:none}
-}
-
-</style>
 </head>
 <body>
-<div class="aura-app-final">
-
     <div class="container">
+        <!-- Header -->
         <div class="header">
-            <div class="day-label">DAY 5</div>
-            <h1>Hidden Hunger: Full Stomach, Low Energy</h1>
+            <div class="day-label">🍽️ DAY 5</div>
+            <h1>How Salt and Sugar Hijack Your Nervous System</h1>
         </div>
 
+        <!-- Daily Focus -->
         <div class="section intro-section">
             <div class="section-header">
-                <span class="section-icon">😴</span>
-                <h2>When Eating Enough Isn't Enough</h2>
+                <span class="section-icon">🌡️</span>
+                <h2>Daily Focus</h2>
             </div>
             <div class="text-content">
-                You can have a full plate and still feel drained.
+                Your nervous system runs on balance — the right mix of minerals, fluids, and energy.
             </div>
             <div class="text-content">
-                That's because your body doesn't run on calories alone — it runs on nutrients that help every cell make energy.
+                When you get too much salt or too many blood-sugar spikes, that balance collapses. The result? Your body holds on to water, your blood pressure rises, and your vagus nerve — the system that calms the heart — struggles to keep control.
             </div>
             <div class="text-content">
-                Low iron, B vitamins, or protein mean your mitochondria can't turn food into fuel efficiently.
-            </div>
-            <div class="text-content highlight-text">
-                ✨ Hidden hunger isn't about how much you eat — it's about what your cells are missing.
+                Today you'll learn how small daily choices in salt, hydration, and sugar rhythm can restore calm from the inside out.
             </div>
         </div>
 
+        <!-- Science Section -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💓</span>
+                <h2>The Science of Sodium and Sugar</h2>
+            </div>
+            <div class="text-content">
+                Salt (sodium) isn't the enemy — your body needs it to move electricity through nerves and muscles.
+            </div>
+            <div class="text-content">
+                But modern diets overload it, especially through processed foods and sauces.
+            </div>
+            <div class="text-content">
+                When sodium builds up, water follows it into your bloodstream, increasing blood volume and pressure.
+            </div>
+            <div class="text-content">
+                At the same time, high sugar intake causes insulin and adrenaline surges that tighten blood vessels and drop HRV.
+            </div>
+            <div class="text-content">
+                If this happens daily, your nervous system stays in a subtle state of alert — heart rate rises, arteries lose elasticity, and even mild stress feels amplified.
+            </div>
+            <div class="info-box">
+                <div class="text-content" style="margin: 0;">
+                    💡 The nervous system doesn't distinguish emotional tension from chemical tension — both can raise pressure.
+                </div>
+            </div>
+        </div>
+
+        <!-- Why It Matters -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧠</span>
-                <h2>Inside Cellular Energy</h2>
+                <h2>Why It Matters</h2>
             </div>
             <div class="text-content">
-                Every time you eat, nutrients act like spark plugs that power your cells.
+                Too much salt, not enough hydration, and sugar spikes make your vagus nerve less responsive.
             </div>
             <div class="text-content">
-                Protein provides amino acids to build enzymes and repair tissues.
+                This "silent overdrive" weakens your natural relaxation reflex.
             </div>
             <div class="text-content">
-                Iron and B12 carry oxygen into cells so mitochondria can make ATP — your body's real energy currency.
+                Rebalancing minerals and glucose helps your body recover that rhythm:
             </div>
-            <div class="text-content">
-                Magnesium and B vitamins turn food into usable fuel by activating hundreds of metabolic reactions.
+            <ul class="bullet-list">
+                <li class="bullet-item">Lower sodium = less water retention and vessel stiffness</li>
+                <li class="bullet-item">Balanced hydration = better oxygen and heart rhythm</li>
+                <li class="bullet-item">Stable glucose = smoother vagal tone and energy levels</li>
+            </ul>
+        </div>
+
+        <!-- Science Facts -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts — Electrolytes, Sugar, and Stress</h2>
             </div>
-            <div class="text-content">
-                When even one of these nutrients is low, your energy system slows — like a car running on half a battery.
-            </div>
+
             <div class="science-fact">
-                <span class="fact-icon">💡</span>
-                <div class="fact-content">
-                    <div class="fact-desc">Research shows that up to 40 % of adults lack key micronutrients linked to fatigue and poor focus (NIH ODS 2023; Mayo Clinic 2024).</div>
+                <div class="fact-item">
+                    Reducing sodium by 1 000 mg/day (half a teaspoon of salt) can lower systolic BP by 5–6 mmHg (He et al., 2020).
                 </div>
+                <div class="fact-item">
+                    Dehydration increases heart rate and cortisol within minutes (Armstrong et al., 2016).
+                </div>
+                <div class="fact-item">
+                    Glucose swings trigger sympathetic activation and inflammation even in non-diabetics (Ceriello et al., 2012).
+                </div>
+                <div class="fact-item">
+                    Balanced electrolytes (sodium, potassium, magnesium) improve HRV and blood vessel relaxation (Stanhewicz & Kenney, 2015).
+                </div>
+            </div>
+
+            <div class="text-content">
+                You can't calm your mind if your cells are thirsty.
             </div>
         </div>
 
+        <!-- Labs Section -->
         <div class="section">
             <div class="section-header">
-                <span class="section-icon">⚙️</span>
-                <h2>How Hidden Hunger Sneaks In</h2>
-            </div>
-            
-            <div class="bullet-list">
-                <div class="bullet-item">
-                    <div class="bullet-dot"></div>
-                    <div>Skipping protein-rich foods or eating mostly carbs.</div>
-                </div>
-
-                <div class="bullet-item">
-                    <div class="bullet-dot"></div>
-                    <div>Relying on refined grains, missing minerals and B vitamins.</div>
-                </div>
-
-                <div class="bullet-item">
-                    <div class="bullet-dot"></div>
-                    <div>Chronic stress or gut issues reducing absorption.</div>
-                </div>
-
-                <div class="bullet-item">
-                    <div class="bullet-dot"></div>
-                    <div>Restrictive dieting, vegan/vegetarian diets without planning.</div>
-                </div>
-            </div>
-
-            <div class="text-content highlight-text">
-                🌿 Result: you eat enough volume but lack key nutrients — energy drops, focus fades, recovery slows.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🥦</span>
-                <h2>How to Refuel Your Cells</h2>
-            </div>
-            
-            <div class="check-item">
-                <span class="check-mark">✅</span>
-                <div><span class="highlight-text">Prioritize protein:</span> aim for 20–30 g per meal from eggs, fish, legumes, or tofu.</div>
-            </div>
-
-            <div class="check-item">
-                <span class="check-mark">✅</span>
-                <div><span class="highlight-text">Add iron foods:</span> beef, lentils, pumpkin seeds, spinach (pair plant sources with vitamin C).</div>
-            </div>
-
-            <div class="check-item">
-                <span class="check-mark">✅</span>
-                <div><span class="highlight-text">Don't skip B-rich foods:</span> eggs, salmon, chickpeas, oats.</div>
-            </div>
-
-            <div class="check-item">
-                <span class="check-mark">✅</span>
-                <div><span class="highlight-text">Cook in cast-iron cookware:</span> it can raise iron content in meals.</div>
-            </div>
-
-            <div class="reference-text" style="margin-top: 1.5rem;">
-                📚 Cleveland Clinic 2024; NIH Dietary Guidelines 2023.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧪</span>
+                <span class="section-icon">🧬</span>
                 <h2>What About Labs?</h2>
             </div>
+
+            <table class="biomarker-table">
+                <thead>
+                    <tr>
+                        <th>Biomarker</th>
+                        <th>What It Reflects</th>
+                        <th>Effect of Hydration and Mineral Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="biomarker-name">Sodium & Potassium</span></td>
+                        <td>Electrolyte balance and nerve activity</td>
+                        <td>High sodium and low potassium are common in stress-related hypertension; improving this ratio lowers vascular tension</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">Glucose & HbA1c</span></td>
+                        <td>Blood-sugar stability and oxidative stress</td>
+                        <td>Frequent sugar spikes raise oxidative stress; steadier meals stabilize pressure</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">ApoB & LDL-Cholesterol</span></td>
+                        <td>Lipid transport and inflammation</td>
+                        <td>Elevated with high-sugar diets and chronic inflammation; improve when glucose and hydration stabilize</td>
+                    </tr>
+                </tbody>
+            </table>
+
             <div class="text-content">
-                These markers reveal if "hidden hunger" is behind your fatigue.
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">🩸</span>
-                    <div class="biomarker-name">Ferritin</div>
-                    <div class="biomarker-percentage">70%</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 70%;"></div>
-                </div>
-                <div class="biomarker-desc">Shows iron storage. Low (< 40 µg/L) = common reason for fatigue despite eating well.</div>
-                <div class="reference-text">📚 Beard et al., 2006, Am J Clin Nutr.</div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">🧩</span>
-                    <div class="biomarker-name">Vitamin B12</div>
-                    <div class="biomarker-percentage">65%</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 65%;"></div>
-                </div>
-                <div class="biomarker-desc">Key for red-blood-cell and nerve energy. Low = mental fog + tiredness.</div>
-                <div class="reference-text">📚 Malouf & Areosa Sastre, 2016, Cochrane Rev.</div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">💫</span>
-                    <div class="biomarker-name">Folate (B9)</div>
-                    <div class="biomarker-percentage">60%</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 60%;"></div>
-                </div>
-                <div class="biomarker-desc">Works with B12 for cell repair; deficiency worsens fatigue.</div>
-                <div class="reference-text">📚 NIH ODS 2023.</div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">🪨</span>
-                    <div class="biomarker-name">Magnesium (RBC)</div>
-                    <div class="biomarker-percentage">55%</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 55%;"></div>
-                </div>
-                <div class="biomarker-desc">Cofactor in ATP production; low levels slow metabolism.</div>
-                <div class="reference-text">📚 Serefko et al., 2016, Pharmacol Reports.</div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">🍗</span>
-                    <div class="biomarker-name">Albumin / Total Protein</div>
-                    <div class="biomarker-percentage">50%</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 50%;"></div>
-                </div>
-                <div class="biomarker-desc">Reflects protein intake & absorption. Low = insufficient amino acids for energy enzymes.</div>
-                <div class="reference-text">📚 Clin Nutr 2022.</div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">☀️</span>
-                    <div class="biomarker-name">Vitamin D (25-OH)</div>
-                    <div class="biomarker-percentage">45%</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 45%;"></div>
-                </div>
-                <div class="biomarker-desc">Supports muscle strength & mitochondrial health.</div>
-                <div class="reference-text">📚 Front Endocrinol 2021.</div>
-            </div>
-
-            <div class="text-content highlight-text" style="margin-top: 2rem;">
-                ✨ Together, these markers explain why energy can drop even when your plate looks full.
+                Hydration, balanced minerals, and stable blood sugar keep your nervous system grounded and your heart pressure steady.
             </div>
         </div>
 
+        <!-- Reflection -->
         <div class="section">
             <div class="section-header">
-                <span class="section-icon">💊</span>
-                <h2>Smart Support — Only If Labs Say So</h2>
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
             </div>
-
-            <div class="disclaimer-box">
-                <div class="disclaimer-title">🧾 Disclaimer</div>
-                <div class="text-content" style="margin-bottom: 0;">
-                    Supplements should be used only after lab testing and under professional guidance.
+            
+            <div class="reflection-box">
+                <div class="reflection-text">
+                    When do you tend to crave salty snacks or sweets — after stress, before bed, or during low energy?
                 </div>
-            </div>
-
-            <div class="supplement-card">
-                <div class="supplement-header">
-                    <span class="section-icon">🩸</span>
-                    <div class="supplement-name">Iron (bisglycinate form)</div>
+                <div class="reflection-text">
+                    How could you replace that moment with hydration or a balanced snack?
                 </div>
-                <div class="supplement-desc">Restore only if ferritin < 40 µg/L.</div>
-                <div class="reference-text">📚 Mayo Clinic 2024.</div>
-            </div>
-
-            <div class="supplement-card">
-                <div class="supplement-header">
-                    <span class="section-icon">🧩</span>
-                    <div class="supplement-name">Vitamin B12 (methylcobalamin or hydroxocobalamin)</div>
-                </div>
-                <div class="supplement-desc">Boosts energy if low.</div>
-                <div class="reference-text">📚 Cochrane Rev 2016.</div>
-            </div>
-
-            <div class="supplement-card">
-                <div class="supplement-header">
-                    <span class="section-icon">🪨</span>
-                    <div class="supplement-name">Magnesium Glycinate + B-Complex</div>
-                </div>
-                <div class="supplement-desc">Support mitochondrial function & reduce fatigue.</div>
-                <div class="reference-text">📚 NIH ODS 2023.</div>
-            </div>
-
-            <div class="supplement-card">
-                <div class="supplement-header">
-                    <span class="section-icon">☀️</span>
-                    <div class="supplement-name">Vitamin D3 (K2 combo)</div>
-                </div>
-                <div class="supplement-desc">If blood level < 30 ng/mL.</div>
-                <div class="reference-text">📚 Cleveland Clinic 2023.</div>
-            </div>
-
-            <div class="text-content highlight-text" style="margin-top: 2rem;">
-                🧠 Supplements correct deficiencies; real recovery starts with nutrient-dense meals.
             </div>
         </div>
 
+        <!-- Action Plan -->
         <div class="section">
             <div class="section-header">
-                <span class="section-icon">🚶‍♀️</span>
-                <h2>Science Spark</h2>
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — The Rebalance Routine</h2>
+            </div>
+
+            <div class="text-content">
+                Today's goal is to help your body restore calm chemistry:
+            </div>
+
+            <div class="action-box">
+                <div class="action-title">💠 The Rebalance Routine</div>
+                
+                <div class="step-item">
+                    <span class="step-number">🌅</span>
+                    <div><strong>Morning:</strong> Start the day with a full glass (250–300 ml) of mineral water or water with a pinch of sea salt.</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">☀️</span>
+                    <div><strong>Midday:</strong> Choose one meal with real potassium sources — avocado, leafy greens, lentils, or yogurt.</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">🌙</span>
+                    <div><strong>Evening:</strong> Avoid late sugary snacks; replace with herbal tea or magnesium-rich foods (pumpkin seeds, banana).</div>
+                </div>
+
+                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
+                    Each step helps the vagus nerve reset, restoring balance between alertness and calm.
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.5rem;">
+                <span class="highlight-text">🌿 Why This Works</span>
             </div>
             <div class="text-content">
-                People with ferritin below 40 µg/L show ~30 % lower aerobic capacity and slower oxygen uptake — improving iron stores restores vitality within weeks.
+                Balanced electrolytes regulate the tiny electrical signals that control heart rhythm.
             </div>
-            <div class="reference-text">
-                📚 Hinton et al., J Appl Physiol 2014; Beard et al., Am J Clin Nutr 2006.
+            <div class="text-content">
+                Stable glucose keeps your sympathetic system quiet, reducing vessel tension.
             </div>
-        </div>
+            <div class="text-content">
+                Together, they help your heart respond calmly instead of overreacting to daily stress.
+            </div>
 
-        <div class="section action-section">
-            <div class="action-highlight">
-                <div class="action-content">
-                    <span class="action-icon">🚀</span>
-                    <div class="action-text">
-                        <div class="action-title">Plan to Action — Add Protein Power</div>
-                        <div class="action-desc">
-                            Keep stacking your energy habits:
-                        </div>
-                    </div>
+            <div class="action-box" style="margin-top: 1.5rem;">
+                <div class="action-title">🔎 What to Expect (after 1–2 weeks)</div>
+                
+                <div class="step-item">
+                    <span class="step-number">💧</span>
+                    <div><strong>Hydration balance:</strong> ↑ 15–20% → clearer focus and calmer pulse.</div>
                 </div>
-                <div class="check-item">
-                    <span class="check-mark">✅</span>
-                    <div><span class="highlight-text">Day 1:</span> Eat protein or fiber before sweets — to steady glucose and dopamine.</div>
+
+                <div class="step-item">
+                    <span class="step-number">🩸</span>
+                    <div><strong>Systolic blood pressure:</strong> ↓ 4–6 mmHg → smoother circulation.</div>
                 </div>
-                <div class="check-item">
-                    <span class="check-mark">✅</span>
-                    <div><span class="highlight-text">Day 2:</span> Replenish minerals before salt — to calm adrenal stress.</div>
+
+                <div class="step-item">
+                    <span class="step-number">💓</span>
+                    <div><strong>HRV:</strong> ↑ 10–15% → stronger vagal response and energy recovery.</div>
                 </div>
-                <div class="check-item">
-                    <span class="check-mark">✅</span>
-                    <div><span class="highlight-text">Day 3:</span> Swap junk food for real, satisfying foods that reward your brain.</div>
+
+                <div class="step-item">
+                    <span class="step-number">🍬</span>
+                    <div><strong>Glucose variability:</strong> ↓ 20% → fewer mood dips and energy crashes.</div>
                 </div>
-                <div class="check-item">
-                    <span class="check-mark">✅</span>
-                    <div><span class="highlight-text">Day 4:</span> Walk 10 minutes after meals — to stabilize energy.</div>
-                </div>
-                <div class="check-item">
-                    <span class="check-mark">🌿</span>
-                    <div><span class="highlight-text">Today:</span> Make sure every meal contains a visible protein source — eggs, fish, beans, or yogurt.</div>
-                </div>
-                <div class="text-content" style="margin-top: 1.5rem;">
-                    Protein slows glucose swings and gives your cells raw material to create lasting energy.
-                </div>
-                <div class="text-content highlight-text">
-                    ✨ Full plate ≠ full power — protein makes the difference.
+
+                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
+                    Your nervous system thrives on stability — what you drink and eat teaches your heart how to stay steady.
                 </div>
             </div>
         </div>
 
+        <!-- Evening Section -->
         <div class="section">
-            <div class="quote-box">
-                <div class="quote-text">
-                    You don't need more food — you need the right nutrients.<br>
-                    When you feed your cells what they're missing, tiredness fades and focus returns.
-                </div>
+            <div class="section-header">
+                <span class="section-icon">🌙</span>
+                <h2>Evening Matters Too — Salt, Sleep, and Calm</h2>
+            </div>
+            <div class="text-content">
+                Late-night salty food keeps your heart rate higher during sleep.
+            </div>
+            <div class="text-content">
+                Choose lighter, water-rich meals and give your body time to exhale before rest.
+            </div>
+        </div>
+
+        <!-- Final Message -->
+        <div class="section">
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                <span class="highlight-text">🌞 Why This Works</span>
+            </div>
+            <div class="text-content">
+                Your cells read chemistry as emotion.
+            </div>
+            <div class="text-content">
+                When you balance hydration and sugar rhythm, you send your nervous system a message of safety — and your heart responds with calm precision.
             </div>
             <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 2rem;">
-                ✨ Energy isn't just calories — it's chemistry you can nourish.
+                ✨ Remember: Every sip of water and every balanced meal is a small act of nervous-system care. You don't have to give things up — just give your body rhythm, not spikes.
             </div>
         </div>
 
+        <!-- Footer -->
         <div class="footer">
-            <h2>📩 Get Your Personalized Lab Panel</h2>
-            <div class="footer-text">
-                Write to us if you're interested in a personalised lab panel at the best price — with your own detailed report after the results are ready.
-            </div>
-            <div class="footer-cta-wrapper">
-                <a href="mailto:care@aura.care" class="footer-email">📧 care@aura.care</a>
+            <div class="footer-contact">
+                <p>
+                    <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span>
+                </p>
+                <a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue →</a>
             </div>
         </div>
     </div>
-
-</div>
 </body>
 </html>

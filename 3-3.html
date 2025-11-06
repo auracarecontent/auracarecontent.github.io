@@ -1,242 +1,611 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Day 3 — Junk Food Traps & Dopamine Loops (App Final)</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{
-      font-family:-apple-system,BlinkMacSystemFont,'SF Pro','Roboto','Segoe UI',sans-serif;
-      background:#FAF8F2;
-      padding:2rem;
-      line-height:1.5;
-      color:#172737;
-    }
-    /* Container — remove outer rounding per app spec */
-    .container{
-      max-width:1000px;
-      margin:0 auto;
-      background:#FFFEFB;
-      border-radius:0; /* ensure no rounded corners */
-      box-shadow:0 3px 6px rgba(23,39,55,.15);
-      overflow:visible; /* avoid clipping at edges */
-      border:1px solid rgba(0,0,0,.04);
-    }
-    /* Header — keep gradient/colors, add subtle divider */
-    .header{
-      background:linear-gradient(135deg,#B87658 0%,#D4956C 100%);
-      color:#fff;
-      padding:3rem 2.5rem;
-      border-bottom:1px solid rgba(0,0,0,.06);
-    }
-    .day-label{font-size:12px;font-weight:700;letter-spacing:.3px;margin-bottom:1rem;text-transform:uppercase}
-    h1{font-size:22px;font-weight:700;margin-bottom:.75rem;line-height:1.3;color:#fff}
-    .section{padding:2rem 2.5rem;border-bottom:1px solid #F0F0F0}
-    .section-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
-    .section-icon{font-size:1.75rem}
-    h2{font-size:18px;font-weight:700;color:#172737;line-height:22px}
-    h3{font-size:16px;font-weight:600;color:#172737;line-height:20px}
-    .text-content{font-size:14px;font-weight:500;color:#172737;margin-bottom:1rem;line-height:20px}
-    .text-secondary{color:#656565}
-    .highlight-text{font-weight:600;color:#B87658}
-    .intro-section{background:rgba(184,118,88,.05);border-bottom:2px solid rgba(184,118,88,.2)}
-    .info-box{background:rgba(184,118,88,.1);padding:18px;border-radius:16px;border:1px solid rgba(184,118,88,.2);margin:1.5rem 0}
-    .check-item{display:flex;gap:.75rem;margin-bottom:.75rem;font-size:14px;font-weight:500;color:#172737;line-height:20px}
-    .check-mark{color:#10B981;font-weight:700;font-size:16px}
-    .biomarker-card{background:rgba(184,118,88,.08);padding:18px;border-radius:16px;margin-bottom:1.5rem;border:1px solid rgba(0,0,0,.04);box-shadow:0 2px 4px rgba(23,39,55,.08)}
-    .biomarker-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
-    .biomarker-name{font-size:16px;font-weight:600;color:#172737;line-height:20px;flex:1}
-    .biomarker-percentage{font-size:18px;font-weight:700;color:#B87658;margin-left:auto}
-    .progress-bar{background:#E6E6E6;border-radius:12px;height:28px;overflow:hidden;margin-bottom:.75rem;position:relative}
-    .progress-fill{height:100%;background:linear-gradient(90deg,#B87658 0%,#D4956C 100%);transition:width 1s ease-out;border-radius:12px}
-    .biomarker-desc{font-size:13px;font-weight:500;color:#656565;margin-top:.5rem;line-height:18px}
-    .reference-text{font-size:11px;font-weight:500;color:#8C8C8C;font-style:italic;margin-top:.5rem}
-    .supplement-card{background:#fff;padding:18px;border-radius:16px;margin-bottom:1.5rem;border-left:3px solid #B87658;box-shadow:0 2px 4px rgba(23,39,55,.08)}
-    .supplement-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
-    .supplement-name{font-size:16px;font-weight:600;color:#172737;line-height:20px}
-    .supplement-desc{font-size:14px;font-weight:500;color:#172737;line-height:20px;margin-bottom:.5rem}
-    .science-fact{background:rgba(16,185,129,.08);padding:18px;border-radius:12px;border-left:3px solid #10B981;margin:1.5rem 0;display:flex;gap:1rem;box-shadow:0 2px 4px rgba(23,39,55,.08)}
-    .fact-icon{font-size:1.75rem;flex-shrink:0}
-    .fact-content{flex:1}
-    .fact-title{font-weight:600;font-size:14px;color:#172737;margin-bottom:.5rem;line-height:20px}
-    .fact-desc{font-size:13px;font-weight:500;color:#656565;line-height:18px}
-    .action-section{background:rgba(16,185,129,.08);border-bottom:3px solid #10B981}
-    .action-highlight{background:rgba(184,118,88,.1);padding:18px;border-radius:12px;border-left:3px solid #B87658;font-size:14px;font-weight:500;color:#172737;line-height:20px}
-    .action-content{display:flex;gap:1rem;margin-bottom:1.5rem}
-    .action-icon{font-size:2.5rem;flex-shrink:0}
-    .action-text{flex:1}
-    .action-title{font-size:16px;font-weight:600;color:#172737;margin-bottom:.75rem;line-height:20px}
-    .action-desc{font-size:14px;font-weight:500;color:#172737;line-height:20px}
-    .quote-box{background:rgba(184,118,88,.05);padding:2rem;border-radius:16px;text-align:center;margin:2rem 0;border:1px solid rgba(184,118,88,.15)}
-    .quote-text{font-size:16px;font-weight:600;color:#172737;line-height:24px;font-style:italic}
-    .disclaimer-box{background:rgba(239,68,68,.08);padding:18px;border-radius:16px;border-left:3px solid #ef4444;margin:1.5rem 0;box-shadow:0 2px 4px rgba(23,39,55,.08)}
-    .disclaimer-title{font-size:14px;font-weight:600;color:#172737;margin-bottom:.75rem;line-height:20px}
-    /* Footer — keep gradient/colors, add divider, no rounding */
-    .footer{
-      background:linear-gradient(135deg,#B87658 0%,#D4956C 100%);
-      color:#fff;
-      padding:3rem 2.5rem;
-      position:relative;
-      border-top:1px solid rgba(0,0,0,.06);
-    }
-    .footer::before{
-      content:'';position:absolute;top:0;left:0;right:0;height:4px;
-      background:linear-gradient(90deg,#D4956C 0%,#B87658 50%,#D4956C 100%);
-    }
-    .footer h2{color:#fff;margin-bottom:1.5rem;font-size:22px;display:flex;align-items:center;gap:.75rem}
-    .footer-text{font-size:16px;font-weight:500;margin-bottom:1.5rem;line-height:24px;opacity:.95}
-    .footer-email{color:#fff;font-weight:700;text-decoration:none;font-size:18px;display:inline-block;padding:14px 28px;background:rgba(255,255,255,.2);border-radius:12px;border:2px solid #fff;transition:all .3s ease;margin-top:.5rem}
-    .footer-email:hover{background:#fff;color:#B87658;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
-    .footer-cta-wrapper{text-align:center;margin-top:1rem}
-    /* Mobile tweaks for app viewport */
-    @media (max-width:640px){
-      body{padding:0}
-      .header{padding:2rem 1.25rem}
-      .section{padding:1.25rem 1rem}
-      .footer{padding:2rem 1.25rem}
-    }
-    @media print{body{background:#fff;padding:0}.container{box-shadow:none;border:none}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3 — The Breathing Effect: The 5-Minute Reset to Lower Your Blood Pressure</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
+            background: #FAF8F2;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+        }
+
+        .container {
+            max-width: 520px;
+            margin: 0 auto;
+            background: #FFFEFB;
+            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .day-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+        }
+
+        .section {
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            font-size: 1.75rem;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #172737;
+            line-height: 22px;
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 16px;
+            }
+        }
+
+        .text-content {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #B87658;
+        }
+
+        .intro-section {
+            background: rgba(184, 118, 88, 0.05);
+            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        }
+
+        .bullet-list {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .bullet-item {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 0.5rem;
+            line-height: 20px;
+        }
+
+        .science-fact {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .fact-item {
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .fact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-box {
+            background: rgba(184, 118, 88, 0.05);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-box {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .step-number {
+            font-weight: 700;
+            color: #10B981;
+            flex-shrink: 0;
+        }
+
+        .reflection-box {
+            background: rgba(184, 118, 88, 0.08);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .reflection-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+            margin-bottom: 0.5rem;
+        }
+
+        .reflection-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .biomarker-table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .biomarker-table thead {
+            background: rgba(184, 118, 88, 0.08);
+        }
+
+        .biomarker-table th {
+            padding: 14px 16px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            color: #172737;
+            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        }
+
+        .biomarker-table td {
+            padding: 14px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .biomarker-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .biomarker-name {
+            font-weight: 600;
+            color: #172737;
+        }
+
+        .breath-step {
+            background: rgba(16, 185, 129, 0.05);
+            padding: 14px;
+            margin-bottom: 0.75rem;
+            border-left: 3px solid #10B981;
+        }
+
+        .breath-step-number {
+            font-weight: 700;
+            color: #10B981;
+            margin-right: 0.5rem;
+        }
+
+        .breath-step-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .footer-contact {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1.5rem;
+            margin: 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .footer-contact p {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            margin: 0;
+        }
+
+        .contact-highlight {
+            font-weight: 600;
+        }
+
+        .contact-email {
+            display: inline-block;
+            background: white;
+            color: #B87658;
+            padding: 12px 32px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            margin-top: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s;
+        }
+
+        .contact-email:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <div class="day-label">DAY 3</div>
-      <h1>Junk Food Traps & Dopamine Loops</h1>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="day-label">🌬️ DAY 3</div>
+            <h1>The Breathing Effect: The 5-Minute Reset to Lower Your Blood Pressure</h1>
+        </div>
+
+        <!-- Daily Focus -->
+        <div class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">🌡️</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Your breath is the most accessible way to talk to your heart.
+            </div>
+            <div class="text-content">
+                Every inhale speeds it up a little; every exhale slows it down.
+            </div>
+            <div class="text-content">
+                When these rhythms flow in balance, the vagus nerve activates, heart-rate variability (HRV) improves, and blood pressure naturally drops.
+            </div>
+            <div class="text-content">
+                Today you'll learn how five minutes of slow, rhythmic breathing can restore that inner balance — one calm breath at a time.
+            </div>
+        </div>
+
+        <!-- Science Section -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💓</span>
+                <h2>The Science of Rhythmic Breathing</h2>
+            </div>
+            <div class="text-content">
+                Your cardiovascular and nervous systems work like dance partners — when one moves too fast, the other loses rhythm.
+            </div>
+            <div class="text-content">
+                Slow, even breathing restores that synchrony.
+            </div>
+            <div class="text-content">
+                As you lengthen your exhale, stretch receptors in the lungs and baroreceptors in the chest send a "safe" signal to the brain.
+            </div>
+            <div class="text-content">
+                In response, the vagus nerve slows your pulse and widens blood vessels, improving oxygen delivery and vessel elasticity.
+            </div>
+            <div class="info-box">
+                <div class="text-content" style="margin: 0;">
+                    💡 In other words, slow breathing is a built-in pressure regulator — gentle, effective, and free.
+                </div>
+            </div>
+        </div>
+
+        <!-- Why It Matters -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Modern stress keeps the body in shallow-breathing mode — quick inhales, minimal exhales.
+            </div>
+            <div class="text-content">
+                This pattern raises sympathetic tone, increases cortisol, and keeps blood pressure elevated.
+            </div>
+            <div class="text-content">
+                Five minutes of slow breathing reverses that:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">HRV increases by 10–20%</li>
+                <li class="bullet-item">Heart rate slows by 3–5 beats per minute</li>
+                <li class="bullet-item">Systolic pressure can fall by up to 5–8 mmHg</li>
+                <li class="bullet-item">Mental focus and calm both improve within minutes</li>
+            </ul>
+        </div>
+
+        <!-- Science Facts -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts — Breath, Vagus and Pressure</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-item">
+                    Paced-breathing protocols (4 sec inhale / 6 sec exhale) raise vagal tone and HRV while lowering blood pressure (Lehrer et al., 2020).
+                </div>
+                <div class="fact-item">
+                    Regular practice improves endothelial function and nitric-oxide availability, helping arteries stay flexible (Joseph et al., 2019).
+                </div>
+                <div class="fact-item">
+                    Combining slow breathing with awareness reduces anxiety and cortisol more effectively than breath control alone (Zaccaro et al., 2018).
+                </div>
+            </div>
+
+            <div class="text-content">
+                Longer exhales teach your heart what safety feels like.
+            </div>
+        </div>
+
+        <!-- Labs Section -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+
+            <table class="biomarker-table">
+                <thead>
+                    <tr>
+                        <th>Biomarker</th>
+                        <th>Effect of Rhythmic Breathing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="biomarker-name">hs-CRP</span></td>
+                        <td>Decreases as vagal tone rises and inflammation lowers.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">ApoB & LDL-Cholesterol</span></td>
+                        <td>Improved oxygenation and nitric oxide release enhance lipid handling.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">HDL-Cholesterol</span></td>
+                        <td>Tends to rise with better vascular elasticity and oxygen flow.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">Triglycerides</span></td>
+                        <td>Normalize as circulation and metabolic control improve.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">Lp(a)</span></td>
+                        <td>May reduce in activity due to lower vascular tension over time.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="text-content">
+                Consistent rhythmic breathing supports smoother hormonal patterns, vessel flexibility, and metabolic calm.
+            </div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            
+            <div class="reflection-box">
+                <div class="reflection-text">
+                    When was the last time you noticed your breath slow down naturally — perhaps during music, a walk, or a quiet moment?
+                </div>
+                <div class="reflection-text">
+                    How did your body feel afterward?
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Plan -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — The 5-Minute Rhythm Reset</h2>
+            </div>
+
+            <div class="text-content">
+                Keep your rhythm anchors from previous days — hydration, morning light, and awareness breaks.
+            </div>
+            <div class="text-content">
+                Add today's new step:
+            </div>
+
+            <div class="action-box">
+                <div class="action-title">💠 5-Minute Rhythm Reset</div>
+
+                <div class="breath-step">
+                    <span class="breath-step-number">1️⃣</span>
+                    <span class="breath-step-text">Sit comfortably, relax your shoulders.</span>
+                </div>
+
+                <div class="breath-step">
+                    <span class="breath-step-number">2️⃣</span>
+                    <span class="breath-step-text">Inhale gently through your nose for 4 seconds.</span>
+                </div>
+
+                <div class="breath-step">
+                    <span class="breath-step-number">3️⃣</span>
+                    <span class="breath-step-text">Exhale softly through your mouth for 6 seconds.</span>
+                </div>
+
+                <div class="breath-step">
+                    <span class="breath-step-number">4️⃣</span>
+                    <span class="breath-step-text">Continue this pattern for 5 minutes (about 30 cycles).</span>
+                </div>
+
+                <div class="breath-step">
+                    <span class="breath-step-number">5️⃣</span>
+                    <span class="breath-step-text">Notice how your pulse and mind slow together.</span>
+                </div>
+
+                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
+                    Do this once in the morning and once before bed for best results — no equipment needed.
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.5rem;">
+                <span class="highlight-text">🌿 Why This Works</span>
+            </div>
+            <div class="text-content">
+                This breathing rate (about 6 breaths per minute) activates the baroreflex — the body's natural pressure-balancing mechanism.
+            </div>
+            <div class="text-content">
+                It increases HRV, reduces vessel resistance, and restores communication between the heart and brain.
+            </div>
+
+            <div class="action-box" style="margin-top: 1.5rem;">
+                <div class="action-title">🔎 What to Expect (after 2 weeks)</div>
+                
+                <div class="step-item">
+                    <span class="step-number">🫀</span>
+                    <div><strong>Resting heart rate:</strong> ↓ 3–5 bpm → calmer pulse and more efficient circulation.</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">💓</span>
+                    <div><strong>HRV:</strong> ↑ 10–20% → stronger vagal tone and stress resilience.</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">🩸</span>
+                    <div><strong>Systolic blood pressure:</strong> ↓ 5–8 mmHg → vessels relax more easily.</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">💭</span>
+                    <div><strong>Perceived stress:</strong> ↓ 20–25% → faster emotional recovery and mental clarity.</div>
+                </div>
+
+                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
+                    Small daily breathing sessions create measurable shifts in rhythm, calm, and vascular health.
+                </div>
+            </div>
+        </div>
+
+        <!-- Evening Section -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌙</span>
+                <h2>Evening Matters Too — Breathe Yourself to Rest</h2>
+            </div>
+            <div class="text-content">
+                Before bed, dim lights and breathe slowly for 2–3 minutes.
+            </div>
+            <div class="text-content">
+                This tells your vagus nerve the day is ending and prepares your body for deep rest (Stein et al., 2019).
+            </div>
+        </div>
+
+        <!-- Final Message -->
+        <div class="section">
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                <span class="highlight-text">🌞 Why This Works</span>
+            </div>
+            <div class="text-content">
+                Every slow breath is a signal of trust.
+            </div>
+            <div class="text-content">
+                The more you practice, the more your body learns that calm isn't danger — it's homeostasis.
+            </div>
+            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 2rem;">
+                ✨ Remember: Breathing isn't just air — it's information. Each steady exhale teaches your heart how to relax and your vessels how to flow freely.
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-contact">
+                <p>
+                    <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span>
+                </p>
+                <a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue →</a>
+            </div>
+        </div>
     </div>
-
-    <div class="section intro-section">
-      <div class="section-header"><span class="section-icon">🤯</span><h2>Why Junk Food Feels Irresistible</h2></div>
-      <div class="text-content">That bag of chips or ice cream after work isn't just about taste — it's brain chemistry.</div>
-      <div class="text-content">Ultra-processed foods are engineered to hit the "bliss point" — the exact mix of sugar, salt, and fat that makes your brain light up with dopamine, the reward chemical.</div>
-      <div class="text-content">Each bite feels satisfying, but the pleasure fades fast — and you're left wanting more.</div>
-      <div class="text-content highlight-text">✨ Your brain isn't addicted to food — it's chasing the next dopamine hit.</div>
-    </div>
-
-    <div class="section">
-      <div class="section-header"><span class="section-icon">🧠</span><h2>Inside the Dopamine Loop</h2></div>
-      <div class="text-content">Dopamine isn't about pleasure — it's about motivation. It pushes you to seek the thing that made you feel good last time.</div>
-      <div class="text-content">When you eat highly processed foods often, dopamine receptors become less sensitive — so you need more stimulation (more food, more flavor, more crunch).</div>
-      <div class="text-content">Over time, the brain's reward system gets rewired to respond stronger to junk food cues (ads, smells, stress) than to natural rewards like movement or social connection.</div>
-      <div class="science-fact"><span class="fact-icon section-icon">💡</span><div class="fact-content"><div class="fact-desc">Studies show that frequent consumption of ultra-processed foods desensitizes dopamine pathways similarly to addictive behaviors (Nature Neuroscience 2021; Cell Metabolism 2020).</div></div></div>
-    </div>
-
-    <div class="section">
-      <div class="section-header"><span class="section-icon">🍔</span><h2>How Junk Food Hijacks Energy and Mood</h2></div>
-      <div class="text-content">These foods spike blood sugar, flood dopamine, and then drop both — leaving you tired, foggy, and craving again.</div>
-      <div class="text-content">The brain interprets the low as "danger," sending hunger signals even when you're full.</div>
-      <div class="text-content">Stress, sleep deprivation, and scrolling through social media all worsen this cycle, amplifying the need for quick rewards.</div>
-      <div class="text-content highlight-text">🌿 Breaking it starts with balance — not restriction.</div>
-    </div>
-
-    <div class="section">
-      <div class="section-header"><span class="section-icon">🥦</span><h2>How to Break the Loop Naturally</h2></div>
-      <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Rebuild real reward.</span> Replace processed snacks with something that still feels rewarding — crunchy veggies with hummus, dark chocolate, or nuts.</div></div>
-      <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Move for dopamine.</span> Just 10 minutes of brisk walking or dancing raises dopamine naturally.</div></div>
-      <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Sleep for sensitivity.</span> Deep sleep resets your dopamine receptors. One late night = more cravings tomorrow.</div></div>
-      <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Crowd out, don't cut out.</span> Add color and nutrients — your brain will soon prefer the calm of real food.</div></div>
-      <div class="reference-text" style="margin-top:1.5rem">📚 Harvard Health 2024; Frontiers in Nutrition 2023; Nature Neuroscience 2021.</div>
-    </div>
-
-    <div class="section">
-      <div class="section-header"><span class="section-icon">🧪</span><h2>What About Labs?</h2></div>
-
-      <div class="biomarker-card">
-        <div class="biomarker-header"><span class="section-icon">🩸</span><div class="biomarker-name">Glucose & A1c</div><div class="biomarker-percentage">70%</div></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
-        <div class="biomarker-desc">Reflect energy stability. Frequent spikes mirror the crash-and-crave cycle.</div>
-        <div class="reference-text">📚 Zeevi et al., 2015, Cell Metabolism.</div>
-      </div>
-
-      <div class="biomarker-card">
-        <div class="biomarker-header"><span class="section-icon">🧠</span><div class="biomarker-name">Cortisol (AM / PM Curve)</div><div class="biomarker-percentage">65%</div></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div>
-        <div class="biomarker-desc">High evening cortisol strengthens emotional eating patterns.</div>
-        <div class="reference-text">📚 Rosmond et al., 2002, J Intern Med.</div>
-      </div>
-
-      <div class="biomarker-card">
-        <div class="biomarker-header"><span class="section-icon">🧩</span><div class="biomarker-name">Vitamin B12</div><div class="biomarker-percentage">60%</div></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
-        <div class="biomarker-desc">Key for dopamine and serotonin synthesis. Low = low motivation, low focus.</div>
-        <div class="reference-text">📚 Malouf & Areosa Sastre, 2016, Cochrane Rev.</div>
-      </div>
-
-      <div class="biomarker-card">
-        <div class="biomarker-header"><span class="section-icon">💫</span><div class="biomarker-name">Magnesium (RBC)</div><div class="biomarker-percentage">55%</div></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:55%"></div></div>
-        <div class="biomarker-desc">Essential for dopamine receptor sensitivity and stress control.</div>
-        <div class="reference-text">📚 Serefko et al., 2016, Pharmacol Reports.</div>
-      </div>
-
-      <div class="biomarker-card">
-        <div class="biomarker-header"><span class="section-icon">☀️</span><div class="biomarker-name">Vitamin D (25-OH)</div><div class="biomarker-percentage">50%</div></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div>
-        <div class="biomarker-desc">Supports dopamine neuron health and reward regulation.</div>
-        <div class="reference-text">📚 Eyles et al., 2013, Front Neuroanat.</div>
-      </div>
-
-      <div class="text-content highlight-text" style="margin-top:2rem">✨ Together, these markers show how your biology shapes willpower — and how restoring balance makes cravings fade naturally.</div>
-    </div>
-
-    <div class="section">
-      <div class="section-header"><span class="section-icon">💊</span><h2>Smart Support — Only If Labs Say So</h2></div>
-      <div class="disclaimer-box">
-        <div class="disclaimer-title">🧾 Disclaimer</div>
-        <div class="text-content" style="margin-bottom:0">Supplements should be used only after reviewing lab results with a qualified healthcare professional. They fine-tune true imbalances, not habits.</div>
-      </div>
-
-      <div class="supplement-card">
-        <div class="supplement-header"><span class="section-icon">🪨</span><div class="supplement-name">Magnesium</div></div>
-        <div class="supplement-desc">Improves dopamine sensitivity and reduces stress-related cravings.</div>
-        <div class="reference-text">📚 NIH ODS 2023.</div>
-      </div>
-
-      <div class="supplement-card">
-        <div class="supplement-header"><span class="section-icon">🧩</span><div class="supplement-name">L-Tyrosine</div></div>
-        <div class="supplement-desc">Amino acid building block for dopamine; may help if low B12 or protein intake.</div>
-        <div class="reference-text">📚 Front Pharmacol 2020.</div>
-      </div>
-
-      <div class="supplement-card">
-        <div class="supplement-header"><span class="section-icon">☀️</span><div class="supplement-name">Vitamin D & Omega-3</div></div>
-        <div class="supplement-desc">Support brain plasticity and mood balance.</div>
-        <div class="reference-text">📚 Mayo Clinic 2024.</div>
-      </div>
-
-      <div class="text-content highlight-text" style="margin-top:2rem">🧠 Supplements support brain chemistry; daily habits rebuild it.</div>
-    </div>
-
-    <div class="section">
-      <div class="section-header"><span class="section-icon">🚶‍♀️</span><h2>Science Spark</h2></div>
-      <div class="text-content">Research shows that even one week without ultra-processed foods increases dopamine receptor sensitivity — making natural rewards (like music, connection, and movement) feel stronger again.</div>
-      <div class="reference-text">📚 Hall et al., Cell Metabolism 2019; Nature Neuroscience 2021.</div>
-    </div>
-
-    <div class="section action-section">
-      <div class="action-highlight">
-        <div class="action-content"><span class="action-icon">🚀</span><div class="action-text"><div class="action-title">Plan to Action — Rebuild Your Reward Loop</div><div class="action-desc">Keep building your habit chain:</div></div></div>
-        <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Day 1:</span> Eat protein or fiber before sweets — to steady dopamine and glucose.</div></div>
-        <div class="check-item"><span class="check-mark">✅</span><div><span class="highlight-text">Day 2:</span> Replenish minerals before salt — to calm adrenal stress.</div></div>
-        <div class="check-item"><span class="check-mark">🌿</span><div><span class="highlight-text">Today:</span> When you crave junk food, swap one snack for a real-food version that still feels rewarding — like nuts, fruit, or dark chocolate.</div></div>
-        <div class="text-content" style="margin-top:1.5rem">Over time, your brain learns that pleasure can come without crashes.</div>
-        <div class="text-content highlight-text">✨ Feed satisfaction, not addiction.</div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="quote-box">
-        <div class="quote-text">Your brain loves reward — it's how you're wired for joy and learning.<br>You don't need to fight dopamine; you just need to teach it better options.</div>
-      </div>
-      <div class="text-content" style="text-align:center;font-size:16px;font-weight:600;margin-top:2rem">✨ Pleasure isn't the problem — imbalance is. Balance the chemistry, and freedom follows.</div>
-    </div>
-
-    <div class="footer">
-      <h2>📩 Get Your Personalized Lab Panel</h2>
-      <div class="footer-text">Write to us if you're interested in a personalised lab panel at the best price — with your own detailed report after the results are ready.</div>
-      <div class="footer-cta-wrapper"><a href="mailto:care@aura.care" class="footer-email">📧 care@aura.care</a></div>
-    </div>
-  </div>
 </body>
 </html>
