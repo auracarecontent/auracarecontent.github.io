@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1 — The Gut Feeling: How Your Belly Talks to Your Brain</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
+            background: #FAF8F2;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+        }
+
+        .container {
+            max-width: 520px;
+            margin: 0 auto;
+            background: #FFFEFB;
+            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .day-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+        }
+
+        .section {
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            font-size: 1.75rem;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #172737;
+            line-height: 22px;
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 16px;
+            }
+        }
+
+        .text-content {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #B87658;
+        }
+
+        .intro-section {
+            background: rgba(184, 118, 88, 0.05);
+            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        }
+
+        .bullet-list {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .bullet-item {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 0.5rem;
+            line-height: 20px;
+        }
+
+        .science-fact {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .fact-item {
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .fact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-box {
+            background: rgba(184, 118, 88, 0.05);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-box {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .step-number {
+            font-weight: 700;
+            color: #10B981;
+            flex-shrink: 0;
+        }
+
+        .reflection-box {
+            background: rgba(184, 118, 88, 0.08);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .reflection-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+            margin-bottom: 0.5rem;
+        }
+
+        .reflection-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .biomarker-table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            background: white;
+            border: 1px solid #E6E6E6;
+        }
+
+        .biomarker-table th {
+            background: #F7F7F7;
+            padding: 12px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 700;
+            color: #172737;
+            border-bottom: 2px solid #E6E6E6;
+        }
+
+        .biomarker-table td {
+            padding: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            border-bottom: 1px solid #F0F0F0;
+            line-height: 18px;
+        }
+
+        .biomarker-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .biomarker-name {
+            font-weight: 700;
+            color: #B87658;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem 2.5rem;
+            position: relative;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .footer-contact {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            margin: 0;
+        }
+
+        .contact-highlight {
+            font-weight: 600;
+        }
+
+        .contact-email {
+            color: #10B981;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="day-label">🌿 DAY 1</div>
+            <h1>The Gut Feeling: How Your Belly Talks to Your Brain</h1>
+        </div>
+
+        <div class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">🌞</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                You've felt it before — a "gut feeling," butterflies in your stomach, or that heavy knot when you're stressed. That's not just emotion — that's your gut talking to your brain.
+            </div>
+            <div class="text-content">
+                Your digestive system is home to trillions of bacteria that constantly send messages through the vagus nerve, a long pathway connecting your belly and your brain. These tiny messengers help shape how you feel, think, and even make decisions.
+            </div>
+            <div class="text-content">
+                When your gut is in balance, your mind feels calmer and more focused. When it's off — from stress, poor sleep, or unbalanced meals — your mood can dip, cravings appear, and energy drops.
+            </div>
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">💡 Your belly doesn't just digest food — it helps you digest life.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>The Science Behind the Feeling</h2>
+            </div>
+            <div class="text-content">
+                Your gut produces the same "feel-good" chemicals your brain uses — like serotonin (for calm and happiness), dopamine (for motivation), and GABA (for relaxation). Scientists call these neurotransmitters, which simply means the signals your body uses so your brain and organs can talk to each other.
+            </div>
+            <div class="text-content">
+                Up to 90% of serotonin is made in your intestines. That's why when your digestion is out of rhythm, your thoughts and mood can be too.
+            </div>
+            <div class="text-content">
+                Stress hormones like cortisol make gut walls tighter and digestion slower, which can lead to bloating or irritability. But calm breathing, regular meals, and enough fiber send a "you're safe" message to both your belly and your brain.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">When your gut feels safe, your whole system relaxes.</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts — Gut, Mood, and Focus</h2>
+            </div>
+            
+            <div class="science-fact">
+                <div class="fact-item">
+                    Gut bacteria create serotonin and dopamine, the same chemicals linked to calm and motivation (Cryan et al., Nat Rev Neurosci 2019).
+                </div>
+                <div class="fact-item">
+                    High stress or low fiber increase gut permeability ("leaky gut") and raise cortisol (Rea et al., Nat Rev Gastroenterol Hepatol 2020).
+                </div>
+                <div class="fact-item">
+                    Balanced, unhurried meals improve emotional stability and concentration (Johnstone et al., Nutrients 2021).
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+
+            <table class="biomarker-table">
+                <thead>
+                    <tr>
+                        <th>Biomarker</th>
+                        <th>What It Reflects in Gut–Brain Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="biomarker-name">Cortisol (AM/PM)</span></td>
+                        <td>Peaks when stress or gut imbalance occur; steadier rhythm means calmer digestion.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">hs-CRP</span></td>
+                        <td>Falls as gut diversity and barrier strength improve.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">Glucose / HbA1c</span></td>
+                        <td>Reflect energy stability; balanced sugar keeps thinking clear.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">ApoB / LDL-cholesterol</span></td>
+                        <td>Improve as inflammation decreases and fat metabolism normalizes.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">HDL-cholesterol</span></td>
+                        <td>Rises with regular movement and healthy gut bacteria.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="text-content">
+                Your gut's balance can be seen in your labs — calmer chemistry, steadier energy.
+            </div>
+            <div class="text-content" style="font-size: 12px; color: #656565;">
+                Sources: Cryan et al., Nat Rev Neurosci 2019 · Rea et al., Nat Rev Gastroenterol Hepatol 2020 · Mayer et al., Cell 2022
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            
+            <div class="reflection-box">
+                <div class="reflection-text">
+                    When do you feel most at ease in your stomach — after rest, connection, or a nourishing meal? Notice that moment — it's your body showing what balance feels like.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — The Slow First Bite</h2>
+            </div>
+
+            <div class="text-content">
+                Take your first bite slowly — about 20 seconds of full attention. Notice the texture, temperature, and flavor. This simple act activates your vagus nerve, helps your gut release digestive enzymes, and tells your brain you're safe and nourished. It's a small ritual that helps prevent stress eating and improves focus for the rest of the day.
+            </div>
+
+            <div class="action-box">
+                <div class="action-title">🧠 Evidence</div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Slow chewing increases serotonin and early satiety, reducing cortisol and overeating (Suzuki et al., Appetite 2017; Lehrer & Gevirtz, 2014).
+                </div>
+            </div>
+
+            <div class="action-box" style="margin-top: 1.5rem;">
+                <div class="action-title">🔎 What to Expect (after 1 week)</div>
+                
+                <div class="step-item">
+                    <span class="step-number">💓</span>
+                    <div><strong>Cortisol ↓ 10%</strong> → less tension before meals</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">🧘‍♀️</span>
+                    <div><strong>Digestive comfort ↑</strong> → less bloating or tightness</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">💭</span>
+                    <div><strong>Mood stability ↑</strong> → clearer, steadier focus</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
+                ✨ Calm starts with one small signal — a breath before you eat.
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="footer-contact">
+                <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span><br><br>
+<strong><a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue</a></strong>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

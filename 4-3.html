@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3 — 6 Signs Your Gut Inflammation Is Fueling Stress and Fatigue</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
+            background: #FAF8F2;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+        }
+
+        .container {
+            max-width: 520px;
+            margin: 0 auto;
+            background: #FFFEFB;
+            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .day-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+        }
+
+        .section {
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            font-size: 1.75rem;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #172737;
+            line-height: 22px;
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 16px;
+            }
+        }
+
+        .text-content {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #B87658;
+        }
+
+        .intro-section {
+            background: rgba(184, 118, 88, 0.05);
+            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        }
+
+        .bullet-list {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .bullet-item {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 0.5rem;
+            line-height: 20px;
+        }
+
+        .science-fact {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .fact-item {
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .fact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-box {
+            background: rgba(184, 118, 88, 0.05);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-box {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .step-number {
+            font-weight: 700;
+            color: #10B981;
+            flex-shrink: 0;
+        }
+
+        .reflection-box {
+            background: rgba(184, 118, 88, 0.08);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .reflection-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+            margin-bottom: 0.5rem;
+        }
+
+        .reflection-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .biomarker-table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            background: white;
+            border: 1px solid #E6E6E6;
+        }
+
+        .biomarker-table th {
+            background: #F7F7F7;
+            padding: 12px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 700;
+            color: #172737;
+            border-bottom: 2px solid #E6E6E6;
+        }
+
+        .biomarker-table td {
+            padding: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            border-bottom: 1px solid #F0F0F0;
+            line-height: 18px;
+        }
+
+        .biomarker-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .biomarker-name {
+            font-weight: 700;
+            color: #B87658;
+        }
+
+        .signs-list {
+            background: rgba(184, 118, 88, 0.05);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .sign-item {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 0.75rem;
+            line-height: 20px;
+        }
+
+        .sign-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem 2.5rem;
+            position: relative;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .footer-contact {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            margin: 0;
+        }
+
+        .contact-highlight {
+            font-weight: 600;
+        }
+
+        .contact-email {
+            color: #10B981;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="day-label">🌾 DAY 3</div>
+            <h1>6 Signs Your Gut Inflammation Is Fueling Stress and Fatigue</h1>
+        </div>
+
+        <div class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Sometimes fatigue and irritability don't start in your head — they start in your gut. When the gut lining becomes irritated or inflamed, tiny gaps appear that let stress signals, toxins, and inflammation molecules leak into the bloodstream. Your immune system treats this as danger, releasing cytokines — chemical messengers that make you feel tired, foggy, and tense.
+            </div>
+            <div class="text-content">
+                This reaction is often invisible — no pain, no fever — just low energy, brain fog, and a sense that your body's "volume" is turned too high. Rest doesn't fix it because the signal keeps repeating from the gut.
+            </div>
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">💡 True calm begins with a quiet gut.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">⚠️</span>
+                <h2>6 Common Signs of Gut Inflammation</h2>
+            </div>
+            
+            <div class="signs-list">
+                <div class="sign-item">
+                    <strong>1️⃣</strong> You wake up tired even after sleep.
+                </div>
+                <div class="sign-item">
+                    <strong>2️⃣</strong> You feel bloated or heavy after meals.
+                </div>
+                <div class="sign-item">
+                    <strong>3️⃣</strong> Mood swings or irritability appear for no clear reason.
+                </div>
+                <div class="sign-item">
+                    <strong>4️⃣</strong> Brain fog or trouble concentrating mid-day.
+                </div>
+                <div class="sign-item">
+                    <strong>5️⃣</strong> Cravings for sugar or "comfort foods."
+                </div>
+                <div class="sign-item">
+                    <strong>6️⃣</strong> Afternoon crashes — when energy suddenly drops.
+                </div>
+            </div>
+
+            <div class="text-content">
+                If several of these feel familiar, your gut may be sending stress signals to your brain — not the other way around.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💓</span>
+                <h2>The Science of the Gut–Inflammation Loop</h2>
+            </div>
+            <div class="text-content">
+                Your gut lining is protected by a thin layer of cells that renew every few days. Stress, poor diet, alcohol, and lack of sleep can weaken that barrier. Once it's "leaky," immune cells activate and raise inflammation markers like CRP and IL-6 — both linked to fatigue, anxiety, and higher cortisol.
+            </div>
+            <div class="text-content">
+                Restoring gut calm isn't about extreme diets — it's about rhythm: steady meals, colorful fiber, hydration, and at least one slow, peaceful moment daily.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Inflammation is your body's way of saying: "I'm working too hard — please slow down."</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts — Gut Inflammation and Fatigue</h2>
+            </div>
+            
+            <div class="science-fact">
+                <div class="fact-item">
+                    Elevated CRP and IL-6 correlate with chronic fatigue and low mood (Dantzer et al., Nat Rev Immunol 2018).
+                </div>
+                <div class="fact-item">
+                    Anti-inflammatory diets rich in fiber and polyphenols reduce fatigue scores by 25–30% (Jacka et al., Am J Psychiatry 2017).
+                </div>
+                <div class="fact-item">
+                    Gut barrier healing improves HRV and lowers cortisol (Bonaz et al., Front Neurosci 2018).
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+
+            <table class="biomarker-table">
+                <thead>
+                    <tr>
+                        <th>Biomarker</th>
+                        <th>What It Reflects in Gut–Brain Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="biomarker-name">hs-CRP / IL-6</span></td>
+                        <td>Inflammation markers that drop as gut lining heals and stress decreases.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">Cortisol (AM)</span></td>
+                        <td>Falls as immune and vagal tone rebalance.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">Glucose / HbA1c</span></td>
+                        <td>Stabilize with reduced inflammation and calmer digestion.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">ApoB / LDL-cholesterol</span></td>
+                        <td>Improve when oxidative stress and inflammation lower.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">Ferritin</span></td>
+                        <td>Can rise with inflammation; normalize as the gut barrier repairs.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="text-content">
+                Your labs often reveal what your body whispers — inflammation calms when rhythm returns.
+            </div>
+            <div class="text-content" style="font-size: 12px; color: #656565;">
+                Sources: Dantzer et al., Nat Rev Immunol 2018 · Jacka et al., Am J Psychiatry 2017 · Bonaz et al., Front Neurosci 2018
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            
+            <div class="reflection-box">
+                <div class="reflection-text">
+                    When does your energy feel lowest — after stress, certain foods, or late nights? Tracking those patterns helps you see your gut's emotional rhythm.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — One Step Today</h2>
+            </div>
+
+            <div class="text-content">
+                Add one extra color to your plate at lunch. Brightly colored fruits and vegetables (like berries, spinach, or peppers) are full of polyphenols that calm inflammation and support focus. Even one serving a day begins to reset your gut's balance.
+            </div>
+
+            <div class="action-box">
+                <div class="action-title">🧠 Evidence</div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Polyphenol-rich diets lower IL-6 and improve mood in 1–2 weeks (Wastyk et al., Cell 2021).
+                </div>
+            </div>
+
+            <div class="action-box" style="margin-top: 1.5rem;">
+                <div class="action-title">🔎 What to Expect (after 1–2 weeks)</div>
+                
+                <div class="step-item">
+                    <span class="step-number">💭</span>
+                    <div><strong>Focus ↑ 20%</strong> → clearer thinking</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">🧘‍♀️</span>
+                    <div><strong>Energy ↑ stability</strong> → fewer mid-day crashes</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">💓</span>
+                    <div><strong>hs-CRP ↓ 25%</strong> → inflammation cooling down</div>
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.5rem;">
+                Inflammation quiets fastest when your plate looks like a rainbow.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
+                ✨ Remember: Calm starts where your body feels safe — and your gut is the first to know. Every colorful bite is a message of safety and repair to your second brain.
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="footer-contact">
+                <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span><br><br>
+<strong><a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue</a></strong>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

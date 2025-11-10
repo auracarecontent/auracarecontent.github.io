@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6 — 7 Steps to Rebuild Your Gut Barrier and Calm System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
+            background: #FAF8F2;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+        }
+
+        .container {
+            max-width: 520px;
+            margin: 0 auto;
+            background: #FFFEFB;
+            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .day-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+        }
+
+        .section {
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            font-size: 1.75rem;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #172737;
+            line-height: 22px;
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 16px;
+            }
+        }
+
+        .text-content {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #B87658;
+        }
+
+        .intro-section {
+            background: rgba(184, 118, 88, 0.05);
+            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        }
+
+        .bullet-list {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .bullet-item {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 0.5rem;
+            line-height: 20px;
+        }
+
+        .science-fact {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .fact-item {
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .fact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-box {
+            background: rgba(184, 118, 88, 0.05);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-box {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .step-number {
+            font-weight: 700;
+            color: #10B981;
+            flex-shrink: 0;
+        }
+
+        .reflection-box {
+            background: rgba(184, 118, 88, 0.08);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .reflection-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+            margin-bottom: 0.5rem;
+        }
+
+        .reflection-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .biomarker-table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            background: white;
+            border: 1px solid #E6E6E6;
+        }
+
+        .biomarker-table th {
+            background: #F7F7F7;
+            padding: 12px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 700;
+            color: #172737;
+            border-bottom: 2px solid #E6E6E6;
+        }
+
+        .biomarker-table td {
+            padding: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            border-bottom: 1px solid #F0F0F0;
+            line-height: 18px;
+        }
+
+        .biomarker-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .biomarker-name {
+            font-weight: 700;
+            color: #B87658;
+        }
+
+        .seven-steps {
+            background: rgba(184, 118, 88, 0.05);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .step-detail {
+            margin-bottom: 1.25rem;
+        }
+
+        .step-detail:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 0.5rem;
+            line-height: 20px;
+        }
+
+        .step-description {
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 18px;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem 2.5rem;
+            position: relative;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .footer-contact {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            margin: 0;
+        }
+
+        .contact-highlight {
+            font-weight: 600;
+        }
+
+        .contact-email {
+            color: #10B981;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="day-label">🧩 DAY 6</div>
+            <h1>7 Steps to Rebuild Your Gut Barrier and Calm System</h1>
+        </div>
+
+        <div class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Your gut lining is more than a digestive wall — it's your inner shield. It decides what enters your bloodstream and what stays out. When that barrier gets weakened by stress, poor sleep, or inflammation, it becomes "leaky" — allowing toxins and immune triggers to escape, which can raise cortisol, fog the mind, and tire the body.
+            </div>
+            <div class="text-content">
+                The good news? The gut repairs quickly when given rhythm, nourishment, and rest. Within days, calmer breathing, proper hydration, and gentle nutrition begin to rebuild this barrier and restore balance to your whole nervous system.
+            </div>
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">💡 Healing your gut isn't about restriction — it's about giving your body peace and time to repair.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💓</span>
+                <h2>The Science of Repair</h2>
+            </div>
+            <div class="text-content">
+                The gut lining renews itself every 3–5 days. It thrives on amino acids like glutamine, minerals like zinc, and omega-3 fats that reduce inflammation. Regular sleep and a calm meal rhythm also boost cell turnover and tighten the barrier junctions.
+            </div>
+            <div class="text-content">
+                In contrast, chronic stress, alcohol, and irregular meals weaken this defense, keeping your nervous system on alert. Your vagus nerve helps regulate that healing — when it senses safety, repair begins automatically.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts — Gut Barrier and Calm System</h2>
+            </div>
+            
+            <div class="science-fact">
+                <div class="fact-item">
+                    Adequate sleep improves gut permeability and reduces inflammation (Benedict et al., 2012).
+                </div>
+                <div class="fact-item">
+                    Zinc and glutamine support epithelial repair and lower oxidative stress (Rao & Samak, 2013).
+                </div>
+                <div class="fact-item">
+                    Omega-3 intake strengthens tight junctions and reduces cortisol (Calder, 2017).
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+
+            <table class="biomarker-table">
+                <thead>
+                    <tr>
+                        <th>Biomarker</th>
+                        <th>What It Reflects in Gut–Brain Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="biomarker-name">hs-CRP</span></td>
+                        <td>Inflammation markers that drop as gut lining repairs.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">Cortisol (AM)</span></td>
+                        <td>Normalizes with better rest and nutrient intake.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">Vitamin D</span></td>
+                        <td>Support cell renewal and barrier strength.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">ApoB / LDL-cholesterol</span></td>
+                        <td>Decrease as oxidative stress falls.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">Ferritin</span></td>
+                        <td>Stabilizes as chronic inflammation subsides.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="text-content" style="font-size: 12px; color: #656565;">
+                Sources: Rao & Samak, Am J Pathol 2013 · Calder, Proc Nutr Soc 2017 · Bonaz et al., Front Neurosci 2018
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            
+            <div class="reflection-box">
+                <div class="reflection-text">
+                    When do you feel most nourished — after a big meal, a calm one, or a slow morning? Your gut heals faster when your whole body feels safe.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧩</span>
+                <h2>Plan to Action — 7 Steps to Rebuild Your Barrier</h2>
+            </div>
+
+            <div class="seven-steps">
+                <div class="step-detail">
+                    <div class="step-title">1. Warm Start</div>
+                    <div class="step-description">Choose warm, gently cooked meals (soups, stews, steamed veggies). Easier on the lining; improves blood flow and enzyme release.</div>
+                </div>
+
+                <div class="step-detail">
+                    <div class="step-title">2. Color & Fiber Rule</div>
+                    <div class="step-description">Aim for 3 natural colors per meal. Polyphenols + soluble fiber (oats, legumes, chia) feed microbes and thicken the mucus layer.</div>
+                </div>
+
+                <div class="step-detail">
+                    <div class="step-title">3. Daily Omega-3</div>
+                    <div class="step-description">Add a source of omega-3 (e.g., flax/chia/walnuts or fatty fish). Supports tight junction proteins and lowers inflammatory tone.</div>
+                </div>
+
+                <div class="step-detail">
+                    <div class="step-title">4. Zinc & Mineral Boost</div>
+                    <div class="step-description">Include zinc-rich foods (pumpkin seeds, legumes) and mineral-rich greens. Needed for epithelial repair enzymes.</div>
+                </div>
+
+                <div class="step-detail">
+                    <div class="step-title">5. Fermented + Prebiotic Pair</div>
+                    <div class="step-description">Combine a small fermented food (yogurt/kefir/kimchi/miso/tempeh) with a prebiotic (leeks, garlic, onions, apples, oats) to reseed and feed beneficial bacteria.</div>
+                </div>
+
+                <div class="step-detail">
+                    <div class="step-title">6. Circadian Eating Rhythm</div>
+                    <div class="step-description">Keep meals at regular times, last meal ≥3 h before sleep, chew slowly (15–20×/bite). Helps vagus tone, motility, and overnight repair.</div>
+                </div>
+
+                <div class="step-detail">
+                    <div class="step-title">7. Calm Meal Ritual</div>
+                    <div class="step-description">Before eating, do 60–90 seconds of slow breathing, soften shoulders, put screens away. Safety signal = better digestion and healing.</div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">💡 How to use:</span> pick 3 core steps (e.g., 1–3) + 1 flexible step (any other) each day. Consistency beats perfection.
+                </div>
+            </div>
+
+            <div class="action-box" style="margin-top: 1.5rem;">
+                <div class="action-title">🔎 What to Expect (after 1 week)</div>
+                
+                <div class="step-item">
+                    <span class="step-number">💧</span>
+                    <div><strong>Digestion comfort ↑ 30%</strong> → less heaviness, better rhythm</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">💓</span>
+                    <div><strong>hs-CRP ↓ 20%</strong> → inflammation calming</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">🧠</span>
+                    <div><strong>Focus ↑ clarity</strong> → easier mornings</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
+                ✨ Remember: Your gut doesn't heal from control — it heals from consistency. Drink, rest, breathe, and let your body do what it's designed to do: rebuild itself in peace.
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="footer-contact">
+                <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span><br><br>
+<strong><a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue</a></strong>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
