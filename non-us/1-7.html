@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7: Reignite Your Spark</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
+            background: #FAF8F2;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            background: #FFFEFB;
+            border-radius: 20px;
+            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem;
+        }
+
+        .day-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            font-weight: 700;
+            opacity: 0.95;
+        }
+
+        .section {
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            font-size: 1.75rem;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #172737;
+            line-height: 22px;
+        }
+
+        .daily-focus {
+            background: rgba(184, 118, 88, 0.05);
+            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        }
+
+        .text-content {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #B87658;
+        }
+
+        .orange-bg {
+            background: rgba(184, 118, 88, 0.1);
+        }
+
+        .bullet-list {
+            margin: 1.5rem 0;
+        }
+
+        .bullet-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .bullet-dot {
+            width: 6px;
+            height: 6px;
+            background: #B87658;
+            border-radius: 50%;
+            margin-top: 7px;
+            flex-shrink: 0;
+        }
+
+        .info-box {
+            background: rgba(184, 118, 88, 0.1);
+            padding: 18px;
+            border-radius: 16px;
+            border: 1px solid rgba(184, 118, 88, 0.2);
+            margin: 1.5rem 0;
+        }
+
+        .science-fact {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 16px;
+            border-radius: 12px;
+            border-left: 3px solid #10B981;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .fact-icon {
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .fact-title {
+            font-weight: 600;
+            font-size: 14px;
+            color: #172737;
+            margin-bottom: 0.5rem;
+            line-height: 20px;
+        }
+
+        .fact-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+        }
+
+        .reference-text {
+            font-size: 11px;
+            font-weight: 500;
+            color: #8C8C8C;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        .biomarker-card {
+            background: rgba(184, 118, 88, 0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            transition: width 1s ease-out;
+        }
+
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 18px;
+        }
+
+        .reflection-section {
+            background: rgba(168, 85, 247, 0.05);
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .reflection-question {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .action-section {
+            background: rgba(16, 185, 129, 0.08);
+            border-bottom: 3px solid #10B981;
+        }
+
+        .action-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .action-highlight {
+            background: rgba(184, 118, 88, 0.1);
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 3px solid #B87658;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .color-challenge {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+            padding: 20px;
+            border-radius: 16px;
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            margin: 1.5rem 0;
+        }
+
+        .evening-section {
+            background: rgba(99, 102, 241, 0.05);
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .evening-box {
+            background: white;
+            padding: 18px;
+            border-radius: 16px;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 2.5rem;
+        }
+
+        .footer h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .footer-final {
+            font-size: 18px;
+            font-weight: 700;
+            padding: 1.5rem 2rem;
+            line-height: 28px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+
+        .footer-cta {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            padding: 1.25rem 2rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            line-height: 24px;
+        }
+
+        .footer-contact {
+            font-size: 15px;
+            font-weight: 600;
+            margin-top: 2rem;
+            padding: 1.5rem 2rem;
+            background: white;
+            color: #172737;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            line-height: 24px;
+        }
+
+        .contact-email {
+            color: #B87658;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            border-bottom: 2px solid #B87658;
+            transition: all 0.2s;
+        }
+
+        .contact-email:hover {
+            color: #D4956C;
+            border-bottom-color: #D4956C;
+        }
+
+        .contact-highlight {
+            font-weight: 700;
+            color: #B87658;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+        }
+    </style>
+
+<style>
+/* --- App-ready layout (header/footer flattened, inner content intact) --- */
+.container { border-radius: 0 !important; max-width: 720px; margin: 0 auto; }
+.header, .hero, .intro, .top,
+.footer, .outro, .final, .ending { border-radius: 0 !important; }
+/* If first/last sections are generic, flatten their outer corners */
+.container > :first-child {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+.container > :last-child {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+/* Cards nested directly in header/footer should be flat too */
+.header .card, .footer .card { border-radius: 0 !important; }
+/* Responsive media + small mobile padding */
+img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block; }
+@media (max-width: 480px){ body { padding: 12px; } }
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="day-label">Day 7</div>
+            <h1>Reignite Your Spark</h1>
+            <div class="subtitle">Power Your Energy from Within</div>
+        </div>
+
+        <!-- Daily Focus -->
+        <div class="section daily-focus">
+            <div class="section-header">
+                <span class="section-icon">😃</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <p class="text-content">
+                There's a kind of energy that doesn't come from caffeine, sleep, or "trying harder." It's the quiet, natural pulse that appears when your body and mind are in sync — a gentle hum of inner power.
+            </p>
+            <p class="text-content">
+                This spark often fades slowly: one rushed morning, one skipped walk, one fast meal at a time.
+            </p>
+            <p class="text-content">
+                Today is about feeling that lightness again — not by pushing, but by helping your body make energy freely.
+            </p>
+        </div>
+
+        <!-- Why It Matters -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <p class="text-content">
+                Every heartbeat, emotion, and thought depends on steady cellular energy. After periods of stress or short recovery, your body protects itself by slowing energy creation.
+            </p>
+            <p class="text-content">
+                You may feel this as mental fog, low drive, or a quiet sense of dullness. But your cells can recover quickly.
+            </p>
+            <p class="text-content highlight-text">
+                When rhythm, oxygen, nourishment, and calm align, your body shifts from conserving energy to creating it naturally — clear and sustainable.
+            </p>
+        </div>
+
+        <!-- The Science -->
+        <div class="section orange-bg">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>The Science — When Energy Slips Below the Surface</h2>
+            </div>
+            <p class="text-content">
+                Stress, irregular rhythm, and nutrient gaps all reduce the cell's ability to create ATP — the molecule that powers every action.
+            </p>
+            <p class="text-content">
+                Here's what quietly drains your spark:
+            </p>
+
+            <div class="bullet-list">
+                <div class="bullet-item">
+                    <div class="bullet-dot"></div>
+                    <div>Oxidative load from stress, alcohol, or processed foods creates free radicals that tire cells</div>
+                </div>
+                <div class="bullet-item">
+                    <div class="bullet-dot"></div>
+                    <div>Low oxygen delivery (low hemoglobin or ferritin) limits fuel for ATP production</div>
+                </div>
+                <div class="bullet-item">
+                    <div class="bullet-dot"></div>
+                    <div>Low nutrient diversity weakens antioxidant defenses</div>
+                </div>
+                <div class="bullet-item">
+                    <div class="bullet-dot"></div>
+                    <div>Disrupted circadian rhythm (late nights, screens) impairs nightly repair cycles</div>
+                </div>
+            </div>
+
+            <p class="text-content">
+                Together these small imbalances lower your energy baseline and make recovery slower.
+            </p>
+            <p class="reference-text">
+                Sources: Cell Metab 2023; Front Physiol 2022; Clin Nutr 2023.
+            </p>
+        </div>
+
+        <!-- Science Facts -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — How Energy Returns</h2>
+            </div>
+            
+            <div class="science-fact">
+                <div class="fact-icon">🔋</div>
+                <div>
+                    <div class="fact-title">Consistent sleep and morning light can raise cellular output within 1–2 weeks</div>
+                    <div class="fact-desc">Cell Metab, 2023.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">💫</div>
+                <div>
+                    <div class="fact-title">Balanced stress–recovery rhythms strengthen antioxidant defenses</div>
+                    <div class="fact-desc">Front Physiol, 2022.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">⚡</div>
+                <div>
+                    <div class="fact-title">Stable iron status (Hb + ferritin) supports oxygen flow, mental clarity, and daily stamina</div>
+                    <div class="fact-desc">Clin Nutr, 2023.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biomarkers -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <p class="text-content">
+                Certain blood markers show how effectively your body delivers oxygen and maintains steady energy — and the % next to each shows how strongly they influence your vitality.
+            </p>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <span class="section-icon">🔴</span>
+                    <div class="biomarker-name">Hemoglobin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%">75%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Shows how effectively oxygen reaches your brain and muscles — the foundation for clear energy and mood (Beard et al., 2001, Am J Clin Nutr).
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <span class="section-icon">🧠</span>
+                    <div class="biomarker-name">Ferritin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 70%">70%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Indicates iron stores that sustain cellular energy throughout the day (Cook et al., 2020, Nutrients).
+                </div>
+            </div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="section reflection-section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <p class="reflection-question">
+                When during the day do you feel most "lit up"?
+            </p>
+            <p class="reflection-question">
+                Is it after sunlight, a walk, planning a goal, or a real conversation?
+            </p>
+            <p class="reflection-question">
+                Notice which moments make energy feel light — not forced.
+            </p>
+        </div>
+
+        <!-- Action Plan -->
+        <div class="section action-section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — The Color Challenge</h2>
+            </div>
+            
+            <p class="text-content">
+                You've spent this week rebuilding your natural rhythm — morning light, calm evenings, mindful focus, small planning rituals, micro-wins, and steady recovery breaks that keep your energy balanced.
+            </p>
+            <p class="text-content">
+                <strong>Today, you'll complete the circle by adding nourishment that fuels that rhythm from within.</strong>
+            </p>
+
+            <div class="color-challenge">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                    <span class="section-icon">🥗</span>
+                    <strong style="font-size: 15px; color: #172737;">Add three natural colors to your plate</strong>
+                </div>
+                <p class="text-content" style="margin-bottom: 0.75rem;">
+                    Green, red, orange, purple, or blue. Each shade provides antioxidants that protect your cells from stress and support clear, calm energy.
+                </p>
+                <p class="text-content" style="margin-bottom: 0.75rem;">
+                    Think spinach with berries, tomato with olive oil, or roasted carrots with herbs.
+                </p>
+                <p class="text-content" style="margin: 0; font-weight: 600; color: #10B981;">
+                    💠 Do it today — your body now has the rhythm and structure; give it the color to keep that balance alive.
+                </p>
+            </div>
+        </div>
+
+        <!-- Evening Section -->
+        <div class="section evening-section">
+            <div class="section-header">
+                <span class="section-icon">🌙</span>
+                <h2>Evening Matters Too — Let the Spark Settle</h2>
+            </div>
+            
+            <div class="evening-box">
+                <p class="text-content">
+                    As you close the week, protect your calm rhythm. Keep lights dim, skip screens, and slow your breathing before bed.
+                </p>
+                <p class="text-content" style="margin: 0;">
+                    This tells your body to pause energy output and begin deep repair, restoring vitality for tomorrow (Meerlo et al., 2008, Sleep Med Rev).
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="section-header">
+                <span class="section-icon">🌞</span>
+                <h2>Why This Works</h2>
+            </div>
+            <p class="footer-text">
+                When your body receives steady cues — light, oxygen, color, calm — it shifts from protection to creation.
+            </p>
+            <p class="footer-text">
+                Energy stops leaking and starts flowing again.
+            </p>
+            <p class="footer-text">
+                That's when you feel lighter, clearer, and quietly powerful.
+            </p>
+            <p class="footer-final">
+                ✨ Remember: You don't push for energy — you create the conditions for it to return.
+            </p>
+            <p class="footer-cta">
+                🪴 Tomorrow begins Week 2 — Food as Fuel, where nourishment keeps this spark alive all day and turns recovery into lasting vitality.
+            </p>
+            <p class="footer-contact">
+                📩 <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span><br><br>
+<strong><a href="https://plan.aura.care/lt-2/" class="contact-email">Continue</a></strong>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

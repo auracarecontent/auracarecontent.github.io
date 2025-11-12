@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4 — Feed Your Calm: The Food–Mood Connection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
+            background: #FAF8F2;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+        }
+
+        .container {
+            max-width: 520px;
+            margin: 0 auto;
+            background: #FFFEFB;
+            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .day-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.95;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+        }
+
+        .section {
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            font-size: 1.75rem;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #172737;
+            line-height: 22px;
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 16px;
+            }
+        }
+
+        .text-content {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #B87658;
+        }
+
+        .intro-section {
+            background: rgba(184, 118, 88, 0.05);
+            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        }
+
+        .bullet-list {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .bullet-item {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 0.5rem;
+            line-height: 20px;
+        }
+
+        .science-fact {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .fact-item {
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .fact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-box {
+            background: rgba(184, 118, 88, 0.05);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-box {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .step-number {
+            font-weight: 700;
+            color: #10B981;
+            flex-shrink: 0;
+        }
+
+        .reflection-box {
+            background: rgba(184, 118, 88, 0.08);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .reflection-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+            margin-bottom: 0.5rem;
+        }
+
+        .reflection-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .biomarker-table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            background: white;
+            border: 1px solid #E6E6E6;
+        }
+
+        .biomarker-table th {
+            background: #F7F7F7;
+            padding: 12px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 700;
+            color: #172737;
+            border-bottom: 2px solid #E6E6E6;
+        }
+
+        .biomarker-table td {
+            padding: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            border-bottom: 1px solid #F0F0F0;
+            line-height: 18px;
+        }
+
+        .biomarker-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .biomarker-name {
+            font-weight: 700;
+            color: #B87658;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem 2.5rem;
+            position: relative;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .footer-contact {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            margin: 0;
+        }
+
+        .contact-highlight {
+            font-weight: 600;
+        }
+
+        .contact-email {
+            color: #10B981;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="day-label">🥗 DAY 4</div>
+            <h1>Feed Your Calm: The Food–Mood Connection</h1>
+        </div>
+
+        <div class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                The food you eat sends constant messages to your brain. Each meal can whisper "calm" or shout "stress." When you eat slowly, include color, and choose real, living foods, your gut bacteria respond by releasing compounds that make you feel more grounded, focused, and emotionally steady.
+            </div>
+            <div class="text-content">
+                Fiber feeds the good bacteria; polyphenols (in berries, olive oil, or green tea) protect them; and fermented foods add new helpful species to your inner ecosystem. When your gut thrives, your thoughts clear and your mood lifts naturally.
+            </div>
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">💡 Every balanced meal is an act of emotional self-care.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💓</span>
+                <h2>The Science of Feeding Calm</h2>
+            </div>
+            <div class="text-content">
+                Your gut microbes make substances that travel through the vagus nerve to the brain — improving mood and attention. People who eat more fiber and fermented foods show lower levels of stress hormones and inflammation. Even one serving of fermented food a day can raise microbiome diversity within two weeks (Wastyk et al., Cell 2021).
+            </div>
+            <div class="text-content">
+                A calm gut means calmer chemistry — less cortisol, more serotonin, and steadier energy.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts — Food, Mood, and Focus</h2>
+            </div>
+            
+            <div class="science-fact">
+                <div class="fact-item">
+                    Fiber-rich diets increase serotonin and reduce anxiety (Liu et al., 2020).
+                </div>
+                <div class="fact-item">
+                    Polyphenols improve cognitive performance and emotional stability (Gómez-Pinilla, 2008).
+                </div>
+                <div class="fact-item">
+                    Fermented foods lower inflammatory markers by up to 30% (Wastyk et al., 2021).
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+
+            <table class="biomarker-table">
+                <thead>
+                    <tr>
+                        <th>Biomarker</th>
+                        <th>What It Reflects in Gut–Brain Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="biomarker-name">Glucose / HbA1c</span></td>
+                        <td>Stabilize with fiber-rich meals that keep brain and gut evenly fueled.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">hs-CRP</span></td>
+                        <td>Can drop 25–30% with daily colorful, polyphenol-rich foods.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">Cortisol (AM / PM)</span></td>
+                        <td>Evens out with regular meal rhythm and hydration.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">Vitamin D & B12</span></td>
+                        <td>Support serotonin and nerve communication.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="text-content" style="font-size: 12px; color: #656565;">
+                Sources: Wastyk et al., Cell 2021 · Liu et al., Nutrients 2020 · Gómez-Pinilla 2008
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            
+            <div class="reflection-box">
+                <div class="reflection-text">
+                    Think of one meal that truly made you feel peaceful and clear. What made it different — the company, the colors, or the calm pace? Try to recreate one of those elements today.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — One Step Today</h2>
+            </div>
+
+            <div class="text-content">
+                Include one fermented or probiotic food in your meal. Yogurt, kefir, kimchi, sauerkraut, or miso — even a few spoonfuls add beneficial microbes that help your gut send "calm" signals to your brain.
+            </div>
+
+            <div class="action-box">
+                <div class="action-title">🧠 Evidence</div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Probiotic foods improve HRV and lower perceived stress within 2 weeks (Dinan & Cryan 2017; Wastyk et al. 2021).
+                </div>
+            </div>
+
+            <div class="action-box" style="margin-top: 1.5rem;">
+                <div class="action-title">🔎 What to Expect (after 1–2 weeks)</div>
+                
+                <div class="step-item">
+                    <span class="step-number">💭</span>
+                    <div><strong>Focus ↑ 20%</strong> → clearer thinking</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">🧘‍♀️</span>
+                    <div><strong>Mood stability ↑ 25%</strong> → fewer emotional dips</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">💓</span>
+                    <div><strong>hs-CRP ↓ 30%</strong> → calmer body chemistry</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
+                ✨ Remember: You don't need perfect meals — just small, steady signals of nourishment. Feed your calm daily, and your gut will feed it back to you tenfold.
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="footer-contact">
+                <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span><br><br>
+<strong><a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue</a></strong>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

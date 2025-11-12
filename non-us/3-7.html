@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7 — Lipids and Arteries: Unlocking the Secret Behind Stable Blood Pressure</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
+            background: #FAF8F2;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+        }
+
+        .container {
+            max-width: 520px;
+            margin: 0 auto;
+            background: #FFFEFB;
+            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .day-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+        }
+
+        .section {
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            font-size: 1.75rem;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #172737;
+            line-height: 22px;
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 16px;
+            }
+        }
+
+        .text-content {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #B87658;
+        }
+
+        .intro-section {
+            background: rgba(184, 118, 88, 0.05);
+            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        }
+
+        .bullet-list {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .bullet-item {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 0.5rem;
+            line-height: 20px;
+        }
+
+        .science-fact {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .fact-item {
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .fact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-box {
+            background: rgba(184, 118, 88, 0.05);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-box {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .step-number {
+            font-weight: 700;
+            color: #10B981;
+            flex-shrink: 0;
+        }
+
+        .reflection-box {
+            background: rgba(184, 118, 88, 0.08);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .reflection-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+            margin-bottom: 0.5rem;
+        }
+
+        .reflection-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .biomarker-table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .biomarker-table thead {
+            background: rgba(184, 118, 88, 0.08);
+        }
+
+        .biomarker-table th {
+            padding: 14px 16px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            color: #172737;
+            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        }
+
+        .biomarker-table td {
+            padding: 14px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .biomarker-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .biomarker-name {
+            font-weight: 600;
+            color: #172737;
+        }
+
+        .plate-item {
+            background: rgba(16, 185, 129, 0.05);
+            padding: 14px;
+            margin-bottom: 0.75rem;
+            border-left: 3px solid #10B981;
+        }
+
+        .plate-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .footer-contact {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1.5rem;
+            margin: 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .footer-contact p {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            margin: 0;
+        }
+
+        .contact-highlight {
+            font-weight: 600;
+        }
+
+        .contact-email {
+            display: inline-block;
+            background: white;
+            color: #B87658;
+            padding: 12px 32px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            margin-top: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s;
+        }
+
+        .contact-email:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="day-label">🫀 DAY 7</div>
+            <h1>Lipids and Arteries: Unlocking the Secret Behind Stable Blood Pressure</h1>
+        </div>
+
+        <!-- Daily Focus -->
+        <div class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">🌡️</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Your arteries aren't just tubes — they're living, flexible tissues that expand and relax with every heartbeat.
+            </div>
+            <div class="text-content">
+                This flexibility depends on your lipid balance: the right mix of HDL ("good"), LDL ("bad"), and triglycerides.
+            </div>
+            <div class="text-content">
+                When these markers drift out of range, artery walls stiffen, blood pressure rises, and the heart has to push harder.
+            </div>
+            <div class="text-content">
+                Today you'll learn how nutrition, calm rhythm, and vagus activation work together to keep your arteries smooth, strong, and steady.
+            </div>
+        </div>
+
+        <!-- Science Section -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💓</span>
+                <h2>The Science of Lipids and Pressure</h2>
+            </div>
+            <div class="text-content">
+                Cholesterol itself isn't harmful — your body needs it to build hormones and cell membranes.
+            </div>
+            <div class="text-content">
+                But not all cholesterol behaves the same way:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item"><strong>LDL (low-density lipoprotein)</strong> is often called "bad" cholesterol, but it's really your delivery system — it carries cholesterol to your cells. When there's too much LDL or when it becomes oxidized by stress and inflammation, it starts irritating the vessel walls and forming plaque.</li>
+                <li class="bullet-item"><strong>HDL (high-density lipoprotein)</strong> is the opposite — your cleanup system. It collects excess cholesterol from the bloodstream and returns it to the liver for safe recycling.</li>
+            </ul>
+            <div class="text-content">
+                When LDL climbs too high or HDL drops too low, vessels lose elasticity and blood pressure rises.
+            </div>
+            <div class="text-content">
+                Meanwhile, triglycerides, another type of fat, increase with sugar spikes, alcohol, and chronic stress — making blood thicker and harder to pump.
+            </div>
+            <div class="info-box">
+                <div class="text-content" style="margin: 0;">
+                    💡 Balanced lipids = elastic arteries = calm pressure.
+                </div>
+            </div>
+        </div>
+
+        <!-- Why It Matters -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Your nervous system directly influences lipid metabolism.
+            </div>
+            <div class="text-content">
+                When vagal tone is strong, digestion and fat transport stay balanced; when stress dominates, cortisol and insulin drive triglycerides higher and HDL lower.
+            </div>
+            <div class="text-content">
+                This means your calm habits — not just your diet — shape your long-term vessel health.
+            </div>
+            <div class="text-content">
+                Movement, recovery sleep, and mindful eating protect your arteries as much as supplements or medications.
+            </div>
+        </div>
+
+        <!-- Science Facts -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts — Lipids, Vagus, and Blood Pressure</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-item">
+                    Every 10 mg/dL increase in HDL lowers cardiovascular risk by ~10% (Gordon et al., 1989).
+                </div>
+                <div class="fact-item">
+                    Reducing triglycerides by 20–30% improves arterial flexibility and lowers average blood pressure (Nordestgaard et al., 2016).
+                </div>
+                <div class="fact-item">
+                    Stress management and slow breathing raise HDL and lower LDL oxidation via better vagal control (Thayer et al., 2010).
+                </div>
+            </div>
+
+            <div class="text-content">
+                Calm nerves mean cleaner arteries.
+            </div>
+        </div>
+
+        <!-- Labs Section -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                Your daily rhythm connects directly with your biomarkers:
+            </div>
+
+            <table class="biomarker-table">
+                <thead>
+                    <tr>
+                        <th>Biomarker</th>
+                        <th>What It Shows</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="biomarker-name">ApoB</span></td>
+                        <td>Tracks the total number of LDL particles; high values mean higher vessel load, often improving with lower sugar and inflammation.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">LDL-cholesterol</span></td>
+                        <td>Delivers cholesterol to cells; when oxidized, it irritates arteries and raises BP risk.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">HDL-cholesterol</span></td>
+                        <td>Removes excess cholesterol and protects vessel walls; rises with steady movement and stress reduction.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">Triglycerides</span></td>
+                        <td>Rise with high sugar, alcohol, or stress; drop as energy balance and sleep improve.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="biomarker-name">hs-CRP</span></td>
+                        <td>Falls as inflammation and oxidative stress decrease, helping arteries stay flexible.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="text-content">
+                Balanced lipids are not just numbers — they reflect calm chemistry inside resilient arteries.
+            </div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            
+            <div class="reflection-box">
+                <div class="reflection-text">
+                    How do you usually feel after high-fat or high-sugar meals — heavy, tense, or calm?
+                </div>
+                <div class="reflection-text">
+                    What small change could make your meals feel lighter on both digestion and mood?
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Plan -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — The Lipid Balance Ritual</h2>
+            </div>
+
+            <div class="text-content">
+                Keep your calm anchors from the week — breathing, walking, hydration.
+            </div>
+            <div class="text-content">
+                Add today's step:
+            </div>
+
+            <div class="action-box">
+                <div class="action-title">💠 The 3:1 Plate Rule</div>
+                
+                <div class="text-content" style="margin-bottom: 1rem;">
+                    For every portion of refined carbs or fats, include three portions of "vessel protectors":
+                </div>
+
+                <div class="plate-item">
+                    <span class="plate-text"><strong>Fiber</strong> (oats, beans, berries) binds cholesterol and lowers LDL.</span>
+                </div>
+
+                <div class="plate-item">
+                    <span class="plate-text"><strong>Omega-3 fats</strong> (fish, flax, walnuts) reduce triglycerides.</span>
+                </div>
+
+                <div class="plate-item">
+                    <span class="plate-text"><strong>Antioxidants</strong> (leafy greens, olive oil, citrus) prevent LDL oxidation.</span>
+                </div>
+
+                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
+                    You don't have to cut out food — just rebalance what's on your plate.
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.5rem;">
+                <span class="highlight-text">🌿 Why This Works</span>
+            </div>
+            <div class="text-content">
+                Fiber and antioxidants support healthy lipid transport, while vagus activation (through calm eating and movement) reduces cortisol-driven lipid imbalance.
+            </div>
+            <div class="text-content">
+                Over time, this keeps vessel walls elastic and pressure stable.
+            </div>
+
+            <div class="action-box" style="margin-top: 1.5rem;">
+                <div class="action-title">🔎 What to Expect (after 3–4 weeks)</div>
+                
+                <div class="step-item">
+                    <span class="step-number">🩸</span>
+                    <div><strong>ApoB:</strong> ↓ 10–15% → lower vessel load and plaque risk.</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">💓</span>
+                    <div><strong>HDL:</strong> ↑ 10–20% → stronger vascular protection.</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">🍬</span>
+                    <div><strong>Triglycerides:</strong> ↓ 20–25% → smoother blood flow and lower stiffness.</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">🧠</span>
+                    <div><strong>Mental clarity:</strong> ↑ 15–20% → steadier energy from balanced metabolism.</div>
+                </div>
+
+                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
+                    A calm nervous system helps your chemistry flow — not fight.
+                </div>
+            </div>
+        </div>
+
+        <!-- Evening Section -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌙</span>
+                <h2>Evening Matters Too — Eat Calm, Sleep Calm</h2>
+            </div>
+            <div class="text-content">
+                Heavy late meals raise nighttime triglycerides and blood pressure.
+            </div>
+            <div class="text-content">
+                Choose lighter dinners and eat mindfully — slower meals help the vagus nerve signal "rest and digest."
+            </div>
+        </div>
+
+        <!-- Final Message -->
+        <div class="section">
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                <span class="highlight-text">🌞 Why This Works</span>
+            </div>
+            <div class="text-content">
+                Blood pressure and lipid metabolism share the same rhythm.
+            </div>
+            <div class="text-content">
+                By keeping both steady, you give your arteries time to rest — and your heart less to fight against.
+            </div>
+            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 2rem;">
+                ✨ Remember: Every calm meal, every walk, every good night's sleep is a signal to your arteries that balance has returned. Your body doesn't need perfection — just steady rhythm and care.
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-contact">
+                <p>
+                    <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span>
+                </p>
+                <a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
