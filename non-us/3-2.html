@@ -121,15 +121,26 @@
 
         .bullet-list {
             margin: 1rem 0;
-            padding-left: 1.5rem;
+            padding-left: 0;
+            list-style: none;
         }
 
         .bullet-item {
             font-size: 14px;
             font-weight: 500;
             color: #172737;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             line-height: 20px;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .bullet-item:before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #B87658;
+            font-weight: 700;
         }
 
         .science-fact {
@@ -212,124 +223,29 @@
             margin-bottom: 0;
         }
 
-        .biomarker-table {
-            width: 100%;
+        .expected-results {
+            background: rgba(16, 185, 129, 0.05);
+            padding: 18px;
+            border-left: 3px solid #10B981;
             margin: 1.5rem 0;
-            border-collapse: collapse;
-            background: white;
             box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
         }
 
-        .biomarker-table thead {
-            background: rgba(184, 118, 88, 0.08);
-        }
-
-        .biomarker-table th {
-            padding: 14px 16px;
-            text-align: left;
-            font-size: 13px;
+        .result-title {
+            font-size: 14px;
             font-weight: 600;
             color: #172737;
-            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
-        }
-
-        .biomarker-table td {
-            padding: 14px 16px;
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            line-height: 18px;
-            border-bottom: 1px solid #F0F0F0;
-        }
-
-        .biomarker-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .biomarker-name {
-            font-weight: 600;
-            color: #172737;
-        }
-
-        .check-step {
-            background: rgba(16, 185, 129, 0.05);
-            padding: 14px;
             margin-bottom: 0.75rem;
-            border-left: 3px solid #10B981;
-        }
-
-        .check-step-number {
-            font-weight: 700;
-            color: #10B981;
-            margin-right: 0.5rem;
-        }
-
-        .check-step-text {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem 2.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .footer {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        .footer-contact {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 1.5rem;
-            margin: 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-        }
-
-        .footer-contact p {
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 20px;
-            margin: 0;
-        }
-
-        .contact-highlight {
-            font-weight: 600;
-        }
-
-        .contact-email {
-            display: inline-block;
-            background: white;
-            color: #B87658;
-            padding: 12px 32px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 15px;
-            margin-top: 1rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            transition: all 0.2s;
-        }
-
-        .contact-email:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <div class="header">
-            <div class="day-label">💓 DAY 2</div>
+            <div class="day-label">DAY 2</div>
             <h1>HRV and Resting Heart Rate: The Hidden Language of Your Heart</h1>
         </div>
 
-        <!-- Daily Focus -->
         <div class="section intro-section">
             <div class="section-header">
                 <span class="section-icon">🌡️</span>
@@ -349,7 +265,6 @@
             </div>
         </div>
 
-        <!-- Science Section -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧠</span>
@@ -362,22 +277,20 @@
                 A healthy adult's RHR usually sits between 60–80 bpm. Lower values often mean stronger cardiovascular fitness and better vagal tone.
             </div>
             <div class="text-content">
-                Your heart-rate variability (HRV) is the tiny difference in time between one heartbeat and the next.
+                Your heart-rate variability (HRV) is the tiny difference in time between one heartbeat and the next. It shows how flexible your nervous system is — how well it can switch between alertness and recovery.
             </div>
-            <div class="text-content">
-                It shows how flexible your nervous system is — how well it can switch between alertness and recovery.
-            </div>
+            
             <div class="info-box">
-                <div class="text-content" style="margin: 0;">
-                    👉 Higher HRV = better adaptability, lower stress load, and a more resilient heart.
+                <div class="text-content" style="margin-bottom: 0;">
+                    👉 <strong>Higher HRV = better adaptability, lower stress load, and a more resilient heart.</strong>
                 </div>
             </div>
+
             <div class="text-content">
-                <span class="highlight-text">💡</span> When stress dominates, the body tightens and HRV drops. When recovery wins, your heart finds rhythm again — smooth, steady, and calm.
+                <span class="highlight-text">💡 When stress dominates, the body tightens and HRV drops. When recovery wins, your heart finds rhythm again — smooth, steady, and calm.</span>
             </div>
         </div>
 
-        <!-- Why It Matters -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💓</span>
@@ -386,10 +299,12 @@
             <div class="text-content">
                 Think of them as partners:
             </div>
+            
             <ul class="bullet-list">
                 <li class="bullet-item"><strong>RHR</strong> shows how hard your heart is working on average.</li>
                 <li class="bullet-item"><strong>HRV</strong> shows how well your nervous system adjusts to change.</li>
             </ul>
+
             <div class="text-content">
                 When both improve, it means your vagus nerve is strong, your blood vessels are flexible, and your heart recovers quickly after stress.
             </div>
@@ -397,17 +312,16 @@
                 But when RHR stays high and HRV stays low, it's an early signal of overload — often days before you feel tired or anxious.
             </div>
             <div class="text-content">
-                Your heart always knows before your mind catches up.
+                <span class="highlight-text">Your heart always knows before your mind catches up.</span>
             </div>
         </div>
 
-        <!-- Science Facts -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💡</span>
                 <h2>Science Facts — The Heart's Hidden Language</h2>
             </div>
-
+            
             <div class="science-fact">
                 <div class="fact-item">
                     A 10-bpm higher resting heart rate increases risk of heart disease by ~20% (Zhang et al., 2016).
@@ -421,45 +335,6 @@
             </div>
         </div>
 
-        <!-- Labs Section -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧬</span>
-                <h2>What About Labs?</h2>
-            </div>
-            <div class="text-content">
-                Your daily rhythm connects directly with your biomarkers:
-            </div>
-
-            <table class="biomarker-table">
-                <thead>
-                    <tr>
-                        <th>Biomarker</th>
-                        <th>What It Reflects</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="biomarker-name">Cortisol (AM)</span></td>
-                        <td>Stress hormone controlling alertness and pressure balance. Lower morning cortisol is linked to higher HRV and steadier blood pressure patterns.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">hs-CRP</span></td>
-                        <td>Marker of inflammation and vascular tension. Decreases as HRV and vagal tone improve, indicating calmer body-wide stress response.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Glucose & Lipids</span></td>
-                        <td>Energy metabolism and vascular health. Improved autonomic balance supports steadier energy, better glucose control, and healthier lipid profile.</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="text-content">
-                Balanced breathing patterns improve hormonal rhythm, calm inflammation, and optimize energy metabolism — visible even in your lab results.
-            </div>
-        </div>
-
-        <!-- Reflection -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💭</span>
@@ -476,7 +351,6 @@
             </div>
         </div>
 
-        <!-- Action Plan -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">✅</span>
@@ -492,71 +366,83 @@
 
             <div class="action-box">
                 <div class="action-title">💠 Morning Heart Check (1 Minute)</div>
-                
-                <div class="text-content" style="margin-bottom: 1rem;">
+                <div class="text-content" style="margin-bottom: 0.75rem;">
                     Each morning, before screens or coffee:
                 </div>
-
-                <div class="check-step">
-                    <span class="check-step-number">1️⃣</span>
-                    <span class="check-step-text">Sit quietly for 60 seconds.</span>
+                
+                <div class="step-item">
+                    <span class="step-number">1️⃣</span>
+                    <div>Sit quietly for 60 seconds.</div>
                 </div>
 
-                <div class="check-step">
-                    <span class="check-step-number">2️⃣</span>
-                    <span class="check-step-text">Place a hand on your chest or use your tracker.</span>
+                <div class="step-item">
+                    <span class="step-number">2️⃣</span>
+                    <div>Place a hand on your chest or use your tracker.</div>
                 </div>
 
-                <div class="check-step">
-                    <span class="check-step-number">3️⃣</span>
-                    <span class="check-step-text">Note two things: your resting pulse and how regular or smooth it feels.</span>
-                </div>
-
-                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
-                    You don't need perfect numbers — just awareness. Tracking this pattern helps you catch early signs of overload before fatigue appears. Awareness itself improves HRV by shifting attention to calm states (Pawlikowski et al., 2020).
+                <div class="step-item">
+                    <span class="step-number">3️⃣</span>
+                    <div>Note two things: your resting pulse and how regular or smooth it feels.</div>
                 </div>
             </div>
 
-            <div class="text-content" style="margin-top: 1.5rem;">
-                <span class="highlight-text">🌿 Why This Works</span>
+            <div class="text-content">
+                You don't need perfect numbers — just awareness.
             </div>
+            <div class="text-content">
+                Tracking this pattern helps you catch early signs of overload before fatigue appears.
+            </div>
+            <div class="text-content">
+                Awareness itself improves HRV by shifting attention to calm states (Pawlikowski et al., 2020).
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Why This Works</h2>
+            </div>
+            
             <div class="text-content">
                 Consistent observation trains interoception — your ability to sense what's happening inside your body.
             </div>
             <div class="text-content">
                 This awareness activates vagal pathways that naturally slow your heart and stabilize rhythm.
             </div>
+        </div>
 
-            <div class="action-box" style="margin-top: 1.5rem;">
-                <div class="action-title">🔎 What to Expect (after 2 weeks)</div>
-                
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔎</span>
+                <h2>What to Expect (after 2 weeks)</h2>
+            </div>
+            
+            <div class="expected-results">
                 <div class="step-item">
                     <span class="step-number">🫀</span>
                     <div><strong>Resting heart rate:</strong> 3–6 bpm lower → your heart works more efficiently.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">💓</span>
                     <div><strong>HRV:</strong> 10–20% higher → your system adapts faster to stress.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">💭</span>
                     <div><strong>Morning calm perception:</strong> ↑ 30% → you start each day with steadier focus and energy.</div>
                 </div>
+            </div>
 
-                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
-                    The more you listen to your heart, the better it learns to speak the language of calm.
-                </div>
+            <div class="text-content">
+                The more you listen to your heart, the better it learns to speak the language of calm.
             </div>
         </div>
 
-        <!-- Evening Section -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌙</span>
                 <h2>Evening Matters Too — Quiet the Signal</h2>
             </div>
+
             <div class="text-content">
                 Before bed, skip metrics and screens.
             </div>
@@ -568,29 +454,23 @@
             </div>
         </div>
 
-        <!-- Final Message -->
         <div class="section">
-            <div class="text-content" style="margin-bottom: 1.5rem;">
-                <span class="highlight-text">🌞 Why This Works</span>
+            <div class="section-header">
+                <span class="section-icon">🌞</span>
+                <h2>Why This Works</h2>
             </div>
+            
             <div class="text-content">
                 Observation isn't control — it's connection.
             </div>
             <div class="text-content">
                 When you pay attention with calm curiosity, your nervous system responds with trust, not tension.
             </div>
-            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 2rem;">
-                ✨ Remember: Your heart is always sending information. By listening — not forcing — you rebuild resilience from the inside out.
-            </div>
         </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            <div class="footer-contact">
-                <p>
-                    <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span>
-                </p>
-                <a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue →</a>
+        <div class="section">
+            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
+                ✨ Remember: Your heart is always sending information. By listening — not forcing — you rebuild resilience from the inside out.
             </div>
         </div>
     </div>

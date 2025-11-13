@@ -121,15 +121,26 @@
 
         .bullet-list {
             margin: 1rem 0;
-            padding-left: 1.5rem;
+            padding-left: 0;
+            list-style: none;
         }
 
         .bullet-item {
             font-size: 14px;
             font-weight: 500;
             color: #172737;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             line-height: 20px;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .bullet-item:before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #B87658;
+            font-weight: 700;
         }
 
         .science-fact {
@@ -212,124 +223,55 @@
             margin-bottom: 0;
         }
 
-        .biomarker-table {
-            width: 100%;
+        .expected-results {
+            background: rgba(16, 185, 129, 0.05);
+            padding: 18px;
+            border-left: 3px solid #10B981;
             margin: 1.5rem 0;
-            border-collapse: collapse;
-            background: white;
             box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
         }
 
-        .biomarker-table thead {
-            background: rgba(184, 118, 88, 0.08);
-        }
-
-        .biomarker-table th {
-            padding: 14px 16px;
-            text-align: left;
-            font-size: 13px;
+        .result-title {
+            font-size: 14px;
             font-weight: 600;
             color: #172737;
-            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
-        }
-
-        .biomarker-table td {
-            padding: 14px 16px;
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            line-height: 18px;
-            border-bottom: 1px solid #F0F0F0;
-        }
-
-        .biomarker-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .biomarker-name {
-            font-weight: 600;
-            color: #172737;
-        }
-
-        .pillar-item {
-            background: rgba(16, 185, 129, 0.05);
-            padding: 14px;
             margin-bottom: 0.75rem;
-            border-left: 3px solid #10B981;
+        }
+
+        .pillar-card {
+            background: white;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .pillar-card:last-child {
+            margin-bottom: 0;
         }
 
         .pillar-number {
+            font-size: 14px;
             font-weight: 700;
             color: #10B981;
-            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
         }
 
-        .pillar-text {
-            font-size: 14px;
+        .pillar-content {
+            font-size: 13px;
             font-weight: 500;
             color: #172737;
-            line-height: 20px;
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem 2.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .footer {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        .footer-contact {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 1.5rem;
-            margin: 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-        }
-
-        .footer-contact p {
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 20px;
-            margin: 0;
-        }
-
-        .contact-highlight {
-            font-weight: 600;
-        }
-
-        .contact-email {
-            display: inline-block;
-            background: white;
-            color: #B87658;
-            padding: 12px 32px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 15px;
-            margin-top: 1rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            transition: all 0.2s;
-        }
-
-        .contact-email:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            line-height: 18px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <div class="header">
-            <div class="day-label">🔥 DAY 6</div>
+            <div class="day-label">DAY 6</div>
             <h1>Inflammation and the Broken Heart–Brain Link</h1>
         </div>
 
-        <!-- Daily Focus -->
         <div class="section intro-section">
             <div class="section-header">
                 <span class="section-icon">🌡️</span>
@@ -349,7 +291,6 @@
             </div>
         </div>
 
-        <!-- Science Section -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💓</span>
@@ -364,14 +305,14 @@
             <div class="text-content">
                 At the same time, cortisol and oxidative stress damage the inner lining of blood vessels, making them less elastic and more reactive to pressure changes.
             </div>
+            
             <div class="info-box">
-                <div class="text-content" style="margin: 0;">
-                    💡 When inflammation rises, communication between your heart and brain becomes static — your pulse stays high, recovery slows, and emotional balance feels harder to reach.
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">💡 When inflammation rises, communication between your heart and brain becomes static — your pulse stays high, recovery slows, and emotional balance feels harder to reach.</span>
                 </div>
             </div>
         </div>
 
-        <!-- Why It Matters -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧠</span>
@@ -384,20 +325,19 @@
                 Low vagal tone means your body can't easily "turn off" the inflammatory response.
             </div>
             <div class="text-content">
-                This cycle — stress → inflammation → reduced vagal tone → more stress — keeps your body on alert, exhausting both mind and arteries.
+                This cycle — <span class="highlight-text">stress → inflammation → reduced vagal tone → more stress</span> — keeps your body on alert, exhausting both mind and arteries.
             </div>
             <div class="text-content">
                 Rebuilding calm through sleep, nutrition, and steady movement breaks this loop and restores the feedback line between the heart and brain.
             </div>
         </div>
 
-        <!-- Science Facts -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💡</span>
                 <h2>Science Facts — Inflammation, Vagus, and Pressure</h2>
             </div>
-
+            
             <div class="science-fact">
                 <div class="fact-item">
                     People with low HRV often have higher CRP and IL-6 levels (Thayer et al., 2010).
@@ -408,58 +348,12 @@
                 <div class="fact-item">
                     Anti-inflammatory lifestyle changes — good sleep, omega-3 fats, and mindful relaxation — can raise HRV by 15–25% (Laborde et al., 2018).
                 </div>
-            </div>
-
-            <div class="text-content">
-                Reducing inflammation isn't just about food — it's how you train your nervous system to rest.
-            </div>
-        </div>
-
-        <!-- Labs Section -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧬</span>
-                <h2>What About Labs?</h2>
-            </div>
-
-            <table class="biomarker-table">
-                <thead>
-                    <tr>
-                        <th>Biomarker</th>
-                        <th>What It Reflects</th>
-                        <th>Effect of Calm and Vagal Balance</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="biomarker-name">hs-CRP</span></td>
-                        <td>Key inflammation and vascular stress marker</td>
-                        <td>Drops as vagal tone and parasympathetic activity improve</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">ApoB & LDL-Cholesterol</span></td>
-                        <td>Lipid transport and oxidative stress</td>
-                        <td>Rise with inflammation, improve as oxidative load decreases</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">HDL-Cholesterol</span></td>
-                        <td>Protective lipid clearance</td>
-                        <td>Increases as inflammation calms and circulation improves</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Glucose / HbA1c</span></td>
-                        <td>Metabolic and inflammatory control</td>
-                        <td>High levels trigger inflammatory pathways; balanced meals and movement lower risk</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="text-content">
-                Calm isn't just emotional — it's biochemical.
+                <div class="fact-item">
+                    Reducing inflammation isn't just about food — it's how you train your nervous system to rest.
+                </div>
             </div>
         </div>
 
-        <!-- Reflection -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💭</span>
@@ -476,7 +370,6 @@
             </div>
         </div>
 
-        <!-- Action Plan -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">✅</span>
@@ -492,72 +385,84 @@
 
             <div class="action-box">
                 <div class="action-title">💠 The 3 Pillars of Anti-Inflammatory Rhythm</div>
-                
-                <div class="pillar-item">
-                    <span class="pillar-number">1️⃣</span>
-                    <span class="pillar-text"><strong>Move gently every day</strong> — walking or stretching helps lymph and blood flow clear inflammatory molecules.</span>
+
+                <div class="pillar-card">
+                    <div class="pillar-number">1️⃣ Move gently every day</div>
+                    <div class="pillar-content">
+                        Walking or stretching helps lymph and blood flow clear inflammatory molecules.
+                    </div>
                 </div>
 
-                <div class="pillar-item">
-                    <span class="pillar-number">2️⃣</span>
-                    <span class="pillar-text"><strong>Sleep 7–8 hours</strong> — deep sleep is when your body repairs vessel lining and lowers CRP.</span>
+                <div class="pillar-card">
+                    <div class="pillar-number">2️⃣ Sleep 7–8 hours</div>
+                    <div class="pillar-content">
+                        Deep sleep is when your body repairs vessel lining and lowers CRP.
+                    </div>
                 </div>
 
-                <div class="pillar-item">
-                    <span class="pillar-number">3️⃣</span>
-                    <span class="pillar-text"><strong>Add color to your plate</strong> — berries, greens, olive oil, and fish provide antioxidants that support vagal repair.</span>
-                </div>
-
-                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
-                    Consistency — not intensity — reduces inflammation and reconnects your heart–brain circuit.
+                <div class="pillar-card">
+                    <div class="pillar-number">3️⃣ Add color to your plate</div>
+                    <div class="pillar-content">
+                        Berries, greens, olive oil, and fish provide antioxidants that support vagal repair.
+                    </div>
                 </div>
             </div>
 
-            <div class="text-content" style="margin-top: 1.5rem;">
-                <span class="highlight-text">🌿 Why This Works</span>
+            <div class="text-content">
+                Consistency — not intensity — reduces inflammation and reconnects your heart–brain circuit.
             </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Why This Works</h2>
+            </div>
+            
             <div class="text-content">
                 Movement and rest control inflammation as powerfully as medication for many people — through improved HRV, lower cortisol, and stronger vagal feedback.
             </div>
             <div class="text-content">
                 This balance teaches your heart to respond calmly and your vessels to stay flexible.
             </div>
+        </div>
 
-            <div class="action-box" style="margin-top: 1.5rem;">
-                <div class="action-title">🔎 What to Expect (after 2–3 weeks)</div>
-                
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔎</span>
+                <h2>What to Expect (after 2–3 weeks)</h2>
+            </div>
+            
+            <div class="expected-results">
                 <div class="step-item">
                     <span class="step-number">💓</span>
                     <div><strong>HRV:</strong> ↑ 15–25% → stronger vagal control and resilience.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">🩸</span>
                     <div><strong>hs-CRP:</strong> ↓ 20–30% → reduced vascular inflammation.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">🧠</span>
                     <div><strong>Focus and mood:</strong> ↑ 25% → clearer thinking, calmer emotion.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">💤</span>
                     <div><strong>Sleep quality:</strong> ↑ 20% → faster recovery and lower cortisol.</div>
                 </div>
+            </div>
 
-                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
-                    Your heart and brain repair best in rhythm — calm days, full nights, steady motion.
-                </div>
+            <div class="text-content">
+                Your heart and brain repair best in rhythm — calm days, full nights, steady motion.
             </div>
         </div>
 
-        <!-- Evening Section -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌙</span>
                 <h2>Evening Matters Too — Sleep to Heal</h2>
             </div>
+
             <div class="text-content">
                 Deep sleep is your body's strongest anti-inflammatory therapy.
             </div>
@@ -566,29 +471,23 @@
             </div>
         </div>
 
-        <!-- Final Message -->
         <div class="section">
-            <div class="text-content" style="margin-bottom: 1.5rem;">
-                <span class="highlight-text">🌞 Why This Works</span>
+            <div class="section-header">
+                <span class="section-icon">🌞</span>
+                <h2>Why This Works</h2>
             </div>
+            
             <div class="text-content">
                 Lowering inflammation restores communication between your organs.
             </div>
             <div class="text-content">
                 When your body stops fighting itself, your heart, brain, and emotions return to the same calm frequency.
             </div>
-            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 2rem;">
-                ✨ Remember: Every calm habit — movement, rest, balanced meals — is a message from your body saying: "I'm safe now." When inflammation fades, the heart–brain link rebuilds naturally.
-            </div>
         </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            <div class="footer-contact">
-                <p>
-                    <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span>
-                </p>
-                <a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue →</a>
+        <div class="section">
+            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
+                ✨ Remember: Every calm habit — movement, rest, balanced meals — is a message from your body saying: "I'm safe now." When inflammation fades, the heart–brain link rebuilds naturally.
             </div>
         </div>
     </div>

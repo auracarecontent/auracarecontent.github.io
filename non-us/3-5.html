@@ -121,15 +121,26 @@
 
         .bullet-list {
             margin: 1rem 0;
-            padding-left: 1.5rem;
+            padding-left: 0;
+            list-style: none;
         }
 
         .bullet-item {
             font-size: 14px;
             font-weight: 500;
             color: #172737;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             line-height: 20px;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .bullet-item:before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #B87658;
+            font-weight: 700;
         }
 
         .science-fact {
@@ -212,104 +223,55 @@
             margin-bottom: 0;
         }
 
-        .biomarker-table {
-            width: 100%;
+        .expected-results {
+            background: rgba(16, 185, 129, 0.05);
+            padding: 18px;
+            border-left: 3px solid #10B981;
             margin: 1.5rem 0;
-            border-collapse: collapse;
-            background: white;
             box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
         }
 
-        .biomarker-table thead {
-            background: rgba(184, 118, 88, 0.08);
-        }
-
-        .biomarker-table th {
-            padding: 14px 16px;
-            text-align: left;
-            font-size: 13px;
-            font-weight: 600;
-            color: #172737;
-            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
-        }
-
-        .biomarker-table td {
-            padding: 14px 16px;
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            line-height: 18px;
-            border-bottom: 1px solid #F0F0F0;
-        }
-
-        .biomarker-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .biomarker-name {
-            font-weight: 600;
-            color: #172737;
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem 2.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .footer {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        .footer-contact {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 1.5rem;
-            margin: 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-        }
-
-        .footer-contact p {
+        .result-title {
             font-size: 14px;
-            font-weight: 500;
-            line-height: 20px;
-            margin: 0;
-        }
-
-        .contact-highlight {
             font-weight: 600;
+            color: #172737;
+            margin-bottom: 0.75rem;
         }
 
-        .contact-email {
-            display: inline-block;
+        .time-card {
             background: white;
-            color: #B87658;
-            padding: 12px 32px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 15px;
-            margin-top: 1rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            transition: all 0.2s;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
         }
 
-        .contact-email:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        .time-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .time-header {
+            font-size: 14px;
+            font-weight: 700;
+            color: #10B981;
+            margin-bottom: 0.5rem;
+        }
+
+        .time-content {
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 18px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <div class="header">
-            <div class="day-label">🍽️ DAY 5</div>
+            <div class="day-label">DAY 5</div>
             <h1>How Salt and Sugar Hijack Your Nervous System</h1>
         </div>
 
-        <!-- Daily Focus -->
         <div class="section intro-section">
             <div class="section-header">
                 <span class="section-icon">🌡️</span>
@@ -319,14 +281,16 @@
                 Your nervous system runs on balance — the right mix of minerals, fluids, and energy.
             </div>
             <div class="text-content">
-                When you get too much salt or too many blood-sugar spikes, that balance collapses. The result? Your body holds on to water, your blood pressure rises, and your vagus nerve — the system that calms the heart — struggles to keep control.
+                When you get too much salt or too many blood-sugar spikes, that balance collapses.
+            </div>
+            <div class="text-content">
+                The result? Your body holds on to water, your blood pressure rises, and your vagus nerve — the system that calms the heart — struggles to keep control.
             </div>
             <div class="text-content">
                 Today you'll learn how small daily choices in salt, hydration, and sugar rhythm can restore calm from the inside out.
             </div>
         </div>
 
-        <!-- Science Section -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💓</span>
@@ -347,14 +311,14 @@
             <div class="text-content">
                 If this happens daily, your nervous system stays in a subtle state of alert — heart rate rises, arteries lose elasticity, and even mild stress feels amplified.
             </div>
+            
             <div class="info-box">
-                <div class="text-content" style="margin: 0;">
-                    💡 The nervous system doesn't distinguish emotional tension from chemical tension — both can raise pressure.
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">💡 The nervous system doesn't distinguish emotional tension from chemical tension — both can raise pressure.</span>
                 </div>
             </div>
         </div>
 
-        <!-- Why It Matters -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧠</span>
@@ -366,26 +330,26 @@
             <div class="text-content">
                 This "silent overdrive" weakens your natural relaxation reflex.
             </div>
-            <div class="text-content">
-                Rebalancing minerals and glucose helps your body recover that rhythm:
+            
+            <div class="info-box">
+                <div class="text-content" style="font-weight: 600; margin-bottom: 0.75rem;">Rebalancing minerals and glucose helps your body recover that rhythm:</div>
+                <ul class="bullet-list" style="margin: 0;">
+                    <li class="bullet-item">Lower sodium = less water retention and vessel stiffness</li>
+                    <li class="bullet-item">Balanced hydration = better oxygen and heart rhythm</li>
+                    <li class="bullet-item">Stable glucose = smoother vagal tone and energy levels</li>
+                </ul>
             </div>
-            <ul class="bullet-list">
-                <li class="bullet-item">Lower sodium = less water retention and vessel stiffness</li>
-                <li class="bullet-item">Balanced hydration = better oxygen and heart rhythm</li>
-                <li class="bullet-item">Stable glucose = smoother vagal tone and energy levels</li>
-            </ul>
         </div>
 
-        <!-- Science Facts -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💡</span>
                 <h2>Science Facts — Electrolytes, Sugar, and Stress</h2>
             </div>
-
+            
             <div class="science-fact">
                 <div class="fact-item">
-                    Reducing sodium by 1 000 mg/day (half a teaspoon of salt) can lower systolic BP by 5–6 mmHg (He et al., 2020).
+                    Reducing sodium by 1,000 mg/day (half a teaspoon of salt) can lower systolic BP by 5–6 mmHg (He et al., 2020).
                 </div>
                 <div class="fact-item">
                     Dehydration increases heart rate and cortisol within minutes (Armstrong et al., 2016).
@@ -396,53 +360,12 @@
                 <div class="fact-item">
                     Balanced electrolytes (sodium, potassium, magnesium) improve HRV and blood vessel relaxation (Stanhewicz & Kenney, 2015).
                 </div>
-            </div>
-
-            <div class="text-content">
-                You can't calm your mind if your cells are thirsty.
-            </div>
-        </div>
-
-        <!-- Labs Section -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧬</span>
-                <h2>What About Labs?</h2>
-            </div>
-
-            <table class="biomarker-table">
-                <thead>
-                    <tr>
-                        <th>Biomarker</th>
-                        <th>What It Reflects</th>
-                        <th>Effect of Hydration and Mineral Balance</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="biomarker-name">Sodium & Potassium</span></td>
-                        <td>Electrolyte balance and nerve activity</td>
-                        <td>High sodium and low potassium are common in stress-related hypertension; improving this ratio lowers vascular tension</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Glucose & HbA1c</span></td>
-                        <td>Blood-sugar stability and oxidative stress</td>
-                        <td>Frequent sugar spikes raise oxidative stress; steadier meals stabilize pressure</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">ApoB & LDL-Cholesterol</span></td>
-                        <td>Lipid transport and inflammation</td>
-                        <td>Elevated with high-sugar diets and chronic inflammation; improve when glucose and hydration stabilize</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="text-content">
-                Hydration, balanced minerals, and stable blood sugar keep your nervous system grounded and your heart pressure steady.
+                <div class="fact-item">
+                    You can't calm your mind if your cells are thirsty. Hydration, balanced minerals, and stable blood sugar keep your nervous system grounded and your heart pressure steady.
+                </div>
             </div>
         </div>
 
-        <!-- Reflection -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💭</span>
@@ -459,7 +382,6 @@
             </div>
         </div>
 
-        <!-- Action Plan -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">✅</span>
@@ -471,31 +393,39 @@
             </div>
 
             <div class="action-box">
-                <div class="action-title">💠 The Rebalance Routine</div>
-                
-                <div class="step-item">
-                    <span class="step-number">🌅</span>
-                    <div><strong>Morning:</strong> Start the day with a full glass (250–300 ml) of mineral water or water with a pinch of sea salt.</div>
+                <div class="time-card">
+                    <div class="time-header">💠 Morning</div>
+                    <div class="time-content">
+                        Start the day with a full glass (250–300 ml) of mineral water or water with a pinch of sea salt.
+                    </div>
                 </div>
 
-                <div class="step-item">
-                    <span class="step-number">☀️</span>
-                    <div><strong>Midday:</strong> Choose one meal with real potassium sources — avocado, leafy greens, lentils, or yogurt.</div>
+                <div class="time-card">
+                    <div class="time-header">💠 Midday</div>
+                    <div class="time-content">
+                        Choose one meal with real potassium sources — avocado, leafy greens, lentils, or yogurt.
+                    </div>
                 </div>
 
-                <div class="step-item">
-                    <span class="step-number">🌙</span>
-                    <div><strong>Evening:</strong> Avoid late sugary snacks; replace with herbal tea or magnesium-rich foods (pumpkin seeds, banana).</div>
-                </div>
-
-                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
-                    Each step helps the vagus nerve reset, restoring balance between alertness and calm.
+                <div class="time-card">
+                    <div class="time-header">💠 Evening</div>
+                    <div class="time-content">
+                        Avoid late sugary snacks; replace with herbal tea or magnesium-rich foods (pumpkin seeds, banana).
+                    </div>
                 </div>
             </div>
 
-            <div class="text-content" style="margin-top: 1.5rem;">
-                <span class="highlight-text">🌿 Why This Works</span>
+            <div class="text-content">
+                Each step helps the vagus nerve reset, restoring balance between alertness and calm.
             </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Why This Works</h2>
+            </div>
+            
             <div class="text-content">
                 Balanced electrolytes regulate the tiny electrical signals that control heart rhythm.
             </div>
@@ -505,42 +435,44 @@
             <div class="text-content">
                 Together, they help your heart respond calmly instead of overreacting to daily stress.
             </div>
+        </div>
 
-            <div class="action-box" style="margin-top: 1.5rem;">
-                <div class="action-title">🔎 What to Expect (after 1–2 weeks)</div>
-                
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔎</span>
+                <h2>What to Expect (after 1–2 weeks)</h2>
+            </div>
+            
+            <div class="expected-results">
                 <div class="step-item">
                     <span class="step-number">💧</span>
                     <div><strong>Hydration balance:</strong> ↑ 15–20% → clearer focus and calmer pulse.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">🩸</span>
                     <div><strong>Systolic blood pressure:</strong> ↓ 4–6 mmHg → smoother circulation.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">💓</span>
                     <div><strong>HRV:</strong> ↑ 10–15% → stronger vagal response and energy recovery.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">🍬</span>
                     <div><strong>Glucose variability:</strong> ↓ 20% → fewer mood dips and energy crashes.</div>
                 </div>
+            </div>
 
-                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
-                    Your nervous system thrives on stability — what you drink and eat teaches your heart how to stay steady.
-                </div>
+            <div class="text-content">
+                Your nervous system thrives on stability — what you drink and eat teaches your heart how to stay steady.
             </div>
         </div>
 
-        <!-- Evening Section -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌙</span>
                 <h2>Evening Matters Too — Salt, Sleep, and Calm</h2>
             </div>
+
             <div class="text-content">
                 Late-night salty food keeps your heart rate higher during sleep.
             </div>
@@ -549,29 +481,23 @@
             </div>
         </div>
 
-        <!-- Final Message -->
         <div class="section">
-            <div class="text-content" style="margin-bottom: 1.5rem;">
-                <span class="highlight-text">🌞 Why This Works</span>
+            <div class="section-header">
+                <span class="section-icon">🌞</span>
+                <h2>Why This Works</h2>
             </div>
+            
             <div class="text-content">
                 Your cells read chemistry as emotion.
             </div>
             <div class="text-content">
                 When you balance hydration and sugar rhythm, you send your nervous system a message of safety — and your heart responds with calm precision.
             </div>
-            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 2rem;">
-                ✨ Remember: Every sip of water and every balanced meal is a small act of nervous-system care. You don't have to give things up — just give your body rhythm, not spikes.
-            </div>
         </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            <div class="footer-contact">
-                <p>
-                    <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span>
-                </p>
-                <a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue →</a>
+        <div class="section">
+            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
+                ✨ Remember: Every sip of water and every balanced meal is a small act of nervous-system care. You don't have to give things up — just give your body rhythm, not spikes.
             </div>
         </div>
     </div>

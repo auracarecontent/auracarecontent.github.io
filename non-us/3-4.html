@@ -121,15 +121,26 @@
 
         .bullet-list {
             margin: 1rem 0;
-            padding-left: 1.5rem;
+            padding-left: 0;
+            list-style: none;
         }
 
         .bullet-item {
             font-size: 14px;
             font-weight: 500;
             color: #172737;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             line-height: 20px;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .bullet-item:before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #B87658;
+            font-weight: 700;
         }
 
         .science-fact {
@@ -212,118 +223,92 @@
             margin-bottom: 0;
         }
 
-        .biomarker-table {
-            width: 100%;
+        .expected-results {
+            background: rgba(16, 185, 129, 0.05);
+            padding: 18px;
+            border-left: 3px solid #10B981;
             margin: 1.5rem 0;
-            border-collapse: collapse;
-            background: white;
             box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
         }
 
-        .biomarker-table thead {
-            background: rgba(184, 118, 88, 0.08);
-        }
-
-        .biomarker-table th {
-            padding: 14px 16px;
-            text-align: left;
-            font-size: 13px;
+        .result-title {
+            font-size: 14px;
             font-weight: 600;
             color: #172737;
-            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+            margin-bottom: 0.75rem;
         }
 
-        .biomarker-table td {
-            padding: 14px 16px;
+        .guide-box {
+            background: rgba(184, 118, 88, 0.03);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .activity-card {
+            background: white;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(184, 118, 88, 0.15);
+        }
+
+        .activity-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .activity-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .activity-icon {
+            font-size: 1.5rem;
+        }
+
+        .activity-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #172737;
+        }
+
+        .activity-content {
             font-size: 13px;
             font-weight: 500;
             color: #656565;
             line-height: 18px;
-            border-bottom: 1px solid #F0F0F0;
+            margin-bottom: 0.5rem;
         }
 
-        .biomarker-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .biomarker-name {
-            font-weight: 600;
-            color: #172737;
-        }
-
-        .walk-item {
-            background: rgba(16, 185, 129, 0.05);
-            padding: 14px;
-            margin-bottom: 0.75rem;
-            border-left: 3px solid #10B981;
-        }
-
-        .walk-text {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem 2.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .footer {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        .footer-contact {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 1.5rem;
-            margin: 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-        }
-
-        .footer-contact p {
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 20px;
-            margin: 0;
-        }
-
-        .contact-highlight {
-            font-weight: 600;
-        }
-
-        .contact-email {
+        .activity-result {
             display: inline-block;
-            background: white;
-            color: #B87658;
-            padding: 12px 32px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 15px;
-            margin-top: 1rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            transition: all 0.2s;
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #10B981;
         }
 
-        .contact-email:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        .tip-box {
+            background: rgba(16, 185, 129, 0.05);
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            border: 1px solid rgba(16, 185, 129, 0.2);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <div class="header">
-            <div class="day-label">🚶‍♀️ DAY 4</div>
+            <div class="day-label">DAY 4</div>
             <h1>Walk It Out: How Daily Steps Strengthen Your Heart and Calm Your Nerves</h1>
         </div>
 
-        <!-- Daily Focus -->
         <div class="section intro-section">
             <div class="section-header">
                 <span class="section-icon">🌡️</span>
@@ -340,7 +325,6 @@
             </div>
         </div>
 
-        <!-- Science Section -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💓</span>
@@ -359,11 +343,10 @@
                 Even a 20-minute walk improves vessel flexibility and oxygen delivery, lowering both blood pressure and perceived stress.
             </div>
             <div class="text-content">
-                Unlike high-intensity exercise, light rhythmic movement doesn't exhaust your nervous system — it trains it to recover faster.
+                <span class="highlight-text">Unlike high-intensity exercise, light rhythmic movement doesn't exhaust your nervous system — it trains it to recover faster.</span>
             </div>
         </div>
 
-        <!-- Why It Matters -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧠</span>
@@ -380,16 +363,15 @@
             </div>
         </div>
 
-        <!-- Science Facts -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💡</span>
                 <h2>Science Facts — Movement, HRV, and Pressure</h2>
             </div>
-
+            
             <div class="science-fact">
                 <div class="fact-item">
-                    Light daily walking (6 000–8 000 steps) lowers systolic BP by 4–6 mmHg on average (Lee et al., 2021).
+                    Light daily walking (6,000–8,000 steps) lowers systolic BP by 4–6 mmHg on average (Lee et al., 2021).
                 </div>
                 <div class="fact-item">
                     Moderate rhythmic movement improves HRV by 10–15% and enhances vagal tone (Laborde et al., Psychophysiology, 2018).
@@ -397,68 +379,12 @@
                 <div class="fact-item">
                     Short walking breaks every hour reduce cortisol and improve endothelial function (Hamer et al., 2015).
                 </div>
-            </div>
-
-            <div class="text-content">
-                Your calm grows stronger each time your body moves without rush.
-            </div>
-        </div>
-
-        <!-- Labs Section -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧬</span>
-                <h2>What About Labs?</h2>
-            </div>
-
-            <table class="biomarker-table">
-                <thead>
-                    <tr>
-                        <th>Biomarker</th>
-                        <th>What It Reflects</th>
-                        <th>Effect of Daily Movement</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="biomarker-name">Cortisol (AM)</span></td>
-                        <td>Stress rhythm and recovery</td>
-                        <td>Regular walking lowers baseline cortisol and stabilizes daily stress patterns</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">hs-CRP</span></td>
-                        <td>Inflammation and vascular repair</td>
-                        <td>Decreases as circulation improves and endothelial healing accelerates</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">ApoB & LDL-Cholesterol</span></td>
-                        <td>Lipid transport and arterial health</td>
-                        <td>Both decrease with steady physical activity and improved fat metabolism</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">HDL-Cholesterol</span></td>
-                        <td>Protective lipid clearing "good" cholesterol</td>
-                        <td>Rises as oxygen flow and lipid clearance increase</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Triglycerides</span></td>
-                        <td>Energy utilization and metabolic flexibility</td>
-                        <td>Drop when muscles burn more energy through gentle daily motion</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Glucose / HbA1c</span></td>
-                        <td>Blood-sugar control and vascular load</td>
-                        <td>Walking after meals stabilizes glucose levels and reduces strain on vessels</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="text-content">
-                Movement acts like natural medicine for your vessels — gentle, regular, and deeply effective.
+                <div class="fact-item">
+                    Your calm grows stronger each time your body moves without rush.
+                </div>
             </div>
         </div>
 
-        <!-- Reflection -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💭</span>
@@ -475,7 +401,6 @@
             </div>
         </div>
 
-        <!-- Action Plan -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">✅</span>
@@ -488,146 +413,176 @@
 
             <div class="action-box">
                 <div class="action-title">💠 The 3 × 10 Rule</div>
-                
-                <div class="text-content" style="margin-bottom: 1rem;">
+                <div class="text-content" style="margin-bottom: 0.75rem;">
                     Take three short 10-minute walks each day — morning light, midday reset, and evening unwind.
                 </div>
-
-                <div class="text-content" style="margin-bottom: 1rem;">
+                <div class="text-content" style="font-weight: 600; margin-bottom: 0.75rem;">
                     Each walk counts:
                 </div>
-
-                <div class="walk-item">
-                    <span class="walk-text">Morning boosts oxygen and sets circadian rhythm.</span>
-                </div>
-
-                <div class="walk-item">
-                    <span class="walk-text">Midday walk lowers cortisol and reactivates focus.</span>
-                </div>
-
-                <div class="walk-item">
-                    <span class="walk-text">Evening walk clears adrenaline and prepares the body for rest.</span>
-                </div>
-
-                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
-                    Aim for 6 000–8 000 steps total — consistency matters more than distance.
+                <ul class="bullet-list" style="margin: 0 0 0.75rem 0;">
+                    <li class="bullet-item">Morning boosts oxygen and sets circadian rhythm.</li>
+                    <li class="bullet-item">Midday walk lowers cortisol and reactivates focus.</li>
+                    <li class="bullet-item">Evening walk clears adrenaline and prepares the body for rest.</li>
+                </ul>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Aim for 6,000–8,000 steps total — consistency matters more than distance.
                 </div>
             </div>
+        </div>
 
-            <div class="info-box">
-                <div class="action-title">🧮 Personal Step Guide — When You Don't Track Steps</div>
-                <div class="text-content" style="margin-bottom: 1rem;">
-                    You don't need a watch or tracker to know if your day was active — your body already tells you.
-                </div>
-                <div class="text-content" style="margin-bottom: 1rem;">
-                    Use these simple cues to balance your movement on low-activity days:
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧮</span>
+                <h2>Personal Step Guide — When You Don't Track Steps</h2>
+            </div>
+            
+            <div class="text-content">
+                You don't need a watch or tracker to know if your day was active — your body already tells you.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Use these simple scenarios to balance your movement:</span>
+            </div>
+
+            <div class="guide-box">
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <span class="activity-icon">💻</span>
+                        <div class="activity-title">Mostly Sitting Day</div>
+                    </div>
+                    <div class="activity-content">
+                        Work, meetings, or computer-focused day
+                    </div>
+                    <div class="activity-content" style="font-weight: 600; color: #172737; margin-bottom: 0.75rem;">
+                        → Take 3 short walks (10 min each)
+                    </div>
+                    <div class="activity-content" style="margin-bottom: 0.5rem;">
+                        • Morning: fresh air + wake up<br>
+                        • Midday: break the sitting cycle<br>
+                        • Evening: release tension
+                    </div>
+                    <span class="activity-result">≈ 4,000–5,000 steps</span>
                 </div>
 
-                <div class="text-content" style="margin-bottom: 0.5rem;">
-                    <strong>If you've been sitting most of the day (work, meetings, computer):</strong>
-                </div>
-                <div class="text-content" style="margin-bottom: 1rem; padding-left: 1rem;">
-                    take three short walks, about 10 minutes each — morning, midday, evening.<br>
-                    That's roughly 4 000–5 000 steps, enough to restart circulation and calm the nervous system.
-                </div>
-
-                <div class="text-content" style="margin-bottom: 0.5rem;">
-                    <strong>If you've done light chores or errands (grocery run, cleaning, standing work):</strong>
-                </div>
-                <div class="text-content" style="margin-bottom: 1rem; padding-left: 1rem;">
-                    add one extra 10–15-minute walk outdoors.<br>
-                    You'll reach about 6 000–7 000 steps, supporting healthy vessel tone.
-                </div>
-
-                <div class="text-content" style="margin-bottom: 0.5rem;">
-                    <strong>If your day already included natural movement (walking to work, stairs, kids, pets):</strong>
-                </div>
-                <div class="text-content" style="margin-bottom: 1rem; padding-left: 1rem;">
-                    just finish with an evening relaxation walk — 5–10 minutes of slow pace and deep breathing.<br>
-                    It helps the vagus nerve reset after mental stress.
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <span class="activity-icon">🛒</span>
+                        <div class="activity-title">Light Activity Day</div>
+                    </div>
+                    <div class="activity-content">
+                        Errands, cleaning, standing work, or light chores
+                    </div>
+                    <div class="activity-content" style="font-weight: 600; color: #172737; margin-bottom: 0.75rem;">
+                        → Add 1 outdoor walk (10–15 min)
+                    </div>
+                    <div class="activity-content" style="margin-bottom: 0.5rem;">
+                        • Best time: midday or after work<br>
+                        • Focus on steady rhythm and breathing
+                    </div>
+                    <span class="activity-result">≈ 6,000–7,000 steps</span>
                 </div>
 
-                <div class="text-content" style="margin-bottom: 0.5rem;">
-                    💡 You can estimate 1 000 steps ≈ 10 minutes of easy walking.
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <span class="activity-icon">🚶</span>
+                        <div class="activity-title">Naturally Active Day</div>
+                    </div>
+                    <div class="activity-content">
+                        Walking to work, stairs, kids, pets, or errands on foot
+                    </div>
+                    <div class="activity-content" style="font-weight: 600; color: #172737; margin-bottom: 0.75rem;">
+                        → Just add evening calm walk (5–10 min)
+                    </div>
+                    <div class="activity-content" style="margin-bottom: 0.5rem;">
+                        • Slow pace with deep breathing<br>
+                        • Helps vagus nerve reset after mental stress
+                    </div>
+                    <span class="activity-result">Already balanced ✓</span>
                 </div>
-                <div class="text-content" style="margin-bottom: 0;">
+
+                <div class="tip-box">
+                    <div class="text-content" style="margin-bottom: 0; font-size: 13px;">
+                        💡 <strong>Quick estimate:</strong> 1,000 steps ≈ 10 minutes of easy walking
+                    </div>
+                </div>
+
+                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0; text-align: center; font-style: italic;">
                     On quiet days, rhythm matters more than numbers — even a few short walks protect your heart and pressure balance.
                 </div>
             </div>
+        </div>
 
-            <div class="text-content" style="margin-top: 1.5rem;">
-                <span class="highlight-text">🌿 Why This Works</span>
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Why This Works</h2>
             </div>
+            
             <div class="text-content">
                 Rhythmic movement improves baroreflex sensitivity and strengthens vagal control.
             </div>
             <div class="text-content">
                 Each step gently massages your arteries, lowers vessel stiffness, and teaches your heart to stay calm under load.
             </div>
+        </div>
 
-            <div class="action-box" style="margin-top: 1.5rem;">
-                <div class="action-title">🔎 What to Expect (after 2 weeks)</div>
-                
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔎</span>
+                <h2>What to Expect (after 2 weeks)</h2>
+            </div>
+            
+            <div class="expected-results">
                 <div class="step-item">
                     <span class="step-number">🫀</span>
                     <div><strong>Resting heart rate:</strong> ↓ 3–5 bpm → stronger, more efficient heartbeat.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">💓</span>
                     <div><strong>HRV:</strong> ↑ 10–15% → better adaptability and recovery.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">🩸</span>
                     <div><strong>Systolic pressure:</strong> ↓ 4–6 mmHg → smoother circulation.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">💭</span>
                     <div><strong>Energy and mood stability:</strong> ↑ 20–25% → lighter body, clearer mind.</div>
                 </div>
+            </div>
 
-                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
-                    The most powerful workout for your heart is the one you can repeat every day — walking with awareness.
-                </div>
+            <div class="text-content">
+                <span class="highlight-text">The most powerful workout for your heart is the one you can repeat every day — walking with awareness.</span>
             </div>
         </div>
 
-        <!-- Evening Section -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌙</span>
                 <h2>Evening Matters Too — Gentle Motion for Rest</h2>
             </div>
+
             <div class="text-content">
                 If you've been sitting for hours, a slow 10-minute stroll before bed helps release muscle tension and drop cortisol for deeper sleep.
             </div>
         </div>
 
-        <!-- Final Message -->
         <div class="section">
-            <div class="text-content" style="margin-bottom: 1.5rem;">
-                <span class="highlight-text">🌞 Why This Works</span>
+            <div class="section-header">
+                <span class="section-icon">🌞</span>
+                <h2>Why This Works</h2>
             </div>
+            
             <div class="text-content">
                 Movement builds calm the same way breathing does — through rhythm.
             </div>
             <div class="text-content">
                 Every step becomes a pulse of reassurance that strengthens your heart from the inside out.
             </div>
-            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 2rem;">
-                ✨ Remember: You don't need intensity — you need rhythm. Walk to balance, breathe to recover, and let your body find its natural pace again.
-            </div>
         </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            <div class="footer-contact">
-                <p>
-                    <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span>
-                </p>
-                <a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue →</a>
+        <div class="section">
+            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
+                ✨ Remember: You don't need intensity — you need rhythm. Walk to balance, breathe to recover, and let your body find its natural pace again.
             </div>
         </div>
     </div>

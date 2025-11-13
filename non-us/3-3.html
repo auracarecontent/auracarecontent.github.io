@@ -121,15 +121,26 @@
 
         .bullet-list {
             margin: 1rem 0;
-            padding-left: 1.5rem;
+            padding-left: 0;
+            list-style: none;
         }
 
         .bullet-item {
             font-size: 14px;
             font-weight: 500;
             color: #172737;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             line-height: 20px;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .bullet-item:before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #B87658;
+            font-weight: 700;
         }
 
         .science-fact {
@@ -212,124 +223,29 @@
             margin-bottom: 0;
         }
 
-        .biomarker-table {
-            width: 100%;
+        .expected-results {
+            background: rgba(16, 185, 129, 0.05);
+            padding: 18px;
+            border-left: 3px solid #10B981;
             margin: 1.5rem 0;
-            border-collapse: collapse;
-            background: white;
             box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
         }
 
-        .biomarker-table thead {
-            background: rgba(184, 118, 88, 0.08);
-        }
-
-        .biomarker-table th {
-            padding: 14px 16px;
-            text-align: left;
-            font-size: 13px;
+        .result-title {
+            font-size: 14px;
             font-weight: 600;
             color: #172737;
-            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
-        }
-
-        .biomarker-table td {
-            padding: 14px 16px;
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            line-height: 18px;
-            border-bottom: 1px solid #F0F0F0;
-        }
-
-        .biomarker-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .biomarker-name {
-            font-weight: 600;
-            color: #172737;
-        }
-
-        .breath-step {
-            background: rgba(16, 185, 129, 0.05);
-            padding: 14px;
             margin-bottom: 0.75rem;
-            border-left: 3px solid #10B981;
-        }
-
-        .breath-step-number {
-            font-weight: 700;
-            color: #10B981;
-            margin-right: 0.5rem;
-        }
-
-        .breath-step-text {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem 2.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .footer {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        .footer-contact {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 1.5rem;
-            margin: 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-        }
-
-        .footer-contact p {
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 20px;
-            margin: 0;
-        }
-
-        .contact-highlight {
-            font-weight: 600;
-        }
-
-        .contact-email {
-            display: inline-block;
-            background: white;
-            color: #B87658;
-            padding: 12px 32px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 15px;
-            margin-top: 1rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            transition: all 0.2s;
-        }
-
-        .contact-email:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <div class="header">
-            <div class="day-label">🌬️ DAY 3</div>
+            <div class="day-label">DAY 3</div>
             <h1>The Breathing Effect: The 5-Minute Reset to Lower Your Blood Pressure</h1>
         </div>
 
-        <!-- Daily Focus -->
         <div class="section intro-section">
             <div class="section-header">
                 <span class="section-icon">🌡️</span>
@@ -349,7 +265,6 @@
             </div>
         </div>
 
-        <!-- Science Section -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💓</span>
@@ -367,14 +282,14 @@
             <div class="text-content">
                 In response, the vagus nerve slows your pulse and widens blood vessels, improving oxygen delivery and vessel elasticity.
             </div>
+            
             <div class="info-box">
-                <div class="text-content" style="margin: 0;">
-                    💡 In other words, slow breathing is a built-in pressure regulator — gentle, effective, and free.
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">💡 In other words, slow breathing is a built-in pressure regulator — gentle, effective, and free.</span>
                 </div>
             </div>
         </div>
 
-        <!-- Why It Matters -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧠</span>
@@ -386,24 +301,24 @@
             <div class="text-content">
                 This pattern raises sympathetic tone, increases cortisol, and keeps blood pressure elevated.
             </div>
-            <div class="text-content">
-                Five minutes of slow breathing reverses that:
+            
+            <div class="info-box">
+                <div class="text-content" style="font-weight: 600; margin-bottom: 0.75rem;">Five minutes of slow breathing reverses that:</div>
+                <ul class="bullet-list" style="margin: 0;">
+                    <li class="bullet-item">HRV increases by 10–20%</li>
+                    <li class="bullet-item">Heart rate slows by 3–5 beats per minute</li>
+                    <li class="bullet-item">Systolic pressure can fall by up to 5–8 mmHg</li>
+                    <li class="bullet-item">Mental focus and calm both improve within minutes</li>
+                </ul>
             </div>
-            <ul class="bullet-list">
-                <li class="bullet-item">HRV increases by 10–20%</li>
-                <li class="bullet-item">Heart rate slows by 3–5 beats per minute</li>
-                <li class="bullet-item">Systolic pressure can fall by up to 5–8 mmHg</li>
-                <li class="bullet-item">Mental focus and calm both improve within minutes</li>
-            </ul>
         </div>
 
-        <!-- Science Facts -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💡</span>
                 <h2>Science Facts — Breath, Vagus and Pressure</h2>
             </div>
-
+            
             <div class="science-fact">
                 <div class="fact-item">
                     Paced-breathing protocols (4 sec inhale / 6 sec exhale) raise vagal tone and HRV while lowering blood pressure (Lehrer et al., 2020).
@@ -414,57 +329,12 @@
                 <div class="fact-item">
                     Combining slow breathing with awareness reduces anxiety and cortisol more effectively than breath control alone (Zaccaro et al., 2018).
                 </div>
-            </div>
-
-            <div class="text-content">
-                Longer exhales teach your heart what safety feels like.
-            </div>
-        </div>
-
-        <!-- Labs Section -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧬</span>
-                <h2>What About Labs?</h2>
-            </div>
-
-            <table class="biomarker-table">
-                <thead>
-                    <tr>
-                        <th>Biomarker</th>
-                        <th>Effect of Rhythmic Breathing</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="biomarker-name">hs-CRP</span></td>
-                        <td>Decreases as vagal tone rises and inflammation lowers.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">ApoB & LDL-Cholesterol</span></td>
-                        <td>Improved oxygenation and nitric oxide release enhance lipid handling.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">HDL-Cholesterol</span></td>
-                        <td>Tends to rise with better vascular elasticity and oxygen flow.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Triglycerides</span></td>
-                        <td>Normalize as circulation and metabolic control improve.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Lp(a)</span></td>
-                        <td>May reduce in activity due to lower vascular tension over time.</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="text-content">
-                Consistent rhythmic breathing supports smoother hormonal patterns, vessel flexibility, and metabolic calm.
+                <div class="fact-item">
+                    Longer exhales teach your heart what safety feels like.
+                </div>
             </div>
         </div>
 
-        <!-- Reflection -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💭</span>
@@ -481,7 +351,6 @@
             </div>
         </div>
 
-        <!-- Action Plan -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">✅</span>
@@ -497,82 +366,88 @@
 
             <div class="action-box">
                 <div class="action-title">💠 5-Minute Rhythm Reset</div>
-
-                <div class="breath-step">
-                    <span class="breath-step-number">1️⃣</span>
-                    <span class="breath-step-text">Sit comfortably, relax your shoulders.</span>
+                
+                <div class="step-item">
+                    <span class="step-number">1️⃣</span>
+                    <div>Sit comfortably, relax your shoulders.</div>
                 </div>
 
-                <div class="breath-step">
-                    <span class="breath-step-number">2️⃣</span>
-                    <span class="breath-step-text">Inhale gently through your nose for 4 seconds.</span>
+                <div class="step-item">
+                    <span class="step-number">2️⃣</span>
+                    <div>Inhale gently through your nose for 4 seconds.</div>
                 </div>
 
-                <div class="breath-step">
-                    <span class="breath-step-number">3️⃣</span>
-                    <span class="breath-step-text">Exhale softly through your mouth for 6 seconds.</span>
+                <div class="step-item">
+                    <span class="step-number">3️⃣</span>
+                    <div>Exhale softly through your mouth for 6 seconds.</div>
                 </div>
 
-                <div class="breath-step">
-                    <span class="breath-step-number">4️⃣</span>
-                    <span class="breath-step-text">Continue this pattern for 5 minutes (about 30 cycles).</span>
+                <div class="step-item">
+                    <span class="step-number">4️⃣</span>
+                    <div>Continue this pattern for 5 minutes (about 30 cycles).</div>
                 </div>
 
-                <div class="breath-step">
-                    <span class="breath-step-number">5️⃣</span>
-                    <span class="breath-step-text">Notice how your pulse and mind slow together.</span>
-                </div>
-
-                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
-                    Do this once in the morning and once before bed for best results — no equipment needed.
+                <div class="step-item">
+                    <span class="step-number">5️⃣</span>
+                    <div>Notice how your pulse and mind slow together.</div>
                 </div>
             </div>
 
-            <div class="text-content" style="margin-top: 1.5rem;">
-                <span class="highlight-text">🌿 Why This Works</span>
+            <div class="text-content">
+                Do this once in the morning and once before bed for best results — no equipment needed.
             </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Why This Works</h2>
+            </div>
+            
             <div class="text-content">
                 This breathing rate (about 6 breaths per minute) activates the baroreflex — the body's natural pressure-balancing mechanism.
             </div>
             <div class="text-content">
                 It increases HRV, reduces vessel resistance, and restores communication between the heart and brain.
             </div>
+        </div>
 
-            <div class="action-box" style="margin-top: 1.5rem;">
-                <div class="action-title">🔎 What to Expect (after 2 weeks)</div>
-                
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔎</span>
+                <h2>What to Expect (after 2 weeks)</h2>
+            </div>
+            
+            <div class="expected-results">
                 <div class="step-item">
                     <span class="step-number">🫀</span>
                     <div><strong>Resting heart rate:</strong> ↓ 3–5 bpm → calmer pulse and more efficient circulation.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">💓</span>
                     <div><strong>HRV:</strong> ↑ 10–20% → stronger vagal tone and stress resilience.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">🩸</span>
                     <div><strong>Systolic blood pressure:</strong> ↓ 5–8 mmHg → vessels relax more easily.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">💭</span>
                     <div><strong>Perceived stress:</strong> ↓ 20–25% → faster emotional recovery and mental clarity.</div>
                 </div>
+            </div>
 
-                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
-                    Small daily breathing sessions create measurable shifts in rhythm, calm, and vascular health.
-                </div>
+            <div class="text-content">
+                Small daily breathing sessions create measurable shifts in rhythm, calm, and vascular health.
             </div>
         </div>
 
-        <!-- Evening Section -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌙</span>
                 <h2>Evening Matters Too — Breathe Yourself to Rest</h2>
             </div>
+
             <div class="text-content">
                 Before bed, dim lights and breathe slowly for 2–3 minutes.
             </div>
@@ -581,29 +456,23 @@
             </div>
         </div>
 
-        <!-- Final Message -->
         <div class="section">
-            <div class="text-content" style="margin-bottom: 1.5rem;">
-                <span class="highlight-text">🌞 Why This Works</span>
+            <div class="section-header">
+                <span class="section-icon">🌞</span>
+                <h2>Why This Works</h2>
             </div>
+            
             <div class="text-content">
                 Every slow breath is a signal of trust.
             </div>
             <div class="text-content">
                 The more you practice, the more your body learns that calm isn't danger — it's homeostasis.
             </div>
-            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 2rem;">
-                ✨ Remember: Breathing isn't just air — it's information. Each steady exhale teaches your heart how to relax and your vessels how to flow freely.
-            </div>
         </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            <div class="footer-contact">
-                <p>
-                    <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span>
-                </p>
-                <a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue →</a>
+        <div class="section">
+            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
+                ✨ Remember: Breathing isn't just air — it's information. Each steady exhale teaches your heart how to relax and your vessels how to flow freely.
             </div>
         </div>
     </div>
