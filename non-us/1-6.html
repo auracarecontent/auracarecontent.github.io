@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 6: The Burnout Barrier</title>
+    <title>Day 6 — The Burnout Barrier: Catching the Signal Early</title>
     <style>
         * {
             margin: 0;
@@ -18,11 +18,16 @@
             line-height: 1.5;
         }
 
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+        }
+
         .container {
-            max-width: 1080px;
+            max-width: 520px;
             margin: 0 auto;
             background: #FFFEFB;
-            border-radius: 20px;
             box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
             overflow: hidden;
             border: 1px solid rgba(0, 0, 0, 0.04);
@@ -32,6 +37,12 @@
             background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
             color: white;
             padding: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1.5rem;
+            }
         }
 
         .day-label {
@@ -49,15 +60,21 @@
             line-height: 1.3;
         }
 
-        .subtitle {
-            font-size: 18px;
-            font-weight: 700;
-            opacity: 0.95;
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
         }
 
         .section {
             padding: 2rem 2.5rem;
             border-bottom: 1px solid #F0F0F0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 1.5rem 1.25rem;
+            }
         }
 
         .section-header {
@@ -78,9 +95,10 @@
             line-height: 22px;
         }
 
-        .daily-focus {
-            background: rgba(184, 118, 88, 0.05);
-            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 16px;
+            }
         }
 
         .text-content {
@@ -96,364 +114,237 @@
             color: #B87658;
         }
 
-        .orange-bg {
-            background: rgba(184, 118, 88, 0.1);
+        .intro-section {
+            background: rgba(184, 118, 88, 0.05);
+            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        }
+
+        .bullet-list {
+            margin: 1rem 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .bullet-item {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 0.75rem;
+            line-height: 20px;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .bullet-item:before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #B87658;
+            font-weight: 700;
+        }
+
+        .science-fact {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .fact-item {
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .fact-item:last-child {
+            margin-bottom: 0;
         }
 
         .info-box {
-            background: rgba(184, 118, 88, 0.1);
+            background: rgba(184, 118, 88, 0.05);
             padding: 18px;
-            border-radius: 16px;
-            border: 1px solid rgba(184, 118, 88, 0.2);
+            border-left: 3px solid #B87658;
             margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
         }
 
-        .equation-box {
-            background: rgba(220, 38, 38, 0.08);
+        .action-box {
+            background: rgba(16, 185, 129, 0.08);
             padding: 18px;
-            border-radius: 16px;
-            border: 2px solid rgba(220, 38, 38, 0.2);
+            border-left: 3px solid #10B981;
             margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .step-number {
+            font-weight: 700;
+            color: #10B981;
+            flex-shrink: 0;
+        }
+
+        .reflection-box {
+            background: rgba(184, 118, 88, 0.08);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .reflection-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+            margin-bottom: 0.5rem;
+        }
+
+        .reflection-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .burnout-equation {
+            background: rgba(184, 118, 88, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
             text-align: center;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(184, 118, 88, 0.2);
         }
 
         .equation-text {
             font-size: 16px;
             font-weight: 700;
-            color: #dc2626;
-            margin-bottom: 1rem;
-        }
-
-        .science-fact {
-            background: rgba(16, 185, 129, 0.08);
-            padding: 16px;
-            border-radius: 12px;
-            border-left: 3px solid #10B981;
-            margin-bottom: 1rem;
-            display: flex;
-            gap: 1rem;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .fact-icon {
-            font-size: 1.75rem;
-            flex-shrink: 0;
-        }
-
-        .fact-title {
-            font-weight: 600;
-            font-size: 14px;
-            color: #172737;
-            margin-bottom: 0.5rem;
-            line-height: 20px;
-        }
-
-        .fact-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            line-height: 18px;
-        }
-
-        .biomarker-card {
-            background: rgba(184, 118, 88, 0.08);
-            padding: 18px;
-            border-radius: 16px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .biomarker-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .biomarker-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            line-height: 20px;
-        }
-
-        .progress-bar {
-            background: #E6E6E6;
-            border-radius: 12px;
-            height: 28px;
-            overflow: hidden;
+            color: #B87658;
             margin-bottom: 0.75rem;
         }
 
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 12px;
-            color: white;
-            font-weight: 700;
-            font-size: 12px;
-            letter-spacing: 0.3px;
-            transition: width 1s ease-out;
-        }
-
-        .biomarker-desc {
+        .equation-desc {
             font-size: 13px;
             font-weight: 500;
-            color: #656565;
-            margin-top: 0.75rem;
+            color: #172737;
             line-height: 18px;
         }
-
-        .reflection-section {
-            background: rgba(168, 85, 247, 0.05);
-            border-bottom: 1px solid #F0F0F0;
-        }
-
-        .reflection-question {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
-        }
-
-        .action-section {
-            background: rgba(16, 185, 129, 0.08);
-            border-bottom: 3px solid #10B981;
-        }
-
-        .action-box {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.1);
-            border: 1px solid rgba(0, 0, 0, 0.04);
-        }
-
-        .action-highlight {
-            background: rgba(184, 118, 88, 0.1);
-            padding: 18px;
-            border-radius: 12px;
-            border-left: 3px solid #B87658;
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
-            margin-bottom: 1rem;
-        }
-
-        .action-steps {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-        }
-
-        .evening-section {
-            background: rgba(99, 102, 241, 0.05);
-            border-bottom: 1px solid #F0F0F0;
-        }
-
-        .evening-box {
-            background: white;
-            padding: 18px;
-            border-radius: 16px;
-            margin-top: 1.5rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 2.5rem;
-        }
-
-        .footer h2 {
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-text {
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            line-height: 20px;
-        }
-
-        .footer-final {
-            font-size: 18px;
-            font-weight: 700;
-            padding: 1.5rem 2rem;
-            line-height: 28px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            text-align: center;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-top: 1rem;
-        }
-
-        .footer-contact {
-            font-size: 15px;
-            font-weight: 600;
-            margin-top: 2rem;
-            padding: 1.5rem 2rem;
-            background: white;
-            color: #172737;
-            border-radius: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.8);
-            text-align: center;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-            line-height: 24px;
-        }
-
-        .contact-email {
-            color: #B87658;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            border-bottom: 2px solid #B87658;
-            transition: all 0.2s;
-        }
-
-        .contact-email:hover {
-            color: #D4956C;
-            border-bottom-color: #D4956C;
-        }
-
-        .contact-highlight {
-            font-weight: 700;
-            color: #B87658;
-        }
-
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-        }
     </style>
-
-<style>
-/* --- App-ready edge overrides (header/footer only) --- */
-.container { border-radius: 0 !important; max-width: 720px; margin: 0 auto; }
-.header, .hero, .intro, .top,
-.footer, .outro, .final, .ending { border-radius: 0 !important; }
-/* If first/last are plain sections, remove their outer radii */
-.container > :first-child {
-  border-top-left-radius: 0 !important;
-  border-top-right-radius: 0 !important;
-}
-.container > :last-child {
-  border-bottom-left-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
-}
-/* Cards nested directly in header/footer should be flat too */
-.header .card, .footer .card { border-radius: 0 !important; }
-
-/* Mobile niceties (do not change inner design) */
-img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block; }
-@media (max-width: 480px){
-  body { padding: 12px; }
-}
-</style>
-
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <div class="header">
-            <div class="day-label">Day 6</div>
-            <h1>The Burnout Barrier</h1>
-            <div class="subtitle">Catching the Signal Early</div>
+            <div class="day-label">DAY 6</div>
+            <h1>The Burnout Barrier: Catching the Signal Early</h1>
         </div>
 
-        <!-- Daily Focus -->
-        <div class="section daily-focus">
+        <div class="section intro-section">
             <div class="section-header">
                 <span class="section-icon">😃</span>
                 <h2>Daily Focus</h2>
             </div>
-            <p class="text-content">
+            <div class="text-content">
                 Burnout doesn't arrive in a single moment — it builds quietly.
-            </p>
-            <p class="text-content">
+            </div>
+            <div class="text-content">
                 Today you'll learn to notice the first biological and emotional signs of overload, when recovery still feels easy.
-            </p>
-            <p class="text-content">
+            </div>
+            <div class="text-content">
                 Recognizing these early signals helps you protect focus, mood, and energy before exhaustion sets in.
-            </p>
+            </div>
         </div>
 
-        <!-- Why It Matters -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">☀️</span>
                 <h2>Why It Matters</h2>
             </div>
-            <p class="text-content">
-                Your body always sends early warnings — long before your mind admits it's tired. When stress stays high and rest feels unproductive, your nervous system starts to compensate: you push through, sleep becomes lighter, and focus slips.
-            </p>
-            <p class="text-content highlight-text">
+            <div class="text-content">
+                Your body always sends early warnings — long before your mind admits it's tired.
+            </div>
+            <div class="text-content">
+                When stress stays high and rest feels unproductive, your nervous system starts to compensate: you push through, sleep becomes lighter, and focus slips.
+            </div>
+            <div class="text-content">
                 These aren't failures of willpower; they're protective responses.
-            </p>
-            <p class="text-content">
-                Catching them early means you can restore balance before your system hits the red zone.
-            </p>
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Catching them early means you can restore balance before your system hits the red zone.</span>
+            </div>
         </div>
 
-        <!-- Why Energy Slowly Declines -->
-        <div class="section orange-bg">
+        <div class="section">
             <div class="section-header">
                 <span class="section-icon">😴</span>
                 <h2>Why Energy Slowly Declines</h2>
             </div>
-            <p class="text-content">
-                Chronic tension keeps cortisol and adrenaline slightly elevated. At first, this helps you stay alert — but without proper recovery, your stress response loses flexibility.
-            </p>
-            <p class="text-content">
+            
+            <div class="text-content">
+                Chronic tension keeps cortisol and adrenaline slightly elevated.
+            </div>
+            <div class="text-content">
+                At first, this helps you stay alert — but without proper recovery, your stress response loses flexibility.
+            </div>
+            <div class="text-content">
                 Heart rate variability (HRV) — the small change in time between heartbeats — begins to drop, showing that your body is stuck in "alert mode."
-            </p>
-            <p class="text-content">
-                Inside your cells, mitochondria sense this constant tension. Normally, they convert oxygen and nutrients into ATP (adenosine triphosphate) — the molecule that powers every heartbeat, movement, and thought.
-            </p>
-            <p class="text-content">
-                Under ongoing stress, mitochondria shift into protection mode, producing less ATP and more reactive molecules. This state, called oxidative stress, slows energy creation and makes you feel drained even after rest.
-            </p>
-            <p class="text-content highlight-text">
-                Often, that cellular slowdown — not the workload itself — is the true start of burnout.
-            </p>
+            </div>
+            <div class="text-content">
+                Inside your cells, mitochondria sense this constant tension.
+            </div>
+            <div class="text-content">
+                Normally, they convert oxygen and nutrients into ATP (adenosine triphosphate) — the molecule that powers every heartbeat, movement, and thought.
+            </div>
+            <div class="text-content">
+                Under ongoing stress, mitochondria shift into protection mode, producing less ATP and more reactive molecules.
+            </div>
+            <div class="text-content">
+                This state, called oxidative stress, slows energy creation and makes you feel drained even after rest.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Often, that cellular slowdown — not the workload itself — is the true start of burnout.</span>
+            </div>
         </div>
 
-        <!-- Meet the Burnout Equation -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧠</span>
                 <h2>Meet the Burnout Equation</h2>
             </div>
             
-            <div class="equation-box">
-                <p class="equation-text">Burnout = High Output × Low Recovery × Time</p>
+            <div class="burnout-equation">
+                <div class="equation-text">Burnout = High Output × Low Recovery × Time</div>
             </div>
 
-            <p class="text-content">
+            <div class="text-content">
                 You don't burn out because you work hard — you burn out when recovery can't keep up.
-            </p>
-            <p class="text-content">
-                Healthy performance has rhythm: stress → restore → repeat. When recovery disappears, even small stressors drain your energy faster.
-            </p>
-            <p class="text-content">
+            </div>
+            <div class="text-content">
+                Healthy performance has rhythm: <span class="highlight-text">stress → restore → repeat</span>.
+            </div>
+            <div class="text-content">
+                When recovery disappears, even small stressors drain your energy faster.
+            </div>
+            <div class="text-content">
                 HRV, inflammation, and mitochondrial ATP output are your earliest biological warning signs.
-            </p>
+            </div>
         </div>
 
-        <!-- Science Facts -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌿</span>
@@ -461,177 +352,103 @@ img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block;
             </div>
             
             <div class="science-fact">
-                <div class="fact-icon">💤</div>
-                <div>
-                    <div class="fact-title">Flattened cortisol curve — low AM and high PM levels predict emotional exhaustion</div>
-                    <div class="fact-desc">Kakiashvili et al., 2013, J Occup Health.</div>
+                <div class="fact-item">
+                    💤 Flattened cortisol curve — low AM and high PM levels predict emotional exhaustion (Kakiashvili et al., 2013, J Occup Health).
                 </div>
-            </div>
-
-            <div class="science-fact">
-                <div class="fact-icon">⚡</div>
-                <div>
-                    <div class="fact-title">Low HRV — reduced variability reflects poor autonomic recovery</div>
-                    <div class="fact-desc">Kim et al., 2018, Front Public Health.</div>
+                <div class="fact-item">
+                    ⚡ Low HRV — reduced variability reflects poor autonomic recovery (Kim et al., 2018, Front Public Health).
                 </div>
-            </div>
-
-            <div class="science-fact">
-                <div class="fact-icon">🔥</div>
-                <div>
-                    <div class="fact-title">Elevated hs-CRP — low-grade inflammation that sustains stress signaling</div>
-                    <div class="fact-desc">Slavich, 2020, Nat Rev Neurosci.</div>
+                <div class="fact-item">
+                    🔥 Elevated hs-CRP — low-grade inflammation that sustains stress signaling (Slavich, 2020, Nat Rev Neurosci).
                 </div>
-            </div>
-
-            <div class="science-fact">
-                <div class="fact-icon">🔋</div>
-                <div>
-                    <div class="fact-title">Chronic stress impairs mitochondrial ATP production and increases oxidative stress</div>
-                    <div class="fact-desc">Picard & McEwen, 2018, Mol Psychiatry.</div>
+                <div class="fact-item">
+                    🔋 Chronic stress impairs mitochondrial ATP production and increases oxidative stress (Picard & McEwen, 2018, Mol Psychiatry).
                 </div>
-            </div>
-
-            <div class="science-fact">
-                <div class="fact-icon">🌙</div>
-                <div>
-                    <div class="fact-title">Fragmented sleep worsens HPA-axis balance and slows mitochondrial recovery</div>
-                    <div class="fact-desc">Meerlo et al., 2008, Sleep Med Rev.</div>
+                <div class="fact-item">
+                    🌙 Fragmented sleep worsens HPA-axis balance and slows mitochondrial recovery (Meerlo et al., 2008, Sleep Med Rev).
                 </div>
             </div>
         </div>
 
-        <!-- Biomarkers -->
         <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧬</span>
-                <h2>What About Labs?</h2>
-            </div>
-            <p class="text-content">
-                Certain blood markers show how well your stress and energy systems adapt — and the % next to each reflects how strongly each one influences your ability to stay resilient and avoid burnout.
-            </p>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">⚖️</span>
-                    <div class="biomarker-name">DHEA-S</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 65%">65%</div>
-                </div>
-                <div class="biomarker-desc">
-                    Balances cortisol's effects and supports resilience, mood, and immune stability (Maninger et al., 2009, Ann N Y Acad Sci).
-                </div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">🔥</span>
-                    <div class="biomarker-name">hs-CRP</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 60%">60%</div>
-                </div>
-                <div class="biomarker-desc">
-                    Reflects subtle inflammation that sustains stress activation (Slavich, 2020, Nat Rev Neurosci).
-                </div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">🔋</span>
-                    <div class="biomarker-name">Ferritin + Hemoglobin</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 55%">55%</div>
-                </div>
-                <div class="biomarker-desc">
-                    Show how efficiently oxygen reaches mitochondria; low levels reduce ATP production and stamina (Beard et al., 2001, Am J Clin Nutr).
-                </div>
-            </div>
-        </div>
-
-        <!-- Reflection -->
-        <div class="section reflection-section">
             <div class="section-header">
                 <span class="section-icon">💭</span>
                 <h2>Reflection Prompt</h2>
             </div>
-            <p class="reflection-question">
-                What are your earliest signs of overload — foggy thinking, tension, apathy, or detachment?
-            </p>
-            <p class="reflection-question">
-                How could you respond to the first one instead of waiting for a crash?
-            </p>
+            
+            <div class="reflection-box">
+                <div class="reflection-text">
+                    What are your earliest signs of overload — foggy thinking, tension, apathy, or detachment?
+                </div>
+                <div class="reflection-text">
+                    How could you respond to the first one instead of waiting for a crash?
+                </div>
+            </div>
         </div>
 
-        <!-- Action Plan -->
-        <div class="section action-section">
+        <div class="section">
             <div class="section-header">
                 <span class="section-icon">✅</span>
                 <h2>Plan to Action — The 3:1 Balance Rule</h2>
             </div>
-            
-            <p class="text-content">
-                <strong>By now, you've built a rhythm of light, rest, and focus that supports steady energy.</strong>
-            </p>
-            <p class="text-content">
-                Today, add one new step to protect that balance:
-            </p>
 
-            <div class="action-highlight">
-                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
-                    <span class="section-icon">💠</span>
-                    <strong>The 3:1 Balance Rule</strong>
-                </div>
-                <p style="margin-bottom: 1rem;">
+            <div class="text-content">
+                By now, you've built a rhythm of light, rest, and focus that supports steady energy.
+            </div>
+            <div class="text-content">
+                Today, add one new step to protect that balance:
+            </div>
+
+            <div class="action-box">
+                <div class="action-title">💠 The 3:1 Balance Rule</div>
+                <div class="text-content" style="margin-bottom: 0;">
                     For every three blocks of focused work or mental effort, schedule one block of recovery — a 5-minute walk, deep breathing, or quiet daylight break.
-                </p>
-                <p style="margin: 0; font-size: 13px; color: #656565;">
-                    This rhythm keeps your nervous system regulated and prevents hidden mitochondrial strain (Kim et al., 2018; Picard & McEwen, 2018).
-                </p>
+                </div>
+            </div>
+
+            <div class="text-content">
+                This rhythm keeps your nervous system regulated and prevents hidden mitochondrial strain (Kim et al., 2018; Picard & McEwen, 2018).
             </div>
         </div>
 
-        <!-- Evening Section -->
-        <div class="section evening-section">
+        <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌙</span>
                 <h2>Evening Matters Too — Lower the Baseline</h2>
             </div>
-            
-            <div class="evening-box">
-                <p class="text-content">
-                    After intense days, true recovery means quiet, not stimulation. Dim lights, skip screens, and take slow breaths before bed.
-                </p>
-                <p class="text-content" style="margin: 0;">
-                    This signals your HPA axis to lower cortisol and allows mitochondria to restore ATP overnight (Meerlo et al., 2008).
-                </p>
+
+            <div class="text-content">
+                After intense days, true recovery means quiet, not stimulation.
+            </div>
+            <div class="text-content">
+                Dim lights, skip screens, and take slow breaths before bed.
+            </div>
+            <div class="text-content">
+                This signals your HPA axis to lower cortisol and allows mitochondria to restore ATP overnight (Meerlo et al., 2008).
             </div>
         </div>
 
-        <!-- Footer -->
-        <div class="footer">
+        <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌞</span>
                 <h2>Why This Works</h2>
             </div>
-            <p class="footer-text">
+            
+            <div class="text-content">
                 Burnout isn't a collapse — it's communication.
-            </p>
-            <p class="footer-text">
+            </div>
+            <div class="text-content">
                 When you restore recovery cycles early, cortisol stabilizes, HRV improves, and your mitochondria return to efficient energy production.
-            </p>
-            <p class="footer-text">
+            </div>
+            <div class="text-content">
                 That's how steady energy and resilience are rebuilt — from the inside out.
-            </p>
-            <p class="footer-final">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
                 ✨ Remember: Protect your energy at the cellular level, and your body will protect your drive.
-            </p>
-            <p class="footer-contact">
-                📩 <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span><br><br>
-<strong><a href="https://plan.aura.care/lt-2/" class="contact-email">Continue</a></strong>
-            </p>
+            </div>
         </div>
     </div>
 </body>

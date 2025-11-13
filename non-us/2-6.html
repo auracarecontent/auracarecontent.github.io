@@ -1,55 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>2-6 (mobile)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6 — Vagus–Heart Harmony: Sync Breath, Rhythm, and Emotion</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
-        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
-        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
-        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
-        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
-        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
-        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
-        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
-        .section-icon { font-size: 1.5rem; line-height: 1.2; }
-        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
-        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
-        .highlight-text { font-weight: 600; color: #B87658; }
-        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
-        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
-        .biomarker-table-wrapper { margin-top: 1rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        .biomarker-table { width: 100%; min-width: 320px; border-collapse: collapse; background: #FFFFFF; border: 1px solid #E6E6E6; }
-        .biomarker-table th { background: rgba(184,118,88,0.1); padding: 12px; text-align: left; font-size: 13px; font-weight: 600; color: #172737; border: 1px solid #E6E6E6; line-height: 1.4; }
-        .biomarker-table td { padding: 12px; font-size: 13px; font-weight: 500; color: #172737; line-height: 1.4; border: 1px solid #E6E6E6; }
-        .biomarker-table tr:nth-child(even) { background: rgba(184,118,88,0.03); }
-        .biomarker-name { font-weight: 600; color: #B87658; }
-        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
-        .science-fact, .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
-        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
-        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
-        .step-item { display: flex; gap: 0.5rem; align-items: flex-start; margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; }
-        .step-number { font-weight: 700; color: #10B981; flex-shrink: 0; line-height: 1.4; }
-        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .quote-box { background: rgba(184,118,88,0.05); border: 1px solid rgba(184,118,88,0.15); text-align: center; padding: 1.5rem 1rem; margin: 1.5rem 0; }
-        .quote-text { font-size: 15px; font-weight: 600; color: #172737; line-height: 1.5; font-style: italic; }
-        .tomorrow-text { text-align: center; font-size: 15px; font-weight: 600; color: #172737; line-height: 1.4; margin-top: 2rem; }
-        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; }
-        .footer-topline { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #D4956C 0%, #B87658 50%, #D4956C 100%); }
-        .footer-headline { font-size: 18px; font-weight: 700; color: #FFFFFF; line-height: 1.4; margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 0.5rem; }
-        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
-        .footer-cta-wrapper { text-align: center; }
-        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
-        @media (min-width: 481px) { .header { padding: 2.5rem 2rem; } .section { padding: 2rem 2rem; } .footer { padding: 2.5rem 2rem 3rem 2rem; } }
-        @media print { body { background: #FFFFFF; } .screen { max-width: 100%; box-shadow: none; border: none; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
+            background: #FAF8F2;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+        }
+
+        .container {
+            max-width: 520px;
+            margin: 0 auto;
+            background: #FFFEFB;
+            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .day-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+        }
+
+        .section {
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            font-size: 1.75rem;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #172737;
+            line-height: 22px;
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 16px;
+            }
+        }
+
+        .text-content {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #B87658;
+        }
+
+        .intro-section {
+            background: rgba(184, 118, 88, 0.05);
+            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        }
+
+        .bullet-list {
+            margin: 1rem 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .bullet-item {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 0.75rem;
+            line-height: 20px;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .bullet-item:before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #B87658;
+            font-weight: 700;
+        }
+
+        .science-fact {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .fact-item {
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .fact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-box {
+            background: rgba(184, 118, 88, 0.05);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-box {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .step-number {
+            font-weight: 700;
+            color: #10B981;
+            flex-shrink: 0;
+        }
+
+        .reflection-box {
+            background: rgba(184, 118, 88, 0.08);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .reflection-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+            margin-bottom: 0.5rem;
+        }
+
+        .reflection-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .warning-box {
+            background: rgba(255, 193, 7, 0.1);
+            padding: 18px;
+            border-left: 3px solid #FFC107;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .warning-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #172737;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-container {
+            margin: 1.5rem 0;
+        }
+
+        .expected-results {
+            background: rgba(16, 185, 129, 0.05);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .result-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 0.75rem;
+        }
     </style>
 </head>
 <body>
-<main class="screen">
-
+    <div class="container">
         <div class="header">
             <div class="day-label">DAY 6</div>
             <h1>Vagus–Heart Harmony: Sync Breath, Rhythm, and Emotion</h1>
@@ -66,7 +276,7 @@
             <div class="text-content">
                 When your chest is tight and your breath shallow, your heart rhythm becomes irregular and your mind feels scattered.
             </div>
-            <div class="text-content highlight-text">
+            <div class="text-content">
                 When you breathe fully and open your posture, your vagus nerve helps both systems synchronize — creating focus, emotional steadiness, and calm energy.
             </div>
         </div>
@@ -83,12 +293,12 @@
                 When your breathing and heartbeat move in sync, your nervous system recognizes safety and efficiency — this state is called heart coherence.
             </div>
             <div class="text-content">
-                It means your body, emotions, and thoughts are working in harmony.
+                <span class="highlight-text">It means your body, emotions, and thoughts are working in harmony.</span>
             </div>
             <div class="text-content">
                 When coherence drops (from stress, fatigue, or poor posture), you may feel foggy, impatient, or drained even after rest.
             </div>
-            <div class="text-content highlight-text">
+            <div class="text-content">
                 The good news: you can restore this balance in minutes through mindful breathing and posture.
             </div>
         </div>
@@ -107,8 +317,8 @@
             <div class="text-content">
                 By opening your chest, relaxing shoulders, and breathing deeply, you give your heart and lungs space to synchronize again.
             </div>
-            <div class="text-content highlight-text">
-                This not only improves calmness but also oxygen flow, circulation, and emotional regulation — the physical foundation of balance.
+            <div class="text-content">
+                <span class="highlight-text">This not only improves calmness but also oxygen flow, circulation, and emotional regulation — the physical foundation of balance.</span>
             </div>
         </div>
 
@@ -120,55 +330,18 @@
             
             <div class="science-fact">
                 <div class="fact-item">
-                    <span class="highlight-text">🫀</span> When breathing slows to 5–6 breaths per minute, heart rhythm naturally synchronizes with breath waves (Lehrer et al., Frontiers in Physiology 2020).
+                    🫀 When breathing slows to 5–6 breaths per minute, heart rhythm naturally synchronizes with breath waves (Lehrer et al., Frontiers in Physiology 2020).
                 </div>
                 <div class="fact-item">
-                    <span class="highlight-text">🧘‍♀️</span> Open posture and diaphragmatic breathing — deep belly breathing — increase vagal activity, meaning your body's calm system works more effectively, and improve heart-rate variability (HRV), which helps you recover from stress faster (Laborde et al., Biological Psychology 2018).
+                    🧘‍♀️ Open posture and diaphragmatic breathing — deep belly breathing — increase vagal activity, meaning your body's calm system works more effectively, and improve heart-rate variability (HRV), which helps you recover from stress faster (Laborde et al., Biological Psychology 2018).
                 </div>
                 <div class="fact-item">
-                    <span class="highlight-text">🩺</span> Studies show improved blood pressure and emotional regulation with regular coherence breathing (McCraty et al., HeartMath Institute 2015).
+                    🩺 Studies show improved blood pressure and emotional regulation with regular coherence breathing (McCraty et al., HeartMath Institute 2015).
                 </div>
                 <div class="fact-item">
-                    <span class="highlight-text">💤</span> A calm heart rhythm before sleep predicts better rest and morning energy (Stein et al., Sleep Medicine Reviews 2019).
+                    💤 A calm heart rhythm before sleep predicts better rest and morning energy (Stein et al., Sleep Medicine Reviews 2019).
                 </div>
             </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧬</span>
-                <h2>What About Labs?</h2>
-            </div>
-            <div class="text-content">
-                Your heart–vagus balance often reflects in metabolic and inflammatory biomarkers:
-            </div>
-
-            <table class="biomarker-table">
-                <thead>
-                    <tr>
-                        <th>Biomarker</th>
-                        <th>What It Shows About Heart–Brain Balance</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="biomarker-name">Cortisol (AM)</span></td>
-                        <td>High levels blunt HRV and increase heart strain (Kumari et al., 2009).</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">DHEA-S</span></td>
-                        <td>Supports balanced stress response and healthy cardiovascular tone (Kalman et al., 2018).</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">hs-CRP</span></td>
-                        <td>Elevated inflammation correlates with low vagal tone (Thayer & Friedman, 2002).</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Magnesium</span></td>
-                        <td>Supports steady heartbeat and muscle relaxation (DiNicolantonio et al., 2018).</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
 
         <div class="section">
@@ -193,10 +366,14 @@
                 <h2>Plan to Action — Open Your Chest</h2>
             </div>
 
-            <div class="action-box">
-                <div class="action-title">Goal: align posture, breath, and heart rhythm to enhance calm focus.</div>
-                <div class="text-content" style="margin-bottom: 1rem;">Time: 5–7 minutes, morning or midday.</div>
-                <div class="text-content highlight-text" style="margin-bottom: 0;">Pro tip: Try this practice before long work sessions or after sitting for hours — it instantly refreshes energy and focus by improving blood and oxygen flow.</div>
+            <div class="text-content">
+                <strong>Goal:</strong> align posture, breath, and heart rhythm to enhance calm focus.
+            </div>
+            <div class="text-content">
+                <strong>Time:</strong> 5–7 minutes, morning or midday.
+            </div>
+            <div class="text-content">
+                <strong>Pro tip:</strong> Try this practice before long work sessions or after sitting for hours — it instantly refreshes energy and focus by improving blood and oxygen flow.
             </div>
 
             <div class="warning-box">
@@ -209,72 +386,71 @@
                 </div>
             </div>
 
-            <div class="step-item">
-                <span class="step-number">1️⃣</span>
-                <div>Stand or sit tall, feet grounded.</div>
-            </div>
-
-            <div class="step-item">
-                <span class="step-number">2️⃣</span>
-                <div>Roll shoulders up, back, and down to open your chest.</div>
-            </div>
-
-            <div class="step-item">
-                <span class="step-number">3️⃣</span>
-                <div>Inhale deeply through your nose for 5 seconds, letting ribs expand sideways.</div>
-            </div>
-
-            <div class="step-item">
-                <span class="step-number">4️⃣</span>
-                <div>Exhale slowly through your mouth for 6 seconds, feeling shoulders relax.</div>
-            </div>
-
-            <div class="step-item">
-                <span class="step-number">5️⃣</span>
-                <div>Continue for 10–12 breaths, noticing warmth and rhythm between heartbeats.</div>
-            </div>
-
-            <div class="video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/E0OcEeAG7-8" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <div class="text-content" style="margin-top: 1.5rem;">
-                <span class="highlight-text">Why this works:</span>
-            </div>
-            <div class="text-content">
-                An open chest allows the diaphragm to move freely, which boosts vagal tone and HRV.
-            </div>
-            <div class="text-content">
-                When breath and heartbeat align, your brain shifts into coherence — improving focus, mood, and cardiovascular stability (Laborde 2018; Lehrer 2020).
-            </div>
-
-            <div class="action-box" style="margin-top: 1.5rem;">
-                <div class="action-title">What to Expect:</div>
-                
+            <div class="action-box">
                 <div class="step-item">
                     <span class="step-number">1️⃣</span>
-                    <div>Easier, fuller breathing and improved posture</div>
+                    <div>Stand or sit tall, feet grounded.</div>
                 </div>
 
                 <div class="step-item">
                     <span class="step-number">2️⃣</span>
-                    <div>Noticeably steadier heartbeat and calmer focus</div>
+                    <div>Roll shoulders up, back, and down to open your chest.</div>
                 </div>
 
                 <div class="step-item">
                     <span class="step-number">3️⃣</span>
-                    <div>Reduced upper-body tension and neck tightness</div>
+                    <div>Inhale deeply through your nose for 5 seconds, letting ribs expand sideways.</div>
                 </div>
 
                 <div class="step-item">
                     <span class="step-number">4️⃣</span>
-                    <div>More balanced energy and emotional clarity</div>
+                    <div>Exhale slowly through your mouth for 6 seconds, feeling shoulders relax.</div>
                 </div>
 
+                <div class="step-item">
+                    <span class="step-number">5️⃣</span>
+                    <div>Continue for 10–12 breaths, noticing warmth and rhythm between heartbeats.</div>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <iframe 
+                    width="100%" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/E0OcEeAG7-8" 
+                    title="Open Your Chest - Heart Coherence Practice" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    style="border-radius: 8px;">
+                </iframe>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="font-weight: 600; margin-bottom: 0.75rem;">Why this works:</div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    An open chest allows the diaphragm to move freely, which boosts vagal tone and HRV. When breath and heartbeat align, your brain shifts into coherence — improving focus, mood, and cardiovascular stability (Laborde 2018; Lehrer 2020).
+                </div>
+            </div>
+
+            <div class="expected-results">
+                <div class="result-title">What to Expect:</div>
+                <div class="step-item">
+                    <span class="step-number">1️⃣</span>
+                    <div>Easier, fuller breathing and improved posture</div>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">2️⃣</span>
+                    <div>Noticeably steadier heartbeat and calmer focus</div>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">3️⃣</span>
+                    <div>Reduced upper-body tension and neck tightness</div>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">4️⃣</span>
+                    <div>More balanced energy and emotional clarity</div>
+                </div>
                 <div class="step-item">
                     <span class="step-number">5️⃣</span>
                     <div>A warm, open feeling across the chest and shoulders</div>
@@ -287,6 +463,7 @@
                 <span class="section-icon">🌙</span>
                 <h2>Evening Matters Too — Reset Your Heart Rhythm</h2>
             </div>
+
             <div class="text-content">
                 Place a hand on your heart before sleep and take five slow breaths.
             </div>
@@ -296,27 +473,24 @@
         </div>
 
         <div class="section">
-            <div class="quote-box">
-                <div class="quote-text">
-                    Your posture shapes how your brain and heart communicate.<br><br>
-                    By breathing fully and sitting tall, you allow your body's natural calm circuitry to flow freely — turning steady rhythm into steady emotion.
-                </div>
+            <div class="section-header">
+                <span class="section-icon">🌞</span>
+                <h2>Why This Works</h2>
             </div>
-            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 2rem;">
-                ✨ Tomorrow: you'll learn how to turn calm into motion — using rhythm, breath, and gentle movement together to keep your body and mind in lasting balance.
+            
+            <div class="text-content">
+                Your posture shapes how your brain and heart communicate.
+            </div>
+            <div class="text-content">
+                By breathing fully and sitting tall, you allow your body's natural calm circuitry to flow freely — turning steady rhythm into steady emotion.
             </div>
         </div>
 
-        <div class="footer">
-            <h2>📩 Get Your Personalized Lab Panel</h2>
-            <div class="footer-text">
-                If you're interested in a personalised lab panel at the best price — with your own detailed report after the results are ready, click here:
-            </div>
-            <div class="footer-cta-wrapper">
-                <a href="https://plan.aura.care/lt-2/" class="footer-email" target="_blank" rel="noopener noreferrer">📋 Create your Lab Panel</a>
+        <div class="section">
+            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
+                ✨ Tomorrow: you'll learn how to turn calm into motion — using rhythm, breath, and gentle movement together to keep your body and mind in lasting balance.
             </div>
         </div>
-    
-</main>
+    </div>
 </body>
 </html>

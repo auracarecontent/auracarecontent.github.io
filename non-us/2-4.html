@@ -1,53 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Day 4 — Stress & Digestion (v3 mobile)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4 — The Vagus–Gut Connection: How Stress Blocks Digestion</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
-        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
-        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
-        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
-        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
-        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
-        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
-        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
-        .section-icon { font-size: 1.5rem; line-height: 1.2; }
-        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
-        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
-        .highlight-text { font-weight: 600; color: #B87658; }
-        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
-        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
-        .biomarker-table-wrapper { margin-top: 1rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        .biomarker-table { width: 100%; min-width: 320px; border-collapse: collapse; background: #FFFFFF; border: 1px solid #E6E6E6; }
-        .biomarker-table th { background: rgba(184,118,88,0.1); padding: 12px; text-align: left; font-size: 13px; font-weight: 600; color: #172737; border: 1px solid #E6E6E6; line-height: 1.4; }
-        .biomarker-table td { padding: 12px; font-size: 13px; font-weight: 500; color: #172737; line-height: 1.4; border: 1px solid #E6E6E6; }
-        .biomarker-table tr:nth-child(even) { background: rgba(184,118,88,0.03); }
-        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
-        .science-fact, .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
-        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
-        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
-        .step-item { display: flex; gap: 0.5rem; align-items: flex-start; margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; }
-        .step-number { font-weight: 700; color: #10B981; flex-shrink: 0; line-height: 1.4; }
-        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .quote-box { background: rgba(184,118,88,0.05); border: 1px solid rgba(184,118,88,0.15); text-align: center; padding: 1.5rem 1rem; margin: 1.5rem 0; }
-        .quote-text { font-size: 15px; font-weight: 600; color: #172737; line-height: 1.5; font-style: italic; }
-        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; }
-        .footer-topline { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #D4956C 0%, #B87658 50%, #D4956C 100%); }
-        .footer-headline { font-size: 18px; font-weight: 700; color: #FFFFFF; line-height: 1.4; margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 0.5rem; }
-        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
-        .footer-cta-wrapper { text-align: center; }
-        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
-        @media (min-width: 481px) { .header { padding: 2.5rem 2rem; } .section { padding: 2rem 2rem; } .footer { padding: 2.5rem 2rem 3rem 2rem; } }
-        @media print { body { background: #FFFFFF; } .screen { max-width: 100%; box-shadow: none; border: none; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
+            background: #FAF8F2;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+        }
+
+        .container {
+            max-width: 520px;
+            margin: 0 auto;
+            background: #FFFEFB;
+            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            padding: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .day-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+        }
+
+        .section {
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            font-size: 1.75rem;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #172737;
+            line-height: 22px;
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 16px;
+            }
+        }
+
+        .text-content {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #B87658;
+        }
+
+        .intro-section {
+            background: rgba(184, 118, 88, 0.05);
+            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
+        }
+
+        .bullet-list {
+            margin: 1rem 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .bullet-item {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            margin-bottom: 0.75rem;
+            line-height: 20px;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .bullet-item:before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #B87658;
+            font-weight: 700;
+        }
+
+        .science-fact {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .fact-item {
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .fact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-box {
+            background: rgba(184, 118, 88, 0.05);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-box {
+            background: rgba(16, 185, 129, 0.08);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .action-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 20px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 20px;
+        }
+
+        .step-number {
+            font-weight: 700;
+            color: #10B981;
+            flex-shrink: 0;
+        }
+
+        .reflection-box {
+            background: rgba(184, 118, 88, 0.08);
+            padding: 18px;
+            border-left: 3px solid #B87658;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .reflection-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 18px;
+            margin-bottom: 0.5rem;
+        }
+
+        .reflection-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .warning-box {
+            background: rgba(255, 193, 7, 0.1);
+            padding: 18px;
+            border-left: 3px solid #FFC107;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .warning-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #172737;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-container {
+            margin: 1.5rem 0;
+        }
+
+        .expected-results {
+            background: rgba(16, 185, 129, 0.05);
+            padding: 18px;
+            border-left: 3px solid #10B981;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+
+        .result-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 0.75rem;
+        }
     </style>
 </head>
 <body>
-<main class="screen">
-
+    <div class="container">
         <div class="header">
             <div class="day-label">DAY 4</div>
             <h1>The Vagus–Gut Connection: How Stress Blocks Digestion</h1>
@@ -64,7 +276,7 @@
             <div class="text-content">
                 When stress takes over, that line of communication weakens.
             </div>
-            <div class="text-content highlight-text">
+            <div class="text-content">
                 You'll learn how chronic tension slows digestion, why bloating or heaviness often follow busy days, and how gentle movement with deep breathing can switch your gut back on.
             </div>
         </div>
@@ -86,16 +298,18 @@
             <div class="text-content">
                 As a result, the vagus nerve — which keeps digestion calm — becomes less active.
             </div>
-            <div class="text-content">
-                You might notice:
+            
+            <div class="info-box">
+                <div class="text-content" style="font-weight: 600; margin-bottom: 0.75rem;">You might notice:</div>
+                <ul class="bullet-list" style="margin: 0;">
+                    <li class="bullet-item">bloating or heaviness after meals,</li>
+                    <li class="bullet-item">stomach cramps or tightness,</li>
+                    <li class="bullet-item">irregular appetite.</li>
+                </ul>
             </div>
-            <ul class="bullet-list">
-                <li class="bullet-item">bloating or heaviness after meals,</li>
-                <li class="bullet-item">stomach cramps or tightness,</li>
-                <li class="bullet-item">irregular appetite.</li>
-            </ul>
-            <div class="text-content highlight-text">
-                To help your digestion work smoothly again, you need to turn the vagus nerve back on — your body's natural "rest and digest" mode.
+
+            <div class="text-content">
+                <span class="highlight-text">To help your digestion work smoothly again, you need to turn the vagus nerve back on — your body's natural "rest and digest" mode.</span>
             </div>
         </div>
 
@@ -116,8 +330,8 @@
             <div class="text-content">
                 When it's weak, communication slows and you feel "stuck" both mentally and physically.
             </div>
-            <div class="text-content highlight-text">
-                Gentle twisting and deep breathing help massage the organs, increase blood flow, and create rhythmic pressure changes that directly activate vagal fibers in the abdomen — resetting the system.
+            <div class="text-content">
+                <span class="highlight-text">Gentle twisting and deep breathing help massage the organs, increase blood flow, and create rhythmic pressure changes that directly activate vagal fibers in the abdomen — resetting the system.</span>
             </div>
         </div>
 
@@ -129,58 +343,17 @@
             
             <div class="science-fact">
                 <div class="fact-item">
-                    <span class="highlight-text">🧠</span> Vagal activity directly regulates intestinal motility and inflammation (Bonaz & Pellissier, Frontiers in Neuroscience 2016).
+                    🧠 Vagal activity directly regulates intestinal motility and inflammation (Bonaz & Pellissier, Frontiers in Neuroscience 2016).
                 </div>
                 <div class="fact-item">
-                    <span class="highlight-text">🫁</span> Deep breathing and gentle movement improve blood flow to the digestive organs and enhance nutrient absorption (Kirkwood et al., Journal of Alternative and Complementary Medicine 2005).
+                    🫁 Deep breathing and gentle movement improve blood flow to the digestive organs and enhance nutrient absorption (Kirkwood et al., Journal of Alternative and Complementary Medicine 2005).
                 </div>
                 <div class="fact-item">
-                    <span class="highlight-text">💤</span> People with higher vagal tone show fewer symptoms of IBS (Irritable Bowel Syndrome) — a condition that causes bloating, pain, and irregular digestion — and recover from stress faster (Laborde et al., Psychophysiology 2018).
+                    💤 People with higher vagal tone show fewer symptoms of IBS (Irritable Bowel Syndrome) — a condition that causes bloating, pain, and irregular digestion — and recover from stress faster (Laborde et al., Psychophysiology 2018).
                 </div>
                 <div class="fact-item">
-                    <span class="highlight-text">🧬</span> Chronic stress suppresses vagal feedback, increasing gut inflammation (Browning et al., Neurogastroenterology and Motility 2017).
+                    🧬 Chronic stress suppresses vagal feedback, increasing gut inflammation (Browning et al., Neurogastroenterology and Motility 2017).
                 </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧬</span>
-                <h2>What About Labs?</h2>
-            </div>
-            <div class="text-content">
-                Your gut–vagus connection can often be seen through metabolic and inflammatory biomarkers:
-            </div>
-
-            <table class="biomarker-table">
-                <thead>
-                    <tr>
-                        <th>Biomarker</th>
-                        <th>What It Shows About Gut–Brain Health</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="biomarker-name">Cortisol (AM / PM)</span></td>
-                        <td>Prolonged elevation slows digestion and disrupts microbiome balance (Kumari et al., 2009).</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Glucose / HbA1c</span></td>
-                        <td>Unstable glucose slows stomach emptying and raises stress hormones (Huang et al., 2011).</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Ferritin & B12</span></td>
-                        <td>Low levels suggest poor absorption due to weak digestive signaling.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Magnesium</span></td>
-                        <td>Aids smooth muscle movement and relaxation in the gut wall (DiNicolantonio et al., 2018).</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="text-content highlight-text">
-                Tracking these markers over time can show whether your digestive stress is improving with recovery-based habits.
             </div>
         </div>
 
@@ -206,10 +379,14 @@
                 <h2>Plan to Action — Vagus Comfort Hold</h2>
             </div>
 
-            <div class="action-box">
-                <div class="action-title">Goal: activate abdominal vagus branches and improve gut circulation.</div>
-                <div class="text-content" style="margin-bottom: 1rem;">Time: 5 minutes, preferably before or after meals.</div>
-                <div class="text-content highlight-text" style="margin-bottom: 0;">Pro tip: Do this mid-day to beat the "heavy lunch slump" or anytime bloating appears.</div>
+            <div class="text-content">
+                <strong>Goal:</strong> activate abdominal vagus branches and improve gut circulation.
+            </div>
+            <div class="text-content">
+                <strong>Time:</strong> 5 minutes, preferably before or after meals.
+            </div>
+            <div class="text-content">
+                <strong>Pro tip:</strong> Do this mid-day to beat the "heavy lunch slump" or anytime bloating appears.
             </div>
 
             <div class="warning-box">
@@ -222,77 +399,76 @@
                 </div>
             </div>
 
-            <div class="step-item">
-                <span class="step-number">1️⃣</span>
-                <div>Sit or stand tall, feet hip-width apart.</div>
-            </div>
-
-            <div class="step-item">
-                <span class="step-number">2️⃣</span>
-                <div>Inhale deeply through the nose while turning your torso gently to the right.</div>
-            </div>
-
-            <div class="step-item">
-                <span class="step-number">3️⃣</span>
-                <div>Exhale slowly as you return to center.</div>
-            </div>
-
-            <div class="step-item">
-                <span class="step-number">4️⃣</span>
-                <div>Inhale again and twist to the left.</div>
-            </div>
-
-            <div class="step-item">
-                <span class="step-number">5️⃣</span>
-                <div>Repeat this slow rhythm for 10–12 cycles (about 5 minutes).</div>
-            </div>
-
-            <div class="step-item">
-                <span class="step-number">6️⃣</span>
-                <div>Finish by placing one hand on your belly, one on your chest — take two long breaths, feeling both rise and fall together.</div>
-            </div>
-
-            <div class="video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/swpbZ5ZebsE" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <div class="text-content" style="margin-top: 1.5rem;">
-                <span class="highlight-text">Why this works:</span>
-            </div>
-            <div class="text-content">
-                Gentle twisting massages abdominal organs, increasing blood flow and stimulating the vagus nerve along its digestive branches.
-            </div>
-            <div class="text-content">
-                The deep exhale reinforces parasympathetic activation, improving gut motility and calm (Bonaz 2016; Kirkwood 2005).
-            </div>
-
-            <div class="action-box" style="margin-top: 1.5rem;">
-                <div class="action-title">What to Expect:</div>
-                
+            <div class="action-box">
                 <div class="step-item">
                     <span class="step-number">1️⃣</span>
-                    <div>Relief from bloating or abdominal tightness</div>
+                    <div>Sit or stand tall, feet hip-width apart.</div>
                 </div>
 
                 <div class="step-item">
                     <span class="step-number">2️⃣</span>
-                    <div>Calmer digestion and reduced heaviness after meals</div>
+                    <div>Inhale deeply through the nose while turning your torso gently to the right.</div>
                 </div>
 
                 <div class="step-item">
                     <span class="step-number">3️⃣</span>
-                    <div>Noticeably slower breathing and heart rate</div>
+                    <div>Exhale slowly as you return to center.</div>
                 </div>
 
                 <div class="step-item">
                     <span class="step-number">4️⃣</span>
-                    <div>A relaxed, grounded sensation through the body</div>
+                    <div>Inhale again and twist to the left.</div>
                 </div>
 
+                <div class="step-item">
+                    <span class="step-number">5️⃣</span>
+                    <div>Repeat this slow rhythm for 10–12 cycles (about 5 minutes).</div>
+                </div>
+
+                <div class="step-item">
+                    <span class="step-number">6️⃣</span>
+                    <div>Finish by placing one hand on your belly, one on your chest — take two long breaths, feeling both rise and fall together.</div>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <iframe 
+                    width="100%" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/swpbZ5ZebsE" 
+                    title="Vagus Comfort Hold - Gut-Brain Connection" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    style="border-radius: 8px;">
+                </iframe>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="font-weight: 600; margin-bottom: 0.75rem;">Why this works:</div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Gentle twisting massages abdominal organs, increasing blood flow and stimulating the vagus nerve along its digestive branches. The deep exhale reinforces parasympathetic activation, improving gut motility and calm (Bonaz 2016; Kirkwood 2005).
+                </div>
+            </div>
+
+            <div class="expected-results">
+                <div class="result-title">What to Expect:</div>
+                <div class="step-item">
+                    <span class="step-number">1️⃣</span>
+                    <div>Relief from bloating or abdominal tightness</div>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">2️⃣</span>
+                    <div>Calmer digestion and reduced heaviness after meals</div>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">3️⃣</span>
+                    <div>Noticeably slower breathing and heart rate</div>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">4️⃣</span>
+                    <div>A relaxed, grounded sensation through the body</div>
+                </div>
                 <div class="step-item">
                     <span class="step-number">5️⃣</span>
                     <div>Improved post-meal focus and comfort</div>
@@ -305,6 +481,7 @@
                 <span class="section-icon">🌙</span>
                 <h2>Evening Matters Too — Digest Calmly</h2>
             </div>
+
             <div class="text-content">
                 Eat your last meal at least 2–3 hours before bed.
             </div>
@@ -314,27 +491,24 @@
         </div>
 
         <div class="section">
-            <div class="quote-box">
-                <div class="quote-text">
-                    Your gut is one of your brain's most direct feedback systems.<br><br>
-                    By calming the vagus, you improve both digestion and emotional stability — less tension, less bloating, more flow.
-                </div>
+            <div class="section-header">
+                <span class="section-icon">🌞</span>
+                <h2>Why This Works</h2>
             </div>
-            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 2rem;">
-                ✨ Tomorrow: you'll explore how gentle hand placement and comforting touch can quickly calm emotions and help your body feel safe and supported again.
+            
+            <div class="text-content">
+                Your gut is one of your brain's most direct feedback systems.
+            </div>
+            <div class="text-content">
+                By calming the vagus, you improve both digestion and emotional stability — less tension, less bloating, more flow.
             </div>
         </div>
 
-        <div class="footer">
-            <h2>📩 Get Your Personalized Lab Panel</h2>
-            <div class="footer-text">
-                If you're interested in a personalised lab panel at the best price — with your own detailed report after the results are ready, click here:
-            </div>
-            <div class="footer-cta-wrapper">
-                <a href="https://plan.aura.care/lt-2/" class="footer-email" target="_blank" rel="noopener noreferrer">📋 Create your Lab Panel</a>
+        <div class="section">
+            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
+                ✨ Tomorrow: you'll explore how gentle hand placement and comforting touch can quickly calm emotions and help your body feel safe and supported again.
             </div>
         </div>
-    
-</main>
+    </div>
 </body>
 </html>
