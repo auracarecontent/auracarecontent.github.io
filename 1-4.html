@@ -1,229 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 4: The Dopamine Detox</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 4 — The Dopamine Detox: Escaping the Scroll Trap</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
-            background: #FAF8F2;
-            padding: 2rem;
-            line-height: 1.5;
-        }
-
-        .container {
-            max-width: 1080px;
-            margin: 0 auto;
-            background: #FFFEFB;
-            border-radius: 20px;
-            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-        }
-
-        .header {
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem;
-        }
-
-        .day-label {
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            line-height: 1.3;
-        }
-
-        .subtitle {
-            font-size: 18px;
-            font-weight: 700;
-            opacity: 0.95;
-        }
-
-        .section {
-            padding: 2rem 2.5rem;
-            border-bottom: 1px solid #F0F0F0;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .section-icon {
-            font-size: 1.75rem;
-        }
-
-        h2 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #172737;
-            line-height: 22px;
-        }
-
-        .daily-focus {
-            background: rgba(184, 118, 88, 0.05);
-            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
-        }
-
-        .text-content {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
-        }
-
-        .highlight-text {
-            font-weight: 600;
-            color: #B87658;
-        }
-
-        .orange-bg {
-            background: rgba(184, 118, 88, 0.1);
-        }
-
-        .info-box {
-            background: rgba(184, 118, 88, 0.1);
-            padding: 18px;
-            border-radius: 16px;
-            border: 1px solid rgba(184, 118, 88, 0.2);
-            margin: 1.5rem 0;
-        }
-
-        .pattern-grid {
-            display: grid;
-            gap: 0.75rem;
-        }
-
-        .pattern-row {
-            padding: 16px;
-            border-radius: 12px;
-            border-left: 3px solid;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr 2fr;
-            gap: 1rem;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .pattern-time {
-            font-weight: 600;
-            font-size: 14px;
-            color: #172737;
-        }
-
-        .pattern-type {
-            font-weight: 600;
-            font-size: 13px;
-            color: #656565;
-        }
-
-        .pattern-action {
-            font-size: 13px;
-            font-weight: 500;
-            color: #8C8C8C;
-        }
-
-        .pattern-orange {
-            background: rgba(184, 118, 88, 0.08);
-            border-left-color: #B87658;
-        }
-
-        .pattern-amber {
-            background: rgba(212, 149, 108, 0.08);
-            border-left-color: #D4956C;
-        }
-
-        .pattern-blue {
-            background: rgba(59, 130, 246, 0.08);
-            border-left-color: #3b82f6;
-        }
-
-        .pattern-indigo {
-            background: rgba(99, 102, 241, 0.08);
-            border-left-color: #6366f1;
-        }
-
-        .science-fact {
-            background: rgba(16, 185, 129, 0.08);
-            padding: 16px;
-            border-radius: 12px;
-            border-left: 3px solid #10B981;
-            margin-bottom: 1rem;
-            display: flex;
-            gap: 1rem;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .fact-icon {
-            font-size: 1.75rem;
-            flex-shrink: 0;
-        }
-
-        .fact-title {
-            font-weight: 600;
-            font-size: 14px;
-            color: #172737;
-            margin-bottom: 0.5rem;
-            line-height: 20px;
-        }
-
-        .fact-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            line-height: 18px;
-        }
-
-        .reference-text {
-            font-size: 11px;
-            font-weight: 500;
-            color: #8C8C8C;
-            font-style: italic;
-            margin-top: 1rem;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .quote-box { background: rgba(184,118,88,0.05); border: 1px solid rgba(184,118,88,0.15); text-align: center; padding: 1.5rem 1rem; margin: 1.5rem 0; }
+        .quote-text { font-size: 15px; font-weight: 600; color: #172737; line-height: 1.5; font-style: italic; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .footer-cta-wrapper { text-align: center; }
+        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
+        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
+        .action-title { font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.75rem; }
         .biomarker-card {
-            background: rgba(184, 118, 88, 0.08);
+            background: rgba(184,118,88,0.08);
             padding: 18px;
             border-radius: 16px;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
         }
-
         .biomarker-header {
             display: flex;
             align-items: center;
             gap: 0.75rem;
             margin-bottom: 1rem;
         }
-
         .biomarker-name {
             font-size: 16px;
             font-weight: 600;
             color: #172737;
-            line-height: 20px;
+            line-height: 1.3;
         }
-
         .progress-bar {
             background: #E6E6E6;
             border-radius: 12px;
@@ -231,7 +67,6 @@
             overflow: hidden;
             margin-bottom: 0.75rem;
         }
-
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
@@ -245,445 +80,336 @@
             letter-spacing: 0.3px;
             transition: width 1s ease-out;
         }
-
         .biomarker-desc {
             font-size: 13px;
             font-weight: 500;
             color: #656565;
             margin-top: 0.75rem;
-            line-height: 18px;
+            line-height: 1.4;
         }
-
-        .reflection-section {
-            background: rgba(168, 85, 247, 0.05);
-            border-bottom: 1px solid #F0F0F0;
-        }
-
-        .reflection-question {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
-        }
-
-        .action-section {
-            background: rgba(16, 185, 129, 0.08);
-            border-bottom: 3px solid #10B981;
-        }
-
-        .action-box {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.1);
-            border: 1px solid rgba(0, 0, 0, 0.04);
-        }
-
-        .action-highlight {
-            background: rgba(184, 118, 88, 0.1);
-            padding: 18px;
-            border-radius: 12px;
-            border-left: 3px solid #B87658;
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
-            margin-bottom: 1rem;
-        }
-
-        .action-steps {
-            background: white;
+        .cta-box {
+            background: rgba(184,118,88,0.05);
             padding: 1.5rem;
             border-radius: 12px;
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(184,118,88,0.15);
         }
-
-        .evening-section {
-            background: rgba(99, 102, 241, 0.05);
-            border-bottom: 1px solid #F0F0F0;
+        .shift-card {
+            background: rgba(16,185,129,0.08);
+            border-left: 3px solid #10B981;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
         }
-
-        .evening-box {
-            background: white;
-            padding: 18px;
-            border-radius: 16px;
-            margin-top: 1.5rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 2.5rem;
-        }
-
-        .footer h2 {
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-text {
+        .shift-title {
             font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            line-height: 20px;
-        }
-
-        .footer-final {
-            font-size: 18px;
-            font-weight: 700;
-            padding: 1.5rem 2rem;
-            line-height: 28px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            text-align: center;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-top: 1rem;
-        }
-
-        .footer-contact {
-            font-size: 15px;
             font-weight: 600;
-            margin-top: 2rem;
-            padding: 1.5rem 2rem;
-            background: white;
             color: #172737;
-            border-radius: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.8);
-            text-align: center;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-            line-height: 24px;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
         }
-
-        .contact-email {
-            color: #B87658;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            border-bottom: 2px solid #B87658;
-            transition: all 0.2s;
-        }
-
-        .contact-email:hover {
-            color: #D4956C;
-            border-bottom-color: #D4956C;
-        }
-
-        .contact-highlight {
-            font-weight: 700;
-            color: #B87658;
-        }
-
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
+        .shift-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 1.4;
         }
     </style>
-
-<style>
-/* --- App-ready layout (header/footer flattened, inner content intact) --- */
-.container { border-radius: 0 !important; max-width: 720px; margin: 0 auto; }
-.header, .hero, .intro, .top,
-.footer, .outro, .final, .ending { border-radius: 0 !important; }
-/* If first/last sections are generic, flatten their outer corners */
-.container > :first-child {
-  border-top-left-radius: 0 !important;
-  border-top-right-radius: 0 !important;
-}
-.container > :last-child {
-  border-bottom-left-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
-}
-/* Cards nested directly in header/footer should be flat too */
-.header .card, .footer .card { border-radius: 0 !important; }
-/* Responsive media + small mobile padding */
-img, svg, canvas, iframe, video { max-width: 100%; height: auto; display: block; }
-@media (max-width: 480px){ body { padding: 12px; } }
-</style>
-
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
+    <main class="screen">
         <div class="header">
-            <div class="day-label">Day 4</div>
-            <h1>The Dopamine Detox</h1>
-            <div class="subtitle">Escaping the Scroll Trap</div>
+            <div class="day-label">DAY 4</div>
+            <h1>The Dopamine Detox: Escaping the Scroll Trap</h1>
         </div>
 
-        <!-- Daily Focus -->
-        <div class="section daily-focus">
+        <div class="section intro-section">
             <div class="section-header">
                 <span class="section-icon">😃</span>
                 <h2>Daily Focus</h2>
             </div>
-            <p class="text-content">
-                See how endless scrolling and multitasking quietly drain focus and motivation — and learn how to reclaim your attention.
-            </p>
-            <p class="text-content">
+            <div class="text-content">
+                See how endless scrolling quietly drains your focus — and learn tiny vagus-friendly habits that help your mind feel calm again.
+            </div>
+            <div class="text-content">
                 Today you'll understand how dopamine, the brain's "curiosity chemical," drives both distraction and productivity — and how to bring it back into balance.
-            </p>
+            </div>
         </div>
 
-        <!-- Why It Matters -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">☀️</span>
                 <h2>Why It Matters</h2>
             </div>
-            <p class="text-content">
+            <div class="text-content">
                 Every ping, swipe, or scroll gives your brain a tiny pulse of dopamine — the neurotransmitter that rewards novelty and anticipation.
-            </p>
-            <p class="text-content">
-                When these mini-rewards happen all day, your brain becomes overstimulated and less responsive to natural satisfaction. You stay busy but feel unfocused and unfulfilled.
-            </p>
-            <p class="text-content">
-                A balanced dopamine rhythm supports curiosity, motivation, and sustained focus — without depending on constant stimulation.
-            </p>
-        </div>
-
-        <!-- Why You Might Feel Restless -->
-        <div class="section orange-bg">
-            <div class="section-header">
-                <span class="section-icon">😴</span>
-                <h2>Why You Might Feel Restless and Distracted</h2>
             </div>
-            <p class="text-content">
-                The brain's dopamine reward loop evolved to motivate action and learning. But digital platforms hijack this loop with unpredictable rewards — likes, updates, new messages.
-            </p>
-            <p class="text-content">
-                Each micro-reward keeps dopamine high and attention shallow. Over time, dopamine receptors become less sensitive, and you need more novelty to feel engaged.
-            </p>
-            <p class="text-content">
-                This cycle fuels procrastination, scattered focus, and "digital fatigue."
-            </p>
+            <div class="text-content">
+                When these mini-rewards happen all day, your brain becomes overstimulated and less responsive to natural satisfaction.
+            </div>
+            <div class="text-content">
+                You stay busy but feel unfocused and unfulfilled.
+            </div>
+            <div class="text-content">
+                A <span class="highlight-text">balanced dopamine rhythm</span> supports curiosity, motivation, and sustained focus — without depending on constant stimulation.
+            </div>
         </div>
 
-        <!-- Meet Your Dopamine System -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧠</span>
                 <h2>Meet Your Dopamine System</h2>
             </div>
-            <p class="text-content">
-                Dopamine spikes when something feels new or unpredictable — not when you finish a task. That's why notifications feel urgent, but completing a report feels dull.
-            </p>
-            <p class="text-content">
-                When you add structure and predictability, dopamine stabilizes. Your brain starts releasing it in response to progress, not just novelty.
-            </p>
-            <div class="info-box">
-                <p class="text-content" style="margin: 0;">
-                    Simple structure — planning your day before it starts — gives dopamine healthy rhythm and lowers impulsivity (McClure et al., 2004, Science; Robbins & Arnsten, 2009, Nature Reviews Neuroscience).
-                </p>
+            <div class="text-content">
+                Dopamine spikes when something feels new or unpredictable — not when you finish a task.
+            </div>
+            <div class="text-content">
+                That's why notifications feel urgent, but completing a report feels dull.
+            </div>
+            <div class="text-content">
+                When you add structure and predictability, dopamine stabilizes.
+            </div>
+            <div class="text-content">
+                Your brain starts releasing it in response to <span class="highlight-text">progress, not just novelty</span>.
+            </div>
+            <div class="text-content">
+                Simple structure — planning your day before it starts — gives dopamine healthy rhythm and lowers impulsivity.
             </div>
         </div>
 
-        <!-- Focus Pattern Table -->
         <div class="section">
             <div class="section-header">
-                <span class="section-icon">📊</span>
-                <h2>Daily Focus Pattern</h2>
+                <span class="section-icon">💡</span>
+                <h2>5 Tiny Shifts to Break the Scroll Loop</h2>
             </div>
 
-            <div class="pattern-grid">
-                <div class="pattern-row pattern-orange">
-                    <div class="pattern-time">Morning</div>
-                    <div class="pattern-type">10–15 min of quiet planning before screens</div>
-                    <div class="pattern-action">Channels dopamine toward focus and purpose</div>
-                </div>
-                <div class="pattern-row pattern-amber">
-                    <div class="pattern-time">Midday</div>
-                    <div class="pattern-type">1-hour offline block</div>
-                    <div class="pattern-action">Trains sustained attention without novelty</div>
-                </div>
-                <div class="pattern-row pattern-blue">
-                    <div class="pattern-time">Afternoon</div>
-                    <div class="pattern-type">Short walk or stretch</div>
-                    <div class="pattern-action">Refreshes attention naturally</div>
-                </div>
-                <div class="pattern-row pattern-indigo">
-                    <div class="pattern-time">Evening</div>
-                    <div class="pattern-type">Review 3 wins of the day</div>
-                    <div class="pattern-action">Strengthens progress-reward feedback loop</div>
-                </div>
+            <div class="shift-card">
+                <div class="shift-title">✨ 1) Look Away for 20 Seconds</div>
+                <div class="shift-desc">Lift your eyes from the screen → look at something far away → let your brain soften.</div>
+            </div>
+
+            <div class="shift-card">
+                <div class="shift-title">✨ 2) Ask One Question</div>
+                <div class="shift-desc">"What was I doing before I started scrolling?" This pulls you back into the present gently.</div>
+            </div>
+
+            <div class="shift-card">
+                <div class="shift-title">✨ 3) One Slow Exhale Before You Tap</div>
+                <div class="shift-desc">Before opening an app: one long, slow exhale. This stops the "autopilot scroll" before it begins.</div>
+            </div>
+
+            <div class="shift-card">
+                <div class="shift-title">✨ 4) Two-Tab Rule</div>
+                <div class="shift-desc">Only two apps or windows open at the same time. Less chaos → calmer mind.</div>
+            </div>
+
+            <div class="shift-card">
+                <div class="shift-title">✨ 5) Touch Something Real</div>
+                <div class="shift-desc">Put your phone down for a moment. Touch a cup, fabric, a table. Your body instantly feels grounded again.</div>
             </div>
         </div>
 
-        <!-- Science Facts -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌿</span>
                 <h2>Science Facts — The Attention Economy</h2>
             </div>
-            
+
             <div class="science-fact">
-                <div class="fact-icon">📱</div>
+                <span class="fact-icon">📱</span>
                 <div>
-                    <div class="fact-title">Variable rewards — unpredictable updates — keep users scrolling</div>
-                    <div class="fact-desc">Alter, 2017, Irresistible; Montague et al., 2016, Trends Cogn Sci.</div>
+                    <div class="fact-desc">Variable rewards — unpredictable updates — keep users scrolling.</div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <div class="fact-icon">🧠</div>
+                <span class="fact-icon">🧠</span>
                 <div>
-                    <div class="fact-title">Multitasking lowers working-memory accuracy by up to 40%</div>
-                    <div class="fact-desc">Ophir et al., 2009, PNAS.</div>
+                    <div class="fact-desc">Multitasking lowers working-memory accuracy by up to 40%.</div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <div class="fact-icon">🗓</div>
+                <span class="fact-icon">🗓</span>
                 <div>
-                    <div class="fact-title">Structured planning increases task completion and reduces distraction by 25–30%</div>
-                    <div class="fact-desc">Baumeister & Masicampo, 2010, Psychol Sci.</div>
+                    <div class="fact-desc">Structured planning increases task completion and reduces distraction by 25–30%.</div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <div class="fact-icon">🧩</div>
+                <span class="fact-icon">🧩</span>
                 <div>
-                    <div class="fact-title">Balanced dopamine improves long-term motivation and cognitive endurance</div>
-                    <div class="fact-desc">Robbins & Arnsten, 2009, Nat Rev Neurosci.</div>
+                    <div class="fact-desc">Balanced dopamine improves long-term motivation and cognitive endurance.</div>
                 </div>
             </div>
         </div>
 
-        <!-- Biomarkers -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧬</span>
                 <h2>What About Labs?</h2>
             </div>
-            <p class="text-content">
+            <div class="text-content">
                 Certain blood markers influence how effectively your brain regulates dopamine — and the % next to each shows how strongly each marker affects focus, motivation, and emotional balance.
-            </p>
+            </div>
 
             <div class="biomarker-card">
                 <div class="biomarker-header">
-                    <span class="section-icon">🧩</span>
-                    <div class="biomarker-name">Vitamin B12</div>
+                    <div class="biomarker-name">Vitamin B12 🧩</div>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 60%">60%</div>
+                    <div class="progress-fill" style="width: 60%;">60%</div>
                 </div>
                 <div class="biomarker-desc">
-                    Essential for dopamine and serotonin synthesis; low levels may cause low drive or mental fog (Malouf & Areosa Sastre, 2016, Cochrane Database Syst Rev).
+                    Essential for dopamine and serotonin synthesis; low levels may cause low drive or mental fog.
                 </div>
             </div>
 
             <div class="biomarker-card">
                 <div class="biomarker-header">
-                    <span class="section-icon">💫</span>
-                    <div class="biomarker-name">Magnesium (RBC)</div>
+                    <div class="biomarker-name">Magnesium (RBC) 💫</div>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 50%">50%</div>
+                    <div class="progress-fill" style="width: 50%;">50%</div>
                 </div>
                 <div class="biomarker-desc">
-                    Modulates dopamine receptor sensitivity and stress resilience (Serefko et al., 2016, Pharmacological Reports).
+                    Modulates dopamine receptor sensitivity and stress resilience.
                 </div>
             </div>
 
             <div class="biomarker-card">
                 <div class="biomarker-header">
-                    <span class="section-icon">☀️</span>
-                    <div class="biomarker-name">Vitamin D (25-OH)</div>
+                    <div class="biomarker-name">Vitamin D (25-OH) ☀️</div>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 55%">55%</div>
+                    <div class="progress-fill" style="width: 55%;">55%</div>
                 </div>
                 <div class="biomarker-desc">
-                    Supports dopaminergic neuron health and mood stability (Eyles et al., 2013, Front Neuroanat).
+                    Supports dopaminergic neuron health and mood stability.
                 </div>
             </div>
         </div>
 
-        <!-- Reflection -->
-        <div class="section reflection-section">
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What About Vagus?</h2>
+            </div>
+            <div class="text-content">
+                Your vagus nerve is your body's gentle "slow down" signal.
+            </div>
+            <div class="text-content">
+                When it turns on, your system says:
+            </div>
+            <div class="quote-box">
+                <div class="quote-text">"You're safe. You can breathe. You don't have to chase everything."</div>
+            </div>
+            <div class="text-content">
+                And suddenly it becomes easier to stop scrolling and come back to yourself.
+            </div>
+        </div>
+
+        <div class="section">
             <div class="section-header">
                 <span class="section-icon">💭</span>
                 <h2>Reflection Prompt</h2>
             </div>
-            <p class="reflection-question">
-                Do you start your day by choosing what matters — or by reacting to what arrives?
-            </p>
-            <p class="reflection-question">
-                How could you give your brain 15 minutes of quiet direction before the noise begins?
-            </p>
+            <div class="reflection-box">
+                <div class="text-content">
+                    Do you start your day by choosing what matters — or by reacting to what arrives?
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    How could you give your brain 15 minutes of quiet direction before the noise begins?
+                </div>
+            </div>
         </div>
 
-        <!-- Action Plan -->
-        <div class="section action-section">
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Easy Vagus Nerve Stimulation Technique</h2>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/1x5omBE2p9U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="section">
             <div class="section-header">
                 <span class="section-icon">✅</span>
                 <h2>Plan to Action — 15 Minutes of Clarity</h2>
             </div>
-            
-            <p class="text-content">
-                <strong>Keep your morning light, digital sunset, and micro-pause breaks from previous days — they're your rhythm anchors.</strong>
-            </p>
-            <p class="text-content">
+            <div class="text-content">
+                Keep your morning light, digital sunset, and micro-pause breaks from previous days — they're your rhythm anchors.
+            </div>
+            <div class="text-content">
                 Add one step today:
-            </p>
-
-            <div class="action-highlight">
-                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
-                    <span class="section-icon">📓</span>
-                    <strong>Morning Planning Journal</strong>
+            </div>
+            <div class="action-box">
+                <div class="action-title">📓 Morning Planning Journal</div>
+                <div class="text-content">
+                    Spend 15 minutes before screens outlining 3 key priorities and time blocks.
                 </div>
-                <p style="margin-bottom: 1rem;">
-                    Spend 15 minutes before screens outlining 3 key priorities and time blocks. During the day, note what energized or distracted you.
-                </p>
-                <p style="margin: 0; font-size: 13px; color: #656565;">
-                    This builds attention awareness and re-trains your dopamine system to reward progress instead of novelty (Baumeister & Masicampo, 2010, Psychol Sci).
-                </p>
+                <div class="text-content" style="margin-bottom: 0;">
+                    During the day, note what energized or distracted you.
+                </div>
+            </div>
+            <div class="text-content">
+                This builds attention awareness and re-trains your dopamine system to reward progress instead of novelty.
             </div>
         </div>
 
-        <!-- Evening Section -->
-        <div class="section evening-section">
+        <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌙</span>
                 <h2>Evening Matters Too — Reset Your Reward System</h2>
             </div>
-            
-            <div class="evening-box">
-                <p class="text-content">
-                    Avoid passive scrolling before bed.
-                </p>
-                <p class="text-content" style="margin: 0;">
-                    Instead, review three small things you completed today — it strengthens the brain's progress-reward link and calms nighttime restlessness (Robbins & Arnsten, 2009).
-                </p>
+            <div class="text-content">
+                Avoid passive scrolling before bed.
+            </div>
+            <div class="text-content">
+                Instead, review three small things you completed today — it strengthens the brain's progress-reward link and calms nighttime restlessness.
             </div>
         </div>
 
-        <!-- Footer -->
-        <div class="footer">
+        <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌞</span>
                 <h2>Why This Works</h2>
             </div>
-            <p class="footer-text">
+            <div class="text-content">
                 When your day has structure and intention, dopamine stabilizes.
-            </p>
-            <p class="footer-text">
+            </div>
+            <div class="text-content">
                 You stop chasing tiny hits of novelty and start feeling the quiet satisfaction of progress and purpose.
-            </p>
-            <p class="footer-final">
-                ✨ Remember: Focus isn't about force — it's about direction. Guide your dopamine, and your attention will follow.
-            </p>
-            <p class="footer-contact">
-                📩 <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span><br><br>
-<strong><a href="https://plan.aura.care/lt-2/" class="contact-email">Continue</a></strong>
-            </p>
+            </div>
         </div>
-    </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎬</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VSG9hY_t-rs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="text-content" style="font-size: 18px; font-weight: 700; color: #172737; margin-bottom: 0;">
+                ✨ Remember: Focus isn't about force — it's about direction. Guide your dopamine, and your attention will follow.
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <div class="footer-cta-wrapper">
+                <a href="https://challenge.aura.care/lt-3" class="footer-email" target="_blank" rel="noopener noreferrer">Continue</a>
+            </div>
+        </div>
+    
+    </main>
 </body>
 </html>
