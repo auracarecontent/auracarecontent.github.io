@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day 2 — Tired After Rest: Why Rest Doesn't Restore You</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Day 2 — Tired After Rest (mobile)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
@@ -18,412 +18,386 @@
         h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
         .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
         .highlight-text { font-weight: 600; color: #B87658; }
-        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
-        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
-        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
-        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
-        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
-        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
-        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
-        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .biomarker-table { width: 100%; min-width: 320px; border-collapse: collapse; background: #FFFFFF; border: 1px solid #E6E6E6; }
+        .biomarker-table th { background: rgba(184,118,88,0.1); padding: 12px; text-align: left; font-size: 13px; font-weight: 600; color: #172737; border: 1px solid #E6E6E6; line-height: 1.4; }
+        .biomarker-table td { padding: 12px; font-size: 13px; font-weight: 500; color: #172737; line-height: 1.4; border: 1px solid #E6E6E6; }
+        .biomarker-table tr:nth-child(even) { background: rgba(184,118,88,0.03); }
+        .biomarker-name { font-weight: 600; color: #B87658; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact, .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
         .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
-        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+        .fact-item { margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; }
         .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .quote-box { background: rgba(184,118,88,0.05); border: 1px solid rgba(184,118,88,0.15); text-align: center; padding: 1.5rem 1rem; margin: 1.5rem 0; }
-        .quote-text { font-size: 15px; font-weight: 600; color: #172737; line-height: 1.5; font-style: italic; }
-        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
-        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
-        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; }
+        .footer h2 { font-size: 18px; font-weight: 700; color: #FFFFFF !important; line-height: 1.4; margin-bottom: 1rem; text-align: center !important; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; text-align: center; }
         .footer-cta-wrapper { text-align: center; }
         .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
-        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
-        .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
-        .action-title { font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.75rem; }
-        .biomarker-card {
-            background: rgba(184,118,88,0.08);
-            padding: 18px;
-            border-radius: 16px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(0,0,0,0.04);
-            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
-        }
-        .biomarker-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-        .biomarker-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            line-height: 1.3;
-        }
-        .progress-bar {
-            background: #E6E6E6;
-            border-radius: 12px;
-            height: 28px;
-            overflow: hidden;
-            margin-bottom: 0.75rem;
-        }
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 12px;
-            color: white;
-            font-weight: 700;
-            font-size: 12px;
-            letter-spacing: 0.3px;
-            transition: width 1s ease-out;
-        }
-        .biomarker-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            margin-top: 0.75rem;
-            line-height: 1.4;
-        }
-        .cta-box {
-            background: rgba(184,118,88,0.05);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(184,118,88,0.15);
-        }
-        .table-container {
-            overflow-x: auto;
-            margin: 1rem 0;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            font-size: 13px;
-        }
-        th {
-            background: rgba(184,118,88,0.1);
-            padding: 12px 10px;
-            text-align: left;
-            font-weight: 600;
-            color: #172737;
-            border-bottom: 2px solid rgba(184,118,88,0.3);
-        }
-        td {
-            padding: 12px 10px;
-            border-bottom: 1px solid #E6E6E6;
-            color: #172737;
-            font-weight: 500;
-        }
-        tr:last-child td {
-            border-bottom: none;
-        }
+        @media (min-width: 481px) { .header { padding: 2.5rem 2rem; } .section { padding: 2rem 2rem; } .footer { padding: 2.5rem 2rem 3rem 2rem; } }
+        @media print { body { background: #FFFFFF; } .screen { max-width: 100%; box-shadow: none; border: none; } }
     </style>
 </head>
 <body>
-    <main class="screen">
-        <div class="header">
-            <div class="day-label">DAY 2</div>
-            <h1>Tired After Rest: Why Rest Doesn't Restore You</h1>
+<main class="screen">
+
+    <div class="header">
+        <div class="day-label">DAY 2</div>
+        <h1>Tired After Rest: Why Rest Doesn't Restore You</h1>
+    </div>
+
+    <div class="section intro-section">
+        <div class="section-header">
+            <span class="section-icon">😃</span>
+            <h2>Daily Focus</h2>
+        </div>
+        <div class="text-content">
+            You took a break, but your body never truly exhaled.
+        </div>
+        <div class="text-content">
+            Real rest begins only when your nervous system feels safe enough to switch off.
+        </div>
+        <div class="text-content highlight-text">
+            Today you'll discover why even after sleep, weekends, or "doing nothing," you might still wake up tense and drained — and what helps your body enter real recovery.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">☀️</span>
+            <h2>Why It Matters</h2>
+        </div>
+        <div class="text-content">
+            You can spend a weekend resting, yet still feel heavy on Monday.
+        </div>
+        <div class="text-content">
+            That's because rest without regulation isn't recovery.
+        </div>
+        <div class="text-content">
+            When your mind stays alert — checking messages, planning, or worrying — your body never fully switches off.
+        </div>
+        <div class="text-content">
+            Energy goes to vigilance, not renewal.
+        </div>
+        <div class="text-content highlight-text">
+            True rest happens only when your body receives one clear signal: 🩵 "We're safe. It's time to repair."
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">😴</span>
+            <h2>Why You Might Wake Up Unrefreshed</h2>
+        </div>
+        <div class="text-content">
+            Your autonomic nervous system (ANS) runs two intertwined modes:
+        </div>
+        <div class="text-content">
+            <strong>Sympathetic</strong> ("fight or flight") — mobilizes energy.
+        </div>
+        <div class="text-content">
+            <strong>Parasympathetic</strong> ("rest and repair") — restores it.
+        </div>
+        <div class="text-content">
+            In modern life, the "fight-or-flight" mode rarely turns off completely.
+        </div>
+        <div class="text-content">
+            Mental load, late-night light, and constant input keep subtle stress signals active.
+        </div>
+        <div class="text-content highlight-text">
+            Muscles stay slightly contracted, breathing shallow, heart rate a little elevated — a quiet "on-guard" state that blocks full restoration.
         </div>
 
-        <div class="section intro-section">
-            <div class="section-header">
-                <span class="section-icon">😃</span>
-                <h2>Daily Focus</h2>
+        <table class="biomarker-table" style="margin-top: 1.5rem;">
+            <thead>
+                <tr>
+                    <th>Time of Day</th>
+                    <th>Recovery Pattern</th>
+                    <th>What It Does</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="biomarker-name">Morning</span></td>
+                    <td>2–5 min slow nasal breathing + daylight</td>
+                    <td>Clears residual cortisol; steadies HR</td>
+                </tr>
+                <tr>
+                    <td><span class="biomarker-name">Midday</span></td>
+                    <td>5-min relaxed walk or stretch</td>
+                    <td>Releases tension; raises HRV</td>
+                </tr>
+                <tr>
+                    <td><span class="biomarker-name">Evening</span></td>
+                    <td>Quiet transition, no screens</td>
+                    <td>Allows parasympathetic dominance</td>
+                </tr>
+                <tr>
+                    <td><span class="biomarker-name">Night</span></td>
+                    <td>Dim light + 2 min slow exhale breathing</td>
+                    <td>Lowers HR and prepares deep sleep</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">💡</span>
+            <h2>Science Facts — Why Rest Can Fail</h2>
+        </div>
+        
+        <div class="science-fact">
+            <div class="fact-item">
+                <span class="highlight-text">💤</span> Even thinking about work activates stress circuits.<br>
+                <span style="font-size: 11px; color: #999; font-style: italic;">(Brosschot et al., 2021, Nat Rev Neurosci)</span>
             </div>
-            <div class="text-content">
-                You took a break, but your body never truly exhaled.
+            <div class="fact-item">
+                <span class="highlight-text">💓</span> Slow breathing with long exhalations increases vagal tone and HRV.<br>
+                <span style="font-size: 11px; color: #999; font-style: italic;">(Zaccaro et al., 2018, Front Hum Neurosci)</span>
             </div>
-            <div class="text-content">
-                Real rest begins only when your nervous system feels safe enough to switch off.
+            <div class="fact-item">
+                <span class="highlight-text">🧠</span> HRV biofeedback improves resilience and emotion regulation.<br>
+                <span style="font-size: 11px; color: #999; font-style: italic;">(Lehrer & Gevirtz, 2014, Front Psychol)</span>
             </div>
-            <div class="text-content">
-                Today you'll discover why even after sleep, weekends, or "doing nothing," you might still wake up tense and drained — and what helps your body enter real recovery.
+            <div class="fact-item">
+                <span class="highlight-text">💡</span> Bright evening light delays melatonin and shortens deep-sleep duration.<br>
+                <span style="font-size: 11px; color: #999; font-style: italic;">(Gooley et al., 2011, J Clin Endocrinol Metab)</span>
             </div>
         </div>
+    </div>
 
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">☀️</span>
-                <h2>Why It Matters</h2>
-            </div>
-            <div class="text-content">
-                You can spend a weekend resting, yet still feel heavy on Monday.
-            </div>
-            <div class="text-content">
-                That's because <span class="highlight-text">rest without regulation isn't recovery</span>.
-            </div>
-            <div class="text-content">
-                When your mind stays alert — checking messages, planning, or worrying — your body never fully switches off.
-            </div>
-            <div class="text-content">
-                Energy goes to vigilance, not renewal.
-            </div>
-            <div class="text-content">
-                True rest happens only when your body receives one clear signal:
-            </div>
-            <div class="quote-box">
-                <div class="quote-text">🩵 "We're safe. It's time to repair."</div>
-            </div>
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">🧬</span>
+            <h2>What About Labs?</h2>
+        </div>
+        <div class="text-content">
+            Certain blood markers reflect how well your recovery system functions — and the % next to each shows how strongly this marker influences your ability to rest and restore balance.
         </div>
 
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">😴</span>
-                <h2>Why You Might Wake Up Unrefreshed</h2>
-            </div>
-            <div class="text-content">
-                Your autonomic nervous system (ANS) runs two intertwined modes:
-            </div>
-            <ul class="bullet-list">
-                <li class="bullet-item"><span class="highlight-text">Sympathetic ("fight or flight")</span> — mobilizes energy.</li>
-                <li class="bullet-item"><span class="highlight-text">Parasympathetic ("rest and repair")</span> — restores it.</li>
-            </ul>
-            <div class="text-content">
-                In modern life, the "fight-or-flight" mode rarely turns off completely.
-            </div>
-            <div class="text-content">
-                Mental load, late-night light, and constant input keep subtle stress signals active.
-            </div>
-            <div class="text-content">
-                Muscles stay slightly contracted, breathing shallow, heart rate a little elevated — a quiet "on-guard" state that blocks full restoration.
-            </div>
+        <table class="biomarker-table">
+            <thead>
+                <tr>
+                    <th>Biomarker</th>
+                    <th>Impact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="biomarker-name">Magnesium (RBC)</span></td>
+                    <td>60% — Supports calm nerve signaling and smooth muscle relaxation. Low magnesium is linked with lower HRV and higher stress reactivity.</td>
+                </tr>
+                <tr>
+                    <td><span class="biomarker-name">hs-CRP</span></td>
+                    <td>50% — Indicates low-grade inflammation that keeps stress circuits active and interferes with restorative sleep.</td>
+                </tr>
+            </tbody>
+        </table>
 
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Time of Day</th>
-                            <th>Recovery Pattern</th>
-                            <th>What It Does</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Morning</td>
-                            <td>2–5 min slow nasal breathing + daylight</td>
-                            <td>Clears residual cortisol; steadies HR</td>
-                        </tr>
-                        <tr>
-                            <td>Midday</td>
-                            <td>5-min relaxed walk or stretch</td>
-                            <td>Releases tension; raises HRV</td>
-                        </tr>
-                        <tr>
-                            <td>Evening</td>
-                            <td>Quiet transition, no screens</td>
-                            <td>Allows parasympathetic dominance</td>
-                        </tr>
-                        <tr>
-                            <td>Night</td>
-                            <td>Dim light + 2 min slow exhale breathing</td>
-                            <td>Lowers HR and prepares deep sleep</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🌿</span>
-                <h2>Science Facts — Why Rest Can Fail</h2>
-            </div>
-
-            <div class="science-fact">
-                <span class="fact-icon">💤</span>
-                <div>
-                    <div class="fact-desc">Even thinking about work activates stress circuits (Brosschot et al., 2021, Nat Rev Neurosci).</div>
-                </div>
-            </div>
-
-            <div class="science-fact">
-                <span class="fact-icon">💓</span>
-                <div>
-                    <div class="fact-desc">Slow breathing with long exhalations increases vagal tone and HRV (Zaccaro et al., 2018, Front Hum Neurosci).</div>
-                </div>
-            </div>
-
-            <div class="science-fact">
-                <span class="fact-icon">🧠</span>
-                <div>
-                    <div class="fact-desc">HRV biofeedback improves resilience and emotion regulation (Lehrer & Gevirtz, 2014, Front Psychol).</div>
-                </div>
-            </div>
-
-            <div class="science-fact">
-                <span class="fact-icon">💡</span>
-                <div>
-                    <div class="fact-desc">Bright evening light delays melatonin and shortens deep-sleep duration (Gooley et al., 2011, J Clin Endocrinol Metab).</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧬</span>
-                <h2>What About Labs?</h2>
-            </div>
-            <div class="text-content">
-                Certain blood markers reflect how well your recovery system functions — and the % next to each shows how strongly this marker influences your ability to rest and restore balance.
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">Magnesium (RBC)</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 60%;">60%</div>
-                </div>
-                <div class="biomarker-desc">
-                    Supports calm nerve signaling and smooth muscle relaxation. Low magnesium is linked with lower HRV and higher stress reactivity.
-                </div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">hs-CRP</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 50%;">50%</div>
-                </div>
-                <div class="biomarker-desc">
-                    Indicates low-grade inflammation that keeps stress circuits active and interferes with restorative sleep.
-                </div>
-            </div>
-
-            <div class="cta-box">
-                <div class="text-content" style="margin-bottom: 0;">
-                    If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, <a href="https://plan.aura.care/lt-2/?fpid=01K94ZWQ483WX6N5JR2QDPWF01&fsid=01K94ZWQ48V57TDFPMN7TZ9QDQ" style="color: #B87658; font-weight: 600; text-decoration: none;">click here</a>.
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">💭</span>
-                <h2>Reflection Prompt</h2>
-            </div>
-            <div class="reflection-box">
-                <div class="text-content">
-                    When you "rest," does your body feel loose and light — or tight and guarded?
-                </div>
-                <div class="text-content" style="margin-bottom: 0;">
-                    Which cue — breath, light, movement, or quiet — helps you let go most easily?
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧠</span>
-                <h2>What About Vagus?</h2>
-            </div>
-            <div class="text-content">
-                Your vagus nerve is the body's built-in "off switch" for stress.
-            </div>
-            <div class="text-content">
-                When it activates, heart rate slows and heart rate variability (HRV) rises — a sign that your body can move flexibly between effort and recovery.
-            </div>
-            <div class="text-content">
-                <span class="highlight-text">Higher HRV means your system is balanced and resilient.</span>
-            </div>
-            <div class="text-content">
-                You can gently strengthen vagal tone through:
-            </div>
-            <ul class="bullet-list">
-                <li class="bullet-item">Slow, paced breathing (especially longer exhalations).</li>
-                <li class="bullet-item">Quiet rhythmic movement like walking or stretching.</li>
-                <li class="bullet-item">Mindful awareness or HRV biofeedback (~6 breaths per minute).</li>
-            </ul>
-            <div class="text-content">
-                These simple cues improve HRV and lower stress hormones within minutes.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">✅</span>
-                <h2>Plan to Action — Digital Sunset</h2>
-            </div>
-            <div class="text-content">
-                Keep your morning light from Day 1 — this is your anchor.
-            </div>
-            <div class="text-content">
-                Add one new habit today:
-            </div>
-            <div class="action-box">
-                <div class="action-title">💡 Digital Sunset</div>
-                <div class="text-content">
-                    Turn off bright screens one hour before bed.
-                </div>
-                <div class="text-content">
-                    Use warm light, quiet music, or a paper book instead.
-                </div>
-                <div class="text-content" style="margin-bottom: 0;">
-                    Before lying down, practice 2 minutes of slow breathing (inhale 4 sec, exhale 6–8 sec) or a short shoulder stretch.
-                </div>
-            </div>
-            <div class="text-content">
-                These simple cues lower HR, raise HRV, and signal your body it's safe to recover.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🌙</span>
-                <h2>Evening Matters Too — Calming Cortisol Before Bed</h2>
-            </div>
-            <div class="text-content">
-                Avoid strong light and emotional stimulation after 9 p.m.; both delay melatonin and reduce next-day energy.
-            </div>
-            <div class="text-content">
-                A quiet wind-down — reading, dim light, or slow breathing — lets cortisol fall naturally and prepares your body for deeper recovery.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🌞</span>
-                <h2>Why This Works</h2>
-            </div>
-            <div class="text-content">
-                When your vagus nerve is engaged, heart rate drops and HRV rises — clear signs that your body has shifted from vigilance to repair.
-            </div>
-            <div class="text-content">
-                Slow breathing, gentle movement, and light discipline give your nervous system permission to rest deeply.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🎬</span>
-                <h2>Video of the Day</h2>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/2M0yhiUmHpo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
-            <div class="text-content" style="font-size: 18px; font-weight: 700; color: #172737; margin-bottom: 0;">
-                ✨ Remember: Rest isn't the absence of activity — it's the presence of safety. Give your body that signal, and real recovery begins.
-            </div>
-        </div>
-
-        <div class="footer">
-            <h2>📩 Get Your Personalized Lab Panel</h2>
-            <div class="footer-text">
+        <div style="text-align: center; margin-top: 1.5rem; padding: 1.5rem 1rem; background: rgba(184,118,88,0.05); border: 1px solid rgba(184,118,88,0.15); border-radius: 12px;">
+            <div style="font-size: 14px; font-weight: 500; color: #172737; line-height: 1.5; margin-bottom: 1rem;">
                 If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
             </div>
-            <div class="footer-cta-wrapper">
-                <a href="https://challenge.aura.care/lt-3" class="footer-email" target="_blank" rel="noopener noreferrer">Continue</a>
+            <a href="https://plan.aura.care/lt-2/?fpid=01K94ZWQ483WX6N5JR2QDPWF01&fsid=01K94ZWQ48V57TDFPMN7TZ9QDQ" 
+               style="display: inline-block; padding: 12px 32px; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; font-weight: 600; font-size: 15px; text-decoration: none; border-radius: 8px; transition: opacity 0.2s;"
+               target="_blank" 
+               rel="noopener noreferrer">Continue</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">💭</span>
+            <h2>Reflection Prompt</h2>
+        </div>
+        
+        <div class="reflection-box">
+            <div class="text-content" style="margin-bottom: 0.5rem;">
+                When you "rest," does your body feel loose and light — or tight and guarded?
+            </div>
+            <div class="text-content" style="margin-bottom: 0;">
+                Which cue — breath, light, movement, or quiet — helps you let go most easily?
             </div>
         </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">🧠</span>
+            <h2>What About Vagus?</h2>
+        </div>
+        <div class="text-content">
+            Your vagus nerve is the body's built-in "off switch" for stress.
+        </div>
+        <div class="text-content">
+            When it activates, heart rate slows and heart rate variability (HRV) rises — a sign that your body can move flexibly between effort and recovery.
+        </div>
+        <div class="text-content highlight-text">
+            Higher HRV means your system is balanced and resilient.
+        </div>
+        <div class="text-content">
+            You can gently strengthen vagal tone through:
+        </div>
+        <div class="text-content">
+            • Slow, paced breathing (especially longer exhalations).<br>
+            • Quiet rhythmic movement like walking or stretching.<br>
+            • Mindful awareness or HRV biofeedback (~6 breaths per minute).
+        </div>
+        <div class="text-content">
+            These simple cues improve HRV and lower stress hormones within minutes.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">✅</span>
+            <h2>Easy 5-min Vagus Nerve Stimulation Technique</h2>
+        </div>
+        
+        <div style="text-align: center; padding: 1rem; margin: 1rem 0; background: rgba(184,118,88,0.08); border-radius: 8px;">
+            <div style="font-size: 18px; font-weight: 700; color: #B87658;">Vagus Face Unwind</div>
+        </div>
+
+        <div class="action-box">
+            <div style="font-weight: 700; margin-bottom: 0.75rem;">🔥 Vagal Vibration Breath</div>
+            <div class="text-content">
+                Humming activates the vocal-cord branch of the vagus nerve and increases exhale-driven parasympathetic tone.
+            </div>
+            <div class="text-content" style="font-size: 12px; color: #666; margin-bottom: 0;">
+                Proof: Porges et al., Frontiers in Psychology, 2017 — vocal resonance (humming, chanting) boosts vagal output and stabilises heart rhythm.
+            </div>
+        </div>
+
+        <div class="action-box">
+            <div style="font-weight: 700; margin-bottom: 0.75rem;">💆‍♂️ Ear-to-Clavicle Sweep</div>
+            <div class="text-content">
+                Gentle downward glides stimulate the auricular branch of the vagus and reduce neck-jaw tension — a common driver of sympathetic overactivation.
+            </div>
+            <div class="text-content" style="font-size: 12px; color: #666; margin-bottom: 0;">
+                Proof: Jang et al., Autonomic Neuroscience, 2014 — light mechanostimulation around the ear and neck enhances vagal modulation and lowers stress markers.
+            </div>
+        </div>
+
+        <div class="action-box">
+            <div style="font-weight: 700; margin-bottom: 0.75rem;">↔️ Vagus Twist Flow</div>
+            <div class="text-content">
+                Slow thoracic rotations activate interoceptive pathways, relax the diaphragm, and improve blood flow to brain regions regulating attention, calm, and balance.
+            </div>
+            <div class="text-content" style="font-size: 12px; color: #666; margin-bottom: 0;">
+                Proof: Rocha et al., Clinical Physiology & Functional Imaging, 2018 — rotational and diaphragmatic movement engages baroreceptors and increases vagal tone.
+            </div>
+        </div>
+
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/1TSn4pEPQDU" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="info-box" style="margin-top: 1.5rem;">
+            <div style="font-weight: 700; margin-bottom: 0.75rem;">✨ What to Expect</div>
+            <div class="text-content" style="margin-bottom: 0.5rem;">
+                <strong>⏱️ In 30–60 seconds:</strong> You may feel your face soften, your jaw release, and your breath deepen — the first signs that your stress response is letting go. Neck tension often melts faster than people expect.
+            </div>
+            <div class="text-content" style="margin-bottom: 0.5rem;">
+                <strong>⏳ After 2–3 days:</strong> Mornings start to feel less "heavy." You may notice fewer micro-tensions in the neck and chest, and a smoother transition from sleep into wakefulness.
+            </div>
+            <div class="text-content" style="margin-bottom: 0;">
+                <strong>📆 After 1–2 weeks:</strong> Many users report steadier energy, reduced anxious tension, and a deeper sense of actual rest — not just "taking a break," but a real shift into recovery mode.
+            </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(16,185,129,0.05); border-radius: 8px;">
+            <div style="font-weight: 700; margin-bottom: 0.5rem; color: #10B981;">⭐ Best Moment to Do This</div>
+            <div class="text-content" style="margin-bottom: 0;">
+                ✔ <strong>When you feel tired but not relaxed</strong><br>
+                If you rested but still feel wired or tense — these techniques help your system finally "exhale."
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">✅</span>
+            <h2>Plan to Action — Digital Sunset</h2>
+        </div>
+        
+        <div class="text-content">
+            Keep your morning light from Day 1 — this is your anchor.
+        </div>
+        <div class="text-content">
+            Add one new habit today:
+        </div>
+        <div class="action-box">
+            <div style="font-weight: 700; margin-bottom: 0.75rem;">💡 Digital Sunset</div>
+            <div class="text-content">
+                Turn off bright screens one hour before bed. Use warm light, quiet music, or a paper book instead.
+            </div>
+            <div class="text-content" style="margin-bottom: 0;">
+                Before lying down, practice 2 minutes of slow breathing (inhale 4 sec, exhale 6–8 sec) or a short shoulder stretch.
+            </div>
+        </div>
+        <div class="text-content">
+            These simple cues lower HR, raise HRV, and signal your body it's safe to recover.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">🌙</span>
+            <h2>Evening Matters Too — Calming Cortisol Before Bed</h2>
+        </div>
+        <div class="text-content">
+            Avoid strong light and emotional stimulation after 9 p.m.; both delay melatonin and reduce next-day energy.
+        </div>
+        <div class="text-content">
+            A quiet wind-down — reading, dim light, or slow breathing — lets cortisol fall naturally and prepares your body for deeper recovery.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">🌞</span>
+            <h2>Why This Works</h2>
+        </div>
+        <div class="text-content">
+            When your vagus nerve is engaged, heart rate drops and HRV rises — clear signs that your body has shifted from vigilance to repair.
+        </div>
+        <div class="text-content">
+            Slow breathing, gentle movement, and light discipline give your nervous system permission to rest deeply.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">🎬</span>
+            <h2>Video of the Day</h2>
+        </div>
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/Us8n8VBQn_c" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 2rem;">
+            ✨ Remember: Rest isn't the absence of activity — it's the presence of safety. Give your body that signal, and real recovery begins.
+        </div>
+    </div>
+
+    <div class="footer">
+        <h2>📩 Get Your Personalized Lab Panel</h2>
+        <div class="footer-text">
+            If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+        </div>
+        <div class="footer-cta-wrapper">
+            <a href="https://plan.aura.care/lt-2/?fpid=01K94ZWQ483WX6N5JR2QDPWF01&fsid=01K94ZWQ48V57TDFPMN7TZ9QDQ" class="footer-email" target="_blank" rel="noopener noreferrer">📋 Create your Lab Panel</a>
+        </div>
+    </div>
     
-    </main>
+</main>
 </body>
 </html>
