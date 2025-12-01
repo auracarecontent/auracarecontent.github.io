@@ -1,337 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day 1 — The Pressure Within: How Stress Turns Against Your Heart</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            margin: 1.5rem 0;
         }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
-            background: #FAF8F2;
-            padding: 2rem;
-            line-height: 1.5;
+        .quote-box { background: rgba(184,118,88,0.05); border: 1px solid rgba(184,118,88,0.15); text-align: center; padding: 1.5rem 1rem; margin: 1.5rem 0; }
+        .quote-text { font-size: 15px; font-weight: 600; color: #172737; line-height: 1.5; font-style: italic; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .footer-cta-wrapper { text-align: center; }
+        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
+        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; align-items: flex-start; }
+        .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
+        .action-title { font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.75rem; }
+        .table-container {
+            overflow-x: auto;
+            margin: 1rem 0;
         }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            font-size: 13px;
         }
-
-        .container {
-            max-width: 520px;
-            margin: 0 auto;
-            background: #FFFEFB;
-            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.04);
+        th {
+            background: rgba(184,118,88,0.1);
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 600;
+            color: #172737;
+            border-bottom: 2px solid rgba(184,118,88,0.3);
         }
-
-        .header {
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem;
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #E6E6E6;
+            color: #172737;
+            font-weight: 500;
         }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 2rem 1.5rem;
-            }
+        tr:last-child td {
+            border-bottom: none;
         }
-
-        .day-label {
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
         }
-
-        h1 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            line-height: 1.3;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 20px;
-            }
-        }
-
-        .section {
-            padding: 2rem 2.5rem;
-            border-bottom: 1px solid #F0F0F0;
-        }
-
-        @media (max-width: 768px) {
-            .section {
-                padding: 1.5rem 1.25rem;
-            }
-        }
-
-        .section-header {
+        .biomarker-header {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .section-icon {
-            font-size: 1.75rem;
-        }
-
-        h2 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #172737;
-            line-height: 22px;
-        }
-
-        @media (max-width: 768px) {
-            h2 {
-                font-size: 16px;
-            }
-        }
-
-        .text-content {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
             margin-bottom: 1rem;
-            line-height: 20px;
         }
-
-        .highlight-text {
-            font-weight: 600;
-            color: #B87658;
-        }
-
-        .intro-section {
-            background: rgba(184, 118, 88, 0.05);
-            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
-        }
-
-        .bullet-list {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-        }
-
-        .bullet-item {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            margin-bottom: 0.5rem;
-            line-height: 20px;
-        }
-
-        .science-fact {
-            background: rgba(16, 185, 129, 0.08);
-            padding: 18px;
-            border-left: 3px solid #10B981;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .fact-item {
-            font-size: 13px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
-            margin-bottom: 0.75rem;
-        }
-
-        .fact-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .info-box {
-            background: rgba(184, 118, 88, 0.05);
-            padding: 18px;
-            border-left: 3px solid #B87658;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .action-box {
-            background: rgba(16, 185, 129, 0.08);
-            padding: 18px;
-            border-left: 3px solid #10B981;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .action-title {
+        .biomarker-name {
             font-size: 16px;
             font-weight: 600;
             color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
+            line-height: 1.3;
         }
-
-        .step-item {
-            display: flex;
-            gap: 0.75rem;
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
             margin-bottom: 0.75rem;
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
         }
-
-        .step-number {
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
             font-weight: 700;
-            color: #10B981;
-            flex-shrink: 0;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            transition: width 1s ease-out;
         }
-
-        .reflection-box {
-            background: rgba(184, 118, 88, 0.08);
-            padding: 18px;
-            border-left: 3px solid #B87658;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .reflection-text {
+        .biomarker-desc {
             font-size: 13px;
             font-weight: 500;
             color: #656565;
-            line-height: 18px;
-            margin-bottom: 0.5rem;
+            line-height: 1.4;
         }
-
-        .reflection-text:last-child {
-            margin-bottom: 0;
+        .result-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            align-items: flex-start;
         }
-
-        .biomarker-table {
-            width: 100%;
-            margin: 1.5rem 0;
-            border-collapse: collapse;
-            background: white;
-            border: 1px solid #E6E6E6;
-        }
-
-        .biomarker-table th {
-            background: rgba(184, 118, 88, 0.1);
-            padding: 16px;
-            text-align: left;
-            font-size: 15px;
-            font-weight: 600;
-            color: #172737;
-            border: 1px solid #E6E6E6;
-        }
-
-        @media (max-width: 768px) {
-            .biomarker-table th {
-                padding: 12px;
-                font-size: 14px;
-            }
-        }
-
-        .biomarker-table td {
-            padding: 14px 16px;
-            font-size: 13px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 18px;
-            border: 1px solid #E6E6E6;
-        }
-
-        @media (max-width: 768px) {
-            .biomarker-table td {
-                padding: 10px 12px;
-                font-size: 12px;
-            }
-        }
-
-        .biomarker-table tr:nth-child(even) {
-            background: rgba(184, 118, 88, 0.03);
-        }
-
-        .biomarker-name {
-            font-weight: 600;
-            color: #B87658;
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem 2.5rem;
-            position: relative;
-        }
-
-        @media (max-width: 768px) {
-            .footer {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #D4956C 0%, #B87658 50%, #D4956C 100%);
-        }
-
-        .footer-contact {
-            font-size: 15px;
-            font-weight: 600;
-            padding: 1.5rem 2rem;
-            background: white;
-            color: #172737;
-            text-align: center;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-            line-height: 24px;
-        }
-
-        @media (max-width: 768px) {
-            .footer-contact {
-                font-size: 14px;
-                padding: 1.25rem 1.5rem;
-            }
-        }
-
-        .contact-highlight {
-            font-weight: 700;
-            color: #B87658;
-        }
-
-        .contact-email {
-            color: #B87658;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            border-bottom: 2px solid #B87658;
-            transition: all 0.2s;
-        }
-
-        .contact-email:hover {
-            color: #D4956C;
-            border-bottom-color: #D4956C;
-        }
-
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
+        .result-icon {
+            font-size: 1.25rem;
+            flex-shrink: 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <main class="screen">
         <div class="header">
             <div class="day-label">DAY 1</div>
             <h1>The Pressure Within: How Stress Turns Against Your Heart</h1>
@@ -351,7 +153,7 @@
             <div class="text-content">
                 That's useful short term — but when the signal never switches off, blood vessels tighten, heart rate speeds up, and the vagus nerve — your natural calm system — goes quiet.
             </div>
-            <div class="text-content highlight-text">
+            <div class="text-content">
                 Today you'll learn how to notice the first signs of stress pressure and respond with calm, not overload.
             </div>
         </div>
@@ -365,24 +167,18 @@
                 Every emotion you experience — anger, frustration, anxiety — travels through your body as an electrical and hormonal signal.
             </div>
             <div class="text-content">
-                Blood pressure is the force of blood against your artery walls. It must stay strong enough to move oxygen but not so strong that it damages vessels.
+                <span class="highlight-text">Blood pressure</span> is the force of blood against your artery walls. It must stay strong enough to move oxygen but not so strong that it damages vessels.
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item"><span class="highlight-text">Adrenaline</span> speeds up the heartbeat and tightens vessels — like turning up water pressure in a hose.</li>
+                <li class="bullet-item"><span class="highlight-text">Cortisol</span> keeps the body on alert for hours, slowing repair and raising average pressure.</li>
+                <li class="bullet-item">The <span class="highlight-text">vagus nerve</span> usually steps in to slow your pulse and widen vessels, but chronic tension keeps it "muted."</li>
+            </ul>
+            <div class="text-content">
+                Over time, this pattern reduces <span class="highlight-text">heart-rate variability (HRV)</span> — your body's ability to adapt — and makes even small stressors feel heavier.
             </div>
             <div class="text-content">
-                Adrenaline speeds up the heartbeat and tightens vessels — like turning up water pressure in a hose.
-            </div>
-            <div class="text-content">
-                Cortisol keeps the body on alert for hours, slowing repair and raising average pressure.
-            </div>
-            <div class="text-content">
-                The vagus nerve usually steps in to slow your pulse and widen vessels, but chronic tension keeps it "muted."
-            </div>
-            <div class="text-content">
-                Over time, this pattern reduces heart-rate variability (HRV) — your body's ability to adapt — and makes even small stressors feel heavier.
-            </div>
-            <div class="info-box">
-                <div class="text-content" style="margin-bottom: 0;">
-                    👉 HRV means the tiny, natural time differences between heartbeats — the higher it is, the calmer and more resilient you are.
-                </div>
+                👉 HRV means the tiny, natural time differences between heartbeats — the higher it is, the calmer and more resilient you are.
             </div>
             <div class="text-content">
                 💡 In short: the faster your world feels, the harder your heart works — and the higher your blood pressure climbs.
@@ -413,20 +209,29 @@
                 <span class="section-icon">💡</span>
                 <h2>Science Facts — Stress, HRV & Pressure</h2>
             </div>
-            
+
             <div class="science-fact">
-                <div class="fact-item">
-                    Emotional reactivity stiffens arteries and lowers HRV; awareness pauses reverse both (Steffen et al., 2017).
-                </div>
-                <div class="fact-item">
-                    A single mindful break can drop systolic pressure by 5–8 mmHg (Smith et al., 2020).
-                </div>
-                <div class="fact-item">
-                    Strong vagal tone improves cardiovascular resilience (Thayer & Lane, 2018).
+                <span class="fact-icon">🫀</span>
+                <div>
+                    <div class="fact-desc">Emotional reactivity stiffens arteries and lowers HRV; awareness pauses reverse both (Steffen et al., 2017).</div>
                 </div>
             </div>
 
-            <div class="text-content">
+            <div class="science-fact">
+                <span class="fact-icon">💓</span>
+                <div>
+                    <div class="fact-desc">A single mindful break can drop systolic pressure by 5–8 mmHg (Smith et al., 2020).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <span class="fact-icon">🧠</span>
+                <div>
+                    <div class="fact-desc">Strong vagal tone improves cardiovascular resilience (Thayer & Lane, 2018).</div>
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1rem;">
                 Short pauses work because they re-activate your vagus nerve — your body's built-in brake pedal.
             </div>
         </div>
@@ -440,47 +245,58 @@
                 Stress shows up in your biomarkers:
             </div>
 
-            <table class="biomarker-table">
-                <thead>
-                    <tr>
-                        <th>Biomarker</th>
-                        <th>What It Shows</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="biomarker-name">Cortisol (AM)</span></td>
-                        <td>Chronic stress keeps it elevated; calm mornings restore natural rhythm.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">hs-CRP</span></td>
-                        <td>Inflammation marker; decreases as HRV and sleep quality improve.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">ApoB</span></td>
-                        <td>The main carrier of LDL particles — higher levels mean more "bad" cholesterol in circulation. Better vagal tone and lower stress hormones help reduce ApoB over time.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Lp(a)</span></td>
-                        <td>Genetic lipoprotein linked with arterial stiffness; chronic inflammation and high stress can worsen its impact.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">LDL-cholesterol</span></td>
-                        <td>Carries cholesterol to tissues; stress and poor recovery increase oxidation risk.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">HDL-cholesterol</span></td>
-                        <td>Clears excess cholesterol; improves with movement, hydration, and calmer nervous tone.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Triglycerides</span></td>
-                        <td>Rise with cortisol and poor sleep; drop with stable rhythm and balanced meals.</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Biomarker</th>
+                            <th>How It Relates to Heart Health</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cortisol (AM)</td>
+                            <td>Chronic stress keeps it elevated; calm mornings restore natural rhythm.</td>
+                        </tr>
+                        <tr>
+                            <td>hs-CRP</td>
+                            <td>Inflammation marker; decreases as HRV and sleep quality improve.</td>
+                        </tr>
+                        <tr>
+                            <td>ApoB</td>
+                            <td>The main carrier of LDL particles — higher levels mean more "bad" cholesterol in circulation. Better vagal tone and lower stress hormones help reduce ApoB over time.</td>
+                        </tr>
+                        <tr>
+                            <td>Lp(a)</td>
+                            <td>Genetic lipoprotein linked with arterial stiffness; chronic inflammation and high stress can worsen its impact.</td>
+                        </tr>
+                        <tr>
+                            <td>LDL-cholesterol</td>
+                            <td>Carries cholesterol to tissues; stress and poor recovery increase oxidation risk.</td>
+                        </tr>
+                        <tr>
+                            <td>HDL-cholesterol</td>
+                            <td>Clears excess cholesterol; improves with movement, hydration, and calmer nervous tone.</td>
+                        </tr>
+                        <tr>
+                            <td>Triglycerides</td>
+                            <td>Rise with cortisol and poor sleep; drop with stable rhythm and balanced meals.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <div class="text-content">
                 Even subtle improvements in HRV often go hand-in-hand with lower ApoB and triglycerides and higher HDL — your heart's biochemical proof of balance.
+            </div>
+
+            <div class="cta-box" style="text-align: center;">
+                <div class="text-content" style="margin-bottom: 1.5rem; font-size: 15px;">
+                    If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <div>
+                    <a href="https://plan.aura.care/lt-2/?fpid=01K94ZWQ483WX6N5JR2QDPWF01&fsid=01K94ZWQ48V57TDFPMN7TZ9QDQ" style="display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; padding: 14px 40px; border-radius: 8px; box-shadow: 0 2px 4px rgba(184,118,88,0.3);" target="_blank" rel="noopener noreferrer">Continue</a>
+                </div>
             </div>
         </div>
 
@@ -489,12 +305,11 @@
                 <span class="section-icon">💭</span>
                 <h2>Reflection Prompt</h2>
             </div>
-            
             <div class="reflection-box">
-                <div class="reflection-text">
+                <div class="text-content">
                     When do you usually feel the first "pressure signal" — tight jaw, racing heart, tension in the chest?
                 </div>
-                <div class="reflection-text">
+                <div class="text-content" style="margin-bottom: 0;">
                     What helps you notice it before it takes over?
                 </div>
             </div>
@@ -505,51 +320,48 @@
                 <span class="section-icon">✅</span>
                 <h2>Plan to Action — The Pressure Pause</h2>
             </div>
-
             <div class="text-content">
                 You've practiced calm breathing before; now it's time to build the reflex that protects your heart in real-world stress.
             </div>
-
+            
             <div class="action-box">
                 <div class="action-title">💠 The Pressure Pause — 3-Minute Reset Before Reacting</div>
-                <div class="text-content" style="margin-bottom: 1rem;">
+                <div class="text-content">
                     Keep your earlier rhythm anchors — morning light, hydration, micro-breaks — and add one step today:
                 </div>
-                <div class="text-content" style="margin-bottom: 1rem;">
+                <div class="text-content">
                     Whenever you feel stress rising — before sending a message, answering, or reacting —
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">1️⃣</span>
-                    <div>Pause for three minutes.</div>
+                    <div class="text-content" style="margin-bottom: 0;">Pause for three minutes.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">2️⃣</span>
-                    <div>Unclench your jaw and shoulders.</div>
+                    <div class="text-content" style="margin-bottom: 0;">Unclench your jaw and shoulders.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">3️⃣</span>
-                    <div>Feel your heartbeat — no control, just awareness.</div>
+                    <div class="text-content" style="margin-bottom: 0;">Feel your heartbeat — no control, just awareness.</div>
                 </div>
-
                 <div class="step-item">
                     <span class="step-number">4️⃣</span>
-                    <div>Let your body settle before you act.</div>
-                </div>
-
-                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
-                    This brief interruption stops the cortisol-adrenaline loop and gives your vagus nerve time to restore calm.
+                    <div class="text-content" style="margin-bottom: 0;">Let your body settle before you act.</div>
                 </div>
             </div>
 
             <div class="text-content">
+                This brief interruption stops the cortisol-adrenaline loop and gives your vagus nerve time to restore calm.
+            </div>
+            <div class="text-content">
                 Regular practice can reduce cardiovascular reactivity and stabilize blood pressure (Smith et al., 2020; Steffen et al., 2017).
             </div>
+        </div>
 
-            <div class="text-content" style="margin-top: 1.5rem;">
-                <span class="highlight-text">🌿 Why This Works</span>
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Why This Works</h2>
             </div>
             <div class="text-content">
                 Even a short pause lets baroreceptors in your chest and neck sense relaxation and tell your brain: "It's safe."
@@ -557,33 +369,44 @@
             <div class="text-content">
                 Your heart rhythm slows, arteries release tension, and your body exits fight-or-flight.
             </div>
+        </div>
 
-            <div class="action-box" style="margin-top: 1.5rem;">
-                <div class="action-title">🔎 What to Expect (after 1–2 weeks)</div>
-                
-                <div class="step-item">
-                    <span class="step-number">🫀</span>
-                    <div><strong>Resting heart rate:</strong> decreases by 3–5 beats per minute → your heart works more efficiently.</div>
-                </div>
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔎</span>
+                <h2>What to Expect (after 1–2 weeks)</h2>
+            </div>
 
-                <div class="step-item">
-                    <span class="step-number">💓</span>
-                    <div><strong>Heart-rate variability:</strong> increases by 10–15% → greater resilience and stress recovery.</div>
+            <div class="result-item">
+                <span class="result-icon">🫀</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">Resting heart rate:</span> decreases by 3–5 beats per minute → your heart works more efficiently.
                 </div>
+            </div>
 
-                <div class="step-item">
-                    <span class="step-number">💭</span>
-                    <div><strong>Perceived stress:</strong> drops by 20–25% → fewer spikes and faster emotional recovery.</div>
+            <div class="result-item">
+                <span class="result-icon">💓</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">Heart-rate variability:</span> increases by 10–15% → greater resilience and stress recovery.
                 </div>
+            </div>
 
-                <div class="step-item">
-                    <span class="step-number">🩸</span>
-                    <div><strong>Systolic blood pressure:</strong> lowers by 4–6 mmHg → vessels relax more easily.</div>
+            <div class="result-item">
+                <span class="result-icon">💭</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">Perceived stress:</span> drops by 20–25% → fewer spikes and faster emotional recovery.
                 </div>
+            </div>
 
-                <div class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
-                    Consistent micro-pauses retrain your body's reflexes — calmer rhythm, steadier focus, and measurable progress you can feel.
+            <div class="result-item">
+                <span class="result-icon">🩸</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">Systolic blood pressure:</span> lowers by 4–6 mmHg → vessels relax more easily.
                 </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1rem;">
+                Consistent micro-pauses retrain your body's reflexes — calmer rhythm, steadier focus, and measurable progress you can feel.
             </div>
         </div>
 
@@ -601,8 +424,9 @@
         </div>
 
         <div class="section">
-            <div class="text-content" style="margin-bottom: 1.5rem;">
-                <span class="highlight-text">🌞 Why This Works</span>
+            <div class="section-header">
+                <span class="section-icon">🌞</span>
+                <h2>Why This Works</h2>
             </div>
             <div class="text-content">
                 Calm isn't passive — it's training.
@@ -610,17 +434,47 @@
             <div class="text-content">
                 Each time you pause instead of reacting, you teach your body a new pattern: alert when needed, relaxed when safe.
             </div>
-            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 2rem;">
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Vagus Nerve Activation Reminder</h2>
+            </div>
+            <div class="text-content">
+                When stress rises and your heart feels the pressure, remember your vagus-nerve activation exercise — a simple method that softens tension, steadies your heart rhythm, and helps your body shift from overload into calm.
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/6Ig3_-XvzOo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎬</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/v-t1Z5-oPtU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="text-content" style="font-size: 18px; font-weight: 700; color: #172737; margin-bottom: 0;">
                 ✨ Remember: Stress doesn't have to turn against your heart — you can turn it into awareness. A few calm pauses each day protect your rhythm, focus, and peace of mind.
             </div>
         </div>
 
         <div class="footer">
-            <p class="footer-contact">
-                <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span><br><br>
-<strong><a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue</a></strong>
-            </p>
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <div class="footer-cta-wrapper">
+                <a href="https://plan.aura.care/lt-2/?fpid=01K94ZWQ483WX6N5JR2QDPWF01&fsid=01K94ZWQ48V57TDFPMN7TZ9QDQ" class="footer-email" target="_blank" rel="noopener noreferrer">Continue</a>
+            </div>
         </div>
-    </div>
+    
+    </main>
 </body>
 </html>
