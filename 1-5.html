@@ -30,8 +30,6 @@
         .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
         .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .quote-box { background: rgba(184,118,88,0.05); border: 1px solid rgba(184,118,88,0.15); text-align: center; padding: 1.5rem 1rem; margin: 1.5rem 0; }
-        .quote-text { font-size: 15px; font-weight: 600; color: #172737; line-height: 1.5; font-style: italic; }
         .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
         .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
         .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
@@ -87,13 +85,58 @@
             margin-top: 0.75rem;
             line-height: 1.4;
         }
+        .reference-text {
+            font-size: 11px;
+            font-weight: 500;
+            color: #8C8C8C;
+            font-style: italic;
+            margin-top: 1rem;
+        }
         .cta-box {
             background: rgba(184,118,88,0.05);
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
         }
-        .table-container {
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 16px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(184,118,88,0.35);
+        }
+        .summary-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+        }
+        .summary-item:last-child {
+            margin-bottom: 0;
+        }
+        .table-wrapper {
             overflow-x: auto;
             margin: 1rem 0;
         }
@@ -101,29 +144,51 @@
             width: 100%;
             border-collapse: collapse;
             background: white;
-            font-size: 13px;
+            font-size: 14px;
+            border: none;
         }
         th {
-            background: rgba(184,118,88,0.1);
-            padding: 12px 10px;
-            text-align: left;
-            font-weight: 600;
-            color: #172737;
-            border-bottom: 2px solid rgba(184,118,88,0.3);
+            display: none;
         }
         td {
-            padding: 12px 10px;
-            border-bottom: 1px solid #E6E6E6;
-            color: #172737;
+            padding: 16px;
+            border: none;
             font-weight: 500;
+            line-height: 1.4;
         }
-        tr:last-child td {
-            border-bottom: none;
+        td:first-child {
+            font-weight: 600;
+            color: #172737;
+            width: 25%;
+        }
+        td:nth-child(2) {
+            font-weight: 600;
+            color: #172737;
+            width: 30%;
+        }
+        td:nth-child(3) {
+            color: #8C8C8C;
+            width: 45%;
+        }
+        tbody tr:nth-child(odd) {
+            background: rgba(245,237,224,0.4);
+        }
+        tbody tr:nth-child(even) {
+            background: rgba(235,225,210,0.25);
+        }
+        .emphasis-box {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(184,118,88,0.15);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.06);
         }
     </style>
 </head>
 <body>
     <main class="screen">
+        
         <div class="header">
             <div class="day-label">DAY 5</div>
             <h1>The Motivation Reset: From Low Drive to Micro-Wins</h1>
@@ -131,7 +196,7 @@
 
         <div class="section intro-section">
             <div class="section-header">
-                <span class="section-icon">😃</span>
+                <span class="section-icon">🔥</span>
                 <h2>Daily Focus</h2>
             </div>
             <div class="text-content">
@@ -148,7 +213,7 @@
                 <h2>Why It Matters</h2>
             </div>
             <div class="text-content">
-                Procrastination isn't laziness — it's overload.
+                <span class="highlight-text">Procrastination isn't laziness — it's overload.</span>
             </div>
             <div class="text-content">
                 When the brain senses pressure, uncertainty, or perfectionism, it interprets effort as a potential threat and freezes.
@@ -157,7 +222,7 @@
                 Learning to start small rebuilds calm, confidence, and momentum.
             </div>
             <div class="text-content">
-                That's how you move from <span class="highlight-text">"I should"</span> to <span class="highlight-text">"I've started."</span>
+                That's how you move from "I should" to "I've started."
             </div>
         </div>
 
@@ -171,7 +236,7 @@
             </div>
             <ul class="bullet-list">
                 <li class="bullet-item"><span class="highlight-text">The dopamine system</span> — anticipates reward and drives action.</li>
-                <li class="bullet-item"><span class="highlight-text">The stress system (amygdala + cortisol)</span> — signals potential risk or failure.</li>
+                <li class="bullet-item"><span class="highlight-text">The stress system</span> (amygdala + cortisol) — signals potential risk or failure.</li>
             </ul>
             <div class="text-content">
                 When stress dominates, the brain suppresses dopamine to conserve energy.
@@ -182,6 +247,9 @@
             <div class="text-content">
                 Short, well-defined steps reverse that effect by creating small, safe progress cues that lower cortisol and restart dopamine flow.
             </div>
+            <div class="reference-text">
+                (Inzlicht et al., 2018, Trends Cogn Sci; Murayama et al., 2015, Neuron.)
+            </div>
         </div>
 
         <div class="section">
@@ -190,7 +258,7 @@
                 <h2>Meet the Effort–Reward Loop</h2>
             </div>
             <div class="text-content">
-                Procrastination isn't laziness — it's stress avoidance.
+                <span class="highlight-text">Procrastination isn't laziness — it's stress avoidance.</span>
             </div>
             <div class="text-content">
                 When a task feels vague or overwhelming, your amygdala sounds the alarm, releasing cortisol and adrenaline.
@@ -201,8 +269,10 @@
             <div class="text-content">
                 That's why under pressure, it's hard to think clearly or "just start."
             </div>
-            <div class="text-content">
-                It's not a lack of willpower — it's biology: your brain is in fight-or-flight mode.
+            <div class="emphasis-box">
+                <div class="text-content" style="margin-bottom: 0; font-weight: 600;">
+                    It's not a lack of willpower — it's biology: your brain is in fight-or-flight mode.
+                </div>
             </div>
             <div class="text-content">
                 Each small, safe completion sends the opposite signal.
@@ -216,16 +286,19 @@
             <div class="text-content">
                 Over time, these "micro-rewards" retrain your brain to see effort as safe and satisfying.
             </div>
+            <div class="reference-text">
+                (Arnsten, 2009, Nat Rev Neurosci; Liston et al., 2009, PNAS.)
+            </div>
+        </div>
 
-            <div class="table-container">
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📊</span>
+                <h2>Motivation Pattern Throughout the Day</h2>
+            </div>
+            
+            <div class="table-wrapper">
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Time of Day</th>
-                            <th>Motivation Pattern</th>
-                            <th>What It Does</th>
-                        </tr>
-                    </thead>
                     <tbody>
                         <tr>
                             <td>Morning</td>
@@ -257,32 +330,40 @@
                 <span class="section-icon">🌿</span>
                 <h2>Science Facts — Turning Avoidance into Action</h2>
             </div>
-
+            
             <div class="science-fact">
-                <span class="fact-icon">🧩</span>
+                <div class="fact-icon">🧩</div>
                 <div>
-                    <div class="fact-desc">Unclear goals raise cortisol and increase task avoidance (Psychol Sci, 2021).</div>
+                    <div class="fact-desc">
+                        Unclear goals raise cortisol and increase task avoidance (Psychol Sci, 2021).
+                    </div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <span class="fact-icon">🎯</span>
+                <div class="fact-icon">🎯</div>
                 <div>
-                    <div class="fact-desc">Micro-goals (< 10 min) trigger dopamine release and raise persistence by ~40% (Murayama et al., 2015, Neuron).</div>
+                    <div class="fact-desc">
+                        Micro-goals (< 10 min) trigger dopamine release and raise persistence by ~40% (Murayama et al., 2015, Neuron).
+                    </div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <span class="fact-icon">📈</span>
+                <div class="fact-icon">📈</div>
                 <div>
-                    <div class="fact-desc">Visible progress tracking strengthens reward pathways and reduces anxiety (Creswell et al., 2022, Front Psychol).</div>
+                    <div class="fact-desc">
+                        Visible progress tracking strengthens reward pathways and reduces anxiety (Creswell et al., 2022, Front Psychol).
+                    </div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <span class="fact-icon">💬</span>
+                <div class="fact-icon">💬</div>
                 <div>
-                    <div class="fact-desc">Positive feedback or self-recognition activates the ventral striatum and enhances motivation (Inzlicht et al., 2018, Trends Cogn Sci).</div>
+                    <div class="fact-desc">
+                        Positive feedback or self-recognition activates the ventral striatum and enhances motivation (Inzlicht et al., 2018, Trends Cogn Sci).
+                    </div>
                 </div>
             </div>
         </div>
@@ -298,44 +379,45 @@
 
             <div class="biomarker-card">
                 <div class="biomarker-header">
-                    <div class="biomarker-name">Vitamin D (25-OH) ☀️</div>
+                    <div class="biomarker-name">Vitamin D (25-OH)</div>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 60%;">60%</div>
+                    <div class="progress-fill" style="width: 60%;">☀️ 60%</div>
                 </div>
                 <div class="biomarker-desc">
-                    Regulates dopamine and serotonin balance; low levels are linked with low mood and slower motivation.
+                    Regulates dopamine and serotonin balance; low levels are linked with low mood and slower motivation (Eyles et al., 2013, Front Neuroanat).
                 </div>
             </div>
 
             <div class="biomarker-card">
                 <div class="biomarker-header">
-                    <div class="biomarker-name">Ferritin 🔋</div>
+                    <div class="biomarker-name">TSH + Free T4</div>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 50%;">50%</div>
+                    <div class="progress-fill" style="width: 55%;">🌀 55%</div>
                 </div>
                 <div class="biomarker-desc">
-                    Reflects iron stores essential for dopamine synthesis; low ferritin can reduce both mental and physical drive.
+                    Thyroid hormones control energy metabolism; suboptimal levels often appear as low initiative and fatigue (Garber et al., 2012, Endocr Pract).
                 </div>
             </div>
 
             <div class="biomarker-card">
                 <div class="biomarker-header">
-                    <div class="biomarker-name">TSH + Free T4 🌀</div>
+                    <div class="biomarker-name">Ferritin</div>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 55%;">55%</div>
+                    <div class="progress-fill" style="width: 50%;">🔋 50%</div>
                 </div>
                 <div class="biomarker-desc">
-                    Thyroid hormones control energy metabolism; suboptimal levels often appear as low initiative and fatigue.
+                    Reflects iron stores essential for dopamine synthesis; low ferritin can reduce both mental and physical drive (Beard et al., 2001, Am J Clin Nutr).
                 </div>
             </div>
 
             <div class="cta-box">
-                <div class="text-content" style="margin-bottom: 0;">
-                    If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, <a href="https://plan.aura.care/lt-2/?fpid=01K94ZWQ483WX6N5JR2QDPWF01&fsid=01K94ZWQ48V57TDFPMN7TZ9QDQ" style="color: #B87658; font-weight: 600; text-decoration: none;">click here</a>.
+                <div class="text-content" style="margin-bottom: 0; font-size: 15px; line-height: 1.5;">
+                    If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
                 </div>
+                <a href="https://challenge.aura.care/lt-3" class="cta-button">Continue</a>
             </div>
         </div>
 
@@ -345,7 +427,7 @@
                 <h2>Reflection Prompt</h2>
             </div>
             <div class="reflection-box">
-                <div class="text-content">
+                <div class="text-content" style="margin-bottom: 0.5rem;">
                     Which task have you been postponing because it feels too large or unclear?
                 </div>
                 <div class="text-content" style="margin-bottom: 0;">
@@ -366,41 +448,68 @@
                 When vagal tone is low, the amygdala stays overactive and the brain suppresses dopamine, making effort feel heavier than it is.
             </div>
             <div class="text-content">
-                Higher vagal tone calms those circuits, allowing the prefrontal cortex and reward pathways to work together again.
+                <span class="highlight-text">Higher vagal tone calms those circuits, allowing the prefrontal cortex and reward pathways to work together again.</span>
             </div>
             <div class="text-content">
                 This creates the internal state where tasks feel safer, clearer, and easier to begin.
             </div>
         </div>
 
-        <div class="section">
+        <div class="section" style="background: rgba(16,185,129,0.05);">
             <div class="section-header">
                 <span class="section-icon">✅</span>
                 <h2>Plan to Action — The Micro-Win Protocol</h2>
             </div>
+
             <div class="text-content">
                 Keep your morning light, digital sunset, and daily planning from earlier days — they stabilize your rhythm.
             </div>
-            <div class="text-content">
+            <div class="text-content" style="font-weight: 600;">
                 Add one new habit today:
             </div>
+
             <div class="action-box">
                 <div class="action-title">🪴 Micro-Start List</div>
-                <div class="text-content">
-                    Each morning, list one or two tasks you've been avoiding.
+                
+                <div class="step-item">
+                    <div class="step-number">1️⃣</div>
+                    <div>
+                        <div class="fact-desc">
+                            Each morning, list one or two tasks you've been avoiding.
+                        </div>
+                    </div>
                 </div>
-                <div class="text-content">
-                    Define only the first step (≤ 10 minutes).
+
+                <div class="step-item">
+                    <div class="step-number">2️⃣</div>
+                    <div>
+                        <div class="fact-desc">
+                            Define only the first step (≤ 10 minutes).
+                        </div>
+                    </div>
                 </div>
-                <div class="text-content">
-                    Begin it before checking messages.
+
+                <div class="step-item">
+                    <div class="step-number">3️⃣</div>
+                    <div>
+                        <div class="fact-desc">
+                            Begin it before checking messages.
+                        </div>
+                    </div>
                 </div>
-                <div class="text-content" style="margin-bottom: 0;">
-                    Record completion — no matter how small — in your journal.
+
+                <div class="step-item">
+                    <div class="step-number">4️⃣</div>
+                    <div>
+                        <div class="fact-desc">
+                            Record completion — no matter how small — in your journal.
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="text-content">
-                These micro-wins teach your brain that effort feels safe and rewarding.
+                These micro-wins teach your brain that effort feels safe and rewarding (Murayama et al., 2015; Inzlicht et al., 2018).
             </div>
         </div>
 
@@ -413,7 +522,7 @@
                 Before bed, reread your completed micro-wins.
             </div>
             <div class="text-content">
-                Recognizing small progress triggers a gentle dopamine response that strengthens tomorrow's motivation.
+                Recognizing small progress triggers a gentle dopamine response that strengthens tomorrow's motivation (Creswell et al., 2022).
             </div>
         </div>
 
@@ -436,12 +545,41 @@
                 <h2>Video of the Day</h2>
             </div>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/VSG9hY_t-rs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe 
+                    src="https://www.youtube.com/embed/rNmOfqWGkjs" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(184,118,88,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            <div class="summary-box">
+                <div class="summary-item">
+                    <span>🎯</span>
+                    <span>Micro-starts → lower stress and make action feel easier</span>
+                </div>
+                <div class="summary-item">
+                    <span>📓</span>
+                    <span>Track small wins → motivation grows from visible progress</span>
+                </div>
+                <div class="summary-item">
+                    <span>😮‍💨</span>
+                    <span>Calming your nervous system → reduces task avoidance</span>
+                </div>
+                <div class="summary-item">
+                    <span>📝</span>
+                    <span>Define the first 10 minutes → the fastest way to break procrastination</span>
+                </div>
             </div>
         </div>
 
         <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
-            <div class="text-content" style="font-size: 18px; font-weight: 700; color: #172737; margin-bottom: 0;">
+            <div class="text-content" style="font-size: 17px; font-weight: 700; color: #172737; margin-bottom: 0; line-height: 1.5;">
                 ✨ Remember: Motivation grows through motion — every small win counts.
             </div>
         </div>

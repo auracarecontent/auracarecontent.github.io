@@ -30,8 +30,6 @@
         .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
         .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .quote-box { background: rgba(184,118,88,0.05); border: 1px solid rgba(184,118,88,0.15); text-align: center; padding: 1.5rem 1rem; margin: 1.5rem 0; }
-        .quote-text { font-size: 15px; font-weight: 600; color: #172737; line-height: 1.5; font-style: italic; }
         .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
         .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
         .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
@@ -87,16 +85,84 @@
             margin-top: 0.75rem;
             line-height: 1.4;
         }
+        .reference-text {
+            font-size: 11px;
+            font-weight: 500;
+            color: #8C8C8C;
+            font-style: italic;
+            margin-top: 1rem;
+        }
         .cta-box {
             background: rgba(184,118,88,0.05);
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 16px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(184,118,88,0.35);
+        }
+        .summary-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+        }
+        .summary-item:last-child {
+            margin-bottom: 0;
+        }
+        .emphasis-box {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(184,118,88,0.15);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.06);
+        }
+        .formula-box {
+            background: rgba(184,118,88,0.08);
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            text-align: center;
+            border: 1px solid rgba(184,118,88,0.2);
+        }
+        .formula-text {
+            font-size: 16px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 0.75rem;
         }
     </style>
 </head>
 <body>
     <main class="screen">
+        
         <div class="header">
             <div class="day-label">DAY 6</div>
             <h1>The Burnout Barrier: Catching the Signal Early</h1>
@@ -104,7 +170,7 @@
 
         <div class="section intro-section">
             <div class="section-header">
-                <span class="section-icon">😃</span>
+                <span class="section-icon">🔥</span>
                 <h2>Daily Focus</h2>
             </div>
             <div class="text-content">
@@ -124,7 +190,7 @@
                 <h2>Why It Matters</h2>
             </div>
             <div class="text-content">
-                Your body always sends early warnings — long before your mind admits it's tired.
+                <span class="highlight-text">Your body always sends early warnings — long before your mind admits it's tired.</span>
             </div>
             <div class="text-content">
                 When stress stays high and rest feels unproductive, your nervous system starts to compensate: you push through, sleep becomes lighter, and focus slips.
@@ -133,7 +199,7 @@
                 These aren't failures of willpower; they're protective responses.
             </div>
             <div class="text-content">
-                <span class="highlight-text">Catching them early means you can restore balance before your system hits the red zone.</span>
+                Catching them early means you can restore balance before your system hits the red zone.
             </div>
         </div>
 
@@ -143,35 +209,26 @@
                 <h2>Why Energy Slowly Declines</h2>
             </div>
             <div class="text-content">
-                Chronic tension keeps <span class="highlight-text">cortisol and adrenaline</span> slightly elevated.
+                Chronic tension keeps cortisol and adrenaline slightly elevated.
             </div>
             <div class="text-content">
                 At first, this helps you stay alert — but without proper recovery, your stress response loses flexibility.
             </div>
-            
-            <div class="action-box" style="background: rgba(184,118,88,0.05); border-left-color: #B87658;">
-                <div class="text-content" style="margin-bottom: 0.5rem;">
-                    <span class="highlight-text">Heart rate variability (HRV)</span> — the small change in time between heartbeats — begins to drop, showing that your body is stuck in "alert mode."
-                </div>
-            </div>
-
             <div class="text-content">
-                <span class="highlight-text">Inside your cells, mitochondria sense this constant tension.</span>
+                <span class="highlight-text">Heart rate variability (HRV)</span> — the small change in time between heartbeats — begins to drop, showing that your body is stuck in "alert mode."
             </div>
-            
+            <div class="text-content">
+                Inside your cells, mitochondria sense this constant tension.
+            </div>
             <div class="text-content">
                 Normally, they convert oxygen and nutrients into <span class="highlight-text">ATP (adenosine triphosphate)</span> — the molecule that powers every heartbeat, movement, and thought.
             </div>
-            
-            <div class="action-box" style="background: rgba(239,68,68,0.05); border-left-color: #ef4444;">
-                <div class="text-content" style="margin-bottom: 0.5rem;">
-                    Under ongoing stress, mitochondria shift into <span class="highlight-text">protection mode</span>, producing less ATP and more reactive molecules.
-                </div>
-                <div class="text-content" style="margin-bottom: 0;">
-                    This state, called <span class="highlight-text">oxidative stress</span>, slows energy creation and makes you feel drained even after rest.
-                </div>
+            <div class="text-content">
+                Under ongoing stress, mitochondria shift into protection mode, producing less ATP and more reactive molecules.
             </div>
-
+            <div class="text-content">
+                This state, called <span class="highlight-text">oxidative stress</span>, slows energy creation and makes you feel drained even after rest.
+            </div>
             <div class="text-content">
                 Often, that cellular slowdown — not the workload itself — is the true start of burnout.
             </div>
@@ -182,14 +239,16 @@
                 <span class="section-icon">🧠</span>
                 <h2>Meet the Burnout Equation</h2>
             </div>
-            <div class="quote-box">
-                <div class="quote-text">Burnout = High Output × Low Recovery × Time</div>
+            
+            <div class="formula-box">
+                <div class="formula-text">Burnout = High Output × Low Recovery × Time</div>
             </div>
+
             <div class="text-content">
                 You don't burn out because you work hard — you burn out when recovery can't keep up.
             </div>
             <div class="text-content">
-                Healthy performance has rhythm: <span class="highlight-text">stress → restore → repeat</span>.
+                <span class="highlight-text">Healthy performance has rhythm: stress → restore → repeat.</span>
             </div>
             <div class="text-content">
                 When recovery disappears, even small stressors drain your energy faster.
@@ -204,39 +263,49 @@
                 <span class="section-icon">🌿</span>
                 <h2>Science Facts — Early Signals of Burnout</h2>
             </div>
-
+            
             <div class="science-fact">
-                <span class="fact-icon">💤</span>
+                <div class="fact-icon">💤</div>
                 <div>
-                    <div class="fact-desc">Flattened cortisol curve — low AM and high PM levels predict emotional exhaustion (Kakiashvili et al., 2013, J Occup Health).</div>
+                    <div class="fact-desc">
+                        Flattened cortisol curve — low AM and high PM levels predict emotional exhaustion (Kakiashvili et al., 2013, J Occup Health).
+                    </div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <span class="fact-icon">⚡</span>
+                <div class="fact-icon">⚡</div>
                 <div>
-                    <div class="fact-desc">Low HRV — reduced variability reflects poor autonomic recovery (Kim et al., 2018, Front Public Health).</div>
+                    <div class="fact-desc">
+                        Low HRV — reduced variability reflects poor autonomic recovery (Kim et al., 2018, Front Public Health).
+                    </div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <span class="fact-icon">🔥</span>
+                <div class="fact-icon">🔥</div>
                 <div>
-                    <div class="fact-desc">Elevated hs-CRP — low-grade inflammation that sustains stress signaling (Slavich, 2020, Nat Rev Neurosci).</div>
+                    <div class="fact-desc">
+                        Elevated hs-CRP — low-grade inflammation that sustains stress signaling (Slavich, 2020, Nat Rev Neurosci).
+                    </div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <span class="fact-icon">🔋</span>
+                <div class="fact-icon">🔋</div>
                 <div>
-                    <div class="fact-desc">Chronic stress impairs mitochondrial ATP production and increases oxidative stress (Picard & McEwen, 2018, Mol Psychiatry).</div>
+                    <div class="fact-desc">
+                        Chronic stress impairs mitochondrial ATP production and increases oxidative stress (Picard & McEwen, 2018, Mol Psychiatry).
+                    </div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <span class="fact-icon">🌙</span>
+                <div class="fact-icon">🌙</div>
                 <div>
-                    <div class="fact-desc">Fragmented sleep worsens HPA-axis balance and slows mitochondrial recovery (Meerlo et al., 2008, Sleep Med Rev).</div>
+                    <div class="fact-desc">
+                        Fragmented sleep worsens HPA-axis balance and slows mitochondrial recovery (Meerlo et al., 2008, Sleep Med Rev).
+                    </div>
                 </div>
             </div>
         </div>
@@ -252,38 +321,45 @@
 
             <div class="biomarker-card">
                 <div class="biomarker-header">
-                    <div class="biomarker-name">DHEA-S ⚖️</div>
+                    <div class="biomarker-name">DHEA-S</div>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 65%;">65%</div>
+                    <div class="progress-fill" style="width: 65%;">⚖️ 65%</div>
                 </div>
                 <div class="biomarker-desc">
-                    Balances cortisol's effects and supports resilience, mood, and immune stability.
+                    Balances cortisol's effects and supports resilience, mood, and immune stability (Maninger et al., 2009, Ann N Y Acad Sci).
                 </div>
             </div>
 
             <div class="biomarker-card">
                 <div class="biomarker-header">
-                    <div class="biomarker-name">hs-CRP 🔥</div>
+                    <div class="biomarker-name">hs-CRP</div>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 60%;">60%</div>
+                    <div class="progress-fill" style="width: 60%;">🔥 60%</div>
                 </div>
                 <div class="biomarker-desc">
-                    Reflects subtle inflammation that sustains stress activation.
+                    Reflects subtle inflammation that sustains stress activation (Slavich, 2020, Nat Rev Neurosci).
                 </div>
             </div>
 
             <div class="biomarker-card">
                 <div class="biomarker-header">
-                    <div class="biomarker-name">Ferritin + Hemoglobin 🔋</div>
+                    <div class="biomarker-name">Ferritin + Hemoglobin</div>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 55%;">55%</div>
+                    <div class="progress-fill" style="width: 55%;">🔋 55%</div>
                 </div>
                 <div class="biomarker-desc">
-                    Show how efficiently oxygen reaches mitochondria; low levels reduce ATP production and stamina.
+                    Show how efficiently oxygen reaches mitochondria; low levels reduce ATP production and stamina (Beard et al., 2001, Am J Clin Nutr).
                 </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 15px; line-height: 1.5;">
+                    If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <a href="https://challenge.aura.care/lt-3" class="cta-button">Continue</a>
             </div>
         </div>
 
@@ -293,7 +369,7 @@
                 <h2>Reflection Prompt</h2>
             </div>
             <div class="reflection-box">
-                <div class="text-content">
+                <div class="text-content" style="margin-bottom: 0.5rem;">
                     What are your earliest signs of overload — foggy thinking, tension, apathy, or detachment?
                 </div>
                 <div class="text-content" style="margin-bottom: 0;">
@@ -314,32 +390,36 @@
                 When vagal tone drops, HRV falls, cortisol stays elevated, and your body remains in "alert mode," even when you're resting.
             </div>
             <div class="text-content">
-                Strong vagus activity helps stabilize the HPA axis, support mitochondrial efficiency, and restore the flexible stress rhythm your energy depends on.
+                <span class="highlight-text">Strong vagus activity helps stabilize the HPA axis, support mitochondrial efficiency, and restore the flexible stress rhythm your energy depends on.</span>
             </div>
             <div class="text-content">
                 This balance is what prevents the quiet drift from "slightly tired" into true burnout.
             </div>
         </div>
 
-        <div class="section">
+        <div class="section" style="background: rgba(16,185,129,0.05);">
             <div class="section-header">
                 <span class="section-icon">✅</span>
                 <h2>Plan to Action — The 3:1 Balance Rule</h2>
             </div>
+
             <div class="text-content">
                 By now, you've built a rhythm of light, rest, and focus that supports steady energy.
             </div>
-            <div class="text-content">
+            <div class="text-content" style="font-weight: 600;">
                 Today, add one new step to protect that balance:
             </div>
+
             <div class="action-box">
                 <div class="action-title">💠 The 3:1 Balance Rule</div>
+                
                 <div class="text-content" style="margin-bottom: 0;">
                     For every three blocks of focused work or mental effort, schedule one block of recovery — a 5-minute walk, deep breathing, or quiet daylight break.
                 </div>
             </div>
+
             <div class="text-content">
-                This rhythm keeps your nervous system regulated and prevents hidden mitochondrial strain.
+                This rhythm keeps your nervous system regulated and prevents hidden mitochondrial strain (Kim et al., 2018; Picard & McEwen, 2018).
             </div>
         </div>
 
@@ -355,7 +435,7 @@
                 Dim lights, skip screens, and take slow breaths before bed.
             </div>
             <div class="text-content">
-                This signals your HPA axis to lower cortisol and allows mitochondria to restore ATP overnight.
+                This signals your HPA axis to lower cortisol and allows mitochondria to restore ATP overnight (Meerlo et al., 2008).
             </div>
         </div>
 
@@ -381,12 +461,41 @@
                 <h2>Video of the Day</h2>
             </div>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/Ibj1k3IZTNU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe 
+                    src="https://www.youtube.com/embed/Ibj1k3IZTNU" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(184,118,88,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            <div class="summary-box">
+                <div class="summary-item">
+                    <span>⚡</span>
+                    <span>Early burnout signals appear as tension, fog, or low HRV</span>
+                </div>
+                <div class="summary-item">
+                    <span>🌿</span>
+                    <span>Vagus activation helps your system exit "alert mode"</span>
+                </div>
+                <div class="summary-item">
+                    <span>💠</span>
+                    <span>3:1 work–rest rhythm reduces hidden stress load and keeps your energy stable</span>
+                </div>
+                <div class="summary-item">
+                    <span>😴</span>
+                    <span>Recovery moments help your body prevent the quiet drift toward burnout</span>
+                </div>
             </div>
         </div>
 
         <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
-            <div class="text-content" style="font-size: 18px; font-weight: 700; color: #172737; margin-bottom: 0;">
+            <div class="text-content" style="font-size: 17px; font-weight: 700; color: #172737; margin-bottom: 0; line-height: 1.5;">
                 ✨ Remember: Protect your energy at the cellular level, and your body will protect your drive.
             </div>
         </div>

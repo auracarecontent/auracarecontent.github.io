@@ -30,8 +30,6 @@
         .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
         .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .quote-box { background: rgba(184,118,88,0.05); border: 1px solid rgba(184,118,88,0.15); text-align: center; padding: 1.5rem 1rem; margin: 1.5rem 0; }
-        .quote-text { font-size: 15px; font-weight: 600; color: #172737; line-height: 1.5; font-style: italic; }
         .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
         .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
         .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
@@ -87,27 +85,78 @@
             margin-top: 0.75rem;
             line-height: 1.4;
         }
+        .reference-text {
+            font-size: 11px;
+            font-weight: 500;
+            color: #8C8C8C;
+            font-style: italic;
+            margin-top: 1rem;
+        }
         .cta-box {
             background: rgba(184,118,88,0.05);
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
         }
-        .shift-card {
-            background: rgba(16,185,129,0.08);
-            border-left: 3px solid #10B981;
-            padding: 1rem;
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 16px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(184,118,88,0.35);
+        }
+        .summary-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
             margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+        }
+        .summary-item:last-child {
+            margin-bottom: 0;
+        }
+        .tip-card {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0,0,0,0.04);
             box-shadow: 0 2px 4px rgba(23,39,55,0.08);
         }
-        .shift-title {
-            font-size: 14px;
+        .tip-number {
+            font-size: 16px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 0.5rem;
+        }
+        .tip-title {
+            font-size: 15px;
             font-weight: 600;
             color: #172737;
             margin-bottom: 0.5rem;
-            line-height: 1.4;
         }
-        .shift-desc {
+        .tip-desc {
             font-size: 13px;
             font-weight: 500;
             color: #656565;
@@ -117,6 +166,7 @@
 </head>
 <body>
     <main class="screen">
+        
         <div class="header">
             <div class="day-label">DAY 4</div>
             <h1>The Dopamine Detox: Escaping the Scroll Trap</h1>
@@ -124,7 +174,7 @@
 
         <div class="section intro-section">
             <div class="section-header">
-                <span class="section-icon">😃</span>
+                <span class="section-icon">🔥</span>
                 <h2>Daily Focus</h2>
             </div>
             <div class="text-content">
@@ -147,10 +197,10 @@
                 When these mini-rewards happen all day, your brain becomes overstimulated and less responsive to natural satisfaction.
             </div>
             <div class="text-content">
-                You stay busy but feel unfocused and unfulfilled.
+                <span class="highlight-text">You stay busy but feel unfocused and unfulfilled.</span>
             </div>
             <div class="text-content">
-                A <span class="highlight-text">balanced dopamine rhythm</span> supports curiosity, motivation, and sustained focus — without depending on constant stimulation.
+                A balanced dopamine rhythm supports curiosity, motivation, and sustained focus — without depending on constant stimulation.
             </div>
         </div>
 
@@ -166,45 +216,55 @@
                 That's why notifications feel urgent, but completing a report feels dull.
             </div>
             <div class="text-content">
-                When you add structure and predictability, dopamine stabilizes.
+                <span class="highlight-text">When you add structure and predictability, dopamine stabilizes.</span>
             </div>
             <div class="text-content">
-                Your brain starts releasing it in response to <span class="highlight-text">progress, not just novelty</span>.
+                Your brain starts releasing it in response to progress, not just novelty.
             </div>
             <div class="text-content">
-                Simple structure — planning your day before it starts — gives dopamine healthy rhythm and lowers impulsivity.
+                Simple structure — planning your day before it starts — gives dopamine healthy rhythm and lowers impulsivity (McClure et al., 2004, Science; Robbins & Arnsten, 2009, Nature Reviews Neuroscience).
             </div>
         </div>
 
-        <div class="section">
+        <div class="section" style="background: rgba(16,185,129,0.05);">
             <div class="section-header">
                 <span class="section-icon">💡</span>
                 <h2>5 Tiny Shifts to Break the Scroll Loop</h2>
             </div>
 
-            <div class="shift-card">
-                <div class="shift-title">✨ 1) Look Away for 20 Seconds</div>
-                <div class="shift-desc">Lift your eyes from the screen → look at something far away → let your brain soften.</div>
+            <div class="tip-card">
+                <div class="tip-number">✨ 1) Look Away for 20 Seconds</div>
+                <div class="tip-desc">
+                    Lift your eyes from the screen → look at something far away → let your brain soften.
+                </div>
             </div>
 
-            <div class="shift-card">
-                <div class="shift-title">✨ 2) Ask One Question</div>
-                <div class="shift-desc">"What was I doing before I started scrolling?" This pulls you back into the present gently.</div>
+            <div class="tip-card">
+                <div class="tip-number">✨ 2) Ask One Question</div>
+                <div class="tip-desc">
+                    "What was I doing before I started scrolling?" This pulls you back into the present gently.
+                </div>
             </div>
 
-            <div class="shift-card">
-                <div class="shift-title">✨ 3) One Slow Exhale Before You Tap</div>
-                <div class="shift-desc">Before opening an app: one long, slow exhale. This stops the "autopilot scroll" before it begins.</div>
+            <div class="tip-card">
+                <div class="tip-number">✨ 3) One Slow Exhale Before You Tap</div>
+                <div class="tip-desc">
+                    Before opening an app: one long, slow exhale. This stops the "autopilot scroll" before it begins.
+                </div>
             </div>
 
-            <div class="shift-card">
-                <div class="shift-title">✨ 4) Two-Tab Rule</div>
-                <div class="shift-desc">Only two apps or windows open at the same time. Less chaos → calmer mind.</div>
+            <div class="tip-card">
+                <div class="tip-number">✨ 4) Two-Tab Rule</div>
+                <div class="tip-desc">
+                    Only two apps or windows open at the same time. Less chaos → calmer mind.
+                </div>
             </div>
 
-            <div class="shift-card">
-                <div class="shift-title">✨ 5) Touch Something Real</div>
-                <div class="shift-desc">Put your phone down for a moment. Touch a cup, fabric, a table. Your body instantly feels grounded again.</div>
+            <div class="tip-card">
+                <div class="tip-number">✨ 5) Touch Something Real</div>
+                <div class="tip-desc">
+                    Put your phone down for a moment. Touch a cup, fabric, a table. Your body instantly feels grounded again.
+                </div>
             </div>
         </div>
 
@@ -213,32 +273,40 @@
                 <span class="section-icon">🌿</span>
                 <h2>Science Facts — The Attention Economy</h2>
             </div>
-
+            
             <div class="science-fact">
-                <span class="fact-icon">📱</span>
+                <div class="fact-icon">📱</div>
                 <div>
-                    <div class="fact-desc">Variable rewards — unpredictable updates — keep users scrolling (Alter, 2017, Irresistible; Montague et al., 2016, Trends Cogn Sci).</div>
+                    <div class="fact-desc">
+                        Variable rewards — unpredictable updates — keep users scrolling (Alter, 2017, Irresistible; Montague et al., 2016, Trends Cogn Sci).
+                    </div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <span class="fact-icon">🧠</span>
+                <div class="fact-icon">🧠</div>
                 <div>
-                    <div class="fact-desc">Multitasking lowers working-memory accuracy by up to 40% (Ophir et al., 2009, PNAS).</div>
+                    <div class="fact-desc">
+                        Multitasking lowers working-memory accuracy by up to 40% (Ophir et al., 2009, PNAS).
+                    </div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <span class="fact-icon">🗓</span>
+                <div class="fact-icon">🗓</div>
                 <div>
-                    <div class="fact-desc">Structured planning increases task completion and reduces distraction by 25–30% (Baumeister & Masicampo, 2010, Psychol Sci).</div>
+                    <div class="fact-desc">
+                        Structured planning increases task completion and reduces distraction by 25–30% (Baumeister & Masicampo, 2010, Psychol Sci).
+                    </div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <span class="fact-icon">🧩</span>
+                <div class="fact-icon">🧩</div>
                 <div>
-                    <div class="fact-desc">Balanced dopamine improves long-term motivation and cognitive endurance (Robbins & Arnsten, 2009, Nat Rev Neurosci).</div>
+                    <div class="fact-desc">
+                        Balanced dopamine improves long-term motivation and cognitive endurance (Robbins & Arnsten, 2009, Nat Rev Neurosci).
+                    </div>
                 </div>
             </div>
         </div>
@@ -254,37 +322,59 @@
 
             <div class="biomarker-card">
                 <div class="biomarker-header">
-                    <div class="biomarker-name">Vitamin B12 🧩</div>
+                    <div class="biomarker-name">Vitamin B12</div>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 60%;">60%</div>
+                    <div class="progress-fill" style="width: 60%;">🧩 60%</div>
                 </div>
                 <div class="biomarker-desc">
-                    Essential for dopamine and serotonin synthesis; low levels may cause low drive or mental fog.
+                    Essential for dopamine and serotonin synthesis; low levels may cause low drive or mental fog (Malouf & Areosa Sastre, 2016, Cochrane Database Syst Rev).
                 </div>
             </div>
 
             <div class="biomarker-card">
                 <div class="biomarker-header">
-                    <div class="biomarker-name">Magnesium (RBC) 💫</div>
+                    <div class="biomarker-name">Vitamin D (25-OH)</div>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 50%;">50%</div>
+                    <div class="progress-fill" style="width: 55%;">☀️ 55%</div>
                 </div>
                 <div class="biomarker-desc">
-                    Modulates dopamine receptor sensitivity and stress resilience.
+                    Supports dopaminergic neuron health and mood stability (Eyles et al., 2013, Front Neuroanat).
                 </div>
             </div>
 
             <div class="biomarker-card">
                 <div class="biomarker-header">
-                    <div class="biomarker-name">Vitamin D (25-OH) ☀️</div>
+                    <div class="biomarker-name">Magnesium (RBC)</div>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 55%;">55%</div>
+                    <div class="progress-fill" style="width: 50%;">💫 50%</div>
                 </div>
                 <div class="biomarker-desc">
-                    Supports dopaminergic neuron health and mood stability.
+                    Modulates dopamine receptor sensitivity and stress resilience (Serefko et al., 2016, Pharmacological Reports).
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 15px; line-height: 1.5;">
+                    If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <a href="https://challenge.aura.care/lt-3" class="cta-button">Continue</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0.5rem;">
+                    Do you start your day by choosing what matters — or by reacting to what arrives?
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    How could you give your brain 15 minutes of quiet direction before the noise begins?
                 </div>
             </div>
         </div>
@@ -298,50 +388,49 @@
                 Your vagus nerve is your body's gentle "slow down" signal.
             </div>
             <div class="text-content">
-                When it turns on, your system says: "You're safe. You can breathe. You don't have to chase everything."
+                When it turns on, your system says: <span class="highlight-text">"You're safe. You can breathe. You don't have to chase everything."</span>
             </div>
             <div class="text-content">
                 And suddenly it becomes easier to stop scrolling and come back to yourself.
             </div>
         </div>
 
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">💭</span>
-                <h2>Reflection Prompt</h2>
-            </div>
-            <div class="reflection-box">
-                <div class="text-content">
-                    Do you start your day by choosing what matters — or by reacting to what arrives?
-                </div>
-                <div class="text-content" style="margin-bottom: 0;">
-                    How could you give your brain 15 minutes of quiet direction before the noise begins?
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
+        <div class="section" style="background: rgba(16,185,129,0.05);">
             <div class="section-header">
                 <span class="section-icon">✅</span>
                 <h2>Plan to Action — 15 Minutes of Clarity</h2>
             </div>
+
             <div class="text-content">
                 Keep your morning light, digital sunset, and micro-pause breaks from previous days — they're your rhythm anchors.
             </div>
-            <div class="text-content">
+            <div class="text-content" style="font-weight: 600;">
                 Add one step today:
             </div>
+
             <div class="action-box">
-                <div class="action-title">📓 Morning Planning Journal</div>
-                <div class="text-content">
-                    Spend 15 minutes before screens outlining 3 key priorities and time blocks.
+                <div class="step-item">
+                    <div class="step-number">📓</div>
+                    <div>
+                        <div class="fact-title">Morning Planning Journal</div>
+                        <div class="fact-desc">
+                            Spend 15 minutes before screens outlining 3 key priorities and time blocks.
+                        </div>
+                    </div>
                 </div>
-                <div class="text-content" style="margin-bottom: 0;">
-                    During the day, note what energized or distracted you.
+
+                <div class="step-item">
+                    <div class="step-number">✍️</div>
+                    <div>
+                        <div class="fact-desc">
+                            During the day, note what energized or distracted you.
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="text-content">
-                This builds attention awareness and re-trains your dopamine system to reward progress instead of novelty.
+                This builds attention awareness and re-trains your dopamine system to reward progress instead of novelty (Baumeister & Masicampo, 2010, Psychol Sci).
             </div>
         </div>
 
@@ -354,7 +443,7 @@
                 Avoid passive scrolling before bed.
             </div>
             <div class="text-content">
-                Instead, review three small things you completed today — it strengthens the brain's progress-reward link and calms nighttime restlessness.
+                Instead, review three small things you completed today — it strengthens the brain's progress-reward link and calms nighttime restlessness (Robbins & Arnsten, 2009).
             </div>
         </div>
 
@@ -377,12 +466,41 @@
                 <h2>Video of the Day</h2>
             </div>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/VSG9hY_t-rs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe 
+                    src="https://www.youtube.com/embed/JVDKodKzBoU" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(184,118,88,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            <div class="summary-box">
+                <div class="summary-item">
+                    <span>📱</span>
+                    <span>Tiny dopamine hits from scrolling → drain focus and raise stress</span>
+                </div>
+                <div class="summary-item">
+                    <span>😮‍💨</span>
+                    <span>Slow exhale before tapping → breaks the autopilot scroll loop</span>
+                </div>
+                <div class="summary-item">
+                    <span>🌿</span>
+                    <span>Vagus activation → makes it easier to stop chasing constant stimulation</span>
+                </div>
+                <div class="summary-item">
+                    <span>🧭</span>
+                    <span>15 minutes of planning → stabilizes dopamine and boosts real motivation</span>
+                </div>
             </div>
         </div>
 
         <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
-            <div class="text-content" style="font-size: 18px; font-weight: 700; color: #172737; margin-bottom: 0;">
+            <div class="text-content" style="font-size: 17px; font-weight: 700; color: #172737; margin-bottom: 0; line-height: 1.5;">
                 ✨ Remember: Focus isn't about force — it's about direction. Guide your dopamine, and your attention will follow.
             </div>
         </div>
