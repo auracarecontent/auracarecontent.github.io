@@ -12,108 +12,7 @@
         .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
         .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
         h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
-        
-        /* Enhanced Intro Section */
-        .intro-section { 
-            background: linear-gradient(to bottom, rgba(184,118,88,0.08) 0%, rgba(184,118,88,0.03) 100%);
-            border-bottom: 2px solid rgba(184,118,88,0.2);
-            padding: 2rem 1.5rem;
-        }
-        .intro-headline {
-            font-size: 16px;
-            font-weight: 700;
-            color: #B87658;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-        .symptoms-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.5rem;
-            margin: 1rem 0 1.5rem 0;
-            background: #FFFEFB;
-            padding: 1rem;
-            border-radius: 12px;
-            border: 1px solid rgba(184,118,88,0.15);
-        }
-        .symptom-item {
-            font-size: 13px;
-            font-weight: 500;
-            color: #172737;
-            padding: 0.5rem;
-            background: rgba(184,118,88,0.05);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .symptom-icon {
-            font-size: 16px;
-            flex-shrink: 0;
-        }
-        .warning-box {
-            background: rgba(239,68,68,0.08);
-            border-left: 3px solid #ef4444;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        .warning-text {
-            font-size: 14px;
-            font-weight: 600;
-            color: #172737;
-            line-height: 1.4;
-        }
-        .insight-box {
-            background: rgba(59,130,246,0.08);
-            border-left: 3px solid #3b82f6;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        .insight-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #3b82f6;
-            margin-bottom: 0.5rem;
-        }
-        .insight-text {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 1.4;
-        }
-        .solution-box {
-            background: rgba(16,185,129,0.08);
-            border-left: 3px solid #10B981;
-            padding: 1.25rem;
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        .solution-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #10B981;
-            margin-bottom: 0.75rem;
-        }
-        .solution-text {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 1.4;
-            margin-bottom: 0.5rem;
-        }
-        .cta-badge {
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: #FFFFFF;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 600;
-            margin-top: 1rem;
-        }
-        
+        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
         .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
         .section-icon { font-size: 1.5rem; line-height: 1.2; }
         h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
@@ -121,99 +20,422 @@
         .highlight-text { font-weight: 600; color: #B87658; }
         .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
         .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
-        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
         .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
         .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
         .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
         .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
         .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
         .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .cta-box {
-            background: rgba(184,118,88,0.05);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(184,118,88,0.15);
-            margin: 1.5rem 0;
-        }
+        .quote-box { background: rgba(184,118,88,0.05); border: 1px solid rgba(184,118,88,0.15); text-align: center; padding: 1.5rem 1rem; margin: 1.5rem 0; }
+        .quote-text { font-size: 15px; font-weight: 600; color: #172737; line-height: 1.5; font-style: italic; }
         .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
         .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
         .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
         .footer-cta-wrapper { text-align: center; }
         .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
-        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; align-items: flex-start; }
+        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
         .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
         .action-title { font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.75rem; }
-        .table-container { overflow-x: auto; margin: 1rem 0; }
-        table { width: 100%; border-collapse: collapse; background: white; font-size: 13px; }
-        th { background: rgba(184,118,88,0.1); padding: 12px 10px; text-align: left; font-weight: 600; color: #172737; border-bottom: 2px solid rgba(184,118,88,0.3); }
-        td { padding: 12px 10px; border-bottom: 1px solid #E6E6E6; color: #172737; font-weight: 500; }
-        tr:last-child td { border-bottom: none; }
-        .result-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; align-items: flex-start; }
-        .result-icon { font-size: 1.25rem; flex-shrink: 0; }
+        .chart-wrapper { background: #FFFFFF; padding: 1.5rem 1rem; margin: 1rem 0; border: 1px solid #E6E6E6; }
+        canvas { max-width: 100%; height: auto; }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            transition: width 1s ease-out;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        .reference-text {
+            font-size: 11px;
+            font-weight: 500;
+            color: #8C8C8C;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 16px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(184,118,88,0.35);
+        }
+        .evening-box {
+            background: white;
+            padding: 18px;
+            border-radius: 16px;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+        .evening-box-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        .evening-tip {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(184, 118, 88, 0.05);
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 0.75rem;
+        }
+        .tip-emoji {
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+        .tip-text {
+            flex: 1;
+        }
+        .tip-action {
+            font-weight: 600;
+            font-size: 14px;
+            color: #172737;
+        }
+        .tip-effect {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+        }
+        .tip-reference {
+            font-size: 11px;
+            font-weight: 500;
+            color: #8C8C8C;
+            font-style: italic;
+            display: block;
+            margin-top: 0.25rem;
+        }
+        .technique-card {
+            background: rgba(16,185,129,0.08);
+            border-left: 3px solid #10B981;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .technique-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .technique-icon {
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+        .technique-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 0.5rem;
+        }
+        .technique-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 1.4;
+        }
+        .technique-proof {
+            font-size: 12px;
+            font-weight: 500;
+            color: #8C8C8C;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+        .expectation-section {
+            background: white;
+            padding: 18px;
+            border-radius: 16px;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
+        }
+        .expectation-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+        }
+        .expectation-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .expectation-emoji {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .expectation-time {
+            font-weight: 600;
+            font-size: 14px;
+            color: #B87658;
+            margin-bottom: 0.25rem;
+        }
+        .expectation-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 1.4;
+        }
+        .best-moment-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+        .best-moment-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 0.75rem;
+        }
+        .moment-item {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .moment-check {
+            color: #10B981;
+            font-weight: 700;
+        }
+        .moment-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            font-size: 14px;
+            border: none;
+        }
+        th {
+            display: none;
+        }
+        td {
+            padding: 16px;
+            border: none;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        td:first-child {
+            font-weight: 600;
+            color: #172737;
+            width: 25%;
+        }
+        td:nth-child(2) {
+            font-weight: 600;
+            color: #172737;
+            width: 30%;
+        }
+        td:nth-child(3) {
+            color: #8C8C8C;
+            width: 45%;
+        }
+        tbody tr:nth-child(odd) {
+            background: rgba(245,237,224,0.4);
+        }
+        tbody tr:nth-child(even) {
+            background: rgba(235,225,210,0.25);
+        }
+        .summary-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+        }
+        .summary-item:last-child {
+            margin-bottom: 0;
+        }
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .symptom-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+        }
+        .symptom-emoji {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .intro-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #B87658;
+            margin-bottom: 1.5rem;
+        }
+        .warning-banner {
+            background: rgba(239,68,68,0.08);
+            border-left: 4px solid #ef4444;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .warning-banner-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.4;
+        }
     </style>
 </head>
 <body>
     <main class="screen">
+        
         <div class="header">
             <div class="day-label">DAY 1</div>
             <h1>The Cortisol Reboot: Why You Wake Up Tired</h1>
         </div>
 
-        <div class="intro-section">
-            <div class="intro-headline">
+        <div class="section intro-section">
+            <div class="intro-title">
                 If you're reading this, you've likely been feeling off...
             </div>
-
+            
             <div class="symptoms-grid">
                 <div class="symptom-item">
-                    <span class="symptom-icon">😴</span>
+                    <span class="symptom-emoji">😴</span>
                     <span>Low energy</span>
                 </div>
                 <div class="symptom-item">
-                    <span class="symptom-icon">🌫️</span>
+                    <span class="symptom-emoji">🌫</span>
                     <span>Brain fog</span>
                 </div>
                 <div class="symptom-item">
-                    <span class="symptom-icon">😔</span>
+                    <span class="symptom-emoji">😔</span>
                     <span>Mood swings</span>
                 </div>
                 <div class="symptom-item">
-                    <span class="symptom-icon">🎯</span>
+                    <span class="symptom-emoji">🎯</span>
                     <span>Poor focus</span>
                 </div>
                 <div class="symptom-item">
-                    <span class="symptom-icon">🤕</span>
+                    <span class="symptom-emoji">😵</span>
                     <span>Migraines</span>
                 </div>
                 <div class="symptom-item">
-                    <span class="symptom-icon">🥴</span>
+                    <span class="symptom-emoji">🤢</span>
                     <span>Digestive issues</span>
                 </div>
                 <div class="symptom-item">
-                    <span class="symptom-icon">🍔</span>
+                    <span class="symptom-emoji">🍔</span>
                     <span>Emotional eating</span>
                 </div>
                 <div class="symptom-item">
-                    <span class="symptom-icon">💓</span>
+                    <span class="symptom-emoji">💗</span>
                     <span>Racing heart</span>
                 </div>
                 <div class="symptom-item">
-                    <span class="symptom-icon">😵</span>
+                    <span class="symptom-emoji">😵‍💫</span>
                     <span>Dizziness</span>
                 </div>
                 <div class="symptom-item">
-                    <span class="symptom-icon">🌅</span>
+                    <span class="symptom-emoji">🌅</span>
                     <span>Waking up tired</span>
                 </div>
                 <div class="symptom-item">
-                    <span class="symptom-icon">🌙</span>
+                    <span class="symptom-emoji">🌙</span>
                     <span>Sleep difficulty</span>
+                </div>
+                <div class="symptom-item">
+                    <span class="symptom-emoji">🔥</span>
+                    <span>Burnout</span>
                 </div>
             </div>
 
-            <div class="warning-box">
-                <div class="warning-text">
+            <div class="warning-banner">
+                <div class="warning-banner-text">
                     This isn't just laziness — it's a warning sign.
                 </div>
             </div>
@@ -221,35 +443,54 @@
             <div class="text-content">
                 Your symptoms have a real cause — an <span class="highlight-text">out-of-balance vagus nerve</span>. It's the powerful nerve that links your brain to your vital organs.
             </div>
-
             <div class="text-content">
                 When stress builds — from finances, relationships, work, or nonstop worrying — your body can get stuck in survival mode. Your energy drops, HRV falls, memory slips, and relaxing or making decisions becomes difficult.
             </div>
+        </div>
 
-            <div class="insight-box">
-                <div class="insight-title">The real issue runs deeper than daily stress.</div>
-                <div class="insight-text">
-                    When the vagus nerve isn't functioning well, it impacts your mood, digestion, sleep, motivation, appetite, and your ability to think clearly or unwind. This is why you feel foggy, fatigued, tense, and unsure of yourself — even when nothing "big" is happening.
-                </div>
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">⚠️</span>
+                <h2>The Real Issue Runs Deeper Than Daily Stress</h2>
+            </div>
+            <div class="text-content">
+                When the vagus nerve isn't functioning well, it impacts your mood, digestion, sleep, motivation, appetite, and your ability to think clearly or unwind. This is why you feel foggy, fatigued, tense, and unsure of yourself — even when nothing "big" is happening.
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>The Good News: You Can Reset This</h2>
+            </div>
+            <div class="text-content">
+                In just 5 minutes a day, using neuroscience-based Vagus Nerve Stimulation techniques, you can start calming your system, improving energy, reducing anxiety, stabilizing mood, sleeping better, and lifting the brain fog.
+            </div>
+            <div class="text-content">
+                Aura gives you a clear, research-backed plan reviewed by practicing experts. Let's start!
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(184,118,88,0.03);">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>What This Program Is About (And Not About)</h2>
+            </div>
+            
+            <div class="text-content" style="font-size: 15px; line-height: 1.6;">
+                This is the last program you'll ever need if your body's been acting like it's stuck in permanent survival mode.
             </div>
 
-            <div class="solution-box">
-                <div class="solution-title">✨ The good news: you can reset this.</div>
-                <div class="solution-text">
-                    In just <span class="highlight-text">5 minutes a day</span>, using neuroscience-based Vagus Nerve Stimulation techniques, you can start:
-                </div>
-                <div class="solution-text">
-                    ✓ Calming your system<br>
-                    ✓ Improving energy<br>
-                    ✓ Reducing anxiety<br>
-                    ✓ Stabilizing mood<br>
-                    ✓ Sleeping better<br>
-                    ✓ Lifting brain fog
-                </div>
+            <div class="text-content" style="font-size: 15px; line-height: 1.6;">
+                We're pulling back the curtain on the insanely important partnership between your <span class="highlight-text">vagus nerve</span> and your <span class="highlight-text">biomarkers</span> — the system quietly running your energy, mood, focus, digestion, and sleep.
             </div>
 
-            <div class="cta-badge">
-                🎯 Aura gives you a clear, research-backed plan reviewed by practicing experts. Let's start!
+            <div class="text-content" style="font-size: 15px; font-weight: 600; line-height: 1.6; padding: 1rem; background: white; border-radius: 8px; margin-top: 1rem;">
+                Because here's the truth no one tells you: Your problem isn't sleep. It's not stress. It's not your routine. It's that you were never taught how to read your body's signals.
+            </div>
+
+            <div class="text-content" style="font-size: 15px; line-height: 1.6;">
+                This program teaches you exactly that — how to recognize what your body is asking for in real time, and how to respond in a way that actually works.
             </div>
         </div>
 
@@ -259,7 +500,7 @@
                 <h2>Daily Focus</h2>
             </div>
             <div class="text-content">
-                Today you'll discover why waking up rested isn't only about sleep length — it's about how your hormones, especially cortisol, align with your body clock.
+                Today you'll discover why waking up rested isn't only about sleep length — it's about how your hormones, especially cortisol, align with your body clock. Your vagus nerve plays a major role in this, helping keep cortisol balanced and your stress response in check.
             </div>
             <div class="text-content">
                 You'll learn what throws this rhythm off and how simple steps can help you rebuild steady, natural morning energy.
@@ -277,8 +518,14 @@
             <div class="text-content">
                 When energy flows smoothly from the first hour, focus sharpens and motivation rises; when it doesn't, even easy tasks feel heavy.
             </div>
-            <div class="text-content">
-                Studies show that people with a strong morning cortisol rise experience better mental clarity and emotional balance, while those with a flat curve often report fatigue, brain fog, and higher stress. Your body doesn't just count hours — it follows its rhythm.
+            <div class="science-fact">
+                <div class="fact-icon">🧬</div>
+                <div>
+                    <div class="fact-title">Research shows:</div>
+                    <div class="fact-desc">
+                        People with a strong morning cortisol rise experience better mental clarity and emotional balance, while those with a flat curve often report fatigue, brain fog, and higher stress. Your body doesn't just count hours — it follows its rhythm.
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -302,7 +549,7 @@
                 <h2>Meet Cortisol — Your Internal Sunlight</h2>
             </div>
             <div class="text-content">
-                Cortisol is made by your <span class="highlight-text">adrenal glands</span>, two small but powerful organs sitting on top of your kidneys.
+                Cortisol is made by your adrenal glands, two small but powerful organs sitting on top of your kidneys.
             </div>
             <div class="text-content">
                 They respond to signals from your brain's <span class="highlight-text">HPA axis</span> (hypothalamus → pituitary → adrenal), which coordinates the body's stress, energy, and wake-up response.
@@ -313,15 +560,17 @@
             <div class="text-content">
                 Within minutes, it sends a signal through the HPA axis, triggering a rapid cortisol surge known as the <span class="highlight-text">Cortisol Awakening Response (CAR)</span>.
             </div>
-            <div class="text-content">
-                This is your body's built-in "ON" switch:
+            
+            <div class="action-box">
+                <div class="action-title">This is your body's built-in "ON" switch:</div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">Boosts blood flow to the brain and muscles</li>
+                    <li class="bullet-item">Raises alertness and motivation</li>
+                    <li class="bullet-item">Mobilizes glucose for quick energy</li>
+                    <li class="bullet-item">Supports emotional stability and focus</li>
+                </ul>
             </div>
-            <ul class="bullet-list">
-                <li class="bullet-item">boosts blood flow to the brain and muscles,</li>
-                <li class="bullet-item">raises alertness and motivation,</li>
-                <li class="bullet-item">mobilizes glucose for quick energy,</li>
-                <li class="bullet-item">supports emotional stability and focus.</li>
-            </ul>
+
             <div class="text-content">
                 Cortisol should peak about 30–45 minutes after waking, then gradually decline through the day.
             </div>
@@ -331,6 +580,13 @@
             <div class="text-content">
                 <span class="highlight-text">Healthy rhythm</span> = high in the morning, low at night.<br>
                 <span class="highlight-text">Flattened rhythm</span> = tired in the morning, restless at night.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">⚖️</span>
+                <h2>Cortisol & DHEA-S Balance</h2>
             </div>
             <div class="text-content">
                 Alongside cortisol, your body also produces <span class="highlight-text">DHEA-S</span> — another hormone made in the adrenal glands.
@@ -351,16 +607,9 @@
                 <span class="section-icon">📊</span>
                 <h2>Normal Cortisol Curve</h2>
             </div>
-
-            <div class="table-container">
+            
+            <div class="table-wrapper">
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Time of Day</th>
-                            <th>Cortisol Pattern</th>
-                            <th>What It Does</th>
-                        </tr>
-                    </thead>
                     <tbody>
                         <tr>
                             <td>6 – 8 a.m.</td>
@@ -368,7 +617,7 @@
                             <td>Wakes body and mind, boosts alertness</td>
                         </tr>
                         <tr>
-                            <td>12 p.m</td>
+                            <td>12 p.m.</td>
                             <td>Gentle decline</td>
                             <td>Maintains focus and calm energy</td>
                         </tr>
@@ -390,6 +639,10 @@
                     </tbody>
                 </table>
             </div>
+
+            <div class="chart-wrapper">
+                <canvas id="cortisolChart"></canvas>
+            </div>
         </div>
 
         <div class="section">
@@ -397,30 +650,39 @@
                 <span class="section-icon">🌿</span>
                 <h2>Science Facts — What Makes Morning Energy Work</h2>
             </div>
-
+            
             <div class="science-fact">
-                <span class="fact-icon">🧠</span>
+                <div class="fact-icon">🧠</div>
                 <div>
-                    <div class="fact-desc">Your brain wakes up with hormones, not alarms. The morning cortisol peak clears mental fog and stabilizes mood.</div>
+                    <div class="fact-title">Your brain wakes up with hormones, not alarms.</div>
+                    <div class="fact-desc">
+                        The morning cortisol peak clears mental fog and stabilizes mood.
+                    </div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <span class="fact-icon">💤</span>
+                <div class="fact-icon">💤</div>
                 <div>
-                    <div class="fact-desc">Flat curve = slow start. When the rise is weak or delayed, energy and focus lag behind — even after full sleep.</div>
+                    <div class="fact-title">Flat curve = slow start.</div>
+                    <div class="fact-desc">
+                        When the rise is weak or delayed, energy and focus lag behind — even after full sleep.
+                    </div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <span class="fact-icon">☀️</span>
+                <div class="fact-icon">☀️</div>
                 <div>
-                    <div class="fact-desc">Light leads the rhythm. 5–10 minutes of daylight soon after waking strengthens your cortisol curve and improves evening sleep quality.</div>
+                    <div class="fact-title">Light leads the rhythm.</div>
+                    <div class="fact-desc">
+                        5–10 minutes of daylight soon after waking strengthens your cortisol curve and improves evening sleep quality.
+                    </div>
                 </div>
             </div>
 
-            <div class="text-content" style="margin-top: 1rem; font-size: 12px; color: #656565;">
-                (Based on research in Psychological Medicine 2013; Psychoneuroendocrinology 2009; Endocrine Reviews 2024.)
+            <div class="reference-text">
+                Based on research in Psychological Medicine 2013; Psychoneuroendocrinology 2009; Endocrine Reviews 2024.
             </div>
         </div>
 
@@ -433,39 +695,34 @@
                 Certain blood markers directly reflect how well your morning rhythm and stress-energy balance work.
             </div>
 
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Biomarker</th>
-                            <th>Impact</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Cortisol AM (8 a.m.)</td>
-                            <td>80% — Strong effect on morning energy, alertness, and emotional stability</td>
-                        </tr>
-                        <tr>
-                            <td>DHEA-S</td>
-                            <td>65% — Balances cortisol, supports stress resilience and stable mood</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="text-content" style="margin-top: 1rem; font-size: 12px; color: #656565;">
-                (References: Law & Clow 2020 — Stress; Kumari et al. 2009 — Psychoneuroendocrinology; Endocrine Reviews 2024.)
-            </div>
-
-            <div class="cta-box" style="text-align: center;">
-                <div class="text-content" style="margin-bottom: 1.5rem; font-size: 15px;">
-                    If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Cortisol AM (8 a.m.)</div>
                 </div>
-                <div>
-                    <a href="https://challenge.aura.care/lt-3" style="display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; padding: 14px 40px; border-radius: 8px; box-shadow: 0 2px 4px rgba(184,118,88,0.3);" target="_blank" rel="noopener noreferrer">Continue</a>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 80%;">80%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Strong effect on morning energy, alertness, and emotional stability
                 </div>
             </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">DHEA-S</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 65%;">65%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Balances cortisol, supports stress resilience and stable mood
+                </div>
+            </div>
+
+            <div class="reference-text">
+                References: Law & Clow 2020 — Stress; Kumari et al. 2009 — Psychoneuroendocrinology; Endocrine Reviews 2024.
+            </div>
+
         </div>
 
         <div class="section">
@@ -474,7 +731,7 @@
                 <h2>Reflection Prompt</h2>
             </div>
             <div class="reflection-box">
-                <div class="text-content">
+                <div class="text-content" style="margin-bottom: 0.5rem;">
                     What's the first cue your body gets in the morning — light, phone, or movement?
                 </div>
                 <div class="text-content" style="margin-bottom: 0;">
@@ -505,48 +762,64 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section" style="background: rgba(16,185,129,0.05);">
             <div class="section-header">
                 <span class="section-icon">✅</span>
                 <h2>Easy 5-min Vagus Nerve Stimulation Technique</h2>
             </div>
-            
-            <div class="action-box">
-                <div class="action-title">Morning Vagus Boost</div>
-                
-                <div style="margin-bottom: 1rem;">
-                    <div style="font-weight: 600; color: #B87658; margin-bottom: 0.5rem;">🔥 Warm Palm Eye Cover</div>
-                    <div class="text-content" style="margin-bottom: 0.25rem;">
-                        Warmth around the eyes activates C-tactile fibers → reduces stress-driven facial tension.
-                    </div>
-                    <div style="font-size: 12px; color: #656565; margin-bottom: 0;">
-                        Proof: McGlone et al., Neurosci & Biobehav Reviews, 2014 — gentle facial touch lowers arousal and supports parasympathetic activity.
+            <div class="action-title">Morning Vagus Boost</div>
+
+            <div class="technique-card">
+                <div class="technique-header">
+                    <div class="technique-icon">🔥</div>
+                    <div>
+                        <div class="technique-title">Warm Palm Eye Cover</div>
                     </div>
                 </div>
+                <div class="technique-desc">
+                    Warmth around the eyes activates C-tactile fibers → reduces stress-driven facial tension.
+                </div>
+                <div class="technique-proof">
+                    Proof: McGlone et al., Neurosci & Biobehav Reviews, 2014 — gentle facial touch lowers arousal and supports parasympathetic activity.
+                </div>
+            </div>
 
-                <div style="margin-bottom: 1rem;">
-                    <div style="font-weight: 600; color: #B87658; margin-bottom: 0.5rem;">❄️ Cold Spoon Neck Glide</div>
-                    <div class="text-content" style="margin-bottom: 0.25rem;">
-                        Cold along the neck briefly stimulates baroreceptors — sensors that regulate heart rhythm — helping the body shift out of "stress mode."
-                    </div>
-                    <div style="font-size: 12px; color: #656565; margin-bottom: 0;">
-                        Proof: Jerath et al., Medical Hypotheses, 2015 — cold stimulation increases baroreflex sensitivity and promotes parasympathetic rebound.
+            <div class="technique-card">
+                <div class="technique-header">
+                    <div class="technique-icon">❄️</div>
+                    <div>
+                        <div class="technique-title">Cold Spoon Neck Glide</div>
                     </div>
                 </div>
+                <div class="technique-desc">
+                    Cold along the neck briefly stimulates baroreceptors — sensors that regulate heart rhythm — helping the body shift out of "stress mode."
+                </div>
+                <div class="technique-proof">
+                    Proof: Jerath et al., Medical Hypotheses, 2015 — cold stimulation increases baroreflex sensitivity and promotes parasympathetic rebound.
+                </div>
+            </div>
 
-                <div style="margin-bottom: 0;">
-                    <div style="font-weight: 600; color: #B87658; margin-bottom: 0.5rem;">↕️ Neck Release Flow</div>
-                    <div class="text-content" style="margin-bottom: 0.25rem;">
-                        Slow neck flexion/extension + breath reduces cervical muscle guarding and improves blood flow to the brain's attention centers.
+            <div class="technique-card">
+                <div class="technique-header">
+                    <div class="technique-icon">↕️</div>
+                    <div>
+                        <div class="technique-title">Neck Release Flow</div>
                     </div>
-                    <div style="font-size: 12px; color: #656565; margin-bottom: 0;">
-                        Proof: Haavik & Murphy, JMPT, 2012 — cervical movement enhances sensorimotor integration.
-                    </div>
+                </div>
+                <div class="technique-desc">
+                    Slow neck flexion/extension + breath reduces cervical muscle guarding and improves blood flow to the brain's attention centers.
+                </div>
+                <div class="technique-proof">
+                    Proof: Haavik & Murphy, JMPT, 2012 — cervical movement enhances sensorimotor integration.
                 </div>
             </div>
 
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/atcmJh8Axw0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe 
+                    src="https://www.youtube.com/embed/atcmJh8Axw0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
 
@@ -556,55 +829,87 @@
                 <h2>What to Expect</h2>
             </div>
 
-            <div class="result-item">
-                <span class="result-icon">⏱️</span>
-                <div class="text-content" style="margin-bottom: 0;">
-                    <span class="highlight-text">In 30–60 seconds:</span> You may feel a small release — softer face, lighter neck, and slightly easier breathing.
+            <div class="expectation-section">
+                <div class="expectation-item">
+                    <div class="expectation-emoji">⏱️</div>
+                    <div>
+                        <div class="expectation-time">In 30–60 seconds</div>
+                        <div class="expectation-desc">
+                            You may feel a small release — softer face, lighter neck, and slightly easier breathing.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expectation-item">
+                    <div class="expectation-emoji">⏳</div>
+                    <div>
+                        <div class="expectation-time">After 2–3 days</div>
+                        <div class="expectation-desc">
+                            Mornings usually start to feel smoother, with less neck tension and clearer headspace.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expectation-item">
+                    <div class="expectation-emoji">📆</div>
+                    <div>
+                        <div class="expectation-time">After 1–2 weeks</div>
+                        <div class="expectation-desc">
+                            Many users notice more steady energy, less tightness in the upper face and neck, and a calmer, clearer start to the day.
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="result-item">
-                <span class="result-icon">⏳</span>
-                <div class="text-content" style="margin-bottom: 0;">
-                    <span class="highlight-text">After 2–3 days:</span> Mornings usually start to feel smoother, with less neck tension and clearer headspace.
+            <div class="best-moment-box">
+                <div class="best-moment-title">Best Moment to Do This</div>
+                <div class="moment-item">
+                    <span class="moment-check">✔</span>
+                    <div class="moment-text">
+                        <strong>1. When your morning feels "compressed"</strong><br>
+                        If you wake up with a tight face, stiff neck, or mental fog — this combo resets your head–neck tension fast.
+                    </div>
                 </div>
-            </div>
-
-            <div class="result-item">
-                <span class="result-icon">📆</span>
-                <div class="text-content" style="margin-bottom: 0;">
-                    <span class="highlight-text">After 1–2 weeks:</span> Many users notice more steady energy, less tightness in the upper face and neck, and a calmer, clearer start to the day.
-                </div>
-            </div>
-
-            <div class="text-content" style="margin-top: 1rem;">
-                <span class="highlight-text">Best Moment to Do This:</span>
-            </div>
-            <div class="text-content">
-                ✔ When your morning feels "compressed" — If you wake up with a tight face, stiff neck, or mental fog — this combo resets your head–neck tension fast.
             </div>
         </div>
 
-        <div class="section">
+        <div class="section" style="background: rgba(16,185,129,0.05);">
             <div class="section-header">
                 <span class="section-icon">✅</span>
                 <h2>Plan to Action — Morning in Fresh Air</h2>
             </div>
-            
+
             <div class="action-box">
-                <div class="action-title">🌞 Step outside within 30 minutes of waking.</div>
-                <div class="text-content">
-                    Spend at least 5 minutes outdoors, letting daylight and fresh air reach your eyes and skin — even if it's cloudy.
+                <div class="step-item">
+                    <div class="step-number">🌞</div>
+                    <div>
+                        <div class="fact-title">Step outside within 30 minutes of waking.</div>
+                        <div class="fact-desc">
+                            Spend at least 5 minutes outdoors, letting daylight and fresh air reach your eyes and skin — even if it's cloudy.
+                        </div>
+                    </div>
                 </div>
-                <div class="text-content">
-                    Avoid checking your phone first; look at the sky instead.
+
+                <div class="step-item">
+                    <div class="step-number">📱</div>
+                    <div>
+                        <div class="fact-desc">
+                            Avoid checking your phone first; look at the sky instead.
+                        </div>
+                    </div>
                 </div>
-                <div class="text-content" style="margin-bottom: 0;">
-                    ☀️ This simple cue resets your brain's master clock, boosts morning alertness, and supports a stronger natural cortisol rhythm for the day ahead.
+
+                <div class="step-item">
+                    <div class="step-number">☀️</div>
+                    <div>
+                        <div class="fact-desc">
+                            This simple cue resets your brain's master clock, boosts morning alertness, and supports a stronger natural cortisol rhythm for the day ahead.
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="text-content">
+            <div class="text-content" style="font-weight: 600; color: #B87658; font-size: 15px; margin-top: 1rem;">
                 It's the most effective, natural "energy supplement" you can take — and it's free.
             </div>
         </div>
@@ -620,15 +925,46 @@
             <div class="text-content">
                 Bright screens, strong emotions, or heavy exercise after 9 p.m. keep it high, delaying melatonin release and deep sleep.
             </div>
-            <div class="text-content">
-                Simple ways to calm evening cortisol:
+
+            <div class="evening-box">
+                <div class="evening-box-title">Simple ways to calm evening cortisol:</div>
+                
+                <div class="evening-tip">
+                    <div class="tip-emoji">📖</div>
+                    <div class="tip-text">
+                        <div class="tip-action">Read 6 minutes</div>
+                        <div class="tip-effect">stress ↓ ≈ 68%</div>
+                        <span class="tip-reference">Mindlab International, 2009.</span>
+                    </div>
+                </div>
+
+                <div class="evening-tip">
+                    <div class="tip-emoji">🤗</div>
+                    <div class="tip-text">
+                        <div class="tip-action">Hug 20 seconds</div>
+                        <div class="tip-effect">oxytocin ↑, cortisol ↓</div>
+                        <span class="tip-reference">Ditzen et al., Psychoneuroendocrinology 2007</span>
+                    </div>
+                </div>
+
+                <div class="evening-tip">
+                    <div class="tip-emoji">🚶‍♀️</div>
+                    <div class="tip-text">
+                        <div class="tip-action">Walk 10 minutes</div>
+                        <div class="tip-effect">cortisol ↓ ≈ 15%</div>
+                        <span class="tip-reference">Lee et al., Int J Environ Res Public Health 2024</span>
+                    </div>
+                </div>
+
+                <div class="evening-tip">
+                    <div class="tip-emoji">🕯</div>
+                    <div class="tip-text">
+                        <div class="tip-action">Dim light after 9 p.m.</div>
+                        <div class="tip-effect">tells your brain it's night</div>
+                        <span class="tip-reference">Gooley et al., J Clin Endocrinol Metab 2011.</span>
+                    </div>
+                </div>
             </div>
-            <ul class="bullet-list">
-                <li class="bullet-item">📖 Read 6 minutes — stress ↓ ≈ 68%. Mindlab International, 2009.</li>
-                <li class="bullet-item">🤗 Hug 20 seconds — oxytocin ↑, cortisol ↓. Ditzen et al., Psychoneuroendocrinology 2007;</li>
-                <li class="bullet-item">🚶‍♀️ Walk 10 minutes — cortisol ↓ ≈ 15%. Lee et al., Int J Environ Res Public Health 2024;</li>
-                <li class="bullet-item">🕯 Dim light after 9 p.m. — tells your brain it's night. Gooley et al., J Clin Endocrinol Metab 2011.</li>
-            </ul>
         </div>
 
         <div class="section">
@@ -637,26 +973,13 @@
                 <h2>Why This Works</h2>
             </div>
             <div class="text-content">
-                Morning light → resets your master clock → stronger cortisol rise.
+                <span class="highlight-text">Morning light</span> → resets your master clock → stronger cortisol rise.
             </div>
             <div class="text-content">
-                Evening calm → lets cortisol fall → deeper sleep.
+                <span class="highlight-text">Evening calm</span> → lets cortisol fall → deeper sleep.
             </div>
             <div class="text-content">
                 Together, they rebuild your body's natural energy rhythm.
-            </div>
-        </div>
-
-        <div class="section" style="background: rgba(184,118,88,0.05);">
-            <div class="section-header">
-                <span class="section-icon">📎</span>
-                <h2>Your Downloads for Today</h2>
-            </div>
-            <div class="text-content">
-                This Daily Nervous System Checklist supports your biology all week. Use it to guide your cortisol rhythm, calm your vagus nerve, and steady your energy.
-            </div>
-            <div style="text-align: center; margin-top: 1.5rem;">
-                <a href="https://auracarecontent.github.io/1-1-1.pdf" style="display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; padding: 14px 40px; border-radius: 8px; box-shadow: 0 2px 4px rgba(184,118,88,0.3);" target="_blank" rel="noopener noreferrer">Download</a>
             </div>
         </div>
 
@@ -666,7 +989,11 @@
                 <h2>Video of the Day</h2>
             </div>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/oTAxiQa3GgY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe 
+                    src="https://www.youtube.com/embed/oTAxiQa3GgY" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
 
@@ -675,27 +1002,152 @@
                 <span class="section-icon">✨</span>
                 <h2>Today You Learned</h2>
             </div>
-            <ul class="bullet-list">
-                <li class="bullet-item">☀️ Morning light → stronger energy curve tomorrow</li>
-                <li class="bullet-item">😌 Relaxed neck & face → smoother morning cortisol</li>
-                <li class="bullet-item">🌿 Vagus boost → clearer headspace in the first hour</li>
-                <li class="bullet-item">🌙 Dim evening light → easier melatonin release</li>
-            </ul>
-            <div class="text-content" style="text-align: center; font-weight: 700; color: #B87658; margin-top: 1rem; margin-bottom: 0;">
-                ✨ Get ready to wake up supercharged with Aura.
+            <div class="summary-box">
+                <div class="summary-item">
+                    <span>☀️</span>
+                    <span>Morning light → stronger energy curve tomorrow</span>
+                </div>
+                <div class="summary-item">
+                    <span>😌</span>
+                    <span>Relaxed neck & face → smoother morning cortisol</span>
+                </div>
+                <div class="summary-item">
+                    <span>🌿</span>
+                    <span>Vagus boost → clearer headspace in the first hour</span>
+                </div>
+                <div class="summary-item">
+                    <span>🌙</span>
+                    <span>Dim evening light → easier melatonin release</span>
+                </div>
             </div>
         </div>
 
         <div class="footer">
-            <h2>📩 Get Your Personalized Lab Panel</h2>
-            <div class="footer-text">
-                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
-            </div>
-            <div class="footer-cta-wrapper">
-                <a href="https://challenge.aura.care/lt-3" class="footer-email" target="_blank" rel="noopener noreferrer">Continue</a>
+            <div class="text-content" style="font-size: 18px; font-weight: 700; color: #FFFFFF; margin-bottom: 0; text-align: center;">
+                ✨ Get ready to wake up supercharged with Aura.
             </div>
         </div>
 
+
+    
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Wait for DOM and Chart.js to be fully loaded
+        if (typeof Chart !== 'undefined') {
+            const ctx = document.getElementById('cortisolChart');
+            if (ctx) {
+                const chart = new Chart(ctx.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['6 AM', '8 AM', '12 PM', '3 PM', '6 PM', '10 PM'],
+                        datasets: [{
+                            label: 'Cortisol Level Throughout The Day',
+                            data: [1.5, 14, 6, 5, 4.2, 3.5],
+                            borderColor: '#A67052',
+                            backgroundColor: 'transparent',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4,
+                            pointBackgroundColor: '#A67052',
+                            pointBorderColor: '#A67052',
+                            pointBorderWidth: 0,
+                            pointRadius: 8,
+                            pointHoverRadius: 10
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        aspectRatio: 1.6,
+                        animation: {
+                            duration: 0
+                        },
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                align: 'center',
+                                labels: {
+                                    font: {
+                                        size: 15,
+                                        weight: '600',
+                                        family: '-apple-system, BlinkMacSystemFont, "SF Pro", "Roboto", "Segoe UI", sans-serif'
+                                    },
+                                    color: '#172737',
+                                    padding: 20,
+                                    boxWidth: 0,
+                                    boxHeight: 0
+                                }
+                            },
+                            tooltip: {
+                                enabled: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 20,
+                                ticks: {
+                                    stepSize: 4,
+                                    color: '#8C8C8C',
+                                    font: {
+                                        size: 12,
+                                        family: '-apple-system, BlinkMacSystemFont, "SF Pro", "Roboto", "Segoe UI", sans-serif'
+                                    },
+                                    padding: 8
+                                },
+                                grid: {
+                                    color: '#E6E6E6',
+                                    drawBorder: false,
+                                    lineWidth: 1
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'CORTISOL LEVEL (μG/DL)',
+                                    color: '#656565',
+                                    font: {
+                                        size: 11,
+                                        weight: '600',
+                                        family: '-apple-system, BlinkMacSystemFont, "SF Pro", "Roboto", "Segoe UI", sans-serif'
+                                    },
+                                    padding: { bottom: 15, top: 0 }
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    color: '#656565',
+                                    font: {
+                                        size: 12,
+                                        weight: '500',
+                                        family: '-apple-system, BlinkMacSystemFont, "SF Pro", "Roboto", "Segoe UI", sans-serif'
+                                    },
+                                    padding: 8
+                                },
+                                grid: {
+                                    display: false,
+                                    drawBorder: false
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'TIME OF DAY',
+                                    color: '#656565',
+                                    font: {
+                                        size: 11,
+                                        weight: '600',
+                                        family: '-apple-system, BlinkMacSystemFont, "SF Pro", "Roboto", "Segoe UI", sans-serif'
+                                    },
+                                    padding: { top: 15, bottom: 0 }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        } else {
+            console.error('Chart.js failed to load');
+        }
+    </script>
 </body>
 </html>
