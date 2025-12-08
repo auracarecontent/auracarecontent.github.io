@@ -20,170 +20,45 @@
         .highlight-text { font-weight: 600; color: #B87658; }
         .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
         .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
-        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
         .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
         .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
         .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
-        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
         .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
         .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
-        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
         .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
-        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
-        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
-        .footer-cta-wrapper { text-align: center; }
-        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
         .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
         .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
         .action-title { font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.75rem; }
-        .biomarker-card {
-            background: rgba(184,118,88,0.08);
-            padding: 18px;
-            border-radius: 16px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(0,0,0,0.04);
-            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
-        }
-        .biomarker-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-        .biomarker-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            line-height: 1.3;
-        }
-        .progress-bar {
-            background: #E6E6E6;
-            border-radius: 12px;
-            height: 28px;
-            overflow: hidden;
-            margin-bottom: 0.75rem;
-        }
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 12px;
-            color: white;
-            font-weight: 700;
-            font-size: 12px;
-            letter-spacing: 0.3px;
-            transition: width 1s ease-out;
-        }
-        .biomarker-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            margin-top: 0.75rem;
-            line-height: 1.4;
-        }
-        .reference-text {
-            font-size: 11px;
-            font-weight: 500;
-            color: #8C8C8C;
-            font-style: italic;
-            margin-top: 1rem;
-        }
-        .cta-box {
-            background: rgba(184,118,88,0.05);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(184,118,88,0.15);
-            text-align: center;
-        }
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            font-weight: 700;
-            font-size: 18px;
-            padding: 16px 48px;
-            border-radius: 12px;
-            text-decoration: none;
-            margin-top: 1.5rem;
-            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(184,118,88,0.35);
-        }
-        .summary-box {
-            background: rgba(184,118,88,0.05);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(184,118,88,0.15);
-            text-align: center;
-        }
-        .summary-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            justify-content: center;
-            margin-bottom: 0.75rem;
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-        }
-        .summary-item:last-child {
-            margin-bottom: 0;
-        }
-        .table-wrapper {
-            overflow-x: auto;
-            margin: 1rem 0;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            font-size: 14px;
-            border: none;
-        }
-        th {
-            display: none;
-        }
-        td {
-            padding: 16px;
-            border: none;
-            font-weight: 500;
-            line-height: 1.4;
-        }
-        td:first-child {
-            font-weight: 600;
-            color: #172737;
-            width: 25%;
-        }
-        td:nth-child(2) {
-            font-weight: 600;
-            color: #172737;
-            width: 30%;
-        }
-        td:nth-child(3) {
-            color: #8C8C8C;
-            width: 45%;
-        }
-        tbody tr:nth-child(odd) {
-            background: rgba(245,237,224,0.4);
-        }
-        tbody tr:nth-child(even) {
-            background: rgba(235,225,210,0.25);
-        }
-        .emphasis-box {
-            background: white;
-            padding: 1.25rem;
-            border-radius: 12px;
-            margin: 1.5rem 0;
-            border: 1px solid rgba(184,118,88,0.15);
-            box-shadow: 0 2px 4px rgba(23,39,55,0.06);
-        }
+        .biomarker-card { background: rgba(184,118,88,0.08); padding: 18px; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; margin-bottom: 1rem; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin-bottom: 0.75rem; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 13px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.4; }
+        .reference-text { font-size: 11px; font-weight: 500; color: #8C8C8C; font-style: italic; margin-top: 1rem; }
+        .summary-box { background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(184,118,88,0.15); text-align: center; }
+        .summary-item { display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; }
+        .summary-item:last-child { margin-bottom: 0; }
+        .table-wrapper { overflow-x: auto; margin: 1rem 0; }
+        table { width: 100%; border-collapse: collapse; background: white; font-size: 14px; border: none; }
+        th { display: none; }
+        td { padding: 16px; border: none; font-weight: 500; line-height: 1.4; }
+        td:first-child { font-weight: 600; color: #172737; width: 25%; }
+        td:nth-child(2) { font-weight: 600; color: #172737; width: 30%; }
+        td:nth-child(3) { color: #8C8C8C; width: 45%; }
+        tbody tr:nth-child(odd) { background: rgba(245,237,224,0.4); }
+        tbody tr:nth-child(even) { background: rgba(235,225,210,0.25); }
+        .emphasis-box { background: white; padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.15); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .technique-card { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .technique-title { font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.5rem; }
+        .technique-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; margin-bottom: 0.5rem; }
+        .technique-proof { font-size: 12px; font-weight: 500; color: #8C8C8C; font-style: italic; margin-top: 0.5rem; }
+        .expectation-card { background: white; padding: 1rem; margin: 0.75rem 0; border-radius: 8px; border: 1px solid rgba(184,118,88,0.15); }
+        .expectation-time { font-size: 14px; font-weight: 700; color: #B87658; margin-bottom: 0.5rem; }
+        .expectation-list { margin-left: 1.5rem; }
+        .expectation-item { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; margin-bottom: 0.25rem; }
     </style>
 </head>
 <body>
@@ -378,9 +253,7 @@
             </div>
 
             <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">Vitamin D (25-OH)</div>
-                </div>
+                <div class="biomarker-name">Vitamin D (25-OH)</div>
                 <div class="progress-bar">
                     <div class="progress-fill" style="width: 60%;">☀️ 60%</div>
                 </div>
@@ -390,9 +263,7 @@
             </div>
 
             <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">TSH + Free T4</div>
-                </div>
+                <div class="biomarker-name">TSH + Free T4</div>
                 <div class="progress-bar">
                     <div class="progress-fill" style="width: 55%;">🌀 55%</div>
                 </div>
@@ -402,9 +273,7 @@
             </div>
 
             <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">Ferritin</div>
-                </div>
+                <div class="biomarker-name">Ferritin</div>
                 <div class="progress-bar">
                     <div class="progress-fill" style="width: 50%;">🔋 50%</div>
                 </div>
@@ -412,7 +281,6 @@
                     Reflects iron stores essential for dopamine synthesis; low ferritin can reduce both mental and physical drive (Beard et al., 2001, Am J Clin Nutr).
                 </div>
             </div>
-
         </div>
 
         <div class="section">
@@ -447,6 +315,86 @@
             <div class="text-content">
                 This creates the internal state where tasks feel safer, clearer, and easier to begin.
             </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Easy 5-min Vagus Nerve Stimulation Technique</h2>
+            </div>
+
+            <div class="action-title">Motivation Micro-Boost</div>
+
+            <div class="technique-card">
+                <div class="technique-title">🌤️ Overhead Stretch & Forward Sweep</div>
+                <div class="technique-desc">
+                    Opens the rib cage, frees your breath, and gently wakes up the vagus nerve — helping your body shift out of low-energy mode.
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <div class="technique-title">💗 Heart Expansion Stretch</div>
+                <div class="technique-desc">
+                    Lifts the chest and counters slumped "tired posture," giving your brain a clearer, more energized signal.
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <div class="technique-title">✨ Chest Tap Reset</div>
+                <div class="technique-desc">
+                    Light rhythmic tapping across the upper chest reduces tension and quickly boosts alertness without overstimulation.
+                </div>
+            </div>
+
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/F85IX4Le9kQ" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <div class="expectation-card">
+                <div class="expectation-time">⏱️ In 20–40 seconds</div>
+                <ul class="expectation-list">
+                    <li class="expectation-item">A quick lift in mood and energy</li>
+                    <li class="expectation-item">Freer, deeper breathing</li>
+                    <li class="expectation-item">Softer tension around the chest and shoulders</li>
+                </ul>
+            </div>
+
+            <div class="expectation-card">
+                <div class="expectation-time">⏳ After 2–3 days</div>
+                <ul class="expectation-list">
+                    <li class="expectation-item">Smoother transition into focused work</li>
+                    <li class="expectation-item">Less morning heaviness or mid-day fog</li>
+                    <li class="expectation-item">More stable motivation throughout the day</li>
+                </ul>
+            </div>
+
+            <div class="expectation-card">
+                <div class="expectation-time">📆 After 1–2 weeks</div>
+                <ul class="expectation-list">
+                    <li class="expectation-item">Clearer mental drive and emotional steadiness</li>
+                    <li class="expectation-item">Better resilience to distraction or low mood</li>
+                    <li class="expectation-item">Faster recovery from digital overstimulation</li>
+                </ul>
+            </div>
+
+            <div class="text-content" style="font-weight: 600; margin-top: 1.5rem;">
+                ⭐ Best Moments to Do This
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">During an afternoon slump — instead of scrolling</li>
+                <li class="bullet-item">When you feel stuck or unmotivated</li>
+            </ul>
         </div>
 
         <div class="section" style="background: rgba(16,185,129,0.05);">
