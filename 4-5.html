@@ -121,7 +121,6 @@
 
         .bullet-list {
             margin: 1rem 0;
-            padding-left: 1.5rem;
         }
 
         .bullet-item {
@@ -130,6 +129,15 @@
             color: #172737;
             margin-bottom: 0.5rem;
             line-height: 20px;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .bullet-item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
         }
 
         .science-fact {
@@ -262,45 +270,84 @@
             }
         }
 
-        .footer-contact {
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 20px;
-            margin: 0;
+        .footer-icon {
+            font-size: 48px;
+            margin-bottom: 1rem;
         }
 
-        .contact-highlight {
-            font-weight: 600;
-        }
-
-        .contact-email {
-            color: #10B981;
-            text-decoration: none;
+        .footer-title {
+            font-size: 28px;
             font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
         }
 
-        .contact-email:hover {
-            text-decoration: underline;
+        @media (max-width: 768px) {
+            .footer-title {
+                font-size: 24px;
+            }
+        }
+
+        .footer-text {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .footer-text {
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+
+        .footer-button {
+            display: inline-block;
+            padding: 16px 48px;
+            background: transparent;
+            border: 3px solid white;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-button:hover {
+            background: white;
+            color: #B87658;
+        }
+
+        @media (max-width: 768px) {
+            .footer-button {
+                font-size: 18px;
+                padding: 14px 40px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="day-label">💫 DAY 5</div>
+            <div class="day-label">DAY 5</div>
             <h1>The Cortisol Loop: When Stress Hits Your Stomach</h1>
         </div>
 
         <div class="section intro-section">
             <div class="section-header">
-                <span class="section-icon">🌿</span>
+                <span class="section-icon">🙂</span>
                 <h2>Daily Focus</h2>
             </div>
             <div class="text-content">
-                Your stomach feels stress long before your mind admits it. When pressure builds, your body releases cortisol — the main stress hormone that prepares you to act but also diverts energy away from digestion. Blood flow to the gut slows, stomach acid drops, and food stays longer than it should.
+                Your stomach feels stress long before your mind admits it.
             </div>
             <div class="text-content">
-                That's why anxiety can feel like nausea, bloating, or a tight knot inside. Over time, frequent stress keeps the gut in "alert mode," reshaping your gut bacteria and weakening your natural calm response.
+                When pressure builds, your body releases cortisol — the main stress hormone that prepares you to act but also diverts energy away from digestion. Blood flow to the gut slows, stomach acid drops, and food stays longer than it should. That's why anxiety can feel like nausea, bloating, or a tight knot inside.
+            </div>
+            <div class="text-content">
+                Over time, frequent stress keeps the gut in "alert mode," reshaping your gut bacteria and weakening your natural calm response.
             </div>
             <div class="info-box">
                 <div class="text-content" style="margin-bottom: 0;">
@@ -315,10 +362,16 @@
                 <h2>The Science of the Cortisol Loop</h2>
             </div>
             <div class="text-content">
-                Cortisol and your gut communicate constantly through the vagus nerve. When cortisol stays high, it reduces vagal tone — the calming signal that helps your gut relax and digest. Low vagal activity means slower digestion, higher inflammation, and more "nervous belly" sensations.
+                Cortisol and your gut communicate constantly through the vagus nerve. When cortisol stays high, it reduces vagal tone — the calming signal that helps your gut relax and digest.
             </div>
             <div class="text-content">
-                But here's the good news: cortisol also listens to the body. When you calm your breath, move gently, or eat slowly, cortisol starts to fall within minutes. This is how the gut and brain rebuild trust — one calm signal at a time.
+                Low vagal activity means slower digestion, higher inflammation, and more "nervous belly" sensations.
+            </div>
+            <div class="text-content">
+                But here's the good news: cortisol also listens to the body. When you calm your breath, move gently, or eat slowly, cortisol starts to fall within minutes.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">This is how the gut and brain rebuild trust — one calm signal at a time.</span>
             </div>
         </div>
 
@@ -381,6 +434,13 @@
             <div class="text-content" style="font-size: 12px; color: #656565;">
                 Sources: Rea et al., Nat Rev Gastroenterol Hepatol 2020 · Bonaz et al., Front Neurosci 2018 · Lehrer & Gevirtz 2014
             </div>
+            
+            <div style="background: #FAF8F2; padding: 2rem; border-radius: 12px; margin-top: 2rem; text-align: center; border: 1px solid rgba(184, 118, 88, 0.15);">
+                <p style="font-size: 16px; font-weight: 500; color: #172737; line-height: 24px; margin-bottom: 1.5rem;">
+                    If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </p>
+                <a href="https://challenge.aura.care/lt-3" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 14px 40px; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; font-size: 18px; font-weight: 600; text-decoration: none; border-radius: 8px; transition: all 0.3s ease;">Continue</a>
+            </div>
         </div>
 
         <div class="section">
@@ -398,16 +458,32 @@
 
         <div class="section">
             <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What About the Vagus?</h2>
+            </div>
+            
+            <div class="text-content">
+                The vagus nerve is your body's built-in antidote to cortisol — it sends the "slow down" signal that brings digestion back online after stress.
+            </div>
+            <div class="text-content">
+                When vagal tone is low, the stomach stays tense, digestion slows, and cortisol keeps rising, creating a loop where stress feeds gut discomfort and gut discomfort feeds more stress.
+            </div>
+            <div class="text-content">
+                Strengthening the vagus through slow breathing, steady meals, and gentle movement breaks this cycle, helping your gut shift from alert mode to recovery mode.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">A calmer vagus means a calmer stomach — and a cortisol rhythm that finally starts to settle.</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
                 <span class="section-icon">✅</span>
                 <h2>Plan to Action — One Step Today</h2>
             </div>
 
             <div class="text-content">
-                After a stressful hour or emotional tension, drink a glass of water slowly — one sip at a time — and take three calm breaths.
-            </div>
-
-            <div class="text-content">
-                This gentle pause lowers cortisol, rehydrates your body, and reminds your gut that it's safe to relax and digest again.
+                After a stressful hour or emotional tension, drink a glass of water slowly — one sip at a time — and take three calm breaths. This gentle pause lowers cortisol, rehydrates your body, and reminds your gut that it's safe to relax and digest again.
             </div>
 
             <div class="action-box">
@@ -438,16 +514,35 @@
         </div>
 
         <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📹</span>
+                <h2>Video of the Day</h2>
+            </div>
+            
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 1.5rem 0;">
+                <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                    src="https://www.youtube.com/embed/1mTzY9qUkIs?si=TzvY383ZzJ9w2cV_" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="section">
             <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
                 ✨ Remember: Your gut doesn't need perfection — it needs reassurance. Every time you calm your body, your cortisol listens.
             </div>
         </div>
 
         <div class="footer">
-            <p class="footer-contact">
-                <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span><br><br>
-<strong><a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue</a></strong>
+            <div class="footer-icon">✉️</div>
+            <h3 class="footer-title">Get Your Personalized Lab Panel</h3>
+            <p class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
             </p>
+            <a href="https://challenge.aura.care/lt-3" class="footer-button" target="_blank" rel="noopener noreferrer">Continue</a>
         </div>
     </div>
 </body>
