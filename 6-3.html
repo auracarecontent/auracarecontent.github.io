@@ -20,13 +20,14 @@
         .highlight-text { font-weight: 600; color: #B87658; }
         .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
         .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
-        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
         .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
         .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
         .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
         .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
         .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
         .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
         .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
@@ -34,103 +35,162 @@
         .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
         .footer-cta-wrapper { text-align: center; }
         .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
-        .summary-box {
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            transition: width 1s ease-out;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        .cta-box {
             background: rgba(184,118,88,0.05);
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid rgba(184,118,88,0.15);
             text-align: center;
         }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 16px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(184,118,88,0.35);
+        }
+        .summary-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
         .summary-item {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            justify-content: center;
+            align-items: flex-start;
+            gap: 0.75rem;
             margin-bottom: 0.75rem;
             font-size: 14px;
             font-weight: 500;
-            color: #172737;
-        }
-        .summary-item:last-child {
-            margin-bottom: 0;
-        }
-        .anchor-option {
-            background: white;
-            padding: 18px;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(0,0,0,0.04);
-            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
-        }
-        .anchor-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #B87658;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .anchor-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
             line-height: 1.4;
         }
-        .expectation-section {
-            background: white;
-            padding: 18px;
-            border-radius: 16px;
-            margin-top: 1.5rem;
-            border: 1px solid rgba(0,0,0,0.04);
-            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        .summary-item:last-child { margin-bottom: 0; }
+        .summary-item span:first-child { font-size: 1.25rem; flex-shrink: 0; }
+        .timeline-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
         }
-        .expectation-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #172737;
-            margin-bottom: 1rem;
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            align-items: flex-start;
         }
-        .expectation-item {
-            margin-bottom: 1rem;
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            line-height: 1.2;
         }
-        .expectation-item:last-child {
-            margin-bottom: 0;
+        .timeline-content {
+            flex: 1;
         }
-        .expectation-time {
-            font-weight: 600;
-            font-size: 14px;
+        .timeline-label {
+            font-size: 13px;
+            font-weight: 700;
             color: #B87658;
             margin-bottom: 0.25rem;
+            letter-spacing: 0.3px;
         }
-        .expectation-desc {
-            font-size: 13px;
+        .timeline-text {
+            font-size: 14px;
             font-weight: 500;
-            color: #656565;
+            color: #172737;
             line-height: 1.4;
         }
-        .action-card {
-            background: rgba(16,185,129,0.08);
-            border-left: 3px solid #10B981;
+        .technique-card {
+            background: rgba(184,118,88,0.05);
             padding: 1.5rem;
+            border-radius: 12px;
             margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+            border: 2px solid rgba(184,118,88,0.2);
         }
-        .action-card-title {
+        .technique-title {
             font-size: 15px;
-            font-weight: 600;
-            color: #172737;
+            font-weight: 700;
+            color: #B87658;
             margin-bottom: 1rem;
+        }
+        .technique-subtitle {
+            font-size: 14px;
+            font-weight: 700;
+            color: #172737;
+            margin-bottom: 0.75rem;
+            margin-top: 1rem;
+        }
+        .technique-subtitle:first-of-type {
+            margin-top: 0;
         }
     </style>
 </head>
 <body>
     <main class="screen">
+        <!-- Header -->
         <div class="header">
             <div class="day-label">DAY 3</div>
             <h1>Tired but Can't Sleep? Here's Why</h1>
         </div>
 
+        <!-- Intro Section -->
         <div class="section intro-section">
             <div class="section-header">
                 <span class="section-icon">🔥</span>
@@ -144,6 +204,7 @@
             </div>
         </div>
 
+        <!-- ☀️ Why It Matters -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">☀️</span>
@@ -153,22 +214,23 @@
                 Many people experience the same paradox: the body feels heavy and tired, but the mind stays sharp and alert.
             </div>
             <div class="text-content">
-                This happens when the <span class="highlight-text">vagus nerve</span> — the main nerve of rest and recovery — hasn't fully taken the lead.
+                This happens when the vagus nerve — the main nerve of rest and recovery — hasn't fully taken the lead.
             </div>
             <div class="text-content">
                 The vagus nerve connects your brain to your heart, lungs, and digestive system. Its job is to signal:
             </div>
-            <div class="text-content" style="font-size: 15px; font-weight: 600; padding: 1rem; background: rgba(184,118,88,0.08); border-radius: 8px; margin-top: 1rem;">
+            <div class="text-content" style="font-style: italic; color: #656565;">
                 🩵 "We're safe. We can slow down. We can repair."
             </div>
             <div class="text-content">
-                Because of this role, it's often called the nerve of rest — or even the <span class="highlight-text">"kingdom of sleep."</span>
+                Because of this role, it's often called the nerve of rest — or even the "kingdom of sleep."
             </div>
             <div class="text-content">
-                When the vagus is active, sleep becomes possible. When it's quiet or overwhelmed, the brain stays on duty.
+                <span class="highlight-text">When the vagus is active, sleep becomes possible. When it's quiet or overwhelmed, the brain stays on duty.</span>
             </div>
         </div>
 
+        <!-- 😴 What's Really Blocking Sleep -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">😴</span>
@@ -184,7 +246,7 @@
             <div class="text-content">
                 The vagus nerve is the main switch that moves you from the first into the second.
             </div>
-            <div class="text-content" style="font-weight: 600; margin-top: 1rem;">
+            <div class="text-content">
                 During a mentally dense day:
             </div>
             <ul class="bullet-list">
@@ -193,16 +255,14 @@
                 <li class="bullet-item">stimulation stays high.</li>
             </ul>
             <div class="text-content">
-                By evening, your body is tired — but your vagus nerve hasn't had enough support to fully engage.
+                By evening, your body is tired — but your vagus nerve hasn't had enough support to fully engage. So the brain remains in monitoring mode, even in bed.
             </div>
             <div class="text-content">
-                So the brain remains in monitoring mode, even in bed.
-            </div>
-            <div class="text-content" style="font-weight: 600; color: #B87658; margin-top: 1rem;">
-                Sleep doesn't fail because you're not tired enough. It fails because the path into the sleep kingdom hasn't opened yet.
+                <span class="highlight-text">Sleep doesn't fail because you're not tired enough. It fails because the path into the sleep kingdom hasn't opened yet.</span>
             </div>
         </div>
 
+        <!-- 🌿 Science Facts -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌿</span>
@@ -213,62 +273,131 @@
                 <div class="fact-icon">🧠</div>
                 <div>
                     <div class="fact-title">Cognitive overstimulation keeps cortical alertness high</div>
-                    <div class="fact-desc">Harvey, 2002 — mental overload delays sleep onset.</div>
+                    <div class="fact-desc">Delays sleep onset (Harvey, 2002).</div>
                 </div>
             </div>
 
             <div class="science-fact">
                 <div class="fact-icon">💓</div>
                 <div>
-                    <div class="fact-title">Higher vagal tone is linked to easier sleep initiation</div>
-                    <div class="fact-desc">Thayer et al., 2012 — measured via HRV, higher vagal activity supports deeper sleep.</div>
+                    <div class="fact-title">Higher vagal tone (measured via HRV) is linked to easier sleep initiation</div>
+                    <div class="fact-desc">And deeper sleep (Thayer et al., 2012).</div>
                 </div>
             </div>
 
             <div class="science-fact">
                 <div class="fact-icon">😮‍💨</div>
                 <div>
-                    <div class="fact-title">Slow breathing with longer exhales activates vagal pathways</div>
-                    <div class="fact-desc">Zaccaro et al., 2018 — extended exhalations reduce brain arousal.</div>
+                    <div class="fact-title">Slow breathing with longer exhales directly activates vagal pathways</div>
+                    <div class="fact-desc">Reduces brain arousal (Zaccaro et al., 2018).</div>
                 </div>
             </div>
 
-            <div class="science-fact">
+            <div class="science-fact" style="margin-bottom: 0;">
                 <div class="fact-icon">🛏️</div>
                 <div>
                     <div class="fact-title">Reducing pressure to sleep increases parasympathetic dominance</div>
-                    <div class="fact-desc">Broomfield & Espie, 2005 — letting go of sleep urgency shortens sleep latency.</div>
+                    <div class="fact-desc">Shortens sleep latency (Broomfield & Espie, 2005).</div>
                 </div>
             </div>
         </div>
 
+        <!-- 🧬 What About Labs? -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                Some blood markers can reflect how strongly your nervous system stays in alert mode — even when your body feels exhausted.
+            </div>
+            <div class="text-content">
+                These labs don't diagnose sleep disorders, but they help explain why your system struggles to fully switch into rest.
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                <span class="highlight-text">The % shows how much this marker can impact sleep quality and recovery.</span>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Morning Cortisol</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%;">⏰ 60 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Elevated or flattened cortisol rhythms are common in "tired but wired" states. When cortisol doesn't fall properly at night, the brain remains on standby instead of entering deep sleep.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Magnesium (RBC)</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;">⚡ 55 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Magnesium supports calm nerve signaling and vagal activity. Low intracellular magnesium is linked to muscle tension, jaw clenching, and difficulty letting go at night.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">hs-CRP</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">🔥 45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Low-grade inflammation keeps stress pathways active and interferes with parasympathetic (vagal) dominance during sleep.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Ferritin / Iron Status</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">🩸 40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Low iron stores can increase nighttime restlessness and prevent full nervous system recovery, even when total sleep time is adequate.
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 15px; line-height: 1.5;">
+                    If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">Continue</a>
+            </div>
+        </div>
+
+        <!-- 💭 Reflection Prompt -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💭</span>
                 <h2>Reflection Prompt</h2>
             </div>
             <div class="reflection-box">
-                <div class="text-content">
-                    When you lie in bed, does your body feel tired — but your chest, jaw, or forehead still feel "on"?
-                </div>
-                <div class="text-content">
+                <div class="text-content" style="margin-bottom: 0;">
+                    When you lie in bed, does your body feel tired — but your chest, jaw, or forehead still feel "on"?<br><br>
                     What tells you that your system hasn't fully entered rest yet?
                 </div>
             </div>
         </div>
 
+        <!-- 🧠 What Actually Helps -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧠</span>
                 <h2>What Actually Helps (How the Vagus Works)</h2>
             </div>
             <div class="text-content">
-                You don't need to convince your brain to sleep.
+                You don't need to convince your brain to sleep. You need to activate the nerve that rules the sleep state.
             </div>
-            <div class="text-content" style="font-weight: 600;">
-                You need to activate the nerve that rules the sleep state.
-            </div>
-            <div class="text-content" style="margin-top: 1rem;">
+            <div class="text-content">
                 The vagus nerve responds best to:
             </div>
             <ul class="bullet-list">
@@ -276,141 +405,110 @@
                 <li class="bullet-item">reduced sensory input,</li>
                 <li class="bullet-item">the removal of urgency and pressure.</li>
             </ul>
-            <div class="text-content" style="font-weight: 600; color: #B87658;">
+            <div class="text-content">
                 When vagal signals strengthen, the brain naturally steps back. That's when the door to sleep opens — without force.
             </div>
         </div>
 
-        <div class="section" style="background: rgba(16,185,129,0.05);">
+        <!-- ✅ Plan to Action -->
+        <div class="section">
             <div class="section-header">
                 <span class="section-icon">✅</span>
                 <h2>Plan to Action — Gratitude Wind-Down</h2>
             </div>
-            <div class="text-content" style="font-weight: 600; margin-bottom: 1.5rem; text-align: center; font-size: 15px;">
-                🌙 Tonight, prepare your sleep by gently closing the day
+            <div class="text-content">
+                Tonight, prepare your sleep by gently closing the day.
             </div>
 
-            <div style="background: linear-gradient(135deg, rgba(184,118,88,0.08) 0%, rgba(184,118,88,0.04) 100%); padding: 2rem 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(184,118,88,0.15);">
-                <div style="text-align: center; font-size: 2rem; margin-bottom: 1rem;">🙏</div>
-                <div style="font-size: 16px; font-weight: 700; color: #B87658; margin-bottom: 1rem; text-align: center;">
-                    The Technique
+            <div class="technique-card">
+                <div class="technique-title">The Technique</div>
+                <div class="text-content">
+                    Before bed, take 2–3 minutes to recall 3 small things from today that felt good or pleasant.
                 </div>
-                <div class="text-content" style="text-align: center; font-size: 15px;">
-                    Before bed, take <span class="highlight-text">2–3 minutes</span> to recall <span class="highlight-text">3 small things</span> from today that felt good or pleasant.
-                </div>
-                <div class="text-content" style="text-align: center; font-style: italic; color: #656565;">
+                <div class="text-content">
                     They don't need to be important or meaningful. Small counts.
                 </div>
-            </div>
-
-            <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(23,39,55,0.08);">
-                <div style="font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 1.25rem; text-align: center;">
-                    ✨ For example:
+                <div class="text-content">
+                    <span class="highlight-text">For example:</span>
                 </div>
-                
-                <div style="display: grid; gap: 1rem;">
-                    <div style="display: flex; align-items: center; gap: 1rem; padding: 12px; background: rgba(184,118,88,0.05); border-radius: 12px;">
-                        <span style="font-size: 1.75rem; flex-shrink: 0;">☕</span>
-                        <span style="font-size: 14px; font-weight: 500; color: #172737;">A good cup of coffee</span>
-                    </div>
-                    
-                    <div style="display: flex; align-items: center; gap: 1rem; padding: 12px; background: rgba(184,118,88,0.05); border-radius: 12px;">
-                        <span style="font-size: 1.75rem; flex-shrink: 0;">🚗</span>
-                        <span style="font-size: 14px; font-weight: 500; color: #172737;">Getting somewhere faster than expected</span>
-                    </div>
-                    
-                    <div style="display: flex; align-items: center; gap: 1rem; padding: 12px; background: rgba(184,118,88,0.05); border-radius: 12px;">
-                        <span style="font-size: 1.75rem; flex-shrink: 0;">🚿</span>
-                        <span style="font-size: 14px; font-weight: 500; color: #172737;">A warm shower</span>
-                    </div>
-                    
-                    <div style="display: flex; align-items: center; gap: 1rem; padding: 12px; background: rgba(184,118,88,0.05); border-radius: 12px;">
-                        <span style="font-size: 1.75rem; flex-shrink: 0;">🌸</span>
-                        <span style="font-size: 14px; font-weight: 500; color: #172737;">A calm moment</span>
-                    </div>
-                    
-                    <div style="display: flex; align-items: center; gap: 1rem; padding: 12px; background: rgba(184,118,88,0.05); border-radius: 12px;">
-                        <span style="font-size: 1.75rem; flex-shrink: 0;">💬</span>
-                        <span style="font-size: 14px; font-weight: 500; color: #172737;">A kind message</span>
-                    </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">a good cup of coffee,</li>
+                    <li class="bullet-item">getting somewhere faster than expected,</li>
+                    <li class="bullet-item">a warm shower,</li>
+                    <li class="bullet-item">a calm moment,</li>
+                    <li class="bullet-item">a kind message.</li>
+                </ul>
+                <div class="text-content">
+                    You can:
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">write them down in a simple sleep or gratitude journal, or</li>
+                    <li class="bullet-item">quietly list them in your mind.</li>
+                </ul>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Both work.
                 </div>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
-                <div style="background: white; padding: 1.5rem; border-radius: 16px; text-align: center; border: 2px solid rgba(184,118,88,0.15); box-shadow: 0 2px 4px rgba(23,39,55,0.06);">
-                    <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">📝</div>
-                    <div style="font-size: 14px; font-weight: 600; color: #172737; margin-bottom: 0.5rem;">Write them down</div>
-                    <div style="font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4;">In a simple sleep or gratitude journal</div>
-                </div>
-                
-                <div style="background: white; padding: 1.5rem; border-radius: 16px; text-align: center; border: 2px solid rgba(184,118,88,0.15); box-shadow: 0 2px 4px rgba(23,39,55,0.06);">
-                    <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">💭</div>
-                    <div style="font-size: 14px; font-weight: 600; color: #172737; margin-bottom: 0.5rem;">List in your mind</div>
-                    <div style="font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4;">Quietly recall them before sleep</div>
-                </div>
-            </div>
-
-            <div style="text-align: center; font-size: 15px; font-weight: 600; color: #B87658; padding: 1rem; background: rgba(184,118,88,0.08); border-radius: 12px; margin-bottom: 1.5rem;">
-                ✨ Both work equally well
-            </div>
-
-            <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-top: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08);">
-                <div style="font-size: 16px; font-weight: 700; color: #172737; margin-bottom: 1rem; text-align: center;">
-                    🧠 Why This Helps Sleep
-                </div>
-                <div class="text-content" style="text-align: center; margin-bottom: 1rem;">
+            <div class="technique-card">
+                <div class="technique-title">Why This Helps Sleep</div>
+                <div class="text-content">
                     Gratitude gently shifts the brain:
                 </div>
-                
-                <div style="display: flex; align-items: center; gap: 1rem; padding: 12px; background: rgba(16,185,129,0.05); border-radius: 12px; margin-bottom: 0.75rem;">
-                    <span style="font-size: 1.5rem;">❌</span>
-                    <span style="font-size: 14px; font-weight: 500; color: #656565;">Away from scanning for problems</span>
-                </div>
-                
-                <div style="display: flex; align-items: center; gap: 1rem; padding: 12px; background: rgba(16,185,129,0.05); border-radius: 12px; margin-bottom: 0.75rem;">
-                    <span style="font-size: 1.5rem;">❌</span>
-                    <span style="font-size: 14px; font-weight: 500; color: #656565;">Away from unfinished tasks</span>
-                </div>
-                
-                <div style="display: flex; align-items: center; gap: 1rem; padding: 12px; background: rgba(16,185,129,0.08); border-radius: 12px; border: 2px solid #10B981;">
-                    <span style="font-size: 1.5rem;">✅</span>
-                    <span style="font-size: 14px; font-weight: 600; color: #172737;">Toward safety and completion</span>
-                </div>
-                
-                <div class="text-content" style="font-weight: 600; color: #B87658; margin-top: 1.25rem; text-align: center; font-size: 15px;">
-                    💤 This lowers nighttime alertness and helps your nervous system let go
-                </div>
-            </div>
-
-            <div class="expectation-section">
-                <div class="expectation-title">✨ What to Expect</div>
-                
-                <div class="expectation-item">
-                    <div class="expectation-time">⏱️ After the first night</div>
-                    <div class="expectation-desc">A calmer emotional tone before bed.</div>
-                </div>
-                
-                <div class="expectation-item">
-                    <div class="expectation-time">⏳ After a few nights</div>
-                    <div class="expectation-desc">Less mental replay and fewer "unfinished" thoughts.</div>
-                </div>
-                
-                <div class="expectation-item">
-                    <div class="expectation-time">📆 After 1–2 weeks</div>
-                    <div class="expectation-desc">Bedtime feels softer, more predictable, and emotionally lighter.</div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">away from scanning for problems,</li>
+                    <li class="bullet-item">away from unfinished tasks,</li>
+                    <li class="bullet-item">toward safety and completion.</li>
+                </ul>
+                <div class="text-content" style="margin-bottom: 0;">
+                    This lowers nighttime alertness and helps the nervous system let go — making it easier to fall asleep without effort.
                 </div>
             </div>
         </div>
 
+        <!-- ✨ What to Expect -->
         <div class="section">
             <div class="section-header">
-                <span class="section-icon">🎥</span>
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <div class="timeline-box">
+                <div class="timeline-item">
+                    <div class="timeline-icon">⏱️</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER THE FIRST NIGHT</div>
+                        <div class="timeline-text">A calmer emotional tone before bed.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">⏳</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER A FEW NIGHTS</div>
+                        <div class="timeline-text">Less mental replay and fewer "unfinished" thoughts.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">📆</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER 1–2 WEEKS</div>
+                        <div class="timeline-text">Bedtime feels softer, more predictable, and emotionally lighter.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎬</span>
                 <h2>Video of the Day</h2>
             </div>
             <div class="text-content">
                 The sounds and breathing rhythm support your body's natural calming response, making it easier to relax and fall asleep.
             </div>
-            
             <div class="video-container">
                 <iframe 
                     src="https://www.youtube.com/embed/8JnutB7MIOc" 
@@ -420,12 +518,12 @@
             </div>
         </div>
 
+        <!-- ✨ Today You Learned -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">✨</span>
                 <h2>Today You Learned</h2>
             </div>
-            
             <div class="summary-box">
                 <div class="summary-item">
                     <span>🩵</span>
@@ -444,24 +542,24 @@
                     <span>Sleep begins when the "kingdom of sleep" is activated</span>
                 </div>
             </div>
+        </div>
 
-            <div class="text-content" style="text-align: center; font-weight: 600; margin-top: 1.5rem; font-size: 15px;">
-                ✨ Remember:
-            </div>
-            <div class="text-content" style="text-align: center;">
-                Being tired but wired means your nervous system hasn't fully powered down yet.
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 0; line-height: 1.5;">
+                ✨ Remember: Being tired but wired means your nervous system hasn't fully powered down yet.
             </div>
         </div>
 
         <div class="footer">
             <h2>📩 Get Your Personalized Lab Panel</h2>
             <div class="footer-text">
-                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click below.
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
             </div>
             <div class="footer-cta-wrapper">
-                <a href="https://plan.aura.care/lt-2/" class="footer-email">Continue</a>
+                <a href="https://plan.aura.care/lt-2/" class="footer-email" target="_blank" rel="noopener noreferrer">Continue</a>
             </div>
         </div>
+    
     </main>
 </body>
 </html>

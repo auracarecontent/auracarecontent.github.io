@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 7 — Hidden Daytime Habits That Ruin Sleep</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .footer-cta-wrapper { text-align: center; }
+        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
+        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
+        .action-title { font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.75rem; }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            transition: width 1s ease-out;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        .reference-text {
+            font-size: 11px;
+            font-weight: 500;
+            color: #8C8C8C;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 16px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(184,118,88,0.35);
+        }
+        .summary-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+        }
+        .summary-item:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        
+        <div class="header">
+            <div class="day-label">DAY 7</div>
+            <h1>Hidden Daytime Habits That Ruin Sleep</h1>
+        </div>
+
+        <div class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Sleep is often disrupted long before bedtime — by small, ordinary habits during the day. Today you'll uncover the hidden daytime choices that quietly keep your nervous system alert at night, and how to protect your sleep without adding effort.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Many people blame sleep problems on the night. But for most, the damage happens earlier.
+            </div>
+            <div class="text-content">
+                Throughout the day, your nervous system keeps a running score:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">stimulation vs. recovery,</li>
+                <li class="bullet-item">urgency vs. ease,</li>
+                <li class="bullet-item">input vs. pause.</li>
+            </ul>
+            <div class="text-content">
+                When this balance tips too far toward stimulation, the vagus nerve struggles to take control at night. Your body doesn't suddenly switch off — it carries the day into bed.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Good sleep isn't fragile. It's simply honest about what happened during the day.</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">😴</span>
+                <h2>The Most Common Daytime Sleep Saboteurs</h2>
+            </div>
+            <div class="text-content">
+                These habits don't feel harmful — but they quietly keep alert mode active:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item"><span class="highlight-text">Caffeine too late</span> — even if you "feel fine," it blocks sleep pressure.</li>
+                <li class="bullet-item"><span class="highlight-text">No true pauses</span> — the brain never fully powers down.</li>
+                <li class="bullet-item"><span class="highlight-text">Constant grazing</span> — blood sugar stays unstable into the night.</li>
+                <li class="bullet-item"><span class="highlight-text">Bright light late in the day</span> — tells the brain it's still daytime.</li>
+                <li class="bullet-item"><span class="highlight-text">Mental carryover</span> — unfinished tasks live on in the nervous system.</li>
+            </ul>
+            <div class="text-content">
+                None of these ruin sleep alone. Together, they delay entry into the sleep kingdom.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Daytime Inputs & Night Sleep</h2>
+            </div>
+            
+            <div class="science-fact">
+                <div class="fact-icon">☕</div>
+                <div>
+                    <div class="fact-desc">
+                        Caffeine blocks adenosine for 6–8 hours and reduces deep sleep even when sleep duration looks normal (Drake et al., 2013).
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🕰️</div>
+                <div>
+                    <div class="fact-desc">
+                        Mental load without breaks sustains sympathetic activity and delays parasympathetic recovery (Brosschot et al., 2021).
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🍽️</div>
+                <div>
+                    <div class="fact-desc">
+                        Late meals and glucose instability increase nighttime awakenings (Garaulet et al., 2013).
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🌙</div>
+                <div>
+                    <div class="fact-desc">
+                        Evening light exposure delays melatonin and shifts circadian timing (Gooley et al., 2011).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                When small daytime habits quietly ruin sleep, labs often reflect how depleted or overstimulated your stress system has become over time.
+            </div>
+            <div class="text-content">
+                These markers help explain why your body struggles to fully downshift at night.
+            </div>
+            <div class="text-content">
+                The % shows how much this marker can impact sleep quality and recovery.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">DHEA-S</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%;">⚖️ 60 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    DHEA-S reflects stress resilience and recovery capacity. Low levels are linked to reduced nervous system flexibility, making it harder to transition from day stress into nighttime rest.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Cortisol (AM)</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;">⏰ 55 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    A disrupted cortisol rhythm keeps the system in alert mode late into the evening, even when conscious stress feels low.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">hs-CRP</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">🔥 45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Chronic low-grade inflammation reflects cumulative daily strain and increases nighttime nervous system reactivity.
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 15px; line-height: 1.5;">
+                    If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">Continue</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0;">
+                    Which part of your day feels the most "non-stop"? What habit do you suspect follows you into the night — even when you're lying still?
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What Actually Helps</h2>
+            </div>
+            <div class="text-content">
+                Sleep protection doesn't mean doing more. It means removing friction for the vagus nerve.
+            </div>
+            <div class="text-content">
+                The vagus responds best when:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">stimulation tapers gradually,</li>
+                <li class="bullet-item">pauses exist during the day,</li>
+                <li class="bullet-item">inputs have a clear cut-off.</li>
+            </ul>
+            <div class="text-content">
+                <span class="highlight-text">When the day has an ending, the body accepts the night.</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Protect Tonight by Adjusting Today</h2>
+            </div>
+            <div class="text-content">
+                Choose one daytime adjustment and try it for the next 3 days:
+            </div>
+
+            <div style="background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; margin: 1rem 0;">
+                <div style="font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.5rem;">☕ Caffeine Curfew</div>
+                <div style="font-size: 14px; color: #656565; line-height: 1.5;">No caffeine after 2 PM (or at least 8 hours before bed).</div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; margin: 1rem 0;">
+                <div style="font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.5rem;">⏸️ True Pause Reset</div>
+                <div style="font-size: 14px; color: #656565; line-height: 1.5;">Add one 5-minute pause without screens or tasks before 4 PM.</div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; margin: 1rem 0;">
+                <div style="font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.5rem;">🍽️ Earlier Eating Window</div>
+                <div style="font-size: 14px; color: #656565; line-height: 1.5;">Finish your last full meal at least 3 hours before bedtime.</div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; margin: 1rem 0;">
+                <div style="font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.5rem;">☀️ Light Discipline</div>
+                <div style="font-size: 14px; color: #656565; line-height: 1.5;">Get brighter light earlier in the day — dim lights after sunset.</div>
+            </div>
+
+            <div class="text-content">
+                Pick one. Sleep improves when the nervous system trusts the rhythm of the day.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎬</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/ZvS1KDT4ObM" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            <div class="summary-box">
+                <div class="summary-item">
+                    <span>☀️</span>
+                    <span>Daytime habits quietly shape nighttime sleep</span>
+                </div>
+                <div class="summary-item">
+                    <span>☕</span>
+                    <span>Caffeine and constant input delay recovery signals</span>
+                </div>
+                <div class="summary-item">
+                    <span>🩵</span>
+                    <span>The vagus nerve needs pauses, not pressure</span>
+                </div>
+                <div class="summary-item">
+                    <span>🌙</span>
+                    <span>A clear end to the day opens the sleep kingdom</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="background: #FFFFFF;">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Your Week 1 Transformation</h2>
+            </div>
+            
+            <div style="margin-top: 1rem;">
+                <!-- Header with emotional labels -->
+                <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 1rem; padding: 0 0.75rem 0.75rem; border-bottom: 2px solid #E6E6E6;">
+                    <div></div>
+                    <div style="text-align: center; min-width: 70px;">
+                        <div style="font-size: 22px; margin-bottom: 0.15rem;">😊</div>
+                        <div style="font-size: 12px; font-weight: 700; color: #10B981; line-height: 1.2;">Living with<br>Aura</div>
+                    </div>
+                    <div style="text-align: center; min-width: 70px;">
+                        <div style="font-size: 22px; margin-bottom: 0.15rem;">😔</div>
+                        <div style="font-size: 12px; font-weight: 700; color: #6B7280; line-height: 1.2;">Without<br>Aura</div>
+                    </div>
+                </div>
+
+                <!-- Benefit Row 1 -->
+                <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 1rem; align-items: center; padding: 1rem 0.75rem; border-bottom: 1px solid #F5F5F5;">
+                    <div>
+                        <div style="font-size: 15px; font-weight: 600; color: #172737; line-height: 1.3;">Waking up with energy</div>
+                    </div>
+                    <div style="text-align: center; min-width: 70px;">
+                        <div style="width: 38px; height: 38px; margin: 0 auto; background: linear-gradient(135deg, #10B981 0%, #059669 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 8px rgba(16,185,129,0.25);">
+                            <span style="color: white; font-size: 20px; font-weight: 700;">✓</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; min-width: 70px;">
+                        <div style="width: 38px; height: 38px; margin: 0 auto; background: linear-gradient(135deg, #9CA3AF 0%, #6B7280 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 8px rgba(107,114,128,0.25);">
+                            <span style="color: white; font-size: 20px; font-weight: 700;">✗</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit Row 2 -->
+                <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 1rem; align-items: center; padding: 1rem 0.75rem; border-bottom: 1px solid #F5F5F5; background: rgba(245,245,245,0.3);">
+                    <div>
+                        <div style="font-size: 15px; font-weight: 600; color: #172737; line-height: 1.3;">Steadier energy throughout the day</div>
+                    </div>
+                    <div style="text-align: center; min-width: 70px;">
+                        <div style="width: 38px; height: 38px; margin: 0 auto; background: linear-gradient(135deg, #10B981 0%, #059669 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 8px rgba(16,185,129,0.25);">
+                            <span style="color: white; font-size: 20px; font-weight: 700;">✓</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; min-width: 70px;">
+                        <div style="width: 38px; height: 38px; margin: 0 auto; background: linear-gradient(135deg, #9CA3AF 0%, #6B7280 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 8px rgba(107,114,128,0.25);">
+                            <span style="color: white; font-size: 20px; font-weight: 700;">✗</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit Row 3 -->
+                <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 1rem; align-items: center; padding: 1rem 0.75rem; border-bottom: 1px solid #F5F5F5;">
+                    <div>
+                        <div style="font-size: 15px; font-weight: 600; color: #172737; line-height: 1.3;">Clearer focus, less brain fog</div>
+                    </div>
+                    <div style="text-align: center; min-width: 70px;">
+                        <div style="width: 38px; height: 38px; margin: 0 auto; background: linear-gradient(135deg, #10B981 0%, #059669 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 8px rgba(16,185,129,0.25);">
+                            <span style="color: white; font-size: 20px; font-weight: 700;">✓</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; min-width: 70px;">
+                        <div style="width: 38px; height: 38px; margin: 0 auto; background: linear-gradient(135deg, #9CA3AF 0%, #6B7280 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 8px rgba(107,114,128,0.25);">
+                            <span style="color: white; font-size: 20px; font-weight: 700;">✗</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit Row 4 -->
+                <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 1rem; align-items: center; padding: 1rem 0.75rem; border-bottom: 1px solid #F5F5F5; background: rgba(245,245,245,0.3);">
+                    <div>
+                        <div style="font-size: 15px; font-weight: 600; color: #172737; line-height: 1.3;">Reduced stress and anxiety</div>
+                    </div>
+                    <div style="text-align: center; min-width: 70px;">
+                        <div style="width: 38px; height: 38px; margin: 0 auto; background: linear-gradient(135deg, #10B981 0%, #059669 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 8px rgba(16,185,129,0.25);">
+                            <span style="color: white; font-size: 20px; font-weight: 700;">✓</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; min-width: 70px;">
+                        <div style="width: 38px; height: 38px; margin: 0 auto; background: linear-gradient(135deg, #9CA3AF 0%, #6B7280 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 8px rgba(107,114,128,0.25);">
+                            <span style="color: white; font-size: 20px; font-weight: 700;">✗</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit Row 5 -->
+                <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 1rem; align-items: center; padding: 1rem 0.75rem; border-bottom: 1px solid #F5F5F5;">
+                    <div>
+                        <div style="font-size: 15px; font-weight: 600; color: #172737; line-height: 1.3;">Stable motivation</div>
+                    </div>
+                    <div style="text-align: center; min-width: 70px;">
+                        <div style="width: 38px; height: 38px; margin: 0 auto; background: linear-gradient(135deg, #10B981 0%, #059669 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 8px rgba(16,185,129,0.25);">
+                            <span style="color: white; font-size: 20px; font-weight: 700;">✓</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; min-width: 70px;">
+                        <div style="width: 38px; height: 38px; margin: 0 auto; background: linear-gradient(135deg, #9CA3AF 0%, #6B7280 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 8px rgba(107,114,128,0.25);">
+                            <span style="color: white; font-size: 20px; font-weight: 700;">✗</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit Row 6 -->
+                <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 1rem; align-items: center; padding: 1rem 0.75rem; background: rgba(245,245,245,0.3);">
+                    <div>
+                        <div style="font-size: 15px; font-weight: 600; color: #172737; line-height: 1.3;">Deeper, more restorative sleep</div>
+                    </div>
+                    <div style="text-align: center; min-width: 70px;">
+                        <div style="width: 38px; height: 38px; margin: 0 auto; background: linear-gradient(135deg, #10B981 0%, #059669 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 8px rgba(16,185,129,0.25);">
+                            <span style="color: white; font-size: 20px; font-weight: 700;">✓</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; min-width: 70px;">
+                        <div style="width: 38px; height: 38px; margin: 0 auto; background: linear-gradient(135deg, #9CA3AF 0%, #6B7280 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 8px rgba(107,114,128,0.25);">
+                            <span style="color: white; font-size: 20px; font-weight: 700;">✗</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 0; line-height: 1.5;">
+                ✨ Remember<br>
+                This week wasn't about fixing sleep — it was about teaching your nervous system how to feel safe enough to rest.<br>
+                Small, repeated signals create real change. Keep the anchors that worked for you — and let sleep keep improving naturally.
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <div class="footer-cta-wrapper">
+                <a href="https://plan.aura.care/lt-2/" class="footer-email" target="_blank" rel="noopener noreferrer">Continue</a>
+            </div>
+        </div>
+    
+    </main>
+</body>
+</html>
