@@ -1,677 +1,583 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 1: The Pressure Within</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 1 — When Anxiety Steals Your Sleep</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
-            background: #FAF8F2;
-            padding: 2rem;
-            line-height: 1.5;
-        }
-
-        .container {
-            max-width: 520px;
-            margin: 0 auto;
-            background: #FFFEFB;
-            border-radius: 0 !important;
-            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-        
-}
-
-        .header {
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem;
-        }
-
-        .day-label {
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            line-height: 1.3;
-        }
-
-        .subtitle {
-            font-size: 18px;
-            font-weight: 700;
-            opacity: 0.95;
-        }
-
-        .section {
-            padding: 2rem 2.5rem;
-            border-bottom: 1px solid #F0F0F0;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .footer-cta-wrapper { text-align: center; }
+        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
+        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
+        .action-title { font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.75rem; }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
             margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
         }
-
-        .section-icon {
-            font-size: 1.75rem;
+        .biomarker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
         }
-
-        h2 {
-            font-size: 18px;
-            font-weight: 700;
+        .biomarker-name {
+            font-size: 15px;
+            font-weight: 600;
             color: #172737;
-            line-height: 22px;
         }
-
-        .daily-focus {
-            background: rgba(184, 118, 88, 0.05);
-            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
-        }
-
-        .text-content {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
-        }
-
-        .highlight-text {
+        .biomarker-impact {
+            font-size: 13px;
             font-weight: 600;
             color: #B87658;
         }
-
-        .info-box {
-            background: rgba(184, 118, 88, 0.1);
-            padding: 18px;
-            border-radius: 0 !important;
-            border: 1px solid rgba(184, 118, 88, 0.2);
-            margin: 1.5rem 0;
-        }
-
-        .science-fact {
-            background: rgba(16, 185, 129, 0.08);
-            padding: 16px;
-            border-radius: 0 !important;
-            border-left: 3px solid #10B981;
-            margin-bottom: 1rem;
-            display: flex;
-            gap: 1rem;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .fact-icon {
-            font-size: 1.75rem;
-            flex-shrink: 0;
-        }
-
-        .fact-title {
-            font-weight: 600;
-            font-size: 14px;
-            color: #172737;
-            margin-bottom: 0.5rem;
-            line-height: 20px;
-        }
-
-        .fact-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            line-height: 18px;
-        }
-
-        .biomarker-card {
-            background: rgba(184, 118, 88, 0.08);
-            padding: 18px;
-            border-radius: 0 !important;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .biomarker-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .biomarker-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            line-height: 20px;
-        }
-
         .biomarker-desc {
             font-size: 13px;
             font-weight: 500;
             color: #656565;
-            line-height: 18px;
+            line-height: 1.4;
         }
-
-        .reflection-section {
-            background: rgba(184, 118, 88, 0.05);
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
         }
-
-        .reflection-question {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
-            font-style: italic;
-        }
-
-        .action-section {
-            background: rgba(16, 185, 129, 0.05);
-        }
-
-        .action-highlight {
-            background: rgba(16, 185, 129, 0.1);
-            padding: 18px;
-            border-radius: 0 !important;
-            border-left: 3px solid #10B981;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .step-box {
-            background: rgba(184, 118, 88, 0.08);
-            padding: 16px;
-            border-radius: 0 !important;
-            margin: 0.75rem 0;
-            border-left: 3px solid #B87658;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .step-number {
+        .cta-button {
             display: inline-block;
-            background: #B87658;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
             color: white;
             font-weight: 700;
-            font-size: 12px;
-            padding: 4px 10px;
-            border-radius: 0 !important;
-            margin-right: 8px;
+            font-size: 18px;
+            padding: 16px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-
-        .result-item {
-            background: rgba(16, 185, 129, 0.08);
-            padding: 14px;
-            border-radius: 0 !important;
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(184,118,88,0.35);
+        }
+        .technique-card {
+            background: rgba(16,185,129,0.08);
+            border-left: 3px solid #10B981;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .technique-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .technique-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        .technique-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 0.5rem;
+        }
+        .technique-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 1.4;
+        }
+        .technique-proof {
+            font-size: 12px;
+            font-weight: 500;
+            color: #8C8C8C;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+        .expectation-section {
+            background: white;
+            padding: 18px;
+            border-radius: 16px;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .expectation-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+        }
+        .expectation-item {
+            margin-bottom: 1rem;
+        }
+        .expectation-item:last-child {
+            margin-bottom: 0;
+        }
+        .expectation-time {
+            font-weight: 600;
+            font-size: 14px;
+            color: #B87658;
+            margin-bottom: 0.25rem;
+        }
+        .expectation-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 1.4;
+        }
+        .summary-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
             margin-bottom: 0.75rem;
             font-size: 14px;
             font-weight: 500;
             color: #172737;
-            line-height: 20px;
         }
-
-        .evening-section {
-            background: rgba(99, 102, 241, 0.05);
+        .summary-item:last-child {
+            margin-bottom: 0;
         }
-
-        .evening-box {
-            background: rgba(99, 102, 241, 0.1);
-            padding: 18px;
-            border-radius: 0 !important;
-            border-left: 3px solid #6366f1;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem 2.5rem;
-        }
-
-        .footer-text {
-            font-size: 14px;
+        .reference-text {
+            font-size: 12px;
             font-weight: 500;
-            margin-bottom: 1rem;
-            line-height: 20px;
-        }
-
-        .footer-final {
-            font-size: 16px;
-            font-weight: 600;
-            margin: 1.5rem 0;
-            line-height: 22px;
-        }
-
-        .footer-contact {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 1.5rem;
-            border-radius: 0 !important;
-            margin-top: 2.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-        }
-
-        .footer-contact p {
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 20px;
-            margin: 0;
-        }
-
-        .contact-highlight {
-            font-weight: 600;
-        }
-
-        .contact-email {
-            display: inline-block;
-            background: white;
-            color: #B87658;
-            padding: 12px 32px;
-            border-radius: 0 !important;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 15px;
-            margin-top: 1rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            transition: all 0.2s;
-        }
-
-        .contact-email:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        ul {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        ul li {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            margin-bottom: 0.5rem;
-            line-height: 20px;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-
-            .container {
-                border-radius: 0 !important;
-            }
-
-            .header {
-                padding: 2rem 1.5rem;
-            }
-
-            h1 {
-                font-size: 20px;
-            }
-
-            .section {
-                padding: 1.5rem 1.25rem;
-            }
-
-            .footer {
-                padding: 2rem 1.5rem;
-            }
+            color: #8C8C8C;
+            font-style: italic;
+            margin-top: 0.5rem;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
+    <main class="screen">
         <div class="header">
-            <div class="day-label">🩺 DAY 1</div>
-            <h1>The Pressure Within</h1>
-            <div class="subtitle">How Stress Turns Against Your Heart</div>
+            <div class="day-label">DAY 1</div>
+            <h1>When Anxiety Steals Your Sleep</h1>
         </div>
 
-        <!-- Daily Focus -->
-        <div class="section daily-focus">
+        <div class="section intro-section">
             <div class="section-header">
-                <span class="section-icon">🌡️</span>
+                <span class="section-icon">🔥</span>
                 <h2>Daily Focus</h2>
             </div>
-            <p class="text-content">
-                <strong>Your heart feels what you feel.</strong>
-            </p>
-            <p class="text-content">
-                When stress rises, your body releases cortisol and adrenaline to keep you alert. That's useful short term — but when the signal never switches off, blood vessels tighten, heart rate speeds up, and the vagus nerve — your natural calm system — goes quiet.
-            </p>
-            <p class="text-content">
-                Today you'll learn how to notice the first signs of stress pressure and respond with calm, not overload.
-            </p>
+            <div class="text-content">
+                Anxiety doesn't just live in your thoughts — it keeps your nervous system alert long after your body is ready to rest.
+            </div>
+            <div class="text-content">
+                Today you'll learn why anxious tension shows up most strongly at night, how it blocks deep sleep, and what helps your system finally feel safe enough to switch off.
+            </div>
         </div>
 
-        <!-- Science of Stress -->
         <div class="section">
             <div class="section-header">
-                <span class="section-icon">💓</span>
-                <h2>The Science of Stress and the Heart</h2>
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
             </div>
-            <p class="text-content">
-                Every emotion you experience — anger, frustration, anxiety — travels through your body as an electrical and hormonal signal.
-            </p>
-            <p class="text-content">
-                <strong>Blood pressure</strong> is the force of blood against your artery walls. It must stay strong enough to move oxygen but not so strong that it damages vessels.
-            </p>
-            <ul>
-                <li><strong>Adrenaline</strong> speeds up the heartbeat and tightens vessels — like turning up water pressure in a hose.</li>
-                <li><strong>Cortisol</strong> keeps the body on alert for hours, slowing repair and raising average pressure.</li>
-                <li>The <strong>vagus nerve</strong> usually steps in to slow your pulse and widen vessels, but chronic tension keeps it "muted."</li>
+            <div class="text-content">
+                You can be exhausted all day — and still struggle to fall asleep.
+            </div>
+            <div class="text-content">
+                Not because you're "bad at sleeping," but because your body never received a clear signal that the day is over.
+            </div>
+            <div class="text-content">
+                When anxiety is present, your nervous system stays in a quiet on-guard state:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">breathing remains shallow,</li>
+                <li class="bullet-item">muscles stay subtly tense,</li>
+                <li class="bullet-item">the mind keeps scanning, reviewing, and replaying.</li>
             </ul>
-            <p class="text-content">
-                Over time, this pattern reduces <strong>heart-rate variability (HRV)</strong> — your body's ability to adapt — and makes even small stressors feel heavier.
-            </p>
-            <div class="info-box">
-                <p class="text-content" style="margin: 0;">
-                    👉 HRV means the tiny, natural time differences between heartbeats — the higher it is, the calmer and more resilient you are.
-                </p>
+            <div class="text-content">
+                In this state, the body behaves as if something still needs attention — even when you're lying in bed.
             </div>
-            <p class="text-content">
-                <span class="highlight-text">💡 In short:</span> the faster your world feels, the harder your heart works — and the higher your blood pressure climbs.
-            </p>
+            <div class="text-content">
+                For sleep to begin, your system needs a different message:
+            </div>
+            <div class="text-content" style="font-size: 15px; font-weight: 600; padding: 1rem; background: rgba(184,118,88,0.08); border-radius: 8px; margin-top: 1rem;">
+                🩵 "It's safe now. Nothing else needs to be done."
+            </div>
+            <div class="text-content">
+                This message normally travels through the body's main calming pathway — the one that slows the heart, softens the muscles, and deepens the breath.
+            </div>
+            <div class="text-content">
+                When anxiety is high, this calming signal weakens, and alertness quietly stays switched on.
+            </div>
+            <div class="text-content">
+                That's why sleep isn't just about being tired.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Sleep begins when your body feels safe enough to let go.
+            </div>
+            <div class="text-content">
+                If that safety signal doesn't arrive, the brain remains alert — even in silence, even in the dark.
+            </div>
         </div>
 
-        <!-- How Calm Protects -->
         <div class="section">
             <div class="section-header">
-                <span class="section-icon">🧠</span>
-                <h2>How Calm Protects Your Heart</h2>
+                <span class="section-icon">😴</span>
+                <h2>Why Anxiety Blocks Sleep</h2>
             </div>
-            <p class="text-content">
-                You don't have to eliminate stress — only learn to release it.
-            </p>
-            <p class="text-content">
-                Short daily resets give your heart room to recover:
-            </p>
-            <ul>
-                <li>HRV rises → rhythm flexibility returns</li>
-                <li>Vessels relax → less inner pressure</li>
-                <li>Cortisol falls → body stops "running hot"</li>
-                <li>Focus sharpens → energy feels smoother</li>
+            <div class="text-content">
+                Your autonomic nervous system constantly balances two modes:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item"><span class="highlight-text">Alert mode (fight or flight)</span> — keeps you vigilant and responsive</li>
+                <li class="bullet-item"><span class="highlight-text">Recovery mode (rest and repair)</span> — allows digestion, repair, and deep sleep</li>
             </ul>
+            <div class="text-content">
+                Anxiety gently but persistently tilts the balance toward alertness.
+            </div>
+            <div class="text-content" style="font-weight: 600; margin-top: 1rem;">
+                Common triggers:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">unresolved thoughts from the day,</li>
+                <li class="bullet-item">late-night scrolling or news,</li>
+                <li class="bullet-item">bright light after sunset,</li>
+                <li class="bullet-item">pressure to "fall asleep fast."</li>
+            </ul>
+            <div class="text-content">
+                The result isn't always full insomnia.
+            </div>
+            <div class="text-content">
+                More often, it's lighter sleep, frequent awakenings, and waking up feeling unrefreshed — as if your body never fully powered down.
+            </div>
         </div>
 
-        <!-- Science Facts -->
         <div class="section">
             <div class="section-header">
-                <span class="section-icon">💡</span>
-                <h2>Science Facts — Stress, HRV & Pressure</h2>
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Sleep & Anxiety</h2>
             </div>
-
+            
             <div class="science-fact">
                 <div class="fact-icon">🧠</div>
                 <div>
-                    <div class="fact-title">Emotional reactivity stiffens arteries and lowers HRV; awareness pauses reverse both</div>
-                    <div class="fact-desc">Steffen et al., 2017.</div>
+                    <div class="fact-title">Anxious rumination activates stress circuits even without real threats</div>
+                    <div class="fact-desc">Brosschot et al., 2021 — persistent worry keeps the stress response active.</div>
                 </div>
             </div>
 
             <div class="science-fact">
                 <div class="fact-icon">💓</div>
                 <div>
-                    <div class="fact-title">A single mindful break can drop systolic pressure by 5–8 mmHg</div>
-                    <div class="fact-desc">Smith et al., 2020.</div>
+                    <div class="fact-title">Anxiety is associated with lower heart rate variability (HRV)</div>
+                    <div class="fact-desc">Thayer et al., 2012 — reduced HRV indicates reduced nervous system flexibility.</div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <div class="fact-icon">🌿</div>
+                <div class="fact-icon">😮‍💨</div>
                 <div>
-                    <div class="fact-title">Strong vagal tone improves cardiovascular resilience</div>
-                    <div class="fact-desc">Thayer & Lane, 2018.</div>
+                    <div class="fact-title">Slow breathing and muscle relaxation reduce cortical arousal</div>
+                    <div class="fact-desc">Zaccaro et al., 2018 — these practices promote sleep onset.</div>
                 </div>
             </div>
 
-            <p class="text-content">
-                Short pauses work because they re-activate your vagus nerve — your body's built-in brake pedal.
-            </p>
+            <div class="science-fact">
+                <div class="fact-icon">🌙</div>
+                <div>
+                    <div class="fact-title">Evening light delays melatonin and increases nighttime alertness</div>
+                    <div class="fact-desc">Gooley et al., 2011 — bright screens disrupt natural sleep timing.</div>
+                </div>
+            </div>
         </div>
 
-        <!-- Labs Section -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧬</span>
                 <h2>What About Labs?</h2>
             </div>
-            <p class="text-content">
-                Stress shows up in your biomarkers:
-            </p>
+            <div class="text-content">
+                Some biomarkers reflect how strongly stress and anxiety influence your sleep. The % shows how much this marker can impact sleep quality and recovery.
+            </div>
 
             <div class="biomarker-card">
                 <div class="biomarker-header">
-                    <span class="section-icon">🌅</span>
-                    <div class="biomarker-name">Cortisol (AM)</div>
+                    <div class="biomarker-name">Magnesium (RBC)</div>
+                    <div class="biomarker-impact">🎯 60 %</div>
                 </div>
                 <div class="biomarker-desc">
-                    Chronic stress keeps it elevated; calm mornings restore natural rhythm.
+                    Supports GABA activity and calm nerve signaling. Low levels are linked to anxiety, muscle tension, and poor sleep depth.
                 </div>
             </div>
 
             <div class="biomarker-card">
                 <div class="biomarker-header">
-                    <span class="section-icon">🔥</span>
+                    <div class="biomarker-name">Morning Cortisol</div>
+                    <div class="biomarker-impact">🎯 55 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Elevated or flattened rhythms are common with chronic stress and anxious sleep.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
                     <div class="biomarker-name">hs-CRP</div>
+                    <div class="biomarker-impact">🎯 45 %</div>
                 </div>
                 <div class="biomarker-desc">
-                    Inflammation marker; decreases as HRV and sleep quality improve.
+                    Low-grade inflammation keeps stress pathways active and interferes with restorative sleep.
                 </div>
             </div>
 
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">📦</span>
-                    <div class="biomarker-name">ApoB</div>
+            <div class="cta-box">
+                <div class="text-content" style="text-align: center; font-weight: 600;">
+                    📩 Interested in a Personalized Blood Test Plan with a detailed report?
                 </div>
-                <div class="biomarker-desc">
-                    The main carrier of LDL particles — higher levels mean more "bad" cholesterol in circulation. Better vagal tone and lower stress hormones help reduce ApoB over time.
-                </div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">🧬</span>
-                    <div class="biomarker-name">Lp(a)</div>
-                </div>
-                <div class="biomarker-desc">
-                    Genetic lipoprotein linked with arterial stiffness; chronic inflammation and high stress can worsen its impact.
-                </div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">⚠️</span>
-                    <div class="biomarker-name">LDL-cholesterol</div>
-                </div>
-                <div class="biomarker-desc">
-                    Carries cholesterol to tissues; stress and poor recovery increase oxidation risk.
-                </div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">✅</span>
-                    <div class="biomarker-name">HDL-cholesterol</div>
-                </div>
-                <div class="biomarker-desc">
-                    Clears excess cholesterol; improves with movement, hydration, and calmer nervous tone.
-                </div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <span class="section-icon">🔺</span>
-                    <div class="biomarker-name">Triglycerides</div>
-                </div>
-                <div class="biomarker-desc">
-                    Rise with cortisol and poor sleep; drop with stable rhythm and balanced meals.
-                </div>
-            </div>
-
-            <div class="info-box">
-                <p class="text-content" style="margin: 0;">
-                    Even subtle improvements in HRV often go hand-in-hand with lower ApoB and triglycerides and higher HDL — your heart's biochemical proof of balance.
-                </p>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">Continue</a>
             </div>
         </div>
 
-        <!-- Reflection -->
-        <div class="section reflection-section">
+        <div class="section">
             <div class="section-header">
                 <span class="section-icon">💭</span>
                 <h2>Reflection Prompt</h2>
             </div>
-            <p class="reflection-question">
-                When do you usually feel the first "pressure signal" — tight jaw, racing heart, tension in the chest?
-            </p>
-            <p class="reflection-question">
-                What helps you notice it before it takes over?
-            </p>
+            <div class="reflection-box">
+                <div class="text-content">
+                    When you lie down at night, what shows up first — tiredness, tension, or thoughts?
+                </div>
+                <div class="text-content">
+                    Does your body feel heavy and relaxed… or alert and slightly braced?
+                </div>
+            </div>
         </div>
 
-        <!-- Action Plan -->
-        <div class="section action-section">
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What Actually Helps Anxious Sleep</h2>
+            </div>
+            <div class="text-content">
+                Fixing anxious sleep isn't about forcing calm or "thinking positive."
+            </div>
+            <div class="text-content">
+                It's about sending clear physical signals that the day is over.
+            </div>
+            <div class="text-content" style="font-weight: 600; margin-top: 1rem;">
+                The most effective signals are:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">predictable routine</li>
+                <li class="bullet-item">muscle release</li>
+                <li class="bullet-item">slower breathing</li>
+                <li class="bullet-item">reduced evening stimulation</li>
+            </ul>
+            <div class="text-content" style="font-weight: 600; color: #B87658;">
+                Your nervous system learns through repetition, not effort.
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
             <div class="section-header">
                 <span class="section-icon">✅</span>
-                <h2>Plan to Action — The Pressure Pause</h2>
+                <h2>Easy 5-min Vagus Nerve Stimulation Technique</h2>
             </div>
+            <div class="action-title">Sleep Safety Signal</div>
 
-            <p class="text-content">
-                You've practiced calm breathing before; now it's time to build the reflex that protects your heart in real-world stress.
-            </p>
-
-            <div class="action-highlight">
-                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
-                    <span class="section-icon">💠</span>
-                    <strong>The Pressure Pause — 3-Minute Reset Before Reacting</strong>
+            <div class="technique-card">
+                <div class="technique-header">
+                    <div class="technique-icon">😮‍💨</div>
+                    <div>
+                        <div class="technique-title">Extended Exhale Breathing</div>
+                    </div>
                 </div>
-                <p class="text-content">
-                    Keep your earlier rhythm anchors — morning light, hydration, micro-breaks — and add one step today:
-                </p>
-                <p class="text-content" style="margin-bottom: 1rem;">
-                    <strong>Whenever you feel stress rising — before sending a message, answering, or reacting —</strong>
-                </p>
-
-                <div class="step-box">
-                    <span class="step-number">1</span>
-                    <span style="font-size: 14px; font-weight: 500; color: #172737;">Pause for three minutes.</span>
+                <div class="technique-desc">
+                    Breathing with longer exhales (6–8 seconds) than inhales (4 seconds) directly activates the vagus nerve's calming branch, signaling your body it's safe to rest.
                 </div>
-
-                <div class="step-box">
-                    <span class="step-number">2</span>
-                    <span style="font-size: 14px; font-weight: 500; color: #172737;">Unclench your jaw and shoulders.</span>
+                <div class="technique-proof">
+                    Proof: Zaccaro et al., 2018, Frontiers in Human Neuroscience — slow breathing reduces cortical arousal and promotes parasympathetic activity.
                 </div>
+            </div>
 
-                <div class="step-box">
-                    <span class="step-number">3</span>
-                    <span style="font-size: 14px; font-weight: 500; color: #172737;">Feel your heartbeat — no control, just awareness.</span>
+            <div class="technique-card">
+                <div class="technique-header">
+                    <div class="technique-icon">🤲</div>
+                    <div>
+                        <div class="technique-title">Progressive Muscle Release</div>
+                    </div>
                 </div>
-
-                <div class="step-box">
-                    <span class="step-number">4</span>
-                    <span style="font-size: 14px; font-weight: 500; color: #172737;">Let your body settle before you act.</span>
+                <div class="technique-desc">
+                    Gently tense and release muscle groups (jaw, shoulders, hands) for 5 seconds each. This reduces residual tension and sends "safety" signals through your nervous system.
                 </div>
-
-                <p class="text-content" style="margin-top: 1rem; margin-bottom: 0;">
-                    This brief interruption stops the cortisol-adrenaline loop and gives your vagus nerve time to restore calm. Regular practice can reduce cardiovascular reactivity and stabilize blood pressure (Smith et al., 2020; Steffen et al., 2017).
-                </p>
+                <div class="technique-proof">
+                    Proof: Toussaint et al., 2021, PLOS ONE — progressive muscle relaxation significantly reduces anxiety and improves sleep quality.
+                </div>
             </div>
 
-            <div class="section-header" style="margin-top: 2rem;">
-                <span class="section-icon">🌿</span>
-                <h2>Why This Works</h2>
+            <div class="technique-card">
+                <div class="technique-header">
+                    <div class="technique-icon">✍️</div>
+                    <div>
+                        <div class="technique-title">Brain Dump Writing</div>
+                    </div>
+                </div>
+                <div class="technique-desc">
+                    Write down tomorrow's tasks or lingering thoughts for 2–3 minutes. This signals your brain: "It's captured. You don't need to hold it tonight."
+                </div>
+                <div class="technique-proof">
+                    Proof: Scullin et al., 2018, Journal of Experimental Psychology — writing a to-do list before bed reduces cognitive arousal and accelerates sleep onset.
+                </div>
             </div>
 
-            <p class="text-content">
-                Even a short pause lets baroreceptors in your chest and neck sense relaxation and tell your brain: "It's safe."
-            </p>
-            <p class="text-content">
-                Your heart rhythm slows, arteries release tension, and your body exits fight-or-flight.
-            </p>
-
-            <div class="section-header" style="margin-top: 2rem;">
-                <span class="section-icon">🔎</span>
-                <h2>What to Expect (after 1–2 weeks)</h2>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/j-1n3KJR1I8" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
 
-            <div class="result-item">
-                🫀 <strong>Resting heart rate:</strong> decreases by 3–5 beats per minute → your heart works more efficiently.
+            <div class="expectation-section">
+                <div class="expectation-title">✨ What to Expect</div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">⏱️ After 1–2 nights</div>
+                    <div class="expectation-desc">Faster settling, less mental noise.</div>
+                </div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">⏳ After 3–5 nights</div>
+                    <div class="expectation-desc">Fewer awakenings, deeper sleep phases.</div>
+                </div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">📆 After 1–2 weeks</div>
+                    <div class="expectation-desc">Mornings feel calmer, with less anxious carryover.</div>
+                </div>
             </div>
-
-            <div class="result-item">
-                💓 <strong>Heart-rate variability:</strong> increases by 10–15% → greater resilience and stress recovery.
-            </div>
-
-            <div class="result-item">
-                💭 <strong>Perceived stress:</strong> drops by 20–25% → fewer spikes and faster emotional recovery.
-            </div>
-
-            <div class="result-item">
-                🩸 <strong>Systolic blood pressure:</strong> lowers by 4–6 mmHg → vessels relax more easily.
-            </div>
-
-            <p class="text-content">
-                Consistent micro-pauses retrain your body's reflexes — calmer rhythm, steadier focus, and measurable progress you can feel.
-            </p>
         </div>
 
-        <!-- Evening Section -->
-        <div class="section evening-section">
+        <div class="section">
             <div class="section-header">
-                <span class="section-icon">🌙</span>
-                <h2>Evening Matters Too — Cool the Pressure Cycle</h2>
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Night Safety Anchor</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Tonight, you're not trying to fall asleep.
+            </div>
+            <div class="text-content" style="font-weight: 600; margin-bottom: 1.5rem;">
+                You're teaching your body when the day is over.
             </div>
 
-            <div class="evening-box">
-                <p class="text-content">
-                    In the evening, choose softness: warm shower, quiet music, or light stretching instead of screens.
-                </p>
-                <p class="text-content" style="margin: 0;">
-                    These cues tell your nervous system the day is ending and blood pressure can ease down (Stein et al., 2019).
-                </p>
+            <div class="action-box">
+                <div class="action-title">Step 1 — Slow Breathing (2 minutes)</div>
+                <div class="text-content">
+                    Breathe in through your nose for 4 seconds, then breathe out slowly for 6–8 seconds.
+                </div>
+                <div class="text-content">
+                    Longer exhales help your body shift into calm mode.
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="action-title">Step 2 — Write Tomorrow's List (2–3 minutes)</div>
+                <div class="text-content">
+                    Write down anything that's on your mind for tomorrow — tasks, reminders, or worries.
+                </div>
+                <div class="text-content">
+                    This tells your brain: "It's written down. I don't need to hold it tonight."
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="action-title">Step 3 — Create the Sleep Signal</div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">Dim the lights.</li>
+                    <li class="bullet-item">Put your phone away.</li>
+                    <li class="bullet-item">Let your body see that nothing else is expected of it.</li>
+                </ul>
+                <div class="text-content" style="font-weight: 600; color: #B87658; margin-top: 1rem;">
+                    You're not forcing sleep. You're giving your nervous system a clear signal that it's safe to rest.
+                </div>
             </div>
         </div>
 
-        <!-- Footer -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <div class="summary-box">
+                <div class="summary-item">
+                    <span>🩵</span>
+                    <span>Anxiety blocks sleep through nervous system alertness</span>
+                </div>
+                <div class="summary-item">
+                    <span>😮‍💨</span>
+                    <span>Physical cues calm the brain faster than thoughts</span>
+                </div>
+                <div class="summary-item">
+                    <span>🌙</span>
+                    <span>Sleep begins with safety, not exhaustion</span>
+                </div>
+                <div class="summary-item">
+                    <span>🔁</span>
+                    <span>Repetition retrains your sleep response</span>
+                </div>
+            </div>
+
+            <div class="text-content" style="text-align: center; font-weight: 600; margin-top: 1.5rem; font-size: 15px;">
+                ✨ Remember:
+            </div>
+            <div class="text-content" style="text-align: center;">
+                Sleep isn't something you force. It's something your body allows — once it feels safe enough to let go.
+            </div>
+        </div>
+
         <div class="footer">
-            <div class="section-header">
-                <span class="section-icon">🌞</span>
-                <h2>Why This Works</h2>
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click below.
             </div>
-            <p class="footer-text">
-                Calm isn't passive — it's training.
-            </p>
-            <p class="footer-text">
-                Each time you pause instead of reacting, you teach your body a new pattern: alert when needed, relaxed when safe.
-            </p>
-            <p class="footer-final">
-                ✨ Remember: Stress doesn't have to turn against your heart — you can turn it into awareness. A few calm pauses each day protect your rhythm, focus, and peace of mind.
-            </p>
-            <div class="footer-contact">
-                <p>
-                    📩 <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span>
-                </p>
-                <a href="https://plan.aura.care/lt-2/" class="contact-email">Continue →</a>
+            <div class="footer-cta-wrapper">
+                <a href="https://plan.aura.care/lt-2/" class="footer-email">Continue</a>
             </div>
         </div>
-    </div>
+    </main>
 </body>
 </html>
