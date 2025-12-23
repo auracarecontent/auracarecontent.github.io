@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 4 — Food and Mood: Feeding Your Inner Ecosystem</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .footer-cta-wrapper { text-align: center; }
+        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            transition: width 1s ease-out;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 16px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(184,118,88,0.35);
+        }
+        .summary-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+        .summary-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .summary-item:last-child { margin-bottom: 0; }
+        .summary-item span:first-child { font-size: 1.25rem; flex-shrink: 0; }
+        .timeline-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            align-items: flex-start;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            line-height: 1.2;
+        }
+        .timeline-content {
+            flex: 1;
+        }
+        .timeline-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.3px;
+        }
+        .timeline-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+        }
+        .action-card {
+            background: white;
+            border: 2px solid rgba(184,118,88,0.15);
+            box-shadow: 0 4px 12px rgba(184,118,88,0.12);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+        .action-card-icon {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .action-card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .food-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+        .food-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: rgba(16,185,129,0.05);
+            border-radius: 12px;
+            text-align: center;
+            min-height: 85px;
+        }
+        .food-emoji {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .food-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <!-- Header -->
+        <div class="header">
+            <div class="day-label">DAY 4</div>
+            <h1>Food and Mood: Feeding Your Inner Ecosystem</h1>
+        </div>
+
+        <!-- Intro Section -->
+        <div class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Food doesn't just fuel your body — it feeds trillions of microbes that shape how you feel.
+            </div>
+            <div class="text-content">
+                Today you'll learn how dietary diversity, fiber, and gentle nourishment support emotional balance, stable energy, and clearer thinking.
+            </div>
+        </div>
+
+        <!-- ☀️ Why It Matters -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Many people try to improve mood or focus by cutting foods, counting calories, or following strict rules.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">But the gut doesn't thrive on restriction.</span>
+            </div>
+            <div class="text-content">
+                Your microbiome needs:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">variety,</li>
+                <li class="bullet-item">regular nourishment,</li>
+                <li class="bullet-item">signals of safety.</li>
+            </ul>
+            <div class="text-content">
+                <span class="highlight-text">When gut bacteria are underfed or imbalanced:</span>
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">inflammation rises,</li>
+                <li class="bullet-item">cravings intensify,</li>
+                <li class="bullet-item">mood becomes less stable,</li>
+                <li class="bullet-item">stress tolerance drops.</li>
+            </ul>
+            <div class="text-content">
+                Food affects mood not instantly — but cumulatively. What you eat today shapes how resilient and calm you feel tomorrow.
+            </div>
+        </div>
+
+        <!-- 🍽️ How Food Shapes Emotional Stability -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🍽️</span>
+                <h2>How Food Shapes Emotional Stability</h2>
+            </div>
+            <div class="text-content">
+                Your gut bacteria help produce and regulate compounds that influence:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">serotonin signaling,</li>
+                <li class="bullet-item">inflammation,</li>
+                <li class="bullet-item">stress response,</li>
+                <li class="bullet-item">blood sugar stability.</li>
+            </ul>
+            <div class="text-content">
+                <span class="highlight-text">They thrive on fiber and diversity, not perfection.</span>
+            </div>
+            <div class="text-content">
+                Highly processed, repetitive diets reduce microbial diversity.
+            </div>
+            <div class="text-content">
+                A more diverse gut ecosystem is associated with:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">lower anxiety,</li>
+                <li class="bullet-item">better emotional regulation,</li>
+                <li class="bullet-item">improved cognitive flexibility.</li>
+            </ul>
+            <div class="text-content">
+                <span class="highlight-text">Feeding your inner ecosystem is one of the most direct ways to support calm from the inside out.</span>
+            </div>
+        </div>
+
+        <!-- 🌿 Science Facts -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Food, Microbiome & Mood</h2>
+            </div>
+            
+            <div class="science-fact">
+                <div class="fact-icon">🦠</div>
+                <div>
+                    <div class="fact-title">Greater dietary diversity is associated with increased microbiome diversity</div>
+                    <div class="fact-desc">And improved mental wellbeing (Heiman & Greenway, 2016).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🥦</div>
+                <div>
+                    <div class="fact-title">Fiber intake supports short-chain fatty acid production</div>
+                    <div class="fact-desc">Which helps regulate inflammation and stress signaling (Dalile et al., 2019).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Gut microbial metabolites influence brain function</div>
+                    <div class="fact-desc">And emotional regulation (Cryan et al., 2019).</div>
+                </div>
+            </div>
+
+            <div class="science-fact" style="margin-bottom: 0;">
+                <div class="fact-icon">🔥</div>
+                <div>
+                    <div class="fact-title">Low microbiome diversity is linked to higher inflammation</div>
+                    <div class="fact-desc">And emotional reactivity (Mayer et al., 2015).</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🧬 What About Labs? -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                When food patterns affect mood and stress, labs often reflect nutrient availability and metabolic support for the microbiome.
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                <span class="highlight-text">The % shows how strongly this marker can influence gut–brain balance and stress signaling.</span>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Vitamin D</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;">☀️ 55 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Supports immune balance and microbial diversity. Low levels are linked to higher inflammation and mood instability.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Fasting Glucose / Insulin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 50%;">🩸 50 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Blood sugar swings increase stress signaling and emotional reactivity.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Ferritin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">🩸 45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Adequate iron supports energy, neurotransmitter balance, and gut resilience.
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 15px; line-height: 1.5;">
+                    Interested in a Personalized Blood Test Plan with a detailed report?
+                </div>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">Continue</a>
+            </div>
+        </div>
+
+        <!-- 💭 Reflection Prompt -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0;">
+                    Do you notice mood or energy shifts after certain meals — even hours later?<br><br>
+                    How repetitive or varied does your usual diet feel?
+                </div>
+            </div>
+        </div>
+
+        <!-- 🧠 What Actually Helps -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What Actually Helps</h2>
+            </div>
+            <div class="text-content">
+                The gut responds best to addition, not restriction. Adding variety sends a signal of abundance and safety.
+            </div>
+            <div class="text-content">
+                Small changes — repeated — reshape the microbiome over time.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">No food works alone. Balance comes from patterns, not single meals.</span>
+            </div>
+        </div>
+
+        <!-- ✅ Plan to Action -->
+        <div class="section" style="background: linear-gradient(to bottom, rgba(184,118,88,0.03), rgba(184,118,88,0.08));">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Feed Diversity, Not Perfection</h2>
+            </div>
+            <div class="text-content" style="text-align: center; font-size: 15px; color: #656565; margin-bottom: 1.5rem;">
+                Today, add one new plant food you don't eat every day.
+            </div>
+
+            <div class="action-card">
+                <div class="action-card-icon">🌱</div>
+                <div class="action-card-title">Your one action</div>
+                <div class="text-content" style="margin-bottom: 0.5rem; text-align: center;">
+                    Choose one:
+                </div>
+
+                <div class="food-grid">
+                    <div class="food-item">
+                        <div class="food-emoji">🥬</div>
+                        <div class="food-name">Different vegetable<br>or leafy green</div>
+                    </div>
+                    <div class="food-item">
+                        <div class="food-emoji">🫐</div>
+                        <div class="food-name">New berry<br>or fruit</div>
+                    </div>
+                    <div class="food-item">
+                        <div class="food-emoji">🫘</div>
+                        <div class="food-name">Legume<br>(lentils, beans)</div>
+                    </div>
+                    <div class="food-item">
+                        <div class="food-emoji">🌰</div>
+                        <div class="food-name">Nuts or<br>seeds</div>
+                    </div>
+                    <div class="food-item">
+                        <div class="food-emoji">🌾</div>
+                        <div class="food-name">Whole grains<br>(oats, quinoa)</div>
+                    </div>
+                    <div class="food-item">
+                        <div class="food-emoji">🌿</div>
+                        <div class="food-name">Herbs or<br>spices</div>
+                    </div>
+                </div>
+
+                <div class="text-content" style="margin-top: 1.5rem; margin-bottom: 0; text-align: center; color: #656565;">
+                    It can be a small portion. It can be simple.<br>
+                    <span class="highlight-text">Just one signal of diversity.</span>
+                </div>
+            </div>
+
+            <div class="action-card" style="background: linear-gradient(135deg, rgba(184,118,88,0.08) 0%, rgba(184,118,88,0.12) 100%);">
+                <div class="action-card-icon">🧠</div>
+                <div class="action-card-title">Why This Works</div>
+                <div class="text-content">
+                    Microbial diversity improves resilience.
+                </div>
+                <div class="text-content">
+                    A more resilient gut sends calmer signals to the brain — supporting steadier mood and fewer cravings.
+                </div>
+                <div class="text-content" style="margin-bottom: 0; text-align: center; font-weight: 600; color: #B87658;">
+                    You're not changing your diet. You're expanding it. 🌱
+                </div>
+            </div>
+        </div>
+
+        <!-- ✨ What to Expect -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <div class="timeline-box">
+                <div class="timeline-item">
+                    <div class="timeline-icon">⏱️</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER A FEW MEALS</div>
+                        <div class="timeline-text">Less post-meal heaviness or irritability.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">⏳</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER SEVERAL DAYS</div>
+                        <div class="timeline-text">More stable energy and mood.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">📆</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER 1–2 WEEKS</div>
+                        <div class="timeline-text">Improved gut comfort and emotional balance.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎬</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/-VIoPGSGHoQ" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <!-- ✨ Today You Learned -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            <div class="summary-box">
+                <div class="summary-item">
+                    <span>🍽️</span>
+                    <span>Food feeds microbes before it feeds you</span>
+                </div>
+                <div class="summary-item">
+                    <span>🦠</span>
+                    <span>Diversity supports emotional resilience</span>
+                </div>
+                <div class="summary-item">
+                    <span>🌿</span>
+                    <span>Adding is more powerful than restricting</span>
+                </div>
+                <div class="summary-item">
+                    <span>🩵</span>
+                    <span>A nourished gut supports a calmer mind</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 0; line-height: 1.5;">
+                ✨ Remember: You don't need a perfect diet. You need a gut that feels supported.
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <div class="footer-cta-wrapper">
+                <a href="https://plan.aura.care/lt-2/" class="footer-email" target="_blank" rel="noopener noreferrer">Continue</a>
+            </div>
+        </div>
+    
+    </main>
+</body>
+</html>
