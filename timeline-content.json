@@ -29,37 +29,37 @@
       "iconColor": "#8B7355",
       "status": "available",
       "days": [
-        { "id": "2-1", "day": 1, "title": "Vagus Nerve Imbalanced: Why You're Stuck in Survival Mode", "description": "Discover how slow, rhythmic breathing activates your body's natural calm switch — lowering stress hormones and improving focus within minutes.", "contentUrl": "https://auracarecontent.github.io/2-1.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "2-2", "day": 2, "title": "High Vagal Stress & Survival Mode", "description": "Learn how gentle touch and warmth around your neck and ears awaken hidden vagal pathways that release muscle tension and quiet the mind.", "contentUrl": "https://auracarecontent.github.io/2-2.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "2-3", "day": 3, "title": "Vagus Nerve & Brain Fog: Why You Can't Focus", "description": "Use your body's built-in breathing reflex — the physiological sigh — to release pressure, reset your emotions, and restore clear focus.", "contentUrl": "https://auracarecontent.github.io/2-3.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "2-4", "day": 4, "title": "The Vagus–Gut Connection: How Stress Blocks Digestion", "description": "Understand how tension slows digestion and how simple movement with breath restores the gut-brain connection through the vagus nerve.", "contentUrl": "https://auracarecontent.github.io/2-4.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "2-5", "day": 5, "title": "Why Your Body Can't Relax", "description": "Experience how gentle self-holding activates your calm system, increases oxytocin, and restores emotional balance after stress.", "contentUrl": "https://auracarecontent.github.io/2-5.html", "isUnlocked": true, "duration": "12 min" },
-        { "id": "2-6", "day": 6, "title": "Vagus Nerve, HRV, and Heart Health Connection", "description": "Learn how your heart and breath can move in harmony — improving focus, mood, and cardiovascular calm through posture and open breathing.", "contentUrl": "https://auracarecontent.github.io/2-6.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "2-7", "day": 7, "title": "Vagus Flow: Move, Breathe, and Feel in Harmony", "description": "Bring everything together in one rhythmic daily flow — aligning body and mind so calm becomes your natural rhythm throughout the day.", "contentUrl": "https://auracarecontent.github.io/2-7.html", "isUnlocked": true, "duration": "9 min" }
+        { "id": "2-1", "day": 1, "title": "5-Minute Vagus Reset for Anxiety", "description": "Discover how slow, rhythmic breathing activates your body's natural calm switch — lowering stress hormones and improving focus within minutes.", "contentUrl": "https://auracarecontent.github.io/2-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "2-2", "day": 2, "title": "How Vagus Helps You Relax", "description": "Learn how gentle touch and warmth around your neck and ears awaken hidden vagal pathways that release muscle tension and quiet the mind.", "contentUrl": "https://auracarecontent.github.io/2-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "2-3", "day": 3, "title": "How Vagus Clears Brain Fog", "description": "Use your body's built-in breathing reflex — the physiological sigh — to release pressure, reset your emotions, and restore clear focus.", "contentUrl": "https://auracarecontent.github.io/2-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "2-4", "day": 4, "title": "What No One Says About Vagus & Gut", "description": "Understand how tension slows digestion and how simple movement with breath restores the gut-brain connection through the vagus nerve.", "contentUrl": "https://auracarecontent.github.io/2-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "2-5", "day": 5, "title": "Vagus Massage for Stress Relief", "description": "Experience how gentle self-holding activates your calm system, increases oxytocin, and restores emotional balance after stress.", "contentUrl": "https://auracarecontent.github.io/2-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "2-6", "day": 6, "title": "Simple Ways to Boost HRV With Vagus", "description": "Learn how your heart and breath can move in harmony — improving focus, mood, and cardiovascular calm through posture and open breathing.", "contentUrl": "https://auracarecontent.github.io/2-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "2-7", "day": 7, "title": "Breathing for Vagus Balance", "description": "Bring everything together in one rhythmic daily flow — aligning body and mind so calm becomes your natural rhythm throughout the day.", "contentUrl": "https://auracarecontent.github.io/2-7.html", "isUnlocked": true, "duration": "9 min" }
       ]
     },
     {
       "id": "3",
       "week": 3,
-      "title": "HRV & Blood Pressure Balance: Protect Your Heart, Protect Your Future",
+      "title": "HRV & Blood Pressure Balance",
       "subtitle": "Learn how your vagus nerve, breathing, and daily movement work together to keep your blood pressure steady and your heart resilient",
       "icon": "nutrition-outline",
       "iconColor": "#C4A57B",
       "status": "available",
       "days": [
-        { "id": "3-1", "day": 1, "title": "The Pressure Within: How Stress Turns Against Your Heart", "description": "Understand how emotional load and cortisol spikes suppress vagus nerve activity, raise heart rate, and tighten blood vessels", "contentUrl": "https://auracarecontent.github.io/3-1.html", "isUnlocked": true, "duration": "9 min" },
-        { "id": "3-2", "day": 2, "title": "HRV and Resting Heart Rate: The Hidden Language of Your Heart", "description": "Discover how your resting heart rate and heart rate variability (HRV) reveal the balance between stress and recovery", "contentUrl": "https://auracarecontent.github.io/3-2.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "3-3", "day": 3, "title": "The Breathing Effect: The 5-Minute Reset to Lower Your Blood Pressure", "description": "Learn how slow, rhythmic breathing activates the vagus nerve, improves HRV, and lowers blood pressure — helping arteries relax naturally.", "contentUrl": "https://auracarecontent.github.io/3-3.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "3-4", "day": 4, "title": "How Daily Steps Strengthen Your Heart and Calm Your Nerves", "description": "Explore how light daily activity improves circulation, vessel elasticity, and vagal tone — training your heart to stay calm and resilient even under stress.", "contentUrl": "https://auracarecontent.github.io/3-4.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "3-5", "day": 5, "title": "How Salt and Sugar Hijack Your Nervous System", "description": "See how sodium, dehydration, and glucose swings silently raise blood pressure", "contentUrl": "https://auracarecontent.github.io/3-5.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "3-6", "day": 6, "title": "Inflammation and the Broken Heart–Brain Link", "description": "Find out how chronic inflammation weakens vagal control and damages vessels", "contentUrl": "https://auracarecontent.github.io/3-6.html", "isUnlocked": true, "duration": "12 min" },
-        { "id": "3-7", "day": 7, "title": "Lipids and Arteries: Unlocking the Secret Behind Stable Blood Pressure", "description": "Learn how balanced lipids — HDL, LDL, and triglycerides — keep your arteries flexible and pressure steady through nutrition, calm, and daily vagus support.", "contentUrl": "https://auracarecontent.github.io/3-7.html", "isUnlocked": true, "duration": "9 min" }
+        { "id": "3-1", "day": 1, "title": "When Stress Turns on Your Heart", "description": "Understand how emotional load and cortisol spikes suppress vagus nerve activity, raise heart rate, and tighten blood vessels", "contentUrl": "https://auracarecontent.github.io/3-1.html", "isUnlocked": true, "duration": "9 min" },
+        { "id": "3-2", "day": 2, "title": "What HRV and Pulse Tell You", "description": "Discover how your resting heart rate and heart rate variability (HRV) reveal the balance between stress and recovery", "contentUrl": "https://auracarecontent.github.io/3-2.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "3-3", "day": 3, "title": "Reset Blood Pressure in 5 Minutes", "description": "Learn how slow, rhythmic breathing activates the vagus nerve, improves HRV, and lowers blood pressure — helping arteries relax naturally.", "contentUrl": "https://auracarecontent.github.io/3-3.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "3-4", "day": 4, "title": "How Many Steps for Heart Health", "description": "Explore how light daily activity improves circulation, vessel elasticity, and vagal tone — training your heart to stay calm and resilient even under stress.", "contentUrl": "https://auracarecontent.github.io/3-4.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "3-5", "day": 5, "title": "The Hidden Salt–Sugar Trap for Your Heart", "description": "See how sodium, dehydration, and glucose swings silently raise blood pressure", "contentUrl": "https://auracarecontent.github.io/3-5.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "3-6", "day": 6, "title": "Why Inflammation Hurts the Heart", "description": "Find out how chronic inflammation weakens vagal control and damages vessels", "contentUrl": "https://auracarecontent.github.io/3-6.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "3-7", "day": 7, "title": "The Secret to Clean Arteries and Stable Blood Pressure", "description": "Learn how balanced lipids — HDL, LDL, and triglycerides — keep your arteries flexible and pressure steady through nutrition, calm, and daily vagus support.", "contentUrl": "https://auracarecontent.github.io/3-7.html", "isUnlocked": true, "duration": "9 min" }
       ]
     },
     {
       "id": "4",
       "week": 4,
-      "title": "The Gut–Brain Axis: Calm Starts in Your Gut",
+      "title": "Gut Sense — How the Gut Talks to the Brain",
       "subtitle": "Discover how your digestive system and brain constantly communicate — shaping mood, focus, cravings, and calm",
       "icon": "moon-outline",
       "iconColor": "#C4A57B",
@@ -77,7 +77,7 @@
     {
       "id": "5",
       "week": 5,
-      "title": "Activate Your Inner GLP-1: The Natural Weight-Loss & Energy Reset",
+      "title": "What Is GLP-1 and How It Reduces Appetite",
       "subtitle": "Learn how your body already makes its own GLP-1 — the \"balance hormone\" that helps regulate appetite, glucose, and focus",
       "icon": "heart-outline",
       "iconColor": "#8B7355",
