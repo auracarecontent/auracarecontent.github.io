@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day 3 — The Clarity Comeback: From Brain Fog to Focus</title>
+    <title>Day 3 — Circulation Equals Passion: Boost Blood Flow, Boost Vitality</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
@@ -20,14 +20,12 @@
         .highlight-text { font-weight: 600; color: #B87658; }
         .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
         .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
-        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
         .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
-        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
         .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
         .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
         .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
         .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
-        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
         .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
@@ -35,9 +33,6 @@
         .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
         .footer-cta-wrapper { text-align: center; }
         .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
-        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
-        .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
-        .action-title { font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.75rem; }
         .biomarker-card {
             background: rgba(184,118,88,0.08);
             padding: 18px;
@@ -46,17 +41,12 @@
             border: 1px solid rgba(0,0,0,0.04);
             box-shadow: 0 2px 4px rgba(23,39,55,0.08);
         }
-        .biomarker-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
         .biomarker-name {
             font-size: 16px;
             font-weight: 600;
             color: #172737;
             line-height: 1.3;
+            margin-bottom: 1rem;
         }
         .progress-bar {
             background: #E6E6E6;
@@ -85,13 +75,6 @@
             margin-top: 0.75rem;
             line-height: 1.4;
         }
-        .reference-text {
-            font-size: 11px;
-            font-weight: 500;
-            color: #8C8C8C;
-            font-style: italic;
-            margin-top: 1rem;
-        }
         .cta-box {
             background: rgba(184,118,88,0.05);
             padding: 1.5rem;
@@ -116,646 +99,435 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(184,118,88,0.35);
         }
-        .technique-card {
-            background: rgba(16,185,129,0.08);
-            border-left: 3px solid #10B981;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
-        }
-        .technique-header {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
-        }
-        .technique-icon {
-            font-size: 1.75rem;
-            flex-shrink: 0;
-        }
-        .technique-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #172737;
-            margin-bottom: 0.5rem;
-        }
-        .technique-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            line-height: 1.4;
-        }
-        .technique-proof {
-            font-size: 12px;
-            font-weight: 500;
-            color: #8C8C8C;
-            font-style: italic;
-            margin-top: 0.5rem;
-        }
-        .expectation-section {
-            background: white;
-            padding: 18px;
-            border-radius: 16px;
-            margin-top: 1.5rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-        .expectation-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            margin-bottom: 1rem;
-        }
-        .expectation-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        .expectation-emoji {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        .expectation-time {
-            font-weight: 600;
-            font-size: 14px;
-            color: #B87658;
-            margin-bottom: 0.25rem;
-        }
-        .expectation-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            line-height: 1.4;
-        }
-        .best-moment-box {
-            background: rgba(184,118,88,0.05);
-            padding: 1rem;
-            border-radius: 12px;
-            margin-top: 1.5rem;
-            border: 1px solid rgba(184,118,88,0.15);
-        }
-        .best-moment-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #172737;
-            margin-bottom: 0.75rem;
-        }
-        .moment-item {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .moment-check {
-            color: #10B981;
-            font-weight: 700;
-        }
-        .moment-text {
-            font-size: 13px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 1.4;
-        }
-        .table-wrapper {
-            overflow-x: auto;
-            margin: 1rem 0;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            font-size: 14px;
-            border: none;
-        }
-        th {
-            display: none;
-        }
-        td {
-            padding: 16px;
-            border: none;
-            font-weight: 500;
-            line-height: 1.4;
-        }
-        td:first-child {
-            font-weight: 600;
-            color: #172737;
-            width: 25%;
-        }
-        td:nth-child(2) {
-            font-weight: 600;
-            color: #172737;
-            width: 30%;
-        }
-        td:nth-child(3) {
-            color: #8C8C8C;
-            width: 45%;
-        }
-        tbody tr:nth-child(odd) {
-            background: rgba(245,237,224,0.4);
-        }
-        tbody tr:nth-child(even) {
-            background: rgba(235,225,210,0.25);
-        }
         .summary-box {
             background: rgba(184,118,88,0.05);
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid rgba(184,118,88,0.15);
-            text-align: center;
         }
         .summary-item {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            justify-content: center;
+            align-items: flex-start;
+            gap: 0.75rem;
             margin-bottom: 0.75rem;
             font-size: 14px;
             font-weight: 500;
-            color: #172737;
+            line-height: 1.4;
         }
-        .summary-item:last-child {
-            margin-bottom: 0;
+        .summary-item:last-child { margin-bottom: 0; }
+        .summary-item span:first-child { font-size: 1.25rem; flex-shrink: 0; }
+        .timeline-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            align-items: flex-start;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            line-height: 1.2;
+        }
+        .timeline-content { flex: 1; }
+        .timeline-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.3px;
+        }
+        .timeline-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+        }
+        .action-card {
+            background: white;
+            border: 2px solid rgba(184,118,88,0.15);
+            box-shadow: 0 4px 12px rgba(184,118,88,0.12);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+        .action-card-icon {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .action-card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 1rem;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <main class="screen">
-        
+        <!-- Header -->
         <div class="header">
             <div class="day-label">DAY 3</div>
-            <h1>The Clarity Comeback: From Brain Fog to Focus</h1>
+            <h1>Circulation Equals Passion: Boost Blood Flow, Boost Vitality</h1>
         </div>
 
+        <!-- Intro Section -->
         <div class="section intro-section">
             <div class="section-header">
                 <span class="section-icon">🔥</span>
                 <h2>Daily Focus</h2>
             </div>
             <div class="text-content">
-                Learn why your mind feels hazy and slow — and how balanced rhythm, nourishment, and short resets can bring clarity back.
+                Desire needs blood flow.
             </div>
             <div class="text-content">
-                Today you'll discover how your brain shifts from "survival mode" to "focused mode" when energy, blood flow, and glucose are steady.
+                Today you'll learn why circulation is essential for arousal, stamina, and sensitivity — and how improving microcirculation can quickly restore vitality and sexual response.
             </div>
         </div>
 
+        <!-- ☀️ Why It Matters -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">☀️</span>
                 <h2>Why It Matters</h2>
             </div>
             <div class="text-content">
-                <span class="highlight-text">Brain fog isn't about laziness — it's a biological signal: "My brain is running low on fuel."</span>
+                <span class="highlight-text">Libido isn't just hormonal or mental. It's physical.</span>
             </div>
             <div class="text-content">
-                Your brain makes up only 2% of body weight yet consumes ~20% of your daily energy.
-            </div>
-            <div class="text-content">
-                When glucose fluctuates or circulation slows, even simple tasks demand extra effort.
-            </div>
-            <div class="text-content">
-                Restoring focus means supporting the brain's natural rhythm — oxygen, hydration, nutrients, and gentle mental breaks.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">😴</span>
-                <h2>Why Focus Fades</h2>
-            </div>
-            <div class="text-content">
-                Skipping meals, high-sugar snacks, dehydration, and chronic stress all destabilize your brain's fuel system.
-            </div>
-            <div class="text-content">
-                When glucose drops or rises sharply, neurons fire less efficiently.
-            </div>
-            <div class="text-content">
-                The <span class="highlight-text">prefrontal cortex</span> — your decision-making center — "dims," reducing focus, memory, and motivation.
-            </div>
-            <div class="text-content">
-                At the same time, poor sleep lowers insulin sensitivity and increases morning fog.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧠</span>
-                <h2>Meet Your Brain's Fuel System</h2>
-            </div>
-            <div class="text-content">
-                Your brain thrives on a steady energy supply:
+                Arousal depends on:
             </div>
             <ul class="bullet-list">
-                <li class="bullet-item"><span class="highlight-text">Stable glucose</span> provides consistent fuel for neurons.</li>
-                <li class="bullet-item"><span class="highlight-text">Adequate hydration</span> keeps blood flow and oxygen delivery smooth.</li>
-                <li class="bullet-item"><span class="highlight-text">Micronutrients</span> like B-vitamins and folate support neurotransmitter synthesis.</li>
-                <li class="bullet-item"><span class="highlight-text">Short "oxygen resets"</span> — like standing up or stretching for 2 minutes each hour — increase cerebral blood flow and help maintain clarity throughout the day.</li>
+                <li class="bullet-item">blood reaching sensitive tissues,</li>
+                <li class="bullet-item">oxygen delivery,</li>
+                <li class="bullet-item">nerve signaling.</li>
             </ul>
-            <div class="reference-text">
-                (Spencer et al., 2020, Nutrition Reviews; Benton & Donahue, 2021, Front Nutr; Petersen et al., 2020, J Appl Physiol.)
+            <div class="text-content">
+                <span class="highlight-text">When circulation is reduced:</span>
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">desire may be present mentally,</li>
+                <li class="bullet-item">but the body doesn't respond fully.</li>
+            </ul>
+            <div class="text-content">
+                This can feel like:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">low sensitivity,</li>
+                <li class="bullet-item">delayed arousal,</li>
+                <li class="bullet-item">weaker physical response,</li>
+                <li class="bullet-item">reduced stamina or pleasure.</li>
+            </ul>
+            <div class="text-content">
+                <span class="highlight-text">Nothing is "wrong." The signal just isn't reaching the destination.</span>
             </div>
         </div>
 
+        <!-- 💧 How Circulation Quietly Declines -->
         <div class="section">
             <div class="section-header">
-                <span class="section-icon">📊</span>
-                <h2>Focus Pattern Throughout the Day</h2>
+                <span class="section-icon">💧</span>
+                <h2>How Circulation Quietly Declines</h2>
             </div>
-            
-            <div class="table-wrapper">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Morning</td>
-                            <td>Balanced breakfast with protein + fiber</td>
-                            <td>Stabilizes glucose and mental energy</td>
-                        </tr>
-                        <tr>
-                            <td>Mid-morning</td>
-                            <td>2-min movement / stretch</td>
-                            <td>Boosts blood flow and alertness</td>
-                        </tr>
-                        <tr>
-                            <td>Afternoon</td>
-                            <td>Water or herbal tea break</td>
-                            <td>Restores hydration and focus</td>
-                        </tr>
-                        <tr>
-                            <td>Evening</td>
-                            <td>Dim light + gentle wind-down</td>
-                            <td>Prevents late-day overstimulation</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="text-content">
+                Circulation weakens through everyday patterns:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">long sitting,</li>
+                <li class="bullet-item">shallow breathing,</li>
+                <li class="bullet-item">chronic stress,</li>
+                <li class="bullet-item">low movement variability,</li>
+                <li class="bullet-item">inflammation.</li>
+            </ul>
+            <div class="text-content">
+                Stress tightens blood vessels. Sedentary time slows flow. Poor oxygen exchange reduces responsiveness.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">The result: desire without embodiment.</span>
             </div>
         </div>
 
+        <!-- 🌿 Science Facts -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌿</span>
-                <h2>Science Facts — What Sharpens Clarity</h2>
+                <h2>Science Facts — Circulation & Sexual Vitality</h2>
             </div>
             
             <div class="science-fact">
-                <div class="fact-icon">🍎</div>
+                <div class="fact-icon">🩸</div>
                 <div>
-                    <div class="fact-desc">
-                        Stable glucose = stable focus (Spencer et al., 2020, Nutrition Reviews).
-                    </div>
+                    <div class="fact-title">Genital and pelvic blood flow is essential</div>
+                    <div class="fact-desc">For arousal and sensitivity (Bancroft, 2005).</div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <div class="fact-icon">💧</div>
+                <div class="fact-icon">💓</div>
                 <div>
-                    <div class="fact-desc">
-                        Mild dehydration (1–2%) reduces concentration and memory by 10–15% (Benton & Donahue, 2021, Front Nutr).
-                    </div>
+                    <div class="fact-title">Nitric oxide supports vessel dilation</div>
+                    <div class="fact-desc">And sexual response in all genders (Burnett, 2006).</div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <div class="fact-icon">🚶‍♀️</div>
+                <div class="fact-icon">😮‍💨</div>
                 <div>
-                    <div class="fact-desc">
-                        Five minutes of movement increases brain blood flow and alertness within 10 minutes (Petersen et al., 2020, J Appl Physiol).
-                    </div>
+                    <div class="fact-title">Deep breathing improves oxygenation</div>
+                    <div class="fact-desc">And peripheral circulation (Russo et al., 2017).</div>
                 </div>
             </div>
 
-            <div class="science-fact">
-                <div class="fact-icon">🧠</div>
+            <div class="science-fact" style="margin-bottom: 0;">
+                <div class="fact-icon">🚶</div>
                 <div>
-                    <div class="fact-desc">
-                        Low vitamin B12 or folate impairs neurotransmitter balance and attention (Malouf & Areosa Sastre, 2016, Cochrane Database Syst Rev).
-                    </div>
+                    <div class="fact-title">Light movement increases endothelial function</div>
+                    <div class="fact-desc">And microcirculation (Green et al., 2017).</div>
                 </div>
             </div>
         </div>
 
+        <!-- 🧬 What About Labs? -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧬</span>
                 <h2>What About Labs?</h2>
             </div>
             <div class="text-content">
-                Certain blood markers reflect how well your brain's energy and attention systems function — and the % next to each shows how strongly this marker influences your mental clarity and focus.
+                When vitality feels low despite desire, labs often reflect circulatory or vascular support issues.
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                <span class="highlight-text">The % shows how strongly this marker can influence circulation and physical responsiveness.</span>
             </div>
 
             <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">Glucose (fasting)</div>
-                </div>
+                <div class="biomarker-name">Ferritin / Hemoglobin</div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 70%;">70%</div>
+                    <div class="progress-fill" style="width: 60%;">🩸 60 %</div>
                 </div>
                 <div class="biomarker-desc">
-                    Affects stability of mental energy and concentration; large swings can cause post-meal fatigue (Spencer et al., 2020, Nutrition Reviews).
-                </div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">HbA1c</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 65%;">65%</div>
-                </div>
-                <div class="biomarker-desc">
-                    Reflects average glucose control over 2–3 months; high values are linked to brain fog and reduced attention (Palta et al., 2017, Diabetes Care).
+                    Oxygen delivery to tissues and stamina.
                 </div>
             </div>
 
             <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">Vitamin B12</div>
-                </div>
+                <div class="biomarker-name">RBC Magnesium</div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 60%;">60%</div>
+                    <div class="progress-fill" style="width: 55%;">⚡ 55 %</div>
                 </div>
                 <div class="biomarker-desc">
-                    Supports nerve conduction and neurotransmitter production (Malouf & Areosa Sastre, 2016, Cochrane Database Syst Rev).
+                    Supports vessel relaxation and blood flow.
                 </div>
             </div>
 
             <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">Folate (B9)</div>
-                </div>
+                <div class="biomarker-name">hs-CRP</div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 55%;">55%</div>
+                    <div class="progress-fill" style="width: 45%;">🔥 45 %</div>
                 </div>
                 <div class="biomarker-desc">
-                    Works with B12 in methylation and neurotransmitter synthesis; low levels may cause mental slowness (Kennedy, 2016, Nutrients).
+                    Inflammation stiffens vessels and reduces responsiveness.
                 </div>
             </div>
 
+            <div class="cta-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 15px; line-height: 1.5;">
+                    Interested in a Personalized Blood Test Plan with a detailed report?
+                </div>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">Continue</a>
+            </div>
         </div>
 
+        <!-- 💭 Reflection Prompt -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💭</span>
                 <h2>Reflection Prompt</h2>
             </div>
             <div class="reflection-box">
-                <div class="text-content" style="margin-bottom: 0.5rem;">
-                    When do you notice your focus fading most — morning, afternoon, or evening?
-                </div>
                 <div class="text-content" style="margin-bottom: 0;">
-                    Is it linked to meals, screens, or mental overload?
+                    Do you feel desire more in your head than in your body?<br><br>
+                    Does physical response feel slower or weaker than before?
                 </div>
             </div>
         </div>
 
+        <!-- 🧠 What Actually Helps -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧠</span>
-                <h2>What About Vagus?</h2>
+                <h2>What Actually Helps</h2>
             </div>
             <div class="text-content">
-                Your vagus nerve helps your brain switch out of "stress mode" and into clarity.
+                Improving circulation doesn't require intense workouts or pressure.
             </div>
             <div class="text-content">
-                When it's underactive, stress hormones stay high, glucose swings more, and focus drops.
+                The body responds best to:
             </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">gentle movement,</li>
+                <li class="bullet-item">relaxed breathing,</li>
+                <li class="bullet-item">reduced vascular tension,</li>
+                <li class="bullet-item">rhythm instead of force.</li>
+            </ul>
             <div class="text-content">
-                When it's active, blood flow improves, your heart rhythm steadies, and thinking gets easier.
-            </div>
-            <div class="text-content">
-                <span class="highlight-text">A calmer nervous system means less mental "noise" and fewer foggy moments.</span>
-            </div>
-            <div class="text-content">
-                Simple resets — slow exhales, light movement, fresh air — stimulate the vagus in seconds.
-            </div>
-            <div class="text-content">
-                That's why today's micro-pauses work so fast: they gently activate this pathway and clear your mind.
+                <span class="highlight-text">When blood flow improves, sensation follows naturally.</span>
             </div>
         </div>
 
-        <div class="section" style="background: rgba(16,185,129,0.05);">
+        <!-- ✅ Plan to Action -->
+        <div class="section" style="background: linear-gradient(to bottom, rgba(184,118,88,0.03), rgba(184,118,88,0.08));">
             <div class="section-header">
                 <span class="section-icon">✅</span>
-                <h2>Easy 5-min Vagus Nerve Stimulation Technique</h2>
+                <h2>Plan to Action — Wake Up Circulation 🔥</h2>
             </div>
-            <div class="action-title">Focus Through Vagus Flow</div>
+            <div class="text-content" style="text-align: center; font-size: 15px; color: #656565; margin-bottom: 1.5rem;">
+                Today, choose one circulation activator.
+            </div>
 
-            <div class="technique-card">
-                <div class="technique-header">
-                    <div class="technique-icon">↕️</div>
-                    <div>
-                        <div class="technique-title">Vagus Neck Glide</div>
+            <div class="action-card">
+                <div class="action-card-icon">🔥</div>
+                <div class="action-card-title">Your one action</div>
+                <div class="text-content" style="margin-bottom: 1rem; text-align: center;">
+                    Pick one:
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
+                        <span style="font-size: 1.5rem;">🚶‍♀️</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #172737;">10-minute relaxed walk (no speed, just flow),</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
+                        <span style="font-size: 1.5rem;">😮‍💨</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #172737;">3 minutes of slow nasal breathing,</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
+                        <span style="font-size: 1.5rem;">🧍</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #172737;">Gentle stretches focusing on hips, legs, or lower back,</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
+                        <span style="font-size: 1.5rem;">🛁</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #172737;">Warm shower or bath to encourage vessel dilation.</span>
                     </div>
                 </div>
-                <div class="technique-desc">
-                    Small forward–back glides mobilize the deep cervical stabilizers and mechanically stimulate the vagus where it travels close to the neck's soft tissues. This reduces sympathetic "neck guarding," a common source of stress-driven fatigue.
-                </div>
-                <div class="technique-proof">
-                    Proof: Haavik & Murphy, JMPT, 2012 — controlled cervical movement improves sensorimotor integration and downshifts autonomic arousal.
+                <div class="text-content" style="margin-top: 1.5rem; margin-bottom: 0; text-align: center; color: #656565;">
+                    <span class="highlight-text">No intensity. No performance goal.</span><br>
+                    Just signal flow.
                 </div>
             </div>
 
-            <div class="technique-card">
-                <div class="technique-header">
-                    <div class="technique-icon">🔹</div>
-                    <div>
-                        <div class="technique-title">Occipital Tap</div>
-                    </div>
+            <div class="action-card" style="background: linear-gradient(135deg, rgba(184,118,88,0.08) 0%, rgba(184,118,88,0.12) 100%);">
+                <div class="action-card-icon">🧠</div>
+                <div class="action-card-title">Why This Works</div>
+                <div class="text-content">
+                    Blood flow increases when vessels relax and oxygen delivery improves.
                 </div>
-                <div class="technique-desc">
-                    Gentle tapping at the skull base activates pressure-sensitive tissues around the vagal entry zone and increases blood flow in the upper neck — a quick way to release head tension.
+                <div class="text-content">
+                    Sensitivity and responsiveness return when circulation reaches the tissue.
                 </div>
-                <div class="technique-proof">
-                    Proof: Budgell, Chiropractic & Osteopathy, 2005 — mechanostimulation near the cranial base influences parasympathetic output and reduces muscle hypertonicity.
+                <div class="text-content" style="margin-bottom: 0; text-align: center; font-weight: 600; color: #B87658;">
+                    You're not forcing passion. You're restoring the pathway for it. ✨
                 </div>
-            </div>
-
-            <div class="technique-card">
-                <div class="technique-header">
-                    <div class="technique-icon">🟦</div>
-                    <div>
-                        <div class="technique-title">Cross-Body Reach Stretch</div>
-                    </div>
-                </div>
-                <div class="technique-desc">
-                    Diagonal reaching lengthens the rib cage, frees the diaphragm, and activates cross-body fascial lines linked to breathing and posture — helping your body shift into a calmer, more coherent rhythm.
-                </div>
-                <div class="technique-proof">
-                    Proof: Courtney, Physiotherapy Theory & Practice, 2017 — thoracic expansion and diaphragmatic mobility enhance vagal modulation.
-                </div>
-            </div>
-
-            <div class="video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/-57t7aAtEvE" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
             </div>
         </div>
 
+        <!-- ✨ What to Expect -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">✨</span>
                 <h2>What to Expect</h2>
             </div>
-
-            <div class="expectation-section">
-                <div class="expectation-item">
-                    <div class="expectation-emoji">⏱️</div>
-                    <div>
-                        <div class="expectation-time">In 30–60 seconds</div>
-                        <div class="expectation-desc">
-                            You may feel a mild release around the eyes, temples, and upper neck — a sign that stress-driven "neck guarding" is easing. Breathing often becomes smoother, and mental fog softens slightly.
-                        </div>
+            
+            <div class="timeline-box">
+                <div class="timeline-item">
+                    <div class="timeline-icon">⏱️</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER A FEW DAYS</div>
+                        <div class="timeline-text">Warmer body sensation and improved sensitivity.</div>
                     </div>
                 </div>
 
-                <div class="expectation-item">
-                    <div class="expectation-emoji">⏳</div>
-                    <div>
-                        <div class="expectation-time">After 2–3 days</div>
-                        <div class="expectation-desc">
-                            Your head may start to feel lighter in the morning, with fewer tension spikes during the day. Focus becomes easier to access, especially after short movement or breathing resets.
-                        </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">⏳</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER 1–2 WEEKS</div>
+                        <div class="timeline-text">Stronger physical response and stamina.</div>
                     </div>
                 </div>
 
-                <div class="expectation-item">
-                    <div class="expectation-emoji">📆</div>
-                    <div>
-                        <div class="expectation-time">After 1–2 weeks</div>
-                        <div class="expectation-desc">
-                            Many users notice clearer thinking, less pressure around the forehead and jaw, and steadier cognitive energy — even on busy days. Micro-breaks start working faster because the vagus pathway becomes more responsive.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="best-moment-box">
-                <div class="best-moment-title">⭐ Best Moment to Do This</div>
-                <div class="moment-item">
-                    <span class="moment-check">✔</span>
-                    <div class="moment-text">
-                        <strong>During long laptop sessions</strong><br>
-                        Perfect for breaking the head-forward posture that compresses the upper neck and worsens vagal underactivity.
-                    </div>
-                </div>
-                <div class="moment-item">
-                    <span class="moment-check">✔</span>
-                    <div class="moment-text">
-                        <strong>Mid-morning or mid-afternoon slump</strong><br>
-                        A fast way to clear mental haze and stabilize alertness without caffeine.
+                <div class="timeline-item">
+                    <div class="timeline-icon">📆</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">OVER TIME</div>
+                        <div class="timeline-text">Vitality feels embodied — not just imagined.</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="section" style="background: rgba(16,185,129,0.05);">
-            <div class="section-header">
-                <span class="section-icon">✅</span>
-                <h2>Plan to Action — Micro-Pause for Focus</h2>
-            </div>
-
-            <div class="text-content">
-                Keep your morning light and digital sunset from previous days — they stabilize your rhythm.
-            </div>
-            <div class="text-content" style="font-weight: 600;">
-                Add one new step today:
-            </div>
-
-            <div class="action-box">
-                <div class="step-item">
-                    <div class="step-number">🧠</div>
-                    <div>
-                        <div class="fact-title">Micro-Pause Breaks</div>
-                        <div class="fact-desc">
-                            Every hour, take 2 minutes to stand, stretch, or breathe slowly.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step-item">
-                    <div class="step-number">🌬️</div>
-                    <div>
-                        <div class="fact-desc">
-                            If possible, open a window or step outside for fresh air.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-content">
-                These brief resets increase oxygen to your brain and refresh focus faster than caffeine (Petersen et al., 2020).
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🌙</span>
-                <h2>Evening Matters Too — Protect Tomorrow's Clarity</h2>
-            </div>
-            <div class="text-content">
-                Late screens and heavy meals disrupt glucose balance and sleep depth (Gooley et al., 2011, JCEM).
-            </div>
-            <div class="text-content">
-                End your day with dim light and hydration — your brain needs water and rest to clear metabolic by-products during sleep (Xie et al., 2013, Science).
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🌞</span>
-                <h2>Why This Works</h2>
-            </div>
-            <div class="text-content">
-                When glucose, oxygen, and hydration stay steady, your neurons fire in sync and focus feels natural again.
-            </div>
-            <div class="text-content">
-                Small movement breaks and balanced nutrition protect mental energy throughout the day.
-            </div>
-        </div>
-
+        <!-- Video -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🎬</span>
                 <h2>Video of the Day</h2>
             </div>
+            <div class="text-content" style="margin-bottom: 1rem;">
+                A gentle movement practice that boosts circulation without strain.
+            </div>
             <div class="video-container">
                 <iframe 
-                    src="https://www.youtube.com/embed/zwmX4ADLjuE" 
+                    src="https://www.youtube.com/embed/dyC0TWy8NzU" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                 </iframe>
             </div>
         </div>
 
-        <div class="section" style="background: rgba(184,118,88,0.05);">
+        <!-- ✨ Today You Learned -->
+        <div class="section">
             <div class="section-header">
                 <span class="section-icon">✨</span>
                 <h2>Today You Learned</h2>
             </div>
             <div class="summary-box">
                 <div class="summary-item">
-                    <span>🍎</span>
-                    <span>Stable glucose → steadier focus and fewer energy crashes</span>
+                    <span>🩸</span>
+                    <span>Desire requires blood flow</span>
                 </div>
                 <div class="summary-item">
-                    <span>💧</span>
-                    <span>Hydration → clearer thinking and smoother blood flow</span>
+                    <span>😮‍💨</span>
+                    <span>Oxygen supports sensation and stamina</span>
                 </div>
                 <div class="summary-item">
-                    <span>🌿</span>
-                    <span>Vagus resets → faster shift out of brain fog</span>
+                    <span>💓</span>
+                    <span>Relaxed vessels improve responsiveness</span>
                 </div>
                 <div class="summary-item">
-                    <span>🚶‍♀️</span>
-                    <span>Micro-pauses → oxygen boost for focus in 2 minutes</span>
+                    <span>🔥</span>
+                    <span>Circulation brings vitality back into the body</span>
                 </div>
             </div>
         </div>
 
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 0; line-height: 1.5;">
+                ✨ Remember: Desire lives in the body — and circulation lets it speak.
+            </div>
+        </div>
+
         <div class="footer">
-            <div class="text-content" style="font-size: 17px; font-weight: 700; color: #FFFFFF; margin-bottom: 0; text-align: center; line-height: 1.5;">
-                ✨ Remember: Clarity isn't about trying harder — it's about fueling your brain smarter.
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <div class="footer-cta-wrapper">
+                <a href="https://plan.aura.care/lt-2/" class="footer-email" target="_blank" rel="noopener noreferrer">Continue</a>
             </div>
         </div>
     

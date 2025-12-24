@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day 2 — Still Exhausted After Rest: What Blocks Real Recovery</title>
+    <title>Day 2 — The Hormone Symphony: Estrogen, Testosterone & Thyroid in Balance</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
@@ -20,14 +20,12 @@
         .highlight-text { font-weight: 600; color: #B87658; }
         .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
         .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
-        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
         .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
-        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
         .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
         .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
         .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
         .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
-        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
         .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
@@ -35,9 +33,6 @@
         .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
         .footer-cta-wrapper { text-align: center; }
         .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
-        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
-        .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
-        .action-title { font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.75rem; }
         .biomarker-card {
             background: rgba(184,118,88,0.08);
             padding: 18px;
@@ -46,17 +41,12 @@
             border: 1px solid rgba(0,0,0,0.04);
             box-shadow: 0 2px 4px rgba(23,39,55,0.08);
         }
-        .biomarker-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
         .biomarker-name {
             font-size: 16px;
             font-weight: 600;
             color: #172737;
             line-height: 1.3;
+            margin-bottom: 1rem;
         }
         .progress-bar {
             background: #E6E6E6;
@@ -85,13 +75,6 @@
             margin-top: 0.75rem;
             line-height: 1.4;
         }
-        .reference-text {
-            font-size: 11px;
-            font-weight: 500;
-            color: #8C8C8C;
-            font-style: italic;
-            margin-top: 1rem;
-        }
         .cta-box {
             background: rgba(184,118,88,0.05);
             padding: 1.5rem;
@@ -116,566 +99,450 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(184,118,88,0.35);
         }
-        .technique-card {
-            background: rgba(16,185,129,0.08);
-            border-left: 3px solid #10B981;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
-        }
-        .technique-header {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
-        }
-        .technique-icon {
-            font-size: 1.75rem;
-            flex-shrink: 0;
-        }
-        .technique-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #172737;
-            margin-bottom: 0.5rem;
-        }
-        .technique-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            line-height: 1.4;
-        }
-        .technique-proof {
-            font-size: 12px;
-            font-weight: 500;
-            color: #8C8C8C;
-            font-style: italic;
-            margin-top: 0.5rem;
-        }
-        .expectation-section {
-            background: white;
-            padding: 18px;
-            border-radius: 16px;
-            margin-top: 1.5rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-        .expectation-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            margin-bottom: 1rem;
-        }
-        .expectation-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        .expectation-emoji {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        .expectation-time {
-            font-weight: 600;
-            font-size: 14px;
-            color: #B87658;
-            margin-bottom: 0.25rem;
-        }
-        .expectation-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            line-height: 1.4;
-        }
-        .best-moment-box {
-            background: rgba(184,118,88,0.05);
-            padding: 1rem;
-            border-radius: 12px;
-            margin-top: 1.5rem;
-            border: 1px solid rgba(184,118,88,0.15);
-        }
-        .best-moment-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #172737;
-            margin-bottom: 0.75rem;
-        }
-        .moment-item {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .moment-check {
-            color: #10B981;
-            font-weight: 700;
-        }
-        .moment-text {
-            font-size: 13px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 1.4;
-        }
-        .table-wrapper {
-            overflow-x: auto;
-            margin: 1rem 0;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            font-size: 14px;
-            border: none;
-        }
-        th {
-            display: none;
-        }
-        td {
-            padding: 16px;
-            border: none;
-            font-weight: 500;
-            line-height: 1.4;
-        }
-        td:first-child {
-            font-weight: 600;
-            color: #172737;
-            width: 25%;
-        }
-        td:nth-child(2) {
-            font-weight: 600;
-            color: #172737;
-            width: 30%;
-        }
-        td:nth-child(3) {
-            color: #8C8C8C;
-            width: 45%;
-        }
-        tbody tr:nth-child(odd) {
-            background: rgba(245,237,224,0.4);
-        }
-        tbody tr:nth-child(even) {
-            background: rgba(235,225,210,0.25);
-        }
         .summary-box {
             background: rgba(184,118,88,0.05);
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid rgba(184,118,88,0.15);
-            text-align: center;
         }
         .summary-item {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            justify-content: center;
+            align-items: flex-start;
+            gap: 0.75rem;
             margin-bottom: 0.75rem;
             font-size: 14px;
             font-weight: 500;
-            color: #172737;
+            line-height: 1.4;
         }
-        .summary-item:last-child {
-            margin-bottom: 0;
+        .summary-item:last-child { margin-bottom: 0; }
+        .summary-item span:first-child { font-size: 1.25rem; flex-shrink: 0; }
+        .timeline-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            align-items: flex-start;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            line-height: 1.2;
+        }
+        .timeline-content { flex: 1; }
+        .timeline-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.3px;
+        }
+        .timeline-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+        }
+        .action-card {
+            background: white;
+            border: 2px solid rgba(184,118,88,0.15);
+            box-shadow: 0 4px 12px rgba(184,118,88,0.12);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+        .action-card-icon {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .action-card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .quote-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.25rem;
+            border-left: 4px solid #B87658;
+            margin: 1.25rem 0;
+            font-style: italic;
+        }
+        .quote-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+        .quote-text:last-child { margin-bottom: 0; }
+        .info-box {
+            background: rgba(16,185,129,0.05);
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin: 1.25rem 0;
+        }
+        .info-box-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #172737;
+            margin-bottom: 0.75rem;
         }
     </style>
 </head>
 <body>
     <main class="screen">
-        
+        <!-- Header -->
         <div class="header">
             <div class="day-label">DAY 2</div>
-            <h1>Still Exhausted After Rest: What Blocks Real Recovery</h1>
+            <h1>The Hormone Symphony: Estrogen, Testosterone & Thyroid in Balance</h1>
         </div>
 
+        <!-- Intro Section -->
         <div class="section intro-section">
             <div class="section-header">
                 <span class="section-icon">🔥</span>
                 <h2>Daily Focus</h2>
             </div>
             <div class="text-content">
-                You took a break, but your body never truly exhaled.
+                Desire and energy aren't controlled by one hormone. They're the result of a symphony — where estrogen, testosterone, and thyroid hormones work together.
             </div>
             <div class="text-content">
-                Real rest begins only when your nervous system feels safe enough to switch off.
-            </div>
-            <div class="text-content">
-                Today you'll discover why even after sleep, weekends, or "doing nothing," you might still wake up tense and drained — and what helps your body enter real recovery.
+                Today you'll learn how hormonal alignment (not "high levels") supports libido, mood, and vitality — and why balance matters more than chasing numbers.
             </div>
         </div>
 
+        <!-- ☀️ Why It Matters -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">☀️</span>
                 <h2>Why It Matters</h2>
             </div>
             <div class="text-content">
-                You can spend a weekend resting, yet still feel heavy on Monday.
-            </div>
-            <div class="text-content">
-                <span class="highlight-text">That's because rest without regulation isn't recovery.</span>
-            </div>
-            <div class="text-content">
-                When your mind stays alert — checking messages, planning, or worrying — your body never fully switches off.
-            </div>
-            <div class="text-content">
-                Energy goes to vigilance, not renewal.
-            </div>
-            <div class="text-content" style="font-weight: 600; color: #B87658; font-size: 15px; margin-top: 1rem;">
-                True rest happens only when your body receives one clear signal: 🩵 "We're safe. It's time to repair."
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">😴</span>
-                <h2>Why You Might Wake Up Unrefreshed</h2>
-            </div>
-            <div class="text-content">
-                Your autonomic nervous system (ANS) runs two intertwined modes:
-            </div>
-            <ul class="bullet-list">
-                <li class="bullet-item"><span class="highlight-text">Sympathetic</span> ("fight or flight") — mobilizes energy.</li>
-                <li class="bullet-item"><span class="highlight-text">Parasympathetic</span> ("rest and repair") — restores it.</li>
-            </ul>
-            <div class="text-content">
-                In modern life, the "fight-or-flight" mode rarely turns off completely.
-            </div>
-            <div class="text-content">
-                Mental load, late-night light, and constant input keep subtle stress signals active.
-            </div>
-            <div class="text-content">
-                Muscles stay slightly contracted, breathing shallow, heart rate a little elevated — a quiet "on-guard" state that blocks full restoration.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">📊</span>
-                <h2>Recovery Pattern Throughout the Day</h2>
+                Many people are told:
             </div>
             
-            <div class="table-wrapper">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Morning</td>
-                            <td>2–5 min slow nasal breathing + daylight</td>
-                            <td>Clears residual cortisol; steadies HR</td>
-                        </tr>
-                        <tr>
-                            <td>Midday</td>
-                            <td>5-min relaxed walk or stretch</td>
-                            <td>Releases tension; raises HRV</td>
-                        </tr>
-                        <tr>
-                            <td>Evening</td>
-                            <td>Quiet transition, no screens</td>
-                            <td>Allows parasympathetic dominance</td>
-                        </tr>
-                        <tr>
-                            <td>Night</td>
-                            <td>Dim light + 2 min slow exhale breathing</td>
-                            <td>Lowers HR and prepares deep sleep</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="quote-box">
+                <div class="quote-text">"Your testosterone is normal."</div>
+                <div class="quote-text">"Your estrogen is fine."</div>
+                <div class="quote-text">"Your thyroid is within range."</div>
+            </div>
+
+            <div class="text-content">
+                Yet they still experience:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">low desire,</li>
+                <li class="bullet-item">flat or unstable energy,</li>
+                <li class="bullet-item">reduced motivation,</li>
+                <li class="bullet-item">feeling disconnected from their body.</li>
+            </ul>
+            <div class="text-content">
+                <span class="highlight-text">That's because hormones don't act alone.</span>
+            </div>
+            <div class="text-content">
+                You can have "normal" lab values — but if hormones are out of sync, the body struggles to generate drive, confidence, and attraction.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Hormones behave more like an orchestra than soloists. When timing or volume is off, the music doesn't flow.</span>
             </div>
         </div>
 
+        <!-- 🎶 How the Hormone Symphony Breaks Down -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎶</span>
+                <h2>How the Hormone Symphony Breaks Down</h2>
+            </div>
+            <div class="text-content">
+                Hormones work differently in men and women — but the principle is the same.
+            </div>
+            
+            <div class="info-box">
+                <div class="info-box-title">What's different</div>
+                <div class="text-content">
+                    <span class="highlight-text">Women</span> rely more on estrogen rhythms for mood, sensitivity, lubrication, and emotional connection. When estrogen signaling is disrupted (stress, poor sleep, under-fueling), desire often fades before energy does.
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">Men</span> rely more on testosterone signaling for drive, initiative, confidence, and physical desire. Chronic stress and poor sleep suppress testosterone output and sensitivity — even if lab levels look "normal."
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-title">What's shared</div>
+                <div class="text-content">
+                    Both men and women need:
+                </div>
+                <ul class="bullet-list" style="margin-top: 0;">
+                    <li class="bullet-item">thyroid hormones to set metabolic pace and baseline energy,</li>
+                    <li class="bullet-item">dopamine to feel motivation and anticipation,</li>
+                    <li class="bullet-item">good blood flow to support arousal and vitality.</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-title">How stress disrupts everyone</div>
+                <div class="text-content">
+                    Regardless of gender:
+                </div>
+                <ul class="bullet-list" style="margin-top: 0;">
+                    <li class="bullet-item">cortisol interferes with sex hormone receptors,</li>
+                    <li class="bullet-item">thyroid output becomes less efficient,</li>
+                    <li class="bullet-item">dopamine signaling drops,</li>
+                    <li class="bullet-item">the body prioritizes survival over pleasure.</li>
+                </ul>
+                <div class="text-content">
+                    So the experience may differ:
+                </div>
+                <ul class="bullet-list" style="margin-top: 0; margin-bottom: 0.75rem;">
+                    <li class="bullet-item">women may feel emotionally disconnected or less responsive,</li>
+                    <li class="bullet-item">men may feel less driven or physically interested,</li>
+                </ul>
+                <div class="text-content" style="margin-bottom: 0;">
+                    —but the root cause is the same: <span class="highlight-text">the hormonal conversation has been interrupted by stress.</span>
+                </div>
+            </div>
+
+            <div class="text-content">
+                <span class="highlight-text">Desire doesn't disappear. It goes quiet until conditions feel safe again.</span>
+            </div>
+        </div>
+
+        <!-- 🌿 Science Facts -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌿</span>
-                <h2>Science Facts — Why Rest Can Fail</h2>
+                <h2>Science Facts — Hormonal Alignment & Libido</h2>
             </div>
             
             <div class="science-fact">
-                <div class="fact-icon">💤</div>
+                <div class="fact-icon">🧠</div>
                 <div>
-                    <div class="fact-desc">
-                        Even thinking about work activates stress circuits (Brosschot et al., 2021, Nat Rev Neurosci).
-                    </div>
+                    <div class="fact-title">Balanced estrogen–testosterone ratios are more predictive</div>
+                    <div class="fact-desc">Of libido than absolute levels (Davis et al., 2005).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🔥</div>
+                <div>
+                    <div class="fact-title">Thyroid dysfunction (even subclinical)</div>
+                    <div class="fact-desc">Is associated with reduced desire and fatigue (Krassas et al., 2010).</div>
                 </div>
             </div>
 
             <div class="science-fact">
                 <div class="fact-icon">💓</div>
                 <div>
-                    <div class="fact-desc">
-                        Slow breathing with long exhalations increases vagal tone and HRV (Zaccaro et al., 2018, Front Hum Neurosci).
-                    </div>
+                    <div class="fact-title">Hormonal imbalance alters dopamine and nitric oxide signaling</div>
+                    <div class="fact-desc">Affecting arousal and motivation (Bancroft, 2005).</div>
                 </div>
             </div>
 
-            <div class="science-fact">
-                <div class="fact-icon">🧠</div>
+            <div class="science-fact" style="margin-bottom: 0;">
+                <div class="fact-icon">🧬</div>
                 <div>
-                    <div class="fact-desc">
-                        HRV biofeedback improves resilience and emotion regulation (Lehrer & Gevirtz, 2014, Front Psychol).
-                    </div>
-                </div>
-            </div>
-
-            <div class="science-fact">
-                <div class="fact-icon">💡</div>
-                <div>
-                    <div class="fact-desc">
-                        Bright evening light delays melatonin and shortens deep-sleep duration (Gooley et al., 2011, J Clin Endocrinol Metab).
-                    </div>
+                    <div class="fact-title">Stress hormones interfere with sex hormone receptor sensitivity</div>
+                    <div class="fact-desc">Even when levels appear "normal" (Chrousos, 2009).</div>
                 </div>
             </div>
         </div>
 
+        <!-- 🧬 What About Labs? -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧬</span>
                 <h2>What About Labs?</h2>
             </div>
             <div class="text-content">
-                Certain blood markers reflect how well your recovery system functions — and the % next to each shows how strongly this marker influences your ability to rest and restore balance.
+                When energy or desire feels off, labs often reveal imbalance patterns, not single abnormalities.
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                <span class="highlight-text">The % shows how strongly this marker can influence hormonal harmony and drive.</span>
             </div>
 
             <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">Magnesium (RBC)</div>
-                </div>
+                <div class="biomarker-name">Estradiol (context-dependent)</div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 60%;">60%</div>
+                    <div class="progress-fill" style="width: 60%;">💊 60 %</div>
                 </div>
                 <div class="biomarker-desc">
-                    Supports calm nerve signaling and smooth muscle relaxation. Low magnesium is linked with lower HRV and higher stress reactivity (Jahnen-Dechent & Ketteler, 2012, Clin Kidney J).
+                    Supports mood, sensitivity, and vascular responsiveness.
                 </div>
             </div>
 
             <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">hs-CRP</div>
-                </div>
+                <div class="biomarker-name">Testosterone (free/total)</div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 50%;">50%</div>
+                    <div class="progress-fill" style="width: 55%;">💪 55 %</div>
                 </div>
                 <div class="biomarker-desc">
-                    Indicates low-grade inflammation that keeps stress circuits active and interferes with restorative sleep (Ridker et al., 2018, Circulation Research).
+                    Drives motivation, confidence, and sexual interest.
                 </div>
             </div>
 
+            <div class="biomarker-card">
+                <div class="biomarker-name">TSH / Free T3 / Free T4</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 50%;">⚡ 50 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Set metabolic speed and baseline energy.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">SHBG</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">🧬 45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Regulates how much sex hormone is actually available to tissues.
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 15px; line-height: 1.5;">
+                    Interested in a Personalized Blood Test Plan with a detailed report?
+                </div>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">Continue</a>
+            </div>
         </div>
 
+        <!-- 💭 Reflection Prompt -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💭</span>
                 <h2>Reflection Prompt</h2>
             </div>
             <div class="reflection-box">
-                <div class="text-content" style="margin-bottom: 0.5rem;">
-                    When you "rest," does your body feel loose and light — or tight and guarded?
-                </div>
                 <div class="text-content" style="margin-bottom: 0;">
-                    Which cue — breath, light, movement, or quiet — helps you let go most easily?
+                    Do you feel like your energy and desire come and go without a clear pattern?<br><br>
+                    Have you ever been told your labs are "normal" — but your body didn't agree?
                 </div>
             </div>
         </div>
 
+        <!-- 🧠 What Actually Helps -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧠</span>
-                <h2>What About Vagus?</h2>
+                <h2>What Actually Helps</h2>
             </div>
             <div class="text-content">
-                Your vagus nerve is the body's built-in "off switch" for stress.
+                Hormonal harmony improves when the body feels: well-fueled, rested, safe from constant stress.
             </div>
             <div class="text-content">
-                When it activates, heart rate slows and heart rate variability (HRV) rises — a sign that your body can move flexibly between effort and recovery.
+                This doesn't mean manipulating hormones directly. It means removing interference so they can communicate properly again.
             </div>
             <div class="text-content">
-                <span class="highlight-text">Higher HRV means your system is balanced and resilient.</span>
-            </div>
-            <div class="text-content">
-                You can gently strengthen vagal tone through:
+                <span class="highlight-text">When alignment improves:</span>
             </div>
             <ul class="bullet-list">
-                <li class="bullet-item">Slow, paced breathing (especially longer exhalations).</li>
-                <li class="bullet-item">Quiet rhythmic movement like walking or stretching.</li>
-                <li class="bullet-item">Mindful awareness or HRV biofeedback (~6 breaths per minute).</li>
+                <li class="bullet-item">energy stabilizes,</li>
+                <li class="bullet-item">desire returns naturally,</li>
+                <li class="bullet-item">confidence increases,</li>
+                <li class="bullet-item">attraction feels effortless.</li>
             </ul>
-            <div class="text-content">
-                These simple cues improve HRV and lower stress hormones within minutes (Ma et al., 2017, Front Hum Neurosci; Lehrer & Gevirtz, 2014, Front Psychol).
-            </div>
         </div>
 
-        <div class="section" style="background: rgba(16,185,129,0.05);">
+        <!-- ✅ Plan to Action -->
+        <div class="section" style="background: linear-gradient(to bottom, rgba(184,118,88,0.03), rgba(184,118,88,0.08));">
             <div class="section-header">
                 <span class="section-icon">✅</span>
-                <h2>Easy 5-min Vagus Nerve Stimulation Technique</h2>
+                <h2>Plan to Action — Support Hormonal Harmony 🎶</h2>
             </div>
-            <div class="action-title">Vagus Face Unwind</div>
+            <div class="text-content" style="text-align: center; font-size: 15px; color: #656565; margin-bottom: 1.5rem;">
+                Today, do one thing that supports hormonal communication.
+            </div>
 
-            <div class="technique-card">
-                <div class="technique-header">
-                    <div class="technique-icon">🔥</div>
-                    <div>
-                        <div class="technique-title">Vagal Vibration Breath</div>
+            <div class="action-card">
+                <div class="action-card-icon">🎶</div>
+                <div class="action-card-title">Your one action</div>
+                <div class="text-content" style="margin-bottom: 1rem; text-align: center;">
+                    Choose one:
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
+                        <span style="font-size: 1.5rem;">🍳</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #172737;">Eat a balanced meal with protein, fat, and complex carbs,</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
+                        <span style="font-size: 1.5rem;">🌙</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #172737;">Go to bed 30 minutes earlier than usual,</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
+                        <span style="font-size: 1.5rem;">🚶</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #172737;">Move your body gently (walk, stretch) without intensity,</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
+                        <span style="font-size: 1.5rem;">😮‍💨</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #172737;">Take 5 minutes to slow down and breathe.</span>
                     </div>
                 </div>
-                <div class="technique-desc">
-                    Humming activates the vocal-cord branch of the vagus nerve and increases exhale-driven parasympathetic tone.
-                </div>
-                <div class="technique-proof">
-                    Proof: Porges et al., Frontiers in Psychology, 2017 — vocal resonance (humming, chanting) boosts vagal output and stabilises heart rhythm.
+                <div class="text-content" style="margin-top: 1.5rem; margin-bottom: 0; text-align: center; color: #656565;">
+                    <span class="highlight-text">No optimization. No biohacking.</span><br>
+                    Just support balance.
                 </div>
             </div>
 
-            <div class="technique-card">
-                <div class="technique-header">
-                    <div class="technique-icon">💆‍♂️</div>
-                    <div>
-                        <div class="technique-title">Ear-to-Clavicle Sweep</div>
-                    </div>
+            <div class="action-card" style="background: linear-gradient(135deg, rgba(184,118,88,0.08) 0%, rgba(184,118,88,0.12) 100%);">
+                <div class="action-card-icon">🧠</div>
+                <div class="action-card-title">Why This Works</div>
+                <div class="text-content">
+                    Hormones respond to rhythm, nourishment, and calm.
                 </div>
-                <div class="technique-desc">
-                    Gentle downward glides stimulate the auricular branch of the vagus and reduce neck-jaw tension — a common driver of sympathetic overactivation.
+                <div class="text-content">
+                    Small supportive signals help restore alignment across systems.
                 </div>
-                <div class="technique-proof">
-                    Proof: Jang et al., Autonomic Neuroscience, 2014 — light mechanostimulation around the ear and neck enhances vagal modulation and lowers stress markers.
+                <div class="text-content" style="margin-bottom: 0; text-align: center; font-weight: 600; color: #B87658;">
+                    You're not forcing hormones to change. You're letting them work together again. ✨
                 </div>
-            </div>
-
-            <div class="technique-card">
-                <div class="technique-header">
-                    <div class="technique-icon">↔️</div>
-                    <div>
-                        <div class="technique-title">Vagus Twist Flow</div>
-                    </div>
-                </div>
-                <div class="technique-desc">
-                    Slow thoracic rotations activate interoceptive pathways, relax the diaphragm, and improve blood flow to brain regions regulating attention, calm, and balance.
-                </div>
-                <div class="technique-proof">
-                    Proof: Rocha et al., Clinical Physiology & Functional Imaging, 2018 — rotational and diaphragmatic movement engages baroreceptors and increases vagal tone.
-                </div>
-            </div>
-
-            <div class="video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/1TSn4pEPQDU" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
             </div>
         </div>
 
+        <!-- ✨ What to Expect -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">✨</span>
                 <h2>What to Expect</h2>
             </div>
-
-            <div class="expectation-section">
-                <div class="expectation-item">
-                    <div class="expectation-emoji">⏱️</div>
-                    <div>
-                        <div class="expectation-time">In 30–60 seconds</div>
-                        <div class="expectation-desc">
-                            You may feel your face soften, your jaw release, and your breath deepen — the first signs that your stress response is letting go. Neck tension often melts faster than people expect.
-                        </div>
+            
+            <div class="timeline-box">
+                <div class="timeline-item">
+                    <div class="timeline-icon">⏱️</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER A FEW DAYS</div>
+                        <div class="timeline-text">Slightly steadier energy and mood.</div>
                     </div>
                 </div>
 
-                <div class="expectation-item">
-                    <div class="expectation-emoji">⏳</div>
-                    <div>
-                        <div class="expectation-time">After 2–3 days</div>
-                        <div class="expectation-desc">
-                            Mornings start to feel less "heavy." You may notice fewer micro-tensions in the neck and chest, and a smoother transition from sleep into wakefulness.
-                        </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">⏳</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER 1–2 WEEKS</div>
+                        <div class="timeline-text">Improved motivation and subtle return of desire.</div>
                     </div>
                 </div>
 
-                <div class="expectation-item">
-                    <div class="expectation-emoji">📆</div>
-                    <div>
-                        <div class="expectation-time">After 1–2 weeks</div>
-                        <div class="expectation-desc">
-                            Many users report steadier energy, reduced anxious tension, and a deeper sense of actual rest — not just "taking a break," but a real shift into recovery mode.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="best-moment-box">
-                <div class="best-moment-title">⭐ Best Moment to Do This</div>
-                <div class="moment-item">
-                    <span class="moment-check">✔</span>
-                    <div class="moment-text">
-                        <strong>When you feel tired but not relaxed</strong><br>
-                        If you rested but still feel wired or tense — these techniques help your system finally "exhale."
+                <div class="timeline-item">
+                    <div class="timeline-icon">📆</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">OVER TIME</div>
+                        <div class="timeline-text">A stronger sense of vitality and confidence.</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="section" style="background: rgba(16,185,129,0.05);">
-            <div class="section-header">
-                <span class="section-icon">✅</span>
-                <h2>Plan to Action — Digital Sunset</h2>
-            </div>
-
-            <div class="text-content">
-                Keep your morning light from Day 1 — this is your anchor.
-            </div>
-            <div class="text-content" style="font-weight: 600;">
-                Add one new habit today:
-            </div>
-
-            <div class="action-box">
-                <div class="step-item">
-                    <div class="step-number">💡</div>
-                    <div>
-                        <div class="fact-title">Digital Sunset</div>
-                        <div class="fact-desc">
-                            Turn off bright screens one hour before bed. Use warm light, quiet music, or a paper book instead.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step-item">
-                    <div class="step-number">😮‍💨</div>
-                    <div>
-                        <div class="fact-desc">
-                            Before lying down, practice 2 minutes of slow breathing (inhale 4 sec, exhale 6–8 sec) or a short shoulder stretch.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-content">
-                These simple cues lower HR, raise HRV, and signal your body it's safe to recover (Zaccaro et al., 2018; Lehrer & Gevirtz, 2014).
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🌙</span>
-                <h2>Evening Matters Too — Calming Cortisol Before Bed</h2>
-            </div>
-            <div class="text-content">
-                Avoid strong light and emotional stimulation after 9 p.m.; both delay melatonin and reduce next-day energy (Gooley et al., 2011).
-            </div>
-            <div class="text-content">
-                A quiet wind-down — reading, dim light, or slow breathing — lets cortisol fall naturally and prepares your body for deeper recovery.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🌞</span>
-                <h2>Why This Works</h2>
-            </div>
-            <div class="text-content">
-                When your vagus nerve is engaged, heart rate drops and HRV rises — clear signs that your body has shifted from vigilance to repair.
-            </div>
-            <div class="text-content">
-                Slow breathing, gentle movement, and light discipline give your nervous system permission to rest deeply.
-            </div>
-        </div>
-
+        <!-- Video -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🎬</span>
@@ -683,42 +550,52 @@
             </div>
             <div class="video-container">
                 <iframe 
-                    src="https://www.youtube.com/embed/Us8n8VBQn_c" 
+                    src="https://www.youtube.com/embed/5oxFK6poSXM" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                 </iframe>
             </div>
         </div>
 
-        <div class="section" style="background: rgba(184,118,88,0.05);">
+        <!-- ✨ Today You Learned -->
+        <div class="section">
             <div class="section-header">
                 <span class="section-icon">✨</span>
                 <h2>Today You Learned</h2>
             </div>
             <div class="summary-box">
                 <div class="summary-item">
-                    <span>😮‍💨</span>
-                    <span>Slow exhale breathing → activates recovery mode faster</span>
+                    <span>🎶</span>
+                    <span>Desire is hormonal harmony, not one number</span>
+                </div>
+                <div class="summary-item">
+                    <span>🧠</span>
+                    <span>Balance matters more than "normal ranges"</span>
+                </div>
+                <div class="summary-item">
+                    <span>🔥</span>
+                    <span>Thyroid sets the pace for energy and drive</span>
                 </div>
                 <div class="summary-item">
                     <span>🌿</span>
-                    <span>Vagus cues (humming, gentle glides, twists) → release hidden tension</span>
-                </div>
-                <div class="summary-item">
-                    <span>💡</span>
-                    <span>Less evening light → deeper, more restorative sleep</span>
-                </div>
-                <div class="summary-item">
-                    <span>📱</span>
-                    <span>Digital sunset → lowers stress circuits and protects melatonin</span>
+                    <span>Supporting the system restores alignment</span>
                 </div>
             </div>
         </div>
 
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 0; line-height: 1.5;">
+                ✨ Remember: Your body isn't lacking hormones. It's asking for harmony.
+            </div>
+        </div>
+
         <div class="footer">
-            <div class="text-content" style="font-size: 17px; font-weight: 700; color: #FFFFFF; margin-bottom: 0; text-align: center; line-height: 1.5;">
-                ✨ Remember: Rest isn't the absence of activity — it's the presence of safety.<br>
-                Give your body that signal, and real recovery begins.
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <div class="footer-cta-wrapper">
+                <a href="https://plan.aura.care/lt-2/" class="footer-email" target="_blank" rel="noopener noreferrer">Continue</a>
             </div>
         </div>
     
