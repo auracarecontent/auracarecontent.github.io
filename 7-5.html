@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day 5 — The Cortisol–Gut Connection: Stress in the Belly</title>
+    <title>Day 5 — Foods That Help And Hurt Migraines</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
@@ -20,14 +20,12 @@
         .highlight-text { font-weight: 600; color: #B87658; }
         .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
         .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
-        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
         .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
-        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
         .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
         .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
         .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
         .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
-        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
         .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
@@ -35,533 +33,545 @@
         .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
         .footer-cta-wrapper { text-align: center; }
         .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
-        .biomarker-card {
-            background: rgba(184,118,88,0.08);
-            padding: 18px;
-            border-radius: 16px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(0,0,0,0.04);
-            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
-        }
-        .biomarker-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-        .biomarker-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            line-height: 1.3;
-        }
-        .progress-bar {
-            background: #E6E6E6;
-            border-radius: 12px;
-            height: 28px;
-            overflow: hidden;
-            margin-bottom: 0.75rem;
-        }
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 12px;
-            color: white;
-            font-weight: 700;
-            font-size: 12px;
-            letter-spacing: 0.3px;
-            transition: width 1s ease-out;
-        }
-        .biomarker-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            margin-top: 0.75rem;
-            line-height: 1.4;
-        }
-        .cta-box {
-            background: rgba(184,118,88,0.05);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(184,118,88,0.15);
-            text-align: center;
-        }
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            font-weight: 700;
-            font-size: 18px;
-            padding: 16px 48px;
-            border-radius: 12px;
-            text-decoration: none;
-            margin-top: 1.5rem;
-            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(184,118,88,0.35);
-        }
         .summary-box {
             background: rgba(184,118,88,0.05);
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
         }
         .summary-item {
             display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
             margin-bottom: 0.75rem;
             font-size: 14px;
             font-weight: 500;
-            line-height: 1.4;
+            color: #172737;
         }
-        .summary-item:last-child { margin-bottom: 0; }
-        .summary-item span:first-child { font-size: 1.25rem; flex-shrink: 0; }
-        .timeline-box {
-            background: rgba(184,118,88,0.05);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(184,118,88,0.15);
+        .summary-item:last-child {
+            margin-bottom: 0;
         }
-        .timeline-item {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
-            align-items: flex-start;
+        .expectation-section {
+            background: white;
+            padding: 18px;
+            border-radius: 16px;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
         }
-        .timeline-item:last-child { margin-bottom: 0; }
-        .timeline-icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-            line-height: 1.2;
+        .expectation-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
         }
-        .timeline-content {
-            flex: 1;
+        .expectation-item {
+            margin-bottom: 1rem;
         }
-        .timeline-label {
-            font-size: 13px;
-            font-weight: 700;
+        .expectation-item:last-child {
+            margin-bottom: 0;
+        }
+        .expectation-time {
+            font-weight: 600;
+            font-size: 14px;
             color: #B87658;
             margin-bottom: 0.25rem;
-            letter-spacing: 0.3px;
         }
-        .timeline-text {
+        .expectation-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 1.4;
+        }
+        .food-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 2px solid rgba(184,118,88,0.15);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.06);
+        }
+        .food-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 1rem;
+        }
+        .food-item {
             font-size: 14px;
             font-weight: 500;
             color: #172737;
             line-height: 1.4;
+            margin-bottom: 0.5rem;
         }
-        .action-card {
-            background: white;
-            border: 2px solid rgba(184,118,88,0.15);
-            box-shadow: 0 4px 12px rgba(184,118,88,0.12);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin: 1.5rem 0;
-        }
-        .action-card-icon {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        .action-card-title {
-            font-size: 17px;
-            font-weight: 700;
+        .food-note {
+            background: rgba(184,118,88,0.05);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 13px;
+            font-weight: 600;
             color: #B87658;
+            line-height: 1.4;
+            text-align: center;
+        }
+        .warning-food-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 2px solid rgba(255,165,0,0.3);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.06);
+        }
+        .warning-food-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #FFA500;
             margin-bottom: 1rem;
+        }
+        .warning-food-note {
+            background: rgba(255,165,0,0.08);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 13px;
+            font-weight: 600;
+            color: #656565;
+            line-height: 1.4;
             text-align: center;
         }
     </style>
 </head>
 <body>
     <main class="screen">
-        <!-- Header -->
         <div class="header">
             <div class="day-label">DAY 5</div>
-            <h1>The Cortisol–Gut Connection: Stress in the Belly</h1>
+            <h1>Foods That Help And Hurt Migraines</h1>
         </div>
 
-        <!-- Intro Section -->
         <div class="section intro-section">
             <div class="section-header">
                 <span class="section-icon">🔥</span>
                 <h2>Daily Focus</h2>
             </div>
             <div class="text-content">
-                Stress doesn't only live in your mind — it often settles in your gut.
+                Food doesn't cause migraines by itself — but it can raise or lower your threshold.
             </div>
             <div class="text-content">
-                Today you'll learn how cortisol (your main stress hormone) directly affects digestion, absorption, and the microbiome — and why a stressed belly keeps the whole system tense.
+                Today you'll learn how certain foods calm the nervous system and blood vessels, while others quietly increase sensitivity and head pressure.
             </div>
         </div>
 
-        <!-- ☀️ Why It Matters -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">☀️</span>
                 <h2>Why It Matters</h2>
             </div>
             <div class="text-content">
-                Many people experience:
+                Many people fear food when migraines or dizziness appear:
             </div>
             <ul class="bullet-list">
-                <li class="bullet-item">digestive discomfort during stress,</li>
-                <li class="bullet-item">loss of appetite or constant snacking,</li>
-                <li class="bullet-item">bloating, heaviness, or tightness in the belly,</li>
-                <li class="bullet-item">feeling "on edge" even when nothing is wrong.</li>
+                <li class="bullet-item">"Was it cheese?"</li>
+                <li class="bullet-item">"Was it coffee?"</li>
+                <li class="bullet-item">"Should I stop eating everything?"</li>
             </ul>
-            <div class="text-content">
-                <span class="highlight-text">This isn't random.</span>
+            <div class="text-content" style="font-weight: 600; margin-top: 1rem;">
+                But migraines rarely react to one food.
             </div>
-            <div class="text-content">
-                Cortisol changes how your gut works:
+            <div class="text-content" style="font-weight: 600; color: #B87658;">
+                They react to patterns:
             </div>
-            <ul class="bullet-list">
-                <li class="bullet-item">slows digestion or speeds it up unpredictably,</li>
-                <li class="bullet-item">reduces nutrient absorption,</li>
-                <li class="bullet-item">alters microbiome balance,</li>
-                <li class="bullet-item">increases gut sensitivity.</li>
-            </ul>
-            <div class="text-content">
-                When stress becomes chronic, the gut never fully relaxes. And when the gut stays tense, the brain receives a constant signal:
-            </div>
-            <div class="text-content" style="font-style: italic; color: #656565;">
-                🩵 "Stay alert."
-            </div>
-            <div class="text-content">
-                <span class="highlight-text">This creates a loop: stress → gut tension → more stress.</span>
+
+            <div style="background: rgba(184,118,88,0.08); padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0;">
+                <ul class="bullet-list">
+                    <li class="bullet-item">blood sugar swings,</li>
+                    <li class="bullet-item">dehydration,</li>
+                    <li class="bullet-item">inflammatory load,</li>
+                    <li class="bullet-item">skipped meals followed by overload.</li>
+                </ul>
+                <div class="text-content" style="font-weight: 600; color: #B87658; text-align: center; margin-top: 1rem;">
+                    Food can either steady the system — or add another stressor to an already full bucket.
+                </div>
             </div>
         </div>
 
-        <!-- 🔥 How Cortisol and the Gut Reinforce Each Other -->
         <div class="section">
             <div class="section-header">
-                <span class="section-icon">🔥</span>
-                <h2>How Cortisol and the Gut Reinforce Each Other</h2>
+                <span class="section-icon">😴</span>
+                <h2>How Food Influences Head Symptoms</h2>
             </div>
             <div class="text-content">
-                Cortisol is designed for short bursts of action. But when it stays elevated or poorly timed:
-            </div>
-            <ul class="bullet-list">
-                <li class="bullet-item">digestion becomes irregular,</li>
-                <li class="bullet-item">the gut barrier weakens,</li>
-                <li class="bullet-item">inflammatory signals rise,</li>
-                <li class="bullet-item">the microbiome shifts toward stress-adapted species.</li>
-            </ul>
-            <div class="text-content">
-                At the same time, a stressed gut sends distress signals back to the brain via:
+                Your brain is extremely sensitive to:
             </div>
             <ul class="bullet-list">
-                <li class="bullet-item">the vagus nerve,</li>
-                <li class="bullet-item">immune pathways,</li>
-                <li class="bullet-item">metabolic stress signals.</li>
+                <li class="bullet-item">glucose stability (fuel),</li>
+                <li class="bullet-item">vascular tone (blood flow),</li>
+                <li class="bullet-item">inflammation,</li>
+                <li class="bullet-item">electrolyte balance.</li>
             </ul>
-            <div class="text-content">
-                This means: even if your mind wants to calm down, your body keeps pulling you back into alert mode.
+
+            <div style="background: rgba(255,165,0,0.08); padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(255,165,0,0.2);">
+                <div class="text-content" style="font-weight: 600;">
+                    When meals are irregular or overly stimulating:
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">blood vessels overreact,</li>
+                    <li class="bullet-item">nerves become more excitable,</li>
+                    <li class="bullet-item">head pressure and pain threshold drops.</li>
+                </ul>
             </div>
-            <div class="text-content">
-                <span class="highlight-text">The gut doesn't need motivation. It needs permission to slow down.</span>
+
+            <div style="background: rgba(16,185,129,0.08); padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(16,185,129,0.2);">
+                <div class="text-content" style="font-weight: 600;">
+                    When food is steady and supportive:
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">circulation smooths,</li>
+                    <li class="bullet-item">tension decreases,</li>
+                    <li class="bullet-item">symptoms become less frequent and less intense.</li>
+                </ul>
             </div>
         </div>
 
-        <!-- 🌿 Science Facts -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌿</span>
-                <h2>Science Facts — Cortisol, Gut & Stress</h2>
+                <h2>Science Facts — Nutrition & Migraines</h2>
             </div>
             
             <div class="science-fact">
-                <div class="fact-icon">🔥</div>
+                <div class="fact-icon">🍽️</div>
                 <div>
-                    <div class="fact-title">Chronic stress alters gut motility</div>
-                    <div class="fact-desc">And increases gut permeability (Mayer et al., 2015).</div>
+                    <div class="fact-title">Skipped meals and glucose dips are among the strongest migraine triggers</div>
+                    <div class="fact-desc">Friedman et al., 2014.</div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <div class="fact-icon">🧠</div>
+                <div class="fact-icon">🩸</div>
                 <div>
-                    <div class="fact-title">Cortisol directly affects the gut–brain axis</div>
-                    <div class="fact-desc">And emotional regulation (Tsigos & Chrousos, 2002).</div>
+                    <div class="fact-title">Certain foods influence vascular reactivity, affecting head pain</div>
+                    <div class="fact-desc">Goadsby et al., 2017.</div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <div class="fact-icon">🦠</div>
+                <div class="fact-icon">🌿</div>
                 <div>
-                    <div class="fact-title">Stress changes microbiome composition</div>
-                    <div class="fact-desc">Reducing beneficial bacteria (Bailey et al., 2011).</div>
+                    <div class="fact-title">Anti-inflammatory diets are associated with lower migraine frequency</div>
+                    <div class="fact-desc">Chai et al., 2014.</div>
                 </div>
             </div>
 
-            <div class="science-fact" style="margin-bottom: 0;">
-                <div class="fact-icon">🩵</div>
+            <div class="science-fact">
+                <div class="fact-icon">💧</div>
                 <div>
-                    <div class="fact-title">Vagal activity buffers cortisol effects</div>
-                    <div class="fact-desc">And supports digestive recovery (Thayer et al., 2012).</div>
+                    <div class="fact-title">Dehydration increases headache severity and dizziness</div>
+                    <div class="fact-desc">Popkin et al., 2010.</div>
                 </div>
             </div>
         </div>
 
-        <!-- 🧬 What About Labs? -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧬</span>
                 <h2>What About Labs?</h2>
             </div>
-            <div class="text-content">
-                When stress lives in the belly, labs often reflect how well your stress system recovers — not just how stressed you feel.
-            </div>
             <div class="text-content" style="margin-bottom: 1.5rem;">
-                <span class="highlight-text">The % shows how strongly this marker can influence gut–brain balance and stress signaling.</span>
+                Food sensitivity often reflects metabolic and micronutrient load, not intolerance.
             </div>
 
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">Cortisol (AM / PM pattern)</div>
+            <div style="background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(184,118,88,0.1);">
+                <div style="font-size: 18px; font-weight: 700; color: #172737; margin-bottom: 1rem;">
+                    Magnesium (RBC)
                 </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 60%;">⏰ 60 %</div>
+                <div style="background: #E8E8E8; height: 36px; border-radius: 18px; overflow: hidden; margin-bottom: 1rem; position: relative;">
+                    <div style="background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); height: 100%; width: 65%; display: flex; align-items: center; justify-content: flex-end; padding-right: 1rem;">
+                        <span style="color: white; font-weight: 700; font-size: 16px;">65%</span>
+                    </div>
                 </div>
-                <div class="biomarker-desc">
-                    Flattened or elevated cortisol rhythms disrupt digestion and prevent the gut from fully entering recovery mode.
-                </div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">DHEA-S</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 55%;">💪 55 %</div>
-                </div>
-                <div class="biomarker-desc">
-                    Reflects stress resilience. Low levels suggest reduced capacity to buffer cortisol's effects on the gut.
+                <div style="font-size: 14px; font-weight: 500; color: #656565; line-height: 1.4;">
+                    Supports nerve calm and vascular stability.
                 </div>
             </div>
 
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">hs-CRP</div>
+            <div style="background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(184,118,88,0.1);">
+                <div style="font-size: 18px; font-weight: 700; color: #172737; margin-bottom: 1rem;">
+                    Fasting Glucose / Insulin
                 </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 45%;">🔥 45 %</div>
+                <div style="background: #E8E8E8; height: 36px; border-radius: 18px; overflow: hidden; margin-bottom: 1rem; position: relative;">
+                    <div style="background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); height: 100%; width: 60%; display: flex; align-items: center; justify-content: flex-end; padding-right: 1rem;">
+                        <span style="color: white; font-weight: 700; font-size: 16px;">60%</span>
+                    </div>
                 </div>
-                <div class="biomarker-desc">
-                    Inflammation amplifies stress signaling and gut sensitivity.
-                </div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">Magnesium (RBC)</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 40%;">⚡ 40 %</div>
-                </div>
-                <div class="biomarker-desc">
-                    Supports stress recovery, smooth muscle relaxation, and vagal tone in the digestive system.
+                <div style="font-size: 14px; font-weight: 500; color: #656565; line-height: 1.4;">
+                    Instability increases migraine susceptibility.
                 </div>
             </div>
 
-            <div class="cta-box">
-                <div class="text-content" style="margin-bottom: 0; font-size: 15px; line-height: 1.5;">
+            <div style="background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(184,118,88,0.1);">
+                <div style="font-size: 18px; font-weight: 700; color: #172737; margin-bottom: 1rem;">
+                    hs-CRP
+                </div>
+                <div style="background: #E8E8E8; height: 36px; border-radius: 18px; overflow: hidden; margin-bottom: 1rem; position: relative;">
+                    <div style="background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); height: 100%; width: 50%; display: flex; align-items: center; justify-content: flex-end; padding-right: 1rem;">
+                        <span style="color: white; font-weight: 700; font-size: 16px;">50%</span>
+                    </div>
+                </div>
+                <div style="font-size: 14px; font-weight: 500; color: #656565; line-height: 1.4;">
+                    Inflammation heightens pain sensitivity.
+                </div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(184,118,88,0.1);">
+                <div style="font-size: 18px; font-weight: 700; color: #172737; margin-bottom: 1rem;">
+                    Sodium / Potassium
+                </div>
+                <div style="background: #E8E8E8; height: 36px; border-radius: 18px; overflow: hidden; margin-bottom: 1rem; position: relative;">
+                    <div style="background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); height: 100%; width: 45%; display: flex; align-items: center; justify-content: flex-end; padding-right: 1rem;">
+                        <span style="color: white; font-weight: 700; font-size: 16px;">45%</span>
+                    </div>
+                </div>
+                <div style="font-size: 14px; font-weight: 500; color: #656565; line-height: 1.4;">
+                    Electrolyte imbalance worsens dizziness and headaches.
+                </div>
+            </div>
+
+            <div style="font-size: 13px; color: #656565; font-style: italic; text-align: center; margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                The % shows how strongly this marker can influence migraine frequency and severity.
+            </div>
+
+            <div style="background: rgba(184,118,88,0.05); padding: 2rem 1.5rem; border-radius: 16px; margin-top: 2rem; text-align: center; border: 1px solid rgba(184,118,88,0.1);">
+                <div style="font-size: 18px; font-weight: 600; color: #172737; margin-bottom: 1.5rem; line-height: 1.4;">
                     Interested in a Personalized Blood Test Plan with a detailed report?
                 </div>
-                <a href="https://plan.aura.care/lt-2/" class="cta-button">Continue</a>
+                <a href="https://plan.aura.care/lt-2/" style="display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; font-weight: 700; font-size: 18px; padding: 16px 64px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 12px rgba(184,118,88,0.3); transition: transform 0.2s, box-shadow 0.2s;">
+                    Continue
+                </a>
             </div>
         </div>
 
-        <!-- 💭 Reflection Prompt -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💭</span>
                 <h2>Reflection Prompt</h2>
             </div>
             <div class="reflection-box">
-                <div class="text-content" style="margin-bottom: 0;">
-                    When you feel stressed, what happens first — your thoughts or your stomach?<br><br>
-                    Do you notice digestion changing during emotional pressure?
+                <div class="text-content">
+                    Do your symptoms worsen when you skip meals or eat late?
+                </div>
+                <div class="text-content">
+                    Do you feel better after simple, nourishing food — even without painkillers?
                 </div>
             </div>
         </div>
 
-        <!-- 🧠 What Actually Helps -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧠</span>
-                <h2>What Actually Helps</h2>
+                <h2>Foods That Usually Help 🩵</h2>
             </div>
-            <div class="text-content">
-                Calming cortisol isn't about forcing relaxation. It's about creating moments where the body feels safe enough to digest.
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                These foods tend to lower nervous system excitability:
             </div>
-            <div class="text-content">
-                The gut responds best to:
-            </div>
-            <ul class="bullet-list">
-                <li class="bullet-item">warmth,</li>
-                <li class="bullet-item">predictability,</li>
-                <li class="bullet-item">slower transitions,</li>
-                <li class="bullet-item">gentle pauses around meals.</li>
-            </ul>
-            <div class="text-content">
-                <span class="highlight-text">When the belly softens, the stress response loses its grip.</span>
+
+            <div class="food-section">
+                <div class="food-item">🥑 <strong>Magnesium-rich:</strong> avocado, leafy greens, pumpkin seeds</div>
+                <div class="food-item">🐟 <strong>Omega-3s:</strong> salmon, sardines, mackerel</div>
+                <div class="food-item">🍚 <strong>Gentle carbs:</strong> rice, oats, potatoes</div>
+                <div class="food-item">🥚 <strong>Protein anchors:</strong> eggs, chicken, lentils</div>
+                <div class="food-item">💧 <strong>Fluids:</strong> water, mineral water, broths</div>
+                <div class="food-note">Simple food = calmer signals.</div>
             </div>
         </div>
 
-        <!-- ✅ Plan to Action -->
-        <div class="section" style="background: linear-gradient(to bottom, rgba(184,118,88,0.03), rgba(184,118,88,0.08));">
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Foods That Often Worsen Symptoms ⚠️</h2>
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                Not forbidden — just watch how your body responds:
+            </div>
+
+            <div class="warning-food-section">
+                <div class="food-item">🍷 Alcohol (especially wine)</div>
+                <div class="food-item">🧀 Aged cheeses</div>
+                <div class="food-item">🍫 Chocolate in large amounts</div>
+                <div class="food-item">☕ Excess caffeine or caffeine withdrawal</div>
+                <div class="food-item">🍔 Ultra-processed foods</div>
+                <div class="warning-food-note">Context matters more than the food itself.</div>
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
             <div class="section-header">
                 <span class="section-icon">✅</span>
-                <h2>Plan to Action — De-Stress the Belly 🌿</h2>
+                <h2>Plan to Action — Reduce Food Stress 🧠🍽️</h2>
             </div>
-            <div class="text-content" style="text-align: center; font-size: 15px; color: #656565; margin-bottom: 1.5rem;">
-                Today, add one calming signal around digestion.
+            <div class="text-content" style="font-weight: 600; margin-bottom: 1rem; text-align: center;">
+                Today, the goal is not to change your diet —
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem; text-align: center;">
+                it's to make food less stressful for your nervous system.
             </div>
 
-            <div class="action-card">
-                <div class="action-card-icon">🌿</div>
-                <div class="action-card-title">Your one action</div>
-                <div class="text-content" style="margin-bottom: 1rem; text-align: center;">
+            <div style="background: linear-gradient(135deg, rgba(184,118,88,0.08) 0%, rgba(184,118,88,0.04) 100%); padding: 2rem 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(184,118,88,0.15);">
+                <div style="text-align: center; font-size: 2rem; margin-bottom: 1rem;">🎯</div>
+                <div style="font-size: 16px; font-weight: 700; color: #B87658; margin-bottom: 1rem; text-align: center;">
+                    Your one action
+                </div>
+                <div class="text-content" style="text-align: center; font-size: 15px;">
                     Choose one:
                 </div>
-                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
-                        <span style="font-size: 1.5rem;">🍲</span>
-                        <span style="font-size: 14px; font-weight: 600; color: #172737;">eat one meal warm and unhurried,</span>
+            </div>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(23,39,55,0.08);">
+                <div style="display: grid; gap: 1rem;">
+                    <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 14px; background: rgba(184,118,88,0.05); border-radius: 12px; border: 1px solid rgba(184,118,88,0.1);">
+                        <span style="font-size: 1.75rem; flex-shrink: 0;">🍽️</span>
+                        <div>
+                            <div style="font-size: 15px; font-weight: 700; color: #B87658; margin-bottom: 0.5rem;">Gentle Meal Rule</div>
+                            <div style="font-size: 14px; font-weight: 500; color: #656565;">Eat one meal today without rushing, screens, or multitasking.</div>
+                        </div>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
-                        <span style="font-size: 1.5rem;">🪑</span>
-                        <span style="font-size: 14px; font-weight: 600; color: #172737;">sit down for meals (no eating on the go),</span>
+                    
+                    <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 14px; background: rgba(184,118,88,0.05); border-radius: 12px; border: 1px solid rgba(184,118,88,0.1);">
+                        <span style="font-size: 1.75rem; flex-shrink: 0;">💧</span>
+                        <div>
+                            <div style="font-size: 15px; font-weight: 700; color: #B87658; margin-bottom: 0.5rem;">Hydration Anchor</div>
+                            <div style="font-size: 14px; font-weight: 500; color: #656565;">Add one extra glass of water between meals (not during).</div>
+                        </div>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
-                        <span style="font-size: 1.5rem;">🫶</span>
-                        <span style="font-size: 14px; font-weight: 600; color: #172737;">place a warm compress or your hand on your belly for 2 minutes,</span>
+                    
+                    <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 14px; background: rgba(184,118,88,0.05); border-radius: 12px; border: 1px solid rgba(184,118,88,0.1);">
+                        <span style="font-size: 1.75rem; flex-shrink: 0;">🕰️</span>
+                        <div>
+                            <div style="font-size: 15px; font-weight: 700; color: #B87658; margin-bottom: 0.5rem;">No Long Gaps</div>
+                            <div style="font-size: 14px; font-weight: 500; color: #656565;">Avoid going longer than 4–5 hours without eating today.</div>
+                        </div>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
-                        <span style="font-size: 1.5rem;">😮‍💨</span>
-                        <span style="font-size: 14px; font-weight: 600; color: #172737;">take 3 slow breaths before and after one meal.</span>
+                    
+                    <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 14px; background: rgba(184,118,88,0.05); border-radius: 12px; border: 1px solid rgba(184,118,88,0.1);">
+                        <span style="font-size: 1.75rem; flex-shrink: 0;">🥗</span>
+                        <div>
+                            <div style="font-size: 15px; font-weight: 700; color: #B87658; margin-bottom: 0.5rem;">Simple Plate</div>
+                            <div style="font-size: 14px; font-weight: 500; color: #656565;">For one meal, choose fewer ingredients and familiar foods.</div>
+                        </div>
                     </div>
-                </div>
-                <div class="text-content" style="margin-top: 1.5rem; margin-bottom: 0; text-align: center; color: #656565;">
-                    <span class="highlight-text">No techniques. No fixing stress.</span><br>
-                    Just tell your gut: "You're safe to digest."
                 </div>
             </div>
 
-            <div class="action-card" style="background: linear-gradient(135deg, rgba(184,118,88,0.08) 0%, rgba(184,118,88,0.12) 100%);">
-                <div class="action-card-icon">🧠</div>
-                <div class="action-card-title">Why This Works</div>
-                <div class="text-content">
-                    Lowering digestive stress reduces cortisol feedback to the brain.
+            <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08);">
+                <div class="text-content" style="text-align: center; font-size: 14px; color: #656565;">
+                    Pick one only. No restrictions. No "good" or "bad" foods.
                 </div>
-                <div class="text-content">
-                    A calmer gut sends fewer alarm signals upward.
+            </div>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-top: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08);">
+                <div style="font-size: 16px; font-weight: 700; color: #172737; margin-bottom: 1rem; text-align: center;">
+                    🧠 Why This Works
                 </div>
-                <div class="text-content" style="margin-bottom: 0; text-align: center; font-weight: 600; color: #B87658;">
-                    You're not calming stress directly — you're calming where stress often lives. 🌿
+                <div class="text-content" style="text-align: center;">
+                    Migraines and head pressure worsen when:
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">blood sugar swings,</li>
+                    <li class="bullet-item">digestion is rushed,</li>
+                    <li class="bullet-item">the nervous system stays in alert mode.</li>
+                </ul>
+                <div class="text-content" style="font-weight: 600; margin-top: 1rem; text-align: center;">
+                    These small changes:
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">stabilize brain fuel,</li>
+                    <li class="bullet-item">reduce vascular reactivity,</li>
+                    <li class="bullet-item">calm sensory sensitivity.</li>
+                </ul>
+                <div class="text-content" style="font-weight: 600; color: #B87658; text-align: center; margin-top: 1rem;">
+                    No elimination needed. Just less friction.
+                </div>
+            </div>
+
+            <div class="expectation-section">
+                <div class="expectation-title">✨ What to Expect</div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">⏱️ After today</div>
+                    <div class="expectation-desc">Less background head pressure or fog.</div>
+                </div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">⏳ After 3–5 days</div>
+                    <div class="expectation-desc">Fewer food-related flare-ups.</div>
+                </div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">📆 After 1–2 weeks</div>
+                    <div class="expectation-desc">More confidence around eating and fewer migraine surprises.</div>
                 </div>
             </div>
         </div>
 
-        <!-- ✨ What to Expect -->
         <div class="section">
             <div class="section-header">
-                <span class="section-icon">✨</span>
-                <h2>What to Expect</h2>
-            </div>
-            
-            <div class="timeline-box">
-                <div class="timeline-item">
-                    <div class="timeline-icon">⏱️</div>
-                    <div class="timeline-content">
-                        <div class="timeline-label">AFTER 1–2 DAYS</div>
-                        <div class="timeline-text">Less digestive tightness during stress.</div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-icon">⏳</div>
-                    <div class="timeline-content">
-                        <div class="timeline-label">AFTER A FEW DAYS</div>
-                        <div class="timeline-text">Improved meal tolerance and calmer evenings.</div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-icon">📆</div>
-                    <div class="timeline-content">
-                        <div class="timeline-label">AFTER 1–2 WEEKS</div>
-                        <div class="timeline-text">More resilience to stress and steadier mood.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Video -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🎬</span>
+                <span class="section-icon">🎥</span>
                 <h2>Video of the Day</h2>
             </div>
+            
             <div class="video-container">
                 <iframe 
-                    src="https://www.youtube.com/embed/1mTzY9qUkIs" 
+                    src="https://www.youtube.com/embed/1PkshTBkWZ8" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                 </iframe>
             </div>
         </div>
 
-        <!-- ✨ Today You Learned -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">✨</span>
                 <h2>Today You Learned</h2>
             </div>
+            
             <div class="summary-box">
                 <div class="summary-item">
-                    <span>🔥</span>
-                    <span>Stress often settles in the gut</span>
+                    <span>🍽️</span>
+                    <span>Food shapes migraine threshold, not just symptoms</span>
                 </div>
                 <div class="summary-item">
-                    <span>🦠</span>
-                    <span>Cortisol reshapes digestion and the microbiome</span>
+                    <span>💧</span>
+                    <span>Hydration and timing matter more than restriction</span>
+                </div>
+                <div class="summary-item">
+                    <span>🧠</span>
+                    <span>Simple meals calm the nervous system</span>
                 </div>
                 <div class="summary-item">
                     <span>🩵</span>
-                    <span>A calmer belly reduces overall stress load</span>
-                </div>
-                <div class="summary-item">
-                    <span>🌿</span>
-                    <span>Supporting digestion helps calm the stress loop</span>
+                    <span>Stability beats elimination</span>
                 </div>
             </div>
-        </div>
 
-        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
-            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 0; line-height: 1.5;">
-                ✨ Remember: You can't think your way out of stress if your gut is still holding it.
+            <div class="text-content" style="text-align: center; font-weight: 600; margin-top: 1.5rem; font-size: 15px;">
+                ✨ Remember:
+            </div>
+            <div class="text-content" style="text-align: center;">
+                Your brain prefers steady fuel — not perfect food.
             </div>
         </div>
 
         <div class="footer">
             <h2>📩 Get Your Personalized Lab Panel</h2>
             <div class="footer-text">
-                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click below.
             </div>
             <div class="footer-cta-wrapper">
-                <a href="https://plan.aura.care/lt-2/" class="footer-email" target="_blank" rel="noopener noreferrer">Continue</a>
+                <a href="https://plan.aura.care/lt-2/" class="footer-email">Continue</a>
             </div>
         </div>
-    
     </main>
 </body>
 </html>

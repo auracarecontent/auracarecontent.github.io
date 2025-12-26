@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day 2 — The Second Brain: Nerves in Your Gut</title>
+    <title>Day 2 — Hidden Triggers of Migraines & Vertigo</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
@@ -20,14 +20,12 @@
         .highlight-text { font-weight: 600; color: #B87658; }
         .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
         .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
-        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
         .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
-        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
         .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
         .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
         .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
         .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
-        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
         .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
@@ -35,524 +33,535 @@
         .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
         .footer-cta-wrapper { text-align: center; }
         .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
-        .biomarker-card {
-            background: rgba(184,118,88,0.08);
-            padding: 18px;
-            border-radius: 16px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(0,0,0,0.04);
-            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
-        }
-        .biomarker-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-        .biomarker-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            line-height: 1.3;
-        }
-        .progress-bar {
-            background: #E6E6E6;
-            border-radius: 12px;
-            height: 28px;
-            overflow: hidden;
-            margin-bottom: 0.75rem;
-        }
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 12px;
-            color: white;
-            font-weight: 700;
-            font-size: 12px;
-            letter-spacing: 0.3px;
-            transition: width 1s ease-out;
-        }
-        .biomarker-desc {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            margin-top: 0.75rem;
-            line-height: 1.4;
-        }
-        .cta-box {
-            background: rgba(184,118,88,0.05);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(184,118,88,0.15);
-            text-align: center;
-        }
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            font-weight: 700;
-            font-size: 18px;
-            padding: 16px 48px;
-            border-radius: 12px;
-            text-decoration: none;
-            margin-top: 1.5rem;
-            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(184,118,88,0.35);
-        }
         .summary-box {
             background: rgba(184,118,88,0.05);
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
         }
         .summary-item {
             display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
             margin-bottom: 0.75rem;
             font-size: 14px;
             font-weight: 500;
-            line-height: 1.4;
+            color: #172737;
         }
-        .summary-item:last-child { margin-bottom: 0; }
-        .summary-item span:first-child { font-size: 1.25rem; flex-shrink: 0; }
-        .timeline-box {
-            background: rgba(184,118,88,0.05);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(184,118,88,0.15);
+        .summary-item:last-child {
+            margin-bottom: 0;
         }
-        .timeline-item {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
-            align-items: flex-start;
+        .expectation-section {
+            background: white;
+            padding: 18px;
+            border-radius: 16px;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
         }
-        .timeline-item:last-child { margin-bottom: 0; }
-        .timeline-icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-            line-height: 1.2;
+        .expectation-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
         }
-        .timeline-content {
-            flex: 1;
+        .expectation-item {
+            margin-bottom: 1rem;
         }
-        .timeline-label {
-            font-size: 13px;
-            font-weight: 700;
+        .expectation-item:last-child {
+            margin-bottom: 0;
+        }
+        .expectation-time {
+            font-weight: 600;
+            font-size: 14px;
             color: #B87658;
             margin-bottom: 0.25rem;
-            letter-spacing: 0.3px;
         }
-        .timeline-text {
-            font-size: 14px;
+        .expectation-desc {
+            font-size: 13px;
             font-weight: 500;
-            color: #172737;
+            color: #656565;
             line-height: 1.4;
         }
-        .action-card {
+        .trigger-card {
             background: white;
-            border: 2px solid rgba(184,118,88,0.15);
-            box-shadow: 0 4px 12px rgba(184,118,88,0.12);
-            padding: 1.5rem;
+            padding: 1.25rem;
             border-radius: 12px;
-            margin: 1.5rem 0;
-        }
-        .action-card-icon {
-            text-align: center;
-            font-size: 3rem;
             margin-bottom: 1rem;
+            border: 1px solid rgba(184,118,88,0.15);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.06);
         }
-        .action-card-title {
-            font-size: 17px;
+        .trigger-title {
+            font-size: 15px;
             font-weight: 700;
             color: #B87658;
-            margin-bottom: 1rem;
-            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        .trigger-desc {
+            font-size: 14px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 1.4;
         }
     </style>
 </head>
 <body>
     <main class="screen">
-        <!-- Header -->
         <div class="header">
             <div class="day-label">DAY 2</div>
-            <h1>The Second Brain: Nerves in Your Gut</h1>
+            <h1>Hidden Triggers of Migraines & Vertigo</h1>
         </div>
 
-        <!-- Intro Section -->
         <div class="section intro-section">
             <div class="section-header">
                 <span class="section-icon">🔥</span>
                 <h2>Daily Focus</h2>
             </div>
             <div class="text-content">
-                Your gut has its own nervous system — often called the second brain.
+                Migraines and dizziness are rarely random.
             </div>
             <div class="text-content">
-                Today you'll learn how the nerves in your gut sense stress, safety, and overload — and why digestive tension often shows up as anxiety, fatigue, or emotional fog.
+                They are usually the result of accumulated load on the nervous system.
+            </div>
+            <div class="text-content">
+                Today you'll uncover why symptoms often appear hours or even days after the real trigger — and why looking for one single cause usually leads you in the wrong direction.
             </div>
         </div>
 
-        <!-- ☀️ Why It Matters -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">☀️</span>
                 <h2>Why It Matters</h2>
             </div>
             <div class="text-content">
-                Many people feel anxiety or exhaustion without a clear reason. Their thoughts may seem calm — but their body isn't.
-            </div>
-            <div class="text-content">
-                <span class="highlight-text">That's because stress doesn't only live in the mind. It also lives in the gut.</span>
-            </div>
-            <div class="text-content">
-                Your digestive system contains a vast network of nerves that constantly scan:
+                When symptoms strike, most people search for one clear culprit:
             </div>
             <ul class="bullet-list">
-                <li class="bullet-item">tension vs. relaxation,</li>
-                <li class="bullet-item">threat vs. safety,</li>
-                <li class="bullet-item">overload vs. recovery.</li>
+                <li class="bullet-item">a specific food,</li>
+                <li class="bullet-item">weather changes,</li>
+                <li class="bullet-item">screen time,</li>
+                <li class="bullet-item">hormones.</li>
             </ul>
-            <div class="text-content">
-                When gut nerves stay activated, the brain receives a subtle message:
+            <div class="text-content" style="font-weight: 600;">
+                But migraines and vertigo don't work like a switch.
             </div>
-            <div class="text-content" style="font-style: italic; color: #656565;">
-                🩵 "Something isn't right. Stay alert."
+            <div class="text-content" style="font-weight: 600; color: #B87658;">
+                They work like a threshold system.
             </div>
-            <div class="text-content">
-                Over time, this can feel like:
+
+            <div style="background: rgba(184,118,88,0.08); padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0;">
+                <div class="text-content" style="font-weight: 600; text-align: center; margin-bottom: 1rem;">
+                    Think of your nervous system as a bucket. 🪣
+                </div>
+                <div class="text-content" style="text-align: center;">
+                    Each small stressor adds a little more inside:
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">muscle tension,</li>
+                    <li class="bullet-item">sensory input,</li>
+                    <li class="bullet-item">metabolic strain,</li>
+                    <li class="bullet-item">emotional load.</li>
+                </ul>
+                <div class="text-content" style="font-weight: 600; color: #B87658; text-align: center; margin-top: 1rem;">
+                    None of these cause symptoms alone.
+                </div>
+                <div class="text-content" style="text-align: center;">
+                    But once the bucket is full, even a small input can trigger a reaction.
+                </div>
+            </div>
+
+            <div class="text-content" style="font-weight: 600; margin-top: 1rem;">
+                That's why symptoms often seem:
             </div>
             <ul class="bullet-list">
-                <li class="bullet-item">background anxiety,</li>
-                <li class="bullet-item">low resilience to stress,</li>
-                <li class="bullet-item">mental fatigue,</li>
-                <li class="bullet-item">emotional sensitivity.</li>
+                <li class="bullet-item">delayed,</li>
+                <li class="bullet-item">unpredictable,</li>
+                <li class="bullet-item">unrelated to what just happened.</li>
             </ul>
-            <div class="text-content">
-                <span class="highlight-text">Understanding the gut's nervous system helps you calm stress from the bottom up, not just through thoughts.</span>
+
+            <div class="text-content" style="font-weight: 600; margin-top: 1rem;">
+                Understanding this shifts the focus:
+            </div>
+            <div style="background: rgba(16,185,129,0.08); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                <div class="text-content" style="text-align: center;">
+                    👉 from blaming the last thing you ate
+                </div>
+                <div class="text-content" style="text-align: center; font-weight: 600; color: #10B981;">
+                    👉 to protecting your system earlier in the day.
+                </div>
             </div>
         </div>
 
-        <!-- 🧠 What Is the "Second Brain"? -->
         <div class="section">
             <div class="section-header">
-                <span class="section-icon">🧠</span>
-                <h2>What Is the "Second Brain"?</h2>
+                <span class="section-icon">😴</span>
+                <h2>The Most Common Hidden Triggers (Often Overlooked)</h2>
             </div>
-            <div class="text-content">
-                Your gut contains the <span class="highlight-text">enteric nervous system (ENS)</span> — a complex network of neurons embedded in the digestive tract.
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                These triggers rarely feel dramatic — which is exactly why they're missed:
             </div>
-            <div class="text-content">
-                The ENS:
+
+            <div class="trigger-card">
+                <div class="trigger-title">🍽️ Irregular meals</div>
+                <div class="trigger-desc">
+                    Blood sugar dips increase brain excitability and make dizziness more likely.
+                </div>
             </div>
-            <ul class="bullet-list">
-                <li class="bullet-item">works independently from the brain,</li>
-                <li class="bullet-item">controls digestion, motility, and secretion,</li>
-                <li class="bullet-item">constantly communicates with the brain via the vagus nerve.</li>
-            </ul>
-            <div class="text-content">
-                When the ENS feels irritated or overwhelmed — by stress, rushed eating, inflammation, or irregular patterns — it sends distress signals upward.
+
+            <div class="trigger-card">
+                <div class="trigger-title">💧 Mild dehydration</div>
+                <div class="trigger-desc">
+                    Even small fluid deficits reduce circulation efficiency and worsen head pressure.
+                </div>
             </div>
-            <div class="text-content">
-                The brain often interprets these signals as:
+
+            <div class="trigger-card">
+                <div class="trigger-title">💆‍♀️ Neck & jaw tension</div>
+                <div class="trigger-desc">
+                    Constant low-level contraction distorts sensory input to the brain.
+                </div>
             </div>
-            <ul class="bullet-list">
-                <li class="bullet-item">anxiety,</li>
-                <li class="bullet-item">restlessness,</li>
-                <li class="bullet-item">unease,</li>
-                <li class="bullet-item">fatigue without clarity.</li>
-            </ul>
-            <div class="text-content">
-                <span class="highlight-text">The mind isn't creating the stress. It's responding to it.</span>
+
+            <div class="trigger-card">
+                <div class="trigger-title">📱 Sensory overload</div>
+                <div class="trigger-desc">
+                    Bright lights, noise, screens, and multitasking keep the brain in alert mode.
+                </div>
+            </div>
+
+            <div class="trigger-card">
+                <div class="trigger-title">😶 Emotional holding</div>
+                <div class="trigger-desc">
+                    Suppressing stress or emotions keeps the nervous system "on guard."
+                </div>
+            </div>
+
+            <div class="trigger-card">
+                <div class="trigger-title">😴 Sleep inconsistency</div>
+                <div class="trigger-desc">
+                    Even small shifts in sleep timing lower migraine and vertigo tolerance.
+                </div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.08); padding: 1rem; border-radius: 8px; margin-top: 1.5rem;">
+                <div class="text-content" style="text-align: center;">
+                    Each factor adds a small amount of load.
+                </div>
+                <div class="text-content" style="font-weight: 600; color: #B87658; text-align: center;">
+                    Together, they lower your system's threshold.
+                </div>
             </div>
         </div>
 
-        <!-- 🌿 Science Facts -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🌿</span>
-                <h2>Science Facts — The Enteric Nervous System</h2>
+                <h2>Science Facts — Why Triggers Accumulate</h2>
             </div>
             
             <div class="science-fact">
                 <div class="fact-icon">🧠</div>
                 <div>
-                    <div class="fact-title">The ENS contains hundreds of millions of neurons</div>
-                    <div class="fact-desc">Can operate independently of the central nervous system (Furness, 2012).</div>
+                    <div class="fact-title">Migraine is associated with increased brain excitability</div>
+                    <div class="fact-desc">Goadsby et al., 2017 — reduced sensory filtering.</div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <div class="fact-icon">🩵</div>
+                <div class="fact-icon">🍽️</div>
                 <div>
-                    <div class="fact-title">Gut–brain communication via the vagus nerve</div>
-                    <div class="fact-desc">Plays a key role in emotional regulation and stress response (Bonaz et al., 2018).</div>
+                    <div class="fact-title">Blood glucose fluctuations raise migraine frequency</div>
+                    <div class="fact-desc">Friedman et al., 2014 — and dizziness risk.</div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <div class="fact-icon">🔥</div>
+                <div class="fact-icon">💧</div>
                 <div>
-                    <div class="fact-title">Stress alters gut motility and sensitivity</div>
-                    <div class="fact-desc">Amplifying gut-derived anxiety signals (Mayer et al., 2015).</div>
+                    <div class="fact-title">Even mild dehydration increases headache intensity</div>
+                    <div class="fact-desc">Popkin et al., 2010 — and cognitive fog.</div>
                 </div>
             </div>
 
-            <div class="science-fact" style="margin-bottom: 0;">
-                <div class="fact-icon">😮‍💨</div>
+            <div class="science-fact">
+                <div class="fact-icon">🦷</div>
                 <div>
-                    <div class="fact-title">Calming gut activity reduces overall nervous system arousal</div>
-                    <div class="fact-desc">Improves emotional stability (Cryan & Dinan, 2012).</div>
+                    <div class="fact-title">Jaw and neck muscle tension alters sensory processing</div>
+                    <div class="fact-desc">Fernández-de-Las-Peñas, 2015 — strongly linked to migraine and vertigo.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">😴</div>
+                <div>
+                    <div class="fact-title">Irregular sleep timing increases migraine risk</div>
+                    <div class="fact-desc">Kelman & Rains, 2005 — more than short sleep alone.</div>
                 </div>
             </div>
         </div>
 
-        <!-- 🧬 What About Labs? -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧬</span>
                 <h2>What About Labs?</h2>
             </div>
-            <div class="text-content">
-                When gut nerves stay activated, labs often reflect heightened nervous system sensitivity and reduced stress resilience.
-            </div>
             <div class="text-content" style="margin-bottom: 1.5rem;">
-                <span class="highlight-text">The % shows how strongly this marker can influence gut–brain balance and stress signaling.</span>
+                Certain lab markers reflect how sensitive your system is to trigger accumulation.
             </div>
 
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">Magnesium (RBC)</div>
+            <div style="background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(184,118,88,0.1);">
+                <div style="font-size: 18px; font-weight: 700; color: #172737; margin-bottom: 1rem;">
+                    Magnesium (RBC)
                 </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 60%;">⚡ 60 %</div>
+                <div style="background: #E8E8E8; height: 36px; border-radius: 18px; overflow: hidden; margin-bottom: 1rem; position: relative;">
+                    <div style="background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); height: 100%; width: 65%; display: flex; align-items: center; justify-content: flex-end; padding-right: 1rem;">
+                        <span style="color: white; font-weight: 700; font-size: 16px;">65%</span>
+                    </div>
                 </div>
-                <div class="biomarker-desc">
-                    Supports nerve calm, smooth muscle relaxation, and ENS regulation. Low levels are linked to gut tension, bloating, and heightened stress reactivity.
-                </div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">Vitamin B6 (functional status)</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 50%;">💊 50 %</div>
-                </div>
-                <div class="biomarker-desc">
-                    Required for neurotransmitter balance in both the brain and gut. Suboptimal levels can increase gut-related anxiety and irritability.
+                <div style="font-size: 14px; font-weight: 500; color: #656565; line-height: 1.4;">
+                    Low levels lower migraine threshold and increase nerve excitability.
                 </div>
             </div>
 
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">hs-CRP</div>
+            <div style="background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(184,118,88,0.1);">
+                <div style="font-size: 18px; font-weight: 700; color: #172737; margin-bottom: 1rem;">
+                    Fasting Glucose / Insulin
                 </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 45%;">🔥 45 %</div>
+                <div style="background: #E8E8E8; height: 36px; border-radius: 18px; overflow: hidden; margin-bottom: 1rem; position: relative;">
+                    <div style="background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); height: 100%; width: 55%; display: flex; align-items: center; justify-content: flex-end; padding-right: 1rem;">
+                        <span style="color: white; font-weight: 700; font-size: 16px;">55%</span>
+                    </div>
                 </div>
-                <div class="biomarker-desc">
-                    Low-grade inflammation sensitizes gut nerves and amplifies stress signals traveling to the brain.
-                </div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">Folate</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 40%;">🌿 40 %</div>
-                </div>
-                <div class="biomarker-desc">
-                    Supports neural repair and resilience. Low levels are associated with fatigue, low mood, and poor stress tolerance.
+                <div style="font-size: 14px; font-weight: 500; color: #656565; line-height: 1.4;">
+                    Instability increases dizziness and headache frequency.
                 </div>
             </div>
 
-            <div class="text-content" style="margin-top: 1rem; text-align: center; color: #656565; font-style: italic;">
-                When these markers are strained, the ENS becomes more reactive — and the brain stays on alert, even without conscious worry.
+            <div style="background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(184,118,88,0.1);">
+                <div style="font-size: 18px; font-weight: 700; color: #172737; margin-bottom: 1rem;">
+                    Ferritin
+                </div>
+                <div style="background: #E8E8E8; height: 36px; border-radius: 18px; overflow: hidden; margin-bottom: 1rem; position: relative;">
+                    <div style="background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); height: 100%; width: 45%; display: flex; align-items: center; justify-content: flex-end; padding-right: 1rem;">
+                        <span style="color: white; font-weight: 700; font-size: 16px;">45%</span>
+                    </div>
+                </div>
+                <div style="font-size: 14px; font-weight: 500; color: #656565; line-height: 1.4;">
+                    Low iron worsens fatigue, dizziness, and head pressure.
+                </div>
             </div>
 
-            <div class="cta-box">
-                <div class="text-content" style="margin-bottom: 0; font-size: 15px; line-height: 1.5;">
+            <div style="background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(184,118,88,0.1);">
+                <div style="font-size: 18px; font-weight: 700; color: #172737; margin-bottom: 1rem;">
+                    Vitamin D
+                </div>
+                <div style="background: #E8E8E8; height: 36px; border-radius: 18px; overflow: hidden; margin-bottom: 1rem; position: relative;">
+                    <div style="background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); height: 100%; width: 40%; display: flex; align-items: center; justify-content: flex-end; padding-right: 1rem;">
+                        <span style="color: white; font-weight: 700; font-size: 16px;">40%</span>
+                    </div>
+                </div>
+                <div style="font-size: 14px; font-weight: 500; color: #656565; line-height: 1.4;">
+                    Deficiency is associated with higher migraine frequency.
+                </div>
+            </div>
+
+            <div style="font-size: 13px; color: #656565; font-style: italic; text-align: center; margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                The % shows how strongly this marker can influence migraine susceptibility and nervous system sensitivity.
+            </div>
+
+            <div style="background: rgba(184,118,88,0.05); padding: 2rem 1.5rem; border-radius: 16px; margin-top: 2rem; text-align: center; border: 1px solid rgba(184,118,88,0.1);">
+                <div style="font-size: 18px; font-weight: 600; color: #172737; margin-bottom: 1.5rem; line-height: 1.4;">
                     Interested in a Personalized Blood Test Plan with a detailed report?
                 </div>
-                <a href="https://plan.aura.care/lt-2/" class="cta-button">Continue</a>
+                <a href="https://plan.aura.care/lt-2/" style="display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; font-weight: 700; font-size: 18px; padding: 16px 64px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 12px rgba(184,118,88,0.3); transition: transform 0.2s, box-shadow 0.2s;">
+                    Continue
+                </a>
             </div>
         </div>
 
-        <!-- 💭 Reflection Prompt -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">💭</span>
                 <h2>Reflection Prompt</h2>
             </div>
             <div class="reflection-box">
-                <div class="text-content" style="margin-bottom: 0;">
-                    When stress shows up for you, do you feel it first in your thoughts — or in your stomach?<br><br>
-                    What digestive sensation often appears when you feel anxious or overwhelmed?
+                <div class="text-content">
+                    Think back to your last migraine or dizzy episode.
+                </div>
+                <div class="text-content">
+                    What happened in the 24–48 hours before — not just right before?
                 </div>
             </div>
         </div>
 
-        <!-- 🧠 What Actually Helps -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧠</span>
                 <h2>What Actually Helps</h2>
             </div>
             <div class="text-content">
-                Calming the second brain isn't about control. It's about slowing signals before they escalate.
+                Relief doesn't come from avoiding life.
             </div>
-            <div class="text-content">
-                The ENS responds best to:
+            <div class="text-content" style="font-weight: 600; color: #B87658;">
+                It comes from raising your tolerance.
+            </div>
+            <div class="text-content" style="margin-top: 1rem;">
+                When your system is:
             </div>
             <ul class="bullet-list">
-                <li class="bullet-item">slower eating,</li>
-                <li class="bullet-item">warm, regular meals,</li>
-                <li class="bullet-item">gentle abdominal relaxation,</li>
-                <li class="bullet-item">predictable rhythms.</li>
+                <li class="bullet-item">fed regularly,</li>
+                <li class="bullet-item">hydrated,</li>
+                <li class="bullet-item">supported with pauses,</li>
+                <li class="bullet-item">released from tension,</li>
             </ul>
-            <div class="text-content">
-                <span class="highlight-text">When gut nerves feel supported, the brain doesn't need to stay vigilant.</span>
+            <div class="text-content" style="font-weight: 600;">
+                small triggers stop tipping you over the edge.
             </div>
         </div>
 
-        <!-- ✅ Plan to Action -->
-        <div class="section" style="background: linear-gradient(to bottom, rgba(184,118,88,0.03), rgba(184,118,88,0.08));">
+        <div class="section" style="background: rgba(16,185,129,0.05);">
             <div class="section-header">
                 <span class="section-icon">✅</span>
-                <h2>Plan to Action — Calm the Second Brain 🌿</h2>
+                <h2>Plan to Action — Lower the Bucket Level 🪣</h2>
             </div>
-            <div class="text-content" style="text-align: center; font-size: 15px; color: #656565; margin-bottom: 1.5rem;">
-                Today, choose one simple signal of safety for your gut.
+            <div class="text-content" style="font-weight: 600; margin-bottom: 1.5rem; text-align: center;">
+                Today, focus on reducing accumulation, not hunting triggers.
             </div>
 
-            <div class="action-card">
-                <div class="action-card-icon">🫶</div>
-                <div class="action-card-title">Your one action</div>
-                <div class="text-content" style="margin-bottom: 1rem;">
-                    Before one meal today:
+            <div style="background: linear-gradient(135deg, rgba(184,118,88,0.08) 0%, rgba(184,118,88,0.04) 100%); padding: 2rem 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(184,118,88,0.15);">
+                <div style="text-align: center; font-size: 2rem; margin-bottom: 1rem;">🎯</div>
+                <div style="font-size: 16px; font-weight: 700; color: #B87658; margin-bottom: 1rem; text-align: center;">
+                    Your one action
                 </div>
-                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
-                        <span style="font-size: 1.5rem;">🤲</span>
-                        <span style="font-size: 14px; font-weight: 600; color: #172737;">place one hand on your belly,</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
-                        <span style="font-size: 1.5rem;">😮‍💨</span>
-                        <span style="font-size: 14px; font-weight: 600; color: #172737;">take 3 slow breaths,</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
-                        <span style="font-size: 1.5rem;">🌊</span>
-                        <span style="font-size: 14px; font-weight: 600; color: #172737;">allow your abdomen to soften.</span>
-                    </div>
-                </div>
-                <div class="text-content" style="margin-top: 1.5rem; margin-bottom: 0; text-align: center; color: #656565;">
-                    Then eat at a comfortable pace.<br>
-                    <span class="highlight-text">No techniques. No fixing.</span><br>
-                    Just signal safety before digestion begins.
+                <div class="text-content" style="text-align: center; font-size: 15px;">
+                    Choose one:
                 </div>
             </div>
 
-            <div class="action-card" style="background: linear-gradient(135deg, rgba(184,118,88,0.08) 0%, rgba(184,118,88,0.12) 100%);">
-                <div class="action-card-icon">🧠</div>
-                <div class="action-card-title">Why This Works</div>
-                <div class="text-content">
-                    Gentle abdominal relaxation activates vagal pathways and reduces enteric nerve firing.
+            <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(23,39,55,0.08);">
+                <div style="display: grid; gap: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 14px; background: rgba(184,118,88,0.05); border-radius: 12px; border: 1px solid rgba(184,118,88,0.1);">
+                        <span style="font-size: 1.75rem; flex-shrink: 0;">🍽️</span>
+                        <span style="font-size: 14px; font-weight: 500; color: #172737;">Eat one balanced meal on time (protein + carbs)</span>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 14px; background: rgba(184,118,88,0.05); border-radius: 12px; border: 1px solid rgba(184,118,88,0.1);">
+                        <span style="font-size: 1.75rem; flex-shrink: 0;">💧</span>
+                        <span style="font-size: 14px; font-weight: 500; color: #172737;">Add one extra glass of water today</span>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 14px; background: rgba(184,118,88,0.05); border-radius: 12px; border: 1px solid rgba(184,118,88,0.1);">
+                        <span style="font-size: 1.75rem; flex-shrink: 0;">⏸️</span>
+                        <span style="font-size: 14px; font-weight: 500; color: #172737;">Take a 5-minute screen-free pause</span>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 14px; background: rgba(184,118,88,0.05); border-radius: 12px; border: 1px solid rgba(184,118,88,0.1);">
+                        <span style="font-size: 1.75rem; flex-shrink: 0;">💆‍♀️</span>
+                        <span style="font-size: 14px; font-weight: 500; color: #172737;">Gently relax jaw and neck once today</span>
+                    </div>
                 </div>
-                <div class="text-content">
-                    A calmer gut sends calmer messages to the brain.
+            </div>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08);">
+                <div class="text-content" style="text-align: center; font-size: 14px; color: #656565;">
+                    That's it. No tracking. No perfection.
                 </div>
-                <div class="text-content" style="margin-bottom: 0; text-align: center; font-weight: 600; color: #B87658;">
-                    You're not calming anxiety directly — you're calming its source. 🌿
+            </div>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-top: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08);">
+                <div style="font-size: 16px; font-weight: 700; color: #172737; margin-bottom: 1rem; text-align: center;">
+                    🧠 Why This Works
+                </div>
+                <div class="text-content" style="text-align: center;">
+                    Migraines and vertigo flare when the system is overloaded.
+                </div>
+                <div class="text-content" style="text-align: center;">
+                    Reducing even one input gives your nervous system more breathing room.
+                </div>
+                <div class="text-content" style="font-weight: 600; color: #B87658; text-align: center;">
+                    Less load = higher threshold.
+                </div>
+            </div>
+
+            <div class="expectation-section">
+                <div class="expectation-title">✨ What to Expect</div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">⏱️ After today</div>
+                    <div class="expectation-desc">Less background tension or pressure.</div>
+                </div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">⏳ After 3–5 days</div>
+                    <div class="expectation-desc">Fewer "almost migraines" or dizzy moments.</div>
+                </div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">📆 After 1–2 weeks</div>
+                    <div class="expectation-desc">Greater stability and confidence in your body.</div>
                 </div>
             </div>
         </div>
 
-        <!-- ✨ What to Expect -->
         <div class="section">
             <div class="section-header">
-                <span class="section-icon">✨</span>
-                <h2>What to Expect</h2>
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
             </div>
             
-            <div class="timeline-box">
-                <div class="timeline-item">
-                    <div class="timeline-icon">⏱️</div>
-                    <div class="timeline-content">
-                        <div class="timeline-label">AFTER 1–2 MEALS</div>
-                        <div class="timeline-text">Less tightness or urgency around eating.</div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-icon">⏳</div>
-                    <div class="timeline-content">
-                        <div class="timeline-label">AFTER A FEW DAYS</div>
-                        <div class="timeline-text">Reduced gut-driven anxiety signals.</div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-icon">📆</div>
-                    <div class="timeline-content">
-                        <div class="timeline-label">AFTER 1–2 WEEKS</div>
-                        <div class="timeline-text">Greater emotional steadiness and digestive comfort.</div>
-                    </div>
-                </div>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/eSlXa7udHQU" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
 
-        <!-- ✨ Today You Learned -->
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">✨</span>
                 <h2>Today You Learned</h2>
             </div>
+            
             <div class="summary-box">
                 <div class="summary-item">
-                    <span>🧠</span>
-                    <span>Your gut has its own nervous system</span>
+                    <span>🪣</span>
+                    <span>Migraines build through accumulation, not single triggers</span>
+                </div>
+                <div class="summary-item">
+                    <span>🍽️</span>
+                    <span>Fuel and hydration protect brain tolerance</span>
+                </div>
+                <div class="summary-item">
+                    <span>💆‍♀️</span>
+                    <span>Tension quietly lowers your threshold</span>
                 </div>
                 <div class="summary-item">
                     <span>🩵</span>
-                    <span>Gut stress often shows up as emotional stress</span>
-                </div>
-                <div class="summary-item">
-                    <span>🌿</span>
-                    <span>Calming digestion calms the brain</span>
-                </div>
-                <div class="summary-item">
-                    <span>😮‍💨</span>
-                    <span>Safety signals travel upward through the vagus nerve</span>
+                    <span>Reducing load restores stability</span>
                 </div>
             </div>
-        </div>
 
-        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
-            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 0; line-height: 1.5;">
-                ✨ Remember: A calmer mind often begins by calming the second brain.
+            <div class="text-content" style="text-align: center; font-weight: 600; margin-top: 1.5rem; font-size: 15px;">
+                ✨ Remember:
+            </div>
+            <div class="text-content" style="text-align: center;">
+                Your body isn't fragile. It's asking for fewer inputs — not fewer experiences.
             </div>
         </div>
 
         <div class="footer">
             <h2>📩 Get Your Personalized Lab Panel</h2>
             <div class="footer-text">
-                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click below.
             </div>
             <div class="footer-cta-wrapper">
-                <a href="https://plan.aura.care/lt-2/" class="footer-email" target="_blank" rel="noopener noreferrer">Continue</a>
+                <a href="https://plan.aura.care/lt-2/" class="footer-email">Continue</a>
             </div>
         </div>
-    
     </main>
 </body>
 </html>

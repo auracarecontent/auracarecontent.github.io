@@ -85,9 +85,9 @@
       "days": [
         { "id": "5-1", "day": 1, "title": "Meet Your GLP-1: The Hormone That Balances Hunger and Calm", "description": "Discover how GLP-1 works in your gut and brain to control appetite, energy, and cravings — and why it's your natural ally in weight and mood balance.", "contentUrl": "https://auracarecontent.github.io/5-1.html", "isUnlocked": true, "duration": "11 min" },
         { "id": "5-2", "day": 2, "title": "How Your Gut Controls Hunger: The GLP-1 Connection", "description": "Explore how gut microbes, fiber, and slow digestion trigger GLP-1 release — and how to build meals that work with your biology, not against it.", "contentUrl": "https://auracarecontent.github.io/5-2.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "5-3", "day": 3, "title": "3 Ways to Boost Your GLP-1 Naturally Feeding Your GLP-1 Pathway", "description": "Learn how balanced meals with fiber and protein slow glucose spikes and extend GLP-1 activity — keeping you full, focused, and steady.", "contentUrl": "https://auracarecontent.github.io/5-3.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "5-4", "day": 4, "title": "Top 3 Exercises to Boost Your Natural GLP-1", "description": "Move smarter, not harder — activate your inner GLP-1 and feel calmer, fuller, and more energized all day.", "contentUrl": "https://auracarecontent.github.io/5-4.html", "isUnlocked": true, "duration": "9 min" },
-        { "id": "5-5", "day": 5, "title": "The Calm Comeback: How to Protect Your GLP-1 Response in Stressful Moments", "description": "Find out how chronic stress and poor sleep suppress GLP-1 release — and how vagus-nerve activation helps restore it.", "contentUrl": "https://auracarecontent.github.io/5-5.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "5-3", "day": 3, "title": "Top 5 Foods to Feed Your GLP-1 Pathway", "description": "Learn how balanced meals rich in fiber, protein, and healthy fats boost GLP-1 naturally — helping you stay full, focused, and calm throughout the day.", "contentUrl": "https://auracarecontent.github.io/5-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "5-4", "day": 4, "title": "Exercises That Activate Your Inner GLP-1", "description": "Move smarter, not harder — activate your inner GLP-1 and feel calmer, fuller, and more energized all day.", "contentUrl": "https://auracarecontent.github.io/5-4.html", "isUnlocked": true, "duration": "9 min" },
+        { "id": "5-5", "day": 5, "title": "Supplements That Support Your Natural GLP-1", "description": "Discover gentle, evidence-based nutrients that help your body sustain its own GLP-1 balance — supporting appetite control, energy, and calm focus.", "contentUrl": "https://auracarecontent.github.io/5-5.html", "isUnlocked": true, "duration": "11 min" },
         { "id": "5-6", "day": 6, "title": "The Circadian Connection: How Timing Shapes Hunger and Energy", "description": "Discover how eating, moving, and resting in tune with your internal clock boosts GLP-1, controls cravings, and supports natural weight balance.", "contentUrl": "https://auracarecontent.github.io/5-6.html", "isUnlocked": true, "duration": "12 min" },
         { "id": "5-7", "day": 7, "title": "The GLP-1 Blueprint: 5 Daily Habits for Sustainable Energy and Appetite Control", "description": "Simple, science-backed habits to help your body maintain natural GLP-1 balance — steady focus, calm hunger, and stable energy all day.", "contentUrl": "https://auracarecontent.github.io/5-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
@@ -113,25 +113,25 @@
     {
       "id": "7",
       "week": 7,
-      "title": "Gut–Brain Harmony",
+      "title": "Migraines & Vertigo Relief",
       "subtitle": "See how your microbiome influences focus, cravings, and emotional balance — and how to support it daily",
       "icon": "git-network-outline",
       "iconColor": "#8B7355",
       "status": "available",
       "days": [
-        { "id": "7-1", "day": 1, "title": "The Gut Feeling: When Your Stomach Affects Your Mind", "description": "Discover how your microbiome communicates with the brain and influences mood, cravings, and focus.", "contentUrl": "https://auracarecontent.github.io/7-1.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "7-2", "day": 2, "title": "The Second Brain: Nerves in Your Gut", "description": "Learn how the enteric nervous system works and why gut stress shows up as anxiety or fatigue.", "contentUrl": "https://auracarecontent.github.io/7-2.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "7-3", "day": 3, "title": "Inflammation from Within: How the Gut Fuels Stress", "description": "See how leaky gut and immune activation raise inflammation and cloud your mental clarity.", "contentUrl": "https://auracarecontent.github.io/7-3.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "7-4", "day": 4, "title": "Food and Mood: Feeding Your Inner Ecosystem", "description": "Understand how fiber, probiotics, and diversity in diet restore microbial balance and emotional stability.", "contentUrl": "https://auracarecontent.github.io/7-4.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "7-5", "day": 5, "title": "The Cortisol–Gut Connection: Stress in the Belly", "description": "Explore how chronic stress alters digestion, absorption, and microbiome health — and how to calm the loop.", "contentUrl": "https://auracarecontent.github.io/7-5.html", "isUnlocked": true, "duration": "12 min" },
-        { "id": "7-6", "day": 6, "title": "Repair Mode: Restoring the Gut Barrier", "description": "Learn what supports intestinal healing — from micronutrients to mindful eating rituals.", "contentUrl": "https://auracarecontent.github.io/7-6.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "7-7", "day": 7, "title": "The Harmony Routine: Calm Mind, Calm Gut", "description": "Bring together food, rhythm, and stress-relief habits to create lasting gut-brain balance.", "contentUrl": "https://auracarecontent.github.io/7-7.html", "isUnlocked": true, "duration": "8 min" }
+        { "id": "7-1", "day": 1, "title": "Why Your Head Feels Heavy", "description": "Discover how your microbiome communicates with the brain and influences mood, cravings, and focus.", "contentUrl": "https://auracarecontent.github.io/7-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "7-2", "day": 2, "title": "Hidden Triggers of Migraines & Vertigo", "description": "Learn how the enteric nervous system works and why gut stress shows up as anxiety or fatigue.", "contentUrl": "https://auracarecontent.github.io/7-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "7-3", "day": 3, "title": "How to Release Head & Neck Tension", "description": "See how leaky gut and immune activation raise inflammation and cloud your mental clarity.", "contentUrl": "https://auracarecontent.github.io/7-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "7-4", "day": 4, "title": "Easy Ways to Calm Dizziness", "description": "Understand how fiber, probiotics, and diversity in diet restore microbial balance and emotional stability.", "contentUrl": "https://auracarecontent.github.io/7-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "7-5", "day": 5, "title": "Foods That Help and Hurt Migraines", "description": "Explore how chronic stress alters digestion, absorption, and microbiome health — and how to calm the loop.", "contentUrl": "https://auracarecontent.github.io/7-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "7-6", "day": 6, "title": "Caffeine & Headaches: What to Know", "description": "Learn what supports intestinal healing — from micronutrients to mindful eating rituals.", "contentUrl": "https://auracarecontent.github.io/7-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "7-7", "day": 7, "title": "3 Steps to Feel Clear Again", "description": "Bring together food, rhythm, and stress-relief habits to create lasting gut-brain balance.", "contentUrl": "https://auracarecontent.github.io/7-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
     },
     {
       "id": "8",
       "week": 8,
-      "title": "Peak Appearance",
+      "title": "Peak Appearance: Optimize Collagen, Skin, Hair & Energy",
       "subtitle": "Restore your skin, hair, and natural energy with science-based renewal habits",
       "icon": "sparkles-outline",
       "iconColor": "#C4A57B",
@@ -167,7 +167,7 @@
     {
       "id": "10",
       "week": 10,
-      "title": "Migraines & Vertigo Relief",
+      "title": "Fix Posture, Relieve Back Pain",
       "subtitle": "Reduce hidden inflammation that drains stamina and accelerate your body's natural repair",
       "icon": "water-outline",
       "iconColor": "#C4A57B",
@@ -185,37 +185,37 @@
     {
       "id": "11",
       "week": 11,
-      "title": "Fix Posture, Relieve Back Pain",
+      "title": "Reduce Swelling Unlock Lymphatic Flow",
       "subtitle": "Understand how daily stress, salt, and tension affect your arteries — and learn simple, proven ways to keep your pressure steady and your heart strong",
       "icon": "heart-circle-outline",
       "iconColor": "#8B7355",
       "status": "available",
       "days": [
-        { "id": "11-1", "day": 1, "title": "Why Posture Causes Pain", "description": "Learn how emotional load and cortisol spikes tighten blood vessels — and why relaxation isn't just for your mind, but for your arteries too.", "contentUrl": "https://auracarecontent.github.io/11-1.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "11-2", "day": 2, "title": "The Posture Mistake You Repeat Daily", "description": "Discover how high sodium, glucose swings, and dehydration quietly raise blood pressure — and how balance brings relief.", "contentUrl": "https://auracarecontent.github.io/11-2.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "11-3", "day": 3, "title": "How to Sit and Stand Without Pain", "description": "Understand how nitric oxide, potassium, and magnesium keep vessels open and resilient — and what makes them lose elasticity.", "contentUrl": "https://auracarecontent.github.io/11-3.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "11-4", "day": 4, "title": "Easy Daily Posture Routine", "description": "Explore how slow, rhythmic breathing activates the vagus nerve and reduces blood pressure within minutes.", "contentUrl": "https://auracarecontent.github.io/11-4.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "11-5", "day": 5, "title": "4 Moves to Reduce Back Pain", "description": "Learn why even light daily activity improves circulation, lowers stiffness, and protects against future hypertension.", "contentUrl": "https://auracarecontent.github.io/11-5.html", "isUnlocked": true, "duration": "12 min" },
-        { "id": "11-6", "day": 6, "title": "How to Protect Your Neck & Spine", "description": "See how chronic inflammation (measured by hs-CRP) damages vessel lining — and how nutrition and rest protect it.", "contentUrl": "https://auracarecontent.github.io/11-6.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "11-7", "day": 7, "title": "Secrets of Pain-Free Posture", "description": "Combine relaxation, nourishment, and motion into a simple daily rhythm that keeps your heart calm, clear, and strong.", "contentUrl": "https://auracarecontent.github.io/11-7.html", "isUnlocked": true, "duration": "8 min" }
+        { "id": "11-1", "day": 1, "title": "Why Your Body Feels Swollen", "description": "Learn how emotional load and cortisol spikes tighten blood vessels — and why relaxation isn't just for your mind, but for your arteries too.", "contentUrl": "https://auracarecontent.github.io/11-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "11-2", "day": 2, "title": "How Stress Traps Fluid", "description": "Discover how high sodium, glucose swings, and dehydration quietly raise blood pressure — and how balance brings relief.", "contentUrl": "https://auracarecontent.github.io/11-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "11-3", "day": 3, "title": "Easy Ways to Boost Lymphatic Flow", "description": "Understand how nitric oxide, potassium, and magnesium keep vessels open and resilient — and what makes them lose elasticity.", "contentUrl": "https://auracarecontent.github.io/11-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "11-4", "day": 4, "title": "The Jaw–Neck–Swelling Connection", "description": "Explore how slow, rhythmic breathing activates the vagus nerve and reduces blood pressure within minutes.", "contentUrl": "https://auracarecontent.github.io/11-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "11-5", "day": 5, "title": "How to Reduce Morning Puffiness", "description": "Learn why even light daily activity improves circulation, lowers stiffness, and protects against future hypertension.", "contentUrl": "https://auracarecontent.github.io/11-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "11-6", "day": 6, "title": "Foods That Support Lymph Flow", "description": "See how chronic inflammation (measured by hs-CRP) damages vessel lining — and how nutrition and rest protect it.", "contentUrl": "https://auracarecontent.github.io/11-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "11-7", "day": 7, "title": "3 Steps to Feel Lighter", "description": "Combine relaxation, nourishment, and motion into a simple daily rhythm that keeps your heart calm, clear, and strong.", "contentUrl": "https://auracarecontent.github.io/11-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
     },
     {
       "id": "12",
       "week": 12,
-      "title": "Reduce Swelling Unlock Lymphatic Flow",
+      "title": "The Secrets to Slowing Aging",
       "subtitle": "Integrate all you've learned into one steady rhythm that keeps energy clear, mood stable, and aging slow",
       "icon": "infinite-outline",
       "iconColor": "#C4A57B",
       "status": "available",
       "days": [
-        { "id": "12-1", "day": 1, "title": "Why Your Body Feels Swollen", "description": "Learn how cellular wear, inflammation, and oxidative stress influence how old you feel — and how small habits reverse that trend.", "contentUrl": "https://auracarecontent.github.io/12-1.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "12-2", "day": 2, "title": "How Stress Traps Fluid", "description": "Discover how balanced glucose, thyroid function, and oxygen flow protect your mitochondria — your body's true age regulators.", "contentUrl": "https://auracarecontent.github.io/12-2.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "12-3", "day": 3, "title": "Easy Ways to Boost Lymphatic Flow", "description": "See how daily stress accelerates aging through cortisol and inflammation — and how calm literally keeps you younger.", "contentUrl": "https://auracarecontent.github.io/12-3.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "12-4", "day": 4, "title": "The Jaw–Neck–Swelling Connection", "description": "Explore how antioxidants, omega-3s, and micronutrients like magnesium and vitamin D protect your cells from slow damage.", "contentUrl": "https://auracarecontent.github.io/12-4.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "12-5", "day": 5, "title": "How to Reduce Morning Puffiness", "description": "Learn why consistent, moderate movement extends lifespan — not through exhaustion, but through improved circulation and resilience.", "contentUrl": "https://auracarecontent.github.io/12-5.html", "isUnlocked": true, "duration": "12 min" },
-        { "id": "12-6", "day": 6, "title": "Foods That Support Lymph Flow", "description": "Understand how meaning, community, and belonging activate protective hormones and support both brain and heart health.", "contentUrl": "https://auracarecontent.github.io/12-6.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "12-7", "day": 7, "title": "3 Steps to Feel Lighter", "description": "Bring everything together — light, food, rest, and purpose — into one daily rhythm that keeps your energy steady and your future strong.", "contentUrl": "https://auracarecontent.github.io/12-7.html", "isUnlocked": true, "duration": "8 min" }
+        { "id": "12-1", "day": 1, "title": "Why Aging Speeds Up", "description": "Learn why aging accelerates when stress, inflammation, and recovery fall out of balance.", "contentUrl": "https://auracarecontent.github.io/12-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "12-2", "day": 2, "title": "The Hidden Drivers of Aging", "description": "Discover the quiet biological drivers that influence aging long before visible changes appear.", "contentUrl": "https://auracarecontent.github.io/12-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "12-3", "day": 3, "title": "How Your Cells Decide to Age", "description": "Learn how daily signals from sleep, nutrition, and stress guide your cells toward faster or slower aging.", "contentUrl": "https://auracarecontent.github.io/12-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "12-4", "day": 4, "title": "Easy Ways to Protect Your Cells", "description": "Find out how small, consistent habits can help protect your cells from everyday damage.", "contentUrl": "https://auracarecontent.github.io/12-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "12-5", "day": 5, "title": "What to Eat to Stay Young", "description": "Learn how the foods you choose shape inflammation, metabolism, and long-term cellular health.", "contentUrl": "https://auracarecontent.github.io/12-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "12-6", "day": 6, "title": "The Recovery Factor You Ignore", "description": "Discover how recovery processes quietly determine how well your body repairs and renews itself.", "contentUrl": "https://auracarecontent.github.io/12-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "12-7", "day": 7, "title": "3 Habits That Help You Age Slower", "description": "See how a few simple habits can support slower aging and better vitality over time.", "contentUrl": "https://auracarecontent.github.io/12-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
     }
   ]
