@@ -1,7 +1,36 @@
 {
-  "version": "1.0.1",
-  "lastUpdated": "2025-11-04T00:40:00Z",
+  "version": "1.0.2",
+  "lastUpdated": "2025-12-29T00:00:00Z",
   "weeks": [
+    {
+      "id": "0",
+      "week": 0,
+      "title": "Welcome to Your Vagus Nerve Reset Plan",
+      "subtitle": "Begin your journey to feeling balanced and energized",
+      "icon": "heart-outline",
+      "iconColor": "#D4956C",
+      "status": "available",
+      "days": [
+        {
+          "id": "0-1",
+          "day": 1,
+          "title": "Your Reset Start Here, Welcome",
+          "description": "Let's begin your journey to feeling balanced and energized again.",
+          "contentUrl": "https://auracarecontent.github.io/welcome.html",
+          "isUnlocked": true,
+          "duration": "5 min"
+        },
+        {
+          "id": "0-2",
+          "day": 2,
+          "title": "Your Personal Body Battery Report",
+          "description": "View your wellness score",
+          "contentUrl": "https://auracarecontent.github.io/bb_report.html",
+          "isUnlocked": true,
+          "duration": "8 min"
+        }
+      ]
+    },
     {
       "id": "1",
       "week": 1,
@@ -115,52 +144,52 @@
       "week": 7,
       "title": "Migraines & Vertigo Relief",
       "subtitle": "See how your microbiome influences focus, cravings, and emotional balance — and how to support it daily",
-      "icon": "git-network-outline",
+      "icon": "body-outline",
       "iconColor": "#8B7355",
       "status": "available",
       "days": [
-        { "id": "7-1", "day": 1, "title": "Why Your Head Feels Heavy", "description": "Discover how your microbiome communicates with the brain and influences mood, cravings, and focus.", "contentUrl": "https://auracarecontent.github.io/7-1.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "7-2", "day": 2, "title": "Hidden Triggers of Migraines & Vertigo", "description": "Learn how the enteric nervous system works and why gut stress shows up as anxiety or fatigue.", "contentUrl": "https://auracarecontent.github.io/7-2.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "7-3", "day": 3, "title": "How to Release Head & Neck Tension", "description": "See how leaky gut and immune activation raise inflammation and cloud your mental clarity.", "contentUrl": "https://auracarecontent.github.io/7-3.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "7-4", "day": 4, "title": "Easy Ways to Calm Dizziness", "description": "Understand how fiber, probiotics, and diversity in diet restore microbial balance and emotional stability.", "contentUrl": "https://auracarecontent.github.io/7-4.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "7-5", "day": 5, "title": "Foods That Help and Hurt Migraines", "description": "Explore how chronic stress alters digestion, absorption, and microbiome health — and how to calm the loop.", "contentUrl": "https://auracarecontent.github.io/7-5.html", "isUnlocked": true, "duration": "12 min" },
-        { "id": "7-6", "day": 6, "title": "Caffeine & Headaches: What to Know", "description": "Learn what supports intestinal healing — from micronutrients to mindful eating rituals.", "contentUrl": "https://auracarecontent.github.io/7-6.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "7-7", "day": 7, "title": "3 Steps to Feel Clear Again", "description": "Bring together food, rhythm, and stress-relief habits to create lasting gut-brain balance.", "contentUrl": "https://auracarecontent.github.io/7-7.html", "isUnlocked": true, "duration": "8 min" }
+        { "id": "7-1", "day": 1, "title": "Why Migraines Happen", "description": "Understand how blood vessel changes, inflammation, and nerve sensitivity combine to trigger migraines — and why your body sends this signal.", "contentUrl": "https://auracarecontent.github.io/7-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "7-2", "day": 2, "title": "The Hidden Triggers: Diet and Migraines", "description": "Learn which foods, skipped meals, and hydration patterns can spark or prevent head pain — and why timing matters as much as content.", "contentUrl": "https://auracarecontent.github.io/7-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "7-3", "day": 3, "title": "Tension, Posture, and Head Pain", "description": "See how tension in your neck, jaw, and shoulders activates pain pathways — and how releasing these areas brings lasting relief.", "contentUrl": "https://auracarecontent.github.io/7-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "7-4", "day": 4, "title": "Understanding Vertigo and Dizziness", "description": "Discover how balance signals from your ears, eyes, and body become confused — and how to restore inner stability through simple movements.", "contentUrl": "https://auracarecontent.github.io/7-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "7-5", "day": 5, "title": "When to Worry: Red Flags in Head Pain", "description": "Recognize the signs that head pain needs medical evaluation — and feel confident knowing when home care is enough.", "contentUrl": "https://auracarecontent.github.io/7-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "7-6", "day": 6, "title": "Gentle Exercises for Head and Neck Relief", "description": "Learn specific stretches and movements that release pressure, improve circulation, and prevent tension buildup.", "contentUrl": "https://auracarecontent.github.io/7-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "7-7", "day": 7, "title": "Building Your Migraine Prevention Plan", "description": "Create a personalized routine of nutrition, movement, and nervous system support to reduce frequency and intensity of head pain.", "contentUrl": "https://auracarecontent.github.io/7-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
     },
     {
       "id": "8",
       "week": 8,
-      "title": "Peak Appearance: Optimize Collagen, Skin, Hair & Energy",
-      "subtitle": "Restore your skin, hair, and natural energy with science-based renewal habits",
-      "icon": "sparkles-outline",
+      "title": "Overcome Emotional Eating",
+      "subtitle": "Understand why stress and emotions drive cravings — and learn how to break the loop with nervous system care",
+      "icon": "restaurant-outline",
       "iconColor": "#C4A57B",
       "status": "available",
       "days": [
-        { "id": "8-1", "day": 1, "title": "Hidden Fatigue: Why Your Skin Looks Tired", "description": "Learn how stress, inflammation, and micronutrient gaps slow skin renewal and dull your tone.", "contentUrl": "https://auracarecontent.github.io/8-1.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "8-2", "day": 2, "title": "Circulation and Glow: The Oxygen Effect", "description": "See how improving blood flow supports collagen, color, and a naturally refreshed look.", "contentUrl": "https://auracarecontent.github.io/8-2.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "8-3", "day": 3, "title": "The Gut–Skin Axis: Clear Skin Starts in the Gut", "description": "Discover how digestion, microbiome balance, and nutrient absorption affect breakouts and clarity.", "contentUrl": "https://auracarecontent.github.io/8-3.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "8-4", "day": 4, "title": "The Collagen Code: Vitamins A, C, E, Zinc & Biotin in Action", "description": "Understand how these nutrients protect collagen fibers and strengthen both skin and hair from within.", "contentUrl": "https://auracarecontent.github.io/8-4.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "8-5", "day": 5, "title": "Cortisol and Hair Loss: Calm Equals Growth", "description": "Find out how chronic stress disrupts hair cycles — and how restoring calm restarts growth.", "contentUrl": "https://auracarecontent.github.io/8-5.html", "isUnlocked": true, "duration": "12 min" },
-        { "id": "8-6", "day": 6, "title": "Hydration That Heals: Electrolytes, Collagen & Skin Elasticity", "description": "Learn why hydration and mineral balance keep skin firm, radiant, and resilient.", "contentUrl": "https://auracarecontent.github.io/8-6.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "8-7", "day": 7, "title": "The Renewal Routine: Your Daily Ritual for Lasting Vitality", "description": "Build a 7-minute science-backed ritual to support collagen, calm, and visible vitality.", "contentUrl": "https://auracarecontent.github.io/8-7.html", "isUnlocked": true, "duration": "8 min" }
+        { "id": "8-1", "day": 1, "title": "Why You Eat When You're Not Hungry", "description": "Recognize how stress hormones hijack your appetite signals — turning food into emotional comfort rather than nourishment.", "contentUrl": "https://auracarecontent.github.io/8-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "8-2", "day": 2, "title": "The Cortisol–Craving Connection", "description": "Learn why elevated cortisol increases cravings for sugar and fat — and how calming your nervous system quiets those urges.", "contentUrl": "https://auracarecontent.github.io/8-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "8-3", "day": 3, "title": "How Emotional Eating Becomes a Loop", "description": "See how guilt and restriction after emotional eating creates more stress — fueling the exact cycle you're trying to escape.", "contentUrl": "https://auracarecontent.github.io/8-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "8-4", "day": 4, "title": "Pause, Breathe, Choose: Breaking the Urge", "description": "Discover simple techniques to interrupt the stress-to-snack reflex — giving your brain time to make conscious choices.", "contentUrl": "https://auracarecontent.github.io/8-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "8-5", "day": 5, "title": "Build a Calm Eating Routine", "description": "Learn how structured, mindful meals restore your body's natural hunger and fullness cues — reducing emotional triggers.", "contentUrl": "https://auracarecontent.github.io/8-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "8-6", "day": 6, "title": "Retrain Your Stress Response Without Food", "description": "Explore non-food ways to soothe anxiety and tension — teaching your nervous system new pathways to calm.", "contentUrl": "https://auracarecontent.github.io/8-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "8-7", "day": 7, "title": "Your Sustainable Eating Blueprint", "description": "Create a flexible, compassionate approach to food — balancing nourishment, satisfaction, and emotional resilience.", "contentUrl": "https://auracarecontent.github.io/8-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
     },
     {
       "id": "9",
       "week": 9,
-      "title": "Libido & Energy Comeback",
-      "subtitle": "Bring back drive, passion, and hormonal balance naturally",
+      "title": "Reclaim Your Libido & Energy",
+      "subtitle": "Discover how stress hormones block desire and vitality — and learn how to restore both naturally",
       "icon": "flame-outline",
       "iconColor": "#8B7355",
       "status": "available",
       "days": [
-        { "id": "9-1", "day": 1, "title": "Why Desire Fades with Stress: The Cortisol–Dopamine Trap", "description": "See how chronic tension and fatigue suppress natural motivation and pleasure signals.", "contentUrl": "https://auracarecontent.github.io/9-1.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "9-2", "day": 2, "title": "The Hormone Symphony: Estrogen, Testosterone, and Thyroid in Balance", "description": "Understand how hormonal alignment supports energy, mood, and desire.", "contentUrl": "https://auracarecontent.github.io/9-2.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "9-3", "day": 3, "title": "Circulation Equals Passion: Boost Blood Flow, Boost Vitality", "description": "Explore how microcirculation and nitric oxide keep libido and stamina strong.", "contentUrl": "https://auracarecontent.github.io/9-3.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "9-4", "day": 4, "title": "Nutrients for Libido: Zinc, B Vitamins, and Magnesium in Action", "description": "Learn which nutrients rebuild hormone production and nerve sensitivity safely.", "contentUrl": "https://auracarecontent.github.io/9-4.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "9-5", "day": 5, "title": "Sleep, Light, and Hormones: How Rhythm Restores Drive", "description": "Find out how melatonin and circadian balance reignite energy and attraction.", "contentUrl": "https://auracarecontent.github.io/9-5.html", "isUnlocked": true, "duration": "12 min" },
-        { "id": "9-6", "day": 6, "title": "The Mind–Body Spark: Oxytocin, Connection, and Confidence", "description": "Discover how emotional safety and physical touch amplify oxytocin and intimacy.", "contentUrl": "https://auracarecontent.github.io/9-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "9-1", "day": 1, "title": "Why Stress Kills Libido", "description": "Learn how chronic cortisol suppresses sex hormones — dimming desire, energy, and physical connection.", "contentUrl": "https://auracarecontent.github.io/9-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "9-2", "day": 2, "title": "The Hormone Connection: Testosterone and Estrogen", "description": "Understand how both hormones shape desire, mood, and confidence — and what throws them out of balance.", "contentUrl": "https://auracarecontent.github.io/9-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "9-3", "day": 3, "title": "How Poor Sleep Drains Your Drive", "description": "See why inadequate rest lowers testosterone, raises stress, and makes intimacy feel exhausting instead of energizing.", "contentUrl": "https://auracarecontent.github.io/9-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "9-4", "day": 4, "title": "Foods That Fuel Desire and Vitality", "description": "Discover how zinc, magnesium, healthy fats, and circulation-boosting nutrients support hormone production and blood flow.", "contentUrl": "https://auracarecontent.github.io/9-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "9-5", "day": 5, "title": "Movement That Boosts Mood and Attraction", "description": "Learn how strength training, yoga, and dance increase testosterone, reduce cortisol, and reconnect you with your body.", "contentUrl": "https://auracarecontent.github.io/9-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "9-6", "day": 6, "title": "The Mind–Body Link to Desire", "description": "Explore how emotional safety, body image, and nervous system relaxation create space for intimacy and pleasure.", "contentUrl": "https://auracarecontent.github.io/9-6.html", "isUnlocked": true, "duration": "11 min" },
         { "id": "9-7", "day": 7, "title": "Reignite Your Fire: Simple Rituals to Sustain Energy and Attraction", "description": "Combine movement, mindset, and nutrition into one confident daily rhythm.", "contentUrl": "https://auracarecontent.github.io/9-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
     },
