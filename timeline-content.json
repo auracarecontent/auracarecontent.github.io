@@ -1,36 +1,27 @@
 {
   "version": "1.0.2",
   "lastUpdated": "2025-12-29T00:00:00Z",
-  "weeks": [
+  "welcome_stage": [
     {
-      "id": "0",
-      "week": 0,
-      "title": "Welcome to Your Vagus Nerve Reset Plan",
-      "subtitle": "Begin your journey to feeling balanced and energized",
-      "icon": "heart-outline",
-      "iconColor": "#D4956C",
-      "status": "available",
-      "days": [
-        {
-          "id": "0-1",
-          "day": 1,
-          "title": "Your Reset Start Here, Welcome",
-          "description": "Let's begin your journey to feeling balanced and energized again.",
-          "contentUrl": "https://auracarecontent.github.io/welcome.html",
-          "isUnlocked": true,
-          "duration": "5 min"
-        },
-        {
-          "id": "0-2",
-          "day": 2,
-          "title": "Your Personal Body Battery Report",
-          "description": "View your wellness score",
-          "contentUrl": "https://auracarecontent.github.io/bb_report.html",
-          "isUnlocked": true,
-          "duration": "8 min"
-        }
-      ]
+      "id": "0-1",
+      "day": 1,
+      "title": "Your Reset Starts Here, Welcome",
+      "description": "Let's begin your journey to feeling balanced and energized again.",
+      "contentUrl": "https://auracarecontent.github.io/welcome.html",
+      "isUnlocked": true,
+      "duration": "5 min"
     },
+    {
+      "id": "0-2",
+      "day": 2,
+      "title": "Your Personal Body Battery Report",
+      "description": "View your wellness score",
+      "contentUrl": "https://auracarecontent.github.io/bb_report.html",
+      "isUnlocked": true,
+      "duration": "8 min"
+    }
+  ],
+  "weeks": [
     {
       "id": "1",
       "week": 1,
