@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personal Body Battery Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #faf8f5;
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0;
+            background: #faf8f5;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #F4A460 0%, #D2691E 100%);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-size: 1.3em;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .section {
+            margin-bottom: 0;
+            padding: 0;
+        }
+        
+        .section-wrapper {
+            padding: 0 15px 20px 15px;
+        }
+        
+        .section-title {
+            font-size: 1.3em;
+            color: #F4A460;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #F4A460;
+            font-weight: 700;
+        }
+        
+        .score-container {
+            text-align: center;
+            padding: 30px 20px 25px;
+            background: linear-gradient(135deg, #F4A460 0%, #D2691E 100%);
+            border-radius: 0;
+            margin: 0;
+            color: white;
+        }
+        
+        .score-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .gauge-wrapper {
+            width: 220px;
+            height: 130px;
+            margin: 0 auto 15px;
+        }
+        
+        .score-text {
+            font-size: 2.4em;
+            font-weight: 700;
+            margin-top: -18px;
+            margin-bottom: 8px;
+        }
+        
+        .score-subtext {
+            font-size: 0.95em;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+        
+        .alert-box {
+            border-left: 3px solid #F4A460;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .blocker-item {
+            margin-bottom: 15px;
+            padding: 12px 15px;
+            border-left: 3px solid #F4A460;
+        }
+        
+        .blocker-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .blocker-name {
+            font-weight: 600;
+        }
+        
+        .blocker-percent {
+            font-weight: 700;
+            color: #f59e0b;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #fef3c7;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #F4A460 0%, #D2691E 100%);
+            border-radius: 10px;
+        }
+        
+        .biomarker-card {
+            border-left: 2px solid #e5e7eb;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .biomarker-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #F4A460;
+            margin-bottom: 12px;
+        }
+        
+        .sources {
+            font-size: 0.75em;
+            color: #6b7280;
+            margin-top: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th {
+            background: #F4A460;
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            font-size: 0.85em;
+        }
+        
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 0.85em;
+        }
+        
+        tr:hover {
+            background: #fef3c7;
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, #F4A460 0%, #D2691E 100%);
+            color: white;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .nutrition-item {
+            border-left: 2px solid #F4A460;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .nutrition-item h4 {
+            color: #F4A460;
+            margin-bottom: 8px;
+        }
+        
+        .global-blocker {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .supplement-card {
+            border-left: 2px solid #F4A460;
+            padding: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .supplement-card h4 {
+            color: #D2691E;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, #F4A460 0%, #D2691E 100%);
+            color: white;
+            padding: 25px 20px;
+            border-radius: 0;
+            text-align: center;
+            margin: 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #D2691E;
+            padding: 14px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 15px;
+        }
+        
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Your Personal Body Battery Report</h1>
+        </div>
+        
+        <div class="score-container">
+            <div class="score-title">Body Battery</div>
+            <div class="gauge-wrapper" style="width:180px;height:auto;margin:20px auto">
+                <svg viewBox="0 0 200 100" style="width:100%;height:100%">
+                    <!-- Battery outline -->
+                    <rect x="20" y="25" width="140" height="70" rx="8" ry="8" fill="none" stroke="white" stroke-width="4"/>
+                    <!-- Battery tip -->
+                    <rect x="160" y="42" width="15" height="36" rx="3" ry="3" fill="white"/>
+                    <!-- Battery background (empty part) -->
+                    <rect x="28" y="33" width="124" height="54" rx="4" ry="4" fill="rgba(255,255,255,0.2)"/>
+                    <!-- Battery fill (27%) - красный -->
+                    <rect x="28" y="33" width="33.5" height="54" rx="4" ry="4" fill="#dc2626"/>
+                    <!-- Lightning bolt icon -->
+                    <path d="M 50 45 L 42 60 L 48 60 L 44 75 L 56 55 L 50 55 Z" fill="white" opacity="0.9"/>
+                </svg>
+            </div>
+            <div class="score-text">27%</div>
+            <div class="score-subtext">Body Battery Level</div>
+        </div>
+        
+        <div class="section">
+            <div style="background:#fff7ed;padding:25px 0;margin:0">
+                <div style="padding:0 15px">
+                    <p style="font-size:1em;line-height:1.7;color:#1f2937;margin-bottom:15px">Based on your answers and symptoms, your body battery is at <strong style="color:#D2691E">27%</strong>. That usually means your vagus nerve — the nerve that helps your brain talk to your heart, lungs, and stomach — isn't sending strong signals.</p>
+                    
+                    <p style="font-size:1em;line-height:1.7;color:#1f2937;margin-bottom:15px">You can see which areas your vagus nerve isn't signaling well — and which body systems and biomarkers may need a closer look. Neurologists say that when the vagus nerve sends weak signals, inflammation can rise and increase the risk of diabetes, heart problems, or stroke.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div style="padding:0 15px 20px 15px">
+                <h2 class="section-title">⚡ Your Energy Blockers</h2>
+                <p style="margin-bottom:20px">When the brain can't send the message to the gut via the vagus nerve to boost stomach acid, nutrient absorption falls. That strain then shows up in your biomarkers — low iron stores, suboptimal magnesium, thyroid slowdowns, and cortisol shifts — all of which chip away at your energy and lead to fatigue and procrastination.</p>
+                
+                <div class="biomarker-card">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+                        <h3 class="biomarker-title" style="margin:0">Ferritin</h3>
+                        <span style="font-weight:700;color:#dc2626;font-size:1.1em">85%</span>
+                    </div>
+                    <div class="progress-bar" style="margin-bottom:12px"><div class="progress-fill" style="width:85%"></div></div>
+                    <p style="margin:8px 0"><strong>Ferritin drives 85% of your fatigue and low energy.</strong></p>
+                    <p style="margin:8px 0"><strong>Your symptom-based result prediction:</strong> Mildly low (your expected range: 40–55 µg/dL vs normal lab range: 60–170 µg/dL) — making it harder for your body to deliver oxygen efficiently.</p>
+                    <p style="margin:8px 0"><strong>Warning signs:</strong> persistent fatigue, brain fog, difficulty concentrating even on easy tasks, waking up tired, vertigo or dizziness, tension/heaviness in your head, feeling mentally foggy, energy crashes, difficulty relaxing, feeling drained, stressed, memory problems, shortness of breath, procrastination, difficulty falling asleep.</p>
+                </div>
+                
+                <div class="biomarker-card">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+                        <h3 class="biomarker-title" style="margin:0">Magnesium (RBC)</h3>
+                        <span style="font-weight:700;color:#f59e0b;font-size:1.1em">65%</span>
+                    </div>
+                    <div class="progress-bar" style="margin-bottom:12px"><div class="progress-fill" style="width:65%"></div></div>
+                    <p style="margin:8px 0"><strong>Magnesium drives 65% of your stress reactivity, sleep disturbances, and muscle tension.</strong></p>
+                    <p style="margin:8px 0"><strong>Your symptom-based result prediction:</strong> Borderline low (expected 4.2–5.0 mg/dL), suggesting your cells don't have enough magnesium to keep body systems balanced.</p>
+                    <p style="margin:8px 0"><strong>Warning signs:</strong> restless sleep, irritability, muscle tension, cramps, stress sensitivity.</p>
+                </div>
+                
+                <div class="biomarker-card">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+                        <h3 class="biomarker-title" style="margin:0">TSH</h3>
+                        <span style="font-weight:700;color:#f59e0b;font-size:1.1em">60%</span>
+                    </div>
+                    <div class="progress-bar" style="margin-bottom:12px"><div class="progress-fill" style="width:60%"></div></div>
+                    <p style="margin:8px 0"><strong>TSH drives 60% of your sluggish metabolism, cold sensitivity, and low motivation.</strong></p>
+                    <p style="margin:8px 0"><strong>Your symptom-based result prediction:</strong> Borderline elevated TSH (expected 2.5–4.5 µIU/mL), suggesting your thyroid is beginning to work harder than it should to maintain normal energy levels.</p>
+                    <p style="margin:8px 0"><strong>Warning signs:</strong> slow digestion, weight changes, sluggishness, cold hands/feet, low motivation.</p>
+                </div>
+                
+                <div class="biomarker-card">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+                        <h3 class="biomarker-title" style="margin:0">TPO Antibodies</h3>
+                        <span style="font-weight:700;color:#f59e0b;font-size:1.1em">50%</span>
+                    </div>
+                    <div class="progress-bar" style="margin-bottom:12px"><div class="progress-fill" style="width:50%"></div></div>
+                    <p style="margin:8px 0"><strong>TPO antibodies drive 50% of your long-term thyroid ups and downs, which directly impact energy.</strong></p>
+                    <p style="margin:8px 0"><strong>Your symptom-based result prediction:</strong> Elevated (your expected range: 50–150 IU/mL vs normal < 35 IU/mL) — suggests early autoimmune thyroid activity.</p>
+                    <p style="margin:8px 0"><strong>Warning signs:</strong> tiredness, mood changes, weight shifts, increased sensitivity to stress, and slow, and gradual decline in baseline energy levels.</p>
+                </div>
+                
+                <div class="biomarker-card">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+                        <h3 class="biomarker-title" style="margin:0">Cortisol AM</h3>
+                        <span style="font-weight:700;color:#f59e0b;font-size:1.1em">50%</span>
+                    </div>
+                    <div class="progress-bar" style="margin-bottom:12px"><div class="progress-fill" style="width:50%"></div></div>
+                    <p style="margin:8px 0"><strong>Cortisol drives about 50% of your difficulty waking up in the morning, low daytime energy, and trouble winding down at night.</strong></p>
+                    <p style="margin:8px 0"><strong>Your symptom-based result prediction:</strong> Borderline low (your expected range: ~6–10 µg/dL vs healthy 10–20 µg/dL in first hour after waking) — leading to a weak morning "wake-up" signal.</p>
+                    <p style="margin:8px 0"><strong>Warning signs:</strong> waking up tired, morning brain fog, afternoon dips, sugar/caffeine cravings, trouble handling stress.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div style="padding:0 15px 20px 15px">
+                <h2 class="section-title">🧠 Your Cognitive Performance Blockers</h2>
+                <p style="margin-bottom:20px">When the brain can't send strong signals through the vagus nerve, it also struggles to regulate the systems that power cognitive function — especially oxygen delivery and methylation. When these signals weaken, biomarkers like B12 and folate drop, slowing thinking, reducing focus, and increasing mental fatigue.</p>
+                
+                <div class="biomarker-card">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+                        <h3 class="biomarker-title" style="margin:0">🔴 Vitamin B12</h3>
+                        <span style="font-weight:700;color:#dc2626;font-size:1.1em">85%</span>
+                    </div>
+                    <div class="progress-bar" style="margin-bottom:12px"><div class="progress-fill" style="width:85%"></div></div>
+                    <p style="margin:8px 0"><strong>Vitamin B12 drives 85% of your mental clarity, nerve function, and ability to think quickly.</strong></p>
+                    <p style="margin:8px 0"><strong>Your symptom-based result prediction:</strong> Borderline low (your expected range: 250–350 pg/mL, while symptoms often appear below 350 pg/mL) — placing you in the neurocognitive risk zone.</p>
+                    <p style="margin:8px 0"><strong>Warning signs:</strong> brain fog, tingling or pins-and-needles, mood swings, reduced focus, slower processing speed.</p>
+                </div>
+                
+                <div class="biomarker-card">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+                        <h3 class="biomarker-title" style="margin:0">🟡 Folate (RBC Folate)</h3>
+                        <span style="font-weight:700;color:#f59e0b;font-size:1.1em">60%</span>
+                    </div>
+                    <div class="progress-bar" style="margin-bottom:12px"><div class="progress-fill" style="width:60%"></div></div>
+                    <p style="margin:8px 0"><strong>Folate supports methylation and energy production in the brain by about 60%, directly affecting focus, motivation, and mental endurance.</strong></p>
+                    <p style="margin:8px 0"><strong>Your symptom-based result prediction:</strong> Slightly below optimal (your expected range: 3.4–5.4 ng/mL, with the lower end linked to fatigue and reduced concentration).</p>
+                    <p style="margin:8px 0"><strong>Warning signs:</strong> fatigue, irritability, difficulty focusing, reduced motivation.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div style="padding:0 15px 20px 15px">
+                <h2 class="section-title">⚖️ Your Metabolism Blockers</h2>
+                <p style="margin-bottom:20px">When the brain can't send strong signals through the vagus nerve, it also struggles to regulate the systems that drive metabolic balance — especially glucose control, stress recovery, and energy production. As these signals weaken, biomarkers like HbA1c, DHEA-S, and Vitamin D shift, leading to unstable energy, increased cravings, slower recovery, and weight gain.</p>
+                
+                <div class="biomarker-card">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+                        <h3 class="biomarker-title" style="margin:0">🔴 HbA1c</h3>
+                        <span style="font-weight:700;color:#dc2626;font-size:1.1em">80%</span>
+                    </div>
+                    <div class="progress-bar" style="margin-bottom:12px"><div class="progress-fill" style="width:80%"></div></div>
+                    <p style="margin:8px 0"><strong>HbA1c accounts for about 80% of how steadily your body manages glucose — a key driver of energy stability and overall metabolic efficiency.</strong></p>
+                    <p style="margin:8px 0"><strong>Your symptom-based result prediction:</strong> Borderline elevated (your expected optimal range: ~4.8–5.2% vs standard 5.7–6.4% prediabetes zone) — leading to fluctuating energy and slower metabolic performance.</p>
+                    <p style="margin:8px 0"><strong>Warning signs:</strong> energy crashes, sugar cravings, afternoon fatigue, stubborn weight, difficulty recovering after meals or workouts.</p>
+                </div>
+                
+                <div class="biomarker-card">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+                        <h3 class="biomarker-title" style="margin:0">🟠 DHEA-S</h3>
+                        <span style="font-weight:700;color:#f59e0b;font-size:1.1em">70%</span>
+                    </div>
+                    <div class="progress-bar" style="margin-bottom:12px"><div class="progress-fill" style="width:70%"></div></div>
+                    <p style="margin:8px 0"><strong>DHEA-S supports about 70% of your stress recovery, body composition, and daily motivation — making it a key hormone for metabolic resilience.</strong></p>
+                    <p style="margin:8px 0"><strong>Your symptom-based result prediction:</strong> Slightly below optimal (your expected functional range: age-adjusted upper 50%) — reducing stress tolerance and overall drive.</p>
+                    <p style="margin:8px 0"><strong>Warning signs:</strong> low motivation, slow post-workout recovery, reduced muscle tone, irritability, and feeling depleted under stress.</p>
+                </div>
+                
+                <div class="biomarker-card">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+                        <h3 class="biomarker-title" style="margin:0">🟡 Vitamin D</h3>
+                        <span style="font-weight:700;color:#f59e0b;font-size:1.1em">60%</span>
+                    </div>
+                    <div class="progress-bar" style="margin-bottom:12px"><div class="progress-fill" style="width:60%"></div></div>
+                    <p style="margin:8px 0"><strong>Vitamin D contributes roughly 60% to stable mood, cravings control, and energy rhythm — all essential for steady metabolism.</strong></p>
+                    <p style="margin:8px 0"><strong>Your symptom-based result prediction:</strong> Below optimal (your expected range: ~40–60 ng/mL vs typical lab normal ≥ 30 ng/mL) — leading to mood dips, cravings, and inconsistent energy.</p>
+                    <p style="margin:8px 0"><strong>Warning signs:</strong> fatigue, low mood, sugar cravings, reduced immune resilience, and difficulty maintaining stable energy throughout the day.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="global-blocker">
+                <h3 style="font-size:1.3em;margin-bottom:12px">🚨 Global Blocker — Vagus Nerve Tone</h3>
+                <p style="margin:10px 0;font-weight:600">Impact: ~95% — The master regulator behind fatigue, cravings, mood swings, and slow recovery.</p>
+                <div style="background:rgba(255,255,255,0.9);color:#2c3e50;padding:10px;border-radius:6px;margin:10px 0"><strong>Prediction:</strong> Reduced vagal tone — meaning the body struggles to switch into its "rest-and-recover" mode.</div>
+                <p style="margin:10px 0"><strong>How it's measured:</strong> Vagal tone is clinically reflected through Heart Rate Variability (HRV). Higher HRV = stronger vagal signaling and better stress adaptability.</p>
+                <p style="margin:10px 0"><strong>What the science shows:</strong> Low vagus nerve activity is linked to higher inflammation, unstable glucose control, weaker stress tolerance, reduced cognitive clarity, and slower muscle recovery.</p>
+                <div style="background:rgba(255,255,255,0.15);padding:10px;border-radius:6px;margin:10px 0;font-size:0.9em">📚 Laborde S et al., Frontiers in Neuroscience 2017; Hillebrand et al., Circulation 2013; De Couck et al., Psychoneuroendocrinology 2016</div>
+                <div style="background:rgba(255,255,255,0.9);color:#2c3e50;padding:10px;border-radius:6px"><strong>Symptom prediction:</strong> slow mornings, anxiety, afternoon crashes, sugar/caffeine cravings, restless sleep, and digestive discomfort.</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div style="padding:0 15px 20px 15px">
+                <h2 class="section-title">🌀 What Happens Next</h2>
+                
+                <h3 style="color:#D2691E;font-size:1.2em;margin-bottom:12px;font-weight:700">🫁 Vagus-Activating Routines</h3>
+                <p style="margin-bottom:15px">Aura created a simple, science-backed exercises you can do anytime, anywhere —</p>
+                
+                <ul style="margin-left:20px;margin-bottom:15px;line-height:1.8">
+                    <li>no expensive devices</li>
+                    <li>no special equipment needed.</li>
+                </ul>
+                
+                <p style="margin-bottom:15px;font-weight:600">These medically proven exercises help activate the vagus nerve.</p>
+                
+                <div style="background:#fff7ed;border-left:3px solid #F4A460;padding:15px;margin:15px 0;border-radius:6px">
+                    <ul style="margin-left:20px;line-height:1.8;margin-bottom:0">
+                        <li><strong>In 5 minutes:</strong> you'll notice more calm, steadier mood, and a quick recharge.</li>
+                        <li><strong>In 1 week:</strong> you'll see deeper sleep and fewer night awakenings.</li>
+                        <li><strong>In 2 weeks:</strong> you'll observe higher HRV and calmer heartbeat patterns.</li>
+                        <li><strong>In 4 weeks:</strong> you'll feel your stress system reset and your daily energy stabilize.</li>
+                    </ul>
+                </div>
+                
+                <div style="background:rgba(244,164,96,0.1);padding:10px;border-radius:6px;margin-top:15px;font-size:0.9em;color:#6b7280">
+                    📚 Gerritsen R et al., Psychophysiology 2018; Lehrer PM et al., Applied Psychophysiology 2020; Pascoe MC et al., J Health Psychol 2017
+                </div>
+                
+                <div style="background:#fff7ed;border-left:3px solid #F4A460;padding:15px;margin:15px 0;border-radius:6px">
+                    <h3 style="color:#D2691E;font-size:1.1em;margin-bottom:10px">🌿 Why this matters</h3>
+                    <p style="margin-bottom:0">Vagus-nerve exercises have been shown to help with fatigue, brain fog, digestive discomfort, weight management, stress sensitivity, low mood, back pain, migraines, poor sleep, tension, and overwhelm.</p>
+                </div>
+                
+                <div style="background:#fff7ed;border-left:3px solid #F4A460;padding:15px;margin:15px 0;border-radius:6px">
+                    <h3 style="color:#D2691E;font-size:1.1em;margin-bottom:10px">🚀 Let's begin</h3>
+                    <p style="margin-bottom:0">You can take these exercises one day at a time, and revisit them to recharge your body battery — they'll always be here to support you.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div style="padding:0 15px 20px 15px">
+                <h2 class="section-title">🔬 Next Steps: Personalized Biomarker Panels</h2>
+                
+                <p style="margin-bottom:15px">Low vagus nerve tone affects all vital biomarkers. Biomarker imbalances reveal where the brain is sending weaker signals through the vagus nerve — and which organs are draining your body battery the fastest.</p>
+                
+                <p style="margin-bottom:15px">If you want to understand why your body battery keeps draining, lab testing can show which system needs the most help — and help you focus on the vagus nerve exercises and nutrients that can power it back up.</p>
+            </div>
+            
+            <div style="padding:0 15px">
+                <table>
+                <tr><th>Biomarker</th><th style="text-align:center">Basic</th><th style="text-align:center">Complete</th><th style="text-align:center">Advanced</th></tr>
+                <tr><td>CBC</td><td style="text-align:center">✅</td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+                <tr><td>TSH</td><td style="text-align:center">✅</td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+                <tr><td>Vitamin B12</td><td style="text-align:center">✅</td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+                <tr><td>Folate</td><td style="text-align:center">✅</td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+                <tr><td>Ferritin</td><td style="text-align:center">—</td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+                <tr><td>Serum Iron</td><td style="text-align:center">—</td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+                <tr><td>TIBC</td><td style="text-align:center">—</td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+                <tr><td>Transferrin Saturation</td><td style="text-align:center">—</td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+                <tr><td>Cortisol AM</td><td style="text-align:center">—</td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+                <tr><td>HbA1c</td><td style="text-align:center">—</td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+                <tr><td>Magnesium (RBC)</td><td style="text-align:center">—</td><td style="text-align:center">—</td><td style="text-align:center">✅</td></tr>
+                <tr><td>DHEA-S</td><td style="text-align:center">—</td><td style="text-align:center">—</td><td style="text-align:center">✅</td></tr>
+                <tr><td>TPO</td><td style="text-align:center">—</td><td style="text-align:center">—</td><td style="text-align:center">✅</td></tr>
+                <tr><td>Vitamin D</td><td style="text-align:center">—</td><td style="text-align:center">—</td><td style="text-align:center">✅</td></tr>
+            </table>
+            </div>
+        </div>
+        
+        <div style="background:linear-gradient(135deg, #F4A460 0%, #D2691E 100%);padding:30px 20px;margin:30px 0 0 0;text-align:center;color:white">
+            <h3 style="font-size:1.6em;margin-bottom:0;font-weight:700;color:white">🌟 Small steps, big changes ahead!</h3>
+        </div>
+    </div>
+</body>
+</html>
