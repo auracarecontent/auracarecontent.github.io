@@ -1,6 +1,6 @@
 {
-  "version": "1.0.3",
-  "lastUpdated": "2025-12-29T12:00:00Z",
+  "version": "1.0.4",
+  "lastUpdated": "2025-12-29T14:00:00Z",
   "welcome_stage": [
     {
       "id": "0-1",
@@ -188,18 +188,18 @@
       "id": "10",
       "week": 10,
       "title": "Fix Posture, Relieve Back Pain",
-      "subtitle": "Reduce hidden inflammation that drains stamina and accelerate your body's natural repair",
+      "subtitle": "Learn why small daily posture habits quietly overload your muscles and joints, leading to persistent back and neck pain",
       "icon": "water-outline",
       "iconColor": "#C4A57B",
       "status": "available",
       "days": [
-        { "id": "10-1", "day": 1, "title": "Why Your Head Feels Heavy", "description": "Understand how low-grade inflammation quietly drives fatigue, brain fog, and mood changes — even without visible illness.", "contentUrl": "https://auracarecontent.github.io/10-1.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "10-2", "day": 2, "title": "Hidden Triggers of Migraines & Vertigo", "description": "Learn how processed foods, sugar spikes, and poor omega balance activate inflammation — and how to cool it through smarter choices.", "contentUrl": "https://auracarecontent.github.io/10-2.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "10-3", "day": 3, "title": "How to Release Head & Neck Tension", "description": "Discover how an imbalanced microbiome and increased gut permeability trigger immune activation and energy loss.", "contentUrl": "https://auracarecontent.github.io/10-3.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "10-4", "day": 4, "title": "Easy Ways to Calm Dizziness", "description": "See how chronic tension elevates cytokines and cortisol, keeping your immune system on constant alert.", "contentUrl": "https://auracarecontent.github.io/10-4.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "10-5", "day": 5, "title": "Foods That Help (and Hurt) Migraines", "description": "Explore how magnesium, vitamin D, and antioxidants protect against inflammation and support tissue repair.", "contentUrl": "https://auracarecontent.github.io/10-5.html", "isUnlocked": true, "duration": "12 min" },
-        { "id": "10-6", "day": 6, "title": "Caffeine & Headaches: What to Know", "description": "Learn how regular movement lowers CRP and boosts anti-inflammatory cytokines — even gentle activity counts.", "contentUrl": "https://auracarecontent.github.io/10-6.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "10-7", "day": 7, "title": "3 Steps to Feel Clear Again", "description": "Combine nutrition, rest, and rhythm into a sustainable routine that keeps inflammation low and vitality high.", "contentUrl": "https://auracarecontent.github.io/10-7.html", "isUnlocked": true, "duration": "8 min" }
+        { "id": "10-1", "day": 1, "title": "Why Posture Causes Pain", "description": "Learn why small daily posture habits quietly overload your muscles and joints, leading to persistent back and neck pain.", "contentUrl": "https://auracarecontent.github.io/10-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "10-2", "day": 2, "title": "Jaw Clenching & Hidden Stress", "description": "Discover how jaw tension stores hidden stress and emotional load — and why releasing it helps calm your nervous system and posture.", "contentUrl": "https://auracarecontent.github.io/10-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "10-3", "day": 3, "title": "3 Posture Mistakes You Repeat Daily", "description": "Discover three common posture mistakes most people repeat all day without noticing — and how they reinforce pain and tension.", "contentUrl": "https://auracarecontent.github.io/10-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "10-4", "day": 4, "title": "How Posture Affects Your Gut", "description": "Learn how posture and abdominal tension influence digestion, gut comfort, and the gut–brain connection.", "contentUrl": "https://auracarecontent.github.io/10-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "10-5", "day": 5, "title": "How to Sleep Better With Posture", "description": "Find out how simple posture adjustments and evening body positions can reduce pain and support deeper, more restorative sleep.", "contentUrl": "https://auracarecontent.github.io/10-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "10-6", "day": 6, "title": "How Posture Causes Headaches", "description": "Learn how neck tension, forward head position, and shoulder load trigger head pressure and tension-type headaches.", "contentUrl": "https://auracarecontent.github.io/10-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "10-7", "day": 7, "title": "Secrets of Pain-Free Posture", "description": "See how balanced posture supports comfort, mobility, and pain-free movement over time.", "contentUrl": "https://auracarecontent.github.io/10-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
     },
     {
