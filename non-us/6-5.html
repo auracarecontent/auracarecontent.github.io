@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 5 — Master Your Internal Clock</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .footer-cta-wrapper { text-align: center; }
+        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
+        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
+        .action-title { font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.75rem; }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            transition: width 1s ease-out;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        .reference-text {
+            font-size: 11px;
+            font-weight: 500;
+            color: #8C8C8C;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 16px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(184,118,88,0.35);
+        }
+        .summary-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+        .summary-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .summary-item:last-child { margin-bottom: 0; }
+        .summary-item span:first-child { font-size: 1.25rem; flex-shrink: 0; }
+        .timeline-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            align-items: flex-start;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            line-height: 1.2;
+        }
+        .timeline-content {
+            flex: 1;
+        }
+        .timeline-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.3px;
+        }
+        .timeline-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+        }
+        .action-card {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 2px solid rgba(184,118,88,0.2);
+        }
+        .action-card-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 1rem;
+        }
+        .action-options {
+            background: #FFFFFF;
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        .action-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .action-option:last-child { margin-bottom: 0; }
+        .action-option-bullet {
+            font-size: 1rem;
+            color: #B87658;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <!-- Header -->
+        <div class="header">
+            <div class="day-label">DAY 5</div>
+            <h1>Master Your Internal Clock</h1>
+        </div>
+
+        <!-- Intro Section -->
+        <div class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Your body doesn't fall asleep by time — it falls asleep by rhythm.
+            </div>
+            <div class="text-content">
+                Today you'll learn how your internal clock works, why it often drifts off after 40, and how the vagus nerve helps your system stay in sync with the natural sleep–wake cycle.
+            </div>
+        </div>
+
+        <!-- ☀️ Why It Matters -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                If sleep feels unpredictable — easy one night, difficult the next — it's often not anxiety or habits alone.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">It's rhythm loss.</span>
+            </div>
+            <div class="text-content">
+                Your internal clock (circadian rhythm) tells your body when to:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">feel alert,</li>
+                <li class="bullet-item">release melatonin,</li>
+                <li class="bullet-item">lower body temperature,</li>
+                <li class="bullet-item">enter deep sleep.</li>
+            </ul>
+            <div class="text-content">
+                When this clock is steady, sleep feels natural. When it's confused, the body hesitates — even if you're tired.
+            </div>
+            <div class="text-content">
+                With time, this clock responds more strongly to:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">light at the wrong time,</li>
+                <li class="bullet-item">irregular wake-up hours,</li>
+                <li class="bullet-item">late meals and stimulation.</li>
+            </ul>
+            <div class="text-content">
+                The vagus nerve helps translate rhythm into felt calm. Without vagal support, even a well-timed clock struggles to bring deep rest.
+            </div>
+        </div>
+
+        <!-- 😴 How Rhythm and the Vagus Work Together -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">😴</span>
+                <h2>How Rhythm and the Vagus Work Together</h2>
+            </div>
+            <div class="text-content">
+                Think of your internal clock as the schedule — and the vagus nerve as the conductor.
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">The clock says when sleep should begin.</li>
+                <li class="bullet-item">The vagus says "it's safe now."</li>
+            </ul>
+            <div class="text-content">
+                When both are aligned:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">the brain lets go,</li>
+                <li class="bullet-item">the body softens,</li>
+                <li class="bullet-item">sleep deepens.</li>
+            </ul>
+            <div class="text-content">
+                When one is off, the system stalls — often in light, fragmented sleep.
+            </div>
+        </div>
+
+        <!-- 🌿 Science Facts -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Internal Clock & Sleep</h2>
+            </div>
+            
+            <div class="science-fact">
+                <div class="fact-icon">☀️</div>
+                <div>
+                    <div class="fact-title">Morning light is the strongest cue for resetting circadian rhythm</div>
+                    <div class="fact-desc">(Khalsa et al., 2003).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🕰️</div>
+                <div>
+                    <div class="fact-title">A consistent wake-up time stabilizes sleep</div>
+                    <div class="fact-desc">More than chasing early bedtime (Phillips et al., 2017).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🌙</div>
+                <div>
+                    <div class="fact-title">Evening light delays melatonin and shortens deep sleep</div>
+                    <div class="fact-desc">(Gooley et al., 2011).</div>
+                </div>
+            </div>
+
+            <div class="science-fact" style="margin-bottom: 0;">
+                <div class="fact-icon">💓</div>
+                <div>
+                    <div class="fact-title">Strong vagal tone improves circadian stability</div>
+                    <div class="fact-desc">And sleep quality (Thayer et al., 2012).</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🧬 What About Labs? -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                When your internal clock drifts, the issue is often not sleep duration, but timing and rhythm signaling inside the body.
+            </div>
+            <div class="text-content">
+                These markers help explain why your sleep feels unpredictable from night to night.
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                <span class="highlight-text">The % shows how much this marker can impact sleep quality and recovery.</span>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Cortisol (AM)</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%;">⏰ 60 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    A flattened or delayed cortisol rhythm confuses the sleep–wake cycle. When cortisol doesn't rise clearly in the morning or fall in the evening, the internal clock loses its timing signals.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Vitamin D</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 50%;">☀️ 50 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Vitamin D plays a role in circadian gene expression. Low levels are linked to weaker day–night signaling and delayed sleep timing.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">TSH</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">🦋 45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Even within normal limits, higher TSH can reflect subtle circadian disruption and difficulty aligning sleep timing.
+                </div>
+            </div>
+        </div>
+
+        <!-- 💭 Reflection Prompt -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0;">
+                    Does your body know what time it is — or does every day feel slightly different?<br><br>
+                    What time of day feels most confusing: morning, evening, or both?
+                </div>
+            </div>
+        </div>
+
+        <!-- 🧠 What Actually Helps Reset the Clock -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What Actually Helps Reset the Clock</h2>
+            </div>
+            <div class="text-content">
+                You don't need strict rules. You need one reliable daily anchor.
+            </div>
+            <div class="text-content">
+                The most powerful rhythm anchors:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">consistent wake-up time,</li>
+                <li class="bullet-item">morning light,</li>
+                <li class="bullet-item">predictable wind-down.</li>
+            </ul>
+            <div class="text-content">
+                These cues strengthen both your clock and vagal signaling.
+            </div>
+        </div>
+
+        <!-- ✅ Plan to Action -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Protect One Time Point 🕰️</h2>
+            </div>
+            <div class="text-content">
+                Today, do one thing only:
+            </div>
+
+            <div class="action-card">
+                <div class="action-card-title">Your one action</div>
+                <div class="text-content">
+                    Choose one time point in your day and keep it stable today and tomorrow.
+                </div>
+                
+                <div class="action-options">
+                    <div class="text-content" style="font-weight: 600; margin-bottom: 1rem;">
+                        Pick just one:
+                    </div>
+                    <div class="action-option">
+                        <span class="action-option-bullet">→</span>
+                        <span>the time you wake up, or</span>
+                    </div>
+                    <div class="action-option">
+                        <span class="action-option-bullet">→</span>
+                        <span>the time you stop work, or</span>
+                    </div>
+                    <div class="action-option">
+                        <span class="action-option-bullet">→</span>
+                        <span>the time you dim the lights in the evening.</span>
+                    </div>
+                </div>
+
+                <div class="text-content" style="margin-top: 1.25rem; margin-bottom: 0;">
+                    That's it. Don't change anything else. Don't optimize. Don't fix sleep.
+                </div>
+            </div>
+        </div>
+
+        <!-- 🧠 Why This Works -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Why This Works</h2>
+            </div>
+            <div class="text-content">
+                Your internal clock doesn't need a perfect schedule. It needs one reliable reference point.
+            </div>
+            <div class="text-content">
+                As the body becomes less forgiving of irregular rhythms, this clock becomes more sensitive to light at the wrong time.
+            </div>
+            <div class="text-content">
+                One stable time helps your nervous system relax into the rest of the day — and night.
+            </div>
+        </div>
+
+        <!-- ✨ What to Expect -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <div class="timeline-box">
+                <div class="timeline-item">
+                    <div class="timeline-icon">⏱️</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER 1–2 DAYS</div>
+                        <div class="timeline-text">Less internal confusion about "what time it is."</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">⏳</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER A FEW DAYS</div>
+                        <div class="timeline-text">Evenings feel slightly more predictable.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">📆</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER 1–2 WEEKS</div>
+                        <div class="timeline-text">Sleep timing becomes easier and less forced.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎬</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/2_93FVvGLNs" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <!-- ✨ Today You Learned -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            <div class="summary-box">
+                <div class="summary-item">
+                    <span>🕰️</span>
+                    <span>Sleep follows rhythm, not just tiredness</span>
+                </div>
+                <div class="summary-item">
+                    <span>☀️</span>
+                    <span>Light and timing set your internal clock</span>
+                </div>
+                <div class="summary-item">
+                    <span>🩵</span>
+                    <span>The vagus nerve helps translate rhythm into rest</span>
+                </div>
+                <div class="summary-item">
+                    <span>🔁</span>
+                    <span>One steady anchor restores sleep predictability</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); padding: 2rem 1.5rem;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #FFFFFF; margin-bottom: 0; line-height: 1.5;">
+                ✨ Remember: Rhythm, not willpower, is what tells your body when it's time to sleep.
+      
+            </div>
+        </div>
+    
+    </main>
+</body>
+</html>

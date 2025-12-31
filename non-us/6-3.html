@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3 — Tired but Can't Sleep? Here's Why</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .footer-cta-wrapper { text-align: center; }
+        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            transition: width 1s ease-out;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 16px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(184,118,88,0.35);
+        }
+        .summary-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+        .summary-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .summary-item:last-child { margin-bottom: 0; }
+        .summary-item span:first-child { font-size: 1.25rem; flex-shrink: 0; }
+        .timeline-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            align-items: flex-start;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            line-height: 1.2;
+        }
+        .timeline-content {
+            flex: 1;
+        }
+        .timeline-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.3px;
+        }
+        .timeline-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+        }
+        .technique-card {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 2px solid rgba(184,118,88,0.2);
+        }
+        .technique-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 1rem;
+        }
+        .technique-subtitle {
+            font-size: 14px;
+            font-weight: 700;
+            color: #172737;
+            margin-bottom: 0.75rem;
+            margin-top: 1rem;
+        }
+        .technique-subtitle:first-of-type {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <!-- Header -->
+        <div class="header">
+            <div class="day-label">DAY 3</div>
+            <h1>Tired but Can't Sleep? Here's Why</h1>
+        </div>
+
+        <!-- Intro Section -->
+        <div class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Feeling exhausted but unable to sleep doesn't mean your body isn't tired — it means your nervous system hasn't entered the body's "sleep kingdom" yet.
+            </div>
+            <div class="text-content">
+                Today you'll learn what the vagus nerve does, why it's often called the gateway to sleep, and how to help your system finally shift from alertness into deep rest.
+            </div>
+        </div>
+
+        <!-- ☀️ Why It Matters -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Many people experience the same paradox: the body feels heavy and tired, but the mind stays sharp and alert.
+            </div>
+            <div class="text-content">
+                This happens when the vagus nerve — the main nerve of rest and recovery — hasn't fully taken the lead.
+            </div>
+            <div class="text-content">
+                The vagus nerve connects your brain to your heart, lungs, and digestive system. Its job is to signal:
+            </div>
+            <div class="text-content" style="font-style: italic; color: #656565;">
+                🩵 "We're safe. We can slow down. We can repair."
+            </div>
+            <div class="text-content">
+                Because of this role, it's often called the nerve of rest — or even the "kingdom of sleep."
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">When the vagus is active, sleep becomes possible. When it's quiet or overwhelmed, the brain stays on duty.</span>
+            </div>
+        </div>
+
+        <!-- 😴 What's Really Blocking Sleep -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">😴</span>
+                <h2>What's Really Blocking Sleep</h2>
+            </div>
+            <div class="text-content">
+                Your nervous system constantly shifts between two states:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item"><span class="highlight-text">Activation</span> — focus, thinking, reacting</li>
+                <li class="bullet-item"><span class="highlight-text">Recovery</span> — slowing, digesting, restoring</li>
+            </ul>
+            <div class="text-content">
+                The vagus nerve is the main switch that moves you from the first into the second.
+            </div>
+            <div class="text-content">
+                During a mentally dense day:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">decisions pile up,</li>
+                <li class="bullet-item">stress signals linger,</li>
+                <li class="bullet-item">stimulation stays high.</li>
+            </ul>
+            <div class="text-content">
+                By evening, your body is tired — but your vagus nerve hasn't had enough support to fully engage. So the brain remains in monitoring mode, even in bed.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Sleep doesn't fail because you're not tired enough. It fails because the path into the sleep kingdom hasn't opened yet.</span>
+            </div>
+        </div>
+
+        <!-- 🌿 Science Facts -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Vagus, Alertness & Sleep</h2>
+            </div>
+            
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Cognitive overstimulation keeps cortical alertness high</div>
+                    <div class="fact-desc">Delays sleep onset (Harvey, 2002).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">💓</div>
+                <div>
+                    <div class="fact-title">Higher vagal tone (measured via HRV) is linked to easier sleep initiation</div>
+                    <div class="fact-desc">And deeper sleep (Thayer et al., 2012).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">😮‍💨</div>
+                <div>
+                    <div class="fact-title">Slow breathing with longer exhales directly activates vagal pathways</div>
+                    <div class="fact-desc">Reduces brain arousal (Zaccaro et al., 2018).</div>
+                </div>
+            </div>
+
+            <div class="science-fact" style="margin-bottom: 0;">
+                <div class="fact-icon">🛏️</div>
+                <div>
+                    <div class="fact-title">Reducing pressure to sleep increases parasympathetic dominance</div>
+                    <div class="fact-desc">Shortens sleep latency (Broomfield & Espie, 2005).</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🧬 What About Labs? -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                Some blood markers can reflect how strongly your nervous system stays in alert mode — even when your body feels exhausted.
+            </div>
+            <div class="text-content">
+                These labs don't diagnose sleep disorders, but they help explain why your system struggles to fully switch into rest.
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                <span class="highlight-text">The % shows how much this marker can impact sleep quality and recovery.</span>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Morning Cortisol</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%;">⏰ 60 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Elevated or flattened cortisol rhythms are common in "tired but wired" states. When cortisol doesn't fall properly at night, the brain remains on standby instead of entering deep sleep.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Magnesium (RBC)</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;">⚡ 55 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Magnesium supports calm nerve signaling and vagal activity. Low intracellular magnesium is linked to muscle tension, jaw clenching, and difficulty letting go at night.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">hs-CRP</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">🔥 45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Low-grade inflammation keeps stress pathways active and interferes with parasympathetic (vagal) dominance during sleep.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Ferritin / Iron Status</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">🩸 40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Low iron stores can increase nighttime restlessness and prevent full nervous system recovery, even when total sleep time is adequate.
+                </div>
+            </div>
+        </div>
+
+        <!-- 💭 Reflection Prompt -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0;">
+                    When you lie in bed, does your body feel tired — but your chest, jaw, or forehead still feel "on"?<br><br>
+                    What tells you that your system hasn't fully entered rest yet?
+                </div>
+            </div>
+        </div>
+
+        <!-- 🧠 What Actually Helps -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What Actually Helps (How the Vagus Works)</h2>
+            </div>
+            <div class="text-content">
+                You don't need to convince your brain to sleep. You need to activate the nerve that rules the sleep state.
+            </div>
+            <div class="text-content">
+                The vagus nerve responds best to:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">slow, extended exhalations,</li>
+                <li class="bullet-item">reduced sensory input,</li>
+                <li class="bullet-item">the removal of urgency and pressure.</li>
+            </ul>
+            <div class="text-content">
+                When vagal signals strengthen, the brain naturally steps back. That's when the door to sleep opens — without force.
+            </div>
+        </div>
+
+        <!-- ✅ Plan to Action -->
+        <div class="section" style="background: linear-gradient(to bottom, rgba(184,118,88,0.03), rgba(184,118,88,0.08));">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Gratitude Wind-Down</h2>
+            </div>
+            <div class="text-content" style="text-align: center; font-size: 15px; color: #656565; margin-bottom: 1.5rem;">
+                Tonight, prepare your sleep by gently closing the day.
+            </div>
+
+            <div class="technique-card" style="background: white; border: 2px solid rgba(184,118,88,0.15); box-shadow: 0 4px 12px rgba(184,118,88,0.12);">
+        </div>
+
+    </main>
+</body>
+</html>

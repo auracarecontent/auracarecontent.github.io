@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 7 — Secrets of Pain-Free Posture</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+        }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            margin: 1rem 0;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .secret-box {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEF 100%);
+            padding: 2rem 1.5rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+            border: 2px solid #FFE999;
+            box-shadow: 0 4px 12px rgba(255, 233, 153, 0.3);
+        }
+        .secret-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #FFE999;
+        }
+        .secret-icon {
+            font-size: 40px;
+            flex-shrink: 0;
+        }
+        .secret-title-wrapper {
+            flex: 1;
+        }
+        .secret-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #C4930B;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+        .secret-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .comparison-table {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(23,39,55,0.1);
+        }
+        .comparison-header {
+            display: grid;
+            grid-template-columns: 1fr 80px 80px;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 12px 16px;
+        }
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 80px 80px;
+            padding: 14px 16px;
+            border-bottom: 1px solid #EFEFEF;
+            align-items: center;
+        }
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+        .comparison-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: #172737;
+        }
+        .comparison-check {
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 7</div>
+            <h1>Secrets of Pain-Free Posture</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Pain-free posture isn't something you hold.
+            </div>
+            <div class="text-content">
+                Here's the surprising truth:
+            </div>
+            <div class="text-content">
+                People with pain-free posture don't think about posture at all.
+            </div>
+            <div class="text-content">
+                Today you'll learn:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">what actually makes posture feel effortless</li>
+                <li class="bullet-item">why "good posture" advice often backfires</li>
+                <li class="bullet-item">what pain-free posture looks like in real life (not on posters)</li>
+            </ul>
+            <div class="text-content">
+                This day is about understanding, not fixing.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                If you've ever thought:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">"If I relax, I'll collapse"</li>
+                <li class="bullet-item">"If I don't control my posture, pain comes back"</li>
+                <li class="bullet-item">"Good posture feels tiring"</li>
+            </ul>
+            <div class="text-content">
+                You're not alone.
+            </div>
+            <div class="text-content">
+                Most posture advice focuses on holding yourself together.
+            </div>
+            <div class="text-content">
+                But pain-free bodies work very differently.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="secret-box">
+                <div class="secret-header">
+                    <div class="secret-icon">🤫</div>
+                    <div class="secret-title-wrapper">
+                        <div class="secret-label">Secret №1</div>
+                        <div class="secret-title">Pain-Free Posture Is Dynamic, Not Static</div>
+                    </div>
+                </div>
+                
+                <div class="text-content">
+                    One of the biggest myths:
+                </div>
+                <div class="text-content" style="font-style: italic; color: #656565;">
+                    "Good posture means staying still and straight."
+                </div>
+                
+                <div class="text-content" style="margin-top: 1rem;">
+                    In reality, pain-free posture is constantly moving — just a little.
+                </div>
+                
+                <div class="text-content">
+                    People without chronic pain:
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">shift weight naturally</li>
+                    <li class="bullet-item">change positions often</li>
+                    <li class="bullet-item">allow micro-movements in the spine</li>
+                </ul>
+                
+                <div style="background: white; padding: 1rem; border-radius: 12px; margin: 1rem 0; text-align: center;">
+                    <div class="text-content" style="margin-bottom: 0.5rem; font-weight: 600; color: #B87658;">
+                        Stillness creates stiffness.<br>
+                        Movement creates comfort.
+                    </div>
+                </div>
+                
+                <div class="text-content">
+                    That's why:
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">long sitting hurts more than short bad posture</li>
+                    <li class="bullet-item">pain builds during the day, not instantly</li>
+                </ul>
+                
+                <div class="science-fact">
+                    <span class="fact-icon">💡</span>
+                    <div>
+                        <div class="fact-desc">
+                            Your body hates being frozen — even in a "correct" position.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="secret-box">
+                <div class="secret-header">
+                    <div class="secret-icon">🤫</div>
+                    <div class="secret-title-wrapper">
+                        <div class="secret-label">Secret №2</div>
+                        <div class="secret-title">Muscles Aren't Meant to Hold You All Day</div>
+                    </div>
+                </div>
+                
+                <div class="text-content">
+                    Another myth:
+                </div>
+                <div class="text-content" style="font-style: italic; color: #656565;">
+                    "Strong muscles = pain-free posture."
+                </div>
+                
+                <div class="text-content" style="margin-top: 1rem;">
+                    Strong muscles help — but only if they can relax.
+                </div>
+                
+                <div class="text-content">
+                    Pain-free posture means:
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">muscles turn on when needed</li>
+                    <li class="bullet-item">then fully turn off</li>
+                </ul>
+                
+                <div class="text-content">
+                    Chronic pain appears when muscles:
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">stay slightly contracted all day</li>
+                    <li class="bullet-item">never get a real break</li>
+                </ul>
+                
+                <div style="background: white; padding: 1rem; border-radius: 12px; margin: 1rem 0;">
+                    <div class="text-content" style="margin-bottom: 0.5rem;">
+                        This is why you can feel tired, sore, or foggy
+                    </div>
+                    <div class="text-content" style="margin-bottom: 0;">
+                        even without heavy physical work.
+                    </div>
+                </div>
+                
+                <div class="science-fact">
+                    <span class="fact-icon">💡</span>
+                    <div>
+                        <div class="fact-title">Your body isn't weak.</div>
+                        <div class="fact-desc">It's overworking.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="secret-box">
+                <div class="secret-header">
+                    <div class="secret-icon">🤫</div>
+                    <div class="secret-title-wrapper">
+                        <div class="secret-label">Secret №3</div>
+                        <div class="secret-title">Your Body Chooses Posture Based on Safety</div>
+                    </div>
+                </div>
+                
+                <div class="text-content">
+                    Here's something most people never hear:
+                </div>
+                <div class="text-content">
+                    Your posture is controlled more by your nervous system than by willpower.
+                </div>
+                
+                <div class="text-content" style="margin-top: 1rem;">
+                    When your body feels unsafe or overloaded:
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">muscles brace</li>
+                    <li class="bullet-item">shoulders lift</li>
+                    <li class="bullet-item">jaw tightens</li>
+                    <li class="bullet-item">breathing becomes shallow</li>
+                </ul>
+                
+                <div class="text-content">
+                    When your body feels supported:
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">posture improves automatically</li>
+                    <li class="bullet-item">muscles soften</li>
+                    <li class="bullet-item">movement feels easier</li>
+                </ul>
+                
+                <div style="background: white; padding: 1rem; border-radius: 12px; margin: 1rem 0;">
+                    <div class="text-content">
+                        This is why:
+                    </div>
+                    <ul class="bullet-list" style="margin-bottom: 0;">
+                        <li class="bullet-item">stress changes posture</li>
+                        <li class="bullet-item">fatigue makes posture collapse</li>
+                        <li class="bullet-item" style="margin-bottom: 0;">comfort improves alignment without effort</li>
+                    </ul>
+                </div>
+                
+                <div class="science-fact">
+                    <span class="fact-icon">🧠</span>
+                    <div>
+                        <div class="fact-title">Posture is a response, not a command.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>A Simple Real-Life Example</h2>
+            </div>
+            
+            <div class="text-content">
+                Think about this:
+            </div>
+            <div class="text-content">
+                Have you ever noticed that:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">posture feels worse when you're tired</li>
+                <li class="bullet-item">pain increases when you're stressed</li>
+                <li class="bullet-item">everything feels easier on vacation</li>
+            </ul>
+            
+            <div class="science-fact">
+                <span class="fact-icon">💡</span>
+                <div>
+                    <div class="fact-desc">
+                        Your skeleton didn't change.<br>
+                        Your sense of safety and load did.<br>
+                        <br>
+                        That's posture in real life.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs? — Posture as a Recovery Signal</h2>
+            </div>
+            <div class="text-content">
+                Pain-free posture isn't visible in one single lab value.
+            </div>
+            <div class="text-content">
+                But when the body stops bracing and constantly compensating, recovery markers start to shift together.
+            </div>
+            <div class="text-content">
+                The % shows how strongly this marker is influenced by chronic tension vs recovery.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <span style="font-size: 1.5rem;">🧲</span>
+                    <div class="biomarker-name">Magnesium (RBC)</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%;">60%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Chronic muscle holding increases magnesium demand. When posture improves and muscles truly relax, intracellular magnesium is used more efficiently.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <span style="font-size: 1.5rem;">☀️</span>
+                    <div class="biomarker-name">Morning Cortisol</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;">55%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Constant postural stress keeps cortisol slightly elevated or flattened. Pain-free posture supports a clearer day–night rhythm and better recovery.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <span style="font-size: 1.5rem;">🔥</span>
+                    <div class="biomarker-name">hs-CRP</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">45%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Long-term muscle tension and poor recovery contribute to low-grade inflammation. Reduced bracing helps quiet these signals.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <span style="font-size: 1.5rem;">🩸</span>
+                    <div class="biomarker-name">Ferritin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 35%;">35%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Chronic tension and poor sleep can worsen fatigue even with "normal" iron. Improved posture often reveals better energy utilization.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="text-content">
+                Think of someone you know who moves easily and comfortably.
+            </div>
+            <div class="text-content">
+                Do they look:
+            </div>
+            <div class="text-content">
+                rigid and controlled
+            </div>
+            <div class="text-content">
+                or relaxed and fluid?
+            </div>
+            <div class="science-fact">
+                <span class="fact-icon">💡</span>
+                <div>
+                    <div class="fact-desc">
+                        Pain-free posture usually looks less impressive, not more.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What This Means for You</h2>
+            </div>
+            
+            <div class="text-content">
+                Pain-free posture doesn't come from:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">❌ sitting straight all day</li>
+                <li class="bullet-item">❌ holding your core</li>
+                <li class="bullet-item">❌ constant self-correction</li>
+            </ul>
+            
+            <div class="text-content" style="margin-top: 1rem;">
+                It comes from:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">✅ movement</li>
+                <li class="bullet-item">✅ support</li>
+                <li class="bullet-item">✅ reduced holding</li>
+                <li class="bullet-item">✅ better load sharing</li>
+            </ul>
+            
+            <div class="science-fact">
+                <span class="fact-icon">💡</span>
+                <div>
+                    <div class="fact-desc">
+                        When the body doesn't need to protect itself,<br>
+                        posture organizes on its own.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — The Curiosity Practice</h2>
+            </div>
+            <div class="text-content">
+                This is not an exercise.
+            </div>
+            <div class="text-content">
+                It's an experiment.
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">Step 1 — Observe (1 min)</div>
+                <div class="fact-desc">
+                    Watch people around you today:<br>
+                    who looks comfortable?<br>
+                    who looks tense?<br>
+                    Notice posture without judging.
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">Step 2 — Test (1 min)</div>
+                <div class="fact-desc">
+                    Right now, try this:<br>
+                    stop correcting posture<br>
+                    let shoulders soften<br>
+                    let breath move freely<br>
+                    <br>
+                    Ask:<br>
+                    "Did posture get worse — or easier?"<br>
+                    <br>
+                    That answer matters.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <ul class="bullet-list">
+                <li class="bullet-item"><span class="highlight-text">⏱️ Today</span> — a shift in how you think about posture</li>
+                <li class="bullet-item"><span class="highlight-text">⏳ Over time</span> — less fear of "relaxing wrong"</li>
+                <li class="bullet-item"><span class="highlight-text">📆 Long-term</span> — posture becomes background, not a problem</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the day</h2>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/nbl2-5FVIkk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <ul class="bullet-list">
+                <li class="bullet-item">🌀 Posture is dynamic, not static</li>
+                <li class="bullet-item">💤 Muscles need rest as much as strength</li>
+                <li class="bullet-item">🛡️ Safety shapes alignment</li>
+                <li class="bullet-item">🌿 Ease is a sign of healthy posture</li>
+            </ul>
+        </div>
+
+        <div class="section" style="background: linear-gradient(135deg, #F5F9FF 0%, #EEF6FF 100%);">
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <div style="font-size: 48px; margin-bottom: 0.5rem;">💡</div>
+                <h2 style="font-size: 20px; font-weight: 700; color: #172737; margin-bottom: 0.5rem;">Quick Reminder</h2>
+                <div style="font-size: 14px; font-weight: 500; color: #656565;">
+                    See the difference posture makes
+                </div>
+            </div>
+            
+            <div style="background: white; padding: 2rem 1.5rem; border-radius: 16px; box-shadow: 0 4px 16px rgba(23,39,55,0.1); text-align: center;">
+                <div style="margin: 1.5rem 0;">
+                    <img src="data:image/png;base64,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" alt="Posture Comparison - Incorrect vs Correct" style="width: 100%; max-width: 400px; height: auto; border-radius: 12px;">
+                </div>
+                
+                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid #F0F0F0;">
+                    <div style="font-size: 14px; font-weight: 500; color: #656565; line-height: 1.5;">
+                        Small changes in alignment create big differences in how your body feels and functions throughout the day.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎯</span>
+                <h2>Your Posture & Pain Relief Transformation</h2>
+            </div>
+            
+            <div class="comparison-table">
+                <div class="comparison-header">
+                    <div></div>
+                    <div style="text-align: center;">With Aura</div>
+                    <div style="text-align: center;">Without Aura</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">Less neck and shoulder tightness</div>
+                    <div class="comparison-check">✔</div>
+                    <div class="comparison-check" style="color: #FF6B6B;">❌</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">Reduced head pressure and tension headaches</div>
+                    <div class="comparison-check">✔</div>
+                    <div class="comparison-check" style="color: #FF6B6B;">❌</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">Back feels supported, not stiff</div>
+                    <div class="comparison-check">✔</div>
+                    <div class="comparison-check" style="color: #FF6B6B;">❌</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">Easier breathing throughout the day</div>
+                    <div class="comparison-check">✔</div>
+                    <div class="comparison-check" style="color: #FF6B6B;">❌</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">Better digestion and less abdominal tension</div>
+                    <div class="comparison-check">✔</div>
+                    <div class="comparison-check" style="color: #FF6B6B;">❌</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">Deeper, more restorative sleep</div>
+                    <div class="comparison-check">✔</div>
+                    <div class="comparison-check" style="color: #FF6B6B;">❌</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">More stable energy, less daily fatigue</div>
+                    <div class="comparison-check">✔</div>
+                    <div class="comparison-check" style="color: #FF6B6B;">❌</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">Body releases tension instead of holding it</div>
+                    <div class="comparison-check">✔</div>
+                    <div class="comparison-check" style="color: #FF6B6B;">❌</div>
+                </div>
+            </div>
+
+            <div class="section" style="text-align: center; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); padding: 2rem 1.5rem;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #FFFFFF; margin-bottom: 0; line-height: 1.5;">
+                ✨ Remember: Pain-free posture doesn't feel like control. It feels like not needing control anymore.
+            </div>
+        </div>
+    
+    </main>
+</body>
+</html>

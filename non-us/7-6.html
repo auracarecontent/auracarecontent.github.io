@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 6 — Caffeine & Headaches: What to Know</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
+        .summary-box { background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(184,118,88,0.15); text-align: center; }
+        .summary-item { display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; }
+        .summary-item:last-child { margin-bottom: 0; }
+        .expectation-section { background: white; padding: 18px; border-radius: 16px; margin-top: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .expectation-title { font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 1rem; }
+        .expectation-item { margin-bottom: 1rem; }
+        .expectation-item:last-child { margin-bottom: 0; }
+        .expectation-time { font-weight: 600; font-size: 14px; color: #B87658; margin-bottom: 0.25rem; }
+        .expectation-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .pathway-card { background: white; padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 2px solid rgba(184,118,88,0.15); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .pathway-title { font-size: 16px; font-weight: 700; color: #B87658; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .pathway-desc { font-size: 14px; font-weight: 500; color: #656565; line-height: 1.4; margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 6</div>
+            <h1>Caffeine & Headaches: What to Know</h1>
+        </div>
+
+        <div class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Caffeine isn't simply "good" or "bad" for headaches.
+            </div>
+            <div class="text-content">
+                Today you'll learn how caffeine actually works in the brain, why it can both help and worsen migraines, and how to use it safely — without triggering rebound headaches.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Many people with migraines feel stuck:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">"Coffee helps my headache."</li>
+                <li class="bullet-item">"But skipping it makes things worse."</li>
+                <li class="bullet-item">"If I drink too much, I crash."</li>
+            </ul>
+
+            <div style="background: rgba(184,118,88,0.08); padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0;">
+                <div class="text-content" style="font-weight: 600; text-align: center;">
+                    This isn't weakness or addiction.
+                </div>
+                <div class="text-content" style="font-weight: 600; color: #B87658; text-align: center;">
+                    It's how caffeine interacts with your nervous system and blood vessels.
+                </div>
+                <div class="text-content" style="text-align: center; margin-top: 1rem;">
+                    Understanding this removes fear — and gives you control.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">😴</span>
+                <h2>How Caffeine Really Affects Head Pain</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600; margin-bottom: 1.5rem;">
+                Caffeine works through two main pathways:
+            </div>
+
+            <div class="pathway-card">
+                <div class="pathway-title">
+                    <span>🧠</span>
+                    <span>Brain alertness</span>
+                </div>
+                <div class="pathway-desc">
+                    Caffeine blocks adenosine — the molecule that signals tiredness.
+                </div>
+                <div class="pathway-desc" style="font-weight: 600; color: #B87658;">
+                    This temporarily increases alertness and reduces pain perception.
+                </div>
+            </div>
+
+            <div class="pathway-card">
+                <div class="pathway-title">
+                    <span>🩸</span>
+                    <span>Blood vessel tone</span>
+                </div>
+                <div class="pathway-desc">
+                    Caffeine causes vasoconstriction (narrowing of blood vessels).
+                </div>
+                <div class="pathway-desc" style="font-weight: 600; color: #B87658;">
+                    That's why it can reduce headache pain short-term.
+                </div>
+            </div>
+
+            <div style="background: rgba(255,165,0,0.08); padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(255,165,0,0.2);">
+                <div class="text-content" style="font-weight: 600; text-align: center; margin-bottom: 1rem;">
+                    But here's the catch:
+                </div>
+                <div class="text-content" style="text-align: center;">
+                    With regular use, the brain adapts.
+                </div>
+                <div class="text-content" style="text-align: center;">
+                    Blood vessels become more sensitive.
+                </div>
+                <div class="text-content" style="font-weight: 600; color: #FFA500; text-align: center;">
+                    When caffeine drops (even slightly), vessels dilate — triggering pain.
+                </div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.08); padding: 1.5rem; border-radius: 12px; margin-top: 1.5rem;">
+                <div class="text-content" style="font-weight: 600; text-align: center; margin-bottom: 1rem;">
+                    That's why:
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">caffeine can relieve headaches,</li>
+                    <li class="bullet-item">but withdrawal causes headaches,</li>
+                    <li class="bullet-item">and irregular intake increases migraine frequency.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Caffeine & Migraines</h2>
+            </div>
+            
+            <div class="science-fact">
+                <div class="fact-icon">☕</div>
+                <div>
+                    <div class="fact-title">Caffeine can acutely reduce headache pain through vasoconstriction</div>
+                    <div class="fact-desc">Goadsby et al., 2017.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Regular caffeine use lowers migraine threshold via withdrawal sensitivity</div>
+                    <div class="fact-desc">Juliano & Griffiths, 2004.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">😴</div>
+                <div>
+                    <div class="fact-title">Caffeine after midday disrupts sleep, increasing next-day migraine risk</div>
+                    <div class="fact-desc">Drake et al., 2013.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🔁</div>
+                <div>
+                    <div class="fact-title">Irregular caffeine timing is a stronger trigger than total amount</div>
+                    <div class="fact-desc">Mostofsky et al., 2019.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                Caffeine sensitivity often reflects nervous system load, not intolerance.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content">
+                    Do your headaches appear when you delay or skip caffeine — rather than after drinking it?
+                </div>
+                <div class="text-content">
+                    Do symptoms worsen on weekends or travel days when your routine changes?
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What Actually Helps</h2>
+            </div>
+            <div class="text-content">
+                Migraines worsen when caffeine intake is:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">irregular,</li>
+                <li class="bullet-item">used to "push through" fatigue,</li>
+                <li class="bullet-item">combined with poor sleep or skipped meals.</li>
+            </ul>
+            <div class="text-content" style="font-weight: 600; color: #B87658; margin-top: 1rem;">
+                Relief comes from predictability, not elimination.
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Caffeine Consistency ☕</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600; margin-bottom: 1.5rem; text-align: center;">
+                Today, focus on timing, not quantity.
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(184,118,88,0.08) 0%, rgba(184,118,88,0.04) 100%); padding: 2rem 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(184,118,88,0.15);">
+                <div style="text-align: center; font-size: 2rem; margin-bottom: 1rem;">🎯</div>
+                <div style="font-size: 16px; font-weight: 700; color: #B87658; margin-bottom: 1rem; text-align: center;">
+                    Your one action
+                </div>
+                <div class="text-content" style="text-align: center; font-size: 15px;">
+                    Choose one:
+                </div>
+            </div>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(23,39,55,0.08);">
+                <div style="display: grid; gap: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 14px; background: rgba(184,118,88,0.05); border-radius: 12px; border: 1px solid rgba(184,118,88,0.1);">
+                        <span style="font-size: 1.75rem; flex-shrink: 0;">☕</span>
+                        <span style="font-size: 14px; font-weight: 500; color: #172737;">Drink caffeine at the same time you usually do.</span>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 14px; background: rgba(184,118,88,0.05); border-radius: 12px; border: 1px solid rgba(184,118,88,0.1);">
+                        <span style="font-size: 1.75rem; flex-shrink: 0;">⏰</span>
+                        <span style="font-size: 14px; font-weight: 500; color: #172737;">Avoid caffeine after 2 PM (or 8 hours before sleep).</span>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 14px; background: rgba(184,118,88,0.05); border-radius: 12px; border: 1px solid rgba(184,118,88,0.1);">
+                        <span style="font-size: 1.75rem; flex-shrink: 0;">🔁</span>
+                        <span style="font-size: 14px; font-weight: 500; color: #172737;">If reducing, lower intake gradually, not suddenly.</span>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 14px; background: rgba(184,118,88,0.05); border-radius: 12px; border: 1px solid rgba(184,118,88,0.1);">
+                        <span style="font-size: 1.75rem; flex-shrink: 0;">🥣</span>
+                        <span style="font-size: 14px; font-weight: 500; color: #172737;">Pair caffeine with food, not on an empty stomach.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08);">
+                <div class="text-content" style="text-align: center; font-size: 14px; color: #656565;">
+                    No cutting cold turkey. No "perfect" rules.
+                </div>
+            </div>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-top: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08);">
+                <div style="font-size: 16px; font-weight: 700; color: #172737; margin-bottom: 1rem; text-align: center;">
+                    🧠 Why This Works
+                </div>
+                <div class="text-content" style="text-align: center;">
+                    The brain reacts badly to inconsistency.
+                </div>
+                <div class="text-content" style="text-align: center;">
+                    Stable caffeine timing prevents withdrawal-driven vessel changes.
+                </div>
+                <div class="text-content" style="font-weight: 600; color: #B87658; text-align: center;">
+                    Predictability = fewer headaches.
+                </div>
+            </div>
+
+            <div class="expectation-section">
+                <div class="expectation-title">✨ What to Expect</div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">⏱️ After today</div>
+                    <div class="expectation-desc">Less fear around caffeine decisions.</div>
+                </div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">⏳ After 3–5 days</div>
+                    <div class="expectation-desc">Fewer rebound-type headaches.</div>
+                </div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">📆 After 1–2 weeks</div>
+                    <div class="expectation-desc">More stable energy and fewer migraine surprises.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
+            </div>
+            
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/1O8Ltw8bqIk" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <div class="summary-box">
+                <div class="summary-item">
+                    <span>☕</span>
+                    <span>Caffeine can help and trigger headaches</span>
+                </div>
+                <div class="summary-item">
+                    <span>🧠</span>
+                    <span>Withdrawal causes pain more often than intake</span>
+                </div>
+                <div class="summary-item">
+                    <span>⏰</span>
+                    <span>Timing matters more than amount</span>
+                </div>
+                <div class="summary-item">
+                    <span>🩵</span>
+                    <span>Consistency protects your nervous system</span>
+                </div>
+            </div>
+
+                    <div class="section" style="text-align: center; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); padding: 2rem 1.5rem;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #FFFFFF; margin-bottom: 0;">
+                ✨ Remember: Caffeine isn't the enemy. Unpredictability is.
+            </div>
+        </div>
+    
+    </main>
+</body>
+</html>

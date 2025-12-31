@@ -1,275 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day 5 — How Salt and Sugar Hijack Your Nervous System</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            margin: 1.5rem 0;
         }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
-            background: #FAF8F2;
-            padding: 2rem;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-        }
-
-        .container {
-            max-width: 520px;
-            margin: 0 auto;
-            background: #FFFEFB;
-            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-        }
-
-        .header {
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        .day-label {
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            line-height: 1.3;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 20px;
-            }
-        }
-
-        .section {
-            padding: 2rem 2.5rem;
-            border-bottom: 1px solid #F0F0F0;
-        }
-
-        @media (max-width: 768px) {
-            .section {
-                padding: 1.5rem 1.25rem;
-            }
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .section-icon {
-            font-size: 1.75rem;
-        }
-
-        h2 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #172737;
-            line-height: 22px;
-        }
-
-        @media (max-width: 768px) {
-            h2 {
-                font-size: 16px;
-            }
-        }
-
-        .text-content {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
-        }
-
-        .highlight-text {
-            font-weight: 600;
-            color: #B87658;
-        }
-
-        .intro-section {
-            background: rgba(184, 118, 88, 0.05);
-            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
-        }
-
-        .bullet-list {
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .footer-cta-wrapper { text-align: center; }
+        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
+        .action-title { font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.75rem; }
+        .table-container {
+            overflow-x: auto;
             margin: 1rem 0;
-            padding-left: 0;
-            list-style: none;
         }
-
-        .bullet-item {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            margin-bottom: 0.75rem;
-            line-height: 20px;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .bullet-item:before {
-            content: "•";
-            position: absolute;
-            left: 0.5rem;
-            color: #B87658;
-            font-weight: 700;
-        }
-
-        .science-fact {
-            background: rgba(16, 185, 129, 0.08);
-            padding: 18px;
-            border-left: 3px solid #10B981;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .fact-item {
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
             font-size: 13px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
-            margin-bottom: 0.75rem;
         }
-
-        .fact-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .info-box {
-            background: rgba(184, 118, 88, 0.05);
-            padding: 18px;
-            border-left: 3px solid #B87658;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .action-box {
-            background: rgba(16, 185, 129, 0.08);
-            padding: 18px;
-            border-left: 3px solid #10B981;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .action-title {
-            font-size: 16px;
+        th {
+            background: rgba(184,118,88,0.1);
+            padding: 12px 10px;
+            text-align: left;
             font-weight: 600;
             color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
+            border-bottom: 2px solid rgba(184,118,88,0.3);
         }
-
-        .step-item {
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #E6E6E6;
+            color: #172737;
+            font-weight: 500;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .result-item {
             display: flex;
             gap: 0.75rem;
             margin-bottom: 0.75rem;
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
+            align-items: flex-start;
         }
-
-        .step-number {
-            font-weight: 700;
-            color: #10B981;
+        .result-icon {
+            font-size: 1.25rem;
             flex-shrink: 0;
-        }
-
-        .reflection-box {
-            background: rgba(184, 118, 88, 0.08);
-            padding: 18px;
-            border-left: 3px solid #B87658;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .reflection-text {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            line-height: 18px;
-            margin-bottom: 0.5rem;
-        }
-
-        .reflection-text:last-child {
-            margin-bottom: 0;
-        }
-
-        .expected-results {
-            background: rgba(16, 185, 129, 0.05);
-            padding: 18px;
-            border-left: 3px solid #10B981;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .result-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #172737;
-            margin-bottom: 0.75rem;
-        }
-
-        .time-card {
-            background: white;
-            padding: 1rem;
-            margin-bottom: 0.75rem;
-            border-radius: 8px;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-        }
-
-        .time-card:last-child {
-            margin-bottom: 0;
-        }
-
-        .time-header {
-            font-size: 14px;
-            font-weight: 700;
-            color: #10B981;
-            margin-bottom: 0.5rem;
-        }
-
-        .time-content {
-            font-size: 13px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 18px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <main class="screen">
         <div class="header">
             <div class="day-label">DAY 5</div>
-            <h1>How Salt and Sugar Hijack Your Nervous System</h1>
+            <h1><a href="https://plan.aura.care/lt-2" style="color: #FFFFFF; text-decoration: none;">The Hidden Salt–Sugar Trap for Your Heart</a></h1>
         </div>
 
         <div class="section intro-section">
@@ -297,7 +112,7 @@
                 <h2>The Science of Sodium and Sugar</h2>
             </div>
             <div class="text-content">
-                Salt (sodium) isn't the enemy — your body needs it to move electricity through nerves and muscles.
+                <span class="highlight-text">Salt (sodium)</span> isn't the enemy — your body needs it to move electricity through nerves and muscles.
             </div>
             <div class="text-content">
                 But modern diets overload it, especially through processed foods and sauces.
@@ -311,11 +126,8 @@
             <div class="text-content">
                 If this happens daily, your nervous system stays in a subtle state of alert — heart rate rises, arteries lose elasticity, and even mild stress feels amplified.
             </div>
-            
-            <div class="info-box">
-                <div class="text-content" style="margin-bottom: 0;">
-                    <span class="highlight-text">💡 The nervous system doesn't distinguish emotional tension from chemical tension — both can raise pressure.</span>
-                </div>
+            <div class="text-content">
+                💡 The nervous system doesn't distinguish emotional tension from chemical tension — both can raise pressure.
             </div>
         </div>
 
@@ -330,15 +142,14 @@
             <div class="text-content">
                 This "silent overdrive" weakens your natural relaxation reflex.
             </div>
-            
-            <div class="info-box">
-                <div class="text-content" style="font-weight: 600; margin-bottom: 0.75rem;">Rebalancing minerals and glucose helps your body recover that rhythm:</div>
-                <ul class="bullet-list" style="margin: 0;">
-                    <li class="bullet-item">Lower sodium = less water retention and vessel stiffness</li>
-                    <li class="bullet-item">Balanced hydration = better oxygen and heart rhythm</li>
-                    <li class="bullet-item">Stable glucose = smoother vagal tone and energy levels</li>
-                </ul>
+            <div class="text-content">
+                Rebalancing minerals and glucose helps your body recover that rhythm:
             </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">Lower sodium = less water retention and vessel stiffness</li>
+                <li class="bullet-item">Balanced hydration = better oxygen and heart rhythm</li>
+                <li class="bullet-item">Stable glucose = smoother vagal tone and energy levels</li>
+            </ul>
         </div>
 
         <div class="section">
@@ -346,24 +157,80 @@
                 <span class="section-icon">💡</span>
                 <h2>Science Facts — Electrolytes, Sugar, and Stress</h2>
             </div>
-            
+
             <div class="science-fact">
-                <div class="fact-item">
-                    Reducing sodium by 1,000 mg/day (half a teaspoon of salt) can lower systolic BP by 5–6 mmHg (He et al., 2020).
-                </div>
-                <div class="fact-item">
-                    Dehydration increases heart rate and cortisol within minutes (Armstrong et al., 2016).
-                </div>
-                <div class="fact-item">
-                    Glucose swings trigger sympathetic activation and inflammation even in non-diabetics (Ceriello et al., 2012).
-                </div>
-                <div class="fact-item">
-                    Balanced electrolytes (sodium, potassium, magnesium) improve HRV and blood vessel relaxation (Stanhewicz & Kenney, 2015).
-                </div>
-                <div class="fact-item">
-                    You can't calm your mind if your cells are thirsty. Hydration, balanced minerals, and stable blood sugar keep your nervous system grounded and your heart pressure steady.
+                <span class="fact-icon">🧂</span>
+                <div>
+                    <div class="fact-desc">Reducing sodium by 1,000 mg/day (half a teaspoon of salt) can lower systolic BP by 5–6 mmHg (He et al., 2020).</div>
                 </div>
             </div>
+
+            <div class="science-fact">
+                <span class="fact-icon">💧</span>
+                <div>
+                    <div class="fact-desc">Dehydration increases heart rate and cortisol within minutes (Armstrong et al., 2016).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <span class="fact-icon">🍬</span>
+                <div>
+                    <div class="fact-desc">Glucose swings trigger sympathetic activation and inflammation even in non-diabetics (Ceriello et al., 2012).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <span class="fact-icon">⚡</span>
+                <div>
+                    <div class="fact-desc">Balanced electrolytes (sodium, potassium, magnesium) improve HRV and blood vessel relaxation (Stanhewicz & Kenney, 2015).</div>
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1rem;">
+                You can't calm your mind if your cells are thirsty.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Biomarker</th>
+                            <th>What It Reflects</th>
+                            <th>Effect of Hydration and Mineral Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sodium & Potassium</td>
+                            <td>Electrolyte balance and nerve activity</td>
+                            <td>High sodium and low potassium are common in stress-related hypertension; improving this ratio lowers vascular tension</td>
+                        </tr>
+                        <tr>
+                            <td>Glucose & HbA1c</td>
+                            <td>Blood-sugar stability and oxidative stress</td>
+                            <td>Frequent sugar spikes raise oxidative stress; steadier meals stabilize pressure</td>
+                        </tr>
+                        <tr>
+                            <td>ApoB & LDL-Cholesterol</td>
+                            <td>Lipid transport and inflammation</td>
+                            <td>Elevated with high-sugar diets and chronic inflammation; improve when glucose and hydration stabilize</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-content">
+                Hydration, balanced minerals, and stable blood sugar keep your nervous system grounded and your heart pressure steady.
+            </div>
+        </div>
+
         </div>
 
         <div class="section">
@@ -371,12 +238,11 @@
                 <span class="section-icon">💭</span>
                 <h2>Reflection Prompt</h2>
             </div>
-            
             <div class="reflection-box">
-                <div class="reflection-text">
+                <div class="text-content">
                     When do you tend to crave salty snacks or sweets — after stress, before bed, or during low energy?
                 </div>
-                <div class="reflection-text">
+                <div class="text-content" style="margin-bottom: 0;">
                     How could you replace that moment with hydration or a balanced snack?
                 </div>
             </div>
@@ -387,31 +253,24 @@
                 <span class="section-icon">✅</span>
                 <h2>Plan to Action — The Rebalance Routine</h2>
             </div>
-
             <div class="text-content">
                 Today's goal is to help your body restore calm chemistry:
             </div>
-
+            
             <div class="action-box">
-                <div class="time-card">
-                    <div class="time-header">💠 Morning</div>
-                    <div class="time-content">
-                        Start the day with a full glass (250–300 ml) of mineral water or water with a pinch of sea salt.
-                    </div>
+                <div class="action-title">💠 Morning:</div>
+                <div class="text-content">
+                    Start the day with a full glass (250–300 ml) of mineral water or water with a pinch of sea salt.
                 </div>
-
-                <div class="time-card">
-                    <div class="time-header">💠 Midday</div>
-                    <div class="time-content">
-                        Choose one meal with real potassium sources — avocado, leafy greens, lentils, or yogurt.
-                    </div>
+                
+                <div class="action-title">💠 Midday:</div>
+                <div class="text-content">
+                    Choose one meal with real potassium sources — avocado, leafy greens, lentils, or yogurt.
                 </div>
-
-                <div class="time-card">
-                    <div class="time-header">💠 Evening</div>
-                    <div class="time-content">
-                        Avoid late sugary snacks; replace with herbal tea or magnesium-rich foods (pumpkin seeds, banana).
-                    </div>
+                
+                <div class="action-title">💠 Evening:</div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Avoid late sugary snacks; replace with herbal tea or magnesium-rich foods (pumpkin seeds, banana).
                 </div>
             </div>
 
@@ -425,7 +284,6 @@
                 <span class="section-icon">🌿</span>
                 <h2>Why This Works</h2>
             </div>
-            
             <div class="text-content">
                 Balanced electrolytes regulate the tiny electrical signals that control heart rhythm.
             </div>
@@ -442,27 +300,36 @@
                 <span class="section-icon">🔎</span>
                 <h2>What to Expect (after 1–2 weeks)</h2>
             </div>
-            
-            <div class="expected-results">
-                <div class="step-item">
-                    <span class="step-number">💧</span>
-                    <div><strong>Hydration balance:</strong> ↑ 15–20% → clearer focus and calmer pulse.</div>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">🩸</span>
-                    <div><strong>Systolic blood pressure:</strong> ↓ 4–6 mmHg → smoother circulation.</div>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">💓</span>
-                    <div><strong>HRV:</strong> ↑ 10–15% → stronger vagal response and energy recovery.</div>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">🍬</span>
-                    <div><strong>Glucose variability:</strong> ↓ 20% → fewer mood dips and energy crashes.</div>
+
+            <div class="result-item">
+                <span class="result-icon">💧</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">Hydration balance:</span> ↑ 15–20% → clearer focus and calmer pulse.
                 </div>
             </div>
 
-            <div class="text-content">
+            <div class="result-item">
+                <span class="result-icon">🩸</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">Systolic blood pressure:</span> ↓ 4–6 mmHg → smoother circulation.
+                </div>
+            </div>
+
+            <div class="result-item">
+                <span class="result-icon">💓</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">HRV:</span> ↑ 10–15% → stronger vagal response and energy recovery.
+                </div>
+            </div>
+
+            <div class="result-item">
+                <span class="result-icon">🍬</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">Glucose variability:</span> ↓ 20% → fewer mood dips and energy crashes.
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1rem;">
                 Your nervous system thrives on stability — what you drink and eat teaches your heart how to stay steady.
             </div>
         </div>
@@ -472,7 +339,6 @@
                 <span class="section-icon">🌙</span>
                 <h2>Evening Matters Too — Salt, Sleep, and Calm</h2>
             </div>
-
             <div class="text-content">
                 Late-night salty food keeps your heart rate higher during sleep.
             </div>
@@ -486,7 +352,6 @@
                 <span class="section-icon">🌞</span>
                 <h2>Why This Works</h2>
             </div>
-            
             <div class="text-content">
                 Your cells read chemistry as emotion.
             </div>
@@ -496,10 +361,24 @@
         </div>
 
         <div class="section">
-            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
-                ✨ Remember: Every sip of water and every balanced meal is a small act of nervous-system care. You don't have to give things up — just give your body rhythm, not spikes.
+            <div class="section-header">
+                <span class="section-icon">🎬</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/TDS7Lq2g3CE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
+
+        <div class="section" style="text-align: center; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); padding: 2rem 1.5rem;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #FFFFFF; margin-bottom: 0;">
+                ✨ Remember: Every sip of water and every balanced meal is a small act of nervous-system care. You don't have to give things up — just give your body rhythm, not spikes.
+            
+            </div>
+        </div>
+    
     </div>
+    
+    </main>
 </body>
 </html>

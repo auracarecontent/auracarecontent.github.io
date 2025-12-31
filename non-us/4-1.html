@@ -262,38 +262,74 @@
             }
         }
 
-        .footer-contact {
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 20px;
-            margin: 0;
+        .footer-icon {
+            font-size: 48px;
+            margin-bottom: 1rem;
         }
 
-        .contact-highlight {
-            font-weight: 600;
-        }
-
-        .contact-email {
-            color: #10B981;
-            text-decoration: none;
+        .footer-title {
+            font-size: 28px;
             font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
         }
 
-        .contact-email:hover {
-            text-decoration: underline;
+        @media (max-width: 768px) {
+            .footer-title {
+                font-size: 24px;
+            }
+        }
+
+        .footer-text {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .footer-text {
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+
+        .footer-button {
+            display: inline-block;
+            padding: 16px 48px;
+            background: transparent;
+            border: 3px solid white;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-button:hover {
+            background: white;
+            color: #B87658;
+        }
+
+        @media (max-width: 768px) {
+            .footer-button {
+                font-size: 18px;
+                padding: 14px 40px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="day-label">🌿 DAY 1</div>
+            <div class="day-label">DAY 1</div>
             <h1>The Gut Feeling: How Your Belly Talks to Your Brain</h1>
         </div>
 
         <div class="section intro-section">
             <div class="section-header">
-                <span class="section-icon">🌞</span>
+                <span class="section-icon">🙂</span>
                 <h2>Daily Focus</h2>
             </div>
             <div class="text-content">
@@ -410,6 +446,23 @@
 
         <div class="section">
             <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What About the Vagus?</h2>
+            </div>
+            
+            <div class="text-content">
+                The vagus nerve is the main highway connecting your gut and your brain — almost 80% of its signals travel from the belly upward.
+            </div>
+            <div class="text-content">
+                When the vagus is active, digestion becomes smoother: stomach muscles relax, enzymes flow, and your brain receives a clear "I'm safe" message. This calm signal lowers cravings, stabilizes mood, and helps your body shift out of stress mode before you even start eating.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">A quiet, tense gut sends fewer messages — but a gently stimulated vagus nerve brings your whole system back into connection.</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
                 <span class="section-icon">✅</span>
                 <h2>Plan to Action — The Slow First Bite</h2>
             </div>
@@ -446,17 +499,28 @@
         </div>
 
         <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📹</span>
+                <h2>Video of the Day</h2>
+            </div>
+            
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 1.5rem 0;">
+                <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                    src="https://www.youtube.com/embed/aEhrcIZE1ZM?si=rIV2SJiaZyZdDEkD" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="section">
             <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
                 ✨ Calm starts with one small signal — a breath before you eat.
             </div>
         </div>
-
-        <div class="footer">
-            <p class="footer-contact">
-                <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span><br><br>
-<strong><a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue</a></strong>
-            </p>
-        </div>
+    
     </div>
 </body>
 </html>

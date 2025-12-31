@@ -119,19 +119,6 @@
             border-bottom: 2px solid rgba(184, 118, 88, 0.2);
         }
 
-        .bullet-list {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-        }
-
-        .bullet-item {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            margin-bottom: 0.5rem;
-            line-height: 20px;
-        }
-
         .science-fact {
             background: rgba(16, 185, 129, 0.08);
             padding: 18px;
@@ -262,45 +249,84 @@
             }
         }
 
-        .footer-contact {
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 20px;
-            margin: 0;
+        .footer-icon {
+            font-size: 48px;
+            margin-bottom: 1rem;
         }
 
-        .contact-highlight {
-            font-weight: 600;
-        }
-
-        .contact-email {
-            color: #10B981;
-            text-decoration: none;
+        .footer-title {
+            font-size: 28px;
             font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
         }
 
-        .contact-email:hover {
-            text-decoration: underline;
+        @media (max-width: 768px) {
+            .footer-title {
+                font-size: 24px;
+            }
+        }
+
+        .footer-text {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .footer-text {
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+
+        .footer-button {
+            display: inline-block;
+            padding: 16px 48px;
+            background: transparent;
+            border: 3px solid white;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-button:hover {
+            background: white;
+            color: #B87658;
+        }
+
+        @media (max-width: 768px) {
+            .footer-button {
+                font-size: 18px;
+                padding: 14px 40px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="day-label">🌸 DAY 7</div>
+            <div class="day-label">DAY 7</div>
             <h1>The Harmony Blueprint: Calm Mind, Strong Gut</h1>
         </div>
 
         <div class="section intro-section">
             <div class="section-header">
-                <span class="section-icon">🌿</span>
+                <span class="section-icon">🙂</span>
                 <h2>Daily Focus</h2>
             </div>
             <div class="text-content">
                 All week, you've learned how your gut and brain talk — through meals, movement, breathing, and rest. Now it's time to bring everything together into one calm rhythm your body can trust.
             </div>
             <div class="text-content">
-                Your gut thrives on predictability — regular meals, gentle hydration, peaceful breaks. When you create rhythm, your hormones, digestion, and mood sync naturally. This isn't about control; it's about teaching your body safety through routine.
+                Your gut thrives on predictability — regular meals, gentle hydration, peaceful breaks. When you create rhythm, your hormones, digestion, and mood sync naturally.
+            </div>
+            <div class="text-content">
+                This isn't about control; it's about teaching your body safety through routine.
             </div>
             <div class="info-box">
                 <div class="text-content" style="margin-bottom: 0;">
@@ -318,7 +344,10 @@
                 Your internal clock (the circadian rhythm) controls not just sleep, but digestion and emotional tone. When your meals, light exposure, and relaxation align with this rhythm, cortisol and gut activity stabilize.
             </div>
             <div class="text-content">
-                Morning light and a steady breakfast wake up your vagus nerve. An evening wind-down tells your gut to shift from "process" to "repair." Balanced eating and daily calm lower inflammation and improve microbiome diversity — the foundation of both mental clarity and resilience.
+                Morning light and a steady breakfast wake up your vagus nerve. An evening wind-down tells your gut to shift from "process" to "repair."
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Balanced eating and daily calm lower inflammation and improve microbiome diversity — the foundation of both mental clarity and resilience.</span>
             </div>
         </div>
 
@@ -398,6 +427,26 @@
 
         <div class="section">
             <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What About the Vagus?</h2>
+            </div>
+            
+            <div class="text-content">
+                Your vagus nerve is the conductor of your gut–brain rhythm — it synchronizes digestion, mood, and energy when your days follow a predictable, calming pattern.
+            </div>
+            <div class="text-content">
+                Consistent signals like morning light, steady meals, and quiet transitions strengthen vagal tone, helping your body move smoothly between action and repair.
+            </div>
+            <div class="text-content">
+                When this rhythm is stable, your gut feels safe, your mind stays clearer, and stress responses become softer and shorter.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">A strong vagus is what turns daily habits into long-term harmony — the blueprint your whole system can rely on.</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
                 <span class="section-icon">✅</span>
                 <h2>Plan to Action — One Step Today</h2>
             </div>
@@ -434,17 +483,29 @@
         </div>
 
         <div class="section">
-            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
-                ✨ Remember: Your calm isn't a moment — it's a rhythm. Eat, rest, and breathe in harmony, and your gut will keep your mind balanced in return.
+            <div class="section-header">
+                <span class="section-icon">📹</span>
+                <h2>Video of the Day</h2>
+            </div>
+            
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 1.5rem 0;">
+                <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                    src="https://www.youtube.com/embed/0bUieoJ6FI4?si=2g3cEVpXRC0kEHO6" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
 
-        <div class="footer">
-            <p class="footer-contact">
-                <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span><br><br>
-<strong><a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue</a></strong>
-            </p>
+        <div class="section" style="text-align: center; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); padding: 2rem 1.5rem;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #FFFFFF; margin-bottom: 0;">
+                ✨ Remember: Your calm isn't a moment — it's a rhythm. Eat, rest, and breathe in harmony, and your gut will keep your mind balanced in return.
+            
+            </div>
         </div>
+    
     </div>
 </body>
 </html>

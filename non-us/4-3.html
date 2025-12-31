@@ -119,17 +119,23 @@
             border-bottom: 2px solid rgba(184, 118, 88, 0.2);
         }
 
-        .bullet-list {
+        .numbered-list {
             margin: 1rem 0;
-            padding-left: 1.5rem;
         }
 
-        .bullet-item {
+        .list-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
             font-size: 14px;
             font-weight: 500;
             color: #172737;
-            margin-bottom: 0.5rem;
             line-height: 20px;
+        }
+
+        .list-number {
+            font-weight: 700;
+            flex-shrink: 0;
         }
 
         .science-fact {
@@ -248,26 +254,6 @@
             color: #B87658;
         }
 
-        .signs-list {
-            background: rgba(184, 118, 88, 0.05);
-            padding: 18px;
-            border-left: 3px solid #B87658;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .sign-item {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            margin-bottom: 0.75rem;
-            line-height: 20px;
-        }
-
-        .sign-item:last-child {
-            margin-bottom: 0;
-        }
-
         .footer {
             background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
             color: white;
@@ -282,42 +268,81 @@
             }
         }
 
-        .footer-contact {
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 20px;
-            margin: 0;
+        .footer-icon {
+            font-size: 48px;
+            margin-bottom: 1rem;
         }
 
-        .contact-highlight {
-            font-weight: 600;
-        }
-
-        .contact-email {
-            color: #10B981;
-            text-decoration: none;
+        .footer-title {
+            font-size: 28px;
             font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
         }
 
-        .contact-email:hover {
-            text-decoration: underline;
+        @media (max-width: 768px) {
+            .footer-title {
+                font-size: 24px;
+            }
+        }
+
+        .footer-text {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .footer-text {
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+
+        .footer-button {
+            display: inline-block;
+            padding: 16px 48px;
+            background: transparent;
+            border: 3px solid white;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-button:hover {
+            background: white;
+            color: #B87658;
+        }
+
+        @media (max-width: 768px) {
+            .footer-button {
+                font-size: 18px;
+                padding: 14px 40px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="day-label">🌾 DAY 3</div>
+            <div class="day-label">DAY 3</div>
             <h1>6 Signs Your Gut Inflammation Is Fueling Stress and Fatigue</h1>
         </div>
 
         <div class="section intro-section">
             <div class="section-header">
-                <span class="section-icon">🌿</span>
+                <span class="section-icon">🙂</span>
                 <h2>Daily Focus</h2>
             </div>
             <div class="text-content">
-                Sometimes fatigue and irritability don't start in your head — they start in your gut. When the gut lining becomes irritated or inflamed, tiny gaps appear that let stress signals, toxins, and inflammation molecules leak into the bloodstream. Your immune system treats this as danger, releasing cytokines — chemical messengers that make you feel tired, foggy, and tense.
+                Sometimes fatigue and irritability don't start in your head — they start in your gut.
+            </div>
+            <div class="text-content">
+                When the gut lining becomes irritated or inflamed, tiny gaps appear that let stress signals, toxins, and inflammation molecules leak into the bloodstream. Your immune system treats this as danger, releasing cytokines — chemical messengers that make you feel tired, foggy, and tense.
             </div>
             <div class="text-content">
                 This reaction is often invisible — no pain, no fever — just low energy, brain fog, and a sense that your body's "volume" is turned too high. Rest doesn't fix it because the signal keeps repeating from the gut.
@@ -334,25 +359,36 @@
                 <span class="section-icon">⚠️</span>
                 <h2>6 Common Signs of Gut Inflammation</h2>
             </div>
-            
-            <div class="signs-list">
-                <div class="sign-item">
-                    <strong>1️⃣</strong> You wake up tired even after sleep.
+
+            <div class="numbered-list">
+                <div class="list-item">
+                    <span class="list-number">1️⃣</span>
+                    <div>You wake up tired even after sleep.</div>
                 </div>
-                <div class="sign-item">
-                    <strong>2️⃣</strong> You feel bloated or heavy after meals.
+
+                <div class="list-item">
+                    <span class="list-number">2️⃣</span>
+                    <div>You feel bloated or heavy after meals.</div>
                 </div>
-                <div class="sign-item">
-                    <strong>3️⃣</strong> Mood swings or irritability appear for no clear reason.
+
+                <div class="list-item">
+                    <span class="list-number">3️⃣</span>
+                    <div>Mood swings or irritability appear for no clear reason.</div>
                 </div>
-                <div class="sign-item">
-                    <strong>4️⃣</strong> Brain fog or trouble concentrating mid-day.
+
+                <div class="list-item">
+                    <span class="list-number">4️⃣</span>
+                    <div>Brain fog or trouble concentrating mid-day.</div>
                 </div>
-                <div class="sign-item">
-                    <strong>5️⃣</strong> Cravings for sugar or "comfort foods."
+
+                <div class="list-item">
+                    <span class="list-number">5️⃣</span>
+                    <div>Cravings for sugar or "comfort foods."</div>
                 </div>
-                <div class="sign-item">
-                    <strong>6️⃣</strong> Afternoon crashes — when energy suddenly drops.
+
+                <div class="list-item">
+                    <span class="list-number">6️⃣</span>
+                    <div>Afternoon crashes — when energy suddenly drops.</div>
                 </div>
             </div>
 
@@ -367,7 +403,10 @@
                 <h2>The Science of the Gut–Inflammation Loop</h2>
             </div>
             <div class="text-content">
-                Your gut lining is protected by a thin layer of cells that renew every few days. Stress, poor diet, alcohol, and lack of sleep can weaken that barrier. Once it's "leaky," immune cells activate and raise inflammation markers like CRP and IL-6 — both linked to fatigue, anxiety, and higher cortisol.
+                Your gut lining is protected by a thin layer of cells that renew every few days. Stress, poor diet, alcohol, and lack of sleep can weaken that barrier.
+            </div>
+            <div class="text-content">
+                Once it's "leaky," immune cells activate and raise inflammation markers like CRP and IL-6 — both linked to fatigue, anxiety, and higher cortisol.
             </div>
             <div class="text-content">
                 Restoring gut calm isn't about extreme diets — it's about rhythm: steady meals, colorful fiber, hydration, and at least one slow, peaceful moment daily.
@@ -456,6 +495,26 @@
 
         <div class="section">
             <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What About the Vagus?</h2>
+            </div>
+            
+            <div class="text-content">
+                The vagus nerve is your body's main inflammation regulator — it acts like a "brake" that quiets immune overactivation.
+            </div>
+            <div class="text-content">
+                When vagal tone is low, the gut becomes more reactive, the barrier weakens, and inflammation signals rise, fueling fatigue and irritability.
+            </div>
+            <div class="text-content">
+                But when the vagus is gently activated, it sends an anti-inflammatory message through the whole body, helping calm cytokines and supporting gut repair.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">A stronger vagus means steadier energy, fewer crashes, and a gut that can finally "turn down the volume."</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
                 <span class="section-icon">✅</span>
                 <h2>Plan to Action — One Step Today</h2>
             </div>
@@ -496,17 +555,29 @@
         </div>
 
         <div class="section">
-            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 0;">
-                ✨ Remember: Calm starts where your body feels safe — and your gut is the first to know. Every colorful bite is a message of safety and repair to your second brain.
+            <div class="section-header">
+                <span class="section-icon">📹</span>
+                <h2>Video of the Day</h2>
+            </div>
+            
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 1.5rem 0;">
+                <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                    src="https://www.youtube.com/embed/hrvtbd05Yw4?si=bQ3moN2D3vcYZZf0" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
 
-        <div class="footer">
-            <p class="footer-contact">
-                <span class="contact-highlight">If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</span><br><br>
-<strong><a href="https://plan.aura.care/lt-2/" class="contact-email" target="_blank" rel="noopener noreferrer">Continue</a></strong>
-            </p>
+        <div class="section" style="text-align: center; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); padding: 2rem 1.5rem;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #FFFFFF; margin-bottom: 0;">
+                ✨ Remember: Calm starts where your body feels safe — and your gut is the first to know. Every colorful bite is a message of safety and repair to your second brain.
+            
+            </div>
         </div>
+    
     </div>
 </body>
 </html>

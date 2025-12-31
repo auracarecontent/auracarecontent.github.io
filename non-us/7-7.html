@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 7 — 3 Steps to Feel Clear Again</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
+        .summary-box { background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(184,118,88,0.15); text-align: center; }
+        .summary-item { display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; }
+        .summary-item:last-child { margin-bottom: 0; }
+        .expectation-section { background: white; padding: 18px; border-radius: 16px; margin-top: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .expectation-title { font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 1rem; }
+        .expectation-item { margin-bottom: 1rem; }
+        .expectation-item:last-child { margin-bottom: 0; }
+        .expectation-time { font-weight: 600; font-size: 14px; color: #B87658; margin-bottom: 0.25rem; }
+        .expectation-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .step-card { background: white; padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 2px solid rgba(184,118,88,0.15); box-shadow: 0 2px 8px rgba(23,39,55,0.08); }
+        .step-header { font-size: 17px; font-weight: 700; color: #B87658; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+        .step-emoji { font-size: 2rem; }
+        .step-desc { font-size: 14px; font-weight: 500; color: #656565; line-height: 1.4; margin-bottom: 0.75rem; }
+        .step-action { background: rgba(16,185,129,0.08); padding: 1rem; border-radius: 8px; margin-top: 1rem; }
+        .step-action-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; }
+        .step-quote { background: rgba(184,118,88,0.05); padding: 12px; border-radius: 8px; margin-top: 1rem; font-size: 14px; font-weight: 600; color: #B87658; line-height: 1.4; text-align: center; font-style: italic; }
+        .comparison-table { background: white; border-radius: 16px; overflow: hidden; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(23,39,55,0.08); }
+        .comparison-title { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; padding: 1rem 1.5rem; font-size: 16px; font-weight: 700; text-align: center; }
+        .comparison-header { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.5rem; padding: 1rem 1rem 0.75rem 1rem; border-bottom: 2px solid #EFEFEF; }
+        .comparison-header-item { font-size: 13px; font-weight: 700; color: #656565; text-align: center; }
+        .comparison-row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.5rem; padding: 0.75rem 1rem; border-bottom: 1px solid #F5F5F5; align-items: center; }
+        .comparison-row:last-child { border-bottom: none; }
+        .comparison-benefit { font-size: 13px; font-weight: 500; color: #172737; line-height: 1.3; }
+        .comparison-check { text-align: center; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 7</div>
+            <h1>3 Steps to Feel Clear Again</h1>
+        </div>
+
+        <div class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Migraines and vertigo don't end when pain fades — they end when anxiety stops keeping the system on alert.
+            </div>
+            <div class="text-content">
+                Today is about how anxiety locks in head pressure, dizziness, and fog — and how three simple steps help your head feel clear again in a way that fits everything you learned this week.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                After days of head pressure, dizziness, or migraines, anxiety often becomes the last trigger:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">"What if this starts again?"</li>
+                <li class="bullet-item">"Can I trust my balance?"</li>
+                <li class="bullet-item">"Is this sensation a warning?"</li>
+            </ul>
+
+            <div style="background: rgba(184,118,88,0.08); padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0;">
+                <div class="text-content" style="text-align: center;">
+                    Even mild sensations keep the brain on guard.
+                </div>
+                <div class="text-content" style="font-weight: 600; color: #B87658; text-align: center;">
+                    That vigilance tightens neck muscles, alters breathing, and destabilizes balance signals — exactly the mechanisms you explored this week.
+                </div>
+                <div class="text-content" style="font-weight: 600; text-align: center; margin-top: 1rem;">
+                    Clarity returns when anxiety stops driving the system.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">😴</span>
+                <h2>What "Clear" Really Means in Migraines & Vertigo</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Feeling clear doesn't mean:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">no sensations</li>
+                <li class="bullet-item">no sensitivity</li>
+                <li class="bullet-item">no stress ever</li>
+            </ul>
+
+            <div style="background: rgba(16,185,129,0.08); padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(16,185,129,0.2);">
+                <div class="text-content" style="font-weight: 600; text-align: center; margin-bottom: 1rem;">
+                    It means:
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">dizziness feels less alarming</li>
+                    <li class="bullet-item">head pressure passes faster</li>
+                    <li class="bullet-item">migraines lose their momentum</li>
+                    <li class="bullet-item">you trust movement and daily life again</li>
+                </ul>
+                <div class="text-content" style="font-weight: 600; color: #10B981; text-align: center; margin-top: 1rem;">
+                    Clarity is stable regulation, not perfect silence.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Anxiety, Migraines & Dizziness</h2>
+            </div>
+            
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Anxiety increases sensory amplification and migraine susceptibility.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">😮‍💨</div>
+                <div>
+                    <div class="fact-title">Slow breathing stabilizes autonomic control and balance perception.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">💆‍♀️</div>
+                <div>
+                    <div class="fact-title">Anxiety-driven neck and jaw tension increases head pressure and dizziness.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🔁</div>
+                <div>
+                    <div class="fact-title">Repeated calming cues reduce recurrence of migraine–vertigo cycles.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                Anxiety-linked migraine and vertigo patterns are supported by markers that reflect stress resilience and neural stability.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content">
+                    When head pressure or dizziness appears, what worries you most:
+                </div>
+                <div class="text-content" style="font-weight: 600; color: #B87658;">
+                    the sensation itself — or what it might mean?
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>The 3 Steps to Feel Clear Again</h2>
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                These steps tie together the entire week: circulation, tension, balance, nutrition — and anxiety.
+            </div>
+
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-emoji">🔔</span>
+                    <span>Step 1 — Stop Escalating the Sensation</span>
+                </div>
+                <div class="step-desc">
+                    Anxiety turns signals into alarms.
+                </div>
+                <div class="step-action">
+                    <div class="step-action-title">Do this instead:</div>
+                    <ul class="bullet-list" style="margin-top: 0.5rem;">
+                        <li class="bullet-item">notice the sensation</li>
+                        <li class="bullet-item">label it as familiar</li>
+                        <li class="bullet-item">don't check or test it</li>
+                    </ul>
+                </div>
+                <div class="step-quote">
+                    "This is my sensitive system — not a threat."
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-emoji">🌬️</span>
+                    <span>Step 2 — Calm the Pathways You Learned About</span>
+                </div>
+                <div class="step-desc">
+                    Use what this week taught you:
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">slow breathing to steady circulation</li>
+                    <li class="bullet-item">soften neck and jaw to reduce pressure</li>
+                    <li class="bullet-item">lower visual and sensory load</li>
+                </ul>
+                <div class="step-quote">
+                    When the body calms, migraine and vertigo pathways quiet.
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-emoji">🩵</span>
+                    <span>Step 3 — Rebuild Trust in Balance & Movement</span>
+                </div>
+                <div class="step-desc">
+                    Avoidance keeps anxiety active.
+                </div>
+                <div class="step-action">
+                    <div class="step-action-title">Gently:</div>
+                    <ul class="bullet-list" style="margin-top: 0.5rem;">
+                        <li class="bullet-item">move your head and body</li>
+                        <li class="bullet-item">stand and walk with confidence</li>
+                        <li class="bullet-item">return to normal rhythms</li>
+                    </ul>
+                </div>
+                <div class="step-quote">
+                    This tells the brain: balance is safe again.
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Your Migraine & Vertigo Reset ✨</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600; margin-bottom: 1.5rem; text-align: center;">
+                Choose one clarity cue you'll repeat:
+            </div>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(23,39,55,0.08);">
+                <div style="display: grid; gap: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 14px; background: rgba(184,118,88,0.05); border-radius: 12px; border: 1px solid rgba(184,118,88,0.1);">
+                        <span style="font-size: 1.75rem; flex-shrink: 0;">😮‍💨</span>
+                        <span style="font-size: 14px; font-weight: 500; color: #172737;">2 minutes of slow breathing</span>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 14px; background: rgba(184,118,88,0.05); border-radius: 12px; border: 1px solid rgba(184,118,88,0.1);">
+                        <span style="font-size: 1.75rem; flex-shrink: 0;">🚶</span>
+                        <span style="font-size: 14px; font-weight: 500; color: #172737;">calm, steady walking</span>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 14px; background: rgba(184,118,88,0.05); border-radius: 12px; border: 1px solid rgba(184,118,88,0.1);">
+                        <span style="font-size: 1.75rem; flex-shrink: 0;">💆‍♀️</span>
+                        <span style="font-size: 14px; font-weight: 500; color: #172737;">neck or jaw release</span>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 14px; background: rgba(184,118,88,0.05); border-radius: 12px; border: 1px solid rgba(184,118,88,0.1);">
+                        <span style="font-size: 1.75rem; flex-shrink: 0;">📵</span>
+                        <span style="font-size: 14px; font-weight: 500; color: #172737;">short screen break</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08);">
+                <div class="text-content" style="text-align: center; font-size: 14px; color: #656565;">
+                    Use it at the first sign of head pressure or dizziness.
+                </div>
+            </div>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-top: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08);">
+                <div style="font-size: 16px; font-weight: 700; color: #172737; margin-bottom: 1rem; text-align: center;">
+                    🧠 Why This Works
+                </div>
+                <div class="text-content" style="text-align: center;">
+                    Migraines and vertigo settle when anxiety no longer fuels them.
+                </div>
+                <div class="text-content" style="text-align: center;">
+                    Safety reduces vigilance.
+                </div>
+                <div class="text-content" style="font-weight: 600; color: #B87658; text-align: center;">
+                    Lower vigilance restores clarity.
+                </div>
+            </div>
+
+            <div class="expectation-section">
+                <div class="expectation-title">✨ What to Expect</div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">⏱️ Today</div>
+                    <div class="expectation-desc">less fear around symptoms</div>
+                </div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">⏳ After 3–5 days</div>
+                    <div class="expectation-desc">faster recovery after triggers</div>
+                </div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">📆 After 1–2 weeks</div>
+                    <div class="expectation-desc">fewer flares, lighter head, steadier balance</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
+            </div>
+            
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <div class="summary-box">
+                <div class="summary-item">
+                    <span>🧠</span>
+                    <span>Anxiety sustains migraines and vertigo</span>
+                </div>
+                <div class="summary-item">
+                    <span>🌬️</span>
+                    <span>Calming the body quiets head symptoms</span>
+                </div>
+                <div class="summary-item">
+                    <span>🩵</span>
+                    <span>Trust restores balance</span>
+                </div>
+                <div class="summary-item">
+                    <span>✨</span>
+                    <span>Clarity follows regulation</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="comparison-table">
+                <div class="comparison-title">Your Migraines & Vertigo Week Transformation</div>
+                
+                <div class="comparison-header">
+                    <div class="comparison-header-item" style="text-align: left;"></div>
+                    <div class="comparison-header-item">With Aura</div>
+                    <div class="comparison-header-item">Without Aura</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-benefit">Less head pressure & heaviness</div>
+                    <div class="comparison-check">✔</div>
+                    <div class="comparison-check">✖</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-benefit">Dizziness passes faster</div>
+                    <div class="comparison-check">✔</div>
+                    <div class="comparison-check">✖</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-benefit">Anxiety doesn't escalate symptoms</div>
+                    <div class="comparison-check">✔</div>
+                    <div class="comparison-check">✖</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-benefit">More stable energy throughout the day</div>
+                    <div class="comparison-check">✔</div>
+                    <div class="comparison-check">✖</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-benefit">More confidence in movement & balance</div>
+                    <div class="comparison-check">✔</div>
+                    <div class="comparison-check">✖</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-benefit">You know what helps your body</div>
+                    <div class="comparison-check">✔</div>
+                    <div class="comparison-check">✖</div>
+                </div>
+            </div>
+
+                    <div class="section" style="text-align: center; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); padding: 2rem 1.5rem;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #FFFFFF; margin-bottom: 0;">
+                ✨ Remember: Your head isn't broken. It's sensitive — and sensitivity can be regulated.
+            </div>
+        </div>
+    
+    </main>
+</body>
+</html>

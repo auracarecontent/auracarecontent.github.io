@@ -1,691 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 4 — When Stress Blocks Digestion</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Day 1 — Meet Your GLP-1 (mobile)</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif;
-            background: #FAF8F2;
-            padding: 2rem;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: #FFFEFB;
-            box-shadow: 0 3px 6px rgba(23, 39, 55, 0.15);
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-        }
-
-        .header {
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        .day-label {
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            line-height: 1.3;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 20px;
-            }
-        }
-
-        .section {
-            padding: 2rem 2.5rem;
-            border-bottom: 1px solid #F0F0F0;
-        }
-
-        @media (max-width: 768px) {
-            .section {
-                padding: 1.5rem 1.25rem;
-            }
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .section-icon {
-            font-size: 1.75rem;
-        }
-
-        h2 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #172737;
-            line-height: 22px;
-        }
-
-        @media (max-width: 768px) {
-            h2 {
-                font-size: 16px;
-            }
-        }
-
-        .text-content {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
-        }
-
-        .highlight-text {
-            font-weight: 600;
-            color: #B87658;
-        }
-
-        .intro-section {
-            background: rgba(184, 118, 88, 0.05);
-            border-bottom: 2px solid rgba(184, 118, 88, 0.2);
-        }
-
-        .bullet-list {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-        }
-
-        .bullet-item {
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            margin-bottom: 0.5rem;
-            line-height: 20px;
-        }
-
-        .biomarker-table {
-            width: 100%;
-            margin: 1.5rem 0;
-            border-collapse: collapse;
-            background: white;
-            border: 1px solid #E6E6E6;
-        }
-
-        .biomarker-table th {
-            background: rgba(184, 118, 88, 0.1);
-            padding: 16px;
-            text-align: left;
-            font-size: 15px;
-            font-weight: 600;
-            color: #172737;
-            border: 1px solid #E6E6E6;
-        }
-
-        @media (max-width: 768px) {
-            .biomarker-table th {
-                padding: 12px;
-                font-size: 14px;
-            }
-        }
-
-        .biomarker-table td {
-            padding: 14px 16px;
-            font-size: 13px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 18px;
-            border: 1px solid #E6E6E6;
-        }
-
-        @media (max-width: 768px) {
-            .biomarker-table td {
-                padding: 10px 12px;
-                font-size: 12px;
-            }
-        }
-
-        .biomarker-table tr:nth-child(even) {
-            background: rgba(184, 118, 88, 0.03);
-        }
-
-        .biomarker-name {
-            font-weight: 600;
-            color: #B87658;
-        }
-
-        .science-fact {
-            background: rgba(16, 185, 129, 0.08);
-            padding: 18px;
-            border-left: 3px solid #10B981;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .fact-item {
-            font-size: 13px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
-            margin-bottom: 0.75rem;
-        }
-
-        .fact-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            margin: 2rem 0;
-            background: #000;
-            overflow: hidden;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .action-box {
-            background: rgba(16, 185, 129, 0.08);
-            padding: 18px;
-            border-left: 3px solid #10B981;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .action-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            margin-bottom: 1rem;
-            line-height: 20px;
-        }
-
-        .step-item {
-            display: flex;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-            font-size: 14px;
-            font-weight: 500;
-            color: #172737;
-            line-height: 20px;
-        }
-
-        .step-number {
-            font-weight: 700;
-            color: #10B981;
-            flex-shrink: 0;
-        }
-
-        .reflection-box {
-            background: rgba(184, 118, 88, 0.08);
-            padding: 18px;
-            border-left: 3px solid #B87658;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .reflection-text {
-            font-size: 13px;
-            font-weight: 500;
-            color: #656565;
-            line-height: 18px;
-            margin-bottom: 0.5rem;
-        }
-
-        .reflection-text:last-child {
-            margin-bottom: 0;
-        }
-
-        .warning-box {
-            background: rgba(239, 68, 68, 0.08);
-            padding: 18px;
-            border-left: 3px solid #ef4444;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 4px rgba(23, 39, 55, 0.08);
-        }
-
-        .warning-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #172737;
-            margin-bottom: 0.75rem;
-            line-height: 20px;
-        }
-
-        .quote-box {
-            background: rgba(184, 118, 88, 0.05);
-            padding: 2rem;
-            text-align: center;
-            margin: 2rem 0;
-            border: 1px solid rgba(184, 118, 88, 0.15);
-        }
-
-        @media (max-width: 768px) {
-            .quote-box {
-                padding: 1.5rem;
-            }
-        }
-
-        .quote-text {
-            font-size: 16px;
-            font-weight: 600;
-            color: #172737;
-            line-height: 24px;
-            font-style: italic;
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
-            color: white;
-            padding: 3rem 2.5rem;
-            position: relative;
-        }
-
-        @media (max-width: 768px) {
-            .footer {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #D4956C 0%, #B87658 50%, #D4956C 100%);
-        }
-
-        .footer h2 {
-            color: white;
-            margin-bottom: 1.5rem;
-            font-size: 22px;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        @media (max-width: 768px) {
-            .footer h2 {
-                font-size: 18px;
-            }
-        }
-
-        .footer-text {
-            font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            line-height: 24px;
-            opacity: 0.95;
-        }
-
-        @media (max-width: 768px) {
-            .footer-text {
-                font-size: 14px;
-            }
-        }
-
-        .footer-email {
-            color: white;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 18px;
-            display: inline-block;
-            padding: 14px 28px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid white;
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .footer-email {
-                font-size: 16px;
-                padding: 12px 24px;
-            }
-        }
-
-        .footer-email:hover {
-            background: white;
-            color: #B87658;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .footer-cta-wrapper {
-            text-align: center;
-            margin-top: 1rem;
-        }
-
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .biomarker-table-wrapper { margin-top: 1rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .biomarker-table { width: 100%; min-width: 320px; border-collapse: collapse; background: #FFFFFF; border: 1px solid #E6E6E6; }
+        .biomarker-table th { background: rgba(184,118,88,0.1); padding: 12px; text-align: left; font-size: 13px; font-weight: 600; color: #172737; border: 1px solid #E6E6E6; line-height: 1.4; }
+        .biomarker-table td { padding: 12px; font-size: 13px; font-weight: 500; color: #172737; line-height: 1.4; border: 1px solid #E6E6E6; }
+        .biomarker-table tr:nth-child(even) { background: rgba(184,118,88,0.03); }
+        .biomarker-name { font-weight: 600; color: #B87658; }
+        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact, .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+        .step-item { display: flex; gap: 0.5rem; align-items: flex-start; margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; }
+        .step-number { font-size: 1.2rem; flex-shrink: 0; line-height: 1.4; }
+        .fact-item { margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .quote-box { background: rgba(184,118,88,0.05); border: 1px solid rgba(184,118,88,0.15); text-align: center; padding: 1.5rem 1rem; margin: 1.5rem 0; }
+        .quote-text { font-size: 15px; font-weight: 600; color: #172737; line-height: 1.5; font-style: italic; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; }
+        .footer-topline { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #D4956C 0%, #B87658 50%, #D4956C 100%); }
+        .footer h2 { font-size: 18px; font-weight: 700; color: #FFFFFF !important; line-height: 1.4; margin-bottom: 1rem; text-align: center !important; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; text-align: center; }
+        .footer-cta-wrapper { text-align: center; }
+        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
+        @media (min-width: 481px) { .header { padding: 2.5rem 2rem; } .section { padding: 2rem 2rem; } .footer { padding: 2.5rem 2rem 3rem 2rem; } }
+        @media print { body { background: #FFFFFF; } .screen { max-width: 100%; box-shadow: none; border: none; } }
     </style>
-
-<style>
-/* === Aura App Final — structural overrides (colors preserved) === */
-*{box-sizing:border-box}
-body{background:#FAF8F2;margin:0;padding:2rem;line-height:1.5}
-.aura-app-final{max-width:1000px;margin:0 auto;background:#FFFEFB;border-radius:0 !important;box-shadow:0 3px 6px rgba(23,39,55,.12);border:1px solid rgba(0,0,0,.04)}
-header, footer, .header, .footer, .container, .wrap, .page, .page-wrap { border-radius:0 !important; }
-@media (max-width:640px){
-  body{padding:0}
-  header, .header{padding:2rem 1.25rem !important}
-  section, .section, .content, .main, .container, .wrap{padding:1.25rem 1rem}
-  footer, .footer{padding:2rem 1.25rem !important}
-}
-@media print{
-  body{background:#fff;padding:0}
-  .aura-app-final{box-shadow:none;border:none}
-}
-
-</style>
 </head>
 <body>
-<div class="aura-app-final">
+<main class="screen">
 
-    <div class="container">
-        <div class="header">
-            <div class="day-label">DAY 4</div>
-            <h1>When Stress Blocks Digestion: Reconnect the Brain–Gut Axis</h1>
+    <div class="header">
+        <div class="day-label">DAY 1</div>
+        <h1>Meet Your GLP-1: The Hormone That Balances Hunger and Calm</h1>
+    </div>
+
+    <div class="section intro-section">
+        <div class="section-header">
+            <span class="section-icon">🌞</span>
+            <h2>Daily Focus</h2>
+        </div>
+        <div class="text-content">
+            Today you'll meet one of your body's most powerful natural regulators — GLP-1 (glucagon-like peptide-1).
+        </div>
+        <div class="text-content">
+            This hormone is released in your gut right after you eat and communicates through the vagus nerve, sending your brain a calm message: "You're nourished — you can relax."
+        </div>
+        <div class="text-content">
+            When this signal flows smoothly, hunger fades, focus returns, and your blood sugar stays balanced for hours.
+        </div>
+        <div class="text-content highlight-text">
+            But stress, poor sleep, and processed foods can block that gut-to-brain communication, leaving you with cravings, energy crashes, and emotional swings.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">🧠</span>
+            <h2>The GLP-1 – Vagus Connection</h2>
+        </div>
+        <div class="text-content">
+            Your gut isn't just for digestion — it's an intelligent communication hub.
+        </div>
+        <div class="text-content">
+            Enteroendocrine cells in your intestine release GLP-1 whenever nutrients arrive.
+        </div>
+        <div class="text-content">
+            Through the vagus nerve, these signals reach the brainstem, slowing the heartbeat, calming stress hormones, and increasing satiety.
+        </div>
+        <div class="text-content highlight-text">
+            When vagal tone is strong, this feedback loop keeps appetite, mood, and glucose steady.
+        </div>
+        <div class="text-content">
+            When it's weak — due to chronic stress or inflammation — the body "forgets" how to feel full and calm.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">☀️</span>
+            <h2>How It Works</h2>
+        </div>
+        
+        <div class="step-item">
+            <span class="step-number">1️⃣</span>
+            <div>You eat — especially fiber, protein, and healthy fats.</div>
         </div>
 
-        <div class="section intro-section">
-            <div class="section-header">
-                <span class="section-icon">😌</span>
-                <h2>Daily Focus</h2>
-            </div>
-            <div class="text-content">
-                Your gut and brain are in constant conversation — and the vagus nerve is their main messenger.
-            </div>
-            <div class="text-content">
-                When stress takes over, that line of communication weakens.
-            </div>
-            <div class="text-content highlight-text">
-                You'll learn how chronic tension slows digestion, why bloating or heaviness often follow busy days, and how gentle movement with deep breathing can switch your gut back on.
-            </div>
+        <div class="step-item">
+            <span class="step-number">2️⃣</span>
+            <div>Your gut's L-cells release GLP-1.</div>
         </div>
 
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧠</span>
-                <h2>Why Stress Affects Your Gut So Fast</h2>
-            </div>
-            <div class="text-content">
-                When your nervous system is stuck in "fight-or-flight," blood flow is redirected from the stomach and intestines toward the muscles and heart.
-            </div>
-            <div class="text-content">
-                The brain tells the gut to pause digestion — just in case it needs to run from danger.
-            </div>
-            <div class="text-content">
-                This makes sense in emergencies but not in modern life, where stress is constant.
-            </div>
-            <div class="text-content">
-                Over time, this keeps the vagus nerve underactive, leading to:
-            </div>
-            <ul class="bullet-list">
-                <li class="bullet-item">slow digestion or bloating,</li>
-                <li class="bullet-item">poor nutrient absorption,</li>
-                <li class="bullet-item">abdominal tension or cramps,</li>
-                <li class="bullet-item">and unpredictable appetite.</li>
-            </ul>
-            <div class="text-content highlight-text">
-                To restore calm digestion, you need to reactivate the vagus — the "rest and digest" command line.
-            </div>
+        <div class="step-item">
+            <span class="step-number">3️⃣</span>
+            <div>GLP-1 activates vagus-nerve receptors.</div>
         </div>
 
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">☀️</span>
-                <h2>How the Vagus Keeps the Gut–Brain Link Alive</h2>
-            </div>
-            <div class="text-content">
-                The vagus nerve sends two-way signals between your brainstem and intestines.
-            </div>
-            <div class="text-content">
-                It senses when you're stressed and when your gut is ready to digest.
-            </div>
-            <div class="text-content">
-                When vagal tone is strong, peristalsis (the gut's natural wave movement) is steady, and enzymes are released efficiently.
-            </div>
-            <div class="text-content">
-                When it's weak, communication slows and you feel "stuck" both mentally and physically.
-            </div>
-            <div class="text-content highlight-text">
-                Gentle twisting and deep breathing help massage the organs, increase blood flow, and send rhythmic pressure changes that directly activate vagal fibers in the abdomen — resetting the system.
-            </div>
+        <div class="step-item">
+            <span class="step-number">4️⃣</span>
+            <div>The brain receives an "all clear" and reduces hunger signals.</div>
         </div>
 
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">💡</span>
-                <h2>Science Facts — Stress, Gut & Vagus</h2>
-            </div>
-            
-            <div class="science-fact">
-                <div class="fact-item">
-                    <span class="highlight-text">🧠</span> Vagal activity directly regulates intestinal motility and inflammation (Bonaz & Pellissier, Frontiers in Neuroscience 2016).
-                </div>
-                <div class="fact-item">
-                    <span class="highlight-text">🫁</span> Deep breathing and gentle movement improve blood flow to the digestive organs and enhance nutrient absorption (Kirkwood et al., Journal of Alternative and Complementary Medicine 2005).
-                </div>
-                <div class="fact-item">
-                    <span class="highlight-text">💤</span> People with higher vagal tone show fewer IBS symptoms and faster recovery from stress (Laborde et al., Psychophysiology 2018).
-                </div>
-                <div class="fact-item">
-                    <span class="highlight-text">🧬</span> Chronic stress suppresses vagal feedback, increasing gut inflammation (Browning et al., Neurogastroenterology and Motility 2017).
-                </div>
-            </div>
+        <div class="step-item">
+            <span class="step-number">5️⃣</span>
+            <div>Your stomach empties slower, blood sugar stays steady, and energy lasts longer.</div>
         </div>
+    </div>
 
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧬</span>
-                <h2>What About Labs?</h2>
-            </div>
-            <div class="text-content">
-                Your gut–vagus connection can often be seen through metabolic and inflammatory biomarkers:
-            </div>
-
-            <table class="biomarker-table">
-                <thead>
-                    <tr>
-                        <th>Biomarker</th>
-                        <th>What It Shows About Gut–Brain Health</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="biomarker-name">Cortisol (AM / PM)</span></td>
-                        <td>Prolonged elevation slows digestion and disrupts microbiome balance (Kumari et al., 2009).</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">hs-CRP</span></td>
-                        <td>Chronic inflammation linked to poor vagal tone and GI symptoms (Thayer & Friedman, 2002).</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Glucose / HbA1c</span></td>
-                        <td>Unstable glucose slows stomach emptying and raises stress hormones (Huang et al., 2011).</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Ferritin & B12</span></td>
-                        <td>Low levels suggest poor absorption due to weak digestive signaling.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="biomarker-name">Magnesium</span></td>
-                        <td>Aids smooth muscle movement and relaxation in the gut wall (DiNicolantonio et al., 2018).</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="text-content highlight-text">
-                Tracking these markers over time can show whether your digestive stress is improving with recovery-based habits.
-            </div>
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">💡</span>
+            <h2>Science Facts — The Gut–Brain Balance</h2>
         </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">💭</span>
-                <h2>Reflection Prompt</h2>
+        
+        <div class="science-fact">
+            <div class="fact-item">
+                <span class="highlight-text">📖</span> Sensory fibers of the vagus nerve directly sense GLP-1 released after a meal, telling the brain you're full and safe — a built-in "calm-down" reflex.<br>
+                <span style="font-size: 11px; color: #999; font-style: italic;">(Brierley & de Lartigue, 2022, Physiology & Behavior)</span>
             </div>
-            
-            <div class="reflection-box">
-                <div class="reflection-text">
-                    When do you notice your digestion feels most off — after rushing meals, emotional stress, or long sitting?
-                </div>
-                <div class="reflection-text">
-                    Can you try eating in a calmer state today and notice the difference?
-                </div>
+            <div class="fact-item">
+                <span class="highlight-text">📖</span> GLP-1 slows gastric emptying by activating the vagus nerve, reducing hunger peaks and preventing energy crashes. This is how your gut and brain coordinate appetite and calm.<br>
+                <span style="font-size: 11px; color: #999; font-style: italic;">(Zheng et al., 2024, Cell Research)</span>
             </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">✅</span>
-                <h2>Plan to Action — Twist & Breathe | Wake Up Your Vagus</h2>
-            </div>
-
-            <div class="action-box">
-                <div class="action-title">Goal: activate abdominal vagus branches and improve gut circulation.</div>
-                <div class="text-content" style="margin-bottom: 1rem;">Time: 5 minutes, preferably before or after meals.</div>
-                <div class="text-content highlight-text" style="margin-bottom: 0;">Pro tip: Do this mid-day to beat the "heavy lunch slump" or anytime bloating appears.</div>
-            </div>
-
-            <div class="warning-box">
-                <div class="warning-title">⚠️ Safety Note</div>
-                <div class="text-content" style="margin-bottom: 0.5rem;">
-                    Avoid twisting if you have recent abdominal surgery or acute pain.
-                </div>
-                <div class="text-content" style="margin-bottom: 0;">
-                    Keep movements soft and slow — this is about rhythm, not stretching.
-                </div>
-            </div>
-
-            <div class="step-item">
-                <span class="step-number">1️⃣</span>
-                <div>Sit or stand tall, feet hip-width apart.</div>
-            </div>
-
-            <div class="step-item">
-                <span class="step-number">2️⃣</span>
-                <div>Inhale deeply through the nose while turning your torso gently to the right.</div>
-            </div>
-
-            <div class="step-item">
-                <span class="step-number">3️⃣</span>
-                <div>Exhale slowly as you return to center.</div>
-            </div>
-
-            <div class="step-item">
-                <span class="step-number">4️⃣</span>
-                <div>Inhale again and twist to the left.</div>
-            </div>
-
-            <div class="step-item">
-                <span class="step-number">5️⃣</span>
-                <div>Repeat this slow rhythm for 10–12 cycles (about 5 minutes).</div>
-            </div>
-
-            <div class="step-item">
-                <span class="step-number">6️⃣</span>
-                <div>Finish by placing one hand on your belly, one on your chest — take two long breaths, feeling both rise and fall together.</div>
-            </div>
-
-            <div class="video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/YVc3dPQIdaw" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <div class="text-content" style="margin-top: 1.5rem;">
-                <span class="highlight-text">Why this works:</span>
-            </div>
-            <div class="text-content">
-                Gentle twisting massages abdominal organs, increasing blood flow and stimulating the vagus nerve along its digestive branches.
-            </div>
-            <div class="text-content">
-                The deep exhale reinforces parasympathetic activation, improving gut motility and calm (Bonaz 2016; Kirkwood 2005).
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🌙</span>
-                <h2>Evening Matters Too — Digest Calmly</h2>
-            </div>
-            <div class="text-content">
-                Eat your last meal at least 2–3 hours before bed.
-            </div>
-            <div class="text-content">
-                After dinner, sit quietly or take a slow walk while breathing deeply — this supports vagal tone and gentle digestion overnight (Laborde 2018).
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="quote-box">
-                <div class="quote-text">
-                    Your gut is one of your brain's most direct feedback systems.<br><br>
-                    By calming the vagus, you improve both digestion and emotional stability — less tension, less bloating, more flow.
-                </div>
-            </div>
-            <div class="text-content" style="text-align: center; font-size: 16px; font-weight: 600; margin-top: 2rem;">
-                ✨ Tomorrow: you'll explore how self-touch and gentle holding positions can instantly calm emotions and rebuild your body's sense of safety.
-            </div>
-        </div>
-
-        <div class="footer">
-            <h2>📩 Get Your Personalized Lab Panel</h2>
-            <div class="footer-text">
-                Write to us if you're interested in a personalised lab panel at the best price — with your own detailed report after the results are ready.
-            </div>
-            <div class="footer-cta-wrapper">
-                <a href="mailto:care@aura.care" class="footer-email">📧 care@aura.care</a>
+            <div class="fact-item">
+                <span class="highlight-text">📖</span> Both natural GLP-1 and GLP-1 medications rely on vagal pathways to reach the brain's appetite-control center and restore metabolic balance. These same pathways also help regulate emotional stability and stress recovery.<br>
+                <span style="font-size: 11px; color: #999; font-style: italic;">(Hankir et al., 2025, Pflügers Archiv)</span>
             </div>
         </div>
     </div>
 
-</div>
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">🧬</span>
+            <h2>What About Labs?</h2>
+        </div>
+
+        <table class="biomarker-table">
+            <thead>
+                <tr>
+                    <th>Biomarker</th>
+                    <th>What It Reveals About GLP-1 Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="biomarker-name">Glucose / HbA1c</span></td>
+                    <td>Stable levels = healthy GLP-1 signaling.</td>
+                </tr>
+                <tr>
+                    <td><span class="biomarker-name">Insulin</span></td>
+                    <td>Lower fasting = better insulin sensitivity and stronger GLP-1 response.</td>
+                </tr>
+                <tr>
+                    <td><span class="biomarker-name">Cortisol (AM/PM)</span></td>
+                    <td>High stress weakens vagal tone and GLP-1 release.</td>
+                </tr>
+                <tr>
+                    <td><span class="biomarker-name">Magnesium RBC</span></td>
+                    <td>Supports nerve transmission along the gut–brain axis.</td>
+                </tr>
+                <tr>
+                    <td><span class="biomarker-name">Triglycerides</span></td>
+                    <td>Lower values reflect steadier digestion and energy use.</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">💭</span>
+            <h2>Reflection Prompt</h2>
+        </div>
+        
+        <div class="reflection-box">
+            <div class="reflection-text">
+                When do you notice true fullness — after a calm meal or while distracted?
+            </div>
+            <div class="reflection-text">
+                Pay attention today: that gentle sense of "enough" is your GLP-1 and vagus nerve in sync.
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">✅</span>
+            <h2>Plan to Action — Reset Your Natural GLP-1 Signal</h2>
+        </div>
+        
+        <div class="text-content highlight-text">
+            Goal: Train your gut-brain feedback to restore calm appetite control.
+        </div>
+        <div class="text-content">
+            Time: One meal today — 10 minutes of mindful eating.
+        </div>
+
+        <div class="step-item">
+            <span class="step-number">1️⃣</span>
+            <div>Before eating, take three slow breaths to activate the vagus nerve.</div>
+        </div>
+
+        <div class="step-item">
+            <span class="step-number">2️⃣</span>
+            <div>Start with a protein- or fiber-rich food — that's your GLP-1 trigger.</div>
+        </div>
+
+        <div class="step-item">
+            <span class="step-number">3️⃣</span>
+            <div>Chew slowly and notice the flavor and texture; put your fork down between bites.</div>
+        </div>
+
+        <div class="step-item">
+            <span class="step-number">4️⃣</span>
+            <div>Halfway through, pause — check if you already feel lighter or calmer.</div>
+        </div>
+
+        <div class="step-item">
+            <span class="step-number">5️⃣</span>
+            <div>End the meal peacefully — no screens, no stress conversation.</div>
+        </div>
+
+        <div class="warning-box" style="margin-top: 1.5rem;">
+            <div style="font-weight: 700; margin-bottom: 0.5rem;">⚠️ Safety Note</div>
+            <div class="text-content" style="margin-bottom: 0;">
+                This practice supports wellness and self-awareness, not medical treatment. If you have metabolic or digestive conditions, follow your clinician's advice.
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">🌞</span>
+            <h2>Why This Works</h2>
+        </div>
+        <div class="text-content">
+            Intentional, slower eating enhances vagus-nerve activity and GLP-1 release, lowering cortisol and helping your body restore its natural rhythm of hunger, energy, and calm.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="text-content">
+            🧠 Let's add one of our vagus-nerve activation exercises into your week — it helps your body settle, improves appetite regulation, and supports a smoother GLP-1 rhythm.
+        </div>
+
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/iSLfF5NX0p8" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">🎬</span>
+            <h2>Video of the Day</h2>
+        </div>
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/SZSRgyl7pyQ" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+                <div class="section" style="text-align: center; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); padding: 2rem 1.5rem;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #FFFFFF; margin-bottom: 0;">
+                ✨ With Aura, you're learning to hear your body's own signals again — each meal a small step back to balance.
+        </div>
+        </div>
+    
+    </main>
 </body>
 </html>

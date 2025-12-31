@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 4 — Easy Ways to Calm Dizziness</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .footer-cta-wrapper { text-align: center; }
+        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
+        .summary-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+        }
+        .summary-item:last-child {
+            margin-bottom: 0;
+        }
+        .expectation-section {
+            background: white;
+            padding: 18px;
+            border-radius: 16px;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .expectation-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+        }
+        .expectation-item {
+            margin-bottom: 1rem;
+        }
+        .expectation-item:last-child {
+            margin-bottom: 0;
+        }
+        .expectation-time {
+            font-weight: 600;
+            font-size: 14px;
+            color: #B87658;
+            margin-bottom: 0.25rem;
+        }
+        .expectation-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 1.4;
+        }
+        .technique-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(23,39,55,0.08);
+        }
+        .technique-header {
+            font-size: 17px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .technique-emoji {
+            font-size: 2rem;
+        }
+        .technique-note {
+            background: rgba(184,118,88,0.05);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 13px;
+            font-weight: 500;
+            color: #B87658;
+            line-height: 1.4;
+        }
+        .warning-box {
+            background: rgba(255,165,0,0.08);
+            border-left: 3px solid #FFA500;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .warning-title {
+            font-weight: 700;
+            font-size: 14px;
+            color: #172737;
+            margin-bottom: 0.5rem;
+        }
+        .warning-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 4</div>
+            <h1>Easy Ways to Calm Dizziness</h1>
+        </div>
+
+        <div class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Dizziness isn't always about balance organs or blood pressure.
+            </div>
+            <div class="text-content">
+                Very often, it's your nervous system sending mixed signals.
+            </div>
+            <div class="text-content">
+                Today you'll learn why dizziness appears when your system is overloaded — and how to calm it gently and safely.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Dizziness can feel especially unsettling because:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">it's unpredictable,</li>
+                <li class="bullet-item">it affects orientation and confidence,</li>
+                <li class="bullet-item">it triggers fear: "What if something is wrong?"</li>
+            </ul>
+            <div class="text-content" style="font-weight: 600;">
+                That fear alone can intensify dizziness.
+            </div>
+
+            <div style="background: rgba(184,118,88,0.08); padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0;">
+                <div class="text-content" style="font-weight: 600;">
+                    But in many cases, dizziness is not a failure of balance —
+                </div>
+                <div class="text-content" style="font-weight: 600; color: #B87658;">
+                    it's a regulation issue:
+                </div>
+                <div class="text-content" style="text-align: center; margin-top: 1rem;">
+                    the brain, eyes, inner ear, and neck are not fully synchronized.
+                </div>
+                <div class="text-content" style="text-align: center; font-weight: 600; color: #B87658;">
+                    When the nervous system calms, clarity often returns.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">😴</span>
+                <h2>Why Dizziness Happens Without Spinning</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Not all dizziness is vertigo.
+            </div>
+            <div class="text-content" style="margin-top: 1rem;">
+                Common non-spinning dizziness comes from:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">sensory mismatch (eyes, neck, inner ear sending different signals),</li>
+                <li class="bullet-item">hypervigilance (the brain constantly checking balance),</li>
+                <li class="bullet-item">neck and upper chest tension,</li>
+                <li class="bullet-item">irregular breathing (too shallow or too fast),</li>
+                <li class="bullet-item">fatigue and low recovery reserve.</li>
+            </ul>
+            <div class="text-content" style="font-weight: 600; color: #B87658; margin-top: 1rem;">
+                Your balance system works best when the body feels safe — not when it's being monitored closely.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Dizziness & Regulation</h2>
+            </div>
+            
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Functional dizziness is often linked to heightened nervous system arousal</div>
+                    <div class="fact-desc">Staab et al., 2017 — not structural damage.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">👀</div>
+                <div>
+                    <div class="fact-title">Visual overreliance increases dizziness</div>
+                    <div class="fact-desc">Bronstein, 2016 — when the brain doesn't trust body signals.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">😮‍💨</div>
+                <div>
+                    <div class="fact-title">Slow breathing improves vestibular tolerance</div>
+                    <div class="fact-desc">Yardley et al., 2012 — and reduces dizziness symptoms.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🦴</div>
+                <div>
+                    <div class="fact-title">Neck proprioception strongly influences balance perception</div>
+                    <div class="fact-desc">Treleaven, 2008.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                Some lab markers influence how stable and resilient your balance system feels.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content">
+                    Does your dizziness worsen when you focus on it or feel anxious?
+                </div>
+                <div class="text-content">
+                    Does it improve when you're distracted, supported, or calm?
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What Actually Helps</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Trying to "check" balance makes symptoms worse.
+            </div>
+            <div class="text-content" style="margin-top: 1rem;">
+                Dizziness calms when:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">the eyes soften,</li>
+                <li class="bullet-item">the neck relaxes,</li>
+                <li class="bullet-item">breathing slows,</li>
+                <li class="bullet-item">attention widens instead of narrowing.</li>
+            </ul>
+            <div class="text-content" style="font-weight: 600; color: #B87658;">
+                The goal is not to control dizziness — it's to signal safety.
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — What to Do During Dizziness 🧠🌿</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600; margin-bottom: 1rem; text-align: center;">
+                If you feel dizzy right now, don't fight it.
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem; text-align: center;">
+                Use one of these grounding techniques to help your system re-stabilize.
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(184,118,88,0.08) 0%, rgba(184,118,88,0.04) 100%); padding: 2rem 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(184,118,88,0.15);">
+                <div style="text-align: center; font-size: 2rem; margin-bottom: 1rem;">🎯</div>
+                <div style="font-size: 16px; font-weight: 700; color: #B87658; text-align: center;">
+                    Choose one — do it slowly
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <div class="technique-header">
+                    <span class="technique-emoji">👀</span>
+                    <span>Visual Anchor</span>
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">Sit or stand still.</li>
+                    <li class="bullet-item">Fix your gaze on one stable object (a wall, doorframe, plant).</li>
+                    <li class="bullet-item">Keep your eyes soft — not staring.</li>
+                    <li class="bullet-item">Stay for 30–60 seconds.</li>
+                </ul>
+                <div class="technique-note">
+                    ➡️ This helps the brain re-align visual and balance signals.
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <div class="technique-header">
+                    <span class="technique-emoji">😮‍💨</span>
+                    <span>Exhale Reset</span>
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">Inhale through your nose for 4 seconds.</li>
+                    <li class="bullet-item">Exhale slowly for 6–8 seconds.</li>
+                    <li class="bullet-item">Repeat 5–6 times.</li>
+                </ul>
+                <div class="technique-note">
+                    ➡️ Longer exhales calm the nervous system and reduce sensory overload.
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <div class="technique-header">
+                    <span class="technique-emoji">🦶</span>
+                    <span>Grounding Through the Feet</span>
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">Shift attention to your feet.</li>
+                    <li class="bullet-item">Press them gently into the floor.</li>
+                    <li class="bullet-item">Notice pressure, temperature, contact.</li>
+                    <li class="bullet-item">Count 5 slow breaths.</li>
+                </ul>
+                <div class="technique-note">
+                    ➡️ Grounding signals safety and orientation to the brain.
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <div class="technique-header">
+                    <span class="technique-emoji">🦴</span>
+                    <span>Neck Stillness Pause</span>
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">Stop moving your head.</li>
+                    <li class="bullet-item">Let your neck feel heavy and supported.</li>
+                    <li class="bullet-item">Relax jaw and shoulders.</li>
+                    <li class="bullet-item">Wait 30–90 seconds before resuming activity.</li>
+                </ul>
+                <div class="technique-note">
+                    ➡️ Reduces conflicting signals from neck muscles.
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <div class="warning-title">⚠️ Important</div>
+                <ul class="bullet-list" style="margin-top: 0.5rem;">
+                    <li class="bullet-item">Do not rush.</li>
+                    <li class="bullet-item">Do not "test" your balance repeatedly.</li>
+                    <li class="bullet-item">Let symptoms settle before walking or turning quickly.</li>
+                </ul>
+            </div>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-top: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08);">
+                <div style="font-size: 16px; font-weight: 700; color: #172737; margin-bottom: 1rem; text-align: center;">
+                    🧠 Why This Works
+                </div>
+                <div class="text-content" style="text-align: center;">
+                    Dizziness often increases when the brain tries to control balance.
+                </div>
+                <div class="text-content" style="text-align: center; font-weight: 600; margin-top: 1rem;">
+                    These techniques:
+                </div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">reduce sensory mismatch,</li>
+                    <li class="bullet-item">lower alert-mode activity,</li>
+                    <li class="bullet-item">restore trust between eyes, neck, and inner ear.</li>
+                </ul>
+                <div class="text-content" style="font-weight: 600; color: #B87658; text-align: center; margin-top: 1rem;">
+                    You're not fixing dizziness — you're letting the system recalibrate.
+                </div>
+            </div>
+
+            <div class="expectation-section">
+                <div class="expectation-title">✨ What to Expect</div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">⏱️ After today</div>
+                    <div class="expectation-desc">A brief sense of steadiness or relief.</div>
+                </div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">⏳ After 3–5 days</div>
+                    <div class="expectation-desc">Less fear around dizziness sensations.</div>
+                </div>
+                
+                <div class="expectation-item">
+                    <div class="expectation-time">📆 After 1–2 weeks</div>
+                    <div class="expectation-desc">Better balance confidence and fewer episodes.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
+            </div>
+            
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/cQcd1LOmzas" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <div class="summary-box">
+                <div class="summary-item">
+                    <span>🌍</span>
+                    <span>Dizziness often reflects nervous system overload</span>
+                </div>
+                <div class="summary-item">
+                    <span>👀</span>
+                    <span>Visual and neck signals shape balance perception</span>
+                </div>
+                <div class="summary-item">
+                    <span>😮‍💨</span>
+                    <span>Calm breathing stabilizes orientation</span>
+                </div>
+                <div class="summary-item">
+                    <span>🩵</span>
+                    <span>Safety reduces symptoms faster than control</span>
+                </div>
+            </div>
+
+                    <div class="section" style="text-align: center; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); padding: 2rem 1.5rem;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #FFFFFF; margin-bottom: 0;">
+                ✨ Remember: Dizziness doesn't mean you're losing balance — it means your system needs reassurance.
+            </div>
+        </div>
+    
+    </main>
+</body>
+</html>

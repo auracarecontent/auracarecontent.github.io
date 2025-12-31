@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 5 — Cortisol and Hair Loss: Calm Equals Growth</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .footer-cta-wrapper { text-align: center; }
+        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            transition: width 1s ease-out;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 16px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(184,118,88,0.35);
+        }
+        .summary-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+        .summary-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .summary-item:last-child { margin-bottom: 0; }
+        .summary-item span:first-child { font-size: 1.25rem; flex-shrink: 0; }
+        .timeline-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            align-items: flex-start;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            line-height: 1.2;
+        }
+        .timeline-content {
+            flex: 1;
+        }
+        .timeline-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.3px;
+        }
+        .timeline-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+        }
+        .action-card {
+            background: white;
+            border: 2px solid rgba(184,118,88,0.15);
+            box-shadow: 0 4px 12px rgba(184,118,88,0.12);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+        .action-card-icon {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .action-card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .cycle-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .cycle-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        .cycle-item:last-child { margin-bottom: 0; }
+        .cycle-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #B87658;
+            min-width: 80px;
+        }
+        .cycle-desc {
+            font-size: 14px;
+            font-weight: 500;
+            color: #656565;
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <!-- Header -->
+        <div class="header">
+            <div class="day-label">DAY 5</div>
+            <h1>Cortisol and Hair Loss: Calm Equals Growth</h1>
+        </div>
+
+        <!-- Intro Section -->
+        <div class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Hair loss isn't always about genetics or nutrients. Very often, it's about stress hormones.
+            </div>
+            <div class="text-content">
+                Today you'll learn how chronic stress and elevated cortisol disrupt hair growth cycles — and why restoring calm is one of the most effective ways to restart growth.
+            </div>
+        </div>
+
+        <!-- ☀️ Why It Matters -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Hair follicles are highly sensitive to internal signals. They constantly decide: grow or pause.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Under chronic stress:</span>
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">cortisol stays elevated,</li>
+                <li class="bullet-item">blood flow is redirected away from "non-essential" tissues,</li>
+                <li class="bullet-item">inflammation increases,</li>
+                <li class="bullet-item">growth signals are suppressed.</li>
+            </ul>
+            <div class="text-content">
+                The body chooses survival over appearance.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Hair doesn't fall out because it's weak. It falls out because the system is under pressure.</span>
+            </div>
+        </div>
+
+        <!-- 🔄 How Stress Disrupts Hair Cycles -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔄</span>
+                <h2>How Stress Disrupts Hair Cycles</h2>
+            </div>
+            <div class="text-content">
+                Hair grows in cycles:
+            </div>
+            
+            <div class="cycle-box">
+                <div class="cycle-item">
+                    <div class="cycle-label">Anagen</div>
+                    <div class="cycle-desc">— growth,</div>
+                </div>
+                <div class="cycle-item">
+                    <div class="cycle-label">Catagen</div>
+                    <div class="cycle-desc">— transition,</div>
+                </div>
+                <div class="cycle-item">
+                    <div class="cycle-label">Telogen</div>
+                    <div class="cycle-desc">— rest/shedding.</div>
+                </div>
+            </div>
+
+            <div class="text-content">
+                Chronic stress pushes more follicles prematurely into the rest/shedding phase (telogen effluvium).
+            </div>
+            <div class="text-content">
+                This often shows up as:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">diffuse hair shedding,</li>
+                <li class="bullet-item">thinning ponytail,</li>
+                <li class="bullet-item">more hair on the brush or shower drain,</li>
+                <li class="bullet-item">hair that stops growing longer.</li>
+            </ul>
+            <div class="text-content">
+                <span class="highlight-text">Importantly: hair loss often appears 2–3 months after the stress peak — which makes the cause hard to recognize.</span>
+            </div>
+        </div>
+
+        <!-- 🌿 Science Facts -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Cortisol & Hair Growth</h2>
+            </div>
+            
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Chronic psychological stress elevates cortisol</div>
+                    <div class="fact-desc">And disrupts hair follicle cycling (Paus et al., 2014).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🔥</div>
+                <div>
+                    <div class="fact-title">Cortisol increases inflammatory signaling around hair follicles</div>
+                    <div class="fact-desc">Impairing growth (Arck et al., 2006).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🩸</div>
+                <div>
+                    <div class="fact-title">Stress-induced vasoconstriction reduces nutrient delivery</div>
+                    <div class="fact-desc">And oxygen to the scalp (Kellogg, 2006).</div>
+                </div>
+            </div>
+
+            <div class="science-fact" style="margin-bottom: 0;">
+                <div class="fact-icon">💓</div>
+                <div>
+                    <div class="fact-title">Lower stress and parasympathetic activation</div>
+                    <div class="fact-desc">Support hair regrowth and follicle recovery (Thayer et al., 2012).</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🧬 What About Labs? -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                When hair shedding increases, labs often reflect stress load and growth suppression, not just deficiencies.
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                <span class="highlight-text">The % shows how strongly this marker can influence hair growth and stress-related shedding.</span>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Cortisol (AM / PM)</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 65%;">⏰ 65 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Chronically elevated or flattened rhythms are strongly linked to hair shedding.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Ferritin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%;">🩸 60 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Low levels reduce oxygen delivery and stall hair growth.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">hs-CRP</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">🔥 45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Inflammation around follicles interferes with regrowth.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">DHEA-S</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">💪 40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Low levels reflect reduced anabolic (repair) capacity under chronic stress.
+                </div>
+            </div>
+        </div>
+
+        <!-- 💭 Reflection Prompt -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0;">
+                    Did your hair changes start after a stressful period — even if it felt "manageable" at the time?<br><br>
+                    Do you notice shedding during times of emotional or mental overload?
+                </div>
+            </div>
+        </div>
+
+        <!-- 🧠 What Actually Helps -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What Actually Helps</h2>
+            </div>
+            <div class="text-content">
+                Hair regrowth doesn't respond to panic or aggressive treatments. It responds to signals of safety.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">When stress hormones fall:</span>
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">blood flow improves,</li>
+                <li class="bullet-item">inflammation decreases,</li>
+                <li class="bullet-item">follicles re-enter growth mode.</li>
+            </ul>
+            <div class="text-content">
+                <span class="highlight-text">Calm isn't a luxury for hair. It's a requirement.</span>
+            </div>
+        </div>
+
+        <!-- ✅ Plan to Action -->
+        <div class="section" style="background: linear-gradient(to bottom, rgba(184,118,88,0.03), rgba(184,118,88,0.08));">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Lower Cortisol, Support Growth 🌿</h2>
+            </div>
+            <div class="text-content" style="text-align: center; font-size: 15px; color: #656565; margin-bottom: 1.5rem;">
+                Today, choose one stress-lowering signal.
+            </div>
+
+            <div class="action-card">
+                <div class="action-card-icon">🌿</div>
+                <div class="action-card-title">Your one action</div>
+                <div class="text-content" style="margin-bottom: 1rem; text-align: center;">
+                    Pick one:
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
+                        <span style="font-size: 1.5rem;">😮‍💨</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #172737;">5 minutes of slow breathing (long exhales),</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
+                        <span style="font-size: 1.5rem;">🚶</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #172737;">A calm walk without phone or stimulation,</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
+                        <span style="font-size: 1.5rem;">📵</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #172737;">One hour without news or work input,</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
+                        <span style="font-size: 1.5rem;">🛁</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #172737;">A warm shower or bath to signal physical safety.</span>
+                    </div>
+                </div>
+                <div class="text-content" style="margin-top: 1.5rem; margin-bottom: 0; text-align: center; color: #656565;">
+                    <span class="highlight-text">No fixing stress forever.</span><br>
+                    Just tell your body: "Today, I'm safe."
+                </div>
+            </div>
+
+            <div class="action-card" style="background: linear-gradient(135deg, rgba(184,118,88,0.08) 0%, rgba(184,118,88,0.12) 100%);">
+                <div class="action-card-icon">🧠</div>
+                <div class="action-card-title">Why This Works</div>
+                <div class="text-content">
+                    Cortisol drops when the nervous system senses safety.
+                </div>
+                <div class="text-content">
+                    Lower cortisol allows blood flow and growth signals to return to hair follicles.
+                </div>
+                <div class="text-content" style="margin-bottom: 0; text-align: center; font-weight: 600; color: #B87658;">
+                    You're not forcing growth. You're removing what blocks it. ✨
+                </div>
+            </div>
+        </div>
+
+        <!-- ✨ What to Expect -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <div class="timeline-box">
+                <div class="timeline-item">
+                    <div class="timeline-icon">⏱️</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER DAYS–1 WEEK</div>
+                        <div class="timeline-text">Less tension and stress reactivity.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">⏳</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER 3–6 WEEKS</div>
+                        <div class="timeline-text">Reduced shedding as follicles stabilize.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">📆</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">OVER TIME</div>
+                        <div class="timeline-text">Gradual regrowth and stronger hair density.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎬</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="text-content" style="margin-bottom: 1rem;">
+                A gentle practice that calms the nervous system and lowers stress hormones.
+            </div>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/j4-7XX2AhAs" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <!-- ✨ Today You Learned -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            <div class="summary-box">
+                <div class="summary-item">
+                    <span>🧠</span>
+                    <span>Stress hormones directly affect hair cycles</span>
+                </div>
+                <div class="summary-item">
+                    <span>🔥</span>
+                    <span>Cortisol pushes hair into shedding mode</span>
+                </div>
+                <div class="summary-item">
+                    <span>🩸</span>
+                    <span>Calm restores blood flow and growth signals</span>
+                </div>
+                <div class="summary-item">
+                    <span>🌿</span>
+                    <span>Growth begins when stress ends</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); padding: 2rem 1.5rem;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #FFFFFF; margin-bottom: 0; line-height: 1.5;">
+                ✨ Remember: Hair doesn't need urgency. It needs calm.
+            
+            </div>
+        </div>
+    
+    </main>
+</body>
+</html>
