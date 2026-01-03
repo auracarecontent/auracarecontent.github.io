@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 2 — How Stress Traps Fluid</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+        }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            margin: 1rem 0;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 2</div>
+            <h1>How Stress Traps Fluid</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Stress doesn't just live in your mind.
+            </div>
+            <div class="text-content">
+                It quietly changes how fluid moves — or stops moving — inside your body.
+            </div>
+            <div class="text-content">
+                Today you'll learn how stress signals slow lymphatic flow, why swelling often appears during stressful periods, and why relaxation alone isn't always enough to release trapped fluid.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Many people notice that swelling gets worse when:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">💼 workdays are intense</li>
+                <li class="bullet-item">😰 they feel emotionally overloaded</li>
+                <li class="bullet-item">😴 sleep is poor</li>
+                <li class="bullet-item">⚡ they're constantly "on"</li>
+            </ul>
+            <div class="text-content">
+                They may eat well and stay active —
+            </div>
+            <div class="text-content">
+                yet still feel:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">😮 puffy</li>
+                <li class="bullet-item">⚖️ heavy</li>
+                <li class="bullet-item">🫨 tight</li>
+                <li class="bullet-item">💧 swollen by the end of the day</li>
+            </ul>
+            <div class="text-content">
+                This isn't a coincidence.
+            </div>
+            <div class="text-content">
+                Stress directly affects fluid regulation.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">😴</span>
+                <h2>How Stress Traps Fluid</h2>
+            </div>
+            <div class="text-content">
+                Your lymphatic system relies on:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">💪 gentle muscle movement</li>
+                <li class="bullet-item">🫁 deep breathing</li>
+                <li class="bullet-item">🔄 rhythmic pressure changes</li>
+            </ul>
+            <div class="text-content">
+                Stress shifts the nervous system into alert mode.
+            </div>
+            <div class="text-content">
+                In this state:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">😮‍💨 breathing becomes shallow</li>
+                <li class="bullet-item">😬 muscles stay tense</li>
+                <li class="bullet-item">🫠 posture collapses</li>
+                <li class="bullet-item">🪢 lymph vessels contract</li>
+            </ul>
+            <div class="text-content">
+                Flow slows.
+            </div>
+            <div class="text-content">
+                The body prioritizes survival signals over cleanup.
+            </div>
+            <div class="text-content">
+                Fluid that should move out stays in tissues instead.
+            </div>
+            <div class="text-content">
+                Swelling isn't the body "holding water."
+            </div>
+            <div class="text-content">
+                It's the body paused in drainage mode.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔗</span>
+                <h2>Stress, Cortisol & Fluid Retention</h2>
+            </div>
+            <div class="text-content">
+                Chronic stress increases cortisol activity.
+            </div>
+            <div class="text-content">
+                Cortisol:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">⚖️ alters sodium and water balance</li>
+                <li class="bullet-item">🩸 increases capillary permeability</li>
+                <li class="bullet-item">💧 makes tissues more likely to hold fluid</li>
+            </ul>
+            <div class="text-content">
+                This is why swelling often appears together with:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">😴 fatigue</li>
+                <li class="bullet-item">😤 irritability</li>
+                <li class="bullet-item">🌫️ brain fog</li>
+                <li class="bullet-item">😴 poor sleep</li>
+            </ul>
+            <div class="text-content">
+                Stress doesn't cause swelling overnight —
+            </div>
+            <div class="text-content">
+                it lowers the threshold for fluid retention.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Stress & Lymph Flow</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Stress activates the sympathetic nervous system, reducing lymph flow</div>
+                    <div class="fact-desc">
+                        Sympathetic activation decreases lymphatic vessel pumping activity.<br>
+                        Evidence: Havas et al., Lymphatic Research and Biology, 2017.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🫁</div>
+                <div>
+                    <div class="fact-title">Shallow breathing limits lymph movement through the chest</div>
+                    <div class="fact-desc">
+                        Thoracic pressure changes during deep breathing significantly enhance lymph return.<br>
+                        Evidence: Havas et al., Lymphatic Research and Biology, 2017.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🪢</div>
+                <div>
+                    <div class="fact-title">Muscle tension mechanically restricts lymphatic vessels</div>
+                    <div class="fact-desc">
+                        Increased tissue pressure from sustained muscle tone reduces lymph transport.<br>
+                        Evidence: Schmid-Schönbein, Microcirculation, 2003.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">💧</div>
+                <div>
+                    <div class="fact-title">Cortisol influences fluid distribution and tissue permeability</div>
+                    <div class="fact-desc">
+                        Chronic stress alters capillary dynamics and promotes fluid retention.<br>
+                        Evidence: Chrousos, Endocrinology and Metabolism Clinics, 2009.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                Stress-related swelling often shows up as patterns, not extremes.
+            </div>
+            <div class="text-content" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                The % shows how strongly this marker can reflect stress-related fluid retention.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Morning Cortisol</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%;">60 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Chronic stress disrupts fluid regulation and lymphatic tone.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Sodium / Potassium ratio</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 50%;">50 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Stress hormones alter electrolyte balance and fluid distribution.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">hs-CRP</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Low-grade inflammation increases tissue fluid leakage.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Albumin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Stress and inflammation can reduce effective oncotic pressure.
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="fact-title" style="color: #B87658; font-size: 16px; margin-bottom: 0.75rem;">
+                    👉 Interested in a Personalized Blood Test Plan with a detailed report after results are ready?
+                </div>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">continue →</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="text-content">
+                Think about the last time swelling felt worse.
+            </div>
+            <div class="text-content">
+                Was it during:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">📅 a stressful week</li>
+                <li class="bullet-item">😰 emotional tension</li>
+                <li class="bullet-item">😴 poor sleep</li>
+                <li class="bullet-item">⚡ constant pressure to "keep going"?</li>
+            </ul>
+            <div class="text-content">
+                What else was happening in your body at that time?
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What Actually Helps Stress-Related Swelling</h2>
+            </div>
+            <div class="text-content">
+                Reducing stress-related swelling isn't about "calming down."
+            </div>
+            <div class="text-content">
+                It's about:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">🫁 restoring breathing depth</li>
+                <li class="bullet-item">💪 reducing muscle holding</li>
+                <li class="bullet-item">🔄 creating rhythmic movement</li>
+                <li class="bullet-item">🧠 giving the nervous system permission to downshift</li>
+            </ul>
+            <div class="text-content">
+                When stress signals quiet,
+            </div>
+            <div class="text-content">
+                lymph flow resumes naturally.
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Stress Release & Lymph Wake-Up</h2>
+            </div>
+            <div class="text-content">
+                Today, you're not trying to "calm down."
+            </div>
+            <div class="text-content">
+                You're sending your body a clear physical signal that stress is over — and flow can resume.
+            </div>
+            <div class="text-content">
+                This practice combines gentle touch, rhythm, and breath to unlock lymphatic movement.
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">Step 1 — Chest & Collarbone Tapping (1 minute)</div>
+                <div class="fact-desc">
+                    Sit or stand comfortably.<br><br>
+                    Using your fingertips, gently tap the area just below your collarbones<br>
+                    Move side to side, slow and rhythmic<br>
+                    Keep pressure light — this is stimulation, not massage<br><br>
+                    This area is a key lymphatic crossroads and highly sensitive to stress signals.
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">Step 2 — Neck-to-Shoulder Sweep (1–2 minutes)</div>
+                <div class="fact-desc">
+                    Using flat fingers or your palm:<br><br>
+                    Gently glide from the side of your neck down toward the shoulder<br>
+                    Then continue down the upper arm<br>
+                    Always move downward and outward<br>
+                    Slow, unhurried strokes.<br><br>
+                    This helps release stress-held tension in the neck and shoulders<br>
+                    and supports lymph drainage away from the head.
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">Step 3 — Abdominal Breathing With Touch (2 minutes)</div>
+                <div class="fact-desc">
+                    Place one hand on your chest and one on your belly.<br><br>
+                    Inhale through your nose, allowing the abdomen to expand<br>
+                    Exhale slowly, letting the belly soften and fall<br>
+                    Keep your hands in place to feel the movement<br><br>
+                    Think: soft pressure change, not effort.<br><br>
+                    This breathing supports lymph flow through the chest<br>
+                    and signals the nervous system to downshift.
+                </div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.12); padding: 1.25rem; margin: 1.5rem 0; border-radius: 12px; border: 2px solid rgba(184,118,88,0.2); box-shadow: 0 4px 12px rgba(184,118,88,0.15);">
+                <div style="font-weight: 700; font-size: 15px; color: #B87658; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    ✨ Why This Works
+                </div>
+                <div class="fact-desc">
+                    Gentle tapping provides rhythmic sensory input that reduces stress signaling<br><br>
+                    Light massage helps open superficial lymph pathways often restricted by tension<br><br>
+                    Abdominal breathing creates internal pressure changes that move lymph upward<br><br>
+                    Together, these signals tell your body:<br>
+                    "It's safe now. You can release."<br><br>
+                    When stress eases, fluid moves again.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <ul class="bullet-list">
+                <li class="bullet-item"><span class="highlight-text">⏱️ After today</span> — less tightness, more softness</li>
+                <li class="bullet-item"><span class="highlight-text">⏳ After a few days</span> — swelling responds faster to rest</li>
+                <li class="bullet-item"><span class="highlight-text">📆 Over time</span> — stress triggers less fluid retention</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/NC6OQL7wStw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <ul class="bullet-list">
+                <li class="bullet-item">🧠 Stress directly slows lymph flow</li>
+                <li class="bullet-item">💧 Fluid retention often reflects nervous system load</li>
+                <li class="bullet-item">🫁 Breathing and rhythm restore drainage</li>
+                <li class="bullet-item">🌿 Swelling eases when stress signals quiet</li>
+            </ul>
+
+            <div class="reflection-box">
+                <div style="text-align: center;">
+                    <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">
+                        ✨ Remember:
+                    </div>
+                    <div class="fact-desc">
+                        Your body doesn't trap fluid without reason.
+                    </div>
+                    <div class="fact-desc">
+                        Sometimes it's waiting for stress to release first.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <a href="https://plan.aura.care/lt-2" style="color: white; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF;">
+                continue →
+            </a>
+        </div>
+    </main>
+</body>
+</html>
