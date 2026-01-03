@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3 — Easy Ways to Boost Lymphatic Flow</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+        }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 3</div>
+            <h1>Easy Ways to Boost Lymphatic Flow</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                You don't need complex workouts to support lymphatic flow.
+            </div>
+            <div class="text-content">
+                What matters most is regular, simple movement — and avoiding long periods of stillness.
+            </div>
+            <div class="text-content">
+                Today you'll learn how everyday activity helps lymph move, why small movements matter, and how to support fluid drainage naturally throughout the day.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Many people think lymph flow requires:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">🏋️ special exercises</li>
+                <li class="bullet-item">⏱️ long workouts</li>
+                <li class="bullet-item">💪 extra time and effort</li>
+            </ul>
+            <div class="text-content">
+                In reality, the lymphatic system responds best to how often you move, not how hard.
+            </div>
+            <div class="text-content">
+                What slows lymph flow most is:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">🪑 sitting or standing still for long periods</li>
+                <li class="bullet-item">💼 working without position changes</li>
+                <li class="bullet-item">⏰ staying in one posture for hours</li>
+            </ul>
+            <div class="text-content">
+                Your body is designed to move a little — often.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">😴</span>
+                <h2>How Lymph Flow Is Supported</h2>
+            </div>
+            <div class="text-content">
+                Unlike blood circulation, lymph has no central pump.
+            </div>
+            <div class="text-content">
+                It relies on movement and pressure changes created by the body.
+            </div>
+            <div class="text-content">
+                Lymph moves when:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">💪 muscles gently contract and relax</li>
+                <li class="bullet-item">🦴 joints change position</li>
+                <li class="bullet-item">🫁 breathing shifts pressure inside the chest</li>
+            </ul>
+            <div class="text-content">
+                This means that even simple actions — when repeated — help keep fluid moving.
+            </div>
+            <div class="text-content">
+                No special training required.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔗</span>
+                <h2>Why Long Inactivity Makes Swelling Worse</h2>
+            </div>
+            <div class="text-content">
+                When the body stays still for too long:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">🪢 lymph vessels aren't compressed</li>
+                <li class="bullet-item">⏸️ fluid movement slows</li>
+                <li class="bullet-item">⬇️ gravity pulls fluid downward</li>
+            </ul>
+            <div class="text-content">
+                Over time, fluid begins to linger in tissues.
+            </div>
+            <div class="text-content">
+                That's why swelling often appears:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">💼 after long workdays</li>
+                <li class="bullet-item">✈️ during travel</li>
+                <li class="bullet-item">💻 after extended screen time</li>
+            </ul>
+            <div class="text-content">
+                It's not about doing more —
+            </div>
+            <div class="text-content">
+                it's about not staying still for too long.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Movement & Lymph Flow</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🦵</div>
+                <div>
+                    <div class="fact-title">Muscle contractions propel lymph through vessels</div>
+                    <div class="fact-desc">
+                        Skeletal muscle activity acts as a primary lymphatic pump.<br>
+                        Evidence: Gashev, Journal of Physiology, 2002.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🕒</div>
+                <div>
+                    <div class="fact-title">Regular low-intensity movement supports lymph transport</div>
+                    <div class="fact-desc">
+                        Frequent gentle movement improves lymph flow efficiency compared to prolonged inactivity.<br>
+                        Evidence: Mortimer & Rockson, Journal of Clinical Investigation, 2014.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🫁</div>
+                <div>
+                    <div class="fact-title">Breathing enhances lymph return to circulation</div>
+                    <div class="fact-desc">
+                        Diaphragmatic movement increases lymph flow through the thoracic duct.<br>
+                        Evidence: Havas et al., Lymphatic Research and Biology, 2017.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🪢</div>
+                <div>
+                    <div class="fact-title">Joint movement prevents local fluid stagnation</div>
+                    <div class="fact-desc">
+                        Changing joint angles alters tissue pressure and promotes fluid clearance.<br>
+                        Evidence: Levick & Michel, Cardiovascular Research, 2010.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs? — Activity, Recovery & Fluid Balance</h2>
+            </div>
+            <div class="text-content">
+                Reduced daily movement and prolonged stillness often show up as slower recovery patterns, rather than dramatic lab changes.
+            </div>
+            <div class="text-content" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                The % shows how strongly this marker can relate to impaired drainage and fluid balance.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">hs-CRP</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Low-grade inflammation can slow lymphatic clearance.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Albumin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Adequate protein supports healthy fluid distribution.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Magnesium (RBC)</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Supports muscle relaxation and efficient rhythmic movement.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Ferritin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 35%;">35 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Low energy availability may reduce spontaneous daily movement.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="text-content">
+                Think about yesterday:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">⏰ How long did you stay in one position without moving?</li>
+                <li class="bullet-item">😓 When did your body start to feel heavy or stiff?</li>
+                <li class="bullet-item">💧 Which areas tend to swell first when you've been inactive?</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What Actually Helps Lymph Flow</h2>
+            </div>
+            <div class="text-content">
+                Lymph responds well to:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">🚶 simple movements</li>
+                <li class="bullet-item">🔄 regular position changes</li>
+                <li class="bullet-item">💪 gentle muscle activation</li>
+                <li class="bullet-item">🫁 relaxed breathing</li>
+            </ul>
+            <div class="text-content">
+                You don't need intensity.
+            </div>
+            <div class="text-content">
+                You need consistency.
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Daily Movement Checkpoints</h2>
+            </div>
+            <div class="text-content">
+                Today's goal: support flow by breaking up stillness.
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">Step 1 — Natural Walking</div>
+                <div class="fact-desc">
+                    Take a short walk at a comfortable pace.<br>
+                    Let your arms swing freely.<br>
+                    No posture control. Just movement.<br><br>
+                    Arm swing helps fluid move through the upper body.
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">Step 2 — Ankle & Foot Activation</div>
+                <div class="fact-desc">
+                    While standing or sitting:<br>
+                    gently point and flex your feet<br>
+                    move slowly and rhythmically<br><br>
+                    Calf and foot muscles play a key role in fluid return from the legs.
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">Step 3 — Shoulder Rolls (1 minute)</div>
+                <div class="fact-desc">
+                    Roll your shoulders slowly:<br>
+                    up → back → down<br><br>
+                    This helps prevent fluid buildup around the neck and upper chest.
+                </div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.12); padding: 1.25rem; margin: 1.5rem 0; border-radius: 12px; border: 2px solid rgba(184,118,88,0.2); box-shadow: 0 4px 12px rgba(184,118,88,0.15);">
+                <div style="font-weight: 700; font-size: 15px; color: #B87658; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    ✨ Why This Works
+                </div>
+                <div class="fact-desc">
+                    Small muscle movements compress lymph vessels<br><br>
+                    Position changes prevent fluid from settling<br><br>
+                    Regular movement supports natural drainage<br><br>
+                    No effort. Just rhythm.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <ul class="bullet-list">
+                <li class="bullet-item"><span class="highlight-text">⏱️ Today</span> — less stiffness, more ease</li>
+                <li class="bullet-item"><span class="highlight-text">⏳ 3–5 days</span> — swelling responds faster to movement</li>
+                <li class="bullet-item"><span class="highlight-text">📆 Over time</span> — body feels lighter and less heavy</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div style="position: relative; width: 100%; padding-bottom: 56.25%; margin: 1rem 0; background: #000; border-radius: 12px; overflow: hidden;">
+                <iframe src="https://www.youtube.com/embed/hFteQ6JXoN0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <ul class="bullet-list">
+                <li class="bullet-item">🚶 Simple movement supports lymph flow</li>
+                <li class="bullet-item">🕒 Long stillness slows drainage</li>
+                <li class="bullet-item">🔁 Frequency matters more than intensity</li>
+                <li class="bullet-item">🌿 The body drains best when it moves regularly</li>
+            </ul>
+        </div>
+
+        <div class="section" style="background: #F5EDE3;">
+            <div class="section-header">
+                <span class="section-icon">🌸</span>
+                <h2>A Simple Daily Reminder</h2>
+            </div>
+            <div class="text-content">
+                Be mindful of long periods of stillness.
+            </div>
+            <div class="text-content">
+                Try to move every 30–60 minutes — even briefly.
+            </div>
+            <div class="text-content">
+                Stand up, walk around, stretch lightly, bounce on your feet,
+            </div>
+            <div class="text-content">
+                or simply dance for a few seconds.
+            </div>
+            <div class="text-content" style="margin-top: 1rem;">
+                These small movement breaks:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">🌊 wake up lymph flow</li>
+                <li class="bullet-item">💧 prevent fluid from settling</li>
+                <li class="bullet-item">✨ help your body feel lighter by the end of the day</li>
+            </ul>
+            <div class="text-content">
+                You don't need a routine.
+            </div>
+            <div class="text-content">
+                You just need to interrupt stillness.
+            </div>
+
+            <div class="section" style="text-align: center; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); padding: 2rem 1.5rem;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #FFFFFF; margin-bottom: 0; line-height: 1.5;">
+                ✨ Remember: Supporting lymph flow doesn't require complex routines. It starts with moving a little — more often.
+            </div>
+        </div>
+    
+    </main>
+</body>
+</html>

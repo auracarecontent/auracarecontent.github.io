@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 6 — Foods That Support Lymph Flow</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+        }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        .food-category {
+            background: rgba(16,185,129,0.06);
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(16,185,129,0.15);
+        }
+        .food-category-title {
+            font-weight: 600;
+            font-size: 15px;
+            color: #172737;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+        .food-category-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 6</div>
+            <h1>Foods That Support Lymph Flow</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Reducing swelling isn't about eating less.
+            </div>
+            <div class="text-content">
+                It's about eating in a way that supports fluid movement, tissue balance, and recovery.
+            </div>
+            <div class="text-content">
+                Today you'll learn which foods help lymph flow work more efficiently, why extreme restriction often backfires, and how nourishment supports drainage — not just digestion.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Many people respond to swelling by:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">🚫 cutting food</li>
+                <li class="bullet-item">🧂 avoiding salt completely</li>
+                <li class="bullet-item">⏭️ skipping meals</li>
+                <li class="bullet-item">🍞 restricting carbohydrates</li>
+            </ul>
+            <div class="text-content">
+                This often leads to:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">⚡ low energy</li>
+                <li class="bullet-item">📈 higher stress hormones</li>
+                <li class="bullet-item">😓 poorer recovery</li>
+                <li class="bullet-item">💧 more fluid retention over time</li>
+            </ul>
+            <div class="text-content">
+                Your lymphatic system doesn't need restriction.
+            </div>
+            <div class="text-content">
+                It needs support.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">😴</span>
+                <h2>How Food Influences Lymph Flow</h2>
+            </div>
+            <div class="text-content">
+                Lymph flow is closely tied to:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">🔥 inflammation levels</li>
+                <li class="bullet-item">🩸 blood protein balance</li>
+                <li class="bullet-item">💧 hydration inside tissues</li>
+                <li class="bullet-item">🧠 nervous system tone</li>
+            </ul>
+            <div class="text-content">
+                Food affects all of these.
+            </div>
+            <div class="text-content">
+                When nutrition is supportive:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">✅ capillaries leak less fluid</li>
+                <li class="bullet-item">✅ lymph has less excess to clear</li>
+                <li class="bullet-item">✅ tissues recover faster</li>
+            </ul>
+            <div class="text-content">
+                When nutrition is restrictive or unbalanced:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">⚠️ stress hormones rise</li>
+                <li class="bullet-item">⚠️ fluid regulation worsens</li>
+                <li class="bullet-item">⚠️ swelling becomes more persistent</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🥗</span>
+                <h2>Foods That Support Lymph Flow</h2>
+            </div>
+            <div class="text-content">
+                These foods don't "flush" fluid.
+            </div>
+            <div class="text-content">
+                They help the body manage and move it better.
+            </div>
+
+            <div class="food-category">
+                <div class="food-category-title">1️⃣ Anti-inflammatory foods 🐟</div>
+                <div class="food-category-desc">Help reduce tissue irritation and leakage.</div>
+                <ul class="bullet-list" style="margin: 0;">
+                    <li class="bullet-item">🐟 fatty fish</li>
+                    <li class="bullet-item">🫒 olive oil</li>
+                    <li class="bullet-item">🫐 berries</li>
+                    <li class="bullet-item">🥬 leafy greens</li>
+                </ul>
+            </div>
+
+            <div class="food-category">
+                <div class="food-category-title">2️⃣ Protein-rich foods 🥚</div>
+                <div class="food-category-desc">Support albumin levels and fluid balance.</div>
+                <ul class="bullet-list" style="margin: 0;">
+                    <li class="bullet-item">🥚 eggs</li>
+                    <li class="bullet-item">🐟 fish</li>
+                    <li class="bullet-item">🫘 legumes</li>
+                    <li class="bullet-item">🥛 yogurt, cottage cheese</li>
+                </ul>
+            </div>
+
+            <div class="food-category">
+                <div class="food-category-title">3️⃣ Hydrating foods 🥒</div>
+                <div class="food-category-desc">Provide water + minerals together.</div>
+                <ul class="bullet-list" style="margin: 0;">
+                    <li class="bullet-item">🥒 cucumbers</li>
+                    <li class="bullet-item">🍋 citrus fruits</li>
+                    <li class="bullet-item">🥒 zucchini</li>
+                    <li class="bullet-item">🍲 soups and broths</li>
+                </ul>
+            </div>
+
+            <div class="food-category">
+                <div class="food-category-title">4️⃣ Foods rich in potassium & magnesium 🥑</div>
+                <div class="food-category-desc">Support muscle tone and fluid distribution.</div>
+                <ul class="bullet-list" style="margin: 0;">
+                    <li class="bullet-item">🥑 avocado</li>
+                    <li class="bullet-item">🥬 leafy greens</li>
+                    <li class="bullet-item">🫘 beans</li>
+                    <li class="bullet-item">🌰 seeds</li>
+                </ul>
+            </div>
+
+            <div class="text-content" style="margin-top: 1rem;">
+                This is about balance, not perfection.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🚫</span>
+                <h2>What Often Makes Swelling Worse</h2>
+            </div>
+            <div class="text-content">
+                Without banning foods, it helps to be mindful of:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">🥩❌ very low-protein days</li>
+                <li class="bullet-item">🍔 highly processed meals with little fiber</li>
+                <li class="bullet-item">⏰ irregular eating patterns</li>
+                <li class="bullet-item">⏳ long gaps between meals</li>
+            </ul>
+            <div class="text-content">
+                These can increase stress signals and slow recovery.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Nutrition & Fluid Balance</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧪</div>
+                <div>
+                    <div class="fact-title">Adequate protein supports fluid balance</div>
+                    <div class="fact-desc">
+                        Low plasma protein reduces oncotic pressure, allowing fluid to move into tissues.<br>
+                        Evidence: Guyton & Hall, Textbook of Medical Physiology.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Chronic inflammation increases capillary permeability</div>
+                    <div class="fact-desc">
+                        Inflammation allows more fluid to leak into interstitial spaces.<br>
+                        Evidence: Schmid-Schönbein, Microcirculation, 2003.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">💧</div>
+                <div>
+                    <div class="fact-title">Hydration with electrolytes supports fluid distribution</div>
+                    <div class="fact-desc">
+                        Water combined with minerals improves cellular hydration and circulation.<br>
+                        Evidence: Popkin et al., Nutrition Reviews, 2010.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs? — Nutrition, Inflammation & Swelling</h2>
+            </div>
+            <div class="text-content">
+                Food choices influence swelling through protein status, inflammation, and electrolyte balance.
+            </div>
+            <div class="text-content" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                The % shows how strongly this marker can relate to nutrition-driven fluid retention.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Albumin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%;">60 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Key regulator of fluid balance in tissues.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">hs-CRP</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 50%;">50 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Inflammation increases fluid leakage.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Sodium / Potassium ratio</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Influences fluid distribution across cells.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Ferritin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 35%;">35 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Low energy availability can worsen fatigue and swelling perception.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="text-content">
+                Think about your recent meals:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">🕐 Do you eat regularly?</li>
+                <li class="bullet-item">🥚 Do you include protein most days?</li>
+                <li class="bullet-item">⚡ Do meals leave you energized or depleted?</li>
+                <li class="bullet-item">💧 How does swelling change on days you eat more consistently?</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What Actually Helps</h2>
+            </div>
+            <div class="text-content">
+                Supporting lymph flow through food means:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">🍽️ eating regularly</li>
+                <li class="bullet-item">🥚 including enough protein</li>
+                <li class="bullet-item">🥗 prioritizing anti-inflammatory foods</li>
+                <li class="bullet-item">💧 staying gently hydrated</li>
+            </ul>
+            <div class="text-content">
+                Food works best when it reduces stress, not adds to it.
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Lymph-Supportive Eating Check</h2>
+            </div>
+            <div class="text-content">
+                No rules. Just awareness.
+            </div>
+            <div class="text-content">
+                Today, aim for:
+            </div>
+
+            <div class="action-box">
+                <div class="fact-desc">
+                    🥚 1 protein-rich meal<br>
+                    🥒 1 hydrating food (fruit, soup, vegetables)<br>
+                    🫒 1 anti-inflammatory fat
+                </div>
+            </div>
+
+            <div class="text-content">
+                Notice how your body feels — not just your stomach.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <ul class="bullet-list">
+                <li class="bullet-item"><span class="highlight-text">⏱️ Today</span> — more stable energy</li>
+                <li class="bullet-item"><span class="highlight-text">⏳ Over days</span> — swelling feels less reactive</li>
+                <li class="bullet-item"><span class="highlight-text">📆 Over time</span> — fluid balance improves naturally</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div style="position: relative; width: 100%; padding-bottom: 56.25%; margin: 1rem 0; background: #000; border-radius: 12px; overflow: hidden;">
+                <iframe src="https://www.youtube.com/embed/LA_SO8RR9I8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <ul class="bullet-list">
+                <li class="bullet-item">🥗 Food supports drainage, not flushing</li>
+                <li class="bullet-item">💧 Fluid balance depends on nourishment</li>
+                <li class="bullet-item">🧠 Restriction increases stress signals</li>
+                <li class="bullet-item">🌿 Supportive eating helps the body feel lighter</li>
+            </ul>
+
+            <div class="section" style="text-align: center; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); padding: 2rem 1.5rem;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #FFFFFF; margin-bottom: 0; line-height: 1.5;">
+                ✨ Remember: Your body doesn't need less food to reduce swelling. It needs the right kind of support.
+            </div>
+        </div>
+    
+    </main>
+</body>
+</html>

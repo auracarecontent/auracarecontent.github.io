@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 5 — How to Reduce Morning Puffiness</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+        }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 5</div>
+            <h1>How to Reduce Morning Puffiness</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Morning puffiness isn't just about sleep length.
+            </div>
+            <div class="text-content">
+                It's about how fluid drains — or doesn't — while you sleep.
+            </div>
+            <div class="text-content">
+                Today you'll learn why swelling often looks worse in the morning, how sleep position and evening habits influence lymphatic flow overnight, and what helps your face and body wake up feeling lighter.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Many people wake up with:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">👁️ puffy eyes or face</li>
+                <li class="bullet-item">😴 swollen eyelids</li>
+                <li class="bullet-item">🤯 a heavy feeling in the head or neck</li>
+                <li class="bullet-item">🕐 stiffness that improves later in the day</li>
+            </ul>
+            <div class="text-content">
+                They often think:
+            </div>
+            <div class="text-content">
+                "I didn't sleep well."
+            </div>
+            <div class="text-content">
+                "I drank water too late."
+            </div>
+            <div class="text-content">
+                But night-time swelling is usually about slow overnight drainage, not a single mistake.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">😴</span>
+                <h2>What Happens to Lymph Flow During Sleep</h2>
+            </div>
+            <div class="text-content">
+                At night:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">💪 muscle movement drops</li>
+                <li class="bullet-item">⬇️ gravity works differently</li>
+                <li class="bullet-item">🫁 breathing becomes slower and shallower</li>
+            </ul>
+            <div class="text-content">
+                Lymph flow continues — but more slowly.
+            </div>
+            <div class="text-content">
+                If drainage pathways are restricted:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">💧 fluid accumulates in soft tissues</li>
+                <li class="bullet-item">😴 especially in the face, eyelids, and neck</li>
+            </ul>
+            <div class="text-content">
+                That's why puffiness often:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">🌅 appears in the morning</li>
+                <li class="bullet-item">🚶 improves after movement</li>
+                <li class="bullet-item">🧍 responds to upright posture</li>
+            </ul>
+            <div class="text-content">
+                Swelling isn't created overnight —
+            </div>
+            <div class="text-content">
+                it's simply more visible after stillness.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔗</span>
+                <h2>How Sleep Position Affects Puffiness</h2>
+            </div>
+            <div class="text-content">
+                Your sleep position influences:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">🦒 neck alignment</li>
+                <li class="bullet-item">🪢 tissue compression</li>
+                <li class="bullet-item">💧 direction of fluid flow</li>
+            </ul>
+            <div class="text-content">
+                When the neck is bent, twisted, or compressed:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">🪢 lymph vessels narrow</li>
+                <li class="bullet-item">⏸️ drainage from the face slows</li>
+            </ul>
+            <div class="text-content">
+                When the neck feels supported and neutral:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">✅ exit pathways stay open</li>
+                <li class="bullet-item">⬇️ fluid moves downward more easily</li>
+            </ul>
+            <div class="text-content">
+                This is why posture during sleep matters —
+            </div>
+            <div class="text-content">
+                even if you sleep "long enough."
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Sleep, Posture & Lymph Flow</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🫁</div>
+                <div>
+                    <div class="fact-title">Reduced movement during sleep slows lymph clearance</div>
+                    <div class="fact-desc">
+                        Lymphatic transport depends on muscle activity and pressure changes, both reduced during sleep.<br>
+                        Evidence: Havas et al., Lymphatic Research and Biology, 2017.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🪢</div>
+                <div>
+                    <div class="fact-title">Neck compression can impair facial lymph drainage</div>
+                    <div class="fact-desc">
+                        Lymph from the face must pass through cervical pathways; compression or flexion narrows these routes.<br>
+                        Evidence: Standring, Gray's Anatomy, 41st ed.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Sleep posture influences tissue fluid distribution</div>
+                    <div class="fact-desc">
+                        Head and neck position affects interstitial fluid pressure and morning facial swelling.<br>
+                        Evidence: Schmid-Schönbein, Microcirculation, 2003.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs? — Morning Puffiness & Overnight Recovery</h2>
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                The % shows how strongly this marker can relate to morning puffiness.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Albumin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;">55 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Supports fluid balance and prevents leakage into tissues overnight.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">hs-CRP</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Low-grade inflammation increases morning tissue swelling.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Morning Cortisol</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Altered rhythms affect overnight fluid regulation.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Sodium / Potassium ratio</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 35%;">35 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Influences extracellular fluid distribution.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="text-content">
+                When you wake up:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">👁️ where is puffiness most noticeable — eyes, face, neck?</li>
+                <li class="bullet-item">🚶 does it improve after moving around?</li>
+            </ul>
+            <div class="text-content">
+                How do you usually sleep — on your back, side, or twisted?
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What Actually Helps Reduce Morning Puffiness</h2>
+            </div>
+            <div class="text-content">
+                Morning swelling improves when:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">🦒 neck drainage pathways stay open overnight</li>
+                <li class="bullet-item">🚶 the body starts moving soon after waking</li>
+                <li class="bullet-item">💧 fluid isn't "trapped" by compression</li>
+            </ul>
+            <div class="text-content">
+                This is about support and flow, not restriction.
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Overnight Drainage Support</h2>
+            </div>
+            <div class="text-content">
+                Tonight, you're not trying to sleep differently.
+            </div>
+            <div class="text-content">
+                You're helping your body drain more efficiently while resting.
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">Step 1 — Support the Neck</div>
+                <div class="fact-desc">
+                    Choose a pillow that keeps your neck:<br>
+                    neutral<br>
+                    not bent forward<br>
+                    not tilted sideways<br><br>
+                    Support, not height, matters most.
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">Step 2 — Gentle Evening Prep</div>
+                <div class="fact-desc">
+                    Before bed:<br>
+                    unclench your jaw<br>
+                    drop your shoulders<br>
+                    take a few slow nasal breaths<br><br>
+                    This reduces compression in key drainage zones.
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">Step 3 — Morning Wake-Up Flow</div>
+                <div class="fact-desc">
+                    After waking:<br>
+                    sit upright<br>
+                    gently move your neck and shoulders<br>
+                    take a few relaxed breaths<br><br>
+                    Movement tells lymph flow to restart.
+                </div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.12); padding: 1.25rem; margin: 1.5rem 0; border-radius: 12px; border: 2px solid rgba(184,118,88,0.2); box-shadow: 0 4px 12px rgba(184,118,88,0.15);">
+                <div style="font-weight: 700; font-size: 15px; color: #B87658; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    ✨ Why This Helps
+                </div>
+                <div class="fact-desc">
+                    Neutral neck position keeps drainage pathways open<br><br>
+                    Reduced tension lowers tissue compression<br><br>
+                    Morning movement restores flow after stillness
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <ul class="bullet-list">
+                <li class="bullet-item"><span class="highlight-text">⏱️ After one night</span> — face feels less tight</li>
+                <li class="bullet-item"><span class="highlight-text">⏳ 3–5 days</span> — puffiness clears faster</li>
+                <li class="bullet-item"><span class="highlight-text">📆 Over time</span> — mornings feel lighter and fresher</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div style="position: relative; width: 100%; padding-bottom: 56.25%; margin: 1rem 0; background: #000; border-radius: 12px; overflow: hidden;">
+                <iframe src="https://www.youtube.com/embed/Sxs7xSg2CaA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <ul class="bullet-list">
+                <li class="bullet-item">🌙 Puffiness reflects overnight drainage</li>
+                <li class="bullet-item">🪢 Neck position affects facial swelling</li>
+                <li class="bullet-item">🫁 Recovery quality shapes morning appearance</li>
+                <li class="bullet-item">🌿 Flow returns with support and movement</li>
+            </ul>
+
+            <div class="section" style="text-align: center; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); padding: 2rem 1.5rem;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #FFFFFF; margin-bottom: 0; line-height: 1.5;">
+                ✨ Remember: Morning puffiness isn't a flaw. It's a signal about how your body drains at rest.
+            </div>
+        </div>
+    
+    </main>
+</body>
+</html>
