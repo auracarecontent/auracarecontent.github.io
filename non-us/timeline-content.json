@@ -1,6 +1,26 @@
 {
-  "version": "1.0.1",
-  "lastUpdated": "2025-11-04T00:40:00Z",
+  "version": "1.0.6",
+  "lastUpdated": "2025-12-29T16:00:00Z",
+  "welcome_stage": [
+    {
+      "id": "0-1",
+      "day": 1,
+      "title": "Your Reset Starts Here, Welcome",
+      "description": "Let's begin your journey to feeling balanced and energized again.",
+      "contentUrl": "https://auracarecontent.github.io/welcome.html",
+      "isUnlocked": true,
+      "duration": "5 min"
+    },
+    {
+      "id": "0-2",
+      "day": 2,
+      "title": "Your Personal Body Battery Report",
+      "description": "View your wellness score",
+      "contentUrl": "https://auracarecontent.github.io/bb_report.html",
+      "isUnlocked": true,
+      "duration": "8 min"
+    }
+  ],
   "weeks": [
     {
       "id": "1",
@@ -115,17 +135,17 @@
       "week": 7,
       "title": "Migraines & Vertigo Relief",
       "subtitle": "See how your microbiome influences focus, cravings, and emotional balance — and how to support it daily",
-      "icon": "git-network-outline",
+      "icon": "body-outline",
       "iconColor": "#8B7355",
       "status": "available",
       "days": [
-        { "id": "7-1", "day": 1, "title": "Why Your Head Feels Heavy", "description": "Discover how your microbiome communicates with the brain and influences mood, cravings, and focus.", "contentUrl": "https://auracarecontent.github.io/7-1.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "7-2", "day": 2, "title": "Hidden Triggers of Migraines & Vertigo", "description": "Learn how the enteric nervous system works and why gut stress shows up as anxiety or fatigue.", "contentUrl": "https://auracarecontent.github.io/7-2.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "7-3", "day": 3, "title": "How to Release Head & Neck Tension", "description": "See how leaky gut and immune activation raise inflammation and cloud your mental clarity.", "contentUrl": "https://auracarecontent.github.io/7-3.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "7-4", "day": 4, "title": "Easy Ways to Calm Dizziness", "description": "Understand how fiber, probiotics, and diversity in diet restore microbial balance and emotional stability.", "contentUrl": "https://auracarecontent.github.io/7-4.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "7-5", "day": 5, "title": "Foods That Help and Hurt Migraines", "description": "Explore how chronic stress alters digestion, absorption, and microbiome health — and how to calm the loop.", "contentUrl": "https://auracarecontent.github.io/7-5.html", "isUnlocked": true, "duration": "12 min" },
-        { "id": "7-6", "day": 6, "title": "Caffeine & Headaches: What to Know", "description": "Learn what supports intestinal healing — from micronutrients to mindful eating rituals.", "contentUrl": "https://auracarecontent.github.io/7-6.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "7-7", "day": 7, "title": "3 Steps to Feel Clear Again", "description": "Bring together food, rhythm, and stress-relief habits to create lasting gut-brain balance.", "contentUrl": "https://auracarecontent.github.io/7-7.html", "isUnlocked": true, "duration": "8 min" }
+        { "id": "7-1", "day": 1, "title": "Why Migraines Happen", "description": "Understand how blood vessel changes, inflammation, and nerve sensitivity combine to trigger migraines — and why your body sends this signal.", "contentUrl": "https://auracarecontent.github.io/7-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "7-2", "day": 2, "title": "The Hidden Triggers: Diet and Migraines", "description": "Learn which foods, skipped meals, and hydration patterns can spark or prevent head pain — and why timing matters as much as content.", "contentUrl": "https://auracarecontent.github.io/7-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "7-3", "day": 3, "title": "Tension, Posture, and Head Pain", "description": "See how tension in your neck, jaw, and shoulders activates pain pathways — and how releasing these areas brings lasting relief.", "contentUrl": "https://auracarecontent.github.io/7-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "7-4", "day": 4, "title": "Understanding Vertigo and Dizziness", "description": "Discover how balance signals from your ears, eyes, and body become confused — and how to restore inner stability through simple movements.", "contentUrl": "https://auracarecontent.github.io/7-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "7-5", "day": 5, "title": "When to Worry: Red Flags in Head Pain", "description": "Recognize the signs that head pain needs medical evaluation — and feel confident knowing when home care is enough.", "contentUrl": "https://auracarecontent.github.io/7-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "7-6", "day": 6, "title": "Gentle Exercises for Head and Neck Relief", "description": "Learn specific stretches and movements that release pressure, improve circulation, and prevent tension buildup.", "contentUrl": "https://auracarecontent.github.io/7-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "7-7", "day": 7, "title": "Building Your Migraine Prevention Plan", "description": "Create a personalized routine of nutrition, movement, and nervous system support to reduce frequency and intensity of head pain.", "contentUrl": "https://auracarecontent.github.io/7-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
     },
     {
@@ -133,7 +153,7 @@
       "week": 8,
       "title": "Peak Appearance: Optimize Collagen, Skin, Hair & Energy",
       "subtitle": "Restore your skin, hair, and natural energy with science-based renewal habits",
-      "icon": "sparkles-outline",
+      "icon": "restaurant-outline",
       "iconColor": "#C4A57B",
       "status": "available",
       "days": [
@@ -149,18 +169,18 @@
     {
       "id": "9",
       "week": 9,
-      "title": "Libido & Energy Comeback",
-      "subtitle": "Bring back drive, passion, and hormonal balance naturally",
+      "title": "Reclaim Your Libido & Energy",
+      "subtitle": "Discover how stress hormones block desire and vitality — and learn how to restore both naturally",
       "icon": "flame-outline",
       "iconColor": "#8B7355",
       "status": "available",
       "days": [
-        { "id": "9-1", "day": 1, "title": "Why Desire Fades with Stress: The Cortisol–Dopamine Trap", "description": "See how chronic tension and fatigue suppress natural motivation and pleasure signals.", "contentUrl": "https://auracarecontent.github.io/9-1.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "9-2", "day": 2, "title": "The Hormone Symphony: Estrogen, Testosterone, and Thyroid in Balance", "description": "Understand how hormonal alignment supports energy, mood, and desire.", "contentUrl": "https://auracarecontent.github.io/9-2.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "9-3", "day": 3, "title": "Circulation Equals Passion: Boost Blood Flow, Boost Vitality", "description": "Explore how microcirculation and nitric oxide keep libido and stamina strong.", "contentUrl": "https://auracarecontent.github.io/9-3.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "9-4", "day": 4, "title": "Nutrients for Libido: Zinc, B Vitamins, and Magnesium in Action", "description": "Learn which nutrients rebuild hormone production and nerve sensitivity safely.", "contentUrl": "https://auracarecontent.github.io/9-4.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "9-5", "day": 5, "title": "Sleep, Light, and Hormones: How Rhythm Restores Drive", "description": "Find out how melatonin and circadian balance reignite energy and attraction.", "contentUrl": "https://auracarecontent.github.io/9-5.html", "isUnlocked": true, "duration": "12 min" },
-        { "id": "9-6", "day": 6, "title": "The Mind–Body Spark: Oxytocin, Connection, and Confidence", "description": "Discover how emotional safety and physical touch amplify oxytocin and intimacy.", "contentUrl": "https://auracarecontent.github.io/9-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "9-1", "day": 1, "title": "Why Stress Kills Libido", "description": "Learn how chronic cortisol suppresses sex hormones — dimming desire, energy, and physical connection.", "contentUrl": "https://auracarecontent.github.io/9-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "9-2", "day": 2, "title": "The Hormone Connection: Testosterone and Estrogen", "description": "Understand how both hormones shape desire, mood, and confidence — and what throws them out of balance.", "contentUrl": "https://auracarecontent.github.io/9-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "9-3", "day": 3, "title": "How Poor Sleep Drains Your Drive", "description": "See why inadequate rest lowers testosterone, raises stress, and makes intimacy feel exhausting instead of energizing.", "contentUrl": "https://auracarecontent.github.io/9-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "9-4", "day": 4, "title": "Foods That Fuel Desire and Vitality", "description": "Discover how zinc, magnesium, healthy fats, and circulation-boosting nutrients support hormone production and blood flow.", "contentUrl": "https://auracarecontent.github.io/9-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "9-5", "day": 5, "title": "Movement That Boosts Mood and Attraction", "description": "Learn how strength training, yoga, and dance increase testosterone, reduce cortisol, and reconnect you with your body.", "contentUrl": "https://auracarecontent.github.io/9-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "9-6", "day": 6, "title": "The Mind–Body Link to Desire", "description": "Explore how emotional safety, body image, and nervous system relaxation create space for intimacy and pleasure.", "contentUrl": "https://auracarecontent.github.io/9-6.html", "isUnlocked": true, "duration": "11 min" },
         { "id": "9-7", "day": 7, "title": "Reignite Your Fire: Simple Rituals to Sustain Energy and Attraction", "description": "Combine movement, mindset, and nutrition into one confident daily rhythm.", "contentUrl": "https://auracarecontent.github.io/9-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
     },
@@ -168,36 +188,36 @@
       "id": "10",
       "week": 10,
       "title": "Fix Posture, Relieve Back Pain",
-      "subtitle": "Reduce hidden inflammation that drains stamina and accelerate your body's natural repair",
+      "subtitle": "Learn why small daily posture habits quietly overload your muscles and joints, leading to persistent back and neck pain",
       "icon": "water-outline",
       "iconColor": "#C4A57B",
       "status": "available",
       "days": [
-        { "id": "10-1", "day": 1, "title": "Why Your Head Feels Heavy", "description": "Understand how low-grade inflammation quietly drives fatigue, brain fog, and mood changes — even without visible illness.", "contentUrl": "https://auracarecontent.github.io/10-1.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "10-2", "day": 2, "title": "Hidden Triggers of Migraines & Vertigo", "description": "Learn how processed foods, sugar spikes, and poor omega balance activate inflammation — and how to cool it through smarter choices.", "contentUrl": "https://auracarecontent.github.io/10-2.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "10-3", "day": 3, "title": "How to Release Head & Neck Tension", "description": "Discover how an imbalanced microbiome and increased gut permeability trigger immune activation and energy loss.", "contentUrl": "https://auracarecontent.github.io/10-3.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "10-4", "day": 4, "title": "Easy Ways to Calm Dizziness", "description": "See how chronic tension elevates cytokines and cortisol, keeping your immune system on constant alert.", "contentUrl": "https://auracarecontent.github.io/10-4.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "10-5", "day": 5, "title": "Foods That Help (and Hurt) Migraines", "description": "Explore how magnesium, vitamin D, and antioxidants protect against inflammation and support tissue repair.", "contentUrl": "https://auracarecontent.github.io/10-5.html", "isUnlocked": true, "duration": "12 min" },
-        { "id": "10-6", "day": 6, "title": "Caffeine & Headaches: What to Know", "description": "Learn how regular movement lowers CRP and boosts anti-inflammatory cytokines — even gentle activity counts.", "contentUrl": "https://auracarecontent.github.io/10-6.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "10-7", "day": 7, "title": "3 Steps to Feel Clear Again", "description": "Combine nutrition, rest, and rhythm into a sustainable routine that keeps inflammation low and vitality high.", "contentUrl": "https://auracarecontent.github.io/10-7.html", "isUnlocked": true, "duration": "8 min" }
+        { "id": "10-1", "day": 1, "title": "Why Posture Causes Pain", "description": "Learn why small daily posture habits quietly overload your muscles and joints, leading to persistent back and neck pain.", "contentUrl": "https://auracarecontent.github.io/10-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "10-2", "day": 2, "title": "Jaw Clenching & Hidden Stress", "description": "Discover how jaw tension stores hidden stress and emotional load — and why releasing it helps calm your nervous system and posture.", "contentUrl": "https://auracarecontent.github.io/10-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "10-3", "day": 3, "title": "3 Posture Mistakes You Repeat Daily", "description": "Discover three common posture mistakes most people repeat all day without noticing — and how they reinforce pain and tension.", "contentUrl": "https://auracarecontent.github.io/10-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "10-4", "day": 4, "title": "How Posture Affects Your Gut", "description": "Learn how posture and abdominal tension influence digestion, gut comfort, and the gut–brain connection.", "contentUrl": "https://auracarecontent.github.io/10-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "10-5", "day": 5, "title": "How to Sleep Better With Posture", "description": "Find out how simple posture adjustments and evening body positions can reduce pain and support deeper, more restorative sleep.", "contentUrl": "https://auracarecontent.github.io/10-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "10-6", "day": 6, "title": "How Posture Causes Headaches", "description": "Learn how neck tension, forward head position, and shoulder load trigger head pressure and tension-type headaches.", "contentUrl": "https://auracarecontent.github.io/10-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "10-7", "day": 7, "title": "Secrets of Pain-Free Posture", "description": "See how balanced posture supports comfort, mobility, and pain-free movement over time.", "contentUrl": "https://auracarecontent.github.io/10-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
     },
     {
       "id": "11",
       "week": 11,
       "title": "Reduce Swelling Unlock Lymphatic Flow",
-      "subtitle": "Understand how daily stress, salt, and tension affect your arteries — and learn simple, proven ways to keep your pressure steady and your heart strong",
+      "subtitle": "Learn how fluid actually moves through your body, why it can get stuck, and what swelling is really trying to tell you",
       "icon": "heart-circle-outline",
       "iconColor": "#8B7355",
       "status": "available",
       "days": [
-        { "id": "11-1", "day": 1, "title": "Why Your Body Feels Swollen", "description": "Learn how emotional load and cortisol spikes tighten blood vessels — and why relaxation isn't just for your mind, but for your arteries too.", "contentUrl": "https://auracarecontent.github.io/11-1.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "11-2", "day": 2, "title": "How Stress Traps Fluid", "description": "Discover how high sodium, glucose swings, and dehydration quietly raise blood pressure — and how balance brings relief.", "contentUrl": "https://auracarecontent.github.io/11-2.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "11-3", "day": 3, "title": "Easy Ways to Boost Lymphatic Flow", "description": "Understand how nitric oxide, potassium, and magnesium keep vessels open and resilient — and what makes them lose elasticity.", "contentUrl": "https://auracarecontent.github.io/11-3.html", "isUnlocked": true, "duration": "10 min" },
-        { "id": "11-4", "day": 4, "title": "The Jaw–Neck–Swelling Connection", "description": "Explore how slow, rhythmic breathing activates the vagus nerve and reduces blood pressure within minutes.", "contentUrl": "https://auracarecontent.github.io/11-4.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "11-5", "day": 5, "title": "How to Reduce Morning Puffiness", "description": "Learn why even light daily activity improves circulation, lowers stiffness, and protects against future hypertension.", "contentUrl": "https://auracarecontent.github.io/11-5.html", "isUnlocked": true, "duration": "12 min" },
-        { "id": "11-6", "day": 6, "title": "Foods That Support Lymph Flow", "description": "See how chronic inflammation (measured by hs-CRP) damages vessel lining — and how nutrition and rest protect it.", "contentUrl": "https://auracarecontent.github.io/11-6.html", "isUnlocked": true, "duration": "11 min" },
-        { "id": "11-7", "day": 7, "title": "3 Steps to Feel Lighter", "description": "Combine relaxation, nourishment, and motion into a simple daily rhythm that keeps your heart calm, clear, and strong.", "contentUrl": "https://auracarecontent.github.io/11-7.html", "isUnlocked": true, "duration": "8 min" }
+        { "id": "11-1", "day": 1, "title": "Why Your Body Feels Swollen", "description": "Learn how fluid actually moves through your body, why it can get \"stuck,\" and what swelling is really trying to tell you.", "contentUrl": "https://auracarecontent.github.io/11-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "11-2", "day": 2, "title": "How Stress Traps Fluid", "description": "Discover how stress and nervous system tension quietly slow lymphatic flow and make fluid retention worse — even if your habits are healthy.", "contentUrl": "https://auracarecontent.github.io/11-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "11-3", "day": 3, "title": "Easy Ways to Boost Lymphatic Flow", "description": "Find out which simple, gentle actions help lymph move more efficiently throughout the day without intense exercise or force.", "contentUrl": "https://auracarecontent.github.io/11-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "11-4", "day": 4, "title": "The Jaw–Neck–Swelling Connection", "description": "See how tension in the jaw and neck can block fluid drainage from the face and head, contributing to puffiness and heaviness.", "contentUrl": "https://auracarecontent.github.io/11-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "11-5", "day": 5, "title": "How to Reduce Morning Puffiness", "description": "Learn how sleep position, evening habits, and fluid movement overnight affect morning swelling — and how to wake up feeling lighter.", "contentUrl": "https://auracarecontent.github.io/11-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "11-6", "day": 6, "title": "Foods That Support Lymph Flow", "description": "Discover which foods and nutrients support healthy lymph movement and reduce inflammation without restrictive dieting.", "contentUrl": "https://auracarecontent.github.io/11-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "11-7", "day": 7, "title": "3 Steps to Feel Lighter", "description": "Find out how to combine movement, breathing, and daily habits into three simple steps that help your body release fluid and feel lighter overall.", "contentUrl": "https://auracarecontent.github.io/11-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
     },
     {
