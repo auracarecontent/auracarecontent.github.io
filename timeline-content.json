@@ -15,7 +15,7 @@
       "id": "0-2",
       "day": 2,
       "title": "Your Personal Body Battery Report",
-      "description": "View your wellness score",
+      "description": "The report was successfully generated based on your warning signs.",
       "contentUrl": "https://auracarecontent.github.io/bb_report.html",
       "isUnlocked": true,
       "duration": "8 min"
