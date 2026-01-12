@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 5 — What to Eat to Stay Young</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .no-bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .no-bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; padding-left: 0; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+        }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        .info-box {
+            background: rgba(184,118,88,0.06);
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(184,118,88,0.12);
+        }
+        .explainer-box {
+            background: rgba(212,149,108,0.1);
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 5</div>
+            <h1>What to Eat to Stay Young</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Food isn't just fuel.
+            </div>
+            <div class="text-content">
+                It's <span class="highlight-text">information for your cells</span>.
+            </div>
+            <div class="text-content">
+                Today you'll learn how the foods you choose shape inflammation, metabolism, and long-term cellular health — and why eating for longevity doesn't mean strict diets, superfoods, or perfection.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Many people think anti-aging nutrition means cutting everything "bad," following complex rules, or eating perfectly all the time.
+            </div>
+            <div class="text-content">
+                In reality, aging speed is influenced more by <span class="highlight-text">how often inflammation is triggered</span>, how stable your blood sugar is, and how well your body recovers after meals.
+            </div>
+            <div class="text-content">
+                Your body doesn't need a perfect diet.
+            </div>
+            <div class="text-content">
+                It needs <span class="highlight-text">predictable, supportive nourishment</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>How Food Affects Cellular Aging</h2>
+            </div>
+            <div class="text-content">
+                Every meal sends signals to your body about how much inflammation to activate, how hard metabolism needs to work, and whether cells feel safe to repair or need to stay on alert.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Some foods calm inflammation, support stable energy, and reduce cellular stress.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Others spike blood sugar, increase oxidative load, and keep stress pathways active longer.
+            </div>
+            <div class="text-content">
+                Longevity-friendly eating is about <span class="highlight-text">reducing unnecessary stress, not restriction</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔗</span>
+                <h2>Common Food Patterns That Quietly Speed Up Aging</h2>
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">📈 Frequent sugar spikes strain metabolism.</li>
+                <li class="no-bullet-item">🍔 Ultra-processed foods provide calories without enough nutrients.</li>
+                <li class="no-bullet-item">⏰ Irregular meals activate stress hormones.</li>
+                <li class="no-bullet-item">🌙 Heavy late-night eating delays nighttime repair.</li>
+            </ul>
+            <div class="text-content">
+                None of these ruin health in one day.
+            </div>
+            <div class="text-content">
+                Over time, they <span class="highlight-text">increase inflammation and cellular wear</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Quick Note: Food, Inflammation & Aging</h2>
+            </div>
+            <div class="explainer-box">
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    Inflammation is part of healing — and that's a good thing.
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    When you cut your finger or fight an infection, inflammation helps your body repair itself.
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem; font-weight: 600;">
+                    The problem is inflammation that never fully turns off.
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    Low-level inflammation means your body stays slightly irritated all the time, even when there's nothing to fix.
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    This keeps your system in <span class="highlight-text">defense mode instead of repair mode</span>.
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Food strongly influences whether inflammation settles down or stays active.
+
+                </div>
+                <div style="text-align: center; margin: 1.5rem 0;">
+                    <svg width="100%" height="150" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="150" fill="#FAF8F2"/>
+  
+  <!-- Defense Mode (left side - elevated) -->
+  <g>
+    <text x="60" y="30" font-family="Arial" font-size="12" font-weight="bold" fill="#B87658" text-anchor="middle">Defense Mode</text>
+    <rect x="20" y="40" width="80" height="60" rx="8" fill="#DC2626" opacity="0.2" stroke="#DC2626" stroke-width="2"/>
+    <text x="60" y="75" font-family="Arial" font-size="11" fill="#656565" text-anchor="middle">Inflammation</text>
+    <text x="60" y="90" font-family="Arial" font-size="11" fill="#656565" text-anchor="middle">stays active</text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M 110 70 L 170 70" stroke="#B87658" stroke-width="2" fill="none"/>
+  <polygon points="170,70 165,67 165,73" fill="#B87658"/>
+  <text x="140" y="65" font-family="Arial" font-size="10" fill="#B87658" text-anchor="middle">shift to</text>
+  
+  <!-- Repair Mode (right side - lower) -->
+  <g>
+    <text x="260" y="30" font-family="Arial" font-size="12" font-weight="bold" fill="#10B981" text-anchor="middle">Repair Mode</text>
+    <rect x="220" y="40" width="80" height="60" rx="8" fill="#10B981" opacity="0.2" stroke="#10B981" stroke-width="2"/>
+    <text x="260" y="75" font-family="Arial" font-size="11" fill="#656565" text-anchor="middle">Inflammation</text>
+    <text x="260" y="90" font-family="Arial" font-size="11" fill="#656565" text-anchor="middle">settles down</text>
+  </g>
+  
+  <!-- Bottom text -->
+  <text x="200" y="130" font-family="Arial" font-size="11" fill="#B87658" text-anchor="middle" font-style="italic">Food influences this transition</text>
+</svg>
+                </div>
+            </div>
+
+            <div class="explainer-box">
+                <div class="text-content" style="font-weight: 600; margin-bottom: 0.75rem;">
+                    What is a sugar spike?
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    A sugar spike happens when blood sugar rises very quickly after eating.
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    This often happens with sweets, sweet drinks, white bread, pastries, or snacks eaten without protein or fiber.
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    When blood sugar rises too fast, insulin spikes to bring it down, inflammation signals increase, and energy often crashes later.
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    Occasional sugar spikes are normal.
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem; font-weight: 600;">
+                    Frequent spikes, day after day, add stress to your cells.
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Meals that include <span class="highlight-text">protein, fiber, and healthy fats</span> slow sugar absorption, reduce inflammatory signals, and keep energy more stable.
+                </div>
+                <div class="text-content" style="margin-top: 0.75rem; margin-bottom: 0;">
+                    This helps your body return to repair mode between meals.
+                </div>
+                <div style="text-align: center; margin: 1.5rem 0;">
+                    <svg width="100%" height="180" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="180" fill="#FAF8F2"/>
+  
+  <!-- Title -->
+  <text x="200" y="20" font-family="Arial" font-size="12" font-weight="bold" fill="#B87658" text-anchor="middle">Blood Sugar Response</text>
+  
+  <!-- Axes -->
+  <line x1="40" y1="150" x2="360" y2="150" stroke="#656565" stroke-width="1"/>
+  <line x1="40" y1="40" x2="40" y2="150" stroke="#656565" stroke-width="1"/>
+  
+  <!-- Y-axis label -->
+  <text x="25" y="95" font-family="Arial" font-size="10" fill="#656565" text-anchor="middle" transform="rotate(-90 25 95)">Blood Sugar</text>
+  
+  <!-- Sugar spike curve (bad) -->
+  <path d="M 60 140 Q 100 50, 140 140" stroke="#DC2626" stroke-width="3" fill="none"/>
+  <circle cx="100" cy="50" r="4" fill="#DC2626"/>
+  <text x="100" y="35" font-family="Arial" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="bold">Spike!</text>
+  
+  <!-- Crash -->
+  <circle cx="140" cy="140" r="4" fill="#DC2626"/>
+  <text x="140" y="165" font-family="Arial" font-size="9" fill="#DC2626" text-anchor="middle">Crash</text>
+  
+  <!-- Label -->
+  <text x="100" y="175" font-family="Arial" font-size="10" fill="#DC2626" text-anchor="middle">Sweet snacks alone</text>
+  
+  <!-- Stable curve (good) -->
+  <path d="M 220 130 Q 260 110, 300 120" stroke="#10B981" stroke-width="3" fill="none"/>
+  <circle cx="260" cy="110" r="4" fill="#10B981"/>
+  <text x="260" y="95" font-family="Arial" font-size="10" fill="#10B981" text-anchor="middle" font-weight="bold">Stable</text>
+  
+  <!-- Label -->
+  <text x="260" y="175" font-family="Arial" font-size="10" fill="#10B981" text-anchor="middle">With protein + fiber</text>
+</svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Nutrition & Longevity</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🥗</div>
+                <div>
+                    <div class="fact-title">Higher diet quality is associated with lower inflammation and healthier aging</div>
+                    <div class="fact-desc">
+                        Evidence: Calder et al., Nutrients, 2020–2023 reviews.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">📈</div>
+                <div>
+                    <div class="fact-title">Frequent blood sugar spikes increase oxidative and inflammatory stress</div>
+                    <div class="fact-desc">
+                        Evidence: Ludwig et al., JAMA, 2018–2022.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">💪</div>
+                <div>
+                    <div class="fact-title">Adequate protein intake supports muscle mass and metabolic health with age</div>
+                    <div class="fact-desc">
+                        Evidence: Wolfe et al., American Journal of Clinical Nutrition, 2017–2023.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs? — Nutrition-Related Aging Signals</h2>
+            </div>
+            <div class="text-content">
+                Food patterns often show up in metabolic and inflammatory markers.
+            </div>
+            <div class="text-content" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                The % reflects how strongly this marker relates to diet-related aging signals.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">hs-CRP</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;">55 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects diet-related inflammation.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Fasting Glucose / Insulin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;">55 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects blood sugar stability.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Triglycerides</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Linked to metabolic stress.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Ferritin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    May reflect inflammation and oxidative load.
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 13px; font-weight: 600; color: #172737; line-height: 1.5;">
+                    🔍 Key insight:
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.5rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Longevity nutrition is less about calories and more about metabolic calm.
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">⚖️ Do my meals leave me steady or drained?</li>
+                <li class="no-bullet-item">🍽️ Do I eat to feel nourished or just to get through the day?</li>
+                <li class="no-bullet-item">⏰ Are my meals regular and calming, or rushed and chaotic?</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What Actually Supports Longevity Through Food</h2>
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Regular meal timing, enough protein, fiber-rich whole foods, and fewer ultra-processed items</span> support cellular health.
+            </div>
+            <div class="text-content">
+                Simple, repeatable patterns matter more than trends.
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Eat for Cellular Calm</h2>
+            </div>
+            <div class="text-content">
+                You're not trying to eat perfectly.
+            </div>
+            <div class="text-content">
+                You're helping your body <span class="highlight-text">feel safe and stable</span>.
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">🍽️ Step 1 — Build a Balanced Plate</div>
+                <div class="fact-desc">
+                    Include <span class="highlight-text">protein, fiber-rich plants, and healthy fats</span> to stabilize blood sugar and inflammation.
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">⏰ Step 2 — Eat at Regular Times</div>
+                <div class="fact-desc">
+                    Consistent meal timing reduces metabolic stress and supports recovery rhythms.
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">📉 Step 3 — Reduce Sugar Spikes Gently</div>
+                <div class="fact-desc">
+                    Avoid:<br>
+                    • sugary snacks on an empty stomach<br>
+                    • constant grazing<br>
+                    • sweet drinks without food<br><br>
+                    Small changes make a real difference.
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">🌙 Step 4 — Keep Evenings Lighter</div>
+                <div class="fact-desc">
+                    Heavier late-night meals can disrupt sleep and delay repair.<br><br>
+                    <span class="highlight-text">Earlier, lighter dinners support nighttime recovery.</span>
+                </div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.12); padding: 1.25rem; margin: 1.5rem 0; border-radius: 12px; border: 2px solid rgba(184,118,88,0.2); box-shadow: 0 4px 12px rgba(184,118,88,0.15);">
+                <div style="font-weight: 700; font-size: 15px; color: #B87658; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    🧠 Why This Works
+                </div>
+                <div class="fact-desc">
+                    Stable meals reduce inflammatory signaling, support mitochondrial efficiency, and improve metabolic recovery.<br><br>
+                    When food stops stressing the system, <span class="highlight-text">cells can focus on maintenance and repair</span>.
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 14px; font-weight: 600; color: #B87658; line-height: 1.5; text-align: center;">
+                    ✨ Key Takeaway
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.75rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Eating for longevity isn't about restriction.<br>
+                    It's about <span class="highlight-text">choosing foods that help your body calm down</span>.<br><br>
+                    When meals feel supportive, aging slows quietly.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ Today</span> — more stable energy after meals</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ Tomorrow</span> — fewer crashes and cravings</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏳ 3–5 days</span> — improved digestion and steadier focus</li>
+                <li class="no-bullet-item"><span class="highlight-text">📆 Over the month</span> — lower background inflammation and better metabolic resilience</li>
+            </ul>
+        </div>
+
+        <div class="section" style="background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem;">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2 style="color: #FFFFFF;">Today You Learned</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item" style="color: #FFFFFF;">🍽️ Food is a signal, not just fuel</li>
+                <li class="no-bullet-item" style="color: #FFFFFF;">🔥 Inflammation links diet and aging</li>
+                <li class="no-bullet-item" style="color: #FFFFFF;">⚖️ Stable metabolism protects cells</li>
+                <li class="no-bullet-item" style="color: #FFFFFF;">🌿 Simple patterns matter more than perfection</li>
+            </ul>
+
+            <div style="background: rgba(255,255,255,0.15); padding: 1.5rem; margin: 1.5rem 0 0 0; border-radius: 12px; text-align: center;">
+                <div style="font-weight: 600; font-size: 16px; color: #FFFFFF; margin-bottom: 0.75rem;">
+                    ✨ Remember:
+                </div>
+                <div style="font-size: 14px; font-weight: 500; color: #FFFFFF; line-height: 1.4; margin-bottom: 0.5rem;">
+                    You don't need a perfect diet to stay young.
+                </div>
+                <div style="font-size: 14px; font-weight: 500; color: #FFFFFF; line-height: 1.4;">
+                    You need food that helps your body recover.
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+</body>
+</html>
