@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 6 — Why You Replay Everything in Your Head</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .no-bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .no-bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; padding-left: 0; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        .info-box {
+            background: rgba(184,118,88,0.06);
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(184,118,88,0.12);
+        }
+        .explainer-box {
+            background: rgba(212,149,108,0.1);
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 6</div>
+            <h1>Why You Replay Everything in Your Head</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                If your mind keeps replaying conversations, moments, or "what you should have said," it's not because you like overthinking.
+            </div>
+            <div class="text-content">
+                It's because your nervous system is still <span class="highlight-text">searching for safety</span>.
+            </div>
+            <div class="text-content">
+                Today you'll learn why anxious minds loop the past, worry about how others see you, and struggle to let things go — and how this pattern softens as your body exits survival mode.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Many people with anxiety say:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🔄 "I replay conversations again and again."</li>
+                <li class="no-bullet-item">😰 "I obsess over how I came across."</li>
+                <li class="no-bullet-item">💭 "I can't stop thinking about past mistakes."</li>
+                <li class="no-bullet-item">✨ "Even good moments get analyzed afterward."</li>
+            </ul>
+            <div class="text-content">
+                This looping is exhausting.
+            </div>
+            <div class="text-content">
+                It steals mental space and keeps anxiety alive.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Understanding why this happens is deeply relieving.</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Why the Anxious Mind Replays the Past</h2>
+            </div>
+            <div class="text-content">
+                Your brain replays events for one reason: <span class="highlight-text">to prevent future danger</span>.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                In survival mode, the brain:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🔍 reviews what happened</li>
+                <li class="no-bullet-item">⚠️ looks for mistakes</li>
+                <li class="no-bullet-item">🛡️ tries to learn how to avoid rejection or conflict next time</li>
+            </ul>
+            <div class="text-content">
+                This is not weakness.
+            </div>
+            <div class="text-content">
+                It's your brain trying to <span class="highlight-text">protect you socially</span>.
+            </div>
+            <div class="text-content">
+                Humans are wired to belong.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                When safety feels uncertain, the brain keeps checking:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">❓ "Did I mess up?"</li>
+                <li class="no-bullet-item">✅ "Was I accepted?"</li>
+                <li class="no-bullet-item">🔄 "Could this happen again?"</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔗</span>
+                <h2>Why Social Moments Are the Hardest to Let Go</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Anxiety often focuses on:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">👁️ how others perceived you</li>
+                <li class="no-bullet-item">💬 whether you said the "right" thing</li>
+                <li class="no-bullet-item">⚖️ whether you were too much or not enough</li>
+            </ul>
+            <div class="text-content">
+                Social safety matters deeply to the nervous system.
+            </div>
+            <div class="text-content">
+                So your brain keeps looping — not to punish you, but to <span class="highlight-text">protect you</span>.
+            </div>
+            <div class="text-content">
+                The problem is that <span class="highlight-text">the loop never reaches a satisfying answer</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Important Insight: The Loop Isn't Solved by Thinking</h2>
+            </div>
+            <div class="explainer-box">
+                <div class="text-content" style="margin-bottom: 0.75rem; font-weight: 600;">
+                    Most people try to stop replaying by:
+                </div>
+                <ul class="no-bullet-list" style="margin-left: 1rem;">
+                    <li class="no-bullet-item">✅ reassuring themselves</li>
+                    <li class="no-bullet-item">🔍 analyzing more</li>
+                    <li class="no-bullet-item">💡 finding the "perfect explanation"</li>
+                </ul>
+                <div class="text-content" style="margin-top: 0.75rem; margin-bottom: 0.75rem;">
+                    But loops don't end through logic.
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    They end when <span class="highlight-text">the body feels safe again</span>.
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Once safety returns, the brain stops scanning the past.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Rumination & Anxiety</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🔄</div>
+                <div>
+                    <div class="fact-title">Anxiety is associated with increased rumination and repetitive thought patterns</div>
+                    <div class="fact-desc">
+                        Evidence: Nolen-Hoeksema et al., Psychological Bulletin, 2008–2021.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">👥</div>
+                <div>
+                    <div class="fact-title">Social threat sensitivity increases memory replay and self-monitoring</div>
+                    <div class="fact-desc">
+                        Evidence: Eisenberger et al., Trends in Cognitive Sciences, 2012–2022.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">😌</div>
+                <div>
+                    <div class="fact-title">Calming nervous system arousal reduces rumination more effectively than cognitive effort alone</div>
+                    <div class="fact-desc">
+                        Evidence: Thayer et al., Neuroscience & Biobehavioral Reviews, 2021–2023.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs? — Stress & Rumination Patterns</h2>
+            </div>
+            <div class="text-content">
+                Mental looping reflects nervous system strain more than a biochemical imbalance.
+            </div>
+            <div class="text-content" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                The % reflects how strongly this marker relates to rumination patterns.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Morning Cortisol</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;">55 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Prolonged alertness fuels rumination.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">hs-CRP</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Chronic stress sustains mental loops.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Fasting Glucose / Insulin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Stress affects cognitive endurance.
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 13px; font-weight: 600; color: #172737; line-height: 1.5;">
+                    🔍 Key insight:
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.5rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    When stress physiology settles, mental loops loosen.
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="fact-title" style="color: #B87658; font-size: 16px; margin-bottom: 0.75rem;">
+                    👉 If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">continue →</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Ask yourself:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">😴 Do my loops increase when I'm tired or overwhelmed?</li>
+                <li class="no-bullet-item">😌 Do they calm down when I feel safe or connected?</li>
+                <li class="no-bullet-item">🤔 Am I trying to think my way to safety?</li>
+            </ul>
+            <div class="text-content">
+                <span class="highlight-text">Awareness breaks the automatic cycle.</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What This Explains</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                This is why anxiety can make you:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🔄 relive conversations</li>
+                <li class="no-bullet-item">👁️ fear how you were perceived</li>
+                <li class="no-bullet-item">⏸️ struggle to mentally "close" moments</li>
+                <li class="no-bullet-item">🧠 feel stuck in your own head</li>
+            </ul>
+            <div class="text-content">
+                Your mind is doing its best to protect you.
+            </div>
+            <div class="text-content">
+                It just hasn't received the signal that <span class="highlight-text">it can stop</span>.
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Help the Mind Close the Loop</h2>
+            </div>
+            <div class="text-content">
+                Today's goal is not to erase thoughts.
+            </div>
+            <div class="text-content">
+                It's to help your system feel <span class="highlight-text">complete and safe</span>.
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">🏷️ Step 1 — Name the Loop</div>
+                <div class="fact-desc">
+                    When replaying starts, quietly say:<br><br>
+                    <span class="highlight-text">"This is my safety loop."</span><br><br>
+                    Naming reduces identification with it.
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">🪑 Step 2 — Ground in the Present</div>
+                <div class="fact-desc">
+                    <strong>Look around and name:</strong><br>
+                    • 3 things you can see<br>
+                    • 2 things you can feel physically<br><br>
+                    This brings your system <span class="highlight-text">back to now</span>.
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">✅ Step 3 — Send a Closure Signal</div>
+                <div class="fact-desc">
+                    Place a hand on your chest or belly.<br>
+                    Take one slow breath.<br><br>
+                    Tell yourself: <span class="highlight-text">"This moment is over. I'm safe now."</span>
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">🚶 Step 4 — Redirect Gently</div>
+                <div class="fact-desc">
+                    <strong>Choose a neutral activity:</strong><br>
+                    • light movement<br>
+                    • a shower<br>
+                    • stepping outside<br><br>
+                    Movement helps the nervous system <span class="highlight-text">release the loop</span>.
+                </div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.12); padding: 1.25rem; margin: 1.5rem 0; border-radius: 12px; border: 2px solid rgba(184,118,88,0.2); box-shadow: 0 4px 12px rgba(184,118,88,0.15);">
+                <div style="font-weight: 700; font-size: 15px; color: #B87658; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    🧠 Why This Works
+                </div>
+                <div class="fact-desc">
+                    Loops persist when the body feels unfinished.<br><br>
+                    Grounding and reassurance signal completion.<br><br>
+                    <strong>When safety is felt,</strong><br>
+                    <span class="highlight-text">the mind no longer needs to rewind</span>.
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 14px; font-weight: 600; color: #B87658; line-height: 1.5; text-align: center;">
+                    ✨ Key Takeaway
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.75rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Replaying the past is not a flaw.<br><br>
+                    It's a nervous system <span class="highlight-text">seeking safety</span>.<br><br>
+                    When your body settles,<br>
+                    your mind learns to let go.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ Today</span> — moments of awareness around looping</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ Tomorrow</span> — shorter replay cycles</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏳ 3–5 days</span> — fewer intrusive mental replays</li>
+                <li class="no-bullet-item"><span class="highlight-text">📆 Over the week</span> — greater mental quiet and presence</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🔄 Mental loops are protective</li>
+                <li class="no-bullet-item">👥 Social anxiety fuels replay</li>
+                <li class="no-bullet-item">🛡️ Safety ends rumination</li>
+                <li class="no-bullet-item">💪 The body leads the mind</li>
+            </ul>
+
+            <div class="reflection-box">
+                <div style="text-align: center;">
+                    <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">
+                        ✨ Remember:
+                    </div>
+                    <div class="fact-desc">
+                        You don't need to solve the past.
+                    </div>
+                    <div class="fact-desc">
+                        You need to feel safe in the present.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <a href="https://plan.aura.care/lt-2" style="color: white; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF;">
+                continue →
+            </a>
+        </div>
+    </main>
+</body>
+</html>

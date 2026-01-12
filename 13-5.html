@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 5 — Emotional Reactivity & People-Pleasing</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .no-bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .no-bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; padding-left: 0; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        .info-box {
+            background: rgba(184,118,88,0.06);
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(184,118,88,0.12);
+        }
+        .explainer-box {
+            background: rgba(212,149,108,0.1);
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 5</div>
+            <h1>Emotional Reactivity & People-Pleasing</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Anxiety doesn't only make you tired or overthink.
+            </div>
+            <div class="text-content">
+                It also changes <span class="highlight-text">how you react to people</span>.
+            </div>
+            <div class="text-content">
+                Today you'll learn why anxiety can make you more irritable, overly accommodating, or afraid to say no — and how these patterns are not personality flaws, but nervous system responses.
+            </div>
+            <div class="text-content">
+                This day often brings a big sense of clarity.
+            </div>
+            <div class="text-content">
+                Because many people realize: <span class="highlight-text">"Oh… this isn't who I am. This is survival mode."</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Many people with anxiety notice:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">😤 getting irritated or frustrated "out of nowhere"</li>
+                <li class="no-bullet-item">😔 snapping at close people, then feeling guilty</li>
+                <li class="no-bullet-item">🤝 putting others' needs before their own</li>
+                <li class="no-bullet-item">🚫 avoiding conflict, even when it hurts</li>
+                <li class="no-bullet-item">😰 feeling responsible for how others feel</li>
+            </ul>
+            <div class="text-content">
+                This creates exhaustion, resentment, and confusion about your identity.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                You may ask yourself:
+            </div>
+            <div class="text-content">
+                "Why am I like this?"
+            </div>
+            <div class="text-content">
+                The answer is <span class="highlight-text">simpler — and kinder</span> — than you think.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Why Anxiety Changes How You Act Around People</h2>
+            </div>
+            <div class="text-content">
+                In survival mode, your nervous system is focused on one goal: <span class="highlight-text">reduce threat</span>.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                It does this in two common ways:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">⚔️ by becoming reactive (fight)</li>
+                <li class="no-bullet-item">🤝 or by becoming overly accommodating (fawn)</li>
+            </ul>
+            <div class="text-content">
+                Both are protective strategies.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Irritability</span> tries to create distance or control.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">People-pleasing</span> tries to create safety through approval.
+            </div>
+            <div class="text-content">
+                Neither means you are difficult, weak, or "too much."
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔗</span>
+                <h2>Emotional Reactivity Explained</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                When your system is overloaded:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">⏱️ patience drops</li>
+                <li class="no-bullet-item">📉 tolerance narrows</li>
+                <li class="no-bullet-item">⚡ small things feel big</li>
+            </ul>
+            <div class="text-content">
+                Your body has fewer resources for emotional regulation.
+            </div>
+            <div class="text-content">
+                So <span class="highlight-text">reactions come faster than reflection</span>.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                This is why you may:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">😤 overreact to minor comments</li>
+                <li class="no-bullet-item">😰 feel easily overwhelmed</li>
+                <li class="no-bullet-item">😔 regret your response later</li>
+            </ul>
+            <div class="text-content">
+                Reactivity is a sign of <span class="highlight-text">nervous system fatigue, not bad character</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔗</span>
+                <h2>Why People-Pleasing Feels Automatic</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                People-pleasing often comes from an unconscious belief:
+            </div>
+            <div class="text-content" style="text-align: center; font-size: 15px; color: #B87658; font-weight: 600; margin: 1rem 0;">
+                "If others are okay with me, I'm safe."
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                In anxiety:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🚫 saying no feels risky</li>
+                <li class="no-bullet-item">😰 expressing needs feels dangerous</li>
+                <li class="no-bullet-item">😔 disappointing others feels threatening</li>
+            </ul>
+            <div class="text-content">
+                So your system chooses <span class="highlight-text">compliance over conflict</span> — even at your own expense.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Over time, this leads to:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">😴 emotional exhaustion</li>
+                <li class="no-bullet-item">🚧 loss of boundaries</li>
+                <li class="no-bullet-item">😶 feeling invisible or resentful</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Important Insight: Both Patterns Come From the Same Place</h2>
+            </div>
+            <div class="explainer-box">
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    Irritability and people-pleasing may look opposite.
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    But they come from the same source: <span class="highlight-text">a body that doesn't feel safe enough</span>.
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem; font-weight: 600;">
+                    When safety increases:
+                </div>
+                <ul class="no-bullet-list" style="margin-left: 1rem;">
+                    <li class="no-bullet-item">😌 reactions soften</li>
+                    <li class="no-bullet-item">🛡️ boundaries feel possible</li>
+                    <li class="no-bullet-item">✨ your real personality reappears</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Anxiety, Emotions & Social Behavior</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">😤</div>
+                <div>
+                    <div class="fact-title">Chronic anxiety reduces prefrontal regulation of emotional responses, increasing reactivity</div>
+                    <div class="fact-desc">
+                        Evidence: Arnsten, Nature Reviews Neuroscience, 2009–2020.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🤝</div>
+                <div>
+                    <div class="fact-title">Threat perception increases social appeasement behaviors as a safety strategy</div>
+                    <div class="fact-desc">
+                        Evidence: Porges, Polyvagal Theory, 2011–2023.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">😌</div>
+                <div>
+                    <div class="fact-title">Lower nervous system arousal improves emotional regulation and boundary setting</div>
+                    <div class="fact-desc">
+                        Evidence: Thayer et al., Neuroscience & Biobehavioral Reviews, 2021–2023.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs? — Stress & Emotional Load</h2>
+            </div>
+            <div class="text-content">
+                Emotional patterns don't show up directly in labs, but stress physiology often does.
+            </div>
+            <div class="text-content" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                The % reflects how strongly this marker relates to emotional regulation capacity.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Morning Cortisol</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;">55 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects prolonged alertness.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">hs-CRP</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Chronic stress and inflammation.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Fasting Glucose / Insulin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Stress affects emotional resilience.
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 13px; font-weight: 600; color: #172737; line-height: 1.5;">
+                    🔍 Key insight:
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.5rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Emotional symptoms often soften when the nervous system settles.
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="fact-title" style="color: #B87658; font-size: 16px; margin-bottom: 0.75rem;">
+                    👉 If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">continue →</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Ask yourself gently:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">😴 Do I react more when I'm tired or overwhelmed?</li>
+                <li class="no-bullet-item">🤝 Do I say yes when I actually want to say no?</li>
+                <li class="no-bullet-item">🛡️ Do I feel safe expressing my needs?</li>
+            </ul>
+            <div class="text-content">
+                This is about <span class="highlight-text">understanding — not blaming yourself</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What This Explains</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                This is why anxiety can make you:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">😶 feel "not like yourself"</li>
+                <li class="no-bullet-item">🤐 avoid speaking up</li>
+                <li class="no-bullet-item">😔 feel guilty for having needs</li>
+                <li class="no-bullet-item">😤 feel irritated and then ashamed</li>
+            </ul>
+            <div class="text-content">
+                None of this defines you.
+            </div>
+            <div class="text-content">
+                It reflects a <span class="highlight-text">system under pressure</span>.
+            </div>
+            <div class="text-content">
+                And systems can change.
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Restore Emotional Safety</h2>
+            </div>
+            <div class="text-content">
+                Today's goal is not to change your personality.
+            </div>
+            <div class="text-content">
+                It's to reduce the pressure <span class="highlight-text">driving these reactions</span>.
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">⏸️ Step 1 — Pause Before Responding</div>
+                <div class="fact-desc">
+                    When you feel triggered, give yourself <span class="highlight-text">one full breath</span> before replying.<br><br>
+                    That tiny pause can interrupt automatic reactions.
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">💭 Step 2 — Name One Internal Need</div>
+                <div class="fact-desc">
+                    Silently ask: <span class="highlight-text">"What do I need right now?"</span><br><br>
+                    Rest, space, reassurance, time — noticing is enough.
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">🛡️ Step 3 — Practice a Gentle Boundary</div>
+                <div class="fact-desc">
+                    <strong>Choose one low-risk moment today to:</strong><br>
+                    • delay a response<br>
+                    • say "Let me think about it"<br>
+                    • say "Not right now"<br><br>
+                    <span class="highlight-text">Boundaries don't have to be confrontational to be real.</span>
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">✨ Step 4 — Release Guilt</div>
+                <div class="fact-desc">
+                    Feeling guilty doesn't mean you did something wrong.<br><br>
+                    It often means you broke an <span class="highlight-text">old survival habit</span>.
+                </div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.12); padding: 1.25rem; margin: 1.5rem 0; border-radius: 12px; border: 2px solid rgba(184,118,88,0.2); box-shadow: 0 4px 12px rgba(184,118,88,0.15);">
+                <div style="font-weight: 700; font-size: 15px; color: #B87658; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    🧠 Why This Works
+                </div>
+                <div class="fact-desc">
+                    <strong>As the nervous system calms:</strong><br>
+                    • emotional range widens<br>
+                    • reactions slow<br>
+                    • boundaries feel safer<br><br>
+                    You don't need to force confidence.<br>
+                    <span class="highlight-text">Safety creates it naturally.</span>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 14px; font-weight: 600; color: #B87658; line-height: 1.5; text-align: center;">
+                    ✨ Key Takeaway
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.75rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Irritability and people-pleasing are <span class="highlight-text">stress responses</span>.<br><br>
+                    They fade as your body exits survival mode.<br><br>
+                    Your real self comes back with calm.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ Today</span> — more awareness of emotional triggers</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ Tomorrow</span> — slightly more pause before reacting</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏳ 3–5 days</span> — softer reactions and less guilt</li>
+                <li class="no-bullet-item"><span class="highlight-text">📆 Over the week</span> — clearer boundaries and more emotional stability</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🤝 Anxiety shapes social behavior</li>
+                <li class="no-bullet-item">🛡️ Reactivity and people-pleasing are protective</li>
+                <li class="no-bullet-item">✨ Safety restores authenticity</li>
+                <li class="no-bullet-item">😌 Boundaries begin in the body</li>
+            </ul>
+
+            <div class="reflection-box">
+                <div style="text-align: center;">
+                    <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">
+                        ✨ Remember:
+                    </div>
+                    <div class="fact-desc">
+                        You are not "too sensitive" or "too accommodating."
+                    </div>
+                    <div class="fact-desc">
+                        Your nervous system has just been trying to keep you safe.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <a href="https://plan.aura.care/lt-2" style="color: white; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF;">
+                continue →
+            </a>
+        </div>
+    </main>
+</body>
+</html>

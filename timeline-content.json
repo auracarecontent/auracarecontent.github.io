@@ -1,6 +1,6 @@
 {
-  "version": "1.0.6",
-  "lastUpdated": "2025-12-29T16:00:00Z",
+  "version": "1.0.7",
+  "lastUpdated": "2026-01-09T18:00:00Z",
   "welcome_stage": [
     {
       "id": "0-1",
@@ -236,6 +236,24 @@
         { "id": "12-5", "day": 5, "title": "What to Eat to Stay Young", "description": "Learn how the foods you choose shape inflammation, metabolism, and long-term cellular health.", "contentUrl": "https://auracarecontent.github.io/12-5.html", "isUnlocked": true, "duration": "12 min" },
         { "id": "12-6", "day": 6, "title": "The Recovery Factor You Ignore", "description": "Discover how recovery processes quietly determine how well your body repairs and renews itself.", "contentUrl": "https://auracarecontent.github.io/12-6.html", "isUnlocked": true, "duration": "11 min" },
         { "id": "12-7", "day": 7, "title": "3 Habits That Help You Age Slower", "description": "See how a few simple habits can support slower aging and better vitality over time.", "contentUrl": "https://auracarecontent.github.io/12-7.html", "isUnlocked": true, "duration": "8 min" }
+      ]
+    },
+    {
+      "id": "13",
+      "week": 13,
+      "title": "Calm the Mind, Rewire Anxiety",
+      "subtitle": "Learn how anxiety forms in the nervous system and discover gentle habits that signal safety to your body and mind",
+      "icon": "leaf-outline",
+      "iconColor": "#8B7355",
+      "status": "available",
+      "days": [
+        { "id": "13-1", "day": 1, "title": "Why Anxiety Takes Over", "description": "Learn how anxiety forms in the nervous system — and why it often appears without a clear external cause.", "contentUrl": "https://auracarecontent.github.io/13-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "13-2", "day": 2, "title": "The Body Signals Behind Anxiety", "description": "Discover how breath, muscle tension, heart rate, and gut signals quietly fuel anxious states.", "contentUrl": "https://auracarecontent.github.io/13-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "13-3", "day": 3, "title": "How Stress Becomes Chronic Anxiety", "description": "Learn how repeated stress trains your nervous system to stay on high alert — even when danger is gone.", "contentUrl": "https://auracarecontent.github.io/13-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "13-4", "day": 4, "title": "The Gut–Brain Anxiety Loop", "description": "See how digestion, inflammation, and the gut–brain axis influence anxious thoughts and sensations.", "contentUrl": "https://auracarecontent.github.io/13-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "13-5", "day": 5, "title": "How Sleep Shapes Anxiety", "description": "Find out how poor sleep amplifies anxiety — and how small evening changes can calm the mind.", "contentUrl": "https://auracarecontent.github.io/13-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "13-6", "day": 6, "title": "Daily Habits That Lower Anxiety", "description": "Discover gentle, realistic habits that signal safety to your nervous system and reduce anxiety over time.", "contentUrl": "https://auracarecontent.github.io/13-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "13-7", "day": 7, "title": "3 Steps to Feel Calm Again", "description": "Learn how to combine breath, body, and routine into three simple steps for lasting calm and clarity.", "contentUrl": "https://auracarecontent.github.io/13-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
     }
   ]

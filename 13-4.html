@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 4 — The Body Symptoms of Anxiety</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .no-bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .no-bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; padding-left: 0; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .symptom-box { background: rgba(212,149,108,0.08); border-left-color: #B87658; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        .info-box {
+            background: rgba(184,118,88,0.06);
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(184,118,88,0.12);
+        }
+        .explainer-box {
+            background: rgba(212,149,108,0.1);
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 4</div>
+            <h1>The Body Symptoms of Anxiety</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Anxiety doesn't live only in your thoughts.
+            </div>
+            <div class="text-content">
+                It lives in your body.
+            </div>
+            <div class="text-content">
+                Today you'll learn why anxiety often shows up as physical symptoms — racing heart, shallow breathing, dizziness, bloating, or constipation — and why these sensations are <span class="highlight-text">common, reversible, and not dangerous</span>.
+            </div>
+            <div class="text-content">
+                Understanding this is a turning point.
+            </div>
+            <div class="text-content">
+                Because when body symptoms make sense, <span class="highlight-text">fear starts to loosen</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Many people with anxiety say:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">💓 "My heart suddenly starts racing."</li>
+                <li class="no-bullet-item">🫁 "My breath feels shallow or tight."</li>
+                <li class="no-bullet-item">🌀 "I feel dizzy or off balance."</li>
+                <li class="no-bullet-item">🍽️ "My stomach is bloated or constipated."</li>
+            </ul>
+            <div class="text-content">
+                These symptoms are scary.
+            </div>
+            <div class="text-content">
+                They often lead to more worry, more checking, more fear.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                But here's the key insight:
+            </div>
+            <div class="text-content">
+                Most anxiety-related body symptoms come from the same source — <span class="highlight-text">survival mode</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Why Anxiety Shows Up in the Body</h2>
+            </div>
+            <div class="text-content">
+                Your nervous system controls far more than emotions.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                It controls:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">💓 heart rate</li>
+                <li class="no-bullet-item">🫁 breathing</li>
+                <li class="no-bullet-item">🍽️ digestion</li>
+                <li class="no-bullet-item">💪 muscle tension</li>
+                <li class="no-bullet-item">🩸 blood flow</li>
+            </ul>
+            <div class="text-content" style="font-weight: 600;">
+                When survival mode is active, your body prepares for action:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">💓 heart rate increases to move blood faster</li>
+                <li class="no-bullet-item">🫁 breathing becomes quicker and shallower</li>
+                <li class="no-bullet-item">⏸️ digestion slows down</li>
+                <li class="no-bullet-item">💪 muscles tense</li>
+                <li class="no-bullet-item">🩸 blood shifts away from the gut</li>
+            </ul>
+            <div class="text-content">
+                This is not a malfunction.
+            </div>
+            <div class="text-content">
+                It's your body doing <span class="highlight-text">exactly what it was designed to do</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔗</span>
+                <h2>Common Body Symptoms — Explained Simply</h2>
+            </div>
+
+            <div class="symptom-box">
+                <div class="fact-title" style="color: #B87658;">💓 Racing Heart</div>
+                <div class="fact-desc">
+                    Your heart speeds up to support quick movement.<br>
+                    In anxiety, this happens even without real danger.
+                </div>
+            </div>
+
+            <div class="symptom-box">
+                <div class="fact-title" style="color: #B87658;">🌬 Shallow or Tight Breathing</div>
+                <div class="fact-desc">
+                    Breathing becomes faster to prepare for action.<br>
+                    This can create a feeling of air hunger or chest tightness.
+                </div>
+            </div>
+
+            <div class="symptom-box">
+                <div class="fact-title" style="color: #B87658;">🌀 Dizziness or Feeling Off Balance</div>
+                <div class="fact-desc">
+                    Changes in breathing and muscle tension can alter blood flow and body awareness.
+                </div>
+            </div>
+
+            <div class="symptom-box">
+                <div class="fact-title" style="color: #B87658;">🍽 Bloating or Constipation</div>
+                <div class="fact-desc">
+                    Digestion slows in survival mode because it's not essential for immediate safety.
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.5rem;">
+                All of these are <span class="highlight-text">protective responses, not signs of damage</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Important Insight: Fear Feeds the Loop</h2>
+            </div>
+            <div class="explainer-box">
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    What often makes symptoms worse is not the symptom itself — but the <span class="highlight-text">fear of it</span>.
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem; font-weight: 600;">
+                    The loop looks like this:
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem; text-align: center; font-size: 15px; color: #B87658; font-weight: 600;">
+                    sensation → worry → more stress → stronger sensation
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    Breaking the loop starts with understanding:
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">these sensations are safe, even if uncomfortable</span>.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Anxiety & Physical Symptoms</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">💓</div>
+                <div>
+                    <div class="fact-title">Anxiety activates the sympathetic nervous system, increasing heart rate and altering breathing patterns</div>
+                    <div class="fact-desc">
+                        Evidence: Thayer et al., Neuroscience & Biobehavioral Reviews, 2021–2023.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🍽️</div>
+                <div>
+                    <div class="fact-title">Stress shifts blood flow away from digestion, contributing to bloating, constipation, and stomach discomfort</div>
+                    <div class="fact-desc">
+                        Evidence: Mayer, Gastroenterology, 2011–2020.
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🌀</div>
+                <div>
+                    <div class="fact-title">Chronic stress increases muscle tension and alters body perception, leading to dizziness and a sense of imbalance</div>
+                    <div class="fact-desc">
+                        Evidence: McEwen & Morrison, Neuron, 2013–2022.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs? — Body Symptoms & Stress Patterns</h2>
+            </div>
+            <div class="text-content">
+                Anxiety-related body symptoms usually reflect nervous system activation, not structural problems.
+            </div>
+            <div class="text-content" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                The % reflects how strongly this marker relates to physical anxiety symptoms.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Morning Cortisol</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;">55 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Prolonged alert mode affects heart rate and digestion.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">hs-CRP</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Low-grade inflammation linked to chronic stress.
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Fasting Glucose / Insulin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Stress alters energy and circulation patterns.
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 13px; font-weight: 600; color: #172737; line-height: 1.5;">
+                    🔍 Key insight:
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.5rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Symptoms can be intense even when labs look "normal."
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="fact-title" style="color: #B87658; font-size: 16px; margin-bottom: 0.75rem;">
+                    👉 If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">continue →</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Ask yourself:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">⚡ Do my symptoms appear suddenly, without a clear physical cause?</li>
+                <li class="no-bullet-item">🔍 Do they get worse when I focus on them?</li>
+                <li class="no-bullet-item">😌 Do they improve when I feel calmer or distracted?</li>
+            </ul>
+            <div class="text-content">
+                This helps <span class="highlight-text">separate danger from stress response</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What This Explains</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                This is why anxiety can make you feel:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🤒 physically unwell without a clear diagnosis</li>
+                <li class="no-bullet-item">🌀 disconnected from your body</li>
+                <li class="no-bullet-item">😰 afraid of normal sensations</li>
+                <li class="no-bullet-item">🔍 constantly monitoring how you feel</li>
+            </ul>
+            <div class="text-content">
+                Your body is not failing you.
+            </div>
+            <div class="text-content">
+                It's communicating that it's <span class="highlight-text">stuck in protection mode</span>.
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Calm the Body Signals</h2>
+            </div>
+            <div class="text-content">
+                Today's goal is not to eliminate symptoms.
+            </div>
+            <div class="text-content">
+                It's to show your body that it doesn't need to <span class="highlight-text">protect you right now</span>.
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">🫁 Step 1 — Slow the Breath First</div>
+                <div class="fact-desc">
+                    Place one hand on your belly.<br>
+                    Inhale through your nose for 4 seconds.<br>
+                    Exhale slowly for 6–8 seconds.<br><br>
+                    Repeat for 2–3 minutes.<br><br>
+                    <span class="highlight-text">Breath is the fastest way to influence the body.</span>
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">🪑 Step 2 — Ground Through Sensation</div>
+                <div class="fact-desc">
+                    Press your feet gently into the floor.<br>
+                    Notice pressure and support.<br><br>
+                    This shifts attention from <span class="highlight-text">internal fear to external safety</span>.
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">😌 Step 3 — Soften the Belly</div>
+                <div class="fact-desc">
+                    Let your belly relax — even if it feels uncomfortable.<br><br>
+                    Tension here keeps digestion in <span class="highlight-text">"pause mode."</span>
+                </div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">🚫 Step 4 — Don't Chase the Symptom</div>
+                <div class="fact-desc">
+                    Avoid checking your pulse, breathing, or sensations repeatedly.<br><br>
+                    <span class="highlight-text">The less you monitor, the faster the loop breaks.</span>
+                </div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.12); padding: 1.25rem; margin: 1.5rem 0; border-radius: 12px; border: 2px solid rgba(184,118,88,0.2); box-shadow: 0 4px 12px rgba(184,118,88,0.15);">
+                <div style="font-weight: 700; font-size: 15px; color: #B87658; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    🧠 Why This Works
+                </div>
+                <div class="fact-desc">
+                    <strong>When the nervous system senses safety:</strong><br>
+                    • heart rate settles<br>
+                    • breathing deepens<br>
+                    • digestion resumes<br>
+                    • dizziness decreases<br><br>
+                    Your body follows <span class="highlight-text">reassurance, not force</span>.
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 14px; font-weight: 600; color: #B87658; line-height: 1.5; text-align: center;">
+                    ✨ Key Takeaway
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.75rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Anxiety symptoms in the body are not dangerous.<br><br>
+                    They are signals of <span class="highlight-text">protection — not harm</span>.<br><br>
+                    When fear decreases, symptoms lose their power.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ Today</span> — slightly less fear around body sensations</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ Tomorrow</span> — easier breathing and reduced monitoring</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏳ 3–5 days</span> — fewer symptom spikes and quicker settling</li>
+                <li class="no-bullet-item"><span class="highlight-text">📆 Over the week</span> — increased trust in your body and less physical anxiety</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">💓 Anxiety lives in the body</li>
+                <li class="no-bullet-item">🛡️ Symptoms are protective, not harmful</li>
+                <li class="no-bullet-item">😰 Fear fuels physical loops</li>
+                <li class="no-bullet-item">😌 Calming the body restores balance</li>
+            </ul>
+
+            <div class="reflection-box">
+                <div style="text-align: center;">
+                    <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">
+                        ✨ Remember:
+                    </div>
+                    <div class="fact-desc">
+                        You don't need to fight your body.
+                    </div>
+                    <div class="fact-desc">
+                        You need to help it feel safe again.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <a href="https://plan.aura.care/lt-2" style="color: white; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF;">
+                continue →
+            </a>
+        </div>
+    </main>
+</body>
+</html>
