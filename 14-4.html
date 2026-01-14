@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 4 — The Stoic Rule of Control</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .no-bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .no-bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; padding-left: 0; }
+        .science-fact { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .step-box { background: linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(16,185,129,0.12) 100%); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; box-shadow: 0 4px 12px rgba(16,185,129,0.15); border: 2px solid rgba(16,185,129,0.3); position: relative; }
+        .step-number { position: absolute; top: -12px; left: 20px; background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; box-shadow: 0 2px 8px rgba(16,185,129,0.4); }
+        .control-box { background: rgba(184,118,88,0.08); padding: 1.25rem; margin: 1rem 0; border-radius: 12px; border: 2px solid rgba(184,118,88,0.2); }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .biomarker-card { background: rgba(184,118,88,0.08); padding: 18px; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin: 0.75rem 0; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 13px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.4; }
+        .info-box { background: rgba(184,118,88,0.06); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.12); }
+        .explainer-box { background: rgba(212,149,108,0.1); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.15); }
+        .cta-box { background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(184,118,88,0.15); text-align: center; }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; font-weight: 700; font-size: 16px; padding: 14px 32px; border-radius: 12px; text-decoration: none; margin-top: 1rem; box-shadow: 0 4px 8px rgba(184,118,88,0.25); }
+        .video-box { background: rgba(16,185,129,0.08); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 2px solid rgba(16,185,129,0.2); text-align: center; }
+        .replaces-box { background: rgba(220,38,38,0.08); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 2px solid rgba(220,38,38,0.2); }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 4</div>
+            <h1>The Stoic Rule of Control</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                A large part of stress, anxiety, and mental exhaustion comes from trying to manage things that are <span class="highlight-text">not actually under your control</span>.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Stoic philosophy centers on one simple rule:
+            </div>
+            <div class="text-content" style="text-align: center; font-size: 15px; color: #B87658; font-weight: 600; margin: 1rem 0;">
+                Focus only on what you can control — and release the rest.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Today you'll learn:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🪨 what this rule really means (beyond quotes)</li>
+                <li class="no-bullet-item">😌 why it immediately lowers stress and anxiety</li>
+                <li class="no-bullet-item">⚡ how it frees mental energy for discipline and action</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Modern life constantly pulls your attention toward:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">👥 other people's reactions</li>
+                <li class="no-bullet-item">🎯 outcomes you can't guarantee</li>
+                <li class="no-bullet-item">🔮 future scenarios you can't fully predict</li>
+            </ul>
+            <div class="text-content">
+                Your nervous system treats all of this as <span class="highlight-text">unresolved threat</span>.
+            </div>
+            <div class="text-content">
+                When too many things feel "your responsibility," the system stays tense, alert, and overloaded — even when you're doing your best.
+            </div>
+            <div class="text-content">
+                The Stoic rule of control reduces this load instantly.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What's Really Happening</h2>
+            </div>
+            <div class="text-content">
+                Your brain is wired to handle <span class="highlight-text">clear cause → clear action</span>.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                When situations feel uncontrollable:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🔄 the brain keeps searching for solutions</li>
+                <li class="no-bullet-item">😰 anxiety rises</li>
+                <li class="no-bullet-item">🎯 focus scatters</li>
+                <li class="no-bullet-item">⚡ energy drains</li>
+            </ul>
+
+            <div class="explainer-box">
+                <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">💡 Analogy:</div>
+                <div class="fact-desc">
+                    It's like holding dozens of open tabs for problems you can't close.<br><br>
+                    Even if you're not actively working on them, they slow the system down.<br><br>
+                    The Stoic rule closes those tabs — not by denial, but by sorting responsibility.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🪨</span>
+                <h2>The Stoic Rule</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Stoics divided life into two categories:
+            </div>
+
+            <div class="control-box">
+                <div class="fact-title" style="color: #10B981; font-size: 15px; margin-bottom: 0.75rem;">1️⃣ What you control</div>
+                <ul class="no-bullet-list" style="margin: 0.5rem 0;">
+                    <li class="no-bullet-item">✅ your actions</li>
+                    <li class="no-bullet-item">✅ your effort</li>
+                    <li class="no-bullet-item">✅ your choices</li>
+                    <li class="no-bullet-item">✅ your response</li>
+                </ul>
+            </div>
+
+            <div class="control-box">
+                <div class="fact-title" style="color: #DC2626; font-size: 15px; margin-bottom: 0.75rem;">2️⃣ What you don't control</div>
+                <ul class="no-bullet-list" style="margin: 0.5rem 0;">
+                    <li class="no-bullet-item">❌ other people's opinions</li>
+                    <li class="no-bullet-item">❌ outcomes</li>
+                    <li class="no-bullet-item">❌ timing</li>
+                    <li class="no-bullet-item">❌ external events</li>
+                </ul>
+            </div>
+
+            <div class="text-content" style="margin-top: 1rem; text-align: center; font-weight: 600; color: #B87658;">
+                Calm comes from not mixing these two.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts</h2>
+            </div>
+            <div class="text-content">
+                Modern research mirrors this Stoic insight.
+            </div>
+            <div class="text-content" style="font-weight: 600; margin-top: 1rem;">
+                Studies show that:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">😰 perceived lack of control increases stress and anxiety</li>
+                <li class="no-bullet-item">✅ focusing on controllable actions reduces physiological stress</li>
+                <li class="no-bullet-item">🎯 clarity of agency improves emotional regulation</li>
+            </ul>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Learned helplessness at fifty</div>
+                    <div class="fact-desc">
+                        Maier S.F., Seligman M.E.P., Annual Review of Psychology, 2016
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">⚡</div>
+                <div>
+                    <div class="fact-title">A contemporary learning theory perspective on anxiety</div>
+                    <div class="fact-desc">
+                        Mineka S., Zinbarg R., American Psychologist, 2006
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🎯</div>
+                <div>
+                    <div class="fact-title">Resilience definitions and challenges</div>
+                    <div class="fact-desc">
+                        Southwick S.M. et al., European Journal of Psychotraumatology, 2014
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.5rem; font-weight: 600;">
+                In simple terms:
+            </div>
+            <div class="text-content">
+                Anxiety drops when the brain knows <span class="highlight-text">what it's responsible for — and what it isn't</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                Chronic stress from low perceived control often shows up as regulatory strain, not a single abnormal value.
+            </div>
+            <div class="text-content" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                The percentage shows how strongly this biomarker can influence how you feel and function overall.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Morning Cortisol</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;">55 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Prolonged uncertainty and perceived lack of control can disrupt cortisol rhythm.<br>
+                    <em>(Juster R.P. et al., 2020, Neuroscience & Biobehavioral Reviews)</em>
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">hs-CRP</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Chronic psychological stress is associated with low-grade inflammation.<br>
+                    <em>(Slavich G.M., 2020, Psychological Bulletin)</em>
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Fasting Glucose / Insulin</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Stress-driven dysregulation can affect energy availability and mental stamina.<br>
+                    <em>(Pervanidou P., Chrousos G., 2012, Annals of the NY Academy of Sciences)</em>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 13px; font-weight: 600; color: #172737; line-height: 1.5;">
+                    🔍 Key insight:
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.5rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    When perceived control improves, stress biology often softens with it.
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="fact-title" style="color: #B87658; font-size: 16px; margin-bottom: 0.75rem;">
+                    👉 If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">continue →</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Pause and ask yourself:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">⚠️ What am I trying to control today that isn't actually mine to manage?</li>
+                <li class="no-bullet-item">✅ What is one small action that is fully under my control right now?</li>
+            </ul>
+            <div class="text-content">
+                This isn't giving up.
+            </div>
+            <div class="text-content">
+                It's <span class="highlight-text">choosing clarity</span>.
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Apply the Stoic Rule of Control</h2>
+            </div>
+            <div class="text-content">
+                Today's goal is not to solve everything.
+            </div>
+            <div class="text-content">
+                It's to <span class="highlight-text">sort responsibility</span>.
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">1</div>
+                <div class="fact-title" style="color: #10B981; font-size: 15px; margin-top: 0.25rem;">🧭 Draw the Line</div>
+                <div class="fact-desc" style="margin-top: 0.75rem;">
+                    Write down one current stressor.<br><br>
+                    <strong>Split it into:</strong><br>
+                    • what I control<br>
+                    • what I don't<br><br>
+                    <div style="background: rgba(16,185,129,0.1); padding: 0.75rem; border-radius: 8px; margin-top: 0.5rem;">
+                        Only act on the first list.
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">2</div>
+                <div class="fact-title" style="color: #10B981; font-size: 15px; margin-top: 0.25rem;">🌬 Release the Rest (1 minute)</div>
+                <div class="fact-desc" style="margin-top: 0.75rem;">
+                    Take a slow breath and mentally say:<br>
+                    <em>"This part is not mine to carry."</em><br><br>
+                    <div style="background: rgba(16,185,129,0.1); padding: 0.75rem; border-radius: 8px; margin-top: 0.5rem;">
+                        This signals safety to the nervous system.
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">3</div>
+                <div class="fact-title" style="color: #10B981; font-size: 15px; margin-top: 0.25rem;">🕒 Act Decisively on One Controllable Thing</div>
+                <div class="fact-desc" style="margin-top: 0.75rem;">
+                    One clear action.<br>
+                    No multitasking.<br><br>
+                    <div style="background: rgba(16,185,129,0.1); padding: 0.75rem; border-radius: 8px; margin-top: 0.5rem;">
+                        Clarity restores <span class="highlight-text">calm</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="replaces-box">
+                <div style="font-weight: 700; font-size: 15px; color: #DC2626; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    🔁 What This Replaces
+                </div>
+                <div class="fact-desc">
+                    <strong style="color: #DC2626;">❌ Overthinking, outcome obsession, emotional over-responsibility</strong><br><br>
+                    <strong>Why:</strong><br>
+                    Trying to control the uncontrollable keeps the nervous system in <span class="highlight-text">constant alert</span>.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ After today</span> — Mental load feels lighter; fewer looping thoughts</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏳ After 3–5 days</span> — Less anxiety around outcomes and other people's reactions</li>
+                <li class="no-bullet-item"><span class="highlight-text">📆 After 1–2 weeks</span> — More steady focus and calmer discipline</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="video-box">
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+                    <iframe 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                        src="https://www.youtube.com/embed/wxX8RdpN5M8?si=YniuWF1cwG_Ti_oX" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🪨 The Stoic rule sorts responsibility</li>
+                <li class="no-bullet-item">🧠 Anxiety feeds on perceived lack of control</li>
+                <li class="no-bullet-item">⚖️ Clear agency reduces stress</li>
+                <li class="no-bullet-item">🧭 Calm grows when effort is well-directed</li>
+            </ul>
+
+            <div class="reflection-box">
+                <div style="text-align: center;">
+                    <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">
+                        ✨ Remember
+                    </div>
+                    <div class="fact-desc">
+                        Peace doesn't come from controlling everything.
+                    </div>
+                    <div class="fact-desc">
+                        It comes from knowing exactly what is — and isn't — yours to control.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <a href="https://plan.aura.care/lt-2" style="color: white; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF;">
+                continue →
+            </a>
+        </div>
+    </main>
+</body>
+</html>
