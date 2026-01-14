@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day 7 — Feeling Safe in Your Body Again</title>
+    <title>Day 7 — 3 Steps to Feel Calm Again</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
@@ -22,6 +22,31 @@
         .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
         .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
         .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .step-box { 
+            background: linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(16,185,129,0.12) 100%);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1.25rem 0;
+            box-shadow: 0 4px 12px rgba(16,185,129,0.15);
+            border: 2px solid rgba(16,185,129,0.3);
+            position: relative;
+        }
+        .step-number {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(16,185,129,0.4);
+        }
         .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
         .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
         .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
@@ -108,12 +133,20 @@
             margin-top: 1rem;
             box-shadow: 0 4px 8px rgba(184,118,88,0.25);
         }
-        .week-summary-box {
-            background: rgba(16,185,129,0.05);
+        .video-box {
+            background: rgba(16,185,129,0.08);
             padding: 1.25rem;
             border-radius: 12px;
             margin: 1.5rem 0;
-            border: 1px solid rgba(16,185,129,0.2);
+            border: 2px solid rgba(16,185,129,0.2);
+            text-align: center;
+        }
+        .replaces-box {
+            background: rgba(220,38,38,0.08);
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 2px solid rgba(220,38,38,0.2);
         }
         .comparison-table {
             width: 100%;
@@ -158,31 +191,28 @@
     <main class="screen">
         <div class="header">
             <div class="day-label">DAY 7</div>
-            <h1>Feeling Safe in Your Body Again</h1>
+            <h1>3 Steps to Feel Calm Again</h1>
         </div>
 
         <div class="section">
             <div class="section-header">
-                <span class="section-icon">🔥</span>
+                <span class="section-icon">🧠</span>
                 <h2>Daily Focus</h2>
             </div>
             <div class="text-content">
-                Anxiety begins when your body feels unsafe.
+                Calm isn't something you reach once and keep forever.
             </div>
             <div class="text-content">
-                Calm returns when safety is felt — <span class="highlight-text">not forced</span>.
+                It's something your body <span class="highlight-text">returns to — again and again</span>.
             </div>
             <div class="text-content">
-                Today is about integration.
+                Today is about bringing everything together into three simple steps you can use anytime anxiety rises.
             </div>
             <div class="text-content">
-                You'll learn how safety actually feels in the body, why this matters more than "controlling anxiety," and how to gently anchor this state so it becomes more accessible in daily life.
+                Not to fight anxiety.
             </div>
             <div class="text-content">
-                This is the moment many people say:
-            </div>
-            <div class="text-content" style="text-align: center; font-size: 15px; color: #B87658; font-weight: 600; margin: 1rem 0;">
-                "Oh… this is what calm actually feels like."
+                But to <span class="highlight-text">guide your system back to safety</span>.
             </div>
         </div>
 
@@ -191,165 +221,128 @@
                 <span class="section-icon">☀️</span>
                 <h2>Why It Matters</h2>
             </div>
+            <div class="text-content">
+                Anxiety often feels overwhelming because it seems unpredictable.
+            </div>
             <div class="text-content" style="font-weight: 600;">
-                All week you've learned something important:
+                But after this week, one thing becomes clear:
+            </div>
+            <div class="text-content">
+                anxiety follows patterns — and <span class="highlight-text">calm does too</span>.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                When you combine:
             </div>
             <ul class="no-bullet-list">
-                <li class="no-bullet-item">😴 fatigue wasn't laziness</li>
-                <li class="no-bullet-item">🧠 racing thoughts weren't weakness</li>
-                <li class="no-bullet-item">🌫️ brain fog wasn't failure</li>
-                <li class="no-bullet-item">💓 body symptoms weren't danger</li>
-                <li class="no-bullet-item">😤 emotional reactions weren't personality flaws</li>
-                <li class="no-bullet-item">🔄 mental loops weren't obsession</li>
+                <li class="no-bullet-item">🌬 breath</li>
+                <li class="no-bullet-item">🧍 body</li>
+                <li class="no-bullet-item">🧭 routine</li>
             </ul>
             <div class="text-content">
-                They were <span class="highlight-text">signals</span>.
+                you give your nervous system <span class="highlight-text">multiple safety signals at once</span>.
             </div>
-            <div class="text-content">
-                Anxiety softens not when you fight it —
-            </div>
-            <div class="text-content">
-                but when your body finally feels <span class="highlight-text">safe enough to stop protecting you</span>.
-            </div>
-        </div>
 
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧠</span>
-                <h2>What "Feeling Safe" Actually Means</h2>
-            </div>
-            <div class="text-content" style="font-weight: 600;">
-                Feeling safe doesn't mean:
-            </div>
-            <ul class="no-bullet-list">
-                <li class="no-bullet-item">❌ nothing bad can happen</li>
-                <li class="no-bullet-item">❌ you never feel stressed</li>
-                <li class="no-bullet-item">❌ your mind is perfectly quiet</li>
-            </ul>
-            <div class="text-content" style="font-weight: 600;">
-                Safety means:
-            </div>
-            <ul class="no-bullet-list">
-                <li class="no-bullet-item">✅ your body is not bracing</li>
-                <li class="no-bullet-item">✅ your breath moves freely</li>
-                <li class="no-bullet-item">✅ muscles can soften</li>
-                <li class="no-bullet-item">✅ your system is no longer on standby for threat</li>
-            </ul>
-            <div class="text-content">
-                Safety is a <span class="highlight-text">physical state, not a thought</span>.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🔗</span>
-                <h2>Why the Body Comes First</h2>
-            </div>
-            <div class="text-content">
-                Your nervous system decides first.
-            </div>
-            <div class="text-content">
-                Your thoughts follow later.
-            </div>
-            <div class="text-content" style="font-weight: 600;">
-                When the body feels unsafe:
-            </div>
-            <ul class="no-bullet-list">
-                <li class="no-bullet-item">🧠 the mind worries</li>
-                <li class="no-bullet-item">💓 the heart races</li>
-                <li class="no-bullet-item">🍽️ digestion slows</li>
-                <li class="no-bullet-item">🌫️ focus disappears</li>
-            </ul>
-            <div class="text-content" style="font-weight: 600;">
-                When the body feels safe:
-            </div>
-            <ul class="no-bullet-list">
-                <li class="no-bullet-item">😌 thoughts quiet</li>
-                <li class="no-bullet-item">✨ emotions stabilize</li>
-                <li class="no-bullet-item">⚡ energy returns</li>
-                <li class="no-bullet-item">🎯 clarity improves</li>
-            </ul>
-            <div class="text-content">
-                You don't think your way into safety.
-            </div>
-            <div class="text-content">
-                You <span class="highlight-text">feel your way there</span>.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧠</span>
-                <h2>Important Insight: Calm Is a Skill, Not a Trait</h2>
-            </div>
             <div class="explainer-box">
-                <div class="text-content" style="margin-bottom: 0.75rem;">
-                    Some people seem calm not because they're different —
-                </div>
-                <div class="text-content" style="margin-bottom: 0.75rem;">
-                    but because their nervous system has learned <span class="highlight-text">how to downshift</span>.
-                </div>
-                <div class="text-content" style="margin-bottom: 0.75rem; font-weight: 600;">
-                    This means:
-                </div>
-                <ul class="no-bullet-list" style="margin-left: 1rem;">
-                    <li class="no-bullet-item">✨ calm can be practiced</li>
-                    <li class="no-bullet-item">🛡️ safety can be relearned</li>
-                    <li class="no-bullet-item">💪 anxiety doesn't define you</li>
-                </ul>
-                <div class="text-content" style="margin-top: 0.75rem; margin-bottom: 0;">
-                    <span class="highlight-text">Your system is adaptable.</span>
+                <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">💡 Analogy:</div>
+                <div class="fact-desc">
+                    It's like turning down the volume using three knobs instead of one.<br><br>
+                    Each knob alone helps.<br><br>
+                    Together, they bring the noise down faster.
                 </div>
             </div>
         </div>
 
         <div class="section">
             <div class="section-header">
-                <span class="section-icon">🌿</span>
-                <h2>Science Facts — Safety, Regulation & Anxiety</h2>
+                <span class="section-icon">🧠</span>
+                <h2>What's Really Happening</h2>
             </div>
+            <div class="text-content">
+                Your nervous system doesn't calm down through insight alone.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                It calms when it senses:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🌬 slower signals</li>
+                <li class="no-bullet-item">😌 softer body states</li>
+                <li class="no-bullet-item">🧭 familiar patterns</li>
+            </ul>
+
+            <div class="explainer-box">
+                <div class="fact-desc">
+                    Think of anxiety like a GPS that keeps recalculating because it's unsure where you are.<br><br>
+                    These three steps tell it:<br>
+                    <span class="highlight-text">"We're back on a known route."</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts</h2>
+            </div>
+            <div class="text-content">
+                Research shows that combining breath regulation, body-based calming, and predictable routines is <span class="highlight-text">more effective for reducing anxiety than using a single technique alone</span>.
+            </div>
+            <div class="text-content" style="font-weight: 600; margin-top: 1rem;">
+                Studies link multi-modal nervous system regulation to:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">😌 improved emotional regulation</li>
+                <li class="no-bullet-item">⚡ faster recovery after stress</li>
+                <li class="no-bullet-item">✅ reduced anxiety symptoms</li>
+            </ul>
 
             <div class="science-fact">
-                <div class="fact-icon">🛡️</div>
+                <div class="fact-icon">💓</div>
                 <div>
-                    <div class="fact-title">Perceived safety activates parasympathetic pathways that support recovery and emotional regulation</div>
+                    <div class="fact-title">Heart rate variability and emotion regulation</div>
                     <div class="fact-desc">
-                        Evidence: Porges, Polyvagal Theory, 2011–2023.
+                        Thayer J.F. et al., Biological Psychology, 2012
                     </div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <div class="fact-icon">💪</div>
+                <div class="fact-icon">🧠</div>
                 <div>
-                    <div class="fact-title">Body-based regulation improves anxiety outcomes more sustainably than cognitive control alone</div>
+                    <div class="fact-title">The polyvagal theory</div>
                     <div class="fact-desc">
-                        Evidence: Payne et al., Frontiers in Psychology, 2015–2022.
+                        Porges S.W., Biological Psychology, 2007
                     </div>
                 </div>
             </div>
 
             <div class="science-fact">
-                <div class="fact-icon">🔄</div>
+                <div class="fact-icon">🌿</div>
                 <div>
-                    <div class="fact-title">Repeated experiences of safety retrain stress response patterns over time</div>
+                    <div class="fact-title">Somatic and autonomic regulation</div>
                     <div class="fact-desc">
-                        Evidence: Thayer et al., Neuroscience & Biobehavioral Reviews, 2021–2023.
+                        Payne P., Crane-Godreau M.A., Frontiers in Psychology, 2015
                     </div>
                 </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.5rem; font-weight: 600;">
+                In simple terms:
+            </div>
+            <div class="text-content">
+                The nervous system calms best when <span class="highlight-text">multiple safety cues agree</span>.
             </div>
         </div>
 
         <div class="section">
             <div class="section-header">
                 <span class="section-icon">🧬</span>
-                <h2>What About Labs? — Signs of Regulation Over Time</h2>
+                <h2>What About Labs?</h2>
             </div>
             <div class="text-content">
-                Safety and regulation show up gradually as improved balance.
+                Feeling calm is supported by how well your recovery systems function.
             </div>
             <div class="text-content" style="margin-top: 1rem; margin-bottom: 1.5rem;">
-                The % reflects how strongly this marker relates to nervous system regulation.
+                The percentage shows how strongly this biomarker can influence how you feel and function overall.
             </div>
 
             <div class="biomarker-card">
@@ -360,7 +353,21 @@
                     <div class="progress-fill" style="width: 55%;">55 %</div>
                 </div>
                 <div class="biomarker-desc">
-                    Healthier rhythms reflect better stress regulation.
+                    Balanced rhythms support emotional stability and stress recovery.<br>
+                    <em>(Juster R.P. et al., 2020, Neuroscience & Biobehavioral Reviews)</em>
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Magnesium (RBC)</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Supports nervous system regulation and muscle relaxation.<br>
+                    <em>(Serefko et al., 2016, Pharmacological Reports)</em>
                 </div>
             </div>
 
@@ -369,22 +376,11 @@
                     <div class="biomarker-name">hs-CRP</div>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 45%;">45 %</div>
-                </div>
-                <div class="biomarker-desc">
-                    Reduced stress lowers inflammation.
-                </div>
-            </div>
-
-            <div class="biomarker-card">
-                <div class="biomarker-header">
-                    <div class="biomarker-name">Fasting Glucose / Insulin</div>
-                </div>
-                <div class="progress-bar">
                     <div class="progress-fill" style="width: 40%;">40 %</div>
                 </div>
                 <div class="biomarker-desc">
-                    Calmer systems regulate energy more efficiently.
+                    Lower inflammation supports clearer signaling between body and brain.<br>
+                    <em>(Slavich G.M., 2020, Psychological Bulletin)</em>
                 </div>
             </div>
 
@@ -393,7 +389,8 @@
                     🔍 Key insight:
                 </div>
                 <div class="text-content" style="margin-bottom: 0; margin-top: 0.5rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
-                    When safety becomes familiar, the body self-regulates more easily.
+                    Calm isn't only psychological.<br>
+                    It's supported by how well your body can recover and regulate.
                 </div>
             </div>
 
@@ -411,112 +408,81 @@
                 <h2>Reflection Prompt</h2>
             </div>
             <div class="text-content" style="font-weight: 600;">
-                Ask yourself:
+                Ask yourself gently:
             </div>
             <ul class="no-bullet-list">
-                <li class="no-bullet-item">✨ When did I feel even a small moment of calm this week?</li>
-                <li class="no-bullet-item">😌 What helped my body soften — even briefly?</li>
-                <li class="no-bullet-item">💪 What symptoms eased when I felt safer?</li>
+                <li class="no-bullet-item">🌬 Which step helps me the fastest — breath, body, or routine?</li>
+                <li class="no-bullet-item">🧭 When anxiety rises, which signal does my system need first?</li>
             </ul>
             <div class="text-content">
-                These moments matter.
+                There's no wrong answer.
             </div>
             <div class="text-content">
-                They are proof <span class="highlight-text">your system can change</span>.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🧠</span>
-                <h2>What This Week Gave You</h2>
-            </div>
-            <div class="week-summary-box">
-                <div class="text-content" style="margin-bottom: 0.75rem;">
-                    This week wasn't about eliminating anxiety.
-                </div>
-                <div class="text-content" style="margin-bottom: 0.75rem;">
-                    It was about <span class="highlight-text">understanding it</span>.
-                </div>
-                <div class="text-content" style="margin-bottom: 0.75rem; font-weight: 600;">
-                    You learned:
-                </div>
-                <ul class="no-bullet-list" style="margin-left: 1rem;">
-                    <li class="no-bullet-item">✅ why your body reacted the way it did</li>
-                    <li class="no-bullet-item">🛡️ how safety changes everything</li>
-                    <li class="no-bullet-item">📡 that your symptoms had meaning</li>
-                    <li class="no-bullet-item">😌 that calm is possible without force</li>
-                </ul>
-                <div class="text-content" style="margin-top: 0.75rem; margin-bottom: 0;">
-                    This clarity is <span class="highlight-text">the beginning of change</span>.
-                </div>
+                That's your <span class="highlight-text">personal calm pathway</span>.
             </div>
         </div>
 
         <div class="section" style="background: rgba(16,185,129,0.05);">
             <div class="section-header">
                 <span class="section-icon">✅</span>
-                <h2>Plan to Action — Anchor Safety Daily</h2>
+                <h2>Plan to Action — 3 Steps to Feel Calm Again</h2>
             </div>
             <div class="text-content">
-                Today's goal is to create a repeatable safety signal your body can recognize.
+                Use these steps anytime anxiety shows up.
             </div>
 
-            <div class="action-box">
-                <div class="fact-title">🎯 Step 1 — Choose One Safety Cue</div>
+            <div class="step-box">
+                <div class="step-number">1</div>
+                <div class="fact-title" style="color: #10B981; font-size: 15px; margin-top: 0.25rem;">🌬 Slow the Breath</div>
+                <div class="fact-desc" style="margin-top: 0.75rem;">
+                    • Inhale through the nose<br>
+                    • Exhale longer than you inhale<br>
+                    • 3–5 slow cycles<br><br>
+                    <div style="background: rgba(16,185,129,0.1); padding: 0.75rem; border-radius: 8px; margin-top: 0.5rem;">
+                        <strong style="color: #10B981;">Why:</strong><br>
+                        Breath is the fastest way to lower nervous system alertness.
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">2</div>
+                <div class="fact-title" style="color: #10B981; font-size: 15px; margin-top: 0.25rem;">🧍 Soften the Body</div>
+                <div class="fact-desc" style="margin-top: 0.75rem;">
+                    <strong>Choose one:</strong><br>
+                    • drop shoulders<br>
+                    • unclench jaw and tongue<br>
+                    • soften belly<br><br>
+                    <div style="background: rgba(16,185,129,0.1); padding: 0.75rem; border-radius: 8px; margin-top: 0.5rem;">
+                        <strong style="color: #10B981;">Why:</strong><br>
+                        A relaxed body sends fewer danger signals to the brain.
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">3</div>
+                <div class="fact-title" style="color: #10B981; font-size: 15px; margin-top: 0.25rem;">🧭 Anchor in Routine</div>
+                <div class="fact-desc" style="margin-top: 0.75rem;">
+                    <strong>Choose one familiar action:</strong><br>
+                    • make tea<br>
+                    • step outside<br>
+                    • sit in the same calm spot<br><br>
+                    <div style="background: rgba(16,185,129,0.1); padding: 0.75rem; border-radius: 8px; margin-top: 0.5rem;">
+                        <strong style="color: #10B981;">Why:</strong><br>
+                        Familiarity tells your nervous system: "I've been here before — I'm safe."
+                    </div>
+                </div>
+            </div>
+
+            <div class="replaces-box">
+                <div style="font-weight: 700; font-size: 15px; color: #DC2626; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    🔁 What This Replaces
+                </div>
                 <div class="fact-desc">
-                    <strong>Pick one simple action that made you feel calmer this week:</strong><br>
-                    • slower breathing<br>
-                    • grounding your feet<br>
-                    • softening your jaw<br>
-                    • placing a hand on your body<br><br>
-                    This becomes <span class="highlight-text">your anchor</span>.
-                </div>
-            </div>
-
-            <div class="action-box">
-                <div class="fact-title">✨ Step 2 — Practice It When You're Already Okay</div>
-                <div class="fact-desc">
-                    Use the cue once or twice today when anxiety is low.<br><br>
-                    This teaches your body: <span class="highlight-text">"This means safety."</span>
-                </div>
-            </div>
-
-            <div class="action-box">
-                <div class="fact-title">⚡ Step 3 — Use It During Stress</div>
-                <div class="fact-desc">
-                    Later, when anxiety appears, return to the same cue.<br><br>
-                    <span class="highlight-text">Familiar signals work faster.</span>
-                </div>
-            </div>
-
-            <div class="action-box">
-                <div class="fact-title">🔄 Step 4 — Repeat Without Pressure</div>
-                <div class="fact-desc">
-                    You're not trying to be calm all the time.<br><br>
-                    You're building <span class="highlight-text">familiarity</span>.
-                </div>
-            </div>
-
-            <div style="background: rgba(184,118,88,0.12); padding: 1.25rem; margin: 1.5rem 0; border-radius: 12px; border: 2px solid rgba(184,118,88,0.2); box-shadow: 0 4px 12px rgba(184,118,88,0.15);">
-                <div style="font-weight: 700; font-size: 15px; color: #B87658; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
-                    🧠 Why This Works
-                </div>
-                <div class="fact-desc">
-                    The nervous system learns through repetition, not logic.<br><br>
-                    Each safe experience makes the next one easier to access.<br><br>
-                    <span class="highlight-text">Calm compounds.</span>
-                </div>
-            </div>
-
-            <div class="info-box">
-                <div class="text-content" style="margin-bottom: 0; font-size: 14px; font-weight: 600; color: #B87658; line-height: 1.5; text-align: center;">
-                    ✨ Key Takeaway
-                </div>
-                <div class="text-content" style="margin-bottom: 0; margin-top: 0.75rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
-                    Anxiety fades when <span class="highlight-text">safety becomes familiar</span>.<br><br>
-                    Your body doesn't need to be fixed.<br><br>
-                    It needs to feel safe again.
+                    <strong style="color: #DC2626;">❌ Fighting anxiety, analyzing every thought, waiting for calm to "arrive"</strong><br><br>
+                    <strong>Why:</strong><br>
+                    Calm is something you <span class="highlight-text">create, not something you wait for</span>.
                 </div>
             </div>
         </div>
@@ -528,11 +494,29 @@
             </div>
             
             <ul class="no-bullet-list">
-                <li class="no-bullet-item"><span class="highlight-text">⏱️ Today</span> — moments of grounding and relief</li>
-                <li class="no-bullet-item"><span class="highlight-text">⏱️ Tomorrow</span> — easier access to calm</li>
-                <li class="no-bullet-item"><span class="highlight-text">⏳ 3–5 days</span> — fewer spikes and quicker recovery</li>
-                <li class="no-bullet-item"><span class="highlight-text">📆 Over time</span> — a growing sense of stability, trust, and balance</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ In the moment</span> — anxiety softens faster</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏳ Over days</span> — fewer spikes, quicker recovery</li>
+                <li class="no-bullet-item"><span class="highlight-text">📆 Over time</span> — calm becomes easier to access</li>
             </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="video-box">
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+                    <iframe 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                        src="https://www.youtube.com/embed/z5XdX_ryHoc?si=9_SYyXYSENAoPl0C" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
         </div>
 
         <div class="section">
@@ -542,27 +526,14 @@
             </div>
             
             <ul class="no-bullet-list">
-                <li class="no-bullet-item">🛡️ Safety lives in the body</li>
-                <li class="no-bullet-item">✨ Calm can be practiced</li>
-                <li class="no-bullet-item">🔄 Anxiety is reversible</li>
-                <li class="no-bullet-item">💪 You are not broken</li>
+                <li class="no-bullet-item">🌬 Breath changes the nervous system quickly</li>
+                <li class="no-bullet-item">🧍 Body softness reduces threat signals</li>
+                <li class="no-bullet-item">🧭 Familiar routines retrain safety</li>
+                <li class="no-bullet-item">🧠 Calm is a skill your body remembers</li>
             </ul>
 
-            <div class="reflection-box">
-                <div style="text-align: center;">
-                    <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">
-                        ✨ Remember:
-                    </div>
-                    <div class="fact-desc">
-                        You are not stuck in survival mode forever.
-                    </div>
-                    <div class="fact-desc">
-                        Your body already knows the way out —
-                    </div>
-                    <div class="fact-desc">
-                        you're just reminding it how to feel safe again.
-                    </div>
-                </div>
+            <div class="text-content" style="text-align: center; font-size: 15px; color: #B87658; font-weight: 600; margin: 1.5rem 0;">
+                And now, you have the map.
             </div>
         </div>
 
@@ -614,7 +585,7 @@
             <div class="reflection-box">
                 <div style="text-align: center;">
                     <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">
-                        ✨ Remember:
+                        ✨ Remember
                     </div>
                     <div class="fact-desc">
                         You are not stuck in survival mode forever.
