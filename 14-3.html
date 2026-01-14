@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3 — How Emotions Break Discipline</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .no-bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .no-bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; padding-left: 0; }
+        .science-fact { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .step-box { background: linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(16,185,129,0.12) 100%); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; box-shadow: 0 4px 12px rgba(16,185,129,0.15); border: 2px solid rgba(16,185,129,0.3); position: relative; }
+        .step-number { position: absolute; top: -12px; left: 20px; background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; box-shadow: 0 2px 8px rgba(16,185,129,0.4); }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .biomarker-card { background: rgba(184,118,88,0.08); padding: 18px; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin: 0.75rem 0; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 13px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.4; }
+        .info-box { background: rgba(184,118,88,0.06); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.12); }
+        .explainer-box { background: rgba(212,149,108,0.1); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.15); }
+        .cta-box { background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(184,118,88,0.15); text-align: center; }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; font-weight: 700; font-size: 16px; padding: 14px 32px; border-radius: 12px; text-decoration: none; margin-top: 1rem; box-shadow: 0 4px 8px rgba(184,118,88,0.25); }
+        .video-box { background: rgba(16,185,129,0.08); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 2px solid rgba(16,185,129,0.2); text-align: center; }
+        .replaces-box { background: rgba(220,38,38,0.08); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 2px solid rgba(220,38,38,0.2); }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 3</div>
+            <h1>How Emotions Break Discipline</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Discipline often breaks not because you're unmotivated — but because <span class="highlight-text">emotions quietly take over</span>.
+            </div>
+            <div class="text-content">
+                When emotions run high, discipline doesn't disappear.
+            </div>
+            <div class="text-content">
+                It simply becomes hard to access.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Today you'll understand:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">⚠️ why emotional overload sabotages consistency</li>
+                <li class="no-bullet-item">🧠 how emotions hijack behavior before you notice</li>
+                <li class="no-bullet-item">😌 why calm emotional processing is essential for discipline</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Most discipline failures happen in emotional moments:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">😤 frustration</li>
+                <li class="no-bullet-item">😔 self-criticism</li>
+                <li class="no-bullet-item">⚡ pressure</li>
+                <li class="no-bullet-item">😞 disappointment</li>
+            </ul>
+            <div class="text-content">
+                In these states, the nervous system looks for relief, not long-term outcomes.
+            </div>
+            <div class="text-content">
+                That's why discipline feels hardest exactly when you "need it most".
+            </div>
+            <div class="text-content">
+                Understanding this removes self-blame and replaces it with <span class="highlight-text">strategy</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What's Really Happening</h2>
+            </div>
+            <div class="text-content">
+                Emotions are signals.
+            </div>
+            <div class="text-content">
+                But when they become intense, they dominate attention.
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Under emotional overload:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🎯 focus narrows</li>
+                <li class="no-bullet-item">⏳ patience drops</li>
+                <li class="no-bullet-item">🎯 long-term goals lose priority</li>
+                <li class="no-bullet-item">⚡ quick emotional relief feels urgent</li>
+            </ul>
+
+            <div class="explainer-box">
+                <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">💡 Analogy:</div>
+                <div class="fact-desc">
+                    It's like trying to drive calmly while loud alarms are going off inside the car.<br><br>
+                    The problem isn't driving skill — it's the noise.<br><br>
+                    When emotional intensity lowers, discipline comes back online.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts</h2>
+            </div>
+            <div class="text-content">
+                Research shows that emotional arousal strongly affects self-control and follow-through.
+            </div>
+            <div class="text-content" style="font-weight: 600; margin-top: 1rem;">
+                Studies show that:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🧠 strong emotions reduce prefrontal control</li>
+                <li class="no-bullet-item">⚡ emotional overload increases impulsive behavior</li>
+                <li class="no-bullet-item">😌 emotion regulation improves consistency and focus</li>
+            </ul>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">The cognitive control of emotion</div>
+                    <div class="fact-desc">
+                        Ochsner K.N., Gross J.J., Trends in Cognitive Sciences, 2005
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">⚡</div>
+                <div>
+                    <div class="fact-title">How emotions affect cognition</div>
+                    <div class="fact-desc">
+                        Pessoa L., Nature Reviews Neuroscience, 2008
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🎯</div>
+                <div>
+                    <div class="fact-title">Stress signalling pathways that impair prefrontal cortex function</div>
+                    <div class="fact-desc">
+                        Arnsten A.F.T., Nature Reviews Neuroscience, 2009
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.5rem; font-weight: 600;">
+                In simple terms:
+            </div>
+            <div class="text-content">
+                Strong emotions don't make you undisciplined — they make discipline <span class="highlight-text">temporarily unavailable</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                Difficulty staying disciplined during emotional moments often reflects physiological stress, not weak willpower.
+            </div>
+            <div class="text-content" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                The percentage shows how strongly this biomarker can influence how you feel and function overall.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Morning Cortisol</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;">55 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Elevated or dysregulated levels are linked to higher emotional reactivity and reduced focus.<br>
+                    <em>(Juster R.P. et al., 2020, Neuroscience & Biobehavioral Reviews)</em>
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">hs-CRP</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Low-grade inflammation is associated with heightened emotional sensitivity.<br>
+                    <em>(Slavich G.M., 2020, Psychological Bulletin)</em>
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Magnesium (RBC)</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Supports emotional regulation and nervous system stability under stress.<br>
+                    <em>(Serefko et al., 2016, Pharmacological Reports)</em>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 13px; font-weight: 600; color: #172737; line-height: 1.5;">
+                    🔍 Key insight:
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.5rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Emotional overload often reflects internal strain, not lack of discipline.
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="fact-title" style="color: #B87658; font-size: 16px; margin-bottom: 0.75rem;">
+                    👉 If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">continue →</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600;">
+                Gently ask yourself:
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">😤 What emotion usually appears right before I lose discipline?</li>
+                <li class="no-bullet-item">⚡ Do I try to push through emotions instead of settling them first?</li>
+            </ul>
+            <div class="text-content">
+                Emotions are <span class="highlight-text">information — not obstacles</span>.
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Settle Emotions Before Acting</h2>
+            </div>
+            <div class="text-content">
+                Today's goal is not to suppress emotions.
+            </div>
+            <div class="text-content">
+                It's to lower their intensity so <span class="highlight-text">discipline can return</span>.
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">1</div>
+                <div class="fact-title" style="color: #10B981; font-size: 15px; margin-top: 0.25rem;">🌬 Name the Emotion (30 seconds)</div>
+                <div class="fact-desc" style="margin-top: 0.75rem;">
+                    Silently label what you feel:<br>
+                    frustration, pressure, irritation, overwhelm.<br><br>
+                    <div style="background: rgba(16,185,129,0.1); padding: 0.75rem; border-radius: 8px; margin-top: 0.5rem;">
+                        Naming reduces intensity.
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">2</div>
+                <div class="fact-title" style="color: #10B981; font-size: 15px; margin-top: 0.25rem;">🧭 Pause the Decision (1–2 minutes)</div>
+                <div class="fact-desc" style="margin-top: 0.75rem;">
+                    <strong>Before acting:</strong><br>
+                    • slow your breath<br>
+                    • relax shoulders and jaw<br><br>
+                    <div style="background: rgba(16,185,129,0.1); padding: 0.75rem; border-radius: 8px; margin-top: 0.5rem;">
+                        This gives the nervous system space to settle.
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">3</div>
+                <div class="fact-title" style="color: #10B981; font-size: 15px; margin-top: 0.25rem;">🕒 Act Smaller Than Planned</div>
+                <div class="fact-desc" style="margin-top: 0.75rem;">
+                    Choose the smallest version of the task.<br><br>
+                    <div style="background: rgba(16,185,129,0.1); padding: 0.75rem; border-radius: 8px; margin-top: 0.5rem;">
+                        Small action protects consistency <span class="highlight-text">without emotional strain</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="replaces-box">
+                <div style="font-weight: 700; font-size: 15px; color: #DC2626; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    🔁 What This Replaces
+                </div>
+                <div class="fact-desc">
+                    <strong style="color: #DC2626;">❌ Pushing through emotions, self-criticism, emotional avoidance</strong><br><br>
+                    <strong>Why:</strong><br>
+                    Discipline returns faster when emotions are <span class="highlight-text">processed, not ignored</span>.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ After today</span> — Less emotional pressure around tasks</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏳ After 3–5 days</span> — Fewer emotion-driven breaks in consistency</li>
+                <li class="no-bullet-item"><span class="highlight-text">📆 After 1–2 weeks</span> — Discipline holds even when emotions fluctuate</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="video-box">
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+                    <iframe 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                        src="https://www.youtube.com/embed/gJctVD_oMx4?si=8OYi6XQbdXJuql11" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🧠 Emotions can temporarily override discipline</li>
+                <li class="no-bullet-item">⚠️ Emotional overload reduces self-control</li>
+                <li class="no-bullet-item">🌬 Settling emotions restores focus</li>
+                <li class="no-bullet-item">🧭 Small actions protect consistency</li>
+            </ul>
+
+            <div class="reflection-box">
+                <div style="text-align: center;">
+                    <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">
+                        ✨ Remember
+                    </div>
+                    <div class="fact-desc">
+                        Discipline doesn't require emotional suppression.
+                    </div>
+                    <div class="fact-desc">
+                        It requires emotional steadiness.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <a href="https://plan.aura.care/lt-2" style="color: white; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF;">
+                continue →
+            </a>
+        </div>
+    </main>
+</body>
+</html>

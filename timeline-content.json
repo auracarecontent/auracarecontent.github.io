@@ -255,6 +255,24 @@
         { "id": "13-6", "day": 6, "title": "Daily Habits That Lower Anxiety", "description": "Discover gentle, realistic habits that signal safety to your nervous system and reduce anxiety over time.", "contentUrl": "https://auracarecontent.github.io/13-6.html", "isUnlocked": true, "duration": "11 min" },
         { "id": "13-7", "day": 7, "title": "3 Steps to Feel Calm Again", "description": "Learn how to combine breath, body, and routine into three simple steps for lasting calm and clarity.", "contentUrl": "https://auracarecontent.github.io/13-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
+    },
+    {
+      "id": "14",
+      "week": 14,
+      "title": "Build Discipline, Live with Stoic Calm",
+      "subtitle": "Learn how discipline forms in the brain and nervous system and discover how to build consistency without pressure or exhaustion",
+      "icon": "shield-outline",
+      "iconColor": "#C4A57B",
+      "status": "available",
+      "days": [
+        { "id": "14-1", "day": 1, "title": "Why Discipline Feels So Hard", "description": "Learn why motivation fades — and how discipline actually forms in the brain and nervous system.", "contentUrl": "https://auracarecontent.github.io/14-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "14-2", "day": 2, "title": "Discipline Is a Nervous System Skill", "description": "Discover why self-control isn't willpower, but the ability to stay regulated under pressure.", "contentUrl": "https://auracarecontent.github.io/14-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "14-3", "day": 3, "title": "How Emotions Break Discipline", "description": "See how emotional overload silently sabotages focus, consistency, and follow-through.", "contentUrl": "https://auracarecontent.github.io/14-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "14-4", "day": 4, "title": "The Stoic Rule of Control", "description": "Learn the core Stoic principle of focusing only on what you can control — and why it frees mental energy.", "contentUrl": "https://auracarecontent.github.io/14-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "14-5", "day": 5, "title": "Daily Structure That Builds Strength", "description": "Find out how simple routines create internal stability, clarity, and long-term discipline.", "contentUrl": "https://auracarecontent.github.io/14-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "14-6", "day": 6, "title": "How to Act Without Overthinking", "description": "Discover how to reduce hesitation and act calmly, even when you don't feel ready.", "contentUrl": "https://auracarecontent.github.io/14-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "14-7", "day": 7, "title": "Discipline Without Burnout", "description": "Learn how to build consistency, self-respect, and inner calm — without pressure or exhaustion.", "contentUrl": "https://auracarecontent.github.io/14-7.html", "isUnlocked": true, "duration": "8 min" }
+      ]
     }
   ]
 }
