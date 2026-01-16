@@ -65,6 +65,29 @@
         .cta-box { background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(184,118,88,0.15); text-align: center; }
         .cta-button { display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; font-weight: 700; font-size: 18px; padding: 16px 48px; border-radius: 12px; text-decoration: none; margin-top: 1.5rem; box-shadow: 0 4px 8px rgba(184,118,88,0.25); transition: transform 0.2s, box-shadow 0.2s; }
         .cta-button:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(184,118,88,0.35); }
+        
+        /* Audio Player Styles */
+        .audio-player-section { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .audio-player-container { display: flex; align-items: center; gap: 1rem; }
+        .play-btn { width: 44px; height: 44px; background: rgba(255,255,255,0.95); border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: all 0.2s ease; }
+        .play-btn:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        .play-btn:active { transform: scale(0.95); }
+        .play-icon { width: 0; height: 0; border-left: 14px solid #B87658; border-top: 9px solid transparent; border-bottom: 9px solid transparent; margin-left: 3px; }
+        .pause-icon { display: none; width: 14px; height: 18px; position: relative; }
+        .pause-icon::before, .pause-icon::after { content: ''; position: absolute; width: 4px; height: 18px; background: #B87658; border-radius: 1px; }
+        .pause-icon::before { left: 0; }
+        .pause-icon::after { right: 0; }
+        .play-btn.playing .play-icon { display: none; }
+        .play-btn.playing .pause-icon { display: block; }
+        .audio-info { flex: 1; min-width: 0; }
+        .audio-title { font-size: 13px; font-weight: 600; color: #FFFFFF; margin-bottom: 0.5rem; letter-spacing: 0.2px; }
+        .audio-progress-wrapper { position: relative; }
+        .audio-progress-bar { height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; overflow: hidden; cursor: pointer; margin-bottom: 0.35rem; }
+        .audio-progress-fill { height: 100%; background: #FFFFFF; width: 0%; transition: width 0.1s linear; }
+        .audio-time { display: flex; justify-content: space-between; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.85); letter-spacing: 0.3px; }
+        .speed-btn { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; font-size: 11px; font-weight: 600; padding: 6px 10px; border-radius: 12px; cursor: pointer; flex-shrink: 0; transition: all 0.2s ease; letter-spacing: 0.3px; }
+        .speed-btn:hover { background: rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.4); }
+        .speed-btn:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
@@ -73,6 +96,32 @@
         <div class="header">
             <div class="day-label">DAY 5</div>
             <h1>How to Bring Back Motivation and Stop Procrastinating</h1>
+        </div>
+
+        <!-- Audio Player Section -->
+        <div class="audio-player-section">
+            <div class="audio-player-container">
+                <button class="play-btn" id="playBtn" aria-label="Play audio">
+                    <div class="play-icon"></div>
+                    <div class="pause-icon"></div>
+                </button>
+                <div class="audio-info">
+                    <div class="audio-title">🎧 Listen</div>
+                    <div class="audio-progress-wrapper">
+                        <div class="audio-progress-bar" id="progressBar">
+                            <div class="audio-progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="audio-time">
+                            <span id="currentTime">0:00</span>
+                            <span id="totalTime">0:00</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="speed-btn" id="speedBtn">1x</button>
+                <audio id="audioPlayer" preload="metadata">
+                    <source src="https://auracarecontent.github.io/1-5.mp3" type="audio/mpeg">
+                </audio>
+            </div>
         </div>
 
         <div class="section intro-section">
@@ -550,5 +599,44 @@
         </div>
     
     </main>
+
+    <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playBtn = document.getElementById('playBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        const currentTime = document.getElementById('currentTime');
+        const totalTime = document.getElementById('totalTime');
+        const speedBtn = document.getElementById('speedBtn');
+        const speeds = [1, 1.25, 1.5, 2];
+        let currentSpeedIndex = 0;
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+        playBtn.addEventListener('click', () => {
+            if (audioPlayer.paused) { audioPlayer.play(); playBtn.classList.add('playing'); }
+            else { audioPlayer.pause(); playBtn.classList.remove('playing'); }
+        });
+        speedBtn.addEventListener('click', () => {
+            currentSpeedIndex = (currentSpeedIndex + 1) % speeds.length;
+            const newSpeed = speeds[currentSpeedIndex];
+            audioPlayer.playbackRate = newSpeed;
+            speedBtn.textContent = newSpeed + 'x';
+        });
+        audioPlayer.addEventListener('timeupdate', () => {
+            const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            progressFill.style.width = progress + '%';
+            currentTime.textContent = formatTime(audioPlayer.currentTime);
+        });
+        audioPlayer.addEventListener('loadedmetadata', () => { totalTime.textContent = formatTime(audioPlayer.duration); });
+        progressBar.addEventListener('click', (e) => {
+            const rect = progressBar.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            audioPlayer.currentTime = percent * audioPlayer.duration;
+        });
+        audioPlayer.addEventListener('ended', () => { playBtn.classList.remove('playing'); progressFill.style.width = '0%'; });
+    </script>
 </body>
 </html>
