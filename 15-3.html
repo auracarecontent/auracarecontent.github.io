@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3 — Sweat and Detox Truth</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .no-bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .no-bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; padding-left: 0; }
+        .science-fact { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .biomarker-card { background: rgba(184,118,88,0.08); padding: 18px; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin: 0.75rem 0; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 13px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.4; }
+        .info-box { background: rgba(184,118,88,0.06); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.12); }
+        .cta-box { background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(184,118,88,0.15); text-align: center; }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; font-weight: 700; font-size: 16px; padding: 14px 32px; border-radius: 12px; text-decoration: none; margin-top: 1rem; box-shadow: 0 4px 8px rgba(184,118,88,0.25); }
+        .video-box { background: rgba(16,185,129,0.08); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 2px solid rgba(16,185,129,0.2); text-align: center; }
+        .replaces-box { background: rgba(220,38,38,0.08); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 2px solid rgba(220,38,38,0.2); }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 3</div>
+            <h1>Sweat and Detox Truth</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Sweating is often framed as a way to "flush toxins," which can create pressure to push harder.
+            </div>
+            <div class="text-content">
+                But many people notice they feel calmer or clearer after gentle sweating, not necessarily exhausted.
+            </div>
+            <div class="text-content">
+                That contrast can feel confusing.
+            </div>
+            <div class="text-content">
+                Today is about understanding what sweating really supports — and why <span class="highlight-text">ease matters more than intensity</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Sweating is closely tied to how safe and mobile your body feels.
+            </div>
+            <div class="text-content">
+                When sweating comes from panic-driven workouts or overheating, stress hormones rise.
+            </div>
+            <div class="text-content">
+                When it comes from gentle movement or warmth, the nervous system often settles.
+            </div>
+            <div class="text-content">
+                This shift affects circulation, muscle release, and mental clarity.
+            </div>
+            <div class="text-content">
+                Knowing the difference helps you choose what <span class="highlight-text">restores you rather than drains you</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What's Really Happening</h2>
+            </div>
+            <div class="text-content">
+                One key system involved in sweating is the <span class="highlight-text">circulatory system</span>.
+            </div>
+            <div class="text-content">
+                When you sweat, small blood vessels near the skin widen.
+            </div>
+            <div class="text-content">
+                This increases blood flow to the surface and helps release heat.
+            </div>
+            <div class="text-content">
+                Better circulation also improves oxygen and nutrient delivery to tissues.
+            </div>
+            <div class="text-content">
+                When this happens in a calm state, muscles soften and tension releases.
+            </div>
+            <div class="text-content">
+                When it happens under stress, vessels constrict again quickly.
+            </div>
+            <div class="text-content">
+                This is why gentle sweating often feels calming, while forced sweating feels depleting.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🔥</div>
+                <div>
+                    <div class="fact-title">Heat and mild exercise increase peripheral blood flow and circulation efficiency</div>
+                    <div class="fact-desc">
+                        Guyton & Hall, 2021
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">⚡</div>
+                <div>
+                    <div class="fact-title">Stress reduces vasodilation and limits circulation benefits</div>
+                    <div class="fact-desc">
+                        Sapolsky, 2004
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🌿</div>
+                <div>
+                    <div class="fact-title">Calm movement supports nervous system recovery alongside circulation</div>
+                    <div class="fact-desc">
+                        Porges, 2018
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs? — Circulation & Load Tolerance</h2>
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                The percentage shows how strongly this biomarker can influence how you feel and function overall.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">🩸 Hematocrit</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects blood's ability to carry oxygen efficiently.<br>
+                    <em>(NIH, 2023)</em>
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">🧪 CRP</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects background stress and inflammatory load affecting circulation.<br>
+                    <em>(AHA, 2022)</em>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 13px; font-weight: 600; color: #172737; line-height: 1.5;">
+                    🔍 Key insight:
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.5rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Circulation improves most when the body feels safe, not forced.
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="fact-title" style="color: #B87658; font-size: 16px; margin-bottom: 0.75rem;">
+                    👉 If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">continue →</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="text-content">
+                How do you usually feel after sweating — calmer or more depleted?
+            </div>
+            <div class="text-content">
+                What type of movement has felt easiest for your body lately?
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Sweat Gently</h2>
+            </div>
+            <div class="text-content">
+                Choose one gentle activity that makes you slightly warm.
+            </div>
+            <div class="text-content">
+                Keep intensity low enough that breathing stays easy.
+            </div>
+            <div class="text-content">
+                Stop as soon as your body feels released, not tired.
+            </div>
+
+            <div class="replaces-box">
+                <div style="font-weight: 700; font-size: 15px; color: #DC2626; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    🔁 What This Replaces
+                </div>
+                <div class="fact-desc">
+                    <strong style="color: #DC2626;">❌ High-intensity "detox workouts" done through exhaustion</strong><br><br>
+                    These often raise stress and reduce recovery.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ After today</span> — Less pressure to push workouts</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏳ After 3–5 days</span> — Better awareness of energy limits</li>
+                <li class="no-bullet-item"><span class="highlight-text">📆 After 1–2 weeks</span> — More consistent calm after movement</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="video-box">
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+                    <iframe 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                        src="https://www.youtube.com/embed/kiUM92VDI1Y?si=ru4VqPw-4D59rKvz" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🔄 Sweating supports circulation, not toxin flushing</li>
+                <li class="no-bullet-item">🔥 Gentle heat widens blood vessels</li>
+                <li class="no-bullet-item">⚡ Stress limits circulation benefits</li>
+                <li class="no-bullet-item">🌿 Ease creates better recovery signals</li>
+            </ul>
+
+            <div class="reflection-box">
+                <div style="text-align: center;">
+                    <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">
+                        ✨ Remember
+                    </div>
+                    <div class="fact-desc">
+                        Your body responds better to gentle release than forced effort.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <a href="https://plan.aura.care/lt-2" style="color: white; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF;">
+                continue →
+            </a>
+        </div>
+    </main>
+</body>
+</html>

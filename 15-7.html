@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 7 — Top 10 Detox Foods</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .no-bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .no-bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; padding-left: 0; }
+        .science-fact { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .biomarker-card { background: rgba(184,118,88,0.08); padding: 18px; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin: 0.75rem 0; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 13px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.4; }
+        .info-box { background: rgba(184,118,88,0.06); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.12); }
+        .cta-box { background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(184,118,88,0.15); text-align: center; }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; font-weight: 700; font-size: 16px; padding: 14px 32px; border-radius: 12px; text-decoration: none; margin-top: 1rem; box-shadow: 0 4px 8px rgba(184,118,88,0.25); }
+        .video-box { background: rgba(16,185,129,0.08); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 2px solid rgba(16,185,129,0.2); text-align: center; }
+        .replaces-box { background: rgba(220,38,38,0.08); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 2px solid rgba(220,38,38,0.2); }
+        .food-item { background: rgba(16,185,129,0.08); padding: 0.875rem 1.125rem; margin: 0.625rem 0; border-radius: 12px; border-left: 4px solid #10B981; }
+        .food-name { font-weight: 700; font-size: 14px; color: #172737; margin-bottom: 0.25rem; line-height: 1.4; }
+        .food-benefit { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(23,39,55,0.08); }
+        .comparison-table thead { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; }
+        .comparison-table th { padding: 1rem 0.75rem; text-align: left; font-weight: 700; font-size: 13px; letter-spacing: 0.3px; line-height: 1.3; }
+        .comparison-table th:first-child { padding-left: 1rem; }
+        .comparison-table td { padding: 0.875rem 0.75rem; font-size: 12px; font-weight: 500; color: #172737; border-bottom: 1px solid #EFEFEF; line-height: 1.3; }
+        .comparison-table td:first-child { padding-left: 1rem; }
+        .comparison-table tbody tr:last-child td { border-bottom: none; }
+        .comparison-table td:nth-child(2), .comparison-table td:nth-child(3) { text-align: center; font-size: 18px; width: 50px; }
+        .comparison-table th:nth-child(2), .comparison-table th:nth-child(3) { text-align: center; width: 50px; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 7</div>
+            <h1>Top 10 Detox Foods</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Detox foods are often presented with rules, lists to avoid, and pressure to "eat perfectly."
+            </div>
+            <div class="text-content">
+                That framing can make food feel stressful instead of supportive.
+            </div>
+            <div class="text-content">
+                In reality, some foods gently help your body clean up just by being present.
+            </div>
+            <div class="text-content">
+                Today is about noticing how <span class="highlight-text">nourishment can feel grounding, not demanding</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Your body relies on food to keep waste moving out steadily, not to "flush" anything aggressively.
+            </div>
+            <div class="text-content">
+                Fiber-rich and nutrient-dense foods lower the workload on the liver and gut.
+            </div>
+            <div class="text-content">
+                They support regular elimination, stable energy, and mental clarity.
+            </div>
+            <div class="text-content">
+                This approach calms the nervous system instead of activating control or fear.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Consistency matters far more than strict rules.</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What's Really Happening</h2>
+            </div>
+            <div class="text-content">
+                The key process here is <span class="highlight-text">fiber binding in the gut</span>.
+            </div>
+            <div class="text-content">
+                Fiber absorbs water and adds bulk to stool.
+            </div>
+            <div class="text-content">
+                This helps waste move smoothly through the intestines.
+            </div>
+            <div class="text-content">
+                Fiber also binds substances the liver sends into bile.
+            </div>
+            <div class="text-content">
+                When bile-bound waste is carried out regularly, internal buildup is reduced.
+            </div>
+            <div class="text-content">
+                This often feels like less bloating and more lightness.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">No restriction is required — just steady input.</span>
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.03);">
+            <div class="section-header">
+                <span class="section-icon">🥬</span>
+                <h2>Top 10 Detox-Supporting Foods</h2>
+            </div>
+            <div class="text-content" style="margin-bottom: 1.25rem;">
+                These foods support liver and gut cleanup through fiber, nutrients, and steady digestion — no extremes.
+            </div>
+
+            <div class="food-item">
+                <div class="food-name">1. Leafy greens (spinach, arugula)</div>
+                <div class="food-benefit">support bile binding</div>
+            </div>
+
+            <div class="food-item">
+                <div class="food-name">2. Cruciferous vegetables (broccoli, cauliflower)</div>
+                <div class="food-benefit">support liver processing</div>
+            </div>
+
+            <div class="food-item">
+                <div class="food-name">3. Beets</div>
+                <div class="food-benefit">support bile movement</div>
+            </div>
+
+            <div class="food-item">
+                <div class="food-name">4. Avocado</div>
+                <div class="food-benefit">supports fat digestion and bile flow</div>
+            </div>
+
+            <div class="food-item">
+                <div class="food-name">5. Oats</div>
+                <div class="food-benefit">soluble fiber for gentle elimination</div>
+            </div>
+
+            <div class="food-item">
+                <div class="food-name">6. Chia or flax seeds</div>
+                <div class="food-benefit">bind waste and support stool bulk</div>
+            </div>
+
+            <div class="food-item">
+                <div class="food-name">7. Berries</div>
+                <div class="food-benefit">fiber with antioxidant support</div>
+            </div>
+
+            <div class="food-item">
+                <div class="food-name">8. Lentils or beans</div>
+                <div class="food-benefit">steady gut movement</div>
+            </div>
+
+            <div class="food-item">
+                <div class="food-name">9. Apples or pears</div>
+                <div class="food-benefit">pectin fiber supports clearance</div>
+            </div>
+
+            <div class="food-item">
+                <div class="food-name">10. Fermented foods (yogurt, kefir, sauerkraut)</div>
+                <div class="food-benefit">support gut rhythm</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🌾</div>
+                <div>
+                    <div class="fact-title">Dietary fiber supports stool bulk and regular elimination</div>
+                    <div class="fact-desc">
+                        NIH, 2023
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧬</div>
+                <div>
+                    <div class="fact-title">Fiber binds bile-related waste in the gut and supports daily clearance</div>
+                    <div class="fact-desc">
+                        Mayo Clinic, 2022
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🥗</div>
+                <div>
+                    <div class="fact-title">Higher fiber intake is associated with better metabolic comfort and gut regularity</div>
+                    <div class="fact-desc">
+                        Harvard Health, 2021
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs? — Gut & Liver Support</h2>
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                The percentage shows how strongly this biomarker can influence how you feel and function overall.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">🧬 Total Cholesterol</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects bile use and recycling in digestion.<br>
+                    <em>(AHA, 2022)</em>
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">🧪 ALT</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 50%;">50 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects liver workload processing daily inputs.<br>
+                    <em>(NIH, 2023)</em>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 13px; font-weight: 600; color: #172737; line-height: 1.5;">
+                    🔍 Key insight:
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.5rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Gentle fiber intake supports daily cleanup without stressing the system.
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="fact-title" style="color: #B87658; font-size: 16px; margin-bottom: 0.75rem;">
+                    👉 If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">continue →</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="text-content">
+                Which of these foods already feels easy for you to eat?
+            </div>
+            <div class="text-content">
+                Which one could you add without changing anything else?
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Add, Don't Restrict</h2>
+            </div>
+            <div class="text-content">
+                Choose one food from the list.
+            </div>
+            <div class="text-content">
+                Add it to a meal you already eat.
+            </div>
+            <div class="text-content">
+                Eat it slowly and notice how your body feels later.
+            </div>
+
+            <div class="replaces-box">
+                <div style="font-weight: 700; font-size: 15px; color: #DC2626; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    🔁 What This Replaces
+                </div>
+                <div class="fact-desc">
+                    <strong style="color: #DC2626;">❌ Strict detox food rules or elimination plans</strong><br><br>
+                    These increase stress and reduce consistency.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ After today</span> — Less pressure around food</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏳ After 3–5 days</span> — More regular digestion</li>
+                <li class="no-bullet-item"><span class="highlight-text">📆 After 1–2 weeks</span> — A steadier sense of lightness</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="video-box">
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+                    <iframe 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                        src="https://www.youtube.com/embed/EHeNG6hlkZk?si=c_I0C3OkDUM41cwT" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🔄 Detox foods support elimination, not cleansing</li>
+                <li class="no-bullet-item">🌾 Fiber helps move waste out gently</li>
+                <li class="no-bullet-item">➕ Adding foods works better than restricting</li>
+                <li class="no-bullet-item">🔁 Consistency supports clarity and ease</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎯</span>
+                <h2>Your Body Detox Transformation</h2>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>What Changes</th>
+                        <th>With<br>Aura</th>
+                        <th>Without<br>Aura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Regular bowel movements feel easier and more predictable</td>
+                        <td>✔</td>
+                        <td>✖</td>
+                    </tr>
+                    <tr>
+                        <td>Less bloating and heaviness after meals</td>
+                        <td>✔</td>
+                        <td>✖</td>
+                    </tr>
+                    <tr>
+                        <td>Skin and body feel less "puffy" by the end of the day</td>
+                        <td>✔</td>
+                        <td>✖</td>
+                    </tr>
+                    <tr>
+                        <td>Energy doesn't crash after eating or activity</td>
+                        <td>✔</td>
+                        <td>✖</td>
+                    </tr>
+                    <tr>
+                        <td>Fewer urges to try extreme cleanses or restriction</td>
+                        <td>✔</td>
+                        <td>✖</td>
+                    </tr>
+                    <tr>
+                        <td>Daily cleanup happens without forcing or detox plans</td>
+                        <td>✔</td>
+                        <td>✖</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="reflection-box" style="margin-top: 2rem;">
+                <div style="text-align: center;">
+                    <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">
+                        ✨ Remember
+                    </div>
+                    <div class="fact-desc">
+                        Your body clears best when it's nourished, not controlled.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <a href="https://plan.aura.care/lt-2" style="color: white; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF;">
+                continue →
+            </a>
+        </div>
+    </main>
+</body>
+</html>

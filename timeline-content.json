@@ -1,6 +1,6 @@
 {
-  "version": "1.0.8",
-  "lastUpdated": "2026-01-14T18:00:00Z",
+  "version": "1.0.9",
+  "lastUpdated": "2026-01-21T18:00:00Z",
   "welcome_stage": [
     {
       "id": "0-1",
@@ -272,6 +272,24 @@
         { "id": "14-5", "day": 5, "title": "Daily Structure That Builds Strength", "description": "Find out how simple routines create internal stability, clarity, and long-term discipline.", "contentUrl": "https://auracarecontent.github.io/14-5.html", "isUnlocked": true, "duration": "12 min" },
         { "id": "14-6", "day": 6, "title": "How to Act Without Overthinking", "description": "Discover how to reduce hesitation and act calmly, even when you don't feel ready.", "contentUrl": "https://auracarecontent.github.io/14-6.html", "isUnlocked": true, "duration": "11 min" },
         { "id": "14-7", "day": 7, "title": "5 Rules for Discipline Without Burnout", "description": "Build consistency and inner stability without pressure or force.", "contentUrl": "https://auracarecontent.github.io/14-7.html", "isUnlocked": true, "duration": "8 min" }
+      ]
+    },
+    {
+      "id": "15",
+      "week": 15,
+      "title": "Detox Without Detoxes",
+      "subtitle": "Feel lighter and clearer by supporting your body's natural cleanup systems — without extremes or pressure.",
+      "icon": "leaf-outline",
+      "iconColor": "#C4A57B",
+      "status": "available",
+      "days": [
+        { "id": "15-1", "day": 1, "title": "How Your Body Detoxifies", "description": "Notice how your body already clears daily load when stress drops and basic pathways stay supported.", "contentUrl": "https://auracarecontent.github.io/15-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "15-2", "day": 2, "title": "3 Detox Myths That Backfire", "description": "If you've tried cleanses and felt worse, this day shows why restriction often adds stress instead of relief.", "contentUrl": "https://auracarecontent.github.io/15-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "15-3", "day": 3, "title": "Sweat and Detox Truth", "description": "What happens when you sweat regularly is more about circulation and nervous system release than flushing toxins.", "contentUrl": "https://auracarecontent.github.io/15-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "15-4", "day": 4, "title": "Sauna or Exercise First?", "description": "Feel what changes when heat or movement supports detox pathways in different ways — depending on your energy.", "contentUrl": "https://auracarecontent.github.io/15-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "15-5", "day": 5, "title": "5 Easy Exposure Swaps", "description": "Try a few small changes that quietly reduce daily toxin exposure without overhauling your lifestyle.", "contentUrl": "https://auracarecontent.github.io/15-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "15-6", "day": 6, "title": "The Hidden Home Toxins", "description": "When fatigue or fog has no clear cause, this day helps you spot everyday sources that add up over time.", "contentUrl": "https://auracarecontent.github.io/15-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "15-7", "day": 7, "title": "Top 10 Detox Foods", "description": "Feel how fiber-rich, nutrient-dense foods gently support liver and gut cleanup without harsh rules.", "contentUrl": "https://auracarecontent.github.io/15-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
     }
   ]
