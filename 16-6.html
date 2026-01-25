@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 6 — Hidden Reasons Your Immunity Can't Recover</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .bullet-item:before { content: "•"; position: absolute; left: 0.5rem; color: #B87658; font-weight: 700; }
+        .science-fact, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .result-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; align-items: flex-start; }
+        .result-icon { font-size: 1.25rem; flex-shrink: 0; }
+        
+        /* Stressor Cards */
+        .stressor-card {
+            background: linear-gradient(to bottom, rgba(239,68,68,0.08) 0%, rgba(239,68,68,0.03) 100%);
+            padding: 1.25rem;
+            border-radius: 16px;
+            border-left: 4px solid #ef4444;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 6px rgba(23,39,55,0.06);
+        }
+        .stressor-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .stressor-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        .stressor-name {
+            font-weight: 700;
+            color: #172737;
+            font-size: 16px;
+            line-height: 1.3;
+        }
+        .stressor-desc {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        .stressor-desc:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Biomarker Cards */
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            transition: width 1s ease-out;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 1.4;
+        }
+        
+        .insight-box {
+            background: rgba(59,130,246,0.08);
+            border-left: 3px solid #3b82f6;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .insight-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+        }
+        
+        /* Action Cards */
+        .action-card {
+            background: linear-gradient(to bottom, rgba(16,185,129,0.08) 0%, rgba(16,185,129,0.03) 100%);
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            border-left: 4px solid #10B981;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 2px 4px rgba(23,39,55,0.06);
+        }
+        .action-icon {
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+        .action-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 6</div>
+            <h1>Hidden Reasons Your Immunity Can't Recover</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Many people support immunity with food, sleep, or supplements and still feel run down.
+            </div>
+            <div class="text-content">
+                When nothing obvious seems wrong, it's easy to feel confused or frustrated.
+            </div>
+            <div class="text-content">
+                Often, the reasons aren't dramatic — they're subtle and constant.
+            </div>
+            <div class="text-content">
+                Today is about noticing the hidden factors that keep your immune system from fully restoring itself.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Your immune system needs <span class="highlight-text">periods of low alert</span> to repair and rebalance.
+            </div>
+            <div class="text-content">
+                Constant stress, dry or stale air, and everyday environmental irritation keep the body in a mild defense mode.
+            </div>
+            <div class="text-content">
+                This doesn't cause illness right away, but it prevents full recovery.
+            </div>
+            <div class="text-content">
+                Over time, immune reserves shrink and resilience drops.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Understanding these hidden stressors helps you support immunity where it's most often overlooked.</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What's Really Happening</h2>
+            </div>
+            <div class="text-content">
+                One key process involved here is <span class="highlight-text">mucosal immune defense</span>.
+            </div>
+            <div class="text-content">
+                The lining of your nose, throat, and airways is your first immune barrier.
+            </div>
+            <div class="text-content">
+                It traps particles, pathogens, and irritants before they enter deeper tissues.
+            </div>
+            <div class="text-content">
+                When air is dry, dusty, or stale, this lining becomes irritated and less effective.
+            </div>
+            <div class="text-content">
+                At the same time, chronic stress signals keep immune cells in a state of alert.
+            </div>
+            <div class="text-content">
+                Instead of restoring, the immune system stays busy monitoring.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">This combination quietly blocks recovery and makes immunity feel "low."</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔍</span>
+                <h2>Hidden Everyday Stressors That Affect Immunity</h2>
+            </div>
+
+            <div class="stressor-card">
+                <div class="stressor-header">
+                    <span class="stressor-icon">🧠</span>
+                    <div class="stressor-name">Constant Stress</div>
+                </div>
+                <div class="stressor-desc">
+                    Not acute stress, but the <span class="highlight-text">background kind</span> — rushing, multitasking, mental load.
+                </div>
+                <div class="stressor-desc">
+                    This keeps stress hormones elevated and interferes with immune repair.
+                </div>
+            </div>
+
+            <div class="stressor-card">
+                <div class="stressor-header">
+                    <span class="stressor-icon">💨</span>
+                    <div class="stressor-name">Dry or Stale Air</div>
+                </div>
+                <div class="stressor-desc">
+                    Dry air <span class="highlight-text">irritates mucosal surfaces</span>.
+                </div>
+                <div class="stressor-desc">
+                    Stale air increases the concentration of particles your immune system must handle.
+                </div>
+            </div>
+
+            <div class="stressor-card">
+                <div class="stressor-header">
+                    <span class="stressor-icon">🌫️</span>
+                    <div class="stressor-name">Dust and Indoor Irritants</div>
+                </div>
+                <div class="stressor-desc">
+                    Dust isn't just dirt — it carries particles that <span class="highlight-text">constantly activate immune defenses</span>.
+                </div>
+                <div class="stressor-desc">
+                    This creates ongoing low-level immune work.
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.25rem; font-weight: 600; color: #ef4444;">
+                Together, these factors keep immunity in watch mode instead of recovery mode.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts</h2>
+            </div>
+
+            <div class="science-fact">
+                <span class="fact-icon">🧠</span>
+                <div>
+                    <div class="fact-desc">Chronic stress alters immune signaling and reduces recovery capacity (Sapolsky, 2004).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <span class="fact-icon">🛡️</span>
+                <div>
+                    <div class="fact-desc">Healthy mucosal surfaces are essential for frontline immune defense (NIH, 2023).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <span class="fact-icon">🏠</span>
+                <div>
+                    <div class="fact-desc">Indoor air quality influences respiratory immune function and irritation levels (WHO, 2021).</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs? — Environmental Immune Load</h2>
+            </div>
+            <div class="text-content">
+                The percentage shows how strongly this biomarker can influence how you feel and function overall.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">C-Reactive Protein (CRP)</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">🧪 45%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects background immune activation that rises with chronic stress and environmental irritation (AHA, 2022).
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">White Blood Cell Count</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">🩸 40%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects immune workload and reserve; persistent environmental stress can reduce functional readiness over time (NIH, 2023).
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <div class="insight-text">
+                    <span class="highlight-text">Key insight:</span> Immunity struggles to recover when it's constantly responding to small, repeated stressors.
+                </div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(184,118,88,0.15); margin: 1.5rem 0; text-align: center;">
+                <div class="text-content" style="margin-bottom: 1.5rem; font-size: 15px;">
+                    If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <div>
+                    <a href="https://challenge.aura.care/lt-3" style="display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; padding: 14px 40px; border-radius: 8px; box-shadow: 0 2px 4px rgba(184,118,88,0.3);" target="_blank" rel="noopener noreferrer">Continue</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content">
+                    Where do you feel irritation most often — breathing, throat, tension, or mental fatigue?
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Which part of your environment feels least supportive right now?
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Reduce Hidden Immune Load</h2>
+            </div>
+            <div class="text-content">
+                Choose a few that fit your day.
+            </div>
+
+            <div class="action-card">
+                <span class="action-icon">🌬️</span>
+                <div class="action-text">Ventilate your living space or bedroom for 5–10 minutes</div>
+            </div>
+
+            <div class="action-card">
+                <span class="action-icon">❄️</span>
+                <div class="action-text">Sleep in a slightly cooler, fresher room</div>
+            </div>
+
+            <div class="action-card">
+                <span class="action-icon">🧹</span>
+                <div class="action-text">Wipe dust from surfaces you touch most often</div>
+            </div>
+
+            <div class="action-card">
+                <span class="action-icon">🚶</span>
+                <div class="action-text">Step outside briefly during the day for fresh air</div>
+            </div>
+
+            <div class="action-card">
+                <span class="action-icon">🌙</span>
+                <div class="action-text">Create a clear stress-down moment in the evening</div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.25rem; font-weight: 600; color: #10B981;">
+                These actions reduce immune workload rather than forcing immune strength.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/-t16xHUisTg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(184,118,88,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">Immunity needs low-alert periods to recover</li>
+                <li class="bullet-item">Stress, air, and dust create constant immune activation</li>
+                <li class="bullet-item">Mucosal surfaces are a key immune barrier</li>
+                <li class="bullet-item">Reducing irritation supports immune restoration</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+
+            <div class="result-item">
+                <span class="result-icon">⏱️</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">After today</span> — Greater awareness of hidden immune stressors
+                </div>
+            </div>
+
+            <div class="result-item">
+                <span class="result-icon">⏳</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">After 3–5 days</span> — Easier breathing and less background tension
+                </div>
+            </div>
+
+            <div class="result-item">
+                <span class="result-icon">📆</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">After 1–2 weeks</span> — Improved sense of recovery and steadiness
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="text-content" style="font-size: 18px; font-weight: 700; color: #B87658; margin-bottom: 0;">
+                ✨ Remember: Sometimes immunity improves not by adding more support — but by removing what quietly drains it.
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <div style="text-align: center;">
+                <a href="https://challenge.aura.care/lt-3" style="color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4;" target="_blank" rel="noopener noreferrer">Continue</a>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>

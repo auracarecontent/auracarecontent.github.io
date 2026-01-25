@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 4 — Nutrients Your Immunity Misses</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .bullet-item:before { content: "•"; position: absolute; left: 0.5rem; color: #B87658; font-weight: 700; }
+        .science-fact, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .result-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; align-items: flex-start; }
+        .result-icon { font-size: 1.25rem; flex-shrink: 0; }
+        
+        /* Nutrient Cards */
+        .nutrient-card {
+            background: linear-gradient(to bottom, rgba(16,185,129,0.08) 0%, rgba(16,185,129,0.03) 100%);
+            padding: 1.25rem;
+            border-radius: 16px;
+            border-left: 4px solid #10B981;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 6px rgba(23,39,55,0.06);
+        }
+        .nutrient-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .nutrient-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        .nutrient-name {
+            font-weight: 700;
+            color: #172737;
+            font-size: 16px;
+            line-height: 1.3;
+        }
+        .nutrient-desc {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.6;
+        }
+        
+        /* Biomarker Cards */
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            transition: width 1s ease-out;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 1.4;
+        }
+        
+        .insight-box {
+            background: rgba(59,130,246,0.08);
+            border-left: 3px solid #3b82f6;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .insight-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+        }
+        
+        /* Action Cards */
+        .action-card {
+            background: linear-gradient(to bottom, rgba(16,185,129,0.08) 0%, rgba(16,185,129,0.03) 100%);
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            border-left: 4px solid #10B981;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 2px 4px rgba(23,39,55,0.06);
+        }
+        .action-icon {
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+        .action-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 4</div>
+            <h1>Nutrients Your Immunity Misses</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Many people assume that eating enough automatically means their immune system is supported.
+            </div>
+            <div class="text-content">
+                But immunity doesn't just need calories — it needs specific building blocks.
+            </div>
+            <div class="text-content">
+                When those are missing, the body still functions, just with less resilience.
+            </div>
+            <div class="text-content">
+                Today is about understanding why you can eat often and still feel run down.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Your immune system constantly builds, repairs, and replaces immune cells.
+            </div>
+            <div class="text-content">
+                That work depends on nutrients coming in every day, not occasionally.
+            </div>
+            <div class="text-content">
+                When food lacks variety or key nutrients, immune recovery slows.
+            </div>
+            <div class="text-content">
+                This doesn't always show up as illness — it often shows up as fatigue, frequent "almost sick" days, or low energy.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Understanding this shifts the focus from eating more to eating better.</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What's Really Happening</h2>
+            </div>
+            <div class="text-content">
+                One key process involved here is <span class="highlight-text">immune cell production</span>.
+            </div>
+            <div class="text-content">
+                Immune cells are short-lived and must be continuously replaced.
+            </div>
+            <div class="text-content">
+                To do that, your body needs amino acids, minerals, and vitamins as raw materials.
+            </div>
+            <div class="text-content">
+                If meals are repetitive, ultra-processed, or low in nutrient density, production slows.
+            </div>
+            <div class="text-content">
+                The immune system still works, but with fewer fresh cells available. This reduces reserve and response speed.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">That's why immunity can feel low even when meals are regular.</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔍</span>
+                <h2>Key Nutrients Your Immune System Relies On</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600; color: #656565; margin-bottom: 1.25rem;">
+                These nutrients don't "boost" immunity — they allow it to function properly.
+            </div>
+
+            <div class="nutrient-card">
+                <div class="nutrient-header">
+                    <span class="nutrient-icon">🥩</span>
+                    <div class="nutrient-name">Protein</div>
+                </div>
+                <div class="nutrient-desc">
+                    Provides the <span class="highlight-text">raw material to build immune cells</span>
+                </div>
+            </div>
+
+            <div class="nutrient-card">
+                <div class="nutrient-header">
+                    <span class="nutrient-icon">🧲</span>
+                    <div class="nutrient-name">Iron</div>
+                </div>
+                <div class="nutrient-desc">
+                    Supports <span class="highlight-text">immune cell production and oxygen delivery</span>
+                </div>
+            </div>
+
+            <div class="nutrient-card">
+                <div class="nutrient-header">
+                    <span class="nutrient-icon">⚡</span>
+                    <div class="nutrient-name">Zinc</div>
+                </div>
+                <div class="nutrient-desc">
+                    Helps immune cells <span class="highlight-text">communicate and respond accurately</span>
+                </div>
+            </div>
+
+            <div class="nutrient-card">
+                <div class="nutrient-header">
+                    <span class="nutrient-icon">🍊</span>
+                    <div class="nutrient-name">Vitamin C</div>
+                </div>
+                <div class="nutrient-desc">
+                    Supports <span class="highlight-text">immune signaling and recovery</span>
+                </div>
+            </div>
+
+            <div class="nutrient-card">
+                <div class="nutrient-header">
+                    <span class="nutrient-icon">☀️</span>
+                    <div class="nutrient-name">Vitamin D</div>
+                </div>
+                <div class="nutrient-desc">
+                    Helps regulate <span class="highlight-text">immune balance and readiness</span>
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.25rem; font-weight: 600; color: #B87658;">
+                Missing one doesn't break immunity — missing several reduces resilience.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts</h2>
+            </div>
+
+            <div class="science-fact">
+                <span class="fact-icon">🔬</span>
+                <div>
+                    <div class="fact-desc">Immune cell production depends on adequate protein and micronutrient intake (NIH, 2023).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <span class="fact-icon">⚡</span>
+                <div>
+                    <div class="fact-desc">Iron and zinc deficiencies are associated with reduced immune responsiveness (Mayo Clinic, 2022).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <span class="fact-icon">☀️</span>
+                <div>
+                    <div class="fact-desc">Vitamin D plays a regulatory role in immune balance and signaling (NIH, 2022).</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs? — Nutrient Support Signals</h2>
+            </div>
+            <div class="text-content">
+                The percentage shows how strongly this biomarker can influence how you feel and function overall.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Ferritin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">🧲 45%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects iron availability needed to produce and maintain immune cells; low or borderline levels often reduce immune reserve (Mayo Clinic, 2022).
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Vitamin D (25-OH)</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">☀️ 40%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects immune regulation capacity and readiness, especially during low-sun periods (NIH, 2023).
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <div class="insight-text">
+                    <span class="highlight-text">Key insight:</span> Eating enough calories doesn't guarantee your immune system has what it needs to rebuild.
+                </div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(184,118,88,0.15); margin: 1.5rem 0; text-align: center;">
+                <div class="text-content" style="margin-bottom: 1.5rem; font-size: 15px;">
+                    If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <div>
+                    <a href="https://challenge.aura.care/lt-3" style="display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; padding: 14px 40px; border-radius: 8px; box-shadow: 0 2px 4px rgba(184,118,88,0.3);" target="_blank" rel="noopener noreferrer">Continue</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content">
+                    Do your meals feel repetitive or rushed most days?
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Which food groups tend to be missing when you're busy or stressed?
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Improve Food Quality Gently</h2>
+            </div>
+            <div class="text-content">
+                Choose one way to add nutrient density today.
+            </div>
+
+            <div class="action-card">
+                <span class="action-icon">🥩</span>
+                <div class="action-text">Add a protein source to one meal</div>
+            </div>
+
+            <div class="action-card">
+                <span class="action-icon">🥗</span>
+                <div class="action-text">Include one colorful vegetable or fruit</div>
+            </div>
+
+            <div class="action-card">
+                <span class="action-icon">🍽️</span>
+                <div class="action-text">Eat one meal without rushing</div>
+            </div>
+
+            <div class="action-card">
+                <span class="action-icon">💭</span>
+                <div class="action-text">Notice how your energy feels afterward</div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.25rem;">
+                You don't need perfect meals — just better building blocks.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/3YD5Kx7mMro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(184,118,88,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">Immunity depends on nutrient quality, not just calories</li>
+                <li class="bullet-item">Immune cells need constant rebuilding</li>
+                <li class="bullet-item">Missing nutrients reduce resilience quietly</li>
+                <li class="bullet-item">Small improvements in meals make a real difference</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+
+            <div class="result-item">
+                <span class="result-icon">⏱️</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">After today</span> — Better awareness of what your meals provide
+                </div>
+            </div>
+
+            <div class="result-item">
+                <span class="result-icon">⏳</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">After 3–5 days</span> — More stable energy after eating
+                </div>
+            </div>
+
+            <div class="result-item">
+                <span class="result-icon">📆</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">After 1–2 weeks</span> — Improved sense of resilience
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="text-content" style="font-size: 18px; font-weight: 700; color: #B87658; margin-bottom: 0;">
+                ✨ Remember: Your immune system can only work with what you give it.
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <div style="text-align: center;">
+                <a href="https://challenge.aura.care/lt-3" style="color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4;" target="_blank" rel="noopener noreferrer">Continue</a>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>

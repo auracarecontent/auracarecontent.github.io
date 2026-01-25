@@ -1,6 +1,6 @@
 {
-  "version": "1.0.9",
-  "lastUpdated": "2026-01-21T18:00:00Z",
+  "version": "1.1.0",
+  "lastUpdated": "2026-01-25T18:00:00Z",
   "welcome_stage": [
     {
       "id": "0-1",
@@ -290,6 +290,24 @@
         { "id": "15-5", "day": 5, "title": "5 Easy Exposure Swaps", "description": "Try a few small changes that quietly reduce daily toxin exposure without overhauling your lifestyle.", "contentUrl": "https://auracarecontent.github.io/15-5.html", "isUnlocked": true, "duration": "12 min" },
         { "id": "15-6", "day": 6, "title": "The Hidden Home Toxins", "description": "When fatigue or fog has no clear cause, this day helps you spot everyday sources that add up over time.", "contentUrl": "https://auracarecontent.github.io/15-6.html", "isUnlocked": true, "duration": "11 min" },
         { "id": "15-7", "day": 7, "title": "Top 10 Detox Foods", "description": "Feel how fiber-rich, nutrient-dense foods gently support liver and gut cleanup without harsh rules.", "contentUrl": "https://auracarecontent.github.io/15-7.html", "isUnlocked": true, "duration": "8 min" }
+      ]
+    },
+    {
+      "id": "16",
+      "week": 16,
+      "title": "Boost Your Immunity",
+      "subtitle": "This week helps you see what quietly weakens your immunity—and how to support it through everyday habits, not extreme fixes.",
+      "icon": "shield-checkmark-outline",
+      "iconColor": "#8B7355",
+      "status": "available",
+      "days": [
+        { "id": "16-1", "day": 1, "title": "Why Immunity Feels Low", "description": "Notice how feeling tired, stressed, or \"off\" is often your immunity asking for support.", "contentUrl": "https://auracarecontent.github.io/16-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "16-2", "day": 2, "title": "How Immunity Actually Works", "description": "Discover how your immune system is built — and why protection doesn't come from one organ, one cell, or one supplement.", "contentUrl": "https://auracarecontent.github.io/16-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "16-3", "day": 3, "title": "Everyday Habits That Weaken Immunity", "description": "Feel what shifts when you recognize the small daily patterns draining your resilience.", "contentUrl": "https://auracarecontent.github.io/16-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "16-4", "day": 4, "title": "Nutrients Your Immunity Misses", "description": "If you eat regularly but still feel run down, this day explains why food quality matters.", "contentUrl": "https://auracarecontent.github.io/16-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "16-5", "day": 5, "title": "Simple Ways to Support Immunity", "description": "Try a few realistic changes that fit into normal, busy days.", "contentUrl": "https://auracarecontent.github.io/16-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "16-6", "day": 6, "title": "Hidden Reasons Your Immunity Can't Recover", "description": "Discover how stress, air quality, and everyday environment quietly keep your immune system on edge.", "contentUrl": "https://auracarecontent.github.io/16-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "16-7", "day": 7, "title": "Calm Helps Immunity Reset", "description": "Notice how calming your nervous system can help your body feel stronger and steadier.", "contentUrl": "https://auracarecontent.github.io/16-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
     }
   ]

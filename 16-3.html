@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3 — Everyday Habits That Weaken Immunity</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .bullet-item:before { content: "•"; position: absolute; left: 0.5rem; color: #B87658; font-weight: 700; }
+        .science-fact, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .result-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; align-items: flex-start; }
+        .result-icon { font-size: 1.25rem; flex-shrink: 0; }
+        
+        /* Habit Cards */
+        .habit-card {
+            background: linear-gradient(to bottom, rgba(239,68,68,0.08) 0%, rgba(239,68,68,0.03) 100%);
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            border-left: 4px solid #ef4444;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 2px 4px rgba(23,39,55,0.06);
+        }
+        .habit-icon {
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+        .habit-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.5;
+        }
+        
+        /* Biomarker Cards */
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            transition: width 1s ease-out;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 1.4;
+        }
+        
+        .insight-box {
+            background: rgba(59,130,246,0.08);
+            border-left: 3px solid #3b82f6;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .insight-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+        }
+        
+        /* Action Cards */
+        .action-card {
+            background: linear-gradient(to bottom, rgba(16,185,129,0.08) 0%, rgba(16,185,129,0.03) 100%);
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            border-left: 4px solid #10B981;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 2px 4px rgba(23,39,55,0.06);
+        }
+        .action-icon {
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+        .action-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 3</div>
+            <h1>Everyday Habits That Weaken Immunity</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Most immune drain doesn't come from big mistakes or obvious unhealthy choices.
+            </div>
+            <div class="text-content">
+                It comes from small habits repeated every day without much attention.
+            </div>
+            <div class="text-content">
+                They don't feel harmful, but they slowly reduce your capacity to recover.
+            </div>
+            <div class="text-content">
+                Today is about becoming aware of those patterns — without judgment or pressure to fix everything at once.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Your immune system is built to handle challenges, but it needs recovery in between.
+            </div>
+            <div class="text-content">
+                When daily habits keep the body slightly stressed, rushed, or under-rested, immune reserve slowly shrinks.
+            </div>
+            <div class="text-content">
+                This doesn't cause immediate illness — it shows up as lower energy, slower recovery, or frequent "almost sick" feelings.
+            </div>
+            <div class="text-content">
+                Once you can see these patterns, you can change them gently.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Awareness alone often brings relief.</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What's Really Happening</h2>
+            </div>
+            <div class="text-content">
+                One key process involved here is <span class="highlight-text">immune energy allocation</span>.
+            </div>
+            <div class="text-content">
+                Your immune system shares energy with the brain, muscles, digestion, and stress response.
+            </div>
+            <div class="text-content">
+                When you rush meals, skip sleep, multitask constantly, or stay mentally tense, energy is redirected away from immune maintenance.
+            </div>
+            <div class="text-content">
+                Immune cells still work, but they do so with fewer resources.
+            </div>
+            <div class="text-content">
+                Over time, this reduces immune reserve and response speed. Nothing breaks — the system just runs closer to its limits.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">This is why small habits matter more than occasional big stressors.</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔍</span>
+                <h2>Everyday Habits That Quietly Weaken Immunity</h2>
+            </div>
+            <div class="text-content" style="font-weight: 600; color: #656565; margin-bottom: 1.25rem;">
+                These habits are common — and often invisible.
+            </div>
+
+            <div class="habit-card">
+                <span class="habit-icon">😴</span>
+                <div class="habit-text">Sleeping at inconsistent times</div>
+            </div>
+
+            <div class="habit-card">
+                <span class="habit-icon">🍽️</span>
+                <div class="habit-text">Eating quickly or skipping meals</div>
+            </div>
+
+            <div class="habit-card">
+                <span class="habit-icon">📱</span>
+                <div class="habit-text">Constant screen exposure without mental breaks</div>
+            </div>
+
+            <div class="habit-card">
+                <span class="habit-icon">⚡</span>
+                <div class="habit-text">Staying in "task mode" late into the evening</div>
+            </div>
+
+            <div class="habit-card">
+                <span class="habit-icon">🪑</span>
+                <div class="habit-text">Rare movement during the day</div>
+            </div>
+
+            <div class="habit-card">
+                <span class="habit-icon">🚨</span>
+                <div class="habit-text">Ignoring early fatigue signals</div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.25rem; font-weight: 600; color: #B87658;">
+                Each one adds a small load. Together, they matter.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts</h2>
+            </div>
+
+            <div class="science-fact">
+                <span class="fact-icon">⚡</span>
+                <div>
+                    <div class="fact-desc">Chronic low-level stress alters immune energy distribution (Sapolsky, 2004).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <span class="fact-icon">💤</span>
+                <div>
+                    <div class="fact-desc">Irregular sleep timing reduces immune restoration even if total sleep seems adequate (NIH, 2023).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <span class="fact-icon">🧠</span>
+                <div>
+                    <div class="fact-desc">Mental overload without breaks affects immune signaling and recovery (Irwin, 2015).</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs? — Immune Drain Signals</h2>
+            </div>
+            <div class="text-content">
+                The percentage shows how strongly this biomarker can influence how you feel and function overall.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Cortisol</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">🧠 45%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects chronic stress load that diverts energy away from immune recovery (NIH, 2023).
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">White Blood Cell Count</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">🩸 40%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects available immune reserve; prolonged daily drain can lower functional readiness over time (NIH, 2023).
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <div class="insight-text">
+                    <span class="highlight-text">Key insight:</span> Immune weakness often reflects energy misallocation, not immune failure.
+                </div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(184,118,88,0.15); margin: 1.5rem 0; text-align: center;">
+                <div class="text-content" style="margin-bottom: 1.5rem; font-size: 15px;">
+                    If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <div>
+                    <a href="https://challenge.aura.care/lt-3" style="display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; padding: 14px 40px; border-radius: 8px; box-shadow: 0 2px 4px rgba(184,118,88,0.3);" target="_blank" rel="noopener noreferrer">Continue</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content">
+                    Which habit on the list feels most familiar to you?
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    When during the day do you feel your energy start to slip?
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Reduce One Daily Drain</h2>
+            </div>
+            <div class="text-content">
+                Choose one habit to soften today — not eliminate.
+            </div>
+
+            <div class="action-card">
+                <span class="action-icon">🌙</span>
+                <div class="action-text">Go to bed at the same time as yesterday</div>
+            </div>
+
+            <div class="action-card">
+                <span class="action-icon">🍽️</span>
+                <div class="action-text">Slow down one meal</div>
+            </div>
+
+            <div class="action-card">
+                <span class="action-icon">📵</span>
+                <div class="action-text">Take one screen-free pause</div>
+            </div>
+
+            <div class="action-card">
+                <span class="action-icon">🚶</span>
+                <div class="action-text">Add a short walk or stretch</div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.25rem;">
+                Small reductions in daily drain help immunity recover naturally.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/wFucddupQlk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(184,118,88,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">Immune drain often comes from small daily patterns</li>
+                <li class="bullet-item">Energy is shared between immunity and stress response</li>
+                <li class="bullet-item">Nothing needs to be "fixed" all at once</li>
+                <li class="bullet-item">Awareness creates space for recovery</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+
+            <div class="result-item">
+                <span class="result-icon">⏱️</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">After today</span> — Better awareness of what drains you
+                </div>
+            </div>
+
+            <div class="result-item">
+                <span class="result-icon">⏳</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">After 3–5 days</span> — Slight improvement in energy stability
+                </div>
+            </div>
+
+            <div class="result-item">
+                <span class="result-icon">📆</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">After 1–2 weeks</span> — Fewer "run-down" moments
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="text-content" style="font-size: 18px; font-weight: 700; color: #B87658; margin-bottom: 0;">
+                ✨ Remember: Your immunity isn't weak — it's been quietly overworked.
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <div style="text-align: center;">
+                <a href="https://challenge.aura.care/lt-3" style="color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4;" target="_blank" rel="noopener noreferrer">Continue</a>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>

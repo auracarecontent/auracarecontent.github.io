@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 2 — How Immunity Actually Works</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .bullet-item:before { content: "•"; position: absolute; left: 0.5rem; color: #B87658; font-weight: 700; }
+        .science-fact, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .video-container { position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; margin: 1rem 0 1.5rem 0; background: #000; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .result-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; align-items: flex-start; }
+        .result-icon { font-size: 1.25rem; flex-shrink: 0; }
+        
+        /* Immune Part Cards */
+        .immune-part-card {
+            background: linear-gradient(to bottom, rgba(184,118,88,0.08) 0%, rgba(184,118,88,0.03) 100%);
+            padding: 1.25rem;
+            border-radius: 16px;
+            border-left: 4px solid #B87658;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 6px rgba(23,39,55,0.06);
+        }
+        .part-title {
+            font-weight: 700;
+            color: #172737;
+            font-size: 16px;
+            line-height: 1.3;
+        }
+        .part-desc {
+            font-size: 14px;
+            color: #172737;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .part-desc:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Process Steps */
+        .process-step {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+        
+        /* Biomarker Cards */
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            transition: width 1s ease-out;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            line-height: 1.4;
+        }
+        
+        .insight-box {
+            background: rgba(59,130,246,0.08);
+            border-left: 3px solid #3b82f6;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .insight-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 2</div>
+            <h1>How Immunity Actually Works</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Most people think of immunity as something abstract — either "strong" or "weak."
+            </div>
+            <div class="text-content">
+                But your immune system is made of real parts, doing real work every day.
+            </div>
+            <div class="text-content">
+                These parts don't act alone; they constantly communicate, move, and adapt.
+            </div>
+            <div class="text-content">
+                Today is about understanding who actually protects you — and how they work together.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                When you know where immunity lives and how it functions, your body stops feeling mysterious or fragile.
+            </div>
+            <div class="text-content">
+                You begin to see why sleep, food, movement, and stress matter so much.
+            </div>
+            <div class="text-content">
+                Immunity isn't about fighting harder — it's about keeping this system supported and coordinated.
+            </div>
+            <div class="text-content">
+                This understanding helps you make better daily choices without fear or pressure.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Clarity replaces guesswork.</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What's Really Happening</h2>
+            </div>
+            <div class="text-content">
+                The immune system works as a <span class="highlight-text">distributed protection network</span>.
+            </div>
+            <div class="text-content">
+                It doesn't sit in one place waiting for danger.
+            </div>
+            <div class="text-content">
+                Protective cells are constantly produced, trained, moved, and recycled.
+            </div>
+            <div class="text-content">
+                Some parts detect problems, others respond, others clean up, and others help the body remember.
+            </div>
+            <div class="text-content">
+                When all parts communicate well, protection feels effortless.
+            </div>
+            <div class="text-content">
+                When communication breaks down, immunity feels low — even if nothing is "wrong."
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Strength comes from coordination, not intensity.</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔍</span>
+                <h2>Key Parts of the Immune System</h2>
+            </div>
+
+            <div class="immune-part-card">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 2rem;">🩸</span>
+                    <div class="part-title">White Blood Cells</div>
+                </div>
+                <div class="part-desc">
+                    These are your body's <span class="highlight-text">mobile defenders</span>.
+                </div>
+                <div class="part-desc">
+                    They circulate through your blood and tissues, checking for signs of infection or damage.
+                </div>
+                <div class="part-desc">
+                    When they detect something unfamiliar, they signal for support and take action.
+                </div>
+            </div>
+
+            <div class="immune-part-card">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 2rem;">🌊</span>
+                    <div class="part-title">Lymphatic System</div>
+                </div>
+                <div class="part-desc">
+                    This is the immune system's <span class="highlight-text">transport and cleanup network</span>.
+                </div>
+                <div class="part-desc">
+                    It moves immune cells through the body and drains waste from tissues.
+                </div>
+                <div class="part-desc">
+                    Lymph nodes act like checkpoints — filtering harmful material and coordinating responses.
+                </div>
+            </div>
+
+            <div class="immune-part-card">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 2rem;">🦴</span>
+                    <div class="part-title">Bone Marrow</div>
+                </div>
+                <div class="part-desc">
+                    This is where <span class="highlight-text">immune cells are created</span>.
+                </div>
+                <div class="part-desc">
+                    Every day, your bone marrow produces new white blood cells.
+                </div>
+                <div class="part-desc">
+                    Without healthy production here, the immune system has fewer resources to work with.
+                </div>
+            </div>
+
+            <div class="immune-part-card">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 2rem;">🎓</span>
+                    <div class="part-title">Thymus</div>
+                </div>
+                <div class="part-desc">
+                    The thymus helps <span class="highlight-text">"train"</span> certain immune cells.
+                </div>
+                <div class="part-desc">
+                    It teaches them how to recognize real threats without overreacting.
+                </div>
+                <div class="part-desc">
+                    This training is especially important for balanced, precise immune responses.
+                </div>
+            </div>
+
+            <div class="immune-part-card">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 2rem;">🔬</span>
+                    <div class="part-title">Spleen</div>
+                </div>
+                <div class="part-desc">
+                    The spleen <span class="highlight-text">filters the blood</span> and monitors it for signs of infection.
+                </div>
+                <div class="part-desc">
+                    It helps remove damaged cells and supports immune responses when needed.
+                </div>
+                <div class="part-desc">
+                    Think of it as quality control for what's circulating in your bloodstream.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔄</span>
+                <h2>How the Immune System Works (Simplified)</h2>
+            </div>
+
+            <div class="process-step">
+                <span class="step-number">1</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    First, the immune system <span class="highlight-text">recognizes</span> something unfamiliar.
+                </div>
+            </div>
+
+            <div class="process-step">
+                <span class="step-number">2</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Next, immune cells <span class="highlight-text">activate and move</span> to where they're needed.
+                </div>
+            </div>
+
+            <div class="process-step">
+                <span class="step-number">3</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Then the system <span class="highlight-text">eliminates the threat</span> through direct attack or neutralization.
+                </div>
+            </div>
+
+            <div class="process-step">
+                <span class="step-number">4</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Finally, the immune system <span class="highlight-text">remembers</span>, so future responses are faster and more efficient.
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1rem;">
+                This entire process depends on energy, recovery, and clear communication.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts</h2>
+            </div>
+
+            <div class="science-fact">
+                <span class="fact-icon">🔬</span>
+                <div>
+                    <div class="fact-desc">White blood cells are produced in bone marrow and circulate continuously (NIH, 2023).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <span class="fact-icon">🌊</span>
+                <div>
+                    <div class="fact-desc">The lymphatic system is essential for immune cell transport and waste removal (Mayo Clinic, 2022).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <span class="fact-icon">💤</span>
+                <div>
+                    <div class="fact-desc">Sleep and stress directly affect immune coordination and memory formation (Irwin, 2015).</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs? — Core Immune Infrastructure</h2>
+            </div>
+            <div class="text-content">
+                The percentage shows how strongly this biomarker can influence how you feel and function overall.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">White Blood Cell Count</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">🩸 45%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects the size of your immune workforce available for protection and recovery (NIH, 2023).
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Ferritin</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">🧲 40%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects iron availability needed to produce and maintain immune cells; low or borderline levels reduce immune capacity (Mayo Clinic, 2022).
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <div class="insight-text">
+                    <span class="highlight-text">Key insight:</span> Immunity weakens when production, transport, or coordination is limited — not only when cells are "low."
+                </div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(184,118,88,0.15); margin: 1.5rem 0; text-align: center;">
+                <div class="text-content" style="margin-bottom: 1.5rem; font-size: 15px;">
+                    If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <div>
+                    <a href="https://challenge.aura.care/lt-3" style="display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; padding: 14px 40px; border-radius: 8px; box-shadow: 0 2px 4px rgba(184,118,88,0.3);" target="_blank" rel="noopener noreferrer">Continue</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content">
+                    Which part of immunity do you think you've been supporting — and which might be overlooked?
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Where do you notice your body struggling most: recovery, energy, or frequent irritation?
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Support the Immune Network</h2>
+            </div>
+            <div class="text-content">
+                Today, support more than one part — gently.
+            </div>
+            
+            <ul class="bullet-list">
+                <li class="bullet-item">Eat a meal that includes protein, vegetables, and healthy fats</li>
+                <li class="bullet-item">Move your body lightly to support circulation and lymph flow</li>
+                <li class="bullet-item">Go to bed at a consistent time to support immune renewal</li>
+                <li class="bullet-item">Reduce evening stress to help immune signaling reset</li>
+            </ul>
+
+            <div class="text-content">
+                Small support across systems works better than pushing one area hard.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎥</span>
+                <h2>Video of the Day</h2>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/UZTf3OXJDWA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(184,118,88,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">Immunity is made of multiple working parts</li>
+                <li class="bullet-item">Immune cells are produced, trained, and transported daily</li>
+                <li class="bullet-item">Coordination matters more than intensity</li>
+                <li class="bullet-item">Daily habits shape immune strength over time</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+
+            <div class="result-item">
+                <span class="result-icon">⏱️</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">After today</span> — Clearer understanding of how immunity actually works
+                </div>
+            </div>
+
+            <div class="result-item">
+                <span class="result-icon">⏳</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">After 3–5 days</span> — Better awareness of what supports your immune system
+                </div>
+            </div>
+
+            <div class="result-item">
+                <span class="result-icon">📆</span>
+                <div class="text-content" style="margin-bottom: 0;">
+                    <span class="highlight-text">After 1–2 weeks</span> — More confidence in everyday immune care
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="text-content" style="font-size: 18px; font-weight: 700; color: #B87658; margin-bottom: 0;">
+                ✨ Remember: A strong immune system isn't one thing — it's a well-supported team working together.
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <div style="text-align: center;">
+                <a href="https://challenge.aura.care/lt-3" style="color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4;" target="_blank" rel="noopener noreferrer">Continue</a>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>
