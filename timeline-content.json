@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "lastUpdated": "2026-01-25T18:00:00Z",
+  "version": "1.1.1",
+  "lastUpdated": "2026-01-28T18:00:00Z",
   "welcome_stage": [
     {
       "id": "0-1",
@@ -308,6 +308,24 @@
         { "id": "16-5", "day": 5, "title": "Simple Ways to Support Immunity", "description": "Try a few realistic changes that fit into normal, busy days.", "contentUrl": "https://auracarecontent.github.io/16-5.html", "isUnlocked": true, "duration": "12 min" },
         { "id": "16-6", "day": 6, "title": "Hidden Reasons Your Immunity Can't Recover", "description": "Discover how stress, air quality, and everyday environment quietly keep your immune system on edge.", "contentUrl": "https://auracarecontent.github.io/16-6.html", "isUnlocked": true, "duration": "11 min" },
         { "id": "16-7", "day": 7, "title": "Calm Helps Immunity Reset", "description": "Notice how calming your nervous system can help your body feel stronger and steadier.", "contentUrl": "https://auracarecontent.github.io/16-7.html", "isUnlocked": true, "duration": "8 min" }
+      ]
+    },
+    {
+      "id": "17",
+      "week": 17,
+      "title": "Your Brain Reset",
+      "subtitle": "This week helps you understand why your mind feels tired or scattered—and what helps it feel clearer and steadier again.",
+      "icon": "bulb-outline",
+      "iconColor": "#C4A57B",
+      "status": "available",
+      "days": [
+        { "id": "17-1", "day": 1, "title": "Why Your Brain Feels Foggy", "description": "Notice how overload, stress, and constant switching quietly drain your mental clarity.", "contentUrl": "https://auracarecontent.github.io/17-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "17-2", "day": 2, "title": "Why Food Affects Your Focus", "description": "Notice how what and when you eat shapes your attention, mood, and mental stamina.", "contentUrl": "https://auracarecontent.github.io/17-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "17-3", "day": 3, "title": "Your Brain Needs Fuel, Not Tricks", "description": "If you rely on caffeine or quick fixes, this day shows why your brain still feels drained.", "contentUrl": "https://auracarecontent.github.io/17-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "17-4", "day": 4, "title": "The Truth About Brain Supplements", "description": "Here's why many brain boosters disappoint—and when they make sense.", "contentUrl": "https://auracarecontent.github.io/17-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "17-5", "day": 5, "title": "Natural Ways to Boost Focus", "description": "Try gentler supports that help your brain without pushing it into overdrive.", "contentUrl": "https://auracarecontent.github.io/17-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "17-6", "day": 6, "title": "Screens Are Tiring Your Brain", "description": "What happens when your brain never fully rests from constant digital input.", "contentUrl": "https://auracarecontent.github.io/17-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "17-7", "day": 7, "title": "Sleep Shapes Memory and Focus", "description": "Notice how better sleep quietly improves memory, mood, and mental speed.", "contentUrl": "https://auracarecontent.github.io/17-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
     }
   ]
