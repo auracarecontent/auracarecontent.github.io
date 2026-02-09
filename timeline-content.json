@@ -327,6 +327,24 @@
         { "id": "17-6", "day": 6, "title": "Screens Are Tiring Your Brain", "description": "What happens when your brain never fully rests from constant digital input.", "contentUrl": "https://auracarecontent.github.io/17-6.html", "isUnlocked": true, "duration": "11 min" },
         { "id": "17-7", "day": 7, "title": "Sleep Shapes Memory and Focus", "description": "Notice how better sleep quietly improves memory, mood, and mental speed.", "contentUrl": "https://auracarecontent.github.io/17-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
+    },
+    {
+      "id": "18",
+      "week": 18,
+      "title": "Walk and Run for Heart Health",
+      "subtitle": "Discover how daily movement supports your heart better than occasional intense workouts — without pushing your body too hard.",
+      "icon": "walk-outline",
+      "iconColor": "#8B7355",
+      "status": "available",
+      "days": [
+        { "id": "18-1", "day": 1, "title": "Why Your Heart Needs Movement", "description": "Discover how daily movement supports your heart even more than occasional intense workouts.", "contentUrl": "https://auracarecontent.github.io/18-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "18-2", "day": 2, "title": "Walking Is Enough for Your Heart", "description": "Learn how regular walking can strengthen your heart without pushing your body too hard.", "contentUrl": "https://auracarecontent.github.io/18-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "18-3", "day": 3, "title": "When Running Actually Helps", "description": "See how running can support heart health when it's done in a way your body can handle.", "contentUrl": "https://auracarecontent.github.io/18-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "18-4", "day": 4, "title": "The Pace Your Heart Likes", "description": "Learn how choosing the right pace helps your heart work better without added stress.", "contentUrl": "https://auracarecontent.github.io/18-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "18-5", "day": 5, "title": "Why Slower Can Be Better", "description": "Discover why slowing down can improve heart recovery more than always trying to go faster.", "contentUrl": "https://auracarecontent.github.io/18-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "18-6", "day": 6, "title": "How Movement Improves Recovery", "description": "See how steady movement helps your body shift from tension into recovery.", "contentUrl": "https://auracarecontent.github.io/18-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "18-7", "day": 7, "title": "Moving With Your Heart Rhythm", "description": "Learn how moving in sync with your natural rhythm supports long-term heart health.", "contentUrl": "https://auracarecontent.github.io/18-7.html", "isUnlocked": true, "duration": "8 min" }
+      ]
     }
   ]
 }

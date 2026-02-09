@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 6 — How Movement Improves Recovery</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .no-bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .no-bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; padding-left: 0; }
+        .science-fact { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .biomarker-card { background: rgba(184,118,88,0.08); padding: 18px; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin: 0.75rem 0; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 13px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.4; }
+        .info-box { background: rgba(184,118,88,0.06); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.12); }
+        .explainer-box { background: rgba(212,149,108,0.1); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.15); }
+        .cta-box { background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(184,118,88,0.15); text-align: center; }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; font-weight: 700; font-size: 16px; padding: 14px 32px; border-radius: 12px; text-decoration: none; margin-top: 1rem; box-shadow: 0 4px 8px rgba(184,118,88,0.25); }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <div class="header">
+            <div class="day-label">DAY 6</div>
+            <h1>How Movement Improves Recovery</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                Recovery is often imagined as stopping, lying down, or doing nothing.
+            </div>
+            <div class="text-content">
+                Yet many people notice that complete rest doesn't always bring relief — the body can stay tense or restless.
+            </div>
+            <div class="text-content">
+                Gentle movement, on the other hand, sometimes makes recovery feel easier and more natural.
+            </div>
+            <div class="text-content">
+                That's not a contradiction. It's a different recovery pathway.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Stress loads the system not only through effort, but through <span class="highlight-text">stillness without release</span>.
+            </div>
+            <div class="text-content">
+                When movement is steady and non-demanding, it helps the body exit survival mode without collapsing energy.
+            </div>
+            <div class="text-content">
+                In daily life, this often shows up as smoother evenings, fewer spikes of irritability, and better ability to wind down.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What's Really Happening</h2>
+            </div>
+            <div class="text-content">
+                The key mechanism today involves <span class="highlight-text">venous return</span> — how blood flows back to the heart.
+            </div>
+            <div class="text-content">
+                Gentle, rhythmic movement activates the muscles of the legs and torso, which lightly squeeze veins and push blood upward.
+            </div>
+            <div class="text-content">
+                This improves circulation without raising heart rate aggressively.
+            </div>
+            <div class="text-content">
+                As blood returns more efficiently, pressure inside the heart normalizes and the heart doesn't need to compensate with force.
+            </div>
+            <div class="text-content">
+                The nervous system reads this as resolution rather than demand.
+            </div>
+            <div class="text-content">
+                In daily life, this often feels like <span class="highlight-text">warmth in the limbs, quieter thoughts, and a sense of release rather than fatigue</span>.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🔄</div>
+                <div>
+                    <div class="fact-title">Low-intensity movement improves venous return and circulatory efficiency</div>
+                    <div class="fact-desc">
+                        Rowell LB, Human Circulation, 1993
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🌿</div>
+                <div>
+                    <div class="fact-title">Gentle activity supports recovery signaling without activating stress pathways</div>
+                    <div class="fact-desc">
+                        Seiler S, Sports Medicine, 2010
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">⚖️</div>
+                <div>
+                    <div class="fact-title">Active recovery improves autonomic balance more than complete inactivity</div>
+                    <div class="fact-desc">
+                        Stanley J, Eur J Appl Physiol, 2013
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs? — Circulatory Recovery Pattern</h2>
+            </div>
+
+            <div class="text-content">
+                The percentage shows how strongly this biomarker can influence how you feel and function overall.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">🧪 Hematocrit</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Higher values increase blood thickness, making gentle circulation especially important.<br>
+                    <em>(NIH, Blood, 2020)</em>
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">🧪 Fibrinogen</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 38%;">38 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Elevated levels reflect higher blood viscosity and slower recovery flow.<br>
+                    <em>(Kannel WB, Circulation, 1987)</em>
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">🧪 Magnesium</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 35%;">35 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Lower levels reduce smooth muscle relaxation and circulatory ease.<br>
+                    <em>(Volpe SL, Nutrients, 2013)</em>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 13px; font-weight: 600; color: #172737; line-height: 1.5;">
+                    🔍 Key insight:
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.5rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Recovery improves when circulation clears load instead of stopping abruptly.
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="fact-title" style="color: #B87658; font-size: 16px; margin-bottom: 0.75rem;">
+                    👉 If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+                </div>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">continue →</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="text-content">
+                After gentle movement, does your body feel clearer or heavier?
+            </div>
+            <div class="text-content">
+                What kind of motion helps you feel released rather than tired?
+            </div>
+        </div>
+
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Active Recovery Loop</h2>
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">⏰ Once today, stand up and move gently for 3–5 minutes every hour or two.</li>
+                <li class="no-bullet-item">🔄 Use simple motions: shifting weight, light stretches, easy pacing.</li>
+                <li class="no-bullet-item">✅ Finish each round before any fatigue appears.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🔄 Recovery can be active, not passive</li>
+                <li class="no-bullet-item">💓 Circulation clears stress signals</li>
+                <li class="no-bullet-item">🌿 Gentle motion helps the heart settle</li>
+                <li class="no-bullet-item">✨ Ease accelerates recovery</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ After today</span> — The body settles more smoothly after movement</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏳ After 3–5 days</span> — Evenings feel calmer with less residual tension</li>
+                <li class="no-bullet-item"><span class="highlight-text">📆 After 1–2 weeks</span> — Recovery between active days becomes faster and more reliable</li>
+            </ul>
+
+            <div class="reflection-box">
+                <div style="text-align: center;">
+                    <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">
+                        ✨ Remember
+                    </div>
+                    <div class="fact-desc">
+                        Rest doesn't always mean stopping — sometimes it means moving gently until the system lets go.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <a href="https://plan.aura.care/lt-2" style="color: white; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF;">
+                continue →
+            </a>
+        </div>
+    </main>
+</body>
+</html>
