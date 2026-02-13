@@ -2,6 +2,32 @@
   "version": "2.0.0",
   "minAppVersion": "1.0.0",
   "region": "us",
+  "giftBanner": {
+    "initialState": {
+      "position": "bottom-pinned",
+      "title": "Welcome to Aura!",
+      "subtitle": "Open your gift!",
+      "icon": "🎁",
+      "backgroundColor": "#F4A89A",
+      "action": "open_gift",
+      "dismissable": true
+    },
+    "afterSkipState": {
+      "position": "below-day-title",
+      "title": "NEWCOMER GIFT",
+      "subtitle": "54% OFF",
+      "description": "Boost your results with personalized blood test",
+      "icon": "🎁",
+      "backgroundColor": "#FF6B9D",
+      "buttonText": "Continue",
+      "action": "open_purchase",
+      "sparkles": true
+    },
+    "triggers": {
+      "showInitial": "on_app_launch",
+      "moveToSecondState": "on_skip_without_purchase"
+    }
+  },
   "weeks": [
     {
       "week": 1,
