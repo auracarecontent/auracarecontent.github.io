@@ -2,14 +2,26 @@
   "version": "2.0.0",
   "minAppVersion": "1.0.0",
   "region": "us",
+  "fallbackBehavior": {
+    "emptyVideo": {
+      "action": "show_articles_only",
+      "placeholder": {
+        "show": false,
+        "message": ""
+      }
+    }
+  },
   "giftBanner": {
     "initialState": {
       "position": "bottom-pinned",
       "title": "Welcome to Aura!",
       "subtitle": "Open your gift!",
-      "icon": "🎁",
+      "icon": "\ud83c\udf81",
       "backgroundColor": "#F4A89A",
-      "action": "open_gift",
+      "action": {
+        "type": "open_gift",
+        "url": "aura://gift/welcome"
+      },
       "dismissable": true
     },
     "afterSkipState": {
@@ -17,10 +29,13 @@
       "title": "NEWCOMER GIFT",
       "subtitle": "54% OFF",
       "description": "Boost your results with personalized blood test",
-      "icon": "🎁",
+      "icon": "\ud83c\udf81",
       "backgroundColor": "#FF6B9D",
       "buttonText": "Continue",
-      "action": "open_purchase",
+      "action": {
+        "type": "open_purchase",
+        "url": "aura://purchase/blood-test-offer"
+      },
       "sparkles": true
     },
     "triggers": {
@@ -39,20 +54,26 @@
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
           "duration": "8 min",
+          "unlockLogic": {
+            "type": "immediate",
+            "available": true
+          },
           "recommended": [
             {
               "title": "Why you wake up tired after sleep",
               "type": "article",
               "url": "https://auracarecontent.github.io/1-1.1.html",
               "imageUrl": "https://auracarecontent.github.io/images/1-1.1.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\ud83d\udd25 NEW"
             },
             {
               "title": "How are biomarkers connected to waking up tired?",
               "type": "article",
               "url": "https://auracarecontent.github.io/1-1.2.html",
               "imageUrl": "https://auracarecontent.github.io/images/1-1.2.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\u2764\ufe0f Top liked"
             }
           ]
         },
@@ -68,16 +89,24 @@
               "type": "article",
               "url": "https://auracarecontent.github.io/1-2.1.html",
               "imageUrl": "https://auracarecontent.github.io/images/1-2.1.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\ud83d\udd25 NEW"
             },
             {
               "title": "Hidden fatigue signals in your blood",
               "type": "article",
               "url": "https://auracarecontent.github.io/1-2.2.html",
               "imageUrl": "https://auracarecontent.github.io/images/1-2.2.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\u2764\ufe0f Top liked"
             }
-          ]
+          ],
+          "unlockLogic": {
+            "type": "daily",
+            "requiresPrevious": true,
+            "previousDay": 1,
+            "unlockTime": "00:00"
+          }
         },
         {
           "day": 3,
@@ -91,16 +120,24 @@
               "type": "article",
               "url": "https://auracarecontent.github.io/1-3.1.html",
               "imageUrl": "https://auracarecontent.github.io/images/1-3.1.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\ud83d\udd25 NEW"
             },
             {
               "title": "Blood markers linked to focus and mental clarity",
               "type": "article",
               "url": "https://auracarecontent.github.io/1-3.2.html",
               "imageUrl": "https://auracarecontent.github.io/images/1-3.2.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\u2764\ufe0f Top liked"
             }
-          ]
+          ],
+          "unlockLogic": {
+            "type": "daily",
+            "requiresPrevious": true,
+            "previousDay": 2,
+            "unlockTime": "00:00"
+          }
         },
         {
           "day": 4,
@@ -114,16 +151,24 @@
               "type": "article",
               "url": "https://auracarecontent.github.io/1-4.1.html",
               "imageUrl": "https://auracarecontent.github.io/images/1-4.1.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\ud83d\udd25 NEW"
             },
             {
               "title": "Dopamine & cortisol: the blood pattern behind energy crashes",
               "type": "article",
               "url": "https://auracarecontent.github.io/1-4.2.html",
               "imageUrl": "https://auracarecontent.github.io/images/1-4.2.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\u2764\ufe0f Top liked"
             }
-          ]
+          ],
+          "unlockLogic": {
+            "type": "daily",
+            "requiresPrevious": true,
+            "previousDay": 3,
+            "unlockTime": "00:00"
+          }
         },
         {
           "day": 5,
@@ -137,16 +182,24 @@
               "type": "article",
               "url": "https://auracarecontent.github.io/1-5.1.html",
               "imageUrl": "https://auracarecontent.github.io/images/1-5.1.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\ud83d\udd25 NEW"
             },
             {
               "title": "The motivation signals your blood can reveal",
               "type": "article",
               "url": "https://auracarecontent.github.io/1-5.2.html",
               "imageUrl": "https://auracarecontent.github.io/images/1-5.2.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\u2764\ufe0f Top liked"
             }
-          ]
+          ],
+          "unlockLogic": {
+            "type": "daily",
+            "requiresPrevious": true,
+            "previousDay": 4,
+            "unlockTime": "00:00"
+          }
         },
         {
           "day": 6,
@@ -160,16 +213,24 @@
               "type": "article",
               "url": "https://auracarecontent.github.io/1-6.1.html",
               "imageUrl": "https://auracarecontent.github.io/images/1-6.1.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\ud83d\udd25 NEW"
             },
             {
               "title": "Stress overload: what chronic burnout looks like in blood tests",
               "type": "article",
               "url": "https://auracarecontent.github.io/1-6.2.html",
               "imageUrl": "https://auracarecontent.github.io/images/1-6.2.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\u2764\ufe0f Top liked"
             }
-          ]
+          ],
+          "unlockLogic": {
+            "type": "daily",
+            "requiresPrevious": true,
+            "previousDay": 5,
+            "unlockTime": "00:00"
+          }
         },
         {
           "day": 7,
@@ -183,23 +244,32 @@
               "type": "article",
               "url": "https://auracarecontent.github.io/1-7.1.html",
               "imageUrl": "https://auracarecontent.github.io/images/1-7.1.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\ud83d\udd25 NEW"
             },
             {
               "title": "What your blood shows without stimulants",
               "type": "article",
               "url": "https://auracarecontent.github.io/1-7.2.html",
               "imageUrl": "https://auracarecontent.github.io/images/1-7.2.jpg",
-              "duration": "1 min"
+              "duration": "1 min",
+              "badge": "\u2764\ufe0f Top liked"
             },
             {
               "title": "Why iron matters more than another coffee",
               "type": "article",
               "url": "https://auracarecontent.github.io/1-7.3.html",
               "imageUrl": "https://auracarecontent.github.io/images/1-7.3.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\u2764\ufe0f Top liked"
             }
-          ]
+          ],
+          "unlockLogic": {
+            "type": "daily",
+            "requiresPrevious": true,
+            "previousDay": 6,
+            "unlockTime": "00:00"
+          }
         }
       ]
     },
@@ -219,16 +289,22 @@
               "type": "article",
               "url": "https://auracarecontent.github.io/2-1.1.html",
               "imageUrl": "https://auracarecontent.github.io/images/2-1.1.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\ud83d\udd25 NEW"
             },
             {
               "title": "Stress hormones hiding behind anxiety",
               "type": "article",
               "url": "https://auracarecontent.github.io/2-1.2.html",
               "imageUrl": "https://auracarecontent.github.io/images/2-1.2.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\u2764\ufe0f Top liked"
             }
-          ]
+          ],
+          "unlockLogic": {
+            "type": "immediate",
+            "available": true
+          }
         },
         {
           "day": 2,
@@ -242,16 +318,24 @@
               "type": "article",
               "url": "https://auracarecontent.github.io/2-2.1.html",
               "imageUrl": "https://auracarecontent.github.io/images/2-2.1.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\ud83d\udd25 NEW"
             },
             {
               "title": "Magnesium: the missing mineral behind nervous tension",
               "type": "article",
               "url": "https://auracarecontent.github.io/2-2.2.html",
               "imageUrl": "https://auracarecontent.github.io/images/2-2.2.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\u2764\ufe0f Top liked"
             }
-          ]
+          ],
+          "unlockLogic": {
+            "type": "daily",
+            "requiresPrevious": true,
+            "previousDay": 1,
+            "unlockTime": "00:00"
+          }
         },
         {
           "day": 3,
@@ -265,16 +349,24 @@
               "type": "article",
               "url": "https://auracarecontent.github.io/2-3.1.html",
               "imageUrl": "https://auracarecontent.github.io/images/2-3.1.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\ud83d\udd25 NEW"
             },
             {
               "title": "What stress chemistry does to your focus",
               "type": "article",
               "url": "https://auracarecontent.github.io/2-3.2.html",
               "imageUrl": "https://auracarecontent.github.io/images/2-3.2.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\ud83d\udd25 NEW"
             }
-          ]
+          ],
+          "unlockLogic": {
+            "type": "daily",
+            "requiresPrevious": true,
+            "previousDay": 2,
+            "unlockTime": "00:00"
+          }
         },
         {
           "day": 4,
@@ -288,16 +380,24 @@
               "type": "article",
               "url": "https://auracarecontent.github.io/2-4.1.html",
               "imageUrl": "https://auracarecontent.github.io/images/2-4.1.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\ud83d\udd25 NEW"
             },
             {
-              "title": "The gut–brain signals your blood can reveal",
+              "title": "The gut\u2013brain signals your blood can reveal",
               "type": "article",
               "url": "https://auracarecontent.github.io/2-4.2.html",
               "imageUrl": "https://auracarecontent.github.io/images/2-4.2.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\u2764\ufe0f Top liked"
             }
-          ]
+          ],
+          "unlockLogic": {
+            "type": "daily",
+            "requiresPrevious": true,
+            "previousDay": 3,
+            "unlockTime": "00:00"
+          }
         },
         {
           "day": 5,
@@ -311,16 +411,24 @@
               "type": "article",
               "url": "https://auracarecontent.github.io/2-5.1.html",
               "imageUrl": "https://auracarecontent.github.io/images/2-5.1.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\ud83d\udd25 NEW"
             },
             {
               "title": "Oxytocin: the calm hormone no one talks about",
               "type": "article",
               "url": "https://auracarecontent.github.io/2-5.2.html",
               "imageUrl": "https://auracarecontent.github.io/images/2-5.2.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\u2764\ufe0f Top liked"
             }
-          ]
+          ],
+          "unlockLogic": {
+            "type": "daily",
+            "requiresPrevious": true,
+            "previousDay": 4,
+            "unlockTime": "00:00"
+          }
         },
         {
           "day": 6,
@@ -334,16 +442,24 @@
               "type": "article",
               "url": "https://auracarecontent.github.io/2-6.1.html",
               "imageUrl": "https://auracarecontent.github.io/images/2-6.1.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\ud83d\udd25 NEW"
             },
             {
               "title": "The heart health signals hiding in your blood",
               "type": "article",
               "url": "https://auracarecontent.github.io/2-6.2.html",
               "imageUrl": "https://auracarecontent.github.io/images/2-6.2.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\u2764\ufe0f Top liked"
             }
-          ]
+          ],
+          "unlockLogic": {
+            "type": "daily",
+            "requiresPrevious": true,
+            "previousDay": 5,
+            "unlockTime": "00:00"
+          }
         },
         {
           "day": 7,
@@ -357,16 +473,24 @@
               "type": "article",
               "url": "https://auracarecontent.github.io/2-7.1.html",
               "imageUrl": "https://auracarecontent.github.io/images/2-7.1.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\ud83d\udd25 NEW"
             },
             {
               "title": "Long-term stress and recovery signals your body tracks",
               "type": "article",
               "url": "https://auracarecontent.github.io/2-7.2.html",
               "imageUrl": "https://auracarecontent.github.io/images/2-7.2.jpg",
-              "duration": "2 min"
+              "duration": "2 min",
+              "badge": "\u2764\ufe0f Top liked"
             }
-          ]
+          ],
+          "unlockLogic": {
+            "type": "daily",
+            "requiresPrevious": true,
+            "previousDay": 6,
+            "unlockTime": "00:00"
+          }
         }
       ]
     }
