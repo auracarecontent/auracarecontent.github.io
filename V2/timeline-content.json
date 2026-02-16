@@ -2,15 +2,6 @@
   "version": "2.0.0",
   "minAppVersion": "1.0.0",
   "region": "us",
-  "fallbackBehavior": {
-    "emptyVideo": {
-      "action": "show_articles_only",
-      "placeholder": {
-        "show": false,
-        "message": ""
-      }
-    }
-  },
   "giftBanner": {
     "initialState": {
       "position": "bottom-pinned",
@@ -54,10 +45,6 @@
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
           "duration": "8 min",
-          "unlockLogic": {
-            "type": "immediate",
-            "available": true
-          },
           "recommended": [
             {
               "title": "Why you wake up tired after sleep",
@@ -100,13 +87,7 @@
               "duration": "2 min",
               "badge": "\u2764\ufe0f Top liked"
             }
-          ],
-          "unlockLogic": {
-            "type": "daily",
-            "requiresPrevious": true,
-            "previousDay": 1,
-            "unlockTime": "00:00"
-          }
+          ]
         },
         {
           "day": 3,
@@ -131,13 +112,7 @@
               "duration": "2 min",
               "badge": "\u2764\ufe0f Top liked"
             }
-          ],
-          "unlockLogic": {
-            "type": "daily",
-            "requiresPrevious": true,
-            "previousDay": 2,
-            "unlockTime": "00:00"
-          }
+          ]
         },
         {
           "day": 4,
@@ -162,13 +137,7 @@
               "duration": "2 min",
               "badge": "\u2764\ufe0f Top liked"
             }
-          ],
-          "unlockLogic": {
-            "type": "daily",
-            "requiresPrevious": true,
-            "previousDay": 3,
-            "unlockTime": "00:00"
-          }
+          ]
         },
         {
           "day": 5,
@@ -193,13 +162,7 @@
               "duration": "2 min",
               "badge": "\u2764\ufe0f Top liked"
             }
-          ],
-          "unlockLogic": {
-            "type": "daily",
-            "requiresPrevious": true,
-            "previousDay": 4,
-            "unlockTime": "00:00"
-          }
+          ]
         },
         {
           "day": 6,
@@ -224,13 +187,7 @@
               "duration": "2 min",
               "badge": "\u2764\ufe0f Top liked"
             }
-          ],
-          "unlockLogic": {
-            "type": "daily",
-            "requiresPrevious": true,
-            "previousDay": 5,
-            "unlockTime": "00:00"
-          }
+          ]
         },
         {
           "day": 7,
@@ -263,13 +220,7 @@
               "duration": "2 min",
               "badge": "\u2764\ufe0f Top liked"
             }
-          ],
-          "unlockLogic": {
-            "type": "daily",
-            "requiresPrevious": true,
-            "previousDay": 6,
-            "unlockTime": "00:00"
-          }
+          ]
         }
       ]
     },
@@ -300,11 +251,7 @@
               "duration": "2 min",
               "badge": "\u2764\ufe0f Top liked"
             }
-          ],
-          "unlockLogic": {
-            "type": "immediate",
-            "available": true
-          }
+          ]
         },
         {
           "day": 2,
@@ -329,13 +276,7 @@
               "duration": "2 min",
               "badge": "\u2764\ufe0f Top liked"
             }
-          ],
-          "unlockLogic": {
-            "type": "daily",
-            "requiresPrevious": true,
-            "previousDay": 1,
-            "unlockTime": "00:00"
-          }
+          ]
         },
         {
           "day": 3,
@@ -360,13 +301,7 @@
               "duration": "2 min",
               "badge": "\ud83d\udd25 NEW"
             }
-          ],
-          "unlockLogic": {
-            "type": "daily",
-            "requiresPrevious": true,
-            "previousDay": 2,
-            "unlockTime": "00:00"
-          }
+          ]
         },
         {
           "day": 4,
@@ -391,13 +326,7 @@
               "duration": "2 min",
               "badge": "\u2764\ufe0f Top liked"
             }
-          ],
-          "unlockLogic": {
-            "type": "daily",
-            "requiresPrevious": true,
-            "previousDay": 3,
-            "unlockTime": "00:00"
-          }
+          ]
         },
         {
           "day": 5,
@@ -422,13 +351,7 @@
               "duration": "2 min",
               "badge": "\u2764\ufe0f Top liked"
             }
-          ],
-          "unlockLogic": {
-            "type": "daily",
-            "requiresPrevious": true,
-            "previousDay": 4,
-            "unlockTime": "00:00"
-          }
+          ]
         },
         {
           "day": 6,
@@ -453,13 +376,7 @@
               "duration": "2 min",
               "badge": "\u2764\ufe0f Top liked"
             }
-          ],
-          "unlockLogic": {
-            "type": "daily",
-            "requiresPrevious": true,
-            "previousDay": 5,
-            "unlockTime": "00:00"
-          }
+          ]
         },
         {
           "day": 7,
@@ -484,13 +401,7 @@
               "duration": "2 min",
               "badge": "\u2764\ufe0f Top liked"
             }
-          ],
-          "unlockLogic": {
-            "type": "daily",
-            "requiresPrevious": true,
-            "previousDay": 6,
-            "unlockTime": "00:00"
-          }
+          ]
         }
       ]
     }
