@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.0.1",
   "minAppVersion": "1.0.0",
   "region": "us",
   "giftBanner": {
@@ -24,10 +24,11 @@
       "days": [
         {
           "day": 1,
+          "type": "video",
           "title": "Stop waking up tired",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
-          "duration": "8 min",
+          "duration": "8:00",
           "recommended": [
             {
               "title": "Why you wake up tired after sleep",
@@ -49,10 +50,11 @@
         },
         {
           "day": 2,
+          "type": "video",
           "title": "Break the exhaustion cycle",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
-          "duration": "10 min",
+          "duration": "10:00",
           "recommended": [
             {
               "title": "Why you stay exhausted even after rest",
@@ -74,10 +76,11 @@
         },
         {
           "day": 3,
+          "type": "video",
           "title": "Clear brain fog fast",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
-          "duration": "7 min",
+          "duration": "7:00",
           "recommended": [
             {
               "title": "4 easy steps to go from brain fog to clarity",
@@ -99,10 +102,11 @@
         },
         {
           "day": 4,
+          "type": "video",
           "title": "Break the dopamine loop",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
-          "duration": "12 min",
+          "duration": "12:00",
           "recommended": [
             {
               "title": "How scrolling quietly drains your energy",
@@ -126,9 +130,9 @@
           "day": 5,
           "type": "article",
           "title": "Bring back motivation",
+          "description": "Motivation is not about willpower—it is about your nervous system state. Learn quick vagal resets to regain focus.",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
-          "readTime": "3 min read",
-          "body": "Motivation is not about willpower—it is about your nervous system state. When your vagus nerve is dysregulated, your brain interprets everything as harder than it actually is.\n\n**The 2-Minute Reset**\n\nWhen motivation drops, try this quick vagal reset:\n\n1. Splash cold water on your face (triggers dive reflex)\n2. Hum for 30 seconds (stimulates vagus nerve)\n3. Take 3 slow breaths: inhale 4 sec, exhale 8 sec\n\n**Why It Works**\n\nYour vagus nerve connects your brain to your gut and heart. When it is toned, you feel calm yet energized—the perfect state for motivation.\n\n**Daily Practice**\n\nDo this reset before any task you have been avoiding. Notice how the task feels easier after activating your parasympathetic nervous system.",
+          "duration": "3:00",
           "recommended": [
             {
               "title": "How to bring back motivation and stop procrastination",
@@ -150,10 +154,11 @@
         },
         {
           "day": 6,
+          "type": "video",
           "title": "Say no to burnout",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
-          "duration": "10 min",
+          "duration": "10:00",
           "recommended": [
             {
               "title": "Burnout isn't laziness: how to break the cycle",
@@ -175,10 +180,11 @@
         },
         {
           "day": 7,
+          "type": "video",
           "title": "Create energy without caffeine",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
-          "duration": "6 min",
+          "duration": "6:00",
           "recommended": [
             {
               "title": "How to create energy without caffeine",
@@ -214,10 +220,11 @@
       "days": [
         {
           "day": 1,
+          "type": "video",
           "title": "5-minute vagus reset for anxiety",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
-          "duration": "10 min",
+          "duration": "10:00",
           "recommended": [
             {
               "title": "How vagus activation calms anxiety",
@@ -239,10 +246,11 @@
         },
         {
           "day": 2,
+          "type": "video",
           "title": "Release hidden tension with vagus",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
-          "duration": "11 min",
+          "duration": "11:00",
           "recommended": [
             {
               "title": "How vagus helps you relax",
@@ -264,10 +272,11 @@
         },
         {
           "day": 3,
+          "type": "video",
           "title": "Calm your body in the moment",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
-          "duration": "10 min",
+          "duration": "10:00",
           "recommended": [
             {
               "title": "How vagus clears brain fog",
@@ -289,10 +298,11 @@
         },
         {
           "day": 4,
+          "type": "video",
           "title": "Relieve bloating with vagus support",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
-          "duration": "11 min",
+          "duration": "11:00",
           "recommended": [
             {
               "title": "What no one says about vagus & gut",
@@ -314,10 +324,11 @@
         },
         {
           "day": 5,
+          "type": "video",
           "title": "A hidden technique to calm your body",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
-          "duration": "12 min",
+          "duration": "12:00",
           "recommended": [
             {
               "title": "Why touch works better than you think",
@@ -339,10 +350,11 @@
         },
         {
           "day": 6,
+          "type": "video",
           "title": "Boost HRV with vagus",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
-          "duration": "11 min",
+          "duration": "11:00",
           "recommended": [
             {
               "title": "How vagus activation improves recovery",
@@ -364,10 +376,11 @@
         },
         {
           "day": 7,
+          "type": "video",
           "title": "Restore steady vitality",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
-          "duration": "9 min",
+          "duration": "9:00",
           "recommended": [
             {
               "title": "What no one tells you about steady energy",
