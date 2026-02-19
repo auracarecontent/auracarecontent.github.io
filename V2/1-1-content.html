@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why You Wake Up Tired After Sleep</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(160deg, #f5f0e8 0%, #ede8f5 50%, #f0e8f5 100%);
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .phone-wrapper {
+    width: 100%;
+    background: linear-gradient(160deg, #f5f0e8 0%, #ede8f5 50%, #f0e8f5 100%);
+    min-height: 100vh;
+  }
+
+
+
+  /* Hero */
+  .hero {
+    padding: 24px 22px 16px;
+    text-align: left;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .hero-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #0d0d0d;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+  }
+
+  .hero-divider {
+    width: 44px;
+    height: 3px;
+    background: linear-gradient(90deg, #B87658, #D4956C);
+    border-radius: 2px;
+    margin: 14px 0 0;
+  }
+
+  /* Content */
+  .content {
+    padding: 20px 22px 52px;
+  }
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #B87658;
+    margin-bottom: 10px;
+    margin-top: 32px;
+  }
+
+  .section-tag:first-child { margin-top: 4px; }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0d0d0d;
+    line-height: 1.25;
+    margin: 0 0 14px;
+    letter-spacing: -0.3px;
+  }
+
+  p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: #2a2a2a;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  /* Callout */
+  .callout {
+    background: rgba(255,255,255,0.6);
+    border-left: 3px solid #B87658;
+    border-radius: 0 12px 12px 0;
+    padding: 14px 16px;
+    margin: 20px 0;
+    backdrop-filter: blur(6px);
+  }
+
+  .callout p {
+    font-size: 16px;
+    font-style: italic;
+    color: #3a3a3a;
+    margin: 0;
+    text-align: left;
+  }
+
+  /* Biomarker cards */
+  .biomarker-card {
+    background: rgba(255,255,255,0.6);
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.75);
+  }
+
+  .biomarker-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .biomarker-icon { font-size: 26px; flex-shrink: 0; }
+
+  .biomarker-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #4caf50;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 2px;
+  }
+
+  .biomarker-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.2;
+  }
+
+  .biomarker-desc {
+    font-size: 15px;
+    line-height: 1.55;
+    color: #444;
+    text-align: justify;
+    margin: 0;
+  }
+
+  /* Hack items */
+  .hack-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: rgba(255,255,255,0.55);
+    border-radius: 16px;
+    padding: 15px 16px;
+    margin-bottom: 10px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.7);
+  }
+
+  .hack-emoji { font-size: 26px; flex-shrink: 0; margin-top: 1px; }
+
+  .hack-text {
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: #2a2a2a;
+    margin: 0;
+    text-align: justify;
+  }
+
+  .hack-text strong {
+    font-weight: 700;
+    color: #1a1a1a;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .link {
+    color: #4caf50;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 2px;
+    font-size: 13px;
+  }
+
+  /* CTA */
+  .cta-block {
+    background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-top: 28px;
+    text-align: center;
+  }
+
+  .cta-icon { font-size: 22px; display: block; margin-bottom: 6px; }
+
+  .cta-block h2 { color: #fff; font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+
+  .cta-block p {
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .cta-link {
+    display: inline-block;
+    margin-top: 12px;
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 9px 22px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    letter-spacing: 0.2px;
+  }
+
+  .divider {
+    height: 1px;
+    background: rgba(0,0,0,0.07);
+    margin: 28px 0 0;
+  }
+</style>
+</head>
+<body>
+<div class="phone-wrapper">
+
+
+
+  <div class="hero">
+    <div class="hero-title">Why You Wake Up Tired After Sleep</div>
+    <div class="hero-divider"></div>
+  </div>
+
+  <div class="content">
+
+    <!-- Section 1 -->
+    <div class="section-tag">😴 The Wake-Up Paradox</div>
+    <h2>You slept 8 hours. So why are you exhausted?</h2>
+
+    <p>Your morning energy isn't just about <em>how long</em> you slept — it's about how quickly your Vagus Nerve flips your internal <strong>"ON" switch.</strong> Think of this nerve as the bridge between your brain and your organs, responsible for moving you from nighttime <em>"repair mode"</em> into daytime <em>"alert mode."</em></p>
+
+    <p>If your system is still stuck in high tension from yesterday's stress, that signal gets scrambled. You wake up in a fog because your body literally hasn't received the command to power up.</p>
+
+    <div class="callout">
+      <p>🔍 Quick check: Do you feel foggy or heavy for the first hour of the day — even when you went to bed on time?</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Section 2 -->
+    <h2>Your Internal "ON" Switch</h2>
+
+    <p>Why do some people jump out of bed ready to go, while others can't shake morning grogginess? The secret is a chemical dance between two key biomarkers: Cortisol and DHEA-S.</p>
+
+    <div class="biomarker-card">
+      <div class="biomarker-header">
+        <div class="biomarker-icon">⚡</div>
+        <div>
+          <div class="biomarker-title">Cortisol — The "GO" Button</div>
+        </div>
+      </div>
+      <p class="biomarker-desc">Your natural morning spark. It boosts blood flow and mobilizes glucose for quick mental energy. For a perfect start, it should peak about 30 minutes after waking up.</p>
+    </div>
+
+    <div class="biomarker-card">
+      <div class="biomarker-header">
+        <div class="biomarker-icon">🛡️</div>
+        <div>
+          <div class="biomarker-title">DHEA-S — The Stabilizer</div>
+        </div>
+      </div>
+      <p class="biomarker-desc">This hormone acts as a buffer, keeping your nervous system calm and resilient so your morning energy feels steady — not anxious or scattered.</p>
+    </div>
+
+    <p>When this rhythm is out of sync — Cortisol too low or peaking too late — you feel heavy and sluggish all morning. No amount of caffeine can fix a biological <strong>"startup" failure.</strong></p>
+
+    <div class="divider"></div>
+
+    <!-- Section 3 -->
+    <div class="section-tag">🔬 Science-Backed Tips</div>
+    <h2>Recovery Hacks That Actually Work</h2>
+
+    <div class="hack-item">
+      <div class="hack-emoji">🚶‍♀️</div>
+      <p class="hack-text">
+        <strong>Walk for 10 minutes</strong>
+        Movement in daylight helps your brain clear the cobwebs and signals your system to start the engine. (Lee et al., 2024)
+      </p>
+    </div>
+
+    <div class="hack-item">
+      <div class="hack-emoji">📖</div>
+      <p class="hack-text">
+        <strong>Read for 6 minutes</strong>
+        The fastest way to lower heart rate and reduce physical tension by ≈ 68%, making the shift to alertness much smoother. (Mindlab Int.)
+      </p>
+    </div>
+
+    <div class="hack-item">
+      <div class="hack-emoji">🤗</div>
+      <p class="hack-text">
+        <strong>Hug for 20 seconds</strong>
+        Instantly boosts oxytocin and balances internal stress signals, stabilizing your mood for the whole day. (Ditzen et al., 2007)
+      </p>
+    </div>
+
+    <div class="hack-item">
+      <div class="hack-emoji">🕯️</div>
+      <p class="hack-text">
+        <strong>Dim lights after 9 p.m.</strong>
+        Protects your natural recovery cycle so you wake up with a full battery the next morning. (Gooley et al., 2011)
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <span class="cta-icon">📩</span>
+      <h2>Get Your Personalized Lab Panel</h2>
+      <p>If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:</p>
+      <a class="cta-link" href="https://plan.aura.care/lt-2/">Continue →</a>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
