@@ -14,7 +14,7 @@
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
           "duration": "8:00",
-          "contentUrl": "https://auracarecontent.github.io/1-1-content.html"
+          "contentUrl": "https://auracarecontent.github.io/V2/1-1-content.html"
         },
         {
           "day": 2,
@@ -23,7 +23,7 @@
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
           "duration": "10:00",
-          "contentUrl": "https://auracarecontent.github.io/1-2-content.html"
+          "contentUrl": "https://auracarecontent.github.io/V2/1-2-content.html"
         },
         {
           "day": 3,
