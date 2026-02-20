@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why you wake up tired after sleep</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /*
+    TYPOGRAPHY — 3 levels only:
+    1. Article title:  24px / 700
+    2. Section h2:     19px / 700
+    3. Body text:      16px / 400 / lh 1.7
+    Everything else — color/weight variations of the same 16px
+  */
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    background: #f7f4f0;
+    width: 100%;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    color: #1C1C1E;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .wrapper {
+    width: 100%;
+    padding: 20px 0 48px;
+  }
+
+  /* ── ARTICLE TITLE — sits below app's bold card title,
+     so we keep it light: small, regular weight, terracotta ── */
+  .article-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1C1C1E;
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+  }
+
+  .title-divider {
+    width: 32px;
+    height: 2px;
+    background: #B87658;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+
+  /* ── LEVEL 2: section headings ── */
+  h2 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #1C1C1E;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+    margin: 24px 0 10px;
+  }
+
+  /* ── LEVEL 3: all body text — 16px ── */
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #3A3A3C;
+    margin-bottom: 14px;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  /* inline label (hack title, biomarker name) — same 16px, semibold */
+  .label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1C1C1E;
+    margin-bottom: 2px;
+  }
+
+  /* secondary text — same 16px, lighter color */
+  .secondary {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #666;
+    margin-bottom: 14px;
+  }
+
+  /* research reference — only exception, 13px */
+  .ref {
+    font-size: 13px;
+    color: #AAAAAA;
+    margin: -6px 0 18px;
+  }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-left: 2.5px solid #B87658;
+    padding: 2px 0 2px 14px;
+    margin: 18px 0;
+  }
+
+  .callout p {
+    font-size: 16px;
+    font-style: italic;
+    color: #666;
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  /* ── BIOMARKER ROW ── */
+  .biomarker {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .biomarker-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── HACK ROW ── */
+  .hack {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .hack-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── CTA ── */
+  .cta-block {
+    background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-top: 28px;
+    text-align: center;
+  }
+
+  .cta-block .label {
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .cta-block p {
+    color: rgba(255,255,255,0.88);
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  /* ── SIMPLE LIST ── */
+  .list-item {
+    font-size: 16px;
+    font-weight: 400;
+    color: #3A3A3C;
+    line-height: 1.7;
+    padding-left: 4px;
+  }
+
+  /* ── CLOSING ── */
+  .closing {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .closing-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #B87658;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+
+  .reviewed {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 0;
+  }
+
+  /* ── SOURCES ── */
+  .sources {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .sources-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #AAAAAA;
+    margin-bottom: 8px;
+  }
+
+  .source-item {
+    font-size: 12px;
+    color: #AAAAAA;
+    line-height: 1.5;
+    margin-bottom: 5px;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Welcome -->
+  <p class="secondary" style="margin-bottom: 4px;">Welcome to day 2 😊</p>
+
+  <!-- Pre-title note -->
+  <p class="secondary" style="margin-bottom: 12px;">Start with today's exercise. It supports your vagus nerve so rest finally becomes real recovery. Now let's look at the hidden reason your body isn't fully restoring.</p>
+
+  <!-- Title -->
+  <div class="article-title">Why you stay exhausted even after rest</div>
+  <div class="title-divider"></div>
+
+  <!-- Intro -->
+  <p>Recovery only happens when your body feels safe enough to restore energy.</p>
+
+  <p>If the stress system stays slightly active, repair slows down. Muscles remain tense. Breathing stays shallow. Sleep becomes lighter. You wake up technically rested — but not restored.</p>
+
+  <p>But there is another layer.</p>
+
+  <p>Even when your nervous system improves, your body still needs raw materials to rebuild energy.</p>
+
+  <div class="callout">
+    <p>One of the most common hidden factors behind ongoing fatigue is low iron.</p>
+  </div>
+
+  <p>Iron helps carry oxygen to your brain and muscles. When iron stores are low, cells receive less oxygen. Energy production drops. You may feel weak, foggy, or unusually tired — even after sleep.</p>
+
+  <p>This does not always mean anemia. Even low iron stores without anemia can affect energy. When iron is low and the nervous system is stressed, fatigue feels deeper and harder to shake.</p>
+
+  <!-- Section 1 -->
+  <h2>🔬 Iron and energy</h2>
+
+  <p>Iron supports hemoglobin — the protein that carries oxygen in your blood. It also supports mitochondrial energy production inside your cells.</p>
+
+  <p>Low iron levels can lead to:</p>
+
+  <div class="list-item">— morning fatigue</div>
+  <div class="list-item">— poor concentration</div>
+  <div class="list-item">— low physical stamina</div>
+  <div class="list-item">— feeling cold or weak</div>
+
+  <p style="margin-top: 14px;">If exhaustion continues despite good sleep habits, checking ferritin — a marker of iron storage — can be useful.</p>
+
+  <div class="callout">
+    <p>Real recovery requires both regulation and resources.</p>
+  </div>
+
+  <!-- Section 2 -->
+  <h2>Small actions that reset recovery</h2>
+
+  <p>These are simple signals to your nervous system.</p>
+
+  <div class="hack">
+    <div class="hack-icon">🧘</div>
+    <div>
+      <div class="label">Today's Vagus exercise</div>
+      <p class="secondary">Supports parasympathetic activation and improves heart rate variability (HRV), a key marker of recovery capacity.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">🌬</div>
+    <div>
+      <div class="label">Slow breathing — 5–6 breaths per minute</div>
+      <p class="secondary">Increases vagal tone and HRV within minutes. Longer exhales reduce sympathetic activation.</p>
+    </div>
+  </div>
+  <div class="ref">Zaccaro et al., 2018</div>
+
+  <div class="hack">
+    <div class="hack-icon">📴</div>
+    <div>
+      <div class="label">Reduce screen light 60–90 minutes before bed</div>
+      <p class="secondary">Even moderate evening light can delay melatonin release by up to 90 minutes and shorten deep sleep.</p>
+    </div>
+  </div>
+  <div class="ref">Gooley et al., 2011</div>
+
+  <div class="hack">
+    <div class="hack-icon">🧠</div>
+    <div>
+      <div class="label">Mental off-loading for 5 minutes</div>
+      <p class="secondary">Writing down unfinished tasks reduces cognitive arousal and improves sleep onset latency.</p>
+    </div>
+  </div>
+  <div class="ref">Brosschot et al., 2021</div>
+
+  <div class="hack">
+    <div class="hack-icon">🥩</div>
+    <div>
+      <div class="label">Maintain ferritin above ~40–50 ng/mL</div>
+      <p class="secondary">Low iron stores are associated with fatigue even without anemia. Adequate ferritin supports oxygen delivery and cellular energy production.</p>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <h2>What to expect</h2>
+
+  <p>Everything here supports deeper recovery — not just surface rest.</p>
+
+  <div class="hack">
+    <div class="hack-icon">⏱️</div>
+    <div>
+      <div class="label">In 1 day</div>
+      <p class="secondary">Your body feels softer before sleep. Background tension lowers. Falling asleep feels smoother.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">⏳</div>
+    <div>
+      <div class="label">After 2–3 days</div>
+      <p class="secondary">Morning fatigue feels less dense. You wake up with more steadiness. Midday crashes feel milder.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">📆</div>
+    <div>
+      <div class="label">After 1–2 weeks</div>
+      <p class="secondary">Energy feels more stable across the day. You recover faster after stress. Exhaustion stops feeling constant.</p>
+    </div>
+  </div>
+
+  <!-- Closing -->
+  <div class="closing">
+    <p class="closing-text">Break the exhausted cycle. Recover deeper with Aura.</p>
+    <p class="reviewed">Reviewed by a medical expert.</p>
+  </div>
+
+  <!-- Sources -->
+  <div class="sources">
+    <div class="sources-title">Sources</div>
+    <div class="source-item">Brosschot J.F. et al. (2021). Chronic stress and perseverative cognition.</div>
+    <div class="source-item">Zaccaro A. et al. (2018). How breath-control can change your life: A systematic review on psychophysiological correlates of slow breathing.</div>
+    <div class="source-item">Lehrer P.M. & Gevirtz R. (2014). Heart rate variability biofeedback and autonomic regulation.</div>
+    <div class="source-item">Gooley J.J. et al. (2011). Exposure to room light before bedtime suppresses melatonin onset and shortens sleep duration.</div>
+  </div>
+
+</div>
+</body>
+</html>
