@@ -11,17 +11,17 @@
           "day": 1,
           "type": "video",
           "title": "Stop waking up tired",
-          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/186238f9077d997c5127ffbf68a2544e/manifest/video.m3u8",
-          "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/186238f9077d997c5127ffbf68a2544e/thumbnails/thumbnail.jpg",
-          "duration": "5:00",
+          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
+          "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
+          "duration": "8:00",
           "contentUrl": "https://auracarecontent.github.io/V2/1-1-content.html"
         },
         {
           "day": 2,
           "type": "video",
           "title": "Break the exhaustion cycle",
-          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/db5ea8f52d5f1d751b3599e89c9b4dee/manifest/video.m3u8",
-          "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/db5ea8f52d5f1d751b3599e89c9b4dee/thumbnails/thumbnail.jpg",
+          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
+          "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
           "duration": "10:00",
           "contentUrl": "https://auracarecontent.github.io/V2/1-2-content.html"
         },
@@ -38,15 +38,16 @@
           "day": 4,
           "type": "video",
           "title": "Break the dopamine loop",
-          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/95cc0b20b848566d90cace7c5d18f836/manifest/video.m3u8",
-          "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/95cc0b20b848566d90cace7c5d18f836/thumbnails/thumbnail.jpg",
+          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
+          "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
           "duration": "12:00",
           "contentUrl": "https://auracarecontent.github.io/V2/1-4-content.html"
         },
         {
           "day": 5,
-          "type": "article",
+          "type": "video",
           "title": "Bring back motivation",
+          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
           "duration": "3:00",
           "contentUrl": "https://auracarecontent.github.io/V2/1-5-content.html"
@@ -115,8 +116,8 @@
           "day": 5,
           "type": "video",
           "title": "A hidden technique to calm your body",
-          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/bc4784dbc71527ff6ff92a61770b6485/manifest/video.m3u8",
-          "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/bc4784dbc71527ff6ff92a61770b6485/thumbnails/thumbnail.jpg",
+          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
+          "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
           "duration": "12:00",
           "contentUrl": "https://auracarecontent.github.io/V2/2-5-content.html"
         },
@@ -124,8 +125,8 @@
           "day": 6,
           "type": "video",
           "title": "Boost HRV with vagus",
-          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/c6743e20a8770bb23423e558b19610df/manifest/video.m3u8",
-          "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/c6743e20a8770bb23423e558b19610df/thumbnails/thumbnail.jpg",
+          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
+          "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
           "duration": "11:00",
           "contentUrl": "https://auracarecontent.github.io/V2/2-6-content.html"
         },
@@ -133,8 +134,8 @@
           "day": 7,
           "type": "video",
           "title": "Restore steady vitality",
-          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/a5e38d20b7ff06a4a83ea62566706c95/manifest/video.m3u8",
-          "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/a5e38d20b7ff06a4a83ea62566706c95/thumbnails/thumbnail.jpg",
+          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/manifest/video.m3u8",
+          "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/b7ada53d9d5713ebe6b4ebb74b366675/thumbnails/thumbnail.jpg",
           "duration": "9:00",
           "contentUrl": "https://auracarecontent.github.io/V2/2-7-content.html"
         }
