@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why you wake up tired after sleep</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /*
+    TYPOGRAPHY — 3 levels only:
+    1. Article title:  24px / 700
+    2. Section h2:     19px / 700
+    3. Body text:      16px / 400 / lh 1.7
+    Everything else — color/weight variations of the same 16px
+  */
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    background: #f7f4f0;
+    width: 100%;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    color: #1C1C1E;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .wrapper {
+    width: 100%;
+    padding: 20px 0 48px;
+  }
+
+  /* ── ARTICLE TITLE — sits below app's bold card title,
+     so we keep it light: small, regular weight, terracotta ── */
+  .article-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1C1C1E;
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+  }
+
+  .title-divider {
+    width: 32px;
+    height: 2px;
+    background: #B87658;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+
+  /* ── LEVEL 2: section headings ── */
+  h2 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #1C1C1E;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+    margin: 24px 0 10px;
+  }
+
+  /* ── LEVEL 3: all body text — 16px ── */
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #3A3A3C;
+    margin-bottom: 14px;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  /* inline label (hack title, biomarker name) — same 16px, semibold */
+  .label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1C1C1E;
+    margin-bottom: 2px;
+  }
+
+  /* secondary text — same 16px, lighter color */
+  .secondary {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #666;
+    margin-bottom: 14px;
+  }
+
+  /* research reference — only exception, 13px */
+  .ref {
+    font-size: 13px;
+    color: #AAAAAA;
+    margin: -6px 0 18px;
+  }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-left: 2.5px solid #B87658;
+    padding: 2px 0 2px 14px;
+    margin: 18px 0;
+  }
+
+  .callout p {
+    font-size: 16px;
+    font-style: italic;
+    color: #666;
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  /* ── BIOMARKER ROW ── */
+  .biomarker {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .biomarker-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── HACK ROW ── */
+  .hack {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .hack-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── CTA ── */
+  .cta-block {
+    background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-top: 28px;
+    text-align: center;
+  }
+
+  .cta-block .label {
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .cta-block p {
+    color: rgba(255,255,255,0.88);
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  /* ── SIMPLE LIST ── */
+  .list-item {
+    font-size: 16px;
+    font-weight: 400;
+    color: #3A3A3C;
+    line-height: 1.7;
+    padding-left: 4px;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(0,0,0,0.07);
+    margin: 24px 0;
+  }
+
+  /* ── CLOSING ── */
+  .closing {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .closing-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #B87658;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+
+  .reviewed {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 0;
+  }
+
+  /* ── SOURCES ── */
+  .sources {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .sources-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #AAAAAA;
+    margin-bottom: 8px;
+  }
+
+  .source-item {
+    font-size: 12px;
+    color: #AAAAAA;
+    line-height: 1.5;
+    margin-bottom: 5px;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Welcome -->
+  <p class="secondary" style="margin-bottom: 10px;">Welcome to day 5 😊</p>
+
+  <!-- Pre-title note -->
+  <p class="secondary" style="margin-bottom: 16px;">Start with today's exercise. It supports your vagus nerve and helps strengthen your ability to initiate action so starting feels easier. Now let's understand why motivation drops and procrastination takes over.</p>
+
+  <!-- Title -->
+  <div class="article-title">How to bring back motivation and stop procrastination</div>
+  <div class="title-divider"></div>
+
+  <!-- Intro -->
+  <p>Lack of motivation is rarely laziness. It is often biology.</p>
+
+  <p>Motivation depends on dopamine. Dopamine is the molecule that drives initiative. It helps you begin, not just think. When dopamine signaling is low or unstable, tasks feel heavier than they are. You delay. You overthink. You avoid.</p>
+
+  <div class="callout">
+    <p>The vagus nerve plays a role here. When vagal tone is low, stress reactivity rises. Even simple tasks can feel threatening or overwhelming. Your brain shifts toward avoidance instead of action.</p>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Section 1 -->
+  <h2>The biological layer</h2>
+
+  <p>Iron status affects motivation. Ferritin reflects your stored iron. Low ferritin can reduce oxygen delivery to the brain. Mental energy drops. Initiative weakens.</p>
+
+  <p>Vitamin B12 is also critical. B12 supports nerve function and energy production. Low B12 levels have been linked to fatigue, low mood, and cognitive slowing.</p>
+
+  <p>Thyroid function matters too. TSH, Free T3, and Free T4 regulate metabolic speed. When thyroid activity is low, everything feels slower — including thinking and action.</p>
+
+  <div class="callout">
+    <p>When dopamine signaling is unstable, iron is low, or thyroid function is suboptimal, procrastination feels biological. You delay because you feel drained. You feel more drained because you delay.</p>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Section 2 -->
+  <h2>Small actions that reset the pattern</h2>
+
+  <div class="hack">
+    <div class="hack-icon">🧘</div>
+    <div>
+      <div class="label">Today's Vagus exercise</div>
+      <p class="secondary">It supports vagal activity and helps lower task-related stress.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">🎯</div>
+    <div>
+      <div class="label">Use the 5-minute start rule</div>
+      <p class="secondary">Beginning reduces avoidance circuits and increases dopamine.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">🥩</div>
+    <div>
+      <div class="label">Check ferritin and B12 if motivation remains low</div>
+      <p class="secondary">Both support brain energy and initiative.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">🌞</div>
+    <div>
+      <div class="label">Get morning light exposure</div>
+      <p class="secondary">Supports dopamine activation and cortisol rhythm.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">🌬</div>
+    <div>
+      <div class="label">Practice slow breathing before starting a task</div>
+      <p class="secondary">Longer exhales reduce stress reactivity and improve focus.</p>
+    </div>
+  </div>
+
+  <p>Motivation returns when stress decreases and energy improves.</p>
+
+  <div class="section-divider"></div>
+
+  <!-- Section 3 -->
+  <h2>What to expect</h2>
+
+  <p>Everything here supports stronger initiative.</p>
+
+  <div class="hack">
+    <div class="hack-icon">⏱️</div>
+    <div>
+      <div class="label">In 1 day</div>
+      <p class="secondary">Starting feels slightly easier. Resistance feels lower.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">⏳</div>
+    <div>
+      <div class="label">After 2–3 days</div>
+      <p class="secondary">You delay less. Focus improves once you begin.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">📆</div>
+    <div>
+      <div class="label">After 1–2 weeks</div>
+      <p class="secondary">More stable drive. Less avoidance. Tasks feel manageable.</p>
+    </div>
+  </div>
+
+  <!-- Closing -->
+  <div class="closing">
+    <p class="closing-text">Bring back motivation. Move forward with Aura.</p>
+    <p class="reviewed">Reviewed by a medical expert.</p>
+  </div>
+
+  <!-- Sources -->
+  <div class="sources">
+    <div class="sources-title">Sources</div>
+    <div class="source-item">Volkow N.D. et al. (2011). Dopamine and motivation.</div>
+    <div class="source-item">Beard J.L. (2001). Iron and brain function.</div>
+    <div class="source-item">O'Leary F. & Samman S. (2010). Vitamin B12 and neurological function.</div>
+    <div class="source-item">Thayer J.F. & Lane R.D. (2009). Heart rate variability and self-regulation.</div>
+  </div>
+
+</div>
+</body>
+</html>
+

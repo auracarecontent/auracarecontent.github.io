@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why you wake up tired after sleep</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /*
+    TYPOGRAPHY — 3 levels only:
+    1. Article title:  24px / 700
+    2. Section h2:     19px / 700
+    3. Body text:      16px / 400 / lh 1.7
+    Everything else — color/weight variations of the same 16px
+  */
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    background: #f7f4f0;
+    width: 100%;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    color: #1C1C1E;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .wrapper {
+    width: 100%;
+    padding: 20px 0 48px;
+  }
+
+  /* ── ARTICLE TITLE — sits below app's bold card title,
+     so we keep it light: small, regular weight, terracotta ── */
+  .article-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1C1C1E;
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+  }
+
+  .title-divider {
+    width: 32px;
+    height: 2px;
+    background: #B87658;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+
+  /* ── LEVEL 2: section headings ── */
+  h2 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #1C1C1E;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+    margin: 24px 0 10px;
+  }
+
+  /* ── LEVEL 3: all body text — 16px ── */
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #3A3A3C;
+    margin-bottom: 14px;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  /* inline label (hack title, biomarker name) — same 16px, semibold */
+  .label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1C1C1E;
+    margin-bottom: 2px;
+  }
+
+  /* secondary text — same 16px, lighter color */
+  .secondary {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #666;
+    margin-bottom: 14px;
+  }
+
+  /* research reference — only exception, 13px */
+  .ref {
+    font-size: 13px;
+    color: #AAAAAA;
+    margin: -6px 0 18px;
+  }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-left: 2.5px solid #B87658;
+    padding: 2px 0 2px 14px;
+    margin: 18px 0;
+  }
+
+  .callout p {
+    font-size: 16px;
+    font-style: italic;
+    color: #666;
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  /* ── BIOMARKER ROW ── */
+  .biomarker {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .biomarker-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── HACK ROW ── */
+  .hack {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .hack-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── CTA ── */
+  .cta-block {
+    background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-top: 28px;
+    text-align: center;
+  }
+
+  .cta-block .label {
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .cta-block p {
+    color: rgba(255,255,255,0.88);
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  /* ── SIMPLE LIST ── */
+  .list-item {
+    font-size: 16px;
+    font-weight: 400;
+    color: #3A3A3C;
+    line-height: 1.7;
+    padding-left: 4px;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(0,0,0,0.07);
+    margin: 24px 0;
+  }
+
+  /* ── CLOSING ── */
+  .closing {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .closing-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #B87658;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+
+  .reviewed {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 0;
+  }
+
+  /* ── SOURCES ── */
+  .sources {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .sources-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #AAAAAA;
+    margin-bottom: 8px;
+  }
+
+  .source-item {
+    font-size: 12px;
+    color: #AAAAAA;
+    line-height: 1.5;
+    margin-bottom: 5px;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Welcome -->
+  <p class="secondary" style="margin-bottom: 10px;">Welcome to day 4 😊</p>
+
+  <!-- Pre-title note -->
+  <p class="secondary" style="margin-bottom: 16px;">Start with today's exercise. It supports your vagus nerve and helps reduce constant distraction so your brain can regain control over attention and focus. Now let's understand what repeated scrolling does to your energy.</p>
+
+  <!-- Title -->
+  <div class="article-title">How scrolling quietly drains your energy</div>
+  <div class="title-divider"></div>
+
+  <!-- Intro -->
+  <p>Scrolling feels harmless. It looks like a rest. But your brain does not experience it as recovery.</p>
+
+  <p>Every swipe triggers dopamine. Dopamine is the curiosity and motivation molecule in your brain. It pushes you to explore, to search, to check what's next.</p>
+
+  <p>Dopamine is not bad. It helps you learn and move forward. Short bursts are normal. The problem is constant repetition.</p>
+
+  <div class="section-divider"></div>
+
+  <!-- Section 1 -->
+  <h2>The dopamine loop</h2>
+
+  <p>When your brain receives rapid, repeated dopamine spikes, it adapts. Sensitivity drops. Ordinary tasks feel less interesting. Starting work feels harder. Focus weakens.</p>
+
+  <p>You may notice this as fast distractibility, low motivation, or the urge to check your phone even when nothing is urgent.</p>
+
+  <div class="callout">
+    <p>The vagus nerve helps regulate attention and calm reactivity. When vagal tone is lower, the pause between impulse and action becomes shorter. Distraction wins more easily.</p>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Section 2 -->
+  <h2>The stress and vitamin D layer</h2>
+
+  <p>Constant digital input also activates stress circuits in small bursts. Notifications, alerts, even anticipation increase cortisol slightly. Over time, this can disturb your natural cortisol rhythm.</p>
+
+  <p>When morning cortisol becomes weaker, energy feels low. When evening cortisol stays elevated, sleep becomes lighter.</p>
+
+  <p>Another biological factor involved in motivation is vitamin D. Vitamin D receptors are present in brain regions linked to dopamine signaling. Low vitamin D levels have been associated with fatigue, low mood, and reduced cognitive performance.</p>
+
+  <div class="callout">
+    <p>When dopamine sensitivity drops, cortisol rhythm flattens, and vitamin D is low, mental energy declines further. That is how the loop forms.</p>
+  </div>
+
+  <p>You scroll because you feel tired. You feel more tired because you scroll.</p>
+
+  <div class="section-divider"></div>
+
+  <!-- Section 3 -->
+  <h2>Small actions that reset the pattern</h2>
+
+  <div class="hack">
+    <div class="hack-icon">🧘</div>
+    <div>
+      <div class="label">Today's Vagus exercise</div>
+      <p class="secondary">It supports vagal activity and helps strengthen your ability to pause before reacting.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">📵</div>
+    <div>
+      <div class="label">Create two 30-minute no-scroll blocks daily</div>
+      <p class="secondary">Less stimulation helps dopamine receptors regain sensitivity.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">🌞</div>
+    <div>
+      <div class="label">Get 10 minutes of morning light</div>
+      <p class="secondary">Supports dopamine balance and strengthens your morning activation.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">🩸</div>
+    <div>
+      <div class="label">Check vitamin D if low motivation and fatigue persist</div>
+      <p class="secondary">Vitamin D supports brain function and energy regulation.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">🌬</div>
+    <div>
+      <div class="label">Practice 5 minutes of slow breathing</div>
+      <p class="secondary">Longer exhales reduce stress activation and improve attention control.</p>
+    </div>
+  </div>
+
+  <p>Energy stabilizes when stimulation decreases and regulation improves.</p>
+
+  <div class="section-divider"></div>
+
+  <!-- Section 4 -->
+  <h2>What to expect</h2>
+
+  <p>Everything here supports steadier focus and more consistent energy.</p>
+
+  <div class="hack">
+    <div class="hack-icon">⏱️</div>
+    <div>
+      <div class="label">In 1 day</div>
+      <p class="secondary">Mental noise feels lower. Distractions feel slightly weaker.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">⏳</div>
+    <div>
+      <div class="label">After 2–3 days</div>
+      <p class="secondary">Focus improves. Starting tasks feels easier.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">📆</div>
+    <div>
+      <div class="label">After 1–2 weeks</div>
+      <p class="secondary">More stable motivation. Less automatic scrolling. Energy feels clearer and more controlled.</p>
+    </div>
+  </div>
+
+  <!-- Closing -->
+  <div class="closing">
+    <p class="closing-text">Break the dopamine loop. Restore focus with Aura.</p>
+    <p class="reviewed">Reviewed by a medical expert.</p>
+  </div>
+
+  <!-- Sources -->
+  <div class="sources">
+    <div class="sources-title">Sources</div>
+    <div class="source-item">Volkow N.D. et al. (2011). Dopamine reward pathway and addiction mechanisms.</div>
+    <div class="source-item">Thayer J.F. & Lane R.D. (2009). Heart rate variability and cognitive control.</div>
+    <div class="source-item">Spedding S. (2014). Vitamin D and brain health.</div>
+    <div class="source-item">McEwen B.S. (2007). Physiology and neurobiology of stress and adaptation.</div>
+  </div>
+
+</div>
+</body>
+</html>
+

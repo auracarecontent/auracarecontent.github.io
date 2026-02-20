@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why you wake up tired after sleep</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /*
+    TYPOGRAPHY — 3 levels only:
+    1. Article title:  24px / 700
+    2. Section h2:     19px / 700
+    3. Body text:      16px / 400 / lh 1.7
+    Everything else — color/weight variations of the same 16px
+  */
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    background: #f7f4f0;
+    width: 100%;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    color: #1C1C1E;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .wrapper {
+    width: 100%;
+    padding: 20px 0 48px;
+  }
+
+  /* ── ARTICLE TITLE — sits below app's bold card title,
+     so we keep it light: small, regular weight, terracotta ── */
+  .article-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1C1C1E;
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+  }
+
+  .title-divider {
+    width: 32px;
+    height: 2px;
+    background: #B87658;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+
+  /* ── LEVEL 2: section headings ── */
+  h2 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #1C1C1E;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+    margin: 24px 0 10px;
+  }
+
+  /* ── LEVEL 3: all body text — 16px ── */
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #3A3A3C;
+    margin-bottom: 14px;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  /* inline label (hack title, biomarker name) — same 16px, semibold */
+  .label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1C1C1E;
+    margin-bottom: 2px;
+  }
+
+  /* secondary text — same 16px, lighter color */
+  .secondary {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #666;
+    margin-bottom: 14px;
+  }
+
+  /* research reference — only exception, 13px */
+  .ref {
+    font-size: 13px;
+    color: #AAAAAA;
+    margin: -6px 0 18px;
+  }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-left: 2.5px solid #B87658;
+    padding: 2px 0 2px 14px;
+    margin: 18px 0;
+  }
+
+  .callout p {
+    font-size: 16px;
+    font-style: italic;
+    color: #666;
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  /* ── BIOMARKER ROW ── */
+  .biomarker {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .biomarker-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── HACK ROW ── */
+  .hack {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .hack-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── CTA ── */
+  .cta-block {
+    background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-top: 28px;
+    text-align: center;
+  }
+
+  .cta-block .label {
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .cta-block p {
+    color: rgba(255,255,255,0.88);
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  /* ── SIMPLE LIST ── */
+  .list-item {
+    font-size: 16px;
+    font-weight: 400;
+    color: #3A3A3C;
+    line-height: 1.7;
+    padding-left: 4px;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(0,0,0,0.07);
+    margin: 24px 0;
+  }
+
+  /* ── CLOSING ── */
+  .closing {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .closing-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #B87658;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+
+  .reviewed {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 0;
+  }
+
+  /* ── SOURCES ── */
+  .sources {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .sources-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #AAAAAA;
+    margin-bottom: 8px;
+  }
+
+  .source-item {
+    font-size: 12px;
+    color: #AAAAAA;
+    line-height: 1.5;
+    margin-bottom: 5px;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Welcome -->
+  <p class="secondary" style="margin-bottom: 10px;">Welcome to day 7 😊</p>
+
+  <!-- Pre-title note -->
+  <p class="secondary" style="margin-bottom: 16px;">Start with today's exercise. It supports your vagus nerve and helps your body activate naturally instead of depending on stimulation. Now let's understand why energy feels low without caffeine.</p>
+
+  <!-- Title -->
+  <div class="article-title">How to create energy without caffeine</div>
+  <div class="title-divider"></div>
+
+  <!-- Intro -->
+  <p>Caffeine does not create energy. It blocks the signal that tells you you're tired.</p>
+
+  <p>For a few hours, you feel sharper. But your body has not restored anything. When the effect fades, fatigue returns — often stronger.</p>
+
+  <p>If this becomes daily, your natural rhythm weakens. Mornings feel slow. Afternoons crash harder. Sleep becomes lighter.</p>
+
+  <div class="callout">
+    <p>The vagus nerve helps regulate your natural activation system. When vagal tone is stronger, your body can wake up and stay alert without constant stimulation.</p>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Section 1 -->
+  <h2>The oxygen and iron layer</h2>
+
+  <p>Real energy depends on oxygen reaching your cells. Iron plays a key role here. Ferritin reflects your stored iron. When ferritin is low, oxygen delivery drops. Even without anemia, low iron stores can make you feel tired, foggy, or flat.</p>
+
+  <div class="callout">
+    <p>If iron is low and stress stays elevated, caffeine becomes a shortcut. You feel tired. You stimulate. You crash. You repeat. That is the cycle.</p>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Section 2 -->
+  <h2>Small actions that reset the pattern</h2>
+
+  <div class="hack">
+    <div class="hack-icon">🧘</div>
+    <div>
+      <div class="label">Today's Vagus exercise</div>
+      <p class="secondary">It supports vagal activity and helps your body build steady activation.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">🌞</div>
+    <div>
+      <div class="label">Get 10 minutes of morning light</div>
+      <p class="secondary">Strengthens your internal wake-up signal.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">🚶</div>
+    <div>
+      <div class="label">Move for 5–10 minutes after waking</div>
+      <p class="secondary">Improves circulation and natural alertness.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">🥩</div>
+    <div>
+      <div class="label">Check ferritin if fatigue continues</div>
+      <p class="secondary">Healthy iron stores support oxygen delivery and steady energy.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">💧</div>
+    <div>
+      <div class="label">Drink water before caffeine</div>
+      <p class="secondary">Mild dehydration can worsen fatigue.</p>
+    </div>
+  </div>
+
+  <p>Energy becomes stable when your body produces it instead of borrowing it.</p>
+
+  <div class="section-divider"></div>
+
+  <!-- Section 3 -->
+  <h2>What to expect</h2>
+
+  <p>Everything here supports natural, steady energy.</p>
+
+  <div class="hack">
+    <div class="hack-icon">⏱️</div>
+    <div>
+      <div class="label">In 1 day</div>
+      <p class="secondary">Morning alertness feels slightly more stable.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">⏳</div>
+    <div>
+      <div class="label">After 2–3 days</div>
+      <p class="secondary">Energy crashes feel milder. Caffeine feels less urgent.</p>
+    </div>
+  </div>
+
+  <div class="hack">
+    <div class="hack-icon">📆</div>
+    <div>
+      <div class="label">After 1–2 weeks</div>
+      <p class="secondary">More consistent daytime energy. Better sleep. Less reliance on stimulants.</p>
+    </div>
+  </div>
+
+  <!-- Closing -->
+  <div class="closing">
+    <p class="closing-text">Create real energy with Aura.</p>
+    <p class="reviewed">Reviewed by a medical expert.</p>
+  </div>
+
+  <!-- Sources -->
+  <div class="sources">
+    <div class="sources-title">Sources</div>
+    <div class="source-item">Rodak K. et al. (2021). Caffeine as a factor influencing the functioning of the human body.</div>
+    <div class="source-item">Tardy A.L. et al. (2020). Vitamins and minerals for energy, fatigue and cognition.</div>
+    <div class="source-item">Houston B.L. et al. (2018). Efficacy of iron supplementation on fatigue: a meta-analysis.</div>
+    <div class="source-item">Thayer J.F. & Lane R.D. (2009). Heart rate variability and autonomic regulation.</div>
+  </div>
+
+</div>
+</body>
+</html>
+
