@@ -345,6 +345,24 @@
         { "id": "18-6", "day": 6, "title": "How Movement Improves Recovery", "description": "See how steady movement helps your body shift from tension into recovery.", "contentUrl": "https://auracarecontent.github.io/18-6.html", "isUnlocked": true, "duration": "11 min" },
         { "id": "18-7", "day": 7, "title": "Moving With Your Heart Rhythm", "description": "Learn how moving in sync with your natural rhythm supports long-term heart health.", "contentUrl": "https://auracarecontent.github.io/18-7.html", "isUnlocked": true, "duration": "8 min" }
       ]
+    },
+    {
+      "id": "19",
+      "week": 19,
+      "title": "Quiet the Inflammation Within",
+      "subtitle": "This week helps you understand and gently lower everyday inflammation so your body feels lighter, clearer, and more balanced.",
+      "icon": "flame-outline",
+      "iconColor": "#C4A57B",
+      "status": "available",
+      "days": [
+        { "id": "19-1", "day": 1, "title": "Why Inflammation Feels Like Fatigue", "description": "Notice how constant tiredness can sometimes reflect your body working overtime behind the scenes.", "contentUrl": "https://auracarecontent.github.io/19-1.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "19-2", "day": 2, "title": "The Hidden Inflammation Triggers", "description": "Here's why small daily stressors can quietly keep your system slightly inflamed.", "contentUrl": "https://auracarecontent.github.io/19-2.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "19-3", "day": 3, "title": "What Your Food Does to Inflammation", "description": "Feel what changes when meals either calm your system or subtly fuel internal irritation.", "contentUrl": "https://auracarecontent.github.io/19-3.html", "isUnlocked": true, "duration": "10 min" },
+        { "id": "19-4", "day": 4, "title": "Sleep and the Inflammation Cycle", "description": "What happens when deep sleep is missing often keeps inflammation from fully settling down.", "contentUrl": "https://auracarecontent.github.io/19-4.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "19-5", "day": 5, "title": "Stress That Fuels Inflammation", "description": "If you feel wired but exhausted, this day shows how emotional overload can sustain internal heat.", "contentUrl": "https://auracarecontent.github.io/19-5.html", "isUnlocked": true, "duration": "12 min" },
+        { "id": "19-6", "day": 6, "title": "Movement That Lowers Inflammation", "description": "Try a simple shift toward steady, moderate activity that helps your body cool instead of spike.", "contentUrl": "https://auracarecontent.github.io/19-6.html", "isUnlocked": true, "duration": "11 min" },
+        { "id": "19-7", "day": 7, "title": "Small Habits That Reduce Inflammation", "description": "Gentle daily adjustments can gradually help your system move from reactivity to repair.", "contentUrl": "https://auracarecontent.github.io/19-7.html", "isUnlocked": true, "duration": "8 min" }
+      ]
     }
   ]
 }

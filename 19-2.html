@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 2 — The Hidden Inflammation Triggers</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; }
+        .science-fact { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .footer-cta-wrapper { text-align: center; }
+        .footer-email { color: #FFFFFF; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 20px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; line-height: 1.4; }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(23,39,55,0.08);
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            transition: width 1s ease-out;
+        }
+        .biomarker-desc {
+            font-size: 13px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        .cta-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #B87658 0%, #D4956C 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 16px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 8px rgba(184,118,88,0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(184,118,88,0.35);
+        }
+        .summary-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+        .summary-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .summary-item:last-child { margin-bottom: 0; }
+        .summary-item span:first-child { font-size: 1.25rem; flex-shrink: 0; }
+        .timeline-box {
+            background: rgba(184,118,88,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(184,118,88,0.15);
+        }
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            align-items: flex-start;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            line-height: 1.2;
+        }
+        .timeline-content { flex: 1; }
+        .timeline-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.3px;
+        }
+        .timeline-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+            line-height: 1.4;
+        }
+        .action-card {
+            background: white;
+            border: 2px solid rgba(184,118,88,0.15);
+            box-shadow: 0 4px 12px rgba(184,118,88,0.12);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+        .action-card-icon {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .action-card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #B87658;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <main class="screen">
+        <!-- Header -->
+        <div class="header">
+            <div class="day-label">DAY 2</div>
+            <h1>The Hidden Inflammation Triggers</h1>
+        </div>
+
+        <!-- Intro Section -->
+        <div class="section intro-section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Daily Focus</h2>
+            </div>
+            <div class="text-content">
+                You're not sick. But you don't feel fully well either.
+            </div>
+            <div class="text-content">
+                Some days your body feels tight. Puffy. Slower than it used to be. You try to eat "better." You try to rest more. But something still feels off.
+            </div>
+            <div class="text-content">
+                It can be confusing. Because the triggers are often small. And very normal.
+            </div>
+        </div>
+
+        <!-- ☀️ Why It Matters -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Why It Matters</h2>
+            </div>
+            <div class="text-content">
+                Low, steady irritation inside the body can build up from daily habits. Not from one big mistake.
+            </div>
+            <div class="text-content">
+                When this builds slowly, it can affect mood, sleep depth, digestion, and how steady your energy feels. You may feel wired at night and flat during the day.
+            </div>
+        </div>
+
+        <!-- 🧠 What's Really Happening -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What's Really Happening</h2>
+            </div>
+            <div class="text-content">
+                One simple trigger is blood sugar swings.
+            </div>
+            <div class="text-content">
+                When you eat a meal high in refined carbs or sugar, your blood glucose rises quickly. Your pancreas then releases insulin. Insulin moves glucose from the blood into cells.
+            </div>
+            <div class="text-content">
+                If this spike happens often, glucose can stay slightly elevated longer than it should. High glucose can irritate blood vessel walls.
+            </div>
+            <div class="text-content">
+                In response, the body releases small inflammatory signals. Not dramatic. Just steady.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Over time, these repeated spikes can make you feel tired after meals, mentally foggy, and more reactive to stress.</span>
+            </div>
+        </div>
+
+        <!-- 💡 Science Facts -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science Facts</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🔥</div>
+                <div>
+                    <div class="fact-title">Blood sugar spikes linked to higher inflammatory markers</div>
+                    <div class="fact-desc">Frequent blood sugar spikes are linked with higher inflammatory markers, even in people without diabetes (Esposito et al., JAMA, 2002).</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🍽️</div>
+                <div>
+                    <div class="fact-title">Post-meal glucose raises inflammatory signaling</div>
+                    <div class="fact-desc">Post-meal glucose rises can temporarily increase inflammatory signaling in the bloodstream (Ceriello et al., Circulation, 2008).</div>
+                </div>
+            </div>
+
+            <div class="science-fact" style="margin-bottom: 0;">
+                <div class="fact-icon">⚡</div>
+                <div>
+                    <div class="fact-title">Stable blood sugar supports better energy and mood</div>
+                    <div class="fact-desc">Stable blood sugar patterns are associated with better energy and mood stability (Ludwig, JAMA, 2002).</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🧬 What About Labs? -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs? — Blood Sugar Irritation Pattern</h2>
+            </div>
+            <div class="text-content" style="margin-bottom: 1.5rem;">
+                <span class="highlight-text">The percentage shows how strongly this biomarker can influence how you feel and function overall.</span>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Fasting Glucose 🔥</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 25%;">25%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Slight elevations can reflect repeated glucose spikes that contribute to low-level inflammation (Ceriello, Circulation, 2008).
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">HbA1c ⚡</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 20%;">20%</div>
+                </div>
+                <div class="biomarker-desc">
+                    This shows average blood sugar over 2–3 months and can reflect how often your system is under glucose stress (ADA, Diabetes Care, 2010).
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="text-content" style="margin-bottom: 0.5rem; font-size: 15px; line-height: 1.5; font-weight: 600; color: #172737;">
+                    Key insight
+                </div>
+                <div class="text-content" style="margin-bottom: 0; font-size: 14px; line-height: 1.5; color: #656565;">
+                    Even small, repeated spikes can influence how steady your body feels day to day.
+                </div>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">Continue</a>
+            </div>
+        </div>
+
+        <!-- 💭 Reflection Prompt -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0;">
+                    How do you feel 1–2 hours after your usual meals?<br><br>
+                    Do you notice crashes, cravings, or brain fog?
+                </div>
+            </div>
+        </div>
+
+        <!-- ✅ Plan to Action -->
+        <div class="section" style="background: linear-gradient(to bottom, rgba(184,118,88,0.03), rgba(184,118,88,0.08));">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Steadier Energy Today</h2>
+            </div>
+
+            <div class="action-card">
+                <div class="action-card-icon">✨</div>
+                <div class="action-card-title">Your actions today</div>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
+                        <span style="font-size: 1.5rem;">🍗</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #172737;">Add protein to your next meal. Even something small.</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
+                        <span style="font-size: 1.5rem;">🧘</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #172737;">Slow down while eating. Take 10 calm minutes.</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(184,118,88,0.05); border-radius: 8px;">
+                        <span style="font-size: 1.5rem;">🚶‍♀️</span>
+                        <span style="font-size: 14px; font-weight: 600; color: #172737;">Walk for 10 minutes after one meal.</span>
+                    </div>
+                </div>
+                <div class="text-content" style="margin-top: 1.5rem; margin-bottom: 0; text-align: center; color: #656565;">
+                    <span class="highlight-text">No perfection needed. Just one steadier day.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ✨ Today You Learned -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            <div class="summary-box">
+                <div class="summary-item">
+                    <span>🔥</span>
+                    <span>Inflammation can build from small daily spikes.</span>
+                </div>
+                <div class="summary-item">
+                    <span>🍬</span>
+                    <span>Blood sugar swings can irritate the body.</span>
+                </div>
+                <div class="summary-item">
+                    <span>💤</span>
+                    <span>Energy crashes are not a character flaw.</span>
+                </div>
+                <div class="summary-item">
+                    <span>🥗</span>
+                    <span>Stable meals support calmer biology.</span>
+                </div>
+                <div class="summary-item">
+                    <span>🌿</span>
+                    <span>Small changes can reduce hidden stress.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ✨ What to Expect -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+
+            <div class="timeline-box">
+                <div class="timeline-item">
+                    <div class="timeline-icon">⏱️</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER TODAY</div>
+                        <div class="timeline-text">You may feel fewer sharp energy dips.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">⏳</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER 3–5 DAYS</div>
+                        <div class="timeline-text">Cravings can start to feel less intense.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">📆</div>
+                    <div class="timeline-content">
+                        <div class="timeline-label">AFTER 1–2 WEEKS</div>
+                        <div class="timeline-text">Energy may feel more even across the day.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 0; line-height: 1.5;">
+                ✨ Remember: Small patterns matter more than one perfect meal.
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>📩 Get Your Personalized Lab Panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <div class="footer-cta-wrapper">
+                <a href="https://plan.aura.care/lt-2/" class="footer-email" target="_blank" rel="noopener noreferrer">Continue</a>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>
