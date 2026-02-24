@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 6 — Say No to Burnout</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; background: transparent; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: transparent; }
+        .section { padding: 1.5rem 0; border-bottom: 1px solid #EFEFEF; background: transparent; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 18px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 16px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.5; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 16px; font-weight: 500; color: #172737; line-height: 1.5; margin-bottom: 0.5rem; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; display: flex; gap: 1rem; padding: 1rem 0; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .action-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem 0; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 16px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left: 3px solid #B87658; padding: 1rem 0; margin: 1rem 0; }
+        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
+        .biomarker-card { background: rgba(184,118,88,0.08); padding: 14px 0; border-bottom: 1px solid rgba(184,118,88,0.15); margin-bottom: 1.5rem; }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; margin-bottom: 1rem; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin-bottom: 0.75rem; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 15px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.5; }
+        .reference-text { font-size: 13px; font-weight: 500; color: #8C8C8C; font-style: italic; margin-top: 1rem; }
+        .expectation-section { padding: 14px 0; }
+        .expectation-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+        .expectation-emoji { font-size: 1.5rem; flex-shrink: 0; }
+        .expectation-time { font-weight: 600; font-size: 16px; color: #B87658; margin-bottom: 0.25rem; }
+        .expectation-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .summary-item { display: flex; align-items: flex-start; gap: 0.5rem; justify-content: center; margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; }
+        .summary-item:last-child { margin-bottom: 0; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0; }
+        .col-card { padding: 0.9rem; border-radius: 10px; }
+        .col-card-title { font-size: 13px; font-weight: 700; margin-bottom: 0.5rem; }
+        .col-card-text { font-size: 13px; font-weight: 500; line-height: 1.5; color: #172737; }
+        .formula-box { background: rgba(23,39,55,0.05); border-radius: 12px; padding: 1.25rem; margin: 1rem 0; text-align: center; }
+        .formula-text { font-size: 17px; font-weight: 800; color: #172737; line-height: 1.5; }
+        .formula-sub { font-size: 14px; font-weight: 500; color: #656565; margin-top: 0.5rem; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+
+        <div style="padding: 1.75rem 0 1rem 0;">
+            <h1 style="font-size: 22px; font-weight: 700; line-height: 1.3; color: #B87658;">Say no to burnout</h1>
+        </div>
+
+        <!-- Intro -->
+        <div class="section">
+            <div class="text-content">
+                Burnout builds quietly when stress stays high and recovery gets missed. Today you'll discover how early body signals — and vagus-supported recovery — help protect your energy before exhaustion sets in.
+            </div>
+            <div class="text-content">
+                Learning to respond to these signals early helps you stay resilient, focused, and steady instead of pushing until you crash.
+            </div>
+        </div>
+
+        <!-- First signs -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🚨</span>
+                <h2>The first signs of burnout are easy to ignore</h2>
+            </div>
+            <div class="text-content">
+                Your body always sends early warnings — long before your mind admits it's tired. When stress stays high and rest feels unproductive, your nervous system starts to compensate: you push through, sleep becomes lighter, and focus slips.
+            </div>
+            <div class="science-fact" style="background: rgba(184,118,88,0.08); border-left-color: #B87658;">
+                <div class="fact-icon">💡</div>
+                <div>
+                    <div class="fact-desc">These aren't failures of willpower — they're protective responses. Catching them early means you can restore balance before your system hits the red zone.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why energy declines -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔋</span>
+                <h2>Why energy slowly declines</h2>
+            </div>
+            <div class="text-content">
+                Chronic tension keeps cortisol and adrenaline slightly elevated. At first, this helps you stay alert — but without proper recovery, your stress response loses flexibility. Heart rate variability (HRV) begins to drop, showing that your body is stuck in "alert mode."
+            </div>
+
+            <div style="background: rgba(16,185,129,0.06); border-left: 3px solid #10B981; padding: 1rem; margin-bottom: 0.75rem;">
+                <div style="font-size: 15px; font-weight: 700; color: #0D9461; margin-bottom: 0.5rem;">Normal state</div>
+                <div style="font-size: 15px; font-weight: 500; color: #172737; line-height: 1.6;">Mitochondria convert oxygen + nutrients → ATP → energy for every heartbeat, thought, and movement.</div>
+            </div>
+            <div style="background: rgba(239,68,68,0.06); border-left: 3px solid #ef4444; padding: 1rem; margin-bottom: 0.75rem;">
+                <div style="font-size: 15px; font-weight: 700; color: #ef4444; margin-bottom: 0.5rem;">Under ongoing stress</div>
+                <div style="font-size: 15px; font-weight: 500; color: #172737; line-height: 1.6;">Mitochondria shift to protection mode → less ATP, more reactive molecules → oxidative stress → you feel drained even after rest.</div>
+            </div>
+
+            <div class="text-content">
+                That cellular slowdown — not the workload itself — is often the true start of burnout.
+            </div>
+        </div>
+
+        <!-- Formula -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">⚖️</span>
+                <h2>The real formula behind burnout</h2>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-text">Burnout = High Output × Low Recovery × Time</div>
+                <div class="formula-sub">You don't burn out because you work hard — you burn out when recovery can't keep up.</div>
+            </div>
+
+            <div class="text-content">
+                Healthy performance has rhythm: <span class="highlight-text">stress → restore → repeat</span>. When recovery disappears, even small stressors drain your energy faster.
+            </div>
+            <div class="text-content">
+                HRV, inflammation, and mitochondrial ATP output are your earliest biological warning signs.
+            </div>
+        </div>
+
+        <!-- Science facts -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — Early Signals of Burnout</h2>
+            </div>
+            <div class="science-fact">
+                <div class="fact-icon">💤</div>
+                <div>
+                    <div class="fact-title">Flattened cortisol curve predicts emotional exhaustion.</div>
+                    <div class="fact-desc">Low AM and high PM levels are early warning signs. Kakiashvili et al., 2013, J Occup Health.</div>
+                </div>
+            </div>
+            <div class="science-fact">
+                <div class="fact-icon">⚡</div>
+                <div>
+                    <div class="fact-title">Low HRV reflects poor autonomic recovery.</div>
+                    <div class="fact-desc">Kim et al., 2018, Front Public Health.</div>
+                </div>
+            </div>
+            <div class="science-fact">
+                <div class="fact-icon">🔥</div>
+                <div>
+                    <div class="fact-title">Elevated hs-CRP sustains stress signaling through low-grade inflammation.</div>
+                    <div class="fact-desc">Slavich, 2020, Nat Rev Neurosci.</div>
+                </div>
+            </div>
+            <div class="science-fact">
+                <div class="fact-icon">🔋</div>
+                <div>
+                    <div class="fact-title">Chronic stress impairs mitochondrial ATP production and increases oxidative stress.</div>
+                    <div class="fact-desc">Picard & McEwen, 2018, Mol Psychiatry.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Labs -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                Certain blood markers show how well your stress and energy systems adapt — the % reflects how strongly each one influences your ability to stay resilient and avoid burnout.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">⚖️ DHEA-S</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 65%;">65%</div>
+                </div>
+                <div class="biomarker-desc">Balances cortisol's effects and supports resilience, mood, and immune stability.</div>
+                <div class="reference-text">Maninger et al., 2009, Ann N Y Acad Sci.</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">🔥 hs-CRP</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%;">60%</div>
+                </div>
+                <div class="biomarker-desc">Reflects subtle inflammation that sustains stress activation.</div>
+                <div class="reference-text">Slavich, 2020, Nat Rev Neurosci.</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">🔋 Ferritin + Hemoglobin</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;">55%</div>
+                </div>
+                <div class="biomarker-desc">Show how efficiently oxygen reaches mitochondria; low levels reduce ATP production and stamina.</div>
+                <div class="reference-text">Beard et al., 2001, Am J Clin Nutr.</div>
+            </div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0.5rem;">
+                    What are your earliest signs of overload — foggy thinking, tension, apathy, or detachment?
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    How could you respond to the first one instead of waiting for a crash?
+                </div>
+            </div>
+        </div>
+
+        <!-- What about vagus -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>What About Vagus?</h2>
+            </div>
+            <div class="text-content">
+                Your vagus nerve is the main controller of recovery — and one of the first systems to show early burnout signals.
+            </div>
+
+            <div style="background: rgba(239,68,68,0.06); border-left: 3px solid #ef4444; padding: 1rem; margin-bottom: 0.75rem;">
+                <div style="font-size: 15px; font-weight: 700; color: #ef4444; margin-bottom: 0.5rem;">When vagal tone drops</div>
+                <div style="font-size: 15px; font-weight: 500; color: #172737; line-height: 1.6;">HRV falls · cortisol stays elevated · alert mode persists</div>
+            </div>
+            <div style="background: rgba(16,185,129,0.06); border-left: 3px solid #10B981; padding: 1rem; margin-bottom: 0.75rem;">
+                <div style="font-size: 15px; font-weight: 700; color: #0D9461; margin-bottom: 0.5rem;">When vagal tone improves</div>
+                <div style="font-size: 15px; font-weight: 500; color: #172737; line-height: 1.6;">Stress rhythm stabilizes · recovery deepens · energy becomes steadier</div>
+            </div>
+
+            <div class="text-content">
+                This is what prevents "slightly tired" from turning into burnout.
+            </div>
+        </div>
+
+        <!-- Plan to action -->
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — The 3:1 Balance Rule</h2>
+            </div>
+            <div class="action-box">
+                <div class="step-item">
+                    <div class="step-number">1️⃣</div>
+                    <div>
+                        <div class="fact-title">First, complete your Vagus Nerve Reset session.</div>
+                        <div class="fact-desc">Lowering stress tone protects your energy system.</div>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2️⃣</div>
+                    <div>
+                        <div class="fact-title">Then apply the 3:1 rule.</div>
+                        <div class="fact-desc">For every three focused work blocks, schedule one recovery block: 5-minute walk, slow breathing, or a quiet daylight break.</div>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">🔄</div>
+                    <div>
+                        <div class="fact-desc">This keeps recovery in the cycle instead of waiting for exhaustion.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evening -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌙</span>
+                <h2>Evening Matters Too</h2>
+            </div>
+            <div class="text-content">
+                After intense days, true recovery means quiet, not stimulation. Dim lights, skip screens, and take slow breaths before bed.
+            </div>
+            <div class="text-content">
+                This signals your HPA axis to lower cortisol and allows mitochondria to restore ATP overnight.
+            </div>
+            <div class="reference-text">Meerlo et al., 2008.</div>
+        </div>
+
+        <!-- Why this works -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌞</span>
+                <h2>Why This Works</h2>
+            </div>
+            <div class="text-content">
+                Burnout isn't a collapse — it's communication. When you restore recovery cycles early, cortisol stabilizes, HRV improves, and your mitochondria return to efficient energy production.
+            </div>
+            <div class="text-content">
+                That's how <span class="highlight-text">steady energy and resilience</span> are rebuilt — from the inside out.
+            </div>
+        </div>
+
+        <!-- Today You Learned -->
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="section-header" style="justify-content: center;">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            <div class="summary-item">⚡ Burnout begins with subtle stress accumulation</div>
+            <div class="summary-item">🌿 Vagus activation restores recovery rhythm</div>
+            <div class="summary-item">🧬 DHEA-S, hs-CRP, ferritin, and hemoglobin reflect resilience capacity</div>
+            <div class="summary-item">💠 Recovery must be scheduled — not postponed</div>
+        </div>
+
+        <!-- What to Expect -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            <div class="expectation-section">
+                <div class="expectation-item">
+                    <div class="expectation-emoji">⏱️</div>
+                    <div>
+                        <div class="expectation-time">Today</div>
+                        <div class="expectation-desc">You notice tension earlier instead of ignoring it. Short recovery blocks feel relieving instead of "wasted time."</div>
+                    </div>
+                </div>
+                <div class="expectation-item">
+                    <div class="expectation-emoji">📆</div>
+                    <div>
+                        <div class="expectation-time">In 1–2 weeks</div>
+                        <div class="expectation-desc">Less end-of-day exhaustion. Energy dips feel milder and recover faster.</div>
+                    </div>
+                </div>
+                <div class="expectation-item" style="margin-bottom: 0;">
+                    <div class="expectation-emoji">🗓</div>
+                    <div>
+                        <div class="expectation-time">In 1 month</div>
+                        <div class="expectation-desc">Work feels sustainable instead of draining. You finish days tired but not depleted.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Closing -->
+        <div class="section" style="text-align: center;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 1.25rem;">
+                ✨ Protect your energy at the cellular level, and your body will protect your drive.
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: 0.4rem;">
+                <span style="font-size: 1rem;">✅</span>
+                <span style="font-size: 12px; font-weight: 500; color: #8C8C8C; letter-spacing: 0.2px;">Reviewed by medical expert</span>
+            </div>
+        </div>
+
+        <!-- Footer CTA -->
+        <div style="background: #FFF8E1; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center;">
+            <div style="font-size: 20px; font-weight: 800; color: #172737; line-height: 1.3; margin-bottom: 1.75rem;">
+                📈 Boost your results with a personalized lab test
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; text-align: left;">
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">🧪</span> 30+ biomarkers tested
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">🥗</span> Personalized diet plan
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">💊</span> Personalized supplements plan
+                </div>
+            </div>
+            <a href="https://plan.aura.care/lt-2/" style="display: block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; font-size: 19px; font-weight: 800; padding: 18px 0; border-radius: 14px; text-decoration: none; box-shadow: 0 4px 16px rgba(184,118,88,0.35);">
+                Continue
+            </a>
+        </div>
+
+    </main>
+</body>
+</html>

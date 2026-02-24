@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3 — Clear Brain Fog Fast</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; background: transparent; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: transparent; }
+        .section { padding: 1.5rem 0; border-bottom: 1px solid #EFEFEF; background: transparent; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 18px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 16px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.5; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 16px; font-weight: 500; color: #172737; line-height: 1.5; margin-bottom: 0.5rem; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; display: flex; gap: 1rem; padding: 1rem 0; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .action-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem 0; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 16px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left: 3px solid #B87658; padding: 1rem 0; margin: 1rem 0; }
+        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
+        .biomarker-card { background: rgba(184,118,88,0.08); padding: 14px 0; border-bottom: 1px solid rgba(184,118,88,0.15); margin-bottom: 1.5rem; }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; margin-bottom: 1rem; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin-bottom: 0.75rem; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 15px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.5; }
+        .reference-text { font-size: 13px; font-weight: 500; color: #8C8C8C; font-style: italic; margin-top: 1rem; }
+        .expectation-section { padding: 14px 0; }
+        .expectation-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+        .expectation-emoji { font-size: 1.5rem; flex-shrink: 0; }
+        .expectation-time { font-weight: 600; font-size: 16px; color: #B87658; margin-bottom: 0.25rem; }
+        .expectation-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .summary-item { display: flex; align-items: flex-start; gap: 0.5rem; justify-content: center; margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; }
+        .summary-item:last-child { margin-bottom: 0; }
+        .step-card { background: rgba(184,118,88,0.06); border-left: 3px solid #B87658; padding: 1rem; margin-bottom: 0.75rem; }
+        .step-card-title { font-size: 15px; font-weight: 700; color: #B87658; margin-bottom: 0.4rem; }
+        .step-card-desc { font-size: 15px; font-weight: 500; color: #172737; line-height: 1.5; }
+        .step-card-proof { font-size: 12px; font-weight: 500; color: #8C8C8C; font-style: italic; margin-top: 0.4rem; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+
+        <div style="padding: 1.75rem 0 1rem 0;">
+            <h1 style="font-size: 22px; font-weight: 700; line-height: 1.3; color: #B87658;">Clear brain fog fast</h1>
+        </div>
+
+        <!-- Intro -->
+        <div class="section">
+            <div class="text-content">
+                Brain fog isn't a lack of effort — it's a signal that your brain is stuck in survival mode.
+            </div>
+            <div class="text-content">
+                Today you'll learn how steady fuel, gentle resets, and vagus-supported signals help your brain shift from "on guard" into clarity, focus, and smooth thinking.
+            </div>
+        </div>
+
+        <!-- Why your brain feels low on battery -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔋</span>
+                <h2>Why your brain feels low on battery</h2>
+            </div>
+            <div class="text-content">
+                Your brain makes up only ~2% of body weight, but uses ~20% of your daily energy.
+            </div>
+            <div class="text-content">
+                When fuel delivery is uneven, thinking feels heavy and slow — even simple tasks require effort. Clarity comes from steady energy, oxygen, hydration, and reduced stress signals.
+            </div>
+
+            <div class="science-fact" style="background: rgba(184,118,88,0.08); border-left-color: #B87658;">
+                <div class="fact-icon">⚡</div>
+                <div>
+                    <div class="fact-title">When glucose rises too fast (spike):</div>
+                    <div class="fact-desc">Energy feels jittery, unfocused, overstimulated.</div>
+                </div>
+            </div>
+            <div class="science-fact" style="background: rgba(184,118,88,0.08); border-left-color: #B87658;">
+                <div class="fact-icon">📉</div>
+                <div>
+                    <div class="fact-title">When glucose drops too low (crash):</div>
+                    <div class="fact-desc">The brain lacks fuel — thinking slows, fog and heaviness appear.</div>
+                </div>
+            </div>
+
+            <div class="text-content" style="color: #656565; font-size: 15px;">
+                When glucose stays within a stable range, neurons fire smoothly — and focus feels clear and steady.
+            </div>
+        </div>
+
+        <!-- Image -->
+        <div class="section">
+            <div style="text-align: center;">
+                <img src="https://auracarecontent.github.io/V2/1-3.png"
+                     alt="Brain fuel system"
+                     style="max-width: 60%; height: auto; border-radius: 12px;" />
+            </div>
+        </div>
+
+        <!-- Brain fuel system -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Meet your brain's fuel system</h2>
+            </div>
+            <div class="text-content">Your brain works best with steady input:</div>
+            <ul class="bullet-list">
+                <li class="bullet-item">Stable glucose</li>
+                <li class="bullet-item">Hydration</li>
+                <li class="bullet-item">B-vitamins</li>
+                <li class="bullet-item">Magnesium</li>
+            </ul>
+            <div class="text-content">Your vagus nerve also plays a role.</div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0;">
+                <div style="background: rgba(239,68,68,0.06); border-left: 3px solid #ef4444; padding: 0.75rem;">
+                    <div style="font-size: 13px; font-weight: 700; color: #ef4444; margin-bottom: 0.5rem;">When stress mode stays active:</div>
+                    <div style="font-size: 13px; font-weight: 500; color: #172737; line-height: 1.5;">glucose swings more · stress hormones rise · focus drops</div>
+                </div>
+                <div style="background: rgba(16,185,129,0.06); border-left: 3px solid #10B981; padding: 0.75rem;">
+                    <div style="font-size: 13px; font-weight: 700; color: #10B981; margin-bottom: 0.5rem;">When vagus is supported:</div>
+                    <div style="font-size: 13px; font-weight: 500; color: #172737; line-height: 1.5;">heart rhythm steadies · blood flow improves · thinking feels easier</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4 steps -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>4 easy steps to clear brain fog</h2>
+            </div>
+
+            <div class="step-card">
+                <div class="step-card-title">Step 1 — Morning: Build a Stable Fuel Base</div>
+                <div class="step-card-desc">Balanced breakfast with protein + fiber keeps glucose steady and supports neurotransmitters (with help from B-vitamins and folate) — this sets up calm, clear focus for the first half of the day.</div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-card-title">Step 2 — Mid-Morning: Add a 2-Minute Oxygen Reset</div>
+                <div class="step-card-desc">Standing up or stretching for 1–2 minutes boosts blood flow and oxygen delivery to the brain, helping you shake off early brain fog and stay alert.</div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-card-title">Step 3 — Afternoon: Hydrate Your Focus</div>
+                <div class="step-card-desc">A simple water or herbal tea break restores hydration, supports smooth blood flow, and prevents the low-grade fog that often shows up as irritability or mental heaviness.</div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-card-title">Step 4 — Evening: Protect Tomorrow's Clarity</div>
+                <div class="step-card-desc">Dim lights and a gentle wind-down routine reduce late-day overstimulation, helping your nervous system switch into recovery mode — so you wake up with a clearer brain.</div>
+                <div class="step-card-proof">Spencer et al., 2020, Nutrition Reviews; Benton & Donahue, 2021, Front Nutr; Petersen et al., 2020, J Appl Physiol.</div>
+            </div>
+        </div>
+
+        <!-- Science facts -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Science Facts — What Sharpens Clarity</h2>
+            </div>
+            <div class="science-fact">
+                <div class="fact-icon">🍎</div>
+                <div>
+                    <div class="fact-title">Stable glucose = stable focus.</div>
+                    <div class="fact-desc">Spencer et al., 2020, Nutrition Reviews.</div>
+                </div>
+            </div>
+            <div class="science-fact">
+                <div class="fact-icon">💧</div>
+                <div>
+                    <div class="fact-title">Mild dehydration (1–2%) reduces concentration and memory by 10–15%.</div>
+                    <div class="fact-desc">Benton & Donahue, 2021, Front Nutr.</div>
+                </div>
+            </div>
+            <div class="science-fact">
+                <div class="fact-icon">🚶‍♀️</div>
+                <div>
+                    <div class="fact-title">Five minutes of movement increases brain blood flow and alertness within 10 minutes.</div>
+                    <div class="fact-desc">Petersen et al., 2020, J Appl Physiol.</div>
+                </div>
+            </div>
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Low vitamin B12 or folate impairs neurotransmitter balance and attention.</div>
+                    <div class="fact-desc">Malouf & Areosa Sastre, 2016, Cochrane Database Syst Rev.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Labs -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                Certain blood markers reflect how well your brain's energy and attention systems function — the % shows how strongly each marker influences your mental clarity and focus.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Glucose (fasting)</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 70%;">70%</div>
+                </div>
+                <div class="biomarker-desc">Affects stability of mental energy and concentration; large swings can cause post-meal fatigue.</div>
+                <div class="reference-text">Spencer et al., 2020, Nutrition Reviews.</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">HbA1c</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 65%;">65%</div>
+                </div>
+                <div class="biomarker-desc">Reflects average glucose control over 2–3 months; high values are linked to brain fog and reduced attention.</div>
+                <div class="reference-text">Palta et al., 2017, Diabetes Care.</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Vitamin B12</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%;">60%</div>
+                </div>
+                <div class="biomarker-desc">Supports nerve conduction and neurotransmitter production.</div>
+                <div class="reference-text">Malouf & Areosa Sastre, 2016, Cochrane Database Syst Rev.</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Folate (B9)</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;">55%</div>
+                </div>
+                <div class="biomarker-desc">Works with B12 in methylation and neurotransmitter synthesis; low levels may cause mental slowness.</div>
+                <div class="reference-text">Kennedy, 2016, Nutrients.</div>
+            </div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0.5rem;">
+                    When do you notice your focus fading most — morning, afternoon, or evening?
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Is it linked to meals, screens, or mental overload?
+                </div>
+            </div>
+        </div>
+
+        <!-- Plan to action -->
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Micro-Pause for Focus</h2>
+            </div>
+            <div class="action-box">
+                <div class="step-item">
+                    <div class="step-number">1️⃣</div>
+                    <div>
+                        <div class="fact-title">First, complete your Vagus Nerve Reset session.</div>
+                        <div class="fact-desc">This helps shift your brain out of stress mode and makes focus easier to access.</div>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2️⃣</div>
+                    <div>
+                        <div class="fact-title">Then add micro-pause resets during the day.</div>
+                        <div class="fact-desc">Every hour, take 2 minutes to stand, stretch, or walk. If possible, open a window or step outside for fresh air.</div>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">🧠</div>
+                    <div>
+                        <div class="fact-desc">This combination improves oxygen delivery and steadies mental energy — so focus feels natural instead of forced.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evening -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌙</span>
+                <h2>Evening Matters Too — Protect Tomorrow's Clarity</h2>
+            </div>
+            <div class="text-content">
+                Late screens and heavy meals disrupt glucose balance and sleep depth.
+            </div>
+            <div class="text-content">
+                End your day with dim light and hydration — your brain needs water and rest to clear metabolic by-products during sleep.
+            </div>
+            <div class="reference-text">Gooley et al., 2011, JCEM; Xie et al., 2013, Science.</div>
+        </div>
+
+        <!-- Why this works -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌞</span>
+                <h2>Why This Works</h2>
+            </div>
+            <div class="text-content">
+                When glucose, oxygen, and hydration stay steady, your neurons fire in sync and focus feels natural again.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Small movement breaks</span> and balanced nutrition protect mental energy throughout the day.
+            </div>
+        </div>
+
+        <!-- Today You Learned -->
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="section-header" style="justify-content: center;">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            <div class="summary-item">🧠 Brain fog is often unstable fuel, not lack of effort</div>
+            <div class="summary-item">🍬 Glucose spikes and crashes directly affect focus and mental energy</div>
+            <div class="summary-item">💧 Dehydration reduces concentration and processing speed</div>
+            <div class="summary-item">🧬 Biomarkers like fasting glucose, HbA1c, B12, and folate reflect how stable your brain's energy system really is</div>
+            <div class="summary-item">🚶‍♀️ Small daily resets help protect steady thinking and prevent crashes</div>
+        </div>
+
+        <!-- What to Expect -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            <div class="expectation-section">
+                <div class="expectation-item">
+                    <div class="expectation-emoji">⏱️</div>
+                    <div>
+                        <div class="expectation-time">Today</div>
+                        <div class="expectation-desc">Head feels clearer within minutes after a reset. Less need for caffeine to "push through."</div>
+                    </div>
+                </div>
+                <div class="expectation-item">
+                    <div class="expectation-emoji">📆</div>
+                    <div>
+                        <div class="expectation-time">In 1–2 weeks</div>
+                        <div class="expectation-desc">Fewer afternoon crashes. You can concentrate longer without losing the thread.</div>
+                    </div>
+                </div>
+                <div class="expectation-item" style="margin-bottom: 0;">
+                    <div class="expectation-emoji">🗓</div>
+                    <div>
+                        <div class="expectation-time">In 1 month</div>
+                        <div class="expectation-desc">Stable mental energy through most of the day. Clear thinking even during busy or stressful periods.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Closing -->
+        <div class="section" style="text-align: center;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 1.25rem;">
+                ✨ Clarity isn't about trying harder — it's about fueling your brain smarter.
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: 0.4rem;">
+                <span style="font-size: 1rem;">✅</span>
+                <span style="font-size: 12px; font-weight: 500; color: #8C8C8C; letter-spacing: 0.2px;">Reviewed by medical expert</span>
+            </div>
+        </div>
+
+        <!-- Footer CTA -->
+        <div style="background: #FFF8E1; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center;">
+            <div style="font-size: 20px; font-weight: 800; color: #172737; line-height: 1.3; margin-bottom: 1.75rem;">
+                📈 Boost your results with a personalized lab test
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; text-align: left;">
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">🧪</span> 30+ biomarkers tested
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">🥗</span> Personalized diet plan
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">💊</span> Personalized supplements plan
+                </div>
+            </div>
+            <a href="https://plan.aura.care/lt-2/" style="display: block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; font-size: 19px; font-weight: 800; padding: 18px 0; border-radius: 14px; text-decoration: none; box-shadow: 0 4px 16px rgba(184,118,88,0.35);">
+                Continue
+            </a>
+        </div>
+
+    </main>
+</body>
+</html>
