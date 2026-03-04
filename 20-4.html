@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 4 — The quiet fix for afternoon energy crashes</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .no-bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .no-bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; padding-left: 0; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .cta-box { background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(184,118,88,0.15); text-align: center; }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; font-weight: 700; font-size: 16px; padding: 14px 32px; border-radius: 12px; text-decoration: none; margin-top: 1rem; box-shadow: 0 4px 8px rgba(184,118,88,0.25); }
+        .biomarker-card { background: rgba(184,118,88,0.08); padding: 18px; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin-bottom: 0.75rem; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 13px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.4; }
+        .info-box { background: rgba(184,118,88,0.06); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.12); }
+        .explainer-box { background: rgba(212,149,108,0.1); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.15); }
+        .hormone-card { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; border-radius: 12px; margin-bottom: 0.75rem; }
+        .divider { height: 1px; background: #EFEFEF; margin: 1rem 0; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="day-label">DAY 4</div>
+            <h1>The quiet fix for afternoon energy crashes</h1>
+        </div>
+
+        <!-- DAILY FOCUS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Daily focus</h2>
+            </div>
+            <div class="text-content">
+                The afternoon often brings a familiar shift.
+            </div>
+            <div class="text-content">
+                Energy fades. Focus becomes harder. The body starts looking for coffee, chocolate, or something sweet.
+            </div>
+            <div class="text-content">
+                The morning may have felt clear and productive. Then suddenly the body feels <span class="highlight-text">slower and less steady</span>.
+            </div>
+        </div>
+
+        <!-- WHY AFTERNOON HUNGER APPEARS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">⚡</span>
+                <h2>Why afternoon hunger appears</h2>
+            </div>
+            <div class="text-content">
+                When meals digest very quickly, the body stops receiving "we're satisfied" signals sooner. The brain notices that fuel from the last meal is fading — appetite slowly turns back on.
+            </div>
+            <div class="text-content">
+                That is why the body starts asking for snacks, sugar, or caffeine.
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="text-content" style="font-weight: 600; color: #B87658;">
+                Fiber helps these signals last longer.
+            </div>
+            <div class="text-content">
+                Meals that include fiber help satiety signals last longer. Energy and appetite stay more stable through the afternoon.
+            </div>
+
+            <!-- Visual -->
+            <div style="margin: 1.25rem 0;">
+                <div style="display: flex; align-items: center; gap: 1rem; background: rgba(220,38,38,0.06); border: 1px solid rgba(220,38,38,0.2); border-radius: 12px; padding: 1rem; margin-bottom: 0.75rem;">
+                    <div style="flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; border: 2px dashed #DC2626; display: flex; align-items: center; justify-content: center; background: rgba(220,38,38,0.08);">
+                        <span style="font-size: 20px;">☕</span>
+                    </div>
+                    <div>
+                        <div style="font-size: 13px; font-weight: 700; color: #DC2626; margin-bottom: 0.25rem;">Low fiber meal</div>
+                        <div style="font-size: 12px; color: #656565; line-height: 1.4;">Satiety signals fade fast → brain signals hunger → <strong style="color: #DC2626;">cravings appear early</strong></div>
+                    </div>
+                </div>
+                <div style="text-align: center; font-size: 11px; color: #B87658; font-weight: 600; margin: 0.25rem 0; letter-spacing: 0.3px;">↓ add fiber ↓</div>
+                <div style="display: flex; align-items: center; gap: 1rem; background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.25); border-radius: 12px; padding: 1rem; margin-top: 0.75rem;">
+                    <div style="flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; border: 2px solid #10B981; display: flex; align-items: center; justify-content: center; background: rgba(16,185,129,0.1);">
+                        <span style="font-size: 20px;">🌿</span>
+                    </div>
+                    <div>
+                        <div style="font-size: 13px; font-weight: 700; color: #10B981; margin-bottom: 0.25rem;">Fiber-rich meal</div>
+                        <div style="font-size: 12px; color: #656565; line-height: 1.4;">Satiety signals stay active → appetite stays quiet → <strong style="color: #10B981;">afternoon stays steady</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GUT SIGNALS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🥣</span>
+                <h2>The gut signals that control appetite</h2>
+            </div>
+            <div class="text-content">
+                The intestine releases special satiety hormones after food arrives — simple chemical signals that tell the brain: "food is here."
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="explainer-box">
+                <div class="hormone-card" style="background: rgba(184,118,88,0.06); border-radius: 10px; margin-bottom: 0.75rem;">
+                    <div style="flex-shrink: 0; font-size: 1.5rem;">🔵</div>
+                    <div>
+                        <div style="font-size: 13px; font-weight: 700; color: #172737; margin-bottom: 0.25rem;">PYY — Peptide YY</div>
+                        <div style="font-size: 12px; color: #656565; line-height: 1.4;">Reduces appetite and slows digestion slightly. Tells the brain: slow down, we have enough.</div>
+                    </div>
+                </div>
+                <div class="hormone-card" style="background: rgba(16,185,129,0.06); border-radius: 10px;">
+                    <div style="flex-shrink: 0; font-size: 1.5rem;">🟢</div>
+                    <div>
+                        <div style="font-size: 13px; font-weight: 700; color: #172737; margin-bottom: 0.25rem;">GLP-1</div>
+                        <div style="font-size: 12px; color: #656565; line-height: 1.4;">Helps the body feel satisfied and keeps food moving through digestion at a steady pace.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="text-content" style="font-weight: 600; color: #B87658;">
+                Fiber helps activate both signals.
+            </div>
+            <div class="text-content">
+                When fiber reaches the intestine, these satiety hormones are released more strongly. The brain receives a clearer message that the body has eaten enough.
+            </div>
+        </div>
+
+        <!-- SCIENCE FACTS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science facts</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🔬</div>
+                <div>
+                    <div class="fact-title">Dietary fiber stimulates the release of gut satiety hormones such as GLP-1 and PYY</div>
+                    <div class="fact-desc">Source: Delzenne et al., Nature Reviews Endocrinology, 2011</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">⚖️</div>
+                <div>
+                    <div class="fact-title">These hormones help regulate appetite and slow digestion after meals</div>
+                    <div class="fact-desc">Source: Slavin, Nutrition Research Reviews, 2005</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">📊</div>
+                <div>
+                    <div class="fact-title">Higher fiber intake is associated with improved appetite control and metabolic stability</div>
+                    <div class="fact-desc">Source: Reynolds et al., The Lancet, 2019</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LABS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What about labs? — Appetite regulation pattern</h2>
+            </div>
+            <div class="text-content">
+                The percentage shows how strongly this biomarker can influence how you feel and function overall.
+            </div>
+
+            <div class="biomarker-card">
+                <div style="margin-bottom: 1rem;">
+                    <div class="biomarker-name">Fasting insulin 🧪</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Stable insulin levels are often linked with better appetite regulation and slower digestion.
+                </div>
+                <div class="biomarker-desc" style="margin-top: 0.5rem;">
+                    Source: Weickert &amp; Pfeiffer, Nature Reviews Endocrinology, 2018
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div style="margin-bottom: 1rem;">
+                    <div class="biomarker-name">Triglycerides 🧪</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 34%;">34 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Higher fiber intake is associated with improved metabolic balance and appetite signaling.
+                </div>
+                <div class="biomarker-desc" style="margin-top: 0.5rem;">
+                    Source: Brown et al., American Journal of Clinical Nutrition, 1999
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 13px; font-weight: 600; color: #172737; line-height: 1.5;">
+                    🔍 Key insight:
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.5rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Fiber helps activate gut signals that tell the brain the body is satisfied.
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <div class="fact-title" style="color: #B87658; font-size: 16px; margin-bottom: 0.75rem;">
+                    👉 Interested in a Personalized Blood Test Plan with a detailed report after results are ready?
+                </div>
+                <a href="https://plan.aura.care/lt-2/" class="cta-button">continue</a>
+            </div>
+        </div>
+
+        <!-- REFLECTION -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection prompt</h2>
+            </div>
+            <div class="text-content">
+                At what moment in the afternoon does your body usually start asking for coffee or snacks?
+            </div>
+            <div class="text-content">
+                How satisfying did your lunch actually feel?
+            </div>
+        </div>
+
+        <!-- PLAN TO ACTION -->
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to action — Support your satiety signals</h2>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">🥦 Step 1 — Add one fiber-rich food to lunch today</div>
+                <div class="fact-desc">Beans, lentils, vegetables, oats, or seeds — any of these activate satiety hormones in the intestine.</div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">🥚 Step 2 — Include some protein in the same meal</div>
+                <div class="fact-desc">Protein works alongside fiber to help satiety signals last even longer.</div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">⏱️ Step 3 — Notice how your appetite feels later in the afternoon</div>
+                <div class="fact-desc">Pay attention to whether the urge for coffee or snacks arrives later or feels less strong.</div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.12); padding: 1.25rem; margin: 1.5rem 0; border-radius: 12px; border: 2px solid rgba(184,118,88,0.2); box-shadow: 0 4px 12px rgba(184,118,88,0.15);">
+                <div style="font-weight: 700; font-size: 15px; color: #B87658; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    🧠 Why this works
+                </div>
+                <div class="fact-desc">
+                    Fiber triggers the release of PYY and GLP-1 in the intestine — hormones that tell the brain to stay satisfied.<br><br>
+                    When these signals stay active longer, <span class="highlight-text">appetite stays quieter and afternoon energy stays steadier</span>.
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 14px; font-weight: 600; color: #B87658; line-height: 1.5; text-align: center;">
+                    ✨ Key takeaway
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.75rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Afternoon cravings are often a signal from the gut.<br>
+                    Fiber helps the gut <span class="highlight-text">send a clearer "satisfied" message</span> for longer.
+                </div>
+            </div>
+        </div>
+
+        <!-- TODAY YOU LEARNED -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today you learned</h2>
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">🔬 The gut sends hormone signals that regulate appetite</li>
+                <li class="no-bullet-item">🔵 PYY is a signal that reduces hunger after eating</li>
+                <li class="no-bullet-item">🟢 GLP-1 helps the body stay satisfied longer</li>
+                <li class="no-bullet-item">🌾 Fiber helps activate both of these signals</li>
+            </ul>
+
+            <div class="reflection-box">
+                <div style="text-align: center;">
+                    <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">
+                        ✨ Remember:
+                    </div>
+                    <div class="fact-desc">
+                        When the gut sends clear signals, the body feels more steady.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WHAT TO EXPECT -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to expect</h2>
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ After today</span> — afternoon hunger feels less sudden</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏳ After 3–5 days</span> — energy and appetite during the afternoon feel calmer</li>
+                <li class="no-bullet-item"><span class="highlight-text">📆 After 1–2 weeks</span> — meals keep you satisfied longer through the day</li>
+            </ul>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <h2>📩 Get your personalized lab panel</h2>
+            <div class="footer-text">
+                If you're interested in a Personalized Blood Test Plan at the best price — with your own detailed report after the results are ready, click here:
+            </div>
+            <a href="https://plan.aura.care/lt-2" style="color: white; font-weight: 700; text-decoration: none; font-size: 16px; display: inline-block; padding: 12px 32px; background: rgba(255,255,255,0.2); border: 2px solid #FFFFFF; border-radius: 12px;">
+                continue
+            </a>
+        </div>
+
+    </main>
+</body>
+</html>
