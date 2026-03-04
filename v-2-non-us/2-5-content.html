@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 5 — Why Touch Works Better Than You Think</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; background: transparent; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: transparent; }
+        .section { padding: 1.5rem 0; border-bottom: 1px solid #EFEFEF; background: transparent; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 18px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 16px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.5; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 16px; font-weight: 500; color: #172737; line-height: 1.5; margin-bottom: 0.5rem; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left: 3px solid #B87658; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 16px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
+        .biomarker-card { background: rgba(184,118,88,0.08); padding: 14px 0; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(184,118,88,0.15); }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; margin-bottom: 1rem; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin-bottom: 0.75rem; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 15px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.5; }
+        .reference-text { font-size: 13px; font-weight: 500; color: #8C8C8C; font-style: italic; margin-top: 0.5rem; }
+        .expectation-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+        .expectation-emoji { font-size: 1.5rem; flex-shrink: 0; }
+        .expectation-time { font-weight: 600; font-size: 16px; color: #B87658; margin-bottom: 0.25rem; }
+        .expectation-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .summary-item { display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; }
+        .summary-item:last-child { margin-bottom: 0; }
+        .symptoms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 1rem 0; margin: 1rem 0; }
+        .symptom-item { display: flex; align-items: center; gap: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; }
+        .symptom-emoji { font-size: 1.5rem; flex-shrink: 0; }
+
+        /* Intro cards */
+        .state-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1.25rem 0; }
+        .state-card { border-radius: 12px; padding: 1rem; text-align: center; }
+        .state-card.calm { background: rgba(16,185,129,0.08); border: 1.5px solid rgba(16,185,129,0.25); }
+        .state-card.stress { background: rgba(239,68,68,0.06); border: 1.5px solid rgba(239,68,68,0.2); }
+        .state-emoji { font-size: 1.75rem; margin-bottom: 0.5rem; }
+        .state-label { font-size: 12px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .state-card.calm .state-label { color: #10B981; }
+        .state-card.stress .state-label { color: #ef4444; }
+        .state-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+
+        /* Touch action cards */
+        .touch-cards { display: flex; flex-direction: column; gap: 0.75rem; margin: 1rem 0; }
+        .touch-card { display: flex; align-items: center; gap: 1rem; background: rgba(184,118,88,0.05); border-radius: 12px; padding: 0.9rem 1rem; }
+        .touch-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .touch-text { font-size: 15px; font-weight: 500; color: #172737; line-height: 1.4; }
+
+        /* Effect cards */
+        .effect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0; }
+        .effect-card { background: rgba(16,185,129,0.07); border-radius: 10px; padding: 0.75rem; text-align: center; }
+        .effect-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
+        .effect-text { font-size: 13px; font-weight: 600; color: #172737; line-height: 1.3; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+
+        <!-- Intro -->
+        <div style="background: transparent; padding: 1.75rem 0 1rem 0;">
+            <h1 style="font-size: 22px; font-weight: 700; line-height: 1.3; color: #B87658;">Why touch works better than you think</h1>
+        </div>
+
+        <div class="section">
+            <div class="text-content">
+                Today you'll learn how your body recognizes calm through touch, not just thoughts.
+            </div>
+            <div class="text-content">
+                When you place your hands over your chest or belly, special nerve fibers in the skin send signals to the brain that slow your heartbeat, ease breathing, and release tension.
+            </div>
+            <div class="text-content">
+                This simple practice helps your body return to balance and rebuild a sense of calm from the inside.
+            </div>
+        </div>
+
+        <!-- Your skin -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Your skin can help your body relax</h2>
+            </div>
+            <div class="text-content">
+                Your nervous system doesn't respond only to breathing or movement. It also listens to signals from the skin.
+            </div>
+            <div class="text-content">
+                Gentle, warm touch activates special sensory nerves called <span class="highlight-text">C-tactile fibers</span>. These fibers connect directly to brain areas that regulate heart rhythm, emotions, and social connection.
+            </div>
+            <div class="text-content">When they activate, the brain increases vagal activity:</div>
+
+            <div class="effect-grid">
+                <div class="effect-card">
+                    <div class="effect-icon">💓</div>
+                    <div class="effect-text">Heart rate slows</div>
+                </div>
+                <div class="effect-card">
+                    <div class="effect-icon">🫁</div>
+                    <div class="effect-text">Breathing deepens</div>
+                </div>
+                <div class="effect-card">
+                    <div class="effect-icon">💪</div>
+                    <div class="effect-text">Muscles release tension</div>
+                </div>
+                <div class="effect-card">
+                    <div class="effect-icon">😌</div>
+                    <div class="effect-text">Mood stabilizes</div>
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 0.5rem;">That's why simple actions calm the body surprisingly quickly:</div>
+
+            <div class="touch-cards">
+                <div class="touch-card">
+                    <div class="touch-icon">🫶</div>
+                    <div class="touch-text">Placing a hand on your chest</div>
+                </div>
+                <div class="touch-card">
+                    <div class="touch-icon">🤲</div>
+                    <div class="touch-text">Resting a hand on your stomach</div>
+                </div>
+                <div class="touch-card">
+                    <div class="touch-icon">🤗</div>
+                    <div class="touch-text">Receiving a gentle hug</div>
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 0.5rem;">
+                Your skin already understands the language of comfort.
+            </div>
+        </div>
+
+        <!-- Alert mode -->
+        <div class="section">
+            <div class="section-header">
+                <h2>When your body stays in alert mode</h2>
+            </div>
+            <div class="text-content">
+                During chronic stress, the body can remain stuck in a subtle alert state. Muscles tighten. Posture closes. Breathing becomes shallow. The vagus nerve becomes less responsive.
+            </div>
+            <div class="text-content">You may notice:</div>
+
+            <div class="symptoms-grid">
+                <div class="symptom-item">
+                    <span class="symptom-emoji">🦴</span>
+                    <span>Neck or shoulder tension</span>
+                </div>
+                <div class="symptom-item">
+                    <span class="symptom-emoji">😬</span>
+                    <span>Jaw tightness</span>
+                </div>
+                <div class="symptom-item">
+                    <span class="symptom-emoji">💓</span>
+                    <span>Faster heartbeat</span>
+                </div>
+                <div class="symptom-item">
+                    <span class="symptom-emoji">😶</span>
+                    <span>Difficulty relaxing</span>
+                </div>
+            </div>
+
+            <div class="text-content">
+                Reintroducing gentle touch — even through your own hands — helps restore this calming pathway. With repetition, the body becomes more responsive to relaxation again.
+            </div>
+        </div>
+
+        <!-- Science facts -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Science Facts — Touch and Vagal Calm</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Gentle touch activates C-tactile fibers, increasing parasympathetic activity and HRV.</div>
+                    <div class="fact-desc">These specialized nerve fibers are found across the skin and are uniquely tuned to slow, warm, affectionate touch.</div>
+                    <div class="fact-desc" style="margin-top: 0.5rem; font-size: 13px; color: #8C8C8C; font-style: italic;">McGlone et al., 2014, Neuroscience & Biobehavioral Reviews</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🤍</div>
+                <div>
+                    <div class="fact-title">Touch increases oxytocin — a hormone linked to bonding and stress reduction.</div>
+                    <div class="fact-desc">Even self-administered touch triggers oxytocin release, lowering perceived stress and cortisol.</div>
+                    <div class="fact-desc" style="margin-top: 0.5rem; font-size: 13px; color: #8C8C8C; font-style: italic;">Walker et al., 2017, Psychoneuroendocrinology</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">💤</div>
+                <div>
+                    <div class="fact-title">Warm hand placement over the chest before sleep improves relaxation and shortens time to fall asleep.</div>
+                    <div class="fact-desc">A simple bedtime touch practice produced measurable improvements in sleep onset across participants.</div>
+                    <div class="fact-desc" style="margin-top: 0.5rem; font-size: 13px; color: #8C8C8C; font-style: italic;">Sato et al., 2020, Sleep Health</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🩺</div>
+                <div>
+                    <div class="fact-title">Regular soothing touch practices reduce blood pressure and perceived stress.</div>
+                    <div class="fact-desc">Consistent touch-based practices show cumulative benefits on both physiological and psychological stress markers.</div>
+                    <div class="fact-desc" style="margin-top: 0.5rem; font-size: 13px; color: #8C8C8C; font-style: italic;">Field, 2016, Complementary Therapies in Medicine</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biomarkers -->
+        <div class="section">
+            <div class="section-header">
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                Certain biomarkers reflect how strongly your body responds to stress and how easily it returns to emotional balance.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Cortisol (AM / PM)</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 70%;">70%</div></div>
+                <div class="biomarker-desc">Elevated or flattened cortisol rhythms reflect prolonged stress activation and slower recovery.</div>
+                <div class="reference-text">Kumari et al., 2009, Psychoneuroendocrinology</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">DHEA-S</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 60%;">60%</div></div>
+                <div class="biomarker-desc">Helps buffer cortisol and supports resilience during stress.</div>
+                <div class="reference-text">Kalman et al., 2018, Stress</div>
+            </div>
+
+            <div class="biomarker-card" style="margin-bottom: 0;">
+                <div class="biomarker-name">Magnesium (RBC)</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 55%;">55%</div></div>
+                <div class="biomarker-desc">Supports nerve relaxation and emotional stability; low levels increase tension and stress sensitivity.</div>
+                <div class="reference-text">DiNicolantonio et al., 2018, Open Heart</div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.25rem; font-size: 15px; color: #656565;">
+                Tracking these markers can help reveal how effectively your body recovers after stress.
+            </div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0.5rem;">
+                    How do you usually respond to stress?
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    Do you try to control it mentally, distract yourself, or push through it?
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Today, try replacing one moment of effort with one moment of gentle self-comfort.
+                </div>
+            </div>
+        </div>
+
+        <!-- Plan to action -->
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <h2>Plan to Action — Your Calm Touch Reset</h2>
+            </div>
+
+            <div class="action-box">
+                <div class="step-item">
+                    <div class="step-number">1️⃣</div>
+                    <div>
+                        <div class="fact-title">First, complete your Vagus Nerve Reset session.</div>
+                        <div class="fact-desc">These exercises activate calming pathways through breathing and movement.</div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2️⃣</div>
+                    <div>
+                        <div class="fact-title">Then try a 1-minute touch reset.</div>
+                        <div class="fact-desc">Place one hand over your chest and one over your belly. Breathe slowly through your nose. Stay there for one minute.</div>
+                        <div class="fact-desc" style="margin-top: 0.5rem;">This simple contact helps your nervous system relax and release tension.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evening -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Evening Matters Too — Touch Before Sleep</h2>
+            </div>
+            <div class="text-content">
+                Before bed, place a warm hand over your chest for one minute while breathing slowly.
+            </div>
+            <div class="text-content">
+                This practice increases vagal tone and prepares the body for deeper sleep.
+            </div>
+        </div>
+
+        <!-- Why this works -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Why This Works</h2>
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Touch activates C-tactile fibers</span> → signals reach the brainstem and vagus nerve → heart rate slows.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Oxytocin releases</span> → stress hormones decrease → muscles release tension.
+            </div>
+            <div class="text-content">
+                With regular practice, the nervous system becomes more responsive to calm signals.
+            </div>
+        </div>
+
+        <!-- Today you learned -->
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="section-header" style="justify-content: center;">
+                <h2>Today You Learned</h2>
+            </div>
+            <div class="summary-item">🤲 Gentle touch activates calming nerve pathways in the skin</div>
+            <div class="summary-item">🤍 These signals increase vagal activity and emotional balance</div>
+            <div class="summary-item">🧠 Oxytocin released during touch helps reduce stress</div>
+            <div class="summary-item">🫁 Breathing combined with touch strengthens relaxation signals</div>
+            <div class="summary-item">🔬 Biomarkers like cortisol, DHEA-S, and magnesium reflect emotional stress and recovery</div>
+        </div>
+
+        <!-- What to expect -->
+        <div class="section">
+            <div class="section-header">
+                <h2>What to Expect</h2>
+            </div>
+            <div style="padding: 14px 0; margin-top: 1rem;">
+                <div class="expectation-item">
+                    <div class="expectation-emoji">⏱️</div>
+                    <div>
+                        <div class="expectation-time">Today</div>
+                        <div class="expectation-desc">You may feel calmer within minutes of placing your hands on your chest or belly.</div>
+                    </div>
+                </div>
+                <div class="expectation-item">
+                    <div class="expectation-emoji">📆</div>
+                    <div>
+                        <div class="expectation-time">In 1–2 weeks</div>
+                        <div class="expectation-desc">Your body begins to relax faster after stressful moments.</div>
+                    </div>
+                </div>
+                <div class="expectation-item" style="margin-bottom: 0;">
+                    <div class="expectation-emoji">🗓</div>
+                    <div>
+                        <div class="expectation-time">In 1 month</div>
+                        <div class="expectation-desc">You feel more grounded and emotionally steady throughout the day.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Remember -->
+        <div class="section" style="text-align: center;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 1.25rem;">
+                ✨ Your body already knows how to calm down — sometimes it just needs the right touch.
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
+                <span style="font-size: 1rem;">✅</span>
+                <span style="font-size: 12px; font-weight: 500; color: #8C8C8C; letter-spacing: 0.2px;">Reviewed by medical expert</span>
+            </div>
+        </div>
+
+        <!-- Lab test CTA -->
+
+    </main>
+</body>
+</html>

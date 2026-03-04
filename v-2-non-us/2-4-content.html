@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 4 — What No One Says About Vagus & Gut</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; background: transparent; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: transparent; }
+        .section { padding: 1.5rem 0; border-bottom: 1px solid #EFEFEF; background: transparent; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 18px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 16px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.5; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 16px; font-weight: 500; color: #172737; line-height: 1.5; margin-bottom: 0.5rem; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left: 3px solid #B87658; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 16px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 14px 0;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(184,118,88,0.15);
+        }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; margin-bottom: 1rem; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin-bottom: 0.75rem; }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex; align-items: center; justify-content: flex-end;
+            padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px;
+        }
+        .biomarker-desc { font-size: 15px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.5; }
+        .reference-text { font-size: 13px; font-weight: 500; color: #8C8C8C; font-style: italic; margin-top: 0.5rem; }
+        .expectation-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+        .expectation-emoji { font-size: 1.5rem; flex-shrink: 0; }
+        .expectation-time { font-weight: 600; font-size: 16px; color: #B87658; margin-bottom: 0.25rem; }
+        .expectation-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .summary-item {
+            display: flex; align-items: center; gap: 0.5rem; justify-content: center;
+            margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737;
+        }
+        .summary-item:last-child { margin-bottom: 0; }
+        .symptoms-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 1rem 0; margin: 1rem 0;
+        }
+        .symptom-item { display: flex; align-items: center; gap: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; }
+        .symptom-emoji { font-size: 1.5rem; flex-shrink: 0; }
+        .teaser-box {
+            background: linear-gradient(135deg, rgba(184,118,88,0.08) 0%, rgba(212,149,108,0.12) 100%);
+            border: 1px solid rgba(184,118,88,0.2);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-top: 1.5rem;
+        }
+        .teaser-text { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .state-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1.25rem 0; }
+        .state-card { border-radius: 12px; padding: 1rem; text-align: center; }
+        .state-card.calm { background: rgba(16,185,129,0.08); border: 1.5px solid rgba(16,185,129,0.25); }
+        .state-card.stress { background: rgba(239,68,68,0.06); border: 1.5px solid rgba(239,68,68,0.2); }
+        .state-emoji { font-size: 1.75rem; margin-bottom: 0.5rem; }
+        .state-label { font-size: 12px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .state-card.calm .state-label { color: #10B981; }
+        .state-card.stress .state-label { color: #ef4444; }
+        .state-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .flow-diagram { margin: 1.25rem 0; }
+        .flow-node { display: flex; align-items: center; gap: 0.75rem; background: rgba(184,118,88,0.07); border-left: 3px solid #B87658; padding: 0.75rem 1rem; border-radius: 0 8px 8px 0; }
+        .flow-node-icon { font-size: 1.5rem; flex-shrink: 0; }
+        .flow-node-text { font-size: 15px; font-weight: 600; color: #172737; line-height: 1.3; }
+        .flow-node-sub { font-size: 13px; font-weight: 500; color: #656565; margin-top: 0.2rem; }
+        .flow-arrow { text-align: center; font-size: 18px; color: #B87658; padding: 4px 0; line-height: 1; }
+        .regulate-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0; }
+        .regulate-card { background: rgba(184,118,88,0.05); border-radius: 10px; padding: 0.75rem; display: flex; align-items: center; gap: 0.6rem; }
+        .regulate-icon { font-size: 1.25rem; flex-shrink: 0; }
+        .regulate-text { font-size: 13px; font-weight: 600; color: #172737; line-height: 1.3; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+
+        <!-- Intro -->
+        <div style="background: transparent; padding: 1.75rem 0 1rem 0;">
+            <h1 style="font-size: 22px; font-weight: 700; line-height: 1.3; color: #B87658;">What no one says about vagus & gut</h1>
+        </div>
+
+        <div class="section">
+            <div class="text-content">
+                Today you'll learn how this same pathway connects your brain and your gut.
+            </div>
+
+            <div class="state-row">
+                <div class="state-card calm">
+                    <div class="state-emoji">✅</div>
+                    <div class="state-label">Strong vagal signal</div>
+                    <div class="state-desc">Digestion moves smoothly. Gut feels relaxed.</div>
+                </div>
+                <div class="state-card stress">
+                    <div class="state-emoji">⚠️</div>
+                    <div class="state-label">Stress dominates</div>
+                    <div class="state-desc">Digestion slows. Bloating increases. Gut feels tense.</div>
+                </div>
+            </div>
+
+            <div class="text-content">
+                Gentle twisting and movement can help restore this brain–gut communication.
+            </div>
+        </div>
+
+        <!-- Your gut listens -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Your gut listens to your nervous system</h2>
+            </div>
+
+            <div class="text-content">The vagus nerve forms the main communication line between your brain and digestive organs. It helps regulate:</div>
+
+            <div class="regulate-grid">
+                <div class="regulate-card">
+                    <div class="regulate-icon">🧪</div>
+                    <div class="regulate-text">Stomach acid release</div>
+                </div>
+                <div class="regulate-card">
+                    <div class="regulate-icon">🔄</div>
+                    <div class="regulate-text">Intestinal movement</div>
+                </div>
+                <div class="regulate-card">
+                    <div class="regulate-icon">⚗️</div>
+                    <div class="regulate-text">Enzyme production</div>
+                </div>
+                <div class="regulate-card">
+                    <div class="regulate-icon">🌿</div>
+                    <div class="regulate-text">Nutrient absorption</div>
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 0.5rem;">
+                When the nervous system feels safe, digestion enters <span class="highlight-text">"rest and digest"</span> mode — food moves smoothly and gut muscles contract in coordinated waves.
+            </div>
+            <div class="text-content">
+                When stress dominates, blood flow shifts away from digestion, gut movement slows, and the abdomen can feel tight or bloated.
+            </div>
+        </div>
+
+        <!-- Why stress shows in stomach -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Why stress often shows up in the stomach</h2>
+            </div>
+            <div class="text-content">
+                Many people notice digestive discomfort during stressful days. This happens because the gut is highly sensitive to nervous-system signals.
+            </div>
+            <div class="text-content">When vagal tone is low:</div>
+
+            <div class="symptoms-grid">
+                <div class="symptom-item">
+                    <span class="symptom-emoji">🫨</span>
+                    <span>Bloating after meals</span>
+                </div>
+                <div class="symptom-item">
+                    <span class="symptom-emoji">🐌</span>
+                    <span>Slow digestion</span>
+                </div>
+                <div class="symptom-item">
+                    <span class="symptom-emoji">😣</span>
+                    <span>Abdominal discomfort</span>
+                </div>
+                <div class="symptom-item">
+                    <span class="symptom-emoji">🔄</span>
+                    <span>Irregular bowel movements</span>
+                </div>
+            </div>
+
+            <div class="text-content">
+                Activating the vagus nerve through gentle movement helps restore the rhythm of digestion.
+            </div>
+        </div>
+
+        <!-- Science facts -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Science Facts — The Gut–Brain Connection</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">The vagus nerve is the primary communication pathway between the brain and the digestive system.</div>
+                    <div class="fact-desc">It carries 80–90% of signals upward from gut to brain, making it the most direct route for digestive-nervous system communication.</div>
+                    <div class="fact-desc" style="margin-top: 0.5rem; font-size: 13px; color: #8C8C8C; font-style: italic;">Breit et al., 2018, Frontiers in Psychiatry</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🫀</div>
+                <div>
+                    <div class="fact-title">Higher vagal tone is associated with improved gut motility and digestive comfort.</div>
+                    <div class="fact-desc">Strong vagal activity helps coordinate the muscular contractions that move food through the digestive tract.</div>
+                    <div class="fact-desc" style="margin-top: 0.5rem; font-size: 13px; color: #8C8C8C; font-style: italic;">Bonaz et al., 2018, Frontiers in Neuroscience</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧘</div>
+                <div>
+                    <div class="fact-title">Gentle twisting and abdominal movement improve circulation to digestive organs and support intestinal motility.</div>
+                    <div class="fact-desc">Even short bouts of gentle movement after meals measurably support digestive function.</div>
+                    <div class="fact-desc" style="margin-top: 0.5rem; font-size: 13px; color: #8C8C8C; font-style: italic;">Mayer, 2016, Nature Reviews Gastroenterology</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biomarkers -->
+        <div class="section">
+            <div class="section-header">
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                Certain biomarkers can reflect how well your digestive system and nervous system work together.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Magnesium (RBC)</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 60%;">60%</div></div>
+                <div class="biomarker-desc">Supports smooth muscle relaxation in the digestive tract and healthy nerve signaling. Low levels are linked with constipation and digestive tension.</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">hs-CRP</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 55%;">55%</div></div>
+                <div class="biomarker-desc">Marker of low-grade inflammation that can influence gut comfort and digestive balance.</div>
+                <div class="reference-text">Ridker et al., 2018, Circulation Research</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Vitamin B12</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 50%;">50%</div></div>
+                <div class="biomarker-desc">Supports nerve signaling and stomach acid production, both important for digestion and nutrient absorption.</div>
+            </div>
+
+            <div class="biomarker-card" style="margin-bottom: 0;">
+                <div class="biomarker-name">Ferritin</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 45%;">45%</div></div>
+                <div class="biomarker-desc">Low iron stores can contribute to fatigue and slower digestive activity.</div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.25rem; font-size: 15px; color: #656565;">
+                These markers can help reveal whether digestive discomfort reflects deeper metabolic or inflammatory imbalance.
+            </div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0.5rem;">
+                    How does your digestion respond to stress?
+                </div>
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    Do you notice bloating, tightness, or heaviness after stressful moments or rushed meals?
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Today, pay attention to how your stomach feels before and after gentle movement.
+                </div>
+            </div>
+        </div>
+
+        <!-- Plan to action -->
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <h2>Plan to Action — Stimulate Digestion Gently</h2>
+            </div>
+
+            <div class="action-box">
+                <div class="step-item">
+                    <div class="step-number">1️⃣</div>
+                    <div>
+                        <div class="fact-title">First, complete your Vagus Nerve Reset session.</div>
+                        <div class="fact-desc">The twisting and abdominal movements help stimulate digestive organs and activate vagal signals.</div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2️⃣</div>
+                    <div>
+                        <div class="fact-title">After your next meal, take a short 5-minute walk or perform gentle torso twists.</div>
+                        <div class="fact-desc">Movement improves circulation to the digestive organs and supports the natural rhythm of digestion.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evening -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Evening Matters Too — Calm Digestion Before Sleep</h2>
+            </div>
+            <div class="text-content">
+                Avoid heavy meals late in the evening.
+            </div>
+            <div class="text-content">
+                Allow 2–3 hours between dinner and sleep so the digestive system can slow down naturally.
+            </div>
+            <div class="text-content">
+                If your stomach feels tense, try two slow breaths with long exhales before bed.
+            </div>
+        </div>
+
+        <!-- Why this works -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Why This Works</h2>
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Vagal signals increase</span> → digestive muscles contract more smoothly → blood flow to the gut improves.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Gentle movement + slow breathing</span> → relaxed eating signals → digestive system works more efficiently.
+            </div>
+            <div class="text-content">
+                Bloating and tension decrease as the body shifts out of stress mode.
+            </div>
+        </div>
+
+        <!-- Today you learned -->
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="section-header" style="justify-content: center;">
+                <h2>Today You Learned</h2>
+            </div>
+            <div class="summary-item">🍽 Your gut and brain are closely connected through the vagus nerve</div>
+            <div class="summary-item">🧠 Stress can slow digestion and increase bloating</div>
+            <div class="summary-item">🧘 Gentle twisting and movement help restore digestive rhythm</div>
+            <div class="summary-item">🤍 Vagal signals improve circulation and muscle coordination in the gut</div>
+            <div class="summary-item">🔬 Biomarkers like magnesium, inflammation markers, and B vitamins influence digestive balance</div>
+        </div>
+
+        <!-- What to expect -->
+        <div class="section">
+            <div class="section-header">
+                <h2>What to Expect</h2>
+            </div>
+            <div style="padding: 14px 0; margin-top: 1rem;">
+                <div class="expectation-item">
+                    <div class="expectation-emoji">⏱️</div>
+                    <div>
+                        <div class="expectation-time">Today</div>
+                        <div class="expectation-desc">Your abdomen may feel lighter after movement. Breathing and posture improve digestive comfort.</div>
+                    </div>
+                </div>
+                <div class="expectation-item">
+                    <div class="expectation-emoji">📆</div>
+                    <div>
+                        <div class="expectation-time">In 1–2 weeks</div>
+                        <div class="expectation-desc">Less bloating after meals. Digestion feels more regular and comfortable.</div>
+                    </div>
+                </div>
+                <div class="expectation-item" style="margin-bottom: 0;">
+                    <div class="expectation-emoji">🗓</div>
+                    <div>
+                        <div class="expectation-time">In 1 month</div>
+                        <div class="expectation-desc">Your gut responds more calmly to stress. Meals feel easier to digest and energy after eating improves.</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Remember -->
+        <div class="section" style="text-align: center;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 1.25rem;">
+                ✨ A calm nervous system is the foundation of healthy digestion.
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
+                <span style="font-size: 1rem;">✅</span>
+                <span style="font-size: 12px; font-weight: 500; color: #8C8C8C; letter-spacing: 0.2px;">Reviewed by medical expert</span>
+            </div>
+        </div>
+
+        <!-- Lab test CTA -->
+
+    </main>
+</body>
+</html>
