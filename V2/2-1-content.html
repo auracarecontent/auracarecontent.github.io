@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 1 — How the Vagus Nerve Calms Anxiety</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; background: transparent; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: transparent; border-left: none; border-right: none; box-shadow: none; }
+        .section { padding: 1.5rem 0; border-bottom: 1px solid #EFEFEF; background: transparent; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 0; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 22px; font-weight: 700; line-height: 1.3; }
+        .intro-section { background: rgba(184,118,88,0.05); border-bottom: 2px solid rgba(184,118,88,0.2); }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 18px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 16px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.5; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 16px; font-weight: 500; color: #172737; line-height: 1.5; margin-bottom: 0.5rem; }
+        .science-fact, .action-box, .reflection-box, .warning-box { padding: 1rem 0; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 16px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .warning-box { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+        .quote-box { background: rgba(184,118,88,0.05); border: 1px solid rgba(184,118,88,0.15); text-align: center; padding: 1.5rem 0; margin: 1.5rem 0; }
+        .quote-text { font-size: 15px; font-weight: 600; color: #172737; line-height: 1.5; font-style: italic; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 0 3rem 0; position: relative; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
+        .action-title { font-size: 15px; font-weight: 600; color: #172737; margin-bottom: 0.75rem; }
+        .chart-wrapper { background: rgba(255,255,255,0.6); padding: 1.5rem 0; margin: 1rem 0; border: 1px solid #E6E6E6; }
+        canvas { max-width: 100%; height: auto; }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 14px 0;
+            border-radius: 0;
+            margin-bottom: 1.5rem;
+            border: none;
+            border-bottom: 1px solid rgba(184,118,88,0.15);
+            box-shadow: none;
+        }
+        .biomarker-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .biomarker-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.3;
+        }
+        .progress-bar {
+            background: #E6E6E6;
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+        }
+        .biomarker-desc {
+            font-size: 15px;
+            font-weight: 500;
+            color: #656565;
+            margin-top: 0.75rem;
+            line-height: 1.5;
+        }
+        .reference-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #8C8C8C;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+        .evening-box {
+            background: white;
+            padding: 14px 0;
+            border-radius: 0;
+            margin-top: 1.5rem;
+            border: none;
+            box-shadow: none;
+        }
+        .evening-box-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #172737;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        .evening-tip {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(184, 118, 88, 0.05);
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 0.75rem;
+        }
+        .tip-emoji { font-size: 1.75rem; flex-shrink: 0; }
+        .tip-text { flex: 1; }
+        .tip-action { font-weight: 600; font-size: 16px; color: #172737; }
+        .tip-effect { font-size: 15px; font-weight: 500; color: #656565; }
+        .tip-reference {
+            font-size: 12px;
+            font-weight: 500;
+            color: #8C8C8C;
+            font-style: italic;
+            display: block;
+            margin-top: 0.25rem;
+        }
+        .expectation-section {
+            background: white;
+            padding: 14px 0;
+            border-radius: 0;
+            margin-top: 1rem;
+            border: none;
+            box-shadow: none;
+        }
+        .expectation-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .expectation-emoji { font-size: 1.5rem; flex-shrink: 0; }
+        .expectation-time { font-weight: 600; font-size: 16px; color: #B87658; margin-bottom: 0.25rem; }
+        .expectation-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .table-wrapper { overflow-x: auto; margin: 1rem 0; }
+        table { width: 100%; border-collapse: collapse; background: white; font-size: 14px; border: none; }
+        th { display: none; }
+        td { padding: 16px; border: none; font-weight: 500; line-height: 1.4; }
+        td:first-child { font-weight: 600; color: #172737; width: 35%; }
+        td:nth-child(2) { font-weight: 600; color: #B87658; width: 20%; }
+        td:nth-child(3) { color: #656565; width: 45%; }
+        tbody tr:nth-child(odd) { background: rgba(245,237,224,0.4); }
+        tbody tr:nth-child(even) { background: rgba(235,225,210,0.25); }
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+        }
+        .summary-item:last-child { margin-bottom: 0; }
+        .warning-banner {
+            background: rgba(239,68,68,0.08);
+            border-left: 4px solid #ef4444;
+            padding: 1rem 0;
+            margin: 1.5rem 0;
+        }
+        .warning-banner-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172737;
+            line-height: 1.4;
+        }
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            background: white;
+            padding: 1rem 0;
+            margin: 1rem 0;
+        }
+        .symptom-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #172737;
+        }
+        .symptom-emoji { font-size: 1.5rem; flex-shrink: 0; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+
+        <!-- Intro -->
+        <div style="background: transparent; padding: 1.75rem 0 1rem 0;">
+            <h1 style="font-size: 22px; font-weight: 700; line-height: 1.3; color: #B87658;">Recharge your Body Battery.</h1>
+        </div>
+
+        <div class="section">
+            <div class="text-content">
+                Your Body Battery reflects how well your nervous system balances stress and recovery.
+            </div>
+            <div class="text-content">
+                The vagus nerve is one of the main systems that helps recharge it — slowing the heart, deepening the breath, and guiding the body back to calm.
+            </div>
+        </div>
+
+        <!-- Why anxiety starts -->
+        <div class="section">
+            <div class="section-header">
+                <h2>How vagus activation calms anxiety</h2>
+            </div>
+            <div class="text-content">
+                Anxiety often starts in the body before the mind notices it.
+            </div>
+
+            <div class="symptoms-grid">
+                <div class="symptom-item">
+                    <span class="symptom-emoji">🫁</span>
+                    <span>Breathing becomes shallow</span>
+                </div>
+                <div class="symptom-item">
+                    <span class="symptom-emoji">🤷</span>
+                    <span>Shoulders tighten</span>
+                </div>
+                <div class="symptom-item">
+                    <span class="symptom-emoji">💓</span>
+                    <span>Heart rate rises</span>
+                </div>
+                <div class="symptom-item">
+                    <span class="symptom-emoji">🧠</span>
+                    <span>Mind starts racing</span>
+                </div>
+            </div>
+
+            <div class="science-fact" style="background: rgba(184,118,88,0.08); border-left-color: #B87658;">
+                <div class="fact-icon">🧬</div>
+                <div>
+                    <div class="fact-desc">
+                        Today you'll learn how the vagus nerve works as the body's natural calm pathway — and how slow breathing can activate it within minutes.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meet your vagus -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Meet your vagus — the calm pathway</h2>
+            </div>
+            <div class="text-content">
+                The vagus nerve runs from your brainstem to the heart, lungs, and digestive organs.
+            </div>
+            <div class="text-content">
+                It constantly carries signals between your brain and body.
+            </div>
+            <div class="text-content">
+                When breathing slows — especially with a <span class="highlight-text">longer exhale</span> — receptors in the lungs send calming signals through the vagus nerve back to the brain.
+            </div>
+
+            <div class="action-box">
+                <div class="action-title">When the vagus nerve activates:</div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">Heart rate slows</li>
+                    <li class="bullet-item">Breathing deepens</li>
+                    <li class="bullet-item">Muscles begin to relax</li>
+                </ul>
+            </div>
+
+            <div class="text-content">
+                This interaction between breathing and heart rhythm is called <span class="highlight-text">respiratory sinus arrhythmia</span> — a natural marker of vagal activity.
+            </div>
+            <div class="text-content">
+                Higher heart rate variability (HRV) means your nervous system can move flexibly between stress and recovery.
+            </div>
+        </div>
+
+        <!-- How vagus restores calm -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">⚖️</span>
+                <h2>How the vagus nerve restores calm</h2>
+            </div>
+            <div class="text-content">
+                The vagus nerve is the main pathway of your <span class="highlight-text">parasympathetic nervous system</span> — the system that helps the body recover after stress.
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Strong vagal tone</td>
+                            <td>✅ Active</td>
+                            <td>Heart rhythm stabilizes, breathing deepens, mood and focus improve</td>
+                        </tr>
+                        <tr>
+                            <td>Weak vagal tone</td>
+                            <td>⚠️ Low</td>
+                            <td>Body stays "on guard" — tension, racing thoughts, wired but tired</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-content" style="margin-top: 1rem;">
+                Slow breathing helps restore balance by sending repeated signals of safety to the nervous system.
+            </div>
+        </div>
+
+        <!-- HRV Chart -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📊</span>
+                <h2>HRV & Vagal Tone</h2>
+            </div>
+            <div class="text-content">
+                Heart Rate Variability (HRV) is a direct window into your vagal tone — and how quickly your nervous system can shift from stress to calm.
+            </div>
+
+            <div class="chart-wrapper">
+                <svg viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+                    <text x="240" y="20" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="13" font-weight="600" fill="#172737">HRV Response to Slow Breathing</text>
+
+                    <!-- Grid lines -->
+                    <line x1="60" y1="40" x2="460" y2="40" stroke="#E6E6E6" stroke-width="1"/>
+                    <line x1="60" y1="72" x2="460" y2="72" stroke="#E6E6E6" stroke-width="1"/>
+                    <line x1="60" y1="104" x2="460" y2="104" stroke="#E6E6E6" stroke-width="1"/>
+                    <line x1="60" y1="136" x2="460" y2="136" stroke="#E6E6E6" stroke-width="1"/>
+                    <line x1="60" y1="168" x2="460" y2="168" stroke="#E6E6E6" stroke-width="1"/>
+                    <line x1="60" y1="200" x2="460" y2="200" stroke="#E6E6E6" stroke-width="1"/>
+
+                    <!-- Y labels -->
+                    <text x="50" y="204" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="11" fill="#8C8C8C">Low</text>
+                    <text x="50" y="140" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="11" fill="#8C8C8C">Mid</text>
+                    <text x="50" y="76" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="11" fill="#8C8C8C">High</text>
+
+                    <!-- Y-axis title -->
+                    <text x="12" y="125" text-anchor="middle" transform="rotate(-90,12,125)" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="10" font-weight="600" fill="#656565">HRV (VAGAL TONE)</text>
+
+                    <!-- Slow breathing line (improving) -->
+                    <polyline
+                        points="80,190 156,172 232,140 308,100 384,68 460,52"
+                        fill="none"
+                        stroke="#A67052"
+                        stroke-width="3"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"/>
+
+                    <!-- Normal breathing line (flat) -->
+                    <polyline
+                        points="80,190 156,188 232,185 308,184 384,182 460,180"
+                        fill="none"
+                        stroke="#C8C8C8"
+                        stroke-width="2"
+                        stroke-dasharray="6,4"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"/>
+
+                    <!-- Circles for slow breathing -->
+                    <circle cx="80"  cy="190" r="6" fill="#A67052"/>
+                    <circle cx="156" cy="172" r="6" fill="#A67052"/>
+                    <circle cx="232" cy="140" r="6" fill="#A67052"/>
+                    <circle cx="308" cy="100" r="6" fill="#A67052"/>
+                    <circle cx="384" cy="68"  r="6" fill="#A67052"/>
+                    <circle cx="460" cy="52"  r="6" fill="#A67052"/>
+
+                    <!-- Legend -->
+                    <line x1="80" y1="238" x2="110" y2="238" stroke="#A67052" stroke-width="3"/>
+                    <text x="115" y="242" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="11" fill="#172737">Slow breathing (6 bpm)</text>
+                    <line x1="280" y1="238" x2="310" y2="238" stroke="#C8C8C8" stroke-width="2" stroke-dasharray="4,3"/>
+                    <text x="315" y="242" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="11" fill="#8C8C8C">Normal breathing</text>
+
+                    <!-- X labels -->
+                    <text x="80"  y="220" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="11" fill="#656565">0 min</text>
+                    <text x="156" y="220" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="11" fill="#656565">1 min</text>
+                    <text x="232" y="220" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="11" fill="#656565">2 min</text>
+                    <text x="308" y="220" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="11" fill="#656565">3 min</text>
+                    <text x="384" y="220" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="11" fill="#656565">4 min</text>
+                    <text x="460" y="220" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="11" fill="#656565">5 min</text>
+
+                    <text x="270" y="258" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="10" font-weight="600" fill="#656565">TIME</text>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Science facts -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔬</span>
+                <h2>Science Facts — Why Slow Breathing Works</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🫁</div>
+                <div>
+                    <div class="fact-title">6 breaths per minute increases vagal tone and HRV.</div>
+                    <div class="fact-desc">
+                        Paced breathing at this rate produces the strongest measurable vagal response in adults.
+                    </div>
+                    <div class="fact-desc" style="margin-top: 0.5rem; font-size: 13px; color: #8C8C8C; font-style: italic;">
+                        Lehrer et al., 2020, Frontiers in Physiology
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">💤</div>
+                <div>
+                    <div class="fact-title">5 minutes of paced breathing reduces anxiety and blood pressure.</div>
+                    <div class="fact-desc">
+                        Even a single short session can measurably lower physiological stress markers.
+                    </div>
+                    <div class="fact-desc" style="margin-top: 0.5rem; font-size: 13px; color: #8C8C8C; font-style: italic;">
+                        Nivison & Hagerman, 2016, Psychophysiology
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Higher vagal tone supports emotional regulation, attention, and memory.</div>
+                    <div class="fact-desc">
+                        Strong vagal activity is linked to better cognitive performance and mood stability.
+                    </div>
+                    <div class="fact-desc" style="margin-top: 0.5rem; font-size: 13px; color: #8C8C8C; font-style: italic;">
+                        Porges, 2011, The Polyvagal Theory
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biomarkers -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                Certain blood markers reflect how well your recovery system functions — and the % shows how strongly each marker influences your ability to rest and restore balance.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Magnesium (RBC)</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%;">60%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Supports calm nerve signaling and smooth muscle relaxation. Low magnesium is associated with lower HRV and higher stress reactivity.
+                </div>
+                <div class="reference-text">Jahnen-Dechent & Ketteler, 2012, Clin Kidney J</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">hs-CRP</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 50%;">50%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Marker of low-grade inflammation that can keep stress circuits active and interfere with restorative sleep.
+                </div>
+                <div class="reference-text">Ridker et al., 2018, Circulation Research</div>
+            </div>
+
+            <div class="biomarker-card" style="margin-bottom: 0;">
+                <div class="biomarker-header">
+                    <div class="biomarker-name">Cortisol (AM / PM)</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 70%;">70%</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects the daily stress rhythm. A flattened cortisol curve is strongly associated with fatigue, poor recovery, and sleep disruption.
+                </div>
+                <div class="reference-text">Kumari et al., 2009, Psychoneuroendocrinology</div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.25rem; font-size: 15px; color: #656565;">
+                These markers help reveal whether your body is truly entering recovery mode or remaining in a low-grade stress state.
+            </div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0.5rem;">
+                    When stress appears, what changes first in your body?
+                </div>
+                <ul class="bullet-list" style="margin-bottom: 0.5rem;">
+                    <li class="bullet-item">Your breath?</li>
+                    <li class="bullet-item">Your shoulders?</li>
+                    <li class="bullet-item">Your heart rhythm?</li>
+                </ul>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Try noticing that moment — and answer it with one slow, longer exhale.
+                </div>
+            </div>
+        </div>
+
+        <!-- Plan to action -->
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Your 2-Minute Calm Reset</h2>
+            </div>
+
+            <div class="action-box">
+                <div class="step-item">
+                    <div class="step-number">1️⃣</div>
+                    <div>
+                        <div class="fact-title">First, complete your Vagus Nerve Reset session.</div>
+                        <div class="fact-desc">
+                            The exercises activate calming pathways through breathing, movement, and gentle pressure signals.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2️⃣</div>
+                    <div>
+                        <div class="fact-title">During the day, add one 2-minute breathing reset.</div>
+                        <div class="fact-desc">
+                            Inhale through the nose for 4 seconds → Exhale slowly for 6 seconds → Repeat for about 2 minutes.
+                        </div>
+                        <div class="fact-desc" style="margin-top: 0.5rem;">
+                            Longer exhales strengthen vagal signals and can calm the nervous system quickly.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evening -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌙</span>
+                <h2>Evening Matters Too — Calming the System Before Sleep</h2>
+            </div>
+            <div class="text-content">
+                Before bed, repeat 1–2 minutes of slow breathing.
+            </div>
+            <div class="text-content">
+                Long, gentle exhales lower heart rate and help your body shift into recovery mode, making it easier to fall asleep and stay asleep.
+            </div>
+
+            <div class="evening-box">
+                <div class="evening-box-title">Simple ways to strengthen your evening calm:</div>
+
+                <div class="evening-tip">
+                    <div class="tip-emoji">🫁</div>
+                    <div class="tip-text">
+                        <div class="tip-action">4–6 breathing (4 min)</div>
+                        <div class="tip-effect">HRV ↑, anxiety ↓</div>
+                        <span class="tip-reference">Lehrer et al., Frontiers in Physiology 2020</span>
+                    </div>
+                </div>
+
+                <div class="evening-tip">
+                    <div class="tip-emoji">🤗</div>
+                    <div class="tip-text">
+                        <div class="tip-action">Hug 20 seconds</div>
+                        <div class="tip-effect">oxytocin ↑, cortisol ↓</div>
+                        <span class="tip-reference">Ditzen et al., Psychoneuroendocrinology 2007</span>
+                    </div>
+                </div>
+
+                <div class="evening-tip">
+                    <div class="tip-emoji">🕯</div>
+                    <div class="tip-text">
+                        <div class="tip-action">Dim light after 9 p.m.</div>
+                        <div class="tip-effect">tells your brain it's night</div>
+                        <span class="tip-reference">Gooley et al., J Clin Endocrinol Metab 2011</span>
+                    </div>
+                </div>
+
+                <div class="evening-tip">
+                    <div class="tip-emoji">📖</div>
+                    <div class="tip-text">
+                        <div class="tip-action">Read 6 minutes</div>
+                        <div class="tip-effect">stress ↓ ≈ 68%</div>
+                        <span class="tip-reference">Mindlab International, 2009</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why this works -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌞</span>
+                <h2>Why This Works</h2>
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Slow breathing</span> → stimulates the vagus nerve → HRV increases.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Vagal activity rises</span> → heart rhythm stabilizes → stress signals decrease.
+            </div>
+            <div class="text-content">
+                Repeated daily, these signals train your nervous system to calm itself faster after stress.
+            </div>
+        </div>
+
+        <!-- Today you learned -->
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="section-header" style="justify-content: center;">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            <div class="summary-item">😌 The vagus nerve is your body's built-in calm pathway</div>
+            <div class="summary-item">🫁 Slow breathing can activate it within minutes</div>
+            <div class="summary-item">🤍 Higher HRV means your nervous system can recover faster</div>
+            <div class="summary-item">🧠 Strong vagal tone supports mood, focus, and digestion</div>
+            <div class="summary-item">🔬 Biomarkers like cortisol and magnesium influence stress recovery</div>
+        </div>
+
+        <!-- What to expect -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            <div class="expectation-section">
+                <div class="expectation-item">
+                    <div class="expectation-emoji">⏱️</div>
+                    <div>
+                        <div class="expectation-time">Today</div>
+                        <div class="expectation-desc">Breathing slows more easily. Moments of anxiety settle faster after a long exhale.</div>
+                    </div>
+                </div>
+                <div class="expectation-item">
+                    <div class="expectation-emoji">📆</div>
+                    <div>
+                        <div class="expectation-time">In 1–2 weeks</div>
+                        <div class="expectation-desc">Your body recovers from stress more quickly. Chest and shoulder tension decreases.</div>
+                    </div>
+                </div>
+                <div class="expectation-item" style="margin-bottom: 0;">
+                    <div class="expectation-emoji">🗓</div>
+                    <div>
+                        <div class="expectation-time">In 1 month</div>
+                        <div class="expectation-desc">You feel calmer in situations that used to trigger anxiety. Your nervous system shifts more easily between effort and relaxation.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Remember -->
+        <div class="section" style="text-align: center;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 1.25rem;">
+                ✨ Sometimes the fastest way to calm your mind is simply to slow your breath.
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
+                <span style="font-size: 1rem;">✅</span>
+                <span style="font-size: 12px; font-weight: 500; color: #8C8C8C; letter-spacing: 0.2px;">Reviewed by medical expert</span>
+            </div>
+        </div>
+
+        <!-- Lab test CTA -->
+        <div style="background: #FFF8E1; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center;">
+            <div style="font-size: 20px; font-weight: 800; color: #172737; line-height: 1.3; margin-bottom: 1.75rem;">
+                📈 Boost your results with a personalized lab test
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; text-align: left;">
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">🧪</span> 30+ biomarkers tested
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">🥗</span> Personalized diet plan
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">💊</span> Personalized supplements plan
+                </div>
+            </div>
+
+            <a href="https://plan.aura.care/lt-2/" style="display: block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; font-size: 19px; font-weight: 800; padding: 18px 0; border-radius: 14px; text-decoration: none; box-shadow: 0 4px 16px rgba(184,118,88,0.35);">
+                Continue
+            </a>
+        </div>
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3 — Your Fastest Stress Reset Breath</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; background: transparent; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: transparent; }
+        .section { padding: 1.5rem 0; border-bottom: 1px solid #EFEFEF; background: transparent; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 18px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 16px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.5; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 16px; font-weight: 500; color: #172737; line-height: 1.5; margin-bottom: 0.5rem; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left: 3px solid #B87658; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 16px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
+        .biomarker-card {
+            background: rgba(184,118,88,0.08);
+            padding: 14px 0;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(184,118,88,0.15);
+        }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; margin-bottom: 1rem; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin-bottom: 0.75rem; }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #B87658 0%, #D4956C 100%);
+            display: flex; align-items: center; justify-content: flex-end;
+            padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px;
+        }
+        .biomarker-desc { font-size: 15px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.5; }
+        .reference-text { font-size: 13px; font-weight: 500; color: #8C8C8C; font-style: italic; margin-top: 0.5rem; }
+        .expectation-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+        .expectation-emoji { font-size: 1.5rem; flex-shrink: 0; }
+        .expectation-time { font-weight: 600; font-size: 16px; color: #B87658; margin-bottom: 0.25rem; }
+        .expectation-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .summary-item {
+            display: flex; align-items: center; gap: 0.5rem; justify-content: center;
+            margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737;
+        }
+        .summary-item:last-child { margin-bottom: 0; }
+        .symptoms-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 1rem 0; margin: 1rem 0;
+        }
+        .symptom-item { display: flex; align-items: center; gap: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; }
+        .symptom-emoji { font-size: 1.5rem; flex-shrink: 0; }
+        .sigh-step {
+            display: flex; align-items: flex-start; gap: 1rem;
+            background: rgba(184,118,88,0.05); padding: 14px; border-radius: 12px; margin-bottom: 0.75rem;
+            border-left: 3px solid #B87658;
+        }
+        .sigh-step-number {
+            font-size: 22px; font-weight: 800; color: #B87658; flex-shrink: 0; line-height: 1.2;
+        }
+        .sigh-step-title { font-size: 16px; font-weight: 700; color: #172737; margin-bottom: 0.25rem; }
+        .sigh-step-desc { font-size: 14px; font-weight: 500; color: #656565; line-height: 1.4; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+
+        <!-- Intro -->
+        <div style="background: transparent; padding: 1.75rem 0 1rem 0;">
+            <h1 style="font-size: 22px; font-weight: 700; line-height: 1.3; color: #B87658;">Your fastest stress reset breath.</h1>
+        </div>
+
+        <div class="section">
+            <div class="text-content">
+                Today you'll discover a natural breathing reflex your body already uses to reset stress quickly — the <span class="highlight-text">physiological sigh</span>.
+            </div>
+            <div class="text-content">
+                This simple pattern can release chest tension, slow your heart rate, and restore calm within minutes.
+            </div>
+        </div>
+
+        <!-- Why can't catch breath -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Why you sometimes "can't catch your breath"</h2>
+            </div>
+            <div class="text-content">
+                When stress rises, breathing often becomes shallow and stays high in the chest. This creates a loop:
+            </div>
+            <div class="text-content" style="background: rgba(239,68,68,0.06); border-left: 3px solid #ef4444; padding: 1rem; margin: 0.75rem 0;">
+                breathing becomes tighter → heart rate rises → brain continues receiving stress signals
+            </div>
+            <div class="text-content">
+                The physiological sigh <span class="highlight-text">interrupts this loop</span>.
+            </div>
+            <div class="text-content">
+                It restores normal breathing rhythm and sends a calming signal through the vagus nerve.
+            </div>
+            <div class="text-content">
+                This reflex happens naturally in humans and animals — after crying, yawning, or releasing tension — helping the nervous system reset.
+            </div>
+        </div>
+
+        <!-- 3-step breath -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🫁</span>
+                <h2>The 3-Step Breath That Resets Your Nervous System</h2>
+            </div>
+            <div class="text-content">
+                The physiological sigh follows three simple steps:
+            </div>
+
+            <div class="sigh-step">
+                <div class="sigh-step-number">1</div>
+                <div>
+                    <div class="sigh-step-title">Deep inhale through the nose</div>
+                    <div class="sigh-step-desc">Fill your lungs slowly and completely.</div>
+                </div>
+            </div>
+
+            <div class="sigh-step">
+                <div class="sigh-step-number">2</div>
+                <div>
+                    <div class="sigh-step-title">Short second inhale</div>
+                    <div class="sigh-step-desc">Take a small extra inhale to fully expand the lungs and reopen collapsed air sacs.</div>
+                </div>
+            </div>
+
+            <div class="sigh-step">
+                <div class="sigh-step-number">3</div>
+                <div>
+                    <div class="sigh-step-title">Long slow exhale through the mouth</div>
+                    <div class="sigh-step-desc">Release the air gently and completely. This activates the vagus nerve, slowing heart rate and reducing stress signals.</div>
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 0.5rem;">
+                Within 1–2 minutes, the nervous system begins shifting from alert mode into recovery.
+            </div>
+        </div>
+
+        <!-- Science facts -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🔬</span>
+                <h2>Science Facts — The Breath–Calm Connection</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🫁</div>
+                <div>
+                    <div class="fact-title">The physiological sigh reduces stress and heart rate faster than other breathing techniques.</div>
+                    <div class="fact-desc">Tested across multiple breathing protocols, this pattern showed the strongest and fastest calming effect.</div>
+                    <div class="fact-desc" style="margin-top: 0.5rem; font-size: 13px; color: #8C8C8C; font-style: italic;">Huberman et al., 2023, Cell Reports Medicine</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Two minutes of this pattern can reduce anxiety and improve mood within minutes.</div>
+                    <div class="fact-desc">Short sessions produce measurable improvements in mood and perceived stress levels.</div>
+                    <div class="fact-desc" style="margin-top: 0.5rem; font-size: 13px; color: #8C8C8C; font-style: italic;">Stanford Neuroscience Institute, 2022</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">💤</div>
+                <div>
+                    <div class="fact-title">Regular breathing regulation strengthens the vagal "brake," supporting emotional control and sleep onset.</div>
+                    <div class="fact-desc">Consistent practice builds lasting improvements in nervous system flexibility.</div>
+                    <div class="fact-desc" style="margin-top: 0.5rem; font-size: 13px; color: #8C8C8C; font-style: italic;">Porges, 2011, The Polyvagal Theory</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biomarkers -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What About Labs?</h2>
+            </div>
+            <div class="text-content">
+                Certain biomarkers reflect how effectively your body regulates stress and recovery.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Cortisol (AM / PM)</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 70%;">70%</div></div>
+                <div class="biomarker-desc">Elevated or flattened cortisol rhythms reflect prolonged stress activation and slower nervous-system recovery.</div>
+                <div class="reference-text">Kumari et al., 2009, Psychoneuroendocrinology</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">DHEA-S</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 60%;">60%</div></div>
+                <div class="biomarker-desc">Helps buffer cortisol and supports resilience during stress.</div>
+                <div class="reference-text">Kalman et al., 2018, Stress</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Magnesium (RBC)</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 55%;">55%</div></div>
+                <div class="biomarker-desc">Supports nerve relaxation and breathing muscle function; low levels increase stress reactivity and tension.</div>
+                <div class="reference-text">DiNicolantonio et al., 2018, Open Heart</div>
+            </div>
+
+            <div class="biomarker-card" style="margin-bottom: 0;">
+                <div class="biomarker-name">Hemoglobin</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 50%;">50%</div></div>
+                <div class="biomarker-desc">Reflects how efficiently oxygen reaches tissues and the brain; adequate oxygenation supports calm breathing and mental clarity.</div>
+            </div>
+
+            <div class="text-content" style="margin-top: 1.25rem; font-size: 15px; color: #656565;">
+                Tracking these markers can help reveal whether your body stays in stress mode or returns easily to balance.
+            </div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection Prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0.5rem;">
+                    What happens first when stress rises?
+                </div>
+                <ul class="bullet-list" style="margin-bottom: 0.75rem;">
+                    <li class="bullet-item">A tight chest</li>
+                    <li class="bullet-item">Shallow breathing</li>
+                    <li class="bullet-item">Racing thoughts</li>
+                </ul>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Try noticing the earliest signal today — and pause for one deliberate sigh.
+                </div>
+            </div>
+        </div>
+
+        <!-- Plan to action -->
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to Action — Your Sigh Reset</h2>
+            </div>
+
+            <div class="action-box">
+                <div class="step-item">
+                    <div class="step-number">1️⃣</div>
+                    <div>
+                        <div class="fact-title">First, complete your Vagus Nerve Reset session.</div>
+                        <div class="fact-desc">These exercises prepare the breathing muscles and activate calming vagal pathways.</div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2️⃣</div>
+                    <div>
+                        <div class="fact-title">Then practice 3 cycles of the physiological sigh during the day.</div>
+                        <div class="fact-desc">Inhale deeply through the nose → take a second small inhale → exhale slowly through the mouth. Repeat three times.</div>
+                        <div class="fact-desc" style="margin-top: 0.5rem;">This short reset often lowers tension within one minute.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evening -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌙</span>
+                <h2>Evening Matters Too — Release the Day with a Sigh</h2>
+            </div>
+            <div class="text-content">
+                Before bed, perform 3–5 physiological sigh cycles.
+            </div>
+            <div class="text-content">
+                This slows heart rate, relaxes breathing, and prepares the nervous system for deeper sleep.
+            </div>
+        </div>
+
+        <!-- Why this works -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌞</span>
+                <h2>Why This Works</h2>
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Double inhale</span> → reopens collapsed air sacs → restores oxygen balance in the lungs.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Long exhale</span> → activates vagal signals to the brainstem → heart rate slows, stress chemistry decreases.
+            </div>
+            <div class="text-content">
+                With practice, the body learns to exit stress mode faster.
+            </div>
+        </div>
+
+        <!-- Today you learned -->
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="section-header" style="justify-content: center;">
+                <span class="section-icon">✨</span>
+                <h2>Today You Learned</h2>
+            </div>
+            <div class="summary-item">😮‍💨 The physiological sigh is one of the fastest natural stress resets</div>
+            <div class="summary-item">🫁 Two inhales + one long exhale restore breathing balance</div>
+            <div class="summary-item">🤍 Vagus activation helps the body leave stress mode quickly</div>
+            <div class="summary-item">🧠 Breathing patterns strongly influence nervous-system recovery</div>
+            <div class="summary-item">🔬 Biomarkers like cortisol, magnesium, and hemoglobin reflect how the body responds to stress</div>
+        </div>
+
+        <!-- What to expect -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to Expect</h2>
+            </div>
+            <div style="padding: 14px 0; margin-top: 1rem;">
+                <div class="expectation-item">
+                    <div class="expectation-emoji">⏱️</div>
+                    <div>
+                        <div class="expectation-time">Today</div>
+                        <div class="expectation-desc">Chest tension releases more easily. Breathing becomes slower and deeper.</div>
+                    </div>
+                </div>
+                <div class="expectation-item">
+                    <div class="expectation-emoji">📆</div>
+                    <div>
+                        <div class="expectation-time">In 1–2 weeks</div>
+                        <div class="expectation-desc">You notice stress signals earlier and calm them faster.</div>
+                    </div>
+                </div>
+                <div class="expectation-item" style="margin-bottom: 0;">
+                    <div class="expectation-emoji">🗓</div>
+                    <div>
+                        <div class="expectation-time">In 1 month</div>
+                        <div class="expectation-desc">Your breathing stays deeper and more relaxed during the day. Your body shifts out of stress mode more easily.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Remember -->
+        <div class="section" style="text-align: center;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 1.25rem;">
+                ✨ One deliberate sigh is enough to start changing how your body responds to stress.
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
+                <span style="font-size: 1rem;">✅</span>
+                <span style="font-size: 12px; font-weight: 500; color: #8C8C8C; letter-spacing: 0.2px;">Reviewed by medical expert</span>
+            </div>
+        </div>
+
+        <!-- Lab test CTA -->
+        <div style="background: #FFF8E1; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center;">
+            <div style="font-size: 20px; font-weight: 800; color: #172737; line-height: 1.3; margin-bottom: 1.75rem;">
+                📈 Boost your results with a personalized lab test
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; text-align: left;">
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">🧪</span> 30+ biomarkers tested
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">🥗</span> Personalized diet plan
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">💊</span> Personalized supplements plan
+                </div>
+            </div>
+            <a href="https://plan.aura.care/lt-2/" style="display: block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; font-size: 19px; font-weight: 800; padding: 18px 0; border-radius: 14px; text-decoration: none; box-shadow: 0 4px 16px rgba(184,118,88,0.35);">
+                Continue
+            </a>
+        </div>
+
+    </main>
+</body>
+</html>
