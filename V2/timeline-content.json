@@ -51,9 +51,9 @@
           "day": 5,
           "type": "video",
           "title": "Bring back motivation",
-          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/bc4784dbc71527ff6ff92a61770b6485/manifest/video.m3u8",
+          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/68601b25492bdf06b0710f354be12a8f/manifest/video.m3u8",
           "thumbnailUrl": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/1-5.jpeg",
-          "thumbnailUrl_v2": null,
+          "thumbnailUrl_v2": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/1-5-v2.jpg",
           "duration": "3:00",
           "contentUrl": "https://auracarecontent.github.io/V2/1-5-content.html"
         },
@@ -61,9 +61,9 @@
           "day": 6,
           "type": "video",
           "title": "Say no to burnout",
-          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/c6743e20a8770bb23423e558b19610df/manifest/video.m3u8",
+          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/59095c2a51de087cdd1d00f8cac10517/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/c6743e20a8770bb23423e558b19610df/thumbnails/thumbnail.jpg",
-          "thumbnailUrl_v2": null,
+          "thumbnailUrl_v2": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/1-6-v2.jpg",
           "duration": "10:00",
           "contentUrl": "https://auracarecontent.github.io/V2/1-6-content.html"
         },
@@ -89,7 +89,7 @@
           "title": "5-minute vagus reset for anxiety",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/5457784b173da20f6f2bba602a630b50/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/5457784b173da20f6f2bba602a630b50/thumbnails/thumbnail.jpg",
-          "thumbnailUrl_v2": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/5457784b173da20f6f2bba602a630b50/thumbnails/thumbnail.jpg",
+          "thumbnailUrl_v2": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/2-1-v2.jpg",
           "duration": "10:00",
           "contentUrl": "https://auracarecontent.github.io/V2/2-1-content.html"
         },
@@ -99,7 +99,7 @@
           "title": "Release hidden tension with vagus",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/76d9f58563820f9a9e764d243576c25b/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/76d9f58563820f9a9e764d243576c25b/thumbnails/thumbnail.jpg",
-          "thumbnailUrl_v2": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/76d9f58563820f9a9e764d243576c25b/thumbnails/thumbnail.jpg",
+          "thumbnailUrl_v2": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/2-2-v2.jpg",
           "duration": "11:00",
           "contentUrl": "https://auracarecontent.github.io/V2/2-2-content.html"
         },
@@ -109,7 +109,7 @@
           "title": "Calm your body in the moment",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/a746310b9c0d3ed008b7f8d5f98d7fdf/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/a746310b9c0d3ed008b7f8d5f98d7fdf/thumbnails/thumbnail.jpg",
-          "thumbnailUrl_v2": null,
+          "thumbnailUrl_v2": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/2-3-v2.jpg",
           "duration": "10:00",
           "contentUrl": "https://auracarecontent.github.io/V2/2-3-content.html"
         },
@@ -119,7 +119,7 @@
           "title": "Relieve bloating with vagus support",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/fdbbd80e60e5870418eccc06de676892/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/fdbbd80e60e5870418eccc06de676892/thumbnails/thumbnail.jpg",
-          "thumbnailUrl_v2": null,
+          "thumbnailUrl_v2": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/2-4-v2.jpg",
           "duration": "11:00",
           "contentUrl": "https://auracarecontent.github.io/V2/2-4-content.html"
         },
@@ -129,7 +129,7 @@
           "title": "A hidden technique to calm your body",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/266032831bd4c6cb15372caa1d418654/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/266032831bd4c6cb15372caa1d418654/thumbnails/thumbnail.jpg",
-          "thumbnailUrl_v2": null,
+          "thumbnailUrl_v2": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/2-5-v2.jpg",
           "duration": "12:00",
           "contentUrl": "https://auracarecontent.github.io/V2/2-5-content.html"
         },
@@ -139,7 +139,7 @@
           "title": "Boost HRV with vagus",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/5a7991387b9656ddbb63ecb3bd157080/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/5a7991387b9656ddbb63ecb3bd157080/thumbnails/thumbnail.jpg",
-          "thumbnailUrl_v2": null,
+          "thumbnailUrl_v2": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/2-6-v2.jpg",
           "duration": "11:00",
           "contentUrl": "https://auracarecontent.github.io/V2/2-6-content.html"
         },
@@ -149,7 +149,7 @@
           "title": "Restore steady vitality",
           "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/94eaaede83cdc7cd816299ce0ec8f1f7/manifest/video.m3u8",
           "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/94eaaede83cdc7cd816299ce0ec8f1f7/thumbnails/thumbnail.jpg",
-          "thumbnailUrl_v2": null,
+          "thumbnailUrl_v2": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/2-7-v2.jpg",
           "duration": "9:00",
           "contentUrl": "https://auracarecontent.github.io/V2/2-7-content.html"
         }
