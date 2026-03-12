@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3 — What happens when you fast</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .no-bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .no-bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; padding-left: 0; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .biomarker-card { background: rgba(184,118,88,0.08); padding: 18px; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin-bottom: 0.75rem; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 13px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.4; }
+        .info-box { background: rgba(184,118,88,0.06); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.12); }
+        .explainer-box { background: rgba(212,149,108,0.1); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.15); }
+        .divider { height: 1px; background: #EFEFEF; margin: 1rem 0; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="day-label">DAY 3</div>
+            <h1>What happens when you fast</h1>
+        </div>
+
+        <!-- DAILY FOCUS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Daily focus</h2>
+            </div>
+            <div class="text-content">
+                Many people hear that fasting "resets" the body. But what actually changes inside?
+            </div>
+            <div class="text-content">
+                For most of the day, the body is busy digesting food. When food pauses, the body quietly shifts how it uses energy.
+            </div>
+        </div>
+
+        <!-- NATURAL CLEANUP TIME -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Your body's natural cleanup time</h2>
+            </div>
+            <div class="text-content">
+                Most of the day the body focuses on digestion.
+            </div>
+            <div class="text-content">
+                Food arrives. Nutrients are absorbed. Energy is stored or used. Cells stay busy processing incoming fuel.
+            </div>
+            <div class="text-content">
+                When several hours pass without food, the situation changes. Cells no longer receive constant nutrients.
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="text-content">
+                This quiet pause allows the body to shift attention. Instead of only handling new fuel, cells begin maintaining and renewing themselves.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">One of the key processes during this time is autophagy.</span>
+            </div>
+
+            <!-- Timeline visual -->
+            <div style="margin: 1.25rem 0;">
+                <div style="font-size: 12px; font-weight: 700; color: #B87658; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase;">What shifts during a food pause</div>
+                <div style="position: relative; padding-left: 28px;">
+                    <div style="position: absolute; left: 10px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(180deg, #DC2626 0%, #B87658 50%, #10B981 100%);"></div>
+
+                    <div style="position: relative; margin-bottom: 1rem;">
+                        <div style="position: absolute; left: -22px; top: 3px; width: 10px; height: 10px; border-radius: 50%; background: #DC2626;"></div>
+                        <div style="font-size: 12px; font-weight: 700; color: #DC2626; margin-bottom: 0.2rem;">During eating</div>
+                        <div style="font-size: 12px; color: #656565; line-height: 1.4;">Body processes incoming fuel, insulin rises, cells absorb glucose</div>
+                    </div>
+
+                    <div style="position: relative; margin-bottom: 1rem;">
+                        <div style="position: absolute; left: -22px; top: 3px; width: 10px; height: 10px; border-radius: 50%; background: #B87658;"></div>
+                        <div style="font-size: 12px; font-weight: 700; color: #B87658; margin-bottom: 0.2rem;">3–4 hours after eating</div>
+                        <div style="font-size: 12px; color: #656565; line-height: 1.4;">Insulin falls, body begins using stored energy</div>
+                    </div>
+
+                    <div style="position: relative;">
+                        <div style="position: absolute; left: -22px; top: 3px; width: 10px; height: 10px; border-radius: 50%; background: #10B981;"></div>
+                        <div style="font-size: 12px; font-weight: 700; color: #10B981; margin-bottom: 0.2rem;">Longer pause</div>
+                        <div style="font-size: 12px; color: #656565; line-height: 1.4;">Cells shift to maintenance — autophagy becomes more active</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CELLULAR CLEANUP -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>The cellular cleanup process</h2>
+            </div>
+            <div class="text-content">
+                Autophagy literally means "self-eating."
+            </div>
+            <div class="text-content">
+                Inside every cell there are small structures called lysosomes. Their job is to break down old or damaged cell parts.
+            </div>
+            <div class="text-content">
+                During autophagy, the cell collects worn-out components. These materials are delivered to the lysosome and broken down.
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="text-content">
+                The useful pieces are then recycled and used again. Cells can rebuild proteins, membranes, and other structures.
+            </div>
+            <div class="text-content">
+                This cleanup helps cells stay efficient. It supports healthy energy production and cellular maintenance.
+            </div>
+            <div class="text-content">
+                Autophagy happens in the body all the time. But research shows it becomes more active when food pauses for longer periods.
+            </div>
+
+            <div class="explainer-box">
+                <div class="text-content" style="font-weight: 700; margin-bottom: 0.75rem; color: #172737;">
+                    How autophagy works
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 1.25rem; flex-shrink: 0;">🗂️</span>
+                    <div class="text-content" style="margin-bottom: 0; font-size: 13px; color: #656565;">
+                        The cell <strong style="color: #172737;">identifies worn-out or damaged parts</strong> and wraps them for processing.
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 1.25rem; flex-shrink: 0;">♻️</span>
+                    <div class="text-content" style="margin-bottom: 0; font-size: 13px; color: #656565;">
+                        Lysosomes <strong style="color: #172737;">break down the material</strong> into reusable building blocks.
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                    <span style="font-size: 1.25rem; flex-shrink: 0;">🔧</span>
+                    <div class="text-content" style="margin-bottom: 0; font-size: 13px; color: #656565;">
+                        Useful pieces are <strong style="color: #172737;">recycled to rebuild</strong> proteins, membranes, and other structures.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCIENCE FACTS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science facts</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">♻️</div>
+                <div>
+                    <div class="fact-title">Autophagy removes damaged cell components and recycles them for new cellular structures</div>
+                    <div class="fact-desc">It is a fundamental cellular process that helps maintain healthy cells and supports metabolic health.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">⏸️</div>
+                <div>
+                    <div class="fact-title">Periods without food can increase autophagy activity in several tissues</div>
+                    <div class="fact-desc">Source: Mizushima N — Nature, 2008 · Levine B — Nature, 2011 · Mattson MP — New England Journal of Medicine, 2019</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LABS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What about labs? — Cellular renewal signals</h2>
+            </div>
+            <div class="text-content">
+                The percentage shows how strongly this biomarker can influence how you feel and function overall.
+            </div>
+
+            <div class="biomarker-card">
+                <div style="margin-bottom: 1rem;">
+                    <div class="biomarker-name">Insulin 🧪</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 48%;">48 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Low insulin levels during a food pause signal the body to shift from fuel storage toward cellular maintenance. Autophagy becomes more active when insulin stays low for an extended period.
+                </div>
+                <div class="biomarker-desc" style="margin-top: 0.5rem;">
+                    Reference:𝗣𝗲𝗿𝗹𝗺𝘂𝘁𝘁𝗲𝗿 𝗥 — Cell Metabolism, 2014
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div style="margin-bottom: 1rem;">
+                    <div class="biomarker-name">hsCRP (High-sensitivity C-reactive protein) 🧪</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 41%;">41 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    A marker of low-grade inflammation. When cellular cleanup processes work well, damaged cell components are cleared before they trigger an immune response. Elevated hsCRP may suggest the cleanup is falling behind.
+                </div>
+                <div class="biomarker-desc" style="margin-top: 0.5rem;">
+                    Reference: Ridker PM — New England Journal of Medicine, 2011
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div style="margin-bottom: 1rem;">
+                    <div class="biomarker-name">IGF-1 (Insulin-like growth factor 1) 🧪</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 36%;">36 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    IGF-1 promotes cell growth and division. During food pauses, IGF-1 levels fall — a signal that shifts the body's priority from building new cells toward maintaining existing ones through autophagy.
+                </div>
+                <div class="biomarker-desc" style="margin-top: 0.5rem;">
+                    Reference: Longo VD — Cell Metabolism, 2015
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 13px; font-weight: 600; color: #172737; line-height: 1.5;">
+                    🔍 Key insight:
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.5rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Cells stay healthy not only by building new parts — but also by recycling old ones.
+                </div>
+            </div>
+        </div>
+
+        <!-- REFLECTION -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection prompt</h2>
+            </div>
+            <div class="text-content">
+                Did you know your cells constantly repair and renew themselves?
+            </div>
+            <div class="text-content">
+                How often does your body get quiet time without digestion to support these processes?
+            </div>
+        </div>
+
+        <!-- PLAN TO ACTION -->
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to action — Create space for cellular recovery</h2>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">1. Finish dinner early</div>
+                <div class="fact-desc">Tonight finish dinner at least 3 hours before sleep.</div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">2. Skip late snacks</div>
+                <div class="fact-desc">Avoid eating anything after dinner — even something small.</div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">3. Let the overnight window work</div>
+                <div class="fact-desc">Allow your body a quiet overnight period without digestion. This gives cells time to move from processing food toward renewal.</div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.12); padding: 1.25rem; margin: 1.5rem 0; border-radius: 12px; border: 2px solid rgba(184,118,88,0.2); box-shadow: 0 4px 12px rgba(184,118,88,0.15);">
+                <div style="font-weight: 700; font-size: 15px; color: #B87658; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    🧠 Why this works
+                </div>
+                <div class="fact-desc">
+                    Autophagy does not need to be triggered artificially. The body already knows how to do this. Finishing dinner earlier simply gives it more time in the overnight window to focus on cellular maintenance.<br><br>
+                    <span class="highlight-text">Sleep and fasting together are the body's natural recovery combination.</span>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 14px; font-weight: 600; color: #B87658; line-height: 1.5; text-align: center;">
+                    ✨ Key takeaway
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.75rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    A food pause is not just rest for the stomach. <span class="highlight-text">It is active renewal time for every cell in the body.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TODAY YOU LEARNED -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today you learned</h2>
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">• During longer breaks between meals the body begins using stored energy</li>
+                <li class="no-bullet-item">• The liver helps keep energy stable between meals</li>
+                <li class="no-bullet-item">• Cells have a natural recycling process called autophagy</li>
+                <li class="no-bullet-item">• Food pauses give the body time to focus on maintenance instead of digestion</li>
+                <li class="no-bullet-item">• This is a normal rhythm the body already knows how to use</li>
+            </ul>
+
+            <div class="reflection-box">
+                <div style="text-align: center;">
+                    <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">
+                        ✨ A gentle reminder:
+                    </div>
+                    <div class="fact-desc">
+                        Your body already knows how to switch energy sources. Sometimes it simply needs the time to do it.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WHAT TO EXPECT -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to expect</h2>
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ After today</span> — You may notice moments of clearer focus before your next meal.</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏳ After 1 week</span> — Hunger between meals may feel calmer and less urgent.</li>
+                <li class="no-bullet-item"><span class="highlight-text">📆 After 2 weeks</span> — Going a few hours between meals can start feeling more natural.</li>
+            </ul>
+        </div>
+
+        <!-- FOOTER -->
+        <div style="background: #FDF6EE; padding: 2rem 1.5rem 3rem 1.5rem;">
+            <div style="font-size: 18px; font-weight: 700; color: #172737; line-height: 1.3; margin-bottom: 1.75rem;">
+                📊 Boost your results with a personalized lab test
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                <span style="font-size: 1.5rem;">🧪</span>
+                <span style="font-size: 15px; font-weight: 600; color: #172737;">30+ biomarkers tested</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                <span style="font-size: 1.5rem;">🥗</span>
+                <span style="font-size: 15px; font-weight: 600; color: #172737;">Personalized diet plan</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                <span style="font-size: 1.5rem;">💊</span>
+                <span style="font-size: 15px; font-weight: 600; color: #172737;">Personalized supplements plan</span>
+            </div>
+            <a href="https://plan.aura.care/lt-2/" style="display: block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; font-weight: 700; font-size: 16px; padding: 16px 32px; border-radius: 14px; text-decoration: none; text-align: center; box-shadow: 0 4px 12px rgba(184,118,88,0.3);">
+                Continue
+            </a>
+        </div>
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 5 — How long should you fast</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .no-bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .no-bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; padding-left: 0; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .biomarker-card { background: rgba(184,118,88,0.08); padding: 18px; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin-bottom: 0.75rem; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 13px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.4; }
+        .info-box { background: rgba(184,118,88,0.06); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.12); }
+        .explainer-box { background: rgba(212,149,108,0.1); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.15); }
+        .divider { height: 1px; background: #EFEFEF; margin: 1rem 0; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="day-label">DAY 5</div>
+            <h1>How long should you fast</h1>
+        </div>
+
+        <!-- DAILY FOCUS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Daily focus</h2>
+            </div>
+            <div class="text-content">
+                Many people ask the same question about fasting. How long should the break between meals actually be?
+            </div>
+            <div class="text-content">
+                Some try very long fasting windows right away. Others eat every two hours because they fear getting hungry.
+            </div>
+            <div class="text-content">
+                The truth is simpler. The right fasting window depends on how your body uses energy during the day.
+            </div>
+        </div>
+
+        <!-- LONGER IS NOT ALWAYS BETTER -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Longer is not always better</h2>
+            </div>
+            <div class="text-content">
+                Fasting is often presented as a competition. People talk about 16 hours, 18 hours, even longer.
+            </div>
+            <div class="text-content">
+                But the body does not need extreme food gaps to benefit from metabolic pauses.
+            </div>
+            <div class="text-content">
+                For many people, a simple 12–14 hour overnight break already gives the body time to finish digestion and shift into stored energy use.
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="text-content">
+                What matters most is consistency. A predictable rhythm helps the body prepare for digestion and recovery.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">The goal is not the longest fast. The goal is a fasting window that feels stable and sustainable.</span>
+            </div>
+
+            <!-- Clock visual -->
+            <div style="margin: 1.25rem 0; background: #FFFEFB; border: 1px solid rgba(184,118,88,0.15); border-radius: 16px; padding: 1.25rem;">
+                <div style="font-size: 12px; font-weight: 700; color: #B87658; letter-spacing: 0.3px; text-transform: uppercase; margin-bottom: 1rem;">Finding your window</div>
+                <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 52px; text-align: right; font-size: 12px; font-weight: 700; color: #656565; flex-shrink: 0;">10–12 h</div>
+                        <div style="flex: 1; height: 8px; border-radius: 6px; background: rgba(220,38,38,0.2);"></div>
+                        <div style="font-size: 11px; color: #656565; width: 80px;">Too short for most</div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 52px; text-align: right; font-size: 12px; font-weight: 700; color: #10B981; flex-shrink: 0;">12–14 h</div>
+                        <div style="flex: 1; height: 8px; border-radius: 6px; background: #10B981;"></div>
+                        <div style="font-size: 11px; color: #10B981; font-weight: 600; width: 80px;">Sweet spot ✓</div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 52px; text-align: right; font-size: 12px; font-weight: 700; color: #B87658; flex-shrink: 0;">16–18 h</div>
+                        <div style="flex: 1; height: 8px; border-radius: 6px; background: rgba(184,118,88,0.4);"></div>
+                        <div style="font-size: 11px; color: #656565; width: 80px;">Works for some</div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 52px; text-align: right; font-size: 12px; font-weight: 700; color: #DC2626; flex-shrink: 0;">20+ h</div>
+                        <div style="flex: 1; height: 8px; border-radius: 6px; background: rgba(220,38,38,0.3);"></div>
+                        <div style="font-size: 11px; color: #DC2626; width: 80px;">Not for most</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERNAL CLOCK -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Your body runs on an internal clock</h2>
+            </div>
+            <div class="text-content">
+                A key system involved here is the circadian rhythm.
+            </div>
+            <div class="text-content">
+                This internal clock is controlled by a small area in the brain called the hypothalamus. It coordinates sleep, hormones, digestion, and energy use.
+            </div>
+            <div class="text-content">
+                During the day, digestion and metabolism are more active. At night, the body shifts toward repair and recovery.
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="text-content">
+                When eating continues late into the night, this rhythm becomes disrupted. The body tries to digest food while it should be slowing down.
+            </div>
+            <div class="text-content">
+                An overnight fasting window allows digestion to finish before the body moves into night recovery.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Many people notice better sleep and steadier morning energy when eating follows this rhythm.</span>
+            </div>
+
+            <div class="explainer-box">
+                <div class="text-content" style="font-weight: 700; margin-bottom: 0.75rem; color: #172737;">
+                    A day in two phases
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 1.25rem; flex-shrink: 0;">☀️</span>
+                    <div class="text-content" style="margin-bottom: 0; font-size: 13px; color: #656565;">
+                        <strong style="color: #172737;">Daytime</strong> — digestion and metabolism are active, energy is produced and used.
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                    <span style="font-size: 1.25rem; flex-shrink: 0;">🌙</span>
+                    <div class="text-content" style="margin-bottom: 0; font-size: 13px; color: #656565;">
+                        <strong style="color: #172737;">Night</strong> — the body shifts to repair and recovery. Digestion should be finished.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCIENCE FACTS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science facts</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🕐</div>
+                <div>
+                    <div class="fact-title">Metabolism follows circadian rhythms that influence digestion, insulin response, and energy use</div>
+                    <div class="fact-desc">Eating earlier in the day and maintaining an overnight fasting window supports metabolic regulation.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🌙</div>
+                <div>
+                    <div class="fact-title">Even a 12-hour overnight fast has been associated with improved metabolic patterns</div>
+                    <div class="fact-desc">Source: Panda S — Cell Metabolism, 2016 · Sutton EF — Cell Metabolism, 2018 · Chaix A — Cell Metabolism, 2019</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LABS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What about labs? — Circadian metabolism signals</h2>
+            </div>
+            <div class="text-content">
+                The percentage shows how strongly this biomarker can influence how you feel and function overall.
+            </div>
+
+            <div class="biomarker-card">
+                <div style="margin-bottom: 1rem;">
+                    <div class="biomarker-name">Melatonin 🧪</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 38%;">38 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Rises at night to signal the body that it is time to sleep and shift into recovery mode. Late eating can interfere with this signal.
+                </div>
+                <div class="biomarker-desc" style="margin-top: 0.5rem;">
+                    Reference: Arendt J — Journal of Biological Rhythms, 2008
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div style="margin-bottom: 1rem;">
+                    <div class="biomarker-name">HbA1c 🧪</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 44%;">44 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects average blood glucose over several months and helps show how the body manages energy over time.
+                </div>
+                <div class="biomarker-desc" style="margin-top: 0.5rem;">
+                    Reference: American Diabetes Association, 2022
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div style="margin-bottom: 1rem;">
+                    <div class="biomarker-name">Magnesium 🧪</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 33%;">33 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Supports hundreds of metabolic reactions, including energy production and sleep regulation.
+                </div>
+                <div class="biomarker-desc" style="margin-top: 0.5rem;">
+                    Reference: Gröber U — Nutrients, 2015
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 13px; font-weight: 600; color: #172737; line-height: 1.5;">
+                    🔍 Key insight:
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.5rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Your metabolism works best when eating follows a consistent daily rhythm.
+                </div>
+            </div>
+        </div>
+
+        <!-- REFLECTION -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection prompt</h2>
+            </div>
+            <div class="text-content">
+                At what time do you usually eat your last meal?
+            </div>
+            <div class="text-content">
+                Does your body have enough time to finish digestion before sleep?
+            </div>
+        </div>
+
+        <!-- PLAN TO ACTION -->
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to action — Try a simple overnight food break</h2>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">1. Check your dinner time</div>
+                <div class="fact-desc">Look at the time you usually finish dinner.</div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">2. Plan breakfast 12 hours later</div>
+                <div class="fact-desc">Tomorrow morning, eat breakfast about 12 hours after dinner. Example: if dinner ends at 7 PM, have breakfast around 7–8 AM.</div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">3. Notice your morning hunger</div>
+                <div class="fact-desc">In the morning, notice how your hunger feels. Is it calm, strong, or barely there?</div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.12); padding: 1.25rem; margin: 1.5rem 0; border-radius: 12px; border: 2px solid rgba(184,118,88,0.2); box-shadow: 0 4px 12px rgba(184,118,88,0.15);">
+                <div style="font-weight: 700; font-size: 15px; color: #B87658; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    🧠 Why this works
+                </div>
+                <div class="fact-desc">
+                    This small overnight break gives the body time to finish digestion before the next day begins. The body does not need a long fast — it needs a consistent one.<br><br>
+                    <span class="highlight-text">Rhythm matters more than duration.</span>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 14px; font-weight: 600; color: #B87658; line-height: 1.5; text-align: center;">
+                    ✨ Key takeaway
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.75rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Your body prefers rhythm over extremes. <span class="highlight-text">A sustainable window beats a perfect one.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TODAY YOU LEARNED -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today you learned</h2>
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">• Fasting windows do not need to be extreme</li>
+                <li class="no-bullet-item">• Many bodies benefit from a 12–14 hour overnight break</li>
+                <li class="no-bullet-item">• The brain coordinates metabolism through circadian rhythms</li>
+                <li class="no-bullet-item">• Late eating can disrupt night recovery</li>
+                <li class="no-bullet-item">• Consistent timing supports metabolic balance</li>
+            </ul>
+
+            <div class="reflection-box">
+                <div style="text-align: center;">
+                    <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">
+                        ✨ A gentle reminder:
+                    </div>
+                    <div class="fact-desc">
+                        Your body prefers rhythm over extremes.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WHAT TO EXPECT -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to expect</h2>
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ After today</span> — You begin noticing how meal timing affects your evening energy.</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏳ After 3–5 days</span> — Your body starts anticipating meals at similar times.</li>
+                <li class="no-bullet-item"><span class="highlight-text">📆 After 1–2 weeks</span> — Energy and hunger follow a more predictable daily rhythm.</li>
+            </ul>
+        </div>
+
+        <!-- FOOTER -->
+        <div style="background: #FDF6EE; padding: 2rem 1.5rem 3rem 1.5rem;">
+            <div style="font-size: 18px; font-weight: 700; color: #172737; line-height: 1.3; margin-bottom: 1.75rem;">
+                📊 Boost your results with a personalized lab test
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                <span style="font-size: 1.5rem;">🧪</span>
+                <span style="font-size: 15px; font-weight: 600; color: #172737;">30+ biomarkers tested</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                <span style="font-size: 1.5rem;">🥗</span>
+                <span style="font-size: 15px; font-weight: 600; color: #172737;">Personalized diet plan</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                <span style="font-size: 1.5rem;">💊</span>
+                <span style="font-size: 15px; font-weight: 600; color: #172737;">Personalized supplements plan</span>
+            </div>
+            <a href="https://plan.aura.care/lt-2/" style="display: block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; font-weight: 700; font-size: 16px; padding: 16px 32px; border-radius: 14px; text-decoration: none; text-align: center; box-shadow: 0 4px 12px rgba(184,118,88,0.3);">
+                Continue
+            </a>
+        </div>
+
+    </main>
+</body>
+</html>

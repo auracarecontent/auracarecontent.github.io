@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 1 — Do you actually need fasting</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .no-bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .no-bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; padding-left: 0; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .footer { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center; }
+        .footer h2 { color: #FFFFFF; margin-bottom: 1rem; }
+        .footer-text { font-size: 15px; font-weight: 500; line-height: 1.4; color: #FFFFFF; opacity: 0.95; margin-bottom: 1.25rem; }
+        .cta-box { background: rgba(184,118,88,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(184,118,88,0.15); text-align: center; }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; font-weight: 700; font-size: 16px; padding: 14px 32px; border-radius: 12px; text-decoration: none; margin-top: 1rem; box-shadow: 0 4px 8px rgba(184,118,88,0.25); }
+        .biomarker-card { background: rgba(184,118,88,0.08); padding: 18px; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin-bottom: 0.75rem; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 13px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.4; }
+        .info-box { background: rgba(184,118,88,0.06); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.12); }
+        .explainer-box { background: rgba(212,149,108,0.1); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.15); }
+        .divider { height: 1px; background: #EFEFEF; margin: 1rem 0; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="day-label">DAY 1</div>
+            <h1>Do you actually need fasting</h1>
+        </div>
+
+        <!-- DAILY FOCUS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Daily focus</h2>
+            </div>
+            <div class="text-content">
+                Many people hear that fasting boosts metabolism and energy. But some feel better with it, while others feel worse.
+            </div>
+            <div class="text-content">
+                This does not mean something is wrong. Bodies respond to food timing in different ways.
+            </div>
+        </div>
+
+        <!-- FASTING IS NOT FOR EVERYONE -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Fasting is not for everyone</h2>
+            </div>
+            <div class="text-content">
+                Fasting is often presented as a universal solution.
+            </div>
+            <div class="text-content">
+                But the body's needs depend on sleep, stress, activity, and how stable your energy already is.
+            </div>
+            <div class="text-content">
+                Some people naturally go several hours between meals and feel calm and clear. Others feel shaky, anxious, or mentally foggy if they wait too long.
+            </div>
+            <div class="text-content">
+                Both responses are normal.
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="text-content">
+                The goal is not to force fasting. The goal is to notice how your body reacts to breaks between meals.
+            </div>
+            <div class="text-content">
+                For some people, gentle food pauses help energy feel steadier. For others, regular meals feel safer and more supportive.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Understanding your own response is the first step.</span>
+            </div>
+
+            <!-- Visual -->
+            <div style="margin: 1.25rem 0;">
+                <div style="display: flex; align-items: center; gap: 1rem; background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.25); border-radius: 12px; padding: 1rem; margin-bottom: 0.75rem;">
+                    <div style="flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; border: 2px solid #10B981; display: flex; align-items: center; justify-content: center; background: rgba(16,185,129,0.1);">
+                        <span style="font-size: 20px;">😌</span>
+                    </div>
+                    <div>
+                        <div style="font-size: 13px; font-weight: 700; color: #10B981; margin-bottom: 0.25rem;">Some bodies respond well</div>
+                        <div style="font-size: 12px; color: #656565; line-height: 1.4;">Longer gaps between meals → energy stays <strong style="color: #10B981;">calm and clear</strong></div>
+                    </div>
+                </div>
+                <div style="text-align: center; font-size: 11px; color: #B87658; font-weight: 600; margin: 0.25rem 0; letter-spacing: 0.3px;">both are valid</div>
+                <div style="display: flex; align-items: center; gap: 1rem; background: rgba(220,38,38,0.06); border: 1px solid rgba(220,38,38,0.2); border-radius: 12px; padding: 1rem; margin-top: 0.75rem;">
+                    <div style="flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; border: 2px dashed #DC2626; display: flex; align-items: center; justify-content: center; background: rgba(220,38,38,0.08);">
+                        <span style="font-size: 20px;">😟</span>
+                    </div>
+                    <div>
+                        <div style="font-size: 13px; font-weight: 700; color: #DC2626; margin-bottom: 0.25rem;">Others feel worse</div>
+                        <div style="font-size: 12px; color: #656565; line-height: 1.4;">Waiting too long → <strong style="color: #DC2626;">shaky, foggy, or anxious</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HUNGER SIGNAL -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>The hunger signal your stomach sends</h2>
+            </div>
+            <div class="text-content">
+                One key signal in this process is a hormone called ghrelin.
+            </div>
+            <div class="text-content">
+                Ghrelin is produced in the stomach. Its job is simple: tell the brain when it may be time to eat.
+            </div>
+            <div class="text-content">
+                When you follow a regular eating rhythm, ghrelin begins to follow a schedule. It rises before meals and drops after eating.
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="text-content">
+                But when meals are irregular, the signal becomes less predictable. Hunger can appear suddenly or disappear completely.
+            </div>
+            <div class="text-content">
+                This is why some people feel calm during longer meal gaps, while others feel tense or shaky.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Understanding this signal helps explain why fasting supports some bodies — and not others.</span>
+            </div>
+
+            <div class="explainer-box">
+                <div class="text-content" style="font-weight: 700; margin-bottom: 0.75rem; color: #172737;">
+                    What ghrelin does
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 1.25rem; flex-shrink: 0;">📈</span>
+                    <div class="text-content" style="margin-bottom: 0; font-size: 13px; color: #656565;">
+                        It <strong style="color: #172737;">rises before expected meals</strong> — signaling the brain to prepare for food.
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                    <span style="font-size: 1.25rem; flex-shrink: 0;">📉</span>
+                    <div class="text-content" style="margin-bottom: 0; font-size: 13px; color: #656565;">
+                        It <strong style="color: #172737;">drops after eating</strong> — helping hunger feel calmer and more manageable.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCIENCE FACTS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science facts</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">⚖️</div>
+                <div>
+                    <div class="fact-title">Hunger is controlled by hormones and daily rhythms, not just willpower</div>
+                    <div class="fact-desc">Ghrelin rises before expected meals and drops after eating. When eating patterns become predictable, hunger signals become calmer and easier to manage.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🕐</div>
+                <div>
+                    <div class="fact-title">Irregular eating patterns can disrupt hunger hormones and increase feelings of fatigue or sudden hunger</div>
+                    <div class="fact-desc">Source: Cummings DE — New England Journal of Medicine, 2002 · Scheer FA — Proceedings of the National Academy of Sciences, 2009 · Mattson MP — New England Journal of Medicine, 2019</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LABS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What about labs? — Hunger and energy regulation</h2>
+            </div>
+            <div class="text-content">
+                The percentage shows how strongly this biomarker can influence how you feel and function overall.
+            </div>
+
+            <div class="biomarker-card">
+                <div style="margin-bottom: 1rem;">
+                    <div class="biomarker-name">Glucose 🧪</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%;">45 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Shows how much sugar remains in the blood after fasting. Stable levels often reflect balanced energy regulation.
+                </div>
+                <div class="biomarker-desc" style="margin-top: 0.5rem;">
+                    Reference: American Diabetes Association, 2022
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div style="margin-bottom: 1rem;">
+                    <div class="biomarker-name">Insulin 🧪</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 50%;">50 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Indicates how strongly the body must signal cells to absorb glucose. Higher levels may reflect frequent fuel intake.
+                </div>
+                <div class="biomarker-desc" style="margin-top: 0.5rem;">
+                    Reference: Kraft JR — Diabetes Epidemic &amp; You, 2008
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div style="margin-bottom: 1rem;">
+                    <div class="biomarker-name">Triglycerides 🧪</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 35%;">35 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflect how the body stores excess energy as fat in the bloodstream. Stable levels often suggest balanced fuel use.
+                </div>
+                <div class="biomarker-desc" style="margin-top: 0.5rem;">
+                    Reference: Nordestgaard BG — European Heart Journal, 2016
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 13px; font-weight: 600; color: #172737; line-height: 1.5;">
+                    🔍 Key insight:
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.5rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Your body's energy rhythm depends not only on what you eat, but also on how predictable your eating pattern is.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- REFLECTION -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection prompt</h2>
+            </div>
+            <div class="text-content">
+                Do you usually feel calm between meals, or does your energy drop quickly?
+            </div>
+            <div class="text-content">
+                Does your hunger appear gradually, or suddenly and intensely?
+            </div>
+        </div>
+
+        <!-- PLAN TO ACTION -->
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to action — Observe your hunger rhythm</h2>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">1. Notice when hunger appears</div>
+                <div class="fact-desc">Today simply notice when hunger appears. No need to change anything yet.</div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">2. Allow a calm pause</div>
+                <div class="fact-desc">Between two meals, allow a calm pause if it feels comfortable.</div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">3. Drink water and observe</div>
+                <div class="fact-desc">Drink water and observe how your body responds.</div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.12); padding: 1.25rem; margin: 1.5rem 0; border-radius: 12px; border: 2px solid rgba(184,118,88,0.2); box-shadow: 0 4px 12px rgba(184,118,88,0.15);">
+                <div style="font-weight: 700; font-size: 15px; color: #B87658; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    🧠 Why this works
+                </div>
+                <div class="fact-desc">
+                    Ghrelin follows patterns. When you begin to observe your natural hunger rhythm — without forcing any particular approach — you start to understand what your body actually needs.<br><br>
+                    <span class="highlight-text">Awareness always comes before change.</span>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 14px; font-weight: 600; color: #B87658; line-height: 1.5; text-align: center;">
+                    ✨ Key takeaway
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.75rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Fasting is not a rule. It is a tool — <span class="highlight-text">and it only helps when it fits your body's actual signals</span>.
+                </div>
+            </div>
+        </div>
+
+        <!-- TODAY YOU LEARNED -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today you learned</h2>
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">• Fasting is not helpful for everyone</li>
+                <li class="no-bullet-item">• Hunger is guided by hormones, not just willpower</li>
+                <li class="no-bullet-item">• The stomach sends signals to the brain through ghrelin</li>
+                <li class="no-bullet-item">• Regular eating rhythms help hunger feel more predictable</li>
+                <li class="no-bullet-item">• Your body responds to patterns, not rules</li>
+            </ul>
+
+            <div class="reflection-box">
+                <div style="text-align: center;">
+                    <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">
+                        ✨ Remember:
+                    </div>
+                    <div class="fact-desc">
+                        Your body is always trying to find balance.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WHAT TO EXPECT -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to expect</h2>
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ After today</span> — You begin noticing the difference between real hunger and habit.</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏳ After 3–5 days</span> — Hunger starts showing up in a more predictable rhythm.</li>
+                <li class="no-bullet-item"><span class="highlight-text">📆 After 1–2 weeks</span> — Eating begins to feel calmer and more natural.</li>
+            </ul>
+        </div>
+
+        <!-- FOOTER -->
+        <div style="background: #FDF6EE; padding: 2rem 1.5rem 3rem 1.5rem;">
+            <div style="font-size: 18px; font-weight: 700; color: #172737; line-height: 1.3; margin-bottom: 1.75rem;">
+                📊 Boost your results with a personalized lab test
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                <span style="font-size: 1.5rem;">🧪</span>
+                <span style="font-size: 15px; font-weight: 600; color: #172737;">30+ biomarkers tested</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                <span style="font-size: 1.5rem;">🥗</span>
+                <span style="font-size: 15px; font-weight: 600; color: #172737;">Personalized diet plan</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                <span style="font-size: 1.5rem;">💊</span>
+                <span style="font-size: 15px; font-weight: 600; color: #172737;">Personalized supplements plan</span>
+            </div>
+            <a href="https://plan.aura.care/lt-2/" style="display: block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; font-weight: 700; font-size: 16px; padding: 16px 32px; border-radius: 14px; text-decoration: none; text-align: center; box-shadow: 0 4px 12px rgba(184,118,88,0.3);">
+                Continue
+            </a>
+        </div>
+
+    </main>
+</body>
+</html>

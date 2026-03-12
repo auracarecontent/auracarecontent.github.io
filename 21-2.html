@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 2 — Why constant eating drains energy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Roboto', 'Segoe UI', sans-serif; background: #FAF8F2; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: #FFFEFB; border-left: 1px solid rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.06); }
+        .section { padding: 1.5rem 1.5rem; border-bottom: 1px solid #EFEFEF; background: #FFFEFB; }
+        .header { background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; padding: 2rem 1.5rem; }
+        .day-label { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 16px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 14px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.4; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .no-bullet-list { margin: 0.75rem 0 1rem 0; padding-left: 0; list-style: none; }
+        .no-bullet-item { font-size: 14px; font-weight: 500; color: #172737; line-height: 1.4; margin-bottom: 0.5rem; padding-left: 0; }
+        .science-fact, .action-box, .reflection-box { padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); border-left-width: 3px; border-left-style: solid; border-radius: 0; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left-color: #10B981; display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left-color: #10B981; }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 14px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 13px; font-weight: 500; color: #656565; line-height: 1.4; }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left-color: #B87658; }
+        .biomarker-card { background: rgba(184,118,88,0.08); padding: 18px; border-radius: 16px; margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin-bottom: 0.75rem; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 13px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.4; }
+        .info-box { background: rgba(184,118,88,0.06); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.12); }
+        .explainer-box { background: rgba(212,149,108,0.1); padding: 1.25rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid rgba(184,118,88,0.15); }
+        .divider { height: 1px; background: #EFEFEF; margin: 1rem 0; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="day-label">DAY 2</div>
+            <h1>Why constant eating drains energy</h1>
+        </div>
+
+        <!-- DAILY FOCUS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>Daily focus</h2>
+            </div>
+            <div class="text-content">
+                Many people feel tired during the day and assume they need more snacks.
+            </div>
+            <div class="text-content">
+                But sometimes the opposite is happening. The body is working all day without a real pause.
+            </div>
+        </div>
+
+        <!-- YOUR BODY NEVER GETS A BREAK -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">☀️</span>
+                <h2>Your body never gets a break</h2>
+            </div>
+            <div class="text-content">
+                Modern eating often happens all day long.
+            </div>
+            <div class="text-content">
+                A coffee with milk. A small snack. Lunch. Something sweet. Another snack. Dinner. The body keeps digesting the whole time.
+            </div>
+            <div class="text-content">
+                Digestion is active work. Blood flow moves to the stomach and intestines. Hormones rise to process incoming fuel.
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="text-content">
+                When food keeps arriving, the body stays in processing mode. Energy is constantly directed toward digestion.
+            </div>
+            <div class="text-content">
+                For some people this creates a strange pattern. They eat to gain energy, but end up feeling heavier and more tired.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">Small breaks between meals allow the body to finish one task before starting the next.</span>
+            </div>
+
+            <!-- Visual -->
+            <div style="margin: 1.25rem 0;">
+                <div style="display: flex; align-items: center; gap: 1rem; background: rgba(220,38,38,0.06); border: 1px solid rgba(220,38,38,0.2); border-radius: 12px; padding: 1rem; margin-bottom: 0.75rem;">
+                    <div style="flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; border: 2px dashed #DC2626; display: flex; align-items: center; justify-content: center; background: rgba(220,38,38,0.08);">
+                        <span style="font-size: 20px;">🔄</span>
+                    </div>
+                    <div>
+                        <div style="font-size: 13px; font-weight: 700; color: #DC2626; margin-bottom: 0.25rem;">Constant eating</div>
+                        <div style="font-size: 12px; color: #656565; line-height: 1.4;">Body stays in digestion mode all day → <strong style="color: #DC2626;">energy feels heavy and low</strong></div>
+                    </div>
+                </div>
+                <div style="text-align: center; font-size: 11px; color: #B87658; font-weight: 600; margin: 0.25rem 0; letter-spacing: 0.3px;">↓ add a pause ↓</div>
+                <div style="display: flex; align-items: center; gap: 1rem; background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.25); border-radius: 12px; padding: 1rem; margin-top: 0.75rem;">
+                    <div style="flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; border: 2px solid #10B981; display: flex; align-items: center; justify-content: center; background: rgba(16,185,129,0.1);">
+                        <span style="font-size: 20px;">⚡</span>
+                    </div>
+                    <div>
+                        <div style="font-size: 13px; font-weight: 700; color: #10B981; margin-bottom: 0.25rem;">Meal breaks</div>
+                        <div style="font-size: 12px; color: #656565; line-height: 1.4;">Body shifts to using stored energy → <strong style="color: #10B981;">energy feels steadier</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- THE SWITCH YOUR PANCREAS CONTROLS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2>The switch your pancreas controls</h2>
+            </div>
+            <div class="text-content">
+                A small organ called the pancreas helps manage energy after you eat.
+            </div>
+            <div class="text-content">
+                When food enters the bloodstream as glucose, the pancreas releases a hormone called insulin. Insulin moves that glucose into cells so it can be used or stored.
+            </div>
+            <div class="text-content">
+                This signal appears every time you eat.
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="text-content">
+                When food arrives very often, insulin keeps rising again and again. The body stays focused on handling incoming fuel.
+            </div>
+            <div class="text-content">
+                But when there is a longer pause between meals, insulin levels fall. The body can then begin using stored energy instead.
+            </div>
+            <div class="text-content">
+                <span class="highlight-text">People often feel this change as steadier energy and fewer sudden hunger waves.</span>
+            </div>
+
+            <div class="explainer-box">
+                <div class="text-content" style="font-weight: 700; margin-bottom: 0.75rem; color: #172737;">
+                    What insulin does
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 1.25rem; flex-shrink: 0;">📈</span>
+                    <div class="text-content" style="margin-bottom: 0; font-size: 13px; color: #656565;">
+                        It <strong style="color: #172737;">rises every time you eat</strong> — directing glucose into cells for use or storage.
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                    <span style="font-size: 1.25rem; flex-shrink: 0;">📉</span>
+                    <div class="text-content" style="margin-bottom: 0; font-size: 13px; color: #656565;">
+                        It <strong style="color: #172737;">falls during meal pauses</strong> — allowing the body to access stored energy instead.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCIENCE FACTS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💡</span>
+                <h2>Science facts</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🔄</div>
+                <div>
+                    <div class="fact-title">The body shifts between two main states during the day: digestion and fuel use</div>
+                    <div class="fact-desc">Frequent eating keeps the body in digestion mode longer. Meal spacing allows insulin levels to fall and energy use to stabilize.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">⏱️</div>
+                <div>
+                    <div class="fact-title">Meal timing and spacing influence metabolic flexibility — the body's ability to switch fuel sources</div>
+                    <div class="fact-desc">Source: Mattson MP — New England Journal of Medicine, 2019 · Longo VD — Cell Metabolism, 2016 · Anton SD — Obesity, 2018</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LABS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🧬</span>
+                <h2>What about labs? — Pancreas digestion signals</h2>
+            </div>
+            <div class="text-content">
+                The percentage shows how strongly this biomarker can influence how you feel and function overall.
+            </div>
+
+            <div class="biomarker-card">
+                <div style="margin-bottom: 1rem;">
+                    <div class="biomarker-name">Amylase 🧪</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 35%;">35 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    A digestive enzyme produced by the pancreas. It helps break down carbohydrates when food enters the gut. When eating happens frequently throughout the day, the pancreas repeatedly releases digestive enzymes to process incoming meals.
+                </div>
+                <div class="biomarker-desc" style="margin-top: 0.5rem;">
+                    Reference: Whitcomb DC — Gastroenterology, 2012
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div style="margin-bottom: 1rem;">
+                    <div class="biomarker-name">Triglycerides 🧪</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;">40 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    These fats increase when the body receives more fuel than it uses. Frequent eating can keep triglycerides elevated because the body is constantly packaging energy for storage.
+                </div>
+                <div class="biomarker-desc" style="margin-top: 0.5rem;">
+                    Reference: Nordestgaard BG — European Heart Journal, 2016
+                </div>
+            </div>
+
+            <div class="biomarker-card">
+                <div style="margin-bottom: 1rem;">
+                    <div class="biomarker-name">ALT (Alanine aminotransferase) 🧪</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 34%;">34 %</div>
+                </div>
+                <div class="biomarker-desc">
+                    Reflects how actively the liver processes nutrients and fats from meals. When digestion happens continuously, the liver also stays active processing incoming fuel.
+                </div>
+                <div class="biomarker-desc" style="margin-top: 0.5rem;">
+                    Reference: Chalasani N — Hepatology, 2018
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 13px; font-weight: 600; color: #172737; line-height: 1.5;">
+                    🔍 Key insight:
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.5rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Your digestive organs work hardest when food arrives constantly without breaks.
+                </div>
+            </div>
+        </div>
+
+        <!-- REFLECTION -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h2>Reflection prompt</h2>
+            </div>
+            <div class="text-content">
+                During the day, do you usually eat because you feel real hunger — or because food is simply available?
+            </div>
+            <div class="text-content">
+                Between meals, does your body ever get a quiet pause?
+            </div>
+        </div>
+
+        <!-- PLAN TO ACTION -->
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <span class="section-icon">✅</span>
+                <h2>Plan to action — Create a gentle food break</h2>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">1. Leave a calm 3–4 hour gap</div>
+                <div class="fact-desc">Today try leaving a calm 3–4 hour gap between two meals.</div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">2. Drink water or tea</div>
+                <div class="fact-desc">Drink water or tea during that time to support the body without triggering digestion.</div>
+            </div>
+
+            <div class="action-box">
+                <div class="fact-title">3. Notice how energy and hunger feel</div>
+                <div class="fact-desc">Pay attention to how your energy and hunger feel before the next meal.</div>
+            </div>
+
+            <div style="background: rgba(184,118,88,0.12); padding: 1.25rem; margin: 1.5rem 0; border-radius: 12px; border: 2px solid rgba(184,118,88,0.2); box-shadow: 0 4px 12px rgba(184,118,88,0.15);">
+                <div style="font-weight: 700; font-size: 15px; color: #B87658; margin-bottom: 1rem; text-align: center; letter-spacing: 0.3px;">
+                    🧠 Why this works
+                </div>
+                <div class="fact-desc">
+                    When insulin drops during a meal pause, the body shifts from storing fuel to using it. This switch is what many people feel as a quieter, more steady kind of energy.<br><br>
+                    <span class="highlight-text">A pause is not deprivation. It is space for the body to work differently.</span>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="text-content" style="margin-bottom: 0; font-size: 14px; font-weight: 600; color: #B87658; line-height: 1.5; text-align: center;">
+                    ✨ Key takeaway
+                </div>
+                <div class="text-content" style="margin-bottom: 0; margin-top: 0.75rem; font-size: 13px; font-weight: 500; color: #656565; line-height: 1.5;">
+                    Tiredness is not always a sign you need more food. <span class="highlight-text">Sometimes it means your body needs a break from digesting.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TODAY YOU LEARNED -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>Today you learned</h2>
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item">• Digestion requires energy</li>
+                <li class="no-bullet-item">• Constant eating keeps the body processing fuel</li>
+                <li class="no-bullet-item">• The pancreas releases insulin each time food arrives</li>
+                <li class="no-bullet-item">• Meal pauses allow the body to shift energy use</li>
+                <li class="no-bullet-item">• Small rhythm changes can influence daily energy</li>
+            </ul>
+
+            <div class="reflection-box">
+                <div style="text-align: center;">
+                    <div class="fact-title" style="color: #B87658; margin-bottom: 0.75rem;">
+                        ✨ A gentle reminder:
+                    </div>
+                    <div class="fact-desc">
+                        Your body is not asking for constant food. Sometimes it simply needs a pause.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WHAT TO EXPECT -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">✨</span>
+                <h2>What to expect</h2>
+            </div>
+            <ul class="no-bullet-list">
+                <li class="no-bullet-item"><span class="highlight-text">⏱️ After today</span> — You begin noticing how often you eat during the day.</li>
+                <li class="no-bullet-item"><span class="highlight-text">⏳ After 1 week</span> — Energy between meals feels more stable.</li>
+                <li class="no-bullet-item"><span class="highlight-text">📆 After 2 weeks</span> — Your body settles into a clearer rhythm between meals.</li>
+            </ul>
+        </div>
+
+        <!-- FOOTER -->
+        <div style="background: #FDF6EE; padding: 2rem 1.5rem 3rem 1.5rem;">
+            <div style="font-size: 18px; font-weight: 700; color: #172737; line-height: 1.3; margin-bottom: 1.75rem;">
+                📊 Boost your results with a personalized lab test
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                <span style="font-size: 1.5rem;">🧪</span>
+                <span style="font-size: 15px; font-weight: 600; color: #172737;">30+ biomarkers tested</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                <span style="font-size: 1.5rem;">🥗</span>
+                <span style="font-size: 15px; font-weight: 600; color: #172737;">Personalized diet plan</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                <span style="font-size: 1.5rem;">💊</span>
+                <span style="font-size: 15px; font-weight: 600; color: #172737;">Personalized supplements plan</span>
+            </div>
+            <a href="https://plan.aura.care/lt-2/" style="display: block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: white; font-weight: 700; font-size: 16px; padding: 16px 32px; border-radius: 14px; text-decoration: none; text-align: center; box-shadow: 0 4px 12px rgba(184,118,88,0.3);">
+                Continue
+            </a>
+        </div>
+
+    </main>
+</body>
+</html>
