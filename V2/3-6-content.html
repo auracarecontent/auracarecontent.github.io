@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 6 — Relieve Headaches Through Posture</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; background: transparent; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: transparent; }
+        .section { padding: 1.5rem 0; border-bottom: 1px solid #EFEFEF; background: transparent; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        h2 { font-size: 18px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 16px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.5; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 16px; font-weight: 500; color: #172737; line-height: 1.5; margin-bottom: 0.5rem; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left: 3px solid #B87658; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 16px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
+        .biomarker-card { background: transparent; padding: 14px 0; margin-bottom: 0.25rem; border-bottom: 1px solid #EFEFEF; }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; margin-bottom: 1rem; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin-bottom: 0.75rem; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 15px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.5; }
+        .expectation-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+        .expectation-emoji { font-size: 1.5rem; flex-shrink: 0; }
+        .expectation-time { font-weight: 600; font-size: 16px; color: #B87658; margin-bottom: 0.25rem; }
+        .expectation-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .summary-item { display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; }
+        .summary-item:last-child { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+
+        <!-- Intro -->
+        <div style="background: transparent; padding: 1.75rem 0 1rem 0;">
+            <h1 style="font-size: 22px; font-weight: 700; line-height: 1.3; color: #B87658;">Relieve headaches through posture</h1>
+        </div>
+
+        <div class="section">
+            <div class="text-content">
+                Not every headache starts in the head. Many begin earlier — in the <span class="highlight-text">neck, shoulders, and posture</span>.
+            </div>
+            <div class="text-content">
+                Today you'll see how forward head position, shoulder tension, and neck fatigue can build pressure that eventually turns into a headache.
+            </div>
+        </div>
+
+        <!-- When headaches build -->
+        <div class="section">
+            <div class="section-header">
+                <h2>When headaches build during the day</h2>
+            </div>
+            <div class="text-content">
+                Posture-related headaches often feel like:
+            </div>
+            <ul class="bullet-list" style="list-style: none; padding-left: 0; margin-left: 0;">
+                <li class="bullet-item">🤕 Pressure around the temples or forehead</li>
+                <li class="bullet-item">👁️ Heaviness behind the eyes</li>
+                <li class="bullet-item">🔵 A tight band around the head</li>
+            </ul>
+            <div class="text-content">
+                The discomfort usually builds slowly — often after long hours of screen time, focused work, or at the end of the day when the body tries to unwind.
+            </div>
+        </div>
+
+        <!-- How posture triggers head pain -->
+        <div class="section">
+            <div class="section-header">
+                <h2>How posture triggers head pain</h2>
+            </div>
+            <div class="text-content">
+                When the head drifts slightly forward, neck muscles must hold its weight all day. Shoulders begin assisting, the upper back stiffens, and circulation through the neck muscles decreases.
+            </div>
+            <div class="text-content">
+                Over time these muscles fatigue and send pain signals upward. The brain interprets this as head pain — even though the tension started <span class="highlight-text">lower in the body</span>.
+            </div>
+        </div>
+
+        <!-- The neck–shoulder–head chain -->
+        <div class="section">
+            <div class="section-header">
+                <h2>The neck–shoulder–head chain</h2>
+            </div>
+            <div style="margin: 1rem 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <span style="font-size: 1.1rem;">💆</span>
+                    <span style="font-size: 15px; font-weight: 600; color: #172737;">Neck & shoulder muscles stay tight</span>
+                </div>
+                <div style="padding-left: 0.6rem; color: #B87658; font-size: 1rem; line-height: 1;">↓</div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <span style="font-size: 1.1rem;">🩸</span>
+                    <span style="font-size: 15px; font-weight: 600; color: #172737;">Blood flow becomes less efficient</span>
+                </div>
+                <div style="padding-left: 0.6rem; color: #B87658; font-size: 1rem; line-height: 1;">↓</div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <span style="font-size: 1.1rem;">⚡</span>
+                    <span style="font-size: 15px; font-weight: 600; color: #172737;">Pain sensitivity increases</span>
+                </div>
+                <div style="padding-left: 0.6rem; color: #B87658; font-size: 1rem; line-height: 1;">↓</div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <span style="font-size: 1.1rem;">🔁</span>
+                    <span style="font-size: 15px; font-weight: 600; color: #ef4444;">Headache returns if posture doesn't change</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why painkillers don't solve it -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Why painkillers don't solve the cause</h2>
+            </div>
+            <div class="text-content">
+                Painkillers reduce how strongly pain is felt. They don't change muscle load, posture support, or the tension pattern that created the headache.
+            </div>
+            <div class="text-content">
+                When the body returns to the same posture demands, the tension builds again and the headache often returns.
+            </div>
+        </div>
+
+        <!-- Science facts -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Science facts — posture & headaches</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🤕</div>
+                <div>
+                    <div class="fact-title">Tension-type headaches are strongly linked to sustained neck muscle activity.</div>
+                    <div class="fact-desc">Prolonged activation of cervical muscles is one of the most consistent triggers of tension headaches in adults.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🦴</div>
+                <div>
+                    <div class="fact-title">Forward head posture increases cervical muscle load.</div>
+                    <div class="fact-desc">Each centimetre the head moves forward roughly doubles the effective weight the neck must support.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🩸</div>
+                <div>
+                    <div class="fact-title">Reduced circulation in tight muscles amplifies pain signals.</div>
+                    <div class="fact-desc">Poor blood flow causes metabolic waste to accumulate in muscle tissue, lowering the pain threshold significantly.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🌿</div>
+                <div>
+                    <div class="fact-title">Improved posture and muscle relaxation can reduce headache frequency.</div>
+                    <div class="fact-desc">Studies show that posture correction and targeted muscle release reduce both the frequency and intensity of tension headaches.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biomarkers -->
+        <div class="section">
+            <div class="section-header">
+                <h2>What about labs?</h2>
+            </div>
+            <div class="text-content">
+                Some biomarkers influence muscle tension and pain sensitivity.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Magnesium (RBC)</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 60%;">60%</div></div>
+                <div class="biomarker-desc">Supports muscle relaxation and nerve stability. Low levels are linked with headaches and muscle tightness.</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">hs-CRP</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 45%;">45%</div></div>
+                <div class="biomarker-desc">Inflammation can increase pain sensitivity.</div>
+            </div>
+
+            <div class="biomarker-card" style="border-bottom: none;">
+                <div class="biomarker-name">Morning cortisol</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 40%;">40%</div></div>
+                <div class="biomarker-desc">Chronic stress patterns are associated with frequent tension headaches.</div>
+            </div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Reflection prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0.5rem;">
+                    When a headache appears, pause and think about the moments before it started.
+                </div>
+                <ul class="bullet-list" style="margin-bottom: 0.75rem;">
+                    <li class="bullet-item">Were your shoulders lifted?</li>
+                    <li class="bullet-item">Was your head leaning forward?</li>
+                    <li class="bullet-item">Did your neck feel tired first?</li>
+                </ul>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Headaches often appear after tension has been building for hours.
+                </div>
+            </div>
+        </div>
+
+        <!-- What actually relieves posture headaches -->
+        <div class="section">
+            <div class="section-header">
+                <h2>What actually relieves posture headaches</h2>
+            </div>
+            <div class="text-content">
+                Relief usually begins when the neck no longer carries the head alone and shoulders stop assisting.
+            </div>
+            <div class="text-content">
+                When posture distributes load more evenly, muscles relax and the nervous system quiets. As the tension chain softens, <span class="highlight-text">the head pressure often fades naturally</span>.
+            </div>
+        </div>
+
+        <!-- Plan to action -->
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <h2>Plan to action — a quick pressure reset</h2>
+            </div>
+            <div class="text-content">
+                If you feel head pressure building during the day, pause for a short reset.
+            </div>
+
+            <div class="action-box">
+                <div class="step-item">
+                    <div class="step-number">1️⃣</div>
+                    <div>
+                        <div class="fact-title">Soften your posture (20–30 sec)</div>
+                        <div class="fact-desc">Let your shoulders drop. Gently bring your head back over your shoulders.</div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2️⃣</div>
+                    <div>
+                        <div class="fact-title">Ear massage (20–30 sec)</div>
+                        <div class="fact-desc">Rub along the outer edge of your ears. Gently pull them downward and slightly outward.</div>
+                    </div>
+                </div>
+
+                <div class="step-item" style="margin-bottom: 0;">
+                    <div class="step-number">3️⃣</div>
+                    <div>
+                        <div class="fact-title">Slow breathing (30 sec)</div>
+                        <div class="fact-desc">Close your eyes. Take a few slow breaths and let your neck and shoulders relax.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-content" style="margin-top: 0.5rem;">
+                Small resets like this can interrupt the tension before it turns into a full headache.
+            </div>
+        </div>
+
+        <!-- What to expect -->
+        <div class="section">
+            <div class="section-header">
+                <h2>What to expect</h2>
+            </div>
+            <div style="padding: 14px 0; margin-top: 1rem;">
+                <div class="expectation-item">
+                    <div class="expectation-emoji">⏱️</div>
+                    <div>
+                        <div class="expectation-time">Within minutes</div>
+                        <div class="expectation-desc">Head pressure may soften or spread out.</div>
+                    </div>
+                </div>
+                <div class="expectation-item">
+                    <div class="expectation-emoji">⏳</div>
+                    <div>
+                        <div class="expectation-time">With repetition</div>
+                        <div class="expectation-desc">Headaches build up more slowly.</div>
+                    </div>
+                </div>
+                <div class="expectation-item" style="margin-bottom: 0;">
+                    <div class="expectation-emoji">📆</div>
+                    <div>
+                        <div class="expectation-time">1–2 weeks</div>
+                        <div class="expectation-desc">Less reliance on pain relief and fewer tension headaches.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Today you learned -->
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="section-header" style="justify-content: center;">
+                <h2>Today you learned</h2>
+            </div>
+            <div class="summary-item">🤕 Many headaches begin in posture, not in the head</div>
+            <div class="summary-item">💆 Neck and shoulders often drive the pressure you feel</div>
+            <div class="summary-item">🌿 Support and relaxation reduce pain signals</div>
+            <div class="summary-item">🔁 Small resets help prevent tension from building</div>
+        </div>
+
+        <!-- Remember -->
+        <div class="section" style="text-align: center;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 1.25rem;">
+                ✨ Headaches are often your body asking for support — not simply relief.
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
+                <span style="font-size: 1rem;">✅</span>
+                <span style="font-size: 12px; font-weight: 500; color: #8C8C8C; letter-spacing: 0.2px;">Reviewed by medical expert</span>
+            </div>
+        </div>
+
+        <!-- Lab test CTA -->
+        <div style="background: #FFF8E1; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center;">
+            <div style="font-size: 20px; font-weight: 800; color: #172737; line-height: 1.3; margin-bottom: 1.75rem;">
+                📈 Boost your results with a personalized lab test
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; text-align: left;">
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">🧪</span> 30+ biomarkers tested
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">🥗</span> Personalized diet plan
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">💊</span> Personalized supplements plan
+                </div>
+            </div>
+            <a href="https://plan.aura.care/lt-2/" style="display: block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; font-size: 19px; font-weight: 800; padding: 18px 0; border-radius: 14px; text-decoration: none; box-shadow: 0 4px 16px rgba(184,118,88,0.35);">
+                Continue
+            </a>
+        </div>
+
+    </main>
+</body>
+</html>

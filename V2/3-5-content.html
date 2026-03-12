@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 5 — Better Posture, Deeper Sleep</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; background: transparent; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: transparent; }
+        .section { padding: 1.5rem 0; border-bottom: 1px solid #EFEFEF; background: transparent; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        h2 { font-size: 18px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 16px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.5; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 16px; font-weight: 500; color: #172737; line-height: 1.5; margin-bottom: 0.5rem; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left: 3px solid #B87658; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 16px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .biomarker-card { background: transparent; padding: 14px 0; margin-bottom: 0.25rem; border-bottom: 1px solid #EFEFEF; }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; margin-bottom: 1rem; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin-bottom: 0.75rem; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 15px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.5; }
+        .expectation-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+        .expectation-emoji { font-size: 1.5rem; flex-shrink: 0; }
+        .expectation-time { font-weight: 600; font-size: 16px; color: #B87658; margin-bottom: 0.25rem; }
+        .expectation-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .summary-item { display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; }
+        .summary-item:last-child { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+
+        <!-- Intro -->
+        <div style="background: transparent; padding: 1.75rem 0 1rem 0;">
+            <h1 style="font-size: 22px; font-weight: 700; line-height: 1.3; color: #B87658;">Better posture, deeper sleep</h1>
+        </div>
+
+        <div class="section">
+            <div class="text-content">
+                Sleep doesn't start when you lie down. It starts when your body finally <span class="highlight-text">stops holding tension</span>.
+            </div>
+            <div class="text-content">
+                Today you'll see how posture and muscle holding affect your ability to fall asleep — and why small support cues can help your body shift into rest mode.
+            </div>
+        </div>
+
+        <!-- When the body stays tense at night -->
+        <div class="section">
+            <div class="section-header">
+                <h2>When the body stays tense at night</h2>
+            </div>
+            <div class="text-content">
+                In the evening many people notice:
+            </div>
+            <ul class="bullet-list" style="list-style: none; padding-left: 0; margin-left: 0;">
+                <li class="bullet-item">🦴 More neck or back pain</li>
+                <li class="bullet-item">🌀 Difficulty unwinding</li>
+                <li class="bullet-item">😶 Restless sleep</li>
+                <li class="bullet-item">😵 Waking up tired and stiff</li>
+            </ul>
+            <div class="text-content">
+                It's easy to blame the mattress or assume sleep is simply "bad." Often the real issue is that the body never received a clear signal that <span class="highlight-text">the work of the day is over</span>.
+            </div>
+        </div>
+
+        <!-- How posture affects sleep -->
+        <div class="section">
+            <div class="section-header">
+                <h2>How posture affects sleep</h2>
+            </div>
+            <div class="text-content">
+                Sleep requires a shift from holding to releasing. When posture stays tense:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">Neck and shoulder muscles keep working</li>
+                <li class="bullet-item">The jaw may stay slightly clenched</li>
+                <li class="bullet-item">The abdomen remains braced</li>
+                <li class="bullet-item">Breathing stays shallow</li>
+            </ul>
+            <div class="text-content">
+                The nervous system stays quietly alert. Even lying down doesn't automatically turn this off.
+            </div>
+            <div class="text-content">
+                If the body spent the entire day compensating for posture, it needs a moment to recognize that it's finally safe to rest.
+            </div>
+        </div>
+
+        <!-- When tension follows you into bed -->
+        <div class="section">
+            <div class="section-header">
+                <h2>When tension follows you into bed</h2>
+            </div>
+            <div class="text-content">
+                When posture tension carries into the evening, pain becomes more noticeable and the mind often stays active.
+            </div>
+            <div class="text-content">
+                Sleep may feel lighter and less restorative — not because you aren't tired, but because the body hasn't fully <span class="highlight-text">released the day's tension</span>.
+            </div>
+        </div>
+
+        <!-- Why lying down isn't enough -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Why lying down isn't enough</h2>
+            </div>
+            <div class="text-content">
+                Lying down doesn't automatically mean the body can rest. If the pillow doesn't support the neck, muscles stay active and small adjustments continue through the night.
+            </div>
+            <div class="text-content" style="background: rgba(184,118,88,0.06); border-left: 3px solid #B87658; padding: 0.75rem 1rem; margin: 0.75rem 0;">
+                Comfort isn't about softness. It's about support.
+            </div>
+        </div>
+
+        <!-- How supportive sleep posture feels -->
+        <div class="section">
+            <div class="section-header">
+                <h2>How supportive sleep posture feels</h2>
+            </div>
+            <div class="text-content">
+                A good sleep position doesn't require effort. When it's right:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">Your neck feels neutral</li>
+                <li class="bullet-item">Breathing feels easy</li>
+                <li class="bullet-item">The jaw and shoulders feel quiet rather than active</li>
+            </ul>
+            <div class="text-content">
+                If you feel like you're "holding" your position, the body usually needs better support — not more effort.
+            </div>
+        </div>
+
+        <!-- Science facts -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Science facts — posture & sleep</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">💤</div>
+                <div>
+                    <div class="fact-title">Supported posture reduces nighttime muscle activity.</div>
+                    <div class="fact-desc">When the body feels stable, muscles no longer need to work to maintain position — allowing deeper physical rest.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Lower tension helps calm nervous system alertness.</div>
+                    <div class="fact-desc">Reduced muscle tone signals safety to the brain, supporting the transition from alert to rest mode.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🦴</div>
+                <div>
+                    <div class="fact-title">Proper neck alignment reduces pain-related awakenings.</div>
+                    <div class="fact-desc">A neutral neck position minimizes pressure on cervical nerves, reducing the discomfort that pulls people out of sleep.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🛏️</div>
+                <div>
+                    <div class="fact-title">Physical comfort supports deeper sleep stages.</div>
+                    <div class="fact-desc">The body spends more time in restorative deep sleep when it doesn't need to process discomfort signals.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biomarkers -->
+        <div class="section">
+            <div class="section-header">
+                <h2>What about labs?</h2>
+            </div>
+            <div class="text-content">
+                Some biomarkers reflect how well your body recovers during sleep.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Magnesium (RBC)</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 60%;">60%</div></div>
+                <div class="biomarker-desc">Supports muscle relaxation and sleep depth.</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Morning cortisol</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 50%;">50%</div></div>
+                <div class="biomarker-desc">Disrupted rhythms can impair nighttime recovery.</div>
+            </div>
+
+            <div class="biomarker-card" style="border-bottom: none;">
+                <div class="biomarker-name">Vitamin D</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 35%;">35%</div></div>
+                <div class="biomarker-desc">Low levels may affect muscle recovery and sleep quality.</div>
+            </div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Reflection prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0.5rem;">
+                    At night, does your body feel relaxed or still slightly braced?
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Where do you notice tension most — neck, shoulders, jaw, or lower back?
+                </div>
+            </div>
+        </div>
+
+        <!-- What actually helps -->
+        <div class="section">
+            <div class="section-header">
+                <h2>What actually helps sleep</h2>
+            </div>
+            <div class="text-content">
+                Better sleep usually comes from <span class="highlight-text">reducing effort, not forcing relaxation</span>.
+            </div>
+            <div class="text-content">
+                When posture feels supported and breathing becomes easier, muscles stop working and the nervous system naturally begins to settle.
+            </div>
+        </div>
+
+        <!-- Plan to action -->
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <h2>Plan to action — a simple evening reset</h2>
+            </div>
+            <div class="text-content">
+                Tonight, give your body a small signal that the day is finished.
+            </div>
+            <div class="action-box">
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    When you get into bed, take a moment to check your position:
+                </div>
+                <ul class="bullet-list" style="margin-bottom: 0.75rem;">
+                    <li class="bullet-item">Let your shoulders sink into the mattress</li>
+                    <li class="bullet-item">Unclench your jaw</li>
+                    <li class="bullet-item">Allow your body to feel heavier</li>
+                </ul>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Take a few slow breaths and let your exhale last a little longer than your inhale. That small pause helps your body recognize that it's finally safe to rest.
+                </div>
+            </div>
+        </div>
+
+        <!-- What to expect -->
+        <div class="section">
+            <div class="section-header">
+                <h2>What to expect</h2>
+            </div>
+            <div style="padding: 14px 0; margin-top: 1rem;">
+                <div class="expectation-item">
+                    <div class="expectation-emoji">🌙</div>
+                    <div>
+                        <div class="expectation-time">Tonight</div>
+                        <div class="expectation-desc">Easier settling and less fidgeting.</div>
+                    </div>
+                </div>
+                <div class="expectation-item">
+                    <div class="expectation-emoji">⏳</div>
+                    <div>
+                        <div class="expectation-time">3–5 nights</div>
+                        <div class="expectation-desc">Fewer awakenings and less morning stiffness.</div>
+                    </div>
+                </div>
+                <div class="expectation-item" style="margin-bottom: 0;">
+                    <div class="expectation-emoji">📆</div>
+                    <div>
+                        <div class="expectation-time">1–2 weeks</div>
+                        <div class="expectation-desc">Deeper, more restorative sleep.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Today you learned -->
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="section-header" style="justify-content: center;">
+                <h2>Today you learned</h2>
+            </div>
+            <div class="summary-item">💤 Sleep begins with release, not exhaustion</div>
+            <div class="summary-item">🪑 Posture influences nighttime recovery</div>
+            <div class="summary-item">🌿 Support helps calm the nervous system</div>
+            <div class="summary-item">🔁 Small evening cues retrain sleep patterns</div>
+        </div>
+
+        <!-- Remember -->
+        <div class="section" style="text-align: center;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 1.25rem;">
+                ✨ You don't fall asleep by trying harder. You fall asleep when your body finally feels supported enough to let go.
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
+                <span style="font-size: 1rem;">✅</span>
+                <span style="font-size: 12px; font-weight: 500; color: #8C8C8C; letter-spacing: 0.2px;">Reviewed by medical expert</span>
+            </div>
+        </div>
+
+        <!-- Lab test CTA -->
+        <div style="background: #FFF8E1; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center;">
+            <div style="font-size: 20px; font-weight: 800; color: #172737; line-height: 1.3; margin-bottom: 1.75rem;">
+                📈 Boost your results with a personalized lab test
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; text-align: left;">
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">🧪</span> 30+ biomarkers tested
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">🥗</span> Personalized diet plan
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">💊</span> Personalized supplements plan
+                </div>
+            </div>
+            <a href="https://plan.aura.care/lt-2/" style="display: block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; font-size: 19px; font-weight: 800; padding: 18px 0; border-radius: 14px; text-decoration: none; box-shadow: 0 4px 16px rgba(184,118,88,0.35);">
+                Continue
+            </a>
+        </div>
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 7 — 3 Secrets of Pain-Free Posture</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; background: transparent; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: transparent; }
+        .section { padding: 1.5rem 0; border-bottom: 1px solid #EFEFEF; background: transparent; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        h2 { font-size: 18px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 16px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.5; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 16px; font-weight: 500; color: #172737; line-height: 1.5; margin-bottom: 0.5rem; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left: 3px solid #B87658; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 16px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .biomarker-card { background: transparent; padding: 14px 0; margin-bottom: 0.25rem; border-bottom: 1px solid #EFEFEF; }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; margin-bottom: 1rem; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin-bottom: 0.75rem; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 15px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.5; }
+        .expectation-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+        .expectation-emoji { font-size: 1.5rem; flex-shrink: 0; }
+        .expectation-time { font-weight: 600; font-size: 16px; color: #B87658; margin-bottom: 0.25rem; }
+        .expectation-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .summary-item { display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; }
+        .summary-item:last-child { margin-bottom: 0; }
+        .secret-card { border-left: 3px solid #B87658; padding: 1rem 1rem 0.25rem 1rem; margin: 1rem 0; background: rgba(184,118,88,0.04); }
+        .secret-label { font-size: 12px; font-weight: 700; color: #B87658; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 0.4rem; }
+        .secret-title { font-size: 17px; font-weight: 700; color: #172737; margin-bottom: 0.75rem; line-height: 1.3; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        .comparison-table th { font-size: 13px; font-weight: 700; padding: 0.6rem 0.75rem; text-align: center; }
+        .comparison-table th:first-child { text-align: left; }
+        .comparison-table th.with-aura { color: #10B981; }
+        .comparison-table th.without-aura { color: #8C8C8C; }
+        .comparison-table td { font-size: 14px; font-weight: 500; color: #172737; padding: 0.65rem 0.75rem; border-top: 1px solid #EFEFEF; }
+        .comparison-table td:not(:first-child) { text-align: center; font-size: 1rem; }
+        .comparison-table tr:first-child td { border-top: none; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+
+        <!-- Intro -->
+        <div style="background: transparent; padding: 1.75rem 0 1rem 0;">
+            <h1 style="font-size: 22px; font-weight: 700; line-height: 1.3; color: #B87658;">3 secrets of pain-free posture</h1>
+        </div>
+
+        <div class="section">
+            <div class="text-content">
+                Pain-free posture isn't something you constantly hold. Here's the surprising part: people with comfortable posture rarely think about posture at all. Their bodies simply <span class="highlight-text">move and adjust naturally</span> during the day.
+            </div>
+            <div class="text-content">
+                Today you'll see what actually makes posture feel effortless — and why trying to "sit straight" often creates more tension.
+            </div>
+        </div>
+
+        <!-- Why this matters -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Why this matters</h2>
+            </div>
+            <div class="text-content">
+                If you've ever thought:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">"I have to control my posture all the time."</li>
+                <li class="bullet-item">"If I relax, my posture will collapse."</li>
+                <li class="bullet-item">"Good posture feels tiring."</li>
+            </ul>
+            <div class="text-content">
+                You're not alone. Most posture advice focuses on holding the body in place — but pain-free posture works differently.
+            </div>
+        </div>
+
+        <!-- Three secrets -->
+        <div class="section">
+            <div class="section-header">
+                <h2>The three secrets</h2>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+
+                <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: rgba(201,168,76,0.08);">
+                    <div style="width: 36px; height: 36px; border-radius: 50%; background: #C9A84C; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem;">
+                        <span style="font-size: 15px; font-weight: 700; color: #fff;">1</span>
+                    </div>
+                    <div>
+                        <div style="font-size: 16px; font-weight: 700; color: #172737; margin-bottom: 0.4rem; line-height: 1.3;">🔄 Posture is dynamic</div>
+                        <div class="text-content" style="margin-bottom: 0.5rem;">One common myth is that good posture means staying still and upright. In reality, comfortable posture constantly changes. People without chronic pain shift their weight, change positions, and allow small movements through the spine.</div>
+                        <div style="font-size: 15px; font-weight: 600; color: #C9A84C;">Stillness often creates stiffness. Movement helps the body stay comfortable.</div>
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: rgba(201,168,76,0.08);">
+                    <div style="width: 36px; height: 36px; border-radius: 50%; background: #C9A84C; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem;">
+                        <span style="font-size: 15px; font-weight: 700; color: #fff;">2</span>
+                    </div>
+                    <div>
+                        <div style="font-size: 16px; font-weight: 700; color: #172737; margin-bottom: 0.4rem; line-height: 1.3;">💪 Muscles are not meant to hold all day</div>
+                        <div class="text-content" style="margin-bottom: 0.5rem;">Strong muscles are helpful, but only if they can relax. Pain-free posture means muscles turn on when needed and then fully switch off again. When muscles stay slightly contracted all day, fatigue and discomfort slowly build.</div>
+                        <div style="font-size: 15px; font-weight: 600; color: #C9A84C;">That's why the body can feel sore even without heavy physical work.</div>
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: rgba(201,168,76,0.08);">
+                    <div style="width: 36px; height: 36px; border-radius: 50%; background: #C9A84C; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem;">
+                        <span style="font-size: 15px; font-weight: 700; color: #fff;">3</span>
+                    </div>
+                    <div>
+                        <div style="font-size: 16px; font-weight: 700; color: #172737; margin-bottom: 0.4rem; line-height: 1.3;">🧠 Posture follows safety</div>
+                        <div class="text-content" style="margin-bottom: 0.5rem;">Posture is influenced more by the nervous system than by willpower. When the body feels stressed or overloaded, muscles brace, shoulders lift, and breathing becomes shallow.</div>
+                        <div style="font-size: 15px; font-weight: 600; color: #C9A84C;">When the body feels supported, posture improves automatically.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Real-life example -->
+        <div class="section">
+            <div class="section-header">
+                <h2>A simple real-life example</h2>
+            </div>
+            <div class="text-content">
+                Have you noticed that posture often feels worse when you're tired or stressed?
+            </div>
+            <div class="text-content" style="background: rgba(184,118,88,0.06); border-left: 3px solid #B87658; padding: 0.75rem 1rem; margin: 0.75rem 0;">
+                The skeleton hasn't changed — but the body's sense of load and safety has.
+            </div>
+        </div>
+
+        <!-- Biomarkers -->
+        <div class="section">
+            <div class="section-header">
+                <h2>What about labs?</h2>
+            </div>
+            <div class="text-content">
+                Pain-free posture doesn't appear as a single lab result, but chronic muscle holding can influence recovery markers.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Magnesium (RBC)</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 60%;">60%</div></div>
+                <div class="biomarker-desc">Constant muscle tension increases magnesium demand.</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Morning cortisol</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 55%;">55%</div></div>
+                <div class="biomarker-desc">Chronic tension can disrupt stress-recovery rhythms.</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">hs-CRP</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 45%;">45%</div></div>
+                <div class="biomarker-desc">Persistent muscle strain may contribute to low-grade inflammation.</div>
+            </div>
+
+            <div class="biomarker-card" style="border-bottom: none;">
+                <div class="biomarker-name">Ferritin</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 35%;">35%</div></div>
+                <div class="biomarker-desc">Poor recovery and tension can worsen fatigue.</div>
+            </div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Reflection prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0.5rem;">
+                    Think of someone who moves easily and comfortably.
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Do they look rigid and controlled — or relaxed and fluid? Comfortable posture often looks natural rather than "perfect."
+                </div>
+            </div>
+        </div>
+
+        <!-- What this means for you -->
+        <div class="section">
+            <div class="section-header">
+                <h2>What this means for you</h2>
+            </div>
+            <div class="text-content">
+                Pain-free posture rarely comes from constant correction. It develops when the body <span class="highlight-text">moves regularly, muscles get breaks</span>, and the nervous system no longer feels the need to brace.
+            </div>
+        </div>
+
+        <!-- Plan to action -->
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <h2>Plan to action — a curiosity check</h2>
+            </div>
+            <div class="text-content">
+                Today try something different: <span class="highlight-text">observe posture instead of controlling it</span>.
+            </div>
+            <div class="action-box">
+                <div class="text-content" style="margin-bottom: 0.75rem;">
+                    Notice how you and the people around you move during the day. When you soften your shoulders and let your breath move freely, ask yourself:
+                </div>
+                <div class="text-content" style="font-weight: 600; color: #B87658; margin-bottom: 0.75rem;">
+                    "Does posture actually get worse — or does it feel easier?"
+                </div>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Sometimes the body organizes itself better when we stop forcing it.
+                </div>
+            </div>
+        </div>
+
+        <!-- What to expect -->
+        <div class="section">
+            <div class="section-header">
+                <h2>What to expect</h2>
+            </div>
+            <div style="padding: 14px 0; margin-top: 1rem;">
+                <div class="expectation-item">
+                    <div class="expectation-emoji">⏱️</div>
+                    <div>
+                        <div class="expectation-time">Today</div>
+                        <div class="expectation-desc">A new way of thinking about posture.</div>
+                    </div>
+                </div>
+                <div class="expectation-item">
+                    <div class="expectation-emoji">⏳</div>
+                    <div>
+                        <div class="expectation-time">Over time</div>
+                        <div class="expectation-desc">Less effort and less fear of "doing posture wrong."</div>
+                    </div>
+                </div>
+                <div class="expectation-item" style="margin-bottom: 0;">
+                    <div class="expectation-emoji">📆</div>
+                    <div>
+                        <div class="expectation-time">Long term</div>
+                        <div class="expectation-desc">Posture becomes something your body manages automatically.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Today you learned -->
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="section-header" style="justify-content: center;">
+                <h2>Today you learned</h2>
+            </div>
+            <div class="summary-item">🔄 Posture works best when it can move</div>
+            <div class="summary-item">💪 Muscles need rest as much as strength</div>
+            <div class="summary-item">🧠 The nervous system shapes alignment</div>
+            <div class="summary-item">🌿 Comfort is often a sign of healthy posture</div>
+        </div>
+
+        <!-- Comparison table -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Your posture & pain relief transformation</h2>
+            </div>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="with-aura">With Aura</th>
+                        <th class="without-aura">Without Aura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Less neck and shoulder tightness</td>
+                        <td>✅</td>
+                        <td>✖</td>
+                    </tr>
+                    <tr>
+                        <td>Reduced head pressure and headaches</td>
+                        <td>✅</td>
+                        <td>✖</td>
+                    </tr>
+                    <tr>
+                        <td>Back feels supported, not stiff</td>
+                        <td>✅</td>
+                        <td>✖</td>
+                    </tr>
+                    <tr>
+                        <td>Easier breathing during the day</td>
+                        <td>✅</td>
+                        <td>✖</td>
+                    </tr>
+                    <tr>
+                        <td>Less abdominal tension</td>
+                        <td>✅</td>
+                        <td>✖</td>
+                    </tr>
+                    <tr>
+                        <td>Deeper sleep</td>
+                        <td>✅</td>
+                        <td>✖</td>
+                    </tr>
+                    <tr>
+                        <td>More stable energy</td>
+                        <td>✅</td>
+                        <td>✖</td>
+                    </tr>
+                    <tr>
+                        <td>Body releases tension more easily</td>
+                        <td>✅</td>
+                        <td>✖</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Remember -->
+        <div class="section" style="text-align: center;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 1.25rem;">
+                ✨ Pain-free posture doesn't feel like control. It feels like your body no longer needs to hold itself together.
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
+                <span style="font-size: 1rem;">✅</span>
+                <span style="font-size: 12px; font-weight: 500; color: #8C8C8C; letter-spacing: 0.2px;">Reviewed by medical expert</span>
+            </div>
+        </div>
+
+        <!-- Lab test CTA -->
+        <div style="background: #FFF8E1; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center;">
+            <div style="font-size: 20px; font-weight: 800; color: #172737; line-height: 1.3; margin-bottom: 1.75rem;">
+                📈 Boost your results with a personalized lab test
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; text-align: left;">
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">🧪</span> 30+ biomarkers tested
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">🥗</span> Personalized diet plan
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">💊</span> Personalized supplements plan
+                </div>
+            </div>
+            <a href="https://plan.aura.care/lt-2/" style="display: block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; font-size: 19px; font-weight: 800; padding: 18px 0; border-radius: 14px; text-decoration: none; box-shadow: 0 4px 16px rgba(184,118,88,0.35);">
+                Continue
+            </a>
+        </div>
+
+    </main>
+</body>
+</html>

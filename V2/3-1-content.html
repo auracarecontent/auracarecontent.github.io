@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 1 — Why the Pain Stays With You All Day</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; background: transparent; color: #172737; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .screen { max-width: 520px; margin: 0 auto; background: transparent; }
+        .section { padding: 1.5rem 0; border-bottom: 1px solid #EFEFEF; background: transparent; }
+        .section-header { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; }
+        .section-icon { font-size: 1.5rem; line-height: 1.2; }
+        h2 { font-size: 18px; font-weight: 700; color: #172737; line-height: 1.3; }
+        .text-content { font-size: 16px; font-weight: 500; color: #172737; margin-bottom: 0.75rem; line-height: 1.5; }
+        .highlight-text { font-weight: 600; color: #B87658; }
+        .bullet-list { margin: 0.75rem 0 1rem 1rem; padding-left: 1rem; }
+        .bullet-item { font-size: 16px; font-weight: 500; color: #172737; line-height: 1.5; margin-bottom: 0.5rem; }
+        .science-fact { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); display: flex; gap: 1rem; }
+        .action-box { background: rgba(16,185,129,0.08); border-left: 3px solid #10B981; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .reflection-box { background: rgba(184,118,88,0.08); border-left: 3px solid #B87658; padding: 1rem; margin: 1rem 0; box-shadow: 0 2px 4px rgba(23,39,55,0.08); }
+        .fact-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .fact-title { font-weight: 600; font-size: 16px; color: #172737; margin-bottom: 0.5rem; line-height: 1.4; }
+        .fact-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .step-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .step-number { font-size: 1.25rem; line-height: 1.4; flex-shrink: 0; }
+        .biomarker-card { background: transparent; padding: 14px 0; margin-bottom: 0.25rem; border-bottom: 1px solid #EFEFEF; }
+        .biomarker-name { font-size: 16px; font-weight: 600; color: #172737; line-height: 1.3; margin-bottom: 1rem; }
+        .progress-bar { background: #E6E6E6; border-radius: 12px; height: 28px; overflow: hidden; margin-bottom: 0.75rem; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #B87658 0%, #D4956C 100%); display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.3px; }
+        .biomarker-desc { font-size: 15px; font-weight: 500; color: #656565; margin-top: 0.75rem; line-height: 1.5; }
+        .reference-text { font-size: 13px; font-weight: 500; color: #8C8C8C; font-style: italic; margin-top: 0.5rem; }
+        .expectation-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+        .expectation-emoji { font-size: 1.5rem; flex-shrink: 0; }
+        .expectation-time { font-weight: 600; font-size: 16px; color: #B87658; margin-bottom: 0.25rem; }
+        .expectation-desc { font-size: 15px; font-weight: 500; color: #656565; line-height: 1.5; }
+        .summary-item { display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin-bottom: 0.75rem; font-size: 14px; font-weight: 500; color: #172737; }
+        .summary-item:last-child { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+    <main class="screen">
+
+        <!-- Intro -->
+        <div style="background: transparent; padding: 1.75rem 0 1rem 0;">
+            <h1 style="font-size: 22px; font-weight: 700; line-height: 1.3; color: #B87658;">Why the pain stays with you all day</h1>
+        </div>
+
+        <div class="section">
+            <div class="text-content">
+                Neck and posture tension often shows up as:
+            </div>
+            <ul class="bullet-list" style="list-style: none; padding-left: 0; margin-left: 0;">
+                <li class="bullet-item">💆 Neck or shoulder tightness</li>
+                <li class="bullet-item">😬 Jaw clenching</li>
+                <li class="bullet-item">🤕 Head pressure or tension headaches</li>
+                <li class="bullet-item">🪨 Stiffness in the upper or lower back</li>
+            </ul>
+            <div class="text-content">
+                It's easy to think: <span class="highlight-text">"I just need a massage."</span> Or that you slept wrong. But posture pain usually isn't caused by one moment — it develops from how your body holds itself all day.
+            </div>
+            <div class="text-content">
+                Even small shifts — a slightly forward head or rounded shoulders — force certain muscles to work constantly. Over time this can lead to persistent background tension, difficulty relaxing in the evening, and low energy during the day.
+            </div>
+            <div class="text-content">
+                Pain doesn't always appear suddenly. More often, it slowly becomes something your body <span class="highlight-text">carries with you all day</span>.
+            </div>
+        </div>
+
+        <!-- How posture turns into tension -->
+        <div class="section">
+            <div class="section-header">
+                <h2>How posture turns into tension</h2>
+            </div>
+            <div class="text-content">
+                Your nervous system constantly checks whether your body feels stable. When posture feels unstable:
+            </div>
+            <ul class="bullet-list">
+                <li class="bullet-item">Neck muscles tighten to support the head</li>
+                <li class="bullet-item">Shoulders lift or round forward</li>
+                <li class="bullet-item">The jaw clenches</li>
+                <li class="bullet-item">The abdomen stiffens instead of supporting breathing</li>
+            </ul>
+            <div class="text-content">
+                This pattern doesn't stay in one place. Neck tension often connects to jaw tightness. Jaw tension can increase head pressure. Upper back stiffness can restrict breathing. Abdominal tension can drain energy and focus.
+            </div>
+            <div class="text-content">
+                Nothing is "broken." <span class="highlight-text">Your body is simply compensating.</span>
+            </div>
+        </div>
+
+        <!-- Why tension spreads -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Why tension spreads through the body</h2>
+            </div>
+            <div class="text-content">
+                Your body doesn't work in isolated parts. Muscles and fascia share the load through connected chains.
+            </div>
+            <div class="text-content" style="background: rgba(239,68,68,0.06); border-left: 3px solid #ef4444; padding: 0.75rem 1rem; margin: 0.75rem 0;">
+                When one area carries too much tension → other areas start helping → the tension spreads → relaxation becomes harder
+            </div>
+            <div class="text-content">
+                This is why discomfort can travel from the neck to the jaw, shoulders, stomach, or back — and even influence how you breathe or walk.
+            </div>
+        </div>
+
+        <!-- Why massage doesn't solve it -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Why massage or painkillers don't solve the problem</h2>
+            </div>
+            <div class="text-content">
+                Massage and pain relief can help — but usually only for a while. Massage relaxes muscles from the outside and improves circulation. But if posture habits stay the same, the same muscles tighten again. Painkillers reduce the signal, but they don't change the pattern behind it.
+            </div>
+            <div class="text-content">
+                That's why people often say: <span class="highlight-text">"The massage felt great, but the pain came back."</span>
+            </div>
+
+        </div>
+
+        <!-- Science facts -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Science facts — posture & pain</h2>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🦴</div>
+                <div>
+                    <div class="fact-title">Continuous low-level muscle tension reduces blood flow and increases pain sensitivity.</div>
+                    <div class="fact-desc">Even mild sustained tension can restrict circulation to muscle tissue, lowering the threshold at which discomfort is felt.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🪢</div>
+                <div>
+                    <div class="fact-title">Fascia adapts to repeated positions and may become stiffer over time.</div>
+                    <div class="fact-desc">The connective tissue surrounding muscles gradually reshapes itself around habitual posture patterns, making change feel harder.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">🧠</div>
+                <div>
+                    <div class="fact-title">Chronic tension increases sensory signals in the nervous system, which can amplify discomfort.</div>
+                    <div class="fact-desc">A persistently activated nervous system becomes more sensitive — meaning the same tension can feel more painful over time.</div>
+                </div>
+            </div>
+
+            <div class="science-fact">
+                <div class="fact-icon">😮‍💨</div>
+                <div>
+                    <div class="fact-title">Restricted posture can interfere with breathing and energy levels.</div>
+                    <div class="fact-desc">Compressed chest and abdominal muscles limit diaphragm movement, reducing oxygen efficiency and contributing to fatigue.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biomarkers -->
+        <div class="section">
+            <div class="section-header">
+                <h2>What about labs?</h2>
+            </div>
+            <div class="text-content">
+                Some biomarkers can influence muscle tension and recovery. The percentages show how strongly each marker may affect pain and fatigue.
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">Magnesium (RBC)</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 55%;">55%</div></div>
+                <div class="biomarker-desc">Supports muscle relaxation and nerve signaling. Low levels are linked with tightness and slower recovery.</div>
+            </div>
+
+            <div class="biomarker-card">
+                <div class="biomarker-name">hs-CRP</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 45%;">45%</div></div>
+                <div class="biomarker-desc">Low-grade inflammation can increase pain sensitivity.</div>
+            </div>
+
+            <div class="biomarker-card" style="margin-bottom: 0;">
+                <div class="biomarker-name">Morning cortisol</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 40%;">40%</div></div>
+                <div class="biomarker-desc">Chronic tension may disrupt recovery rhythms.</div>
+            </div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Reflection prompt</h2>
+            </div>
+            <div class="reflection-box">
+                <div class="text-content" style="margin-bottom: 0.5rem;">
+                    When do you notice tension the most?
+                </div>
+                <ul class="bullet-list" style="margin-bottom: 0.75rem;">
+                    <li class="bullet-item">During work</li>
+                    <li class="bullet-item">In the evening when trying to relax</li>
+                    <li class="bullet-item">Or as a constant background tightness</li>
+                </ul>
+                <div class="text-content" style="margin-bottom: 0;">
+                    Where do you feel it first — neck, jaw, shoulders, stomach, or lower back?
+                </div>
+            </div>
+        </div>
+
+        <!-- What actually helps -->
+        <div class="section">
+            <div class="section-header">
+                <h2>What actually helps the body release tension</h2>
+            </div>
+            <div class="text-content">
+                Muscles rarely relax because we force them to. They relax when the body no longer needs to hold.
+            </div>
+            <ul class="bullet-list" style="background: rgba(16,185,129,0.07); border-left: 3px solid #10B981; padding: 0.75rem 1rem 0.75rem 2rem; margin: 0.75rem 0;">
+                <li class="bullet-item">Joints feel supported</li>
+                <li class="bullet-item">Posture feels stable, not rigid</li>
+                <li class="bullet-item">Breathing moves freely</li>
+                <li class="bullet-item">The nervous system feels safe</li>
+            </ul>
+            <div class="text-content">
+                Relief is usually a response — not something we push.
+            </div>
+        </div>
+
+        <!-- Plan to action -->
+        <div class="section" style="background: rgba(16,185,129,0.05);">
+            <div class="section-header">
+                <h2>Plan to action — posture awareness reset (5 minutes)</h2>
+            </div>
+            <div class="text-content">
+                Today the goal isn't to "fix" posture. It's to help your body notice when it can stop holding tension.
+            </div>
+
+            <div class="action-box">
+                <div class="step-item">
+                    <div class="step-number">1️⃣</div>
+                    <div>
+                        <div class="fact-title">Neutral check (1 min)</div>
+                        <div class="fact-desc">Sit or stand comfortably. Let your ears stack over shoulders, shoulders over ribs, ribs over pelvis.</div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2️⃣</div>
+                    <div>
+                        <div class="fact-title">Jaw & shoulder release (1 min)</div>
+                        <div class="fact-desc">Unclench your teeth. Let your tongue rest gently. Drop your shoulders slightly.</div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">3️⃣</div>
+                    <div>
+                        <div class="fact-title">Breathing support (2 min)</div>
+                        <div class="fact-desc">Inhale through the nose. Exhale slightly longer than you inhale. Let the belly soften on the exhale.</div>
+                    </div>
+                </div>
+
+                <div class="step-item" style="margin-bottom: 0;">
+                    <div class="step-number">4️⃣</div>
+                    <div>
+                        <div class="fact-title">Awareness cue (1 min)</div>
+                        <div class="fact-desc">Choose one daily moment — when using your phone, laptop, or walking — and ask yourself: "Am I holding tension… or am I supported?" That's enough.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- What to expect -->
+        <div class="section">
+            <div class="section-header">
+                <h2>What to expect</h2>
+            </div>
+            <div style="padding: 14px 0; margin-top: 1rem;">
+                <div class="expectation-item">
+                    <div class="expectation-emoji">⏱️</div>
+                    <div>
+                        <div class="expectation-time">Today</div>
+                        <div class="expectation-desc">You start noticing where tension begins.</div>
+                    </div>
+                </div>
+                <div class="expectation-item">
+                    <div class="expectation-emoji">⏳</div>
+                    <div>
+                        <div class="expectation-time">3–4 days</div>
+                        <div class="expectation-desc">Relaxing becomes easier, background tightness decreases.</div>
+                    </div>
+                </div>
+                <div class="expectation-item" style="margin-bottom: 0;">
+                    <div class="expectation-emoji">📆</div>
+                    <div>
+                        <div class="expectation-time">1–2 weeks</div>
+                        <div class="expectation-desc">Pain feels less constant and more responsive.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Today you learned -->
+        <div class="section" style="text-align: center; background: rgba(184,118,88,0.05);">
+            <div class="section-header" style="justify-content: center;">
+                <h2>Today you learned</h2>
+            </div>
+            <div class="summary-item">🦴 Posture pain often develops from repeated load</div>
+            <div class="summary-item">🪢 Tension is usually a protective response</div>
+            <div class="summary-item">😮‍💨 Breathing and support help muscles release</div>
+            <div class="summary-item">🔁 Awareness often changes posture faster than force</div>
+        </div>
+
+        <!-- Remember -->
+        <div class="section" style="text-align: center;">
+            <div class="text-content" style="font-size: 15px; font-weight: 600; color: #B87658; margin-bottom: 1.25rem;">
+                ✨ Posture isn't about sitting perfectly straight. It's about giving your body fewer reasons to hold tension.
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
+                <span style="font-size: 1rem;">✅</span>
+                <span style="font-size: 12px; font-weight: 500; color: #8C8C8C; letter-spacing: 0.2px;">Reviewed by medical expert</span>
+            </div>
+        </div>
+
+        <!-- Lab test CTA -->
+        <div style="background: #FFF8E1; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center;">
+            <div style="font-size: 20px; font-weight: 800; color: #172737; line-height: 1.3; margin-bottom: 1.75rem;">
+                📈 Boost your results with a personalized lab test
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; text-align: left;">
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">🧪</span> 30+ biomarkers tested
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">🥗</span> Personalized diet plan
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 17px; font-weight: 600; color: #172737;">
+                    <span style="font-size: 1.4rem;">💊</span> Personalized supplements plan
+                </div>
+            </div>
+            <a href="https://plan.aura.care/lt-2/" style="display: block; background: linear-gradient(135deg, #B87658 0%, #D4956C 100%); color: #FFFFFF; font-size: 19px; font-weight: 800; padding: 18px 0; border-radius: 14px; text-decoration: none; box-shadow: 0 4px 16px rgba(184,118,88,0.35);">
+                Continue
+            </a>
+        </div>
+
+    </main>
+</body>
+</html>
