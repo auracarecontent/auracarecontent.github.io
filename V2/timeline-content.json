@@ -164,7 +164,8 @@
           "day": 1,
           "type": "article",
           "title": "Why the pain stays with you all day",
-          "thumbnailUrl": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-1.png",
+          "thumbnailUrl": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-1.jpg",
+          "thumbnailUrl_v2": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-1-v2.jpg",
           "duration": "3:00",
           "contentUrl": "https://auracarecontent.github.io/V2/3-1-content.html"
         },
@@ -173,6 +174,7 @@
           "type": "article",
           "title": "The tight jaw problem most people ignore",
           "thumbnailUrl": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-2.jpg",
+          "thumbnailUrl_v2": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-2-v2.jpg",
           "duration": "3:00",
           "contentUrl": "https://auracarecontent.github.io/V2/3-2-content.html"
         },
@@ -181,6 +183,7 @@
           "type": "article",
           "title": "3 posture mistakes you repeat daily",
           "thumbnailUrl": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-3.jpg",
+          "thumbnailUrl_v2": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-3-v2.jpg",
           "duration": "3:00",
           "contentUrl": "https://auracarecontent.github.io/V2/3-3-content.html"
         },
@@ -188,7 +191,8 @@
           "day": 4,
           "type": "article",
           "title": "What no one tells you about posture and bloating",
-          "thumbnailUrl": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-4.png",
+          "thumbnailUrl": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-4.jpg",
+          "thumbnailUrl_v2": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-4-v2.jpg",
           "duration": "3:00",
           "contentUrl": "https://auracarecontent.github.io/V2/3-4-content.html"
         },
@@ -196,7 +200,8 @@
           "day": 5,
           "type": "article",
           "title": "Better posture, deeper sleep",
-          "thumbnailUrl": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-5.png",
+          "thumbnailUrl": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-5.jpg",
+          "thumbnailUrl_v2": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-5-v2.jpg",
           "duration": "3:00",
           "contentUrl": "https://auracarecontent.github.io/V2/3-5-content.html"
         },
@@ -205,6 +210,7 @@
           "type": "article",
           "title": "Relieve headaches through posture",
           "thumbnailUrl": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-6.jpg",
+          "thumbnailUrl_v2": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-6-v2.jpg",
           "duration": "3:00",
           "contentUrl": "https://auracarecontent.github.io/V2/3-6-content.html"
         },
@@ -213,6 +219,7 @@
           "type": "article",
           "title": "3 secrets of pain-free posture",
           "thumbnailUrl": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-7.jpg",
+          "thumbnailUrl_v2": "https://pub-b50270489d5f47af90f2ccd4de1cd007.r2.dev/V2/3-7-v2.jpg",
           "duration": "3:00",
           "contentUrl": "https://auracarecontent.github.io/V2/3-7-content.html"
         }
