@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master stress</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --terra-deep: #B87658;
+    --terra-light: #D4956C;
+    --terra-pale: #E8C4A8;
+    --cream: #FAF6F1;
+    --text-dark: #2C1F14;
+    --text-mid: #5C4033;
+    --text-soft: #8B6B5A;
+    --accent-night: #1A2744;
+    --accent-blue: #3D5A8A;
+    --accent-mint: #6B9E8F;
+    --section-radius: 20px;
+  }
+
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--text-dark); -webkit-font-smoothing: antialiased; }
+
+  .container { max-width: 520px; margin: 0 auto; padding: 0 20px 60px; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, #3D3560 0%, #5C4E8A 55%, #7B6AA8 100%);
+    border-radius: 0 0 40px 40px;
+    padding: 52px 28px 44px;
+    margin: 0 -20px 32px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -60px; right: -60px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,240,180,0.2) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: -40px; left: -40px;
+    width: 180px; height: 180px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(220,210,255,0.15) 0%, transparent 70%);
+  }
+  .hero-icon { font-size: 48px; margin-bottom: 16px; display: block; position: relative; z-index: 1; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: 32px; line-height: 1.2; color: #fff; margin-bottom: 10px; position: relative; z-index: 1; }
+  .hero h1 em { color: #F5EEB0; font-style: italic; }
+  .hero-sub { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.5; position: relative; z-index: 1; font-weight: 300; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,240,180,0.18); border: 1px solid rgba(255,240,180,0.35);
+    border-radius: 20px; padding: 5px 12px; font-size: 12px;
+    color: #F5EEB0; font-weight: 500; margin-bottom: 18px; position: relative; z-index: 1;
+  }
+
+  /* ── TOC ── */
+  .toc {
+    background: #fff;
+    border-radius: var(--section-radius);
+    padding: 22px 20px;
+    margin-bottom: 28px;
+    border: 1px solid rgba(184,118,88,0.12);
+  }
+  .toc-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terra-deep);
+    margin-bottom: 14px;
+  }
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .toc-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-mid);
+    font-weight: 400;
+  }
+  .toc-list li span.num {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--terra-deep), var(--terra-light));
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+
+  /* ── SECTION ── */
+  .section-block { margin-bottom: 24px; }
+  .section-label { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .section-num {
+    width: 32px; height: 32px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--terra-deep), var(--terra-light));
+    color: #fff; font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--text-dark); }
+
+  /* ── CARDS ── */
+  .card { background: #fff; border-radius: var(--section-radius); padding: 24px 20px; margin-bottom: 14px; border: 1px solid rgba(184,118,88,0.1); }
+  .card-night { background: linear-gradient(160deg, #4A4278, #6B5EA8); border: none; }
+  .card-terra { background: linear-gradient(135deg, var(--terra-deep), var(--terra-light)); border: none; }
+  .card-soft { background: linear-gradient(135deg, #FDF5EE, #FAF0E6); border: 1px solid rgba(184,118,88,0.15); }
+  .card-mint { background: linear-gradient(135deg, #EFF7F5, #E5F3F0); border: 1px solid rgba(107,158,143,0.2); }
+  .card-warm { background: linear-gradient(160deg, #3D3560, #5C4E8A); border: none; }
+  .card-gratitude { background: linear-gradient(160deg, #3D3560, #5C4E8A); border: none; }
+
+  .card p { font-size: 14.5px; line-height: 1.68; color: var(--text-mid); }
+  .card-night p, .card-terra p, .card-warm p, .card-gratitude p { color: rgba(255,255,255,0.85); }
+  .card h3 { font-family: 'Playfair Display', serif; font-size: 17px; margin-bottom: 10px; color: var(--text-dark); }
+  .card-night h3, .card-terra h3, .card-warm h3, .card-gratitude h3 { color: #fff; }
+
+  /* ── SCIENCE BOX ── */
+  .science-box {
+    background: linear-gradient(135deg, #EEF2F8, #E8EEF8);
+    border-left: 3px solid var(--accent-blue);
+    border-radius: 12px; padding: 16px 18px; margin: 14px 0;
+  }
+  .science-box .sci-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-blue); margin-bottom: 6px; }
+  .science-box p { font-size: 13.5px; line-height: 1.6; color: #2A3555; }
+
+  /* ── INSIGHT ── */
+  .insight {
+    background: linear-gradient(135deg, #FFF8F0, #FFF3E8);
+    border: 1.5px solid var(--terra-pale); border-radius: 16px;
+    padding: 16px 18px; margin: 14px 0;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .insight-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .insight-text { font-size: 13.5px; line-height: 1.6; color: var(--text-mid); }
+  .insight-text strong { color: var(--terra-deep); }
+
+  /* ── TYPE BLOCK ── */
+  .type-block { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid rgba(184,118,88,0.1); }
+  .type-block:last-child { border-bottom: none; padding-bottom: 0; }
+  .type-icon { width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .type-info h4 { font-size: 14px; font-weight: 600; color: var(--text-dark); margin-bottom: 3px; }
+  .type-info p { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+  .type-tag { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 20px; margin-bottom: 4px; }
+  .tag-good { background: #D5EED5; color: #2A6A2A; }
+  .tag-med  { background: #FFF0D5; color: #8A5A00; }
+  .tag-bad  { background: #F5D5D5; color: #8A2A2A; }
+
+  /* ── TECHNIQUE BLOCK ── */
+  .technique-block { padding: 14px 0; border-bottom: 1px solid rgba(184,118,88,0.1); }
+  .technique-block:last-child { border-bottom: none; padding-bottom: 0; }
+  .tech-header { display: flex; gap: 10px; align-items: center; margin-bottom: 6px; }
+  .tech-tag { background: linear-gradient(135deg, var(--terra-deep), var(--terra-light)); color: #fff; border-radius: 8px; padding: 3px 10px; font-size: 11px; font-weight: 600; flex-shrink: 0; }
+  .tech-name { font-size: 14px; font-weight: 600; color: var(--text-dark); }
+  .technique-block p { font-size: 13px; color: var(--text-soft); line-height: 1.6; }
+
+  /* ── BIOMARKER CARD ── */
+  .biomarker-card { background: #fff; border-radius: 14px; padding: 16px; margin-bottom: 10px; border: 1px solid rgba(184,118,88,0.1); display: flex; gap: 14px; align-items: flex-start; }
+  .bio-icon { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(135deg, #FDF0E8, #FAE8D8); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .bio-info h4 { font-size: 14px; font-weight: 600; color: var(--text-dark); margin-bottom: 4px; }
+  .bio-info p { font-size: 13px; color: var(--text-soft); line-height: 1.5; }
+  .bio-range { display: inline-block; background: linear-gradient(135deg, var(--terra-deep), var(--terra-light)); color: #fff; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 600; margin-top: 5px; }
+
+  /* ── SUBGROUP LABEL ── */
+  .subgroup-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terra-deep); margin: 18px 0 10px; }
+  .subgroup-label:first-of-type { margin-top: 0; }
+
+  /* ── SUPPLEMENT CARD ── */
+  .supp-card { background: #fff; border-radius: 14px; padding: 16px; margin-bottom: 10px; border: 1px solid rgba(184,118,88,0.1); }
+  .supp-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .supp-icon { width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg, #FDF0E8, #FAE8D8); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .supp-name { font-size: 14px; font-weight: 600; color: var(--text-dark); flex: 1; }
+  .supp-dose { background: linear-gradient(135deg, var(--terra-deep), var(--terra-light)); color: #fff; border-radius: 20px; padding: 3px 10px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+  .supp-card p { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+  .supp-evidence { display: flex; gap: 4px; margin-top: 8px; align-items: center; }
+  .ev-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .ev-dot.filled { background: var(--terra-deep); }
+  .ev-dot.empty  { background: #E0D0C8; }
+  .ev-label { font-size: 10px; color: var(--text-soft); margin-left: 4px; }
+
+  /* ── FOOD GRID ── */
+  .food-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .food-item { background: linear-gradient(135deg, #F5FBF8, #EEF7F3); border: 1px solid rgba(107,158,143,0.2); border-radius: 12px; padding: 12px; text-align: center; }
+  .food-item .fi-icon { font-size: 26px; margin-bottom: 5px; display: block; }
+  .food-item .fi-name { font-size: 12px; font-weight: 600; color: #2C5A4A; margin-bottom: 2px; }
+  .food-item .fi-why  { font-size: 11px; color: #5A8A78; line-height: 1.4; }
+
+  /* ── HRV GAUGE ── */
+  .hrv-gauge { background: linear-gradient(135deg, #F5F8FF, #EEF2FA); border-radius: 14px; padding: 16px; margin: 14px 0; }
+  .hrv-gauge-title { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-blue); margin-bottom: 12px; }
+  .hrv-row { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }
+  .hrv-row:last-child { margin-bottom: 0; }
+  .hrv-label { font-size: 12px; color: var(--text-mid); width: 110px; flex-shrink: 0; }
+  .hrv-bar-wrap { flex: 1; background: #DDE5F5; border-radius: 20px; height: 10px; }
+  .hrv-bar { height: 10px; border-radius: 20px; }
+  .hrv-state { font-size: 11px; font-weight: 600; width: 60px; text-align: right; flex-shrink: 0; }
+
+  /* ── GRATITUDE SECTION ── */
+  .gratitude-prompt {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 14px; padding: 16px 18px; margin-bottom: 10px;
+  }
+  .gratitude-prompt .gp-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(220,210,255,0.7); margin-bottom: 8px; }
+  .gratitude-prompt .gp-question { font-size: 15px; color: #fff; font-family: 'Playfair Display', serif; font-style: italic; line-height: 1.5; margin-bottom: 6px; }
+  .gratitude-prompt .gp-hint { font-size: 12px; color: rgba(220,210,255,0.65); line-height: 1.5; }
+
+  .gratitude-when {
+    display: flex; gap: 10px; margin-top: 14px;
+  }
+  .gw-card {
+    flex: 1; background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 12px; padding: 12px 10px; text-align: center;
+  }
+  .gw-icon { font-size: 20px; margin-bottom: 6px; }
+  .gw-time { font-size: 12px; font-weight: 600; color: #fff; margin-bottom: 3px; }
+  .gw-desc { font-size: 11px; color: rgba(220,210,255,0.65); line-height: 1.4; }
+
+  /* ── CHECKLIST ── */
+  .checklist-section { background: linear-gradient(160deg, #3D3560 0%, #5C4E8A 100%); border-radius: var(--section-radius); padding: 26px 22px; margin-bottom: 14px; }
+  .checklist-section h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: #fff; margin-bottom: 6px; }
+  .cl-sub { font-size: 13px; color: rgba(220,210,255,0.7); margin-bottom: 20px; }
+  .checklist-group-title { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #F5EEB0; margin-bottom: 8px; margin-top: 16px; }
+  .checklist-group-title:first-of-type { margin-top: 0; }
+  .cl-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; }
+  .cl-box { width: 20px; height: 20px; border-radius: 6px; border: 2px solid rgba(245,238,176,0.4); background: rgba(255,255,255,0.06); flex-shrink: 0; margin-top: 1px; }
+  .cl-text { font-size: 13.5px; color: rgba(255,255,255,0.85); line-height: 1.5; }
+  .cl-text strong { color: #F5EEB0; }
+
+  /* ── FOOTER ── */
+  .footer-note { text-align: center; font-size: 12px; color: var(--text-soft); padding: 20px 0 10px; line-height: 1.6; }
+  .footer-note span { color: #6B5EA8; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="hero-icon">🕊️</span>
+    <div class="hero-badge">✦ Complete stress guide</div>
+    <h1>Master <em>stress</em></h1>
+    <p class="hero-sub">Stress isn't the enemy. It's a signal. Learn to read it, use it, and stop letting it run your life.</p>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">What's inside</div>
+    <ul class="toc-list">
+      <li><span class="num">1</span>What stress actually is & types of stress</li>
+      <li><span class="num">2</span>Your stress threshold — and how to raise it</li>
+      <li><span class="num">3</span>HRV, stress & your heart</li>
+      <li><span class="num">4</span>Lab tests & biomarkers</li>
+      <li><span class="num">5</span>Your stress toolkit</li>
+      <li><span class="num">6</span>Food & drinks that calm the nervous system</li>
+      <li><span class="num">7</span>Supplements</li>
+      <li><span class="num">8</span>Gratitude practice</li>
+      <li><span class="num">9</span>Your daily checklist</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section-block">
+    <div class="section-label">
+      <div class="section-num">1</div>
+      <div class="section-title">What stress actually is</div>
+    </div>
+
+    <div class="card card-warm">
+      <h3>Most people think stress is just a feeling</h3>
+      <p>It's not. It's a full-body physiological event — one that quietly changes your hormones, disrupts your digestion, suppresses your immune system, and rewires the way you think and react.</p>
+      <p style="margin-top:10px;">The tricky part? It often happens so gradually that you stop noticing it. You just feel... off. Tired but wired. Snappy for no reason. Unable to fully relax even when nothing is wrong.</p>
+      <p style="margin-top:10px;">The good news: once you understand how the system actually works, you have real tools to work with it — not just cope with it.</p>
+    </div>
+
+    <div class="card">
+      <h3>What happens inside your body</h3>
+      <div class="type-block">
+        <div class="type-icon" style="background:#FDF0E8;">⚡</div>
+        <div class="type-info">
+          <h4>The HPA axis fires</h4>
+          <p>Your hypothalamus signals the pituitary → adrenal glands → cortisol floods the bloodstream within seconds. Blood sugar rises, digestion pauses, heart rate climbs. Your body is now in emergency mode.</p>
+        </div>
+      </div>
+      <div class="type-block">
+        <div class="type-icon" style="background:#F5F0F8;">🧠</div>
+        <div class="type-info">
+          <h4>Rational thinking goes offline</h4>
+          <p>The prefrontal cortex — your decision-making, impulse-control center — reduces activity under acute stress. Your amygdala (emotion/threat detector) takes over. This is why you snap at people you love, make poor decisions, or freeze when overwhelmed. It's biology, not character.</p>
+        </div>
+      </div>
+      <div class="type-block">
+        <div class="type-icon" style="background:#EFF7F5;">❤️</div>
+        <div class="type-info">
+          <h4>Your brake pedal gets stuck</h4>
+          <p>The vagus nerve is your body's primary calming pathway — it slows heart rate, reduces inflammation, and restores digestion. Under stress, it's overridden. Everything in this guide is essentially about how to get it back online.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="science-box">
+      <div class="sci-label">🔬 Stanford University · Dr. Alia Crum</div>
+      <p>People who believed stress was harmful had measurably worse health outcomes than those under the same stress load who viewed it as useful. Your mindset about stress changes its physiological impact — including cortisol and DHEA levels. This isn't motivational — it's biochemistry.</p>
+    </div>
+
+    <div class="card">
+      <h3>Not all stress is the same</h3>
+      <div class="type-block">
+        <div class="type-icon" style="background:#D5EED5;">🌱</div>
+        <div class="type-info">
+          <div class="type-tag tag-good">Eustress · Good stress</div>
+          <h4>The kind that makes you grow</h4>
+          <p>Short, manageable challenge you feel equipped to handle — exercise, a presentation, a cold shower. Cortisol rises, then falls. Your body adapts. This is how resilience is built.</p>
+        </div>
+      </div>
+      <div class="type-block">
+        <div class="type-icon" style="background:#FFF0D5;">⚡</div>
+        <div class="type-info">
+          <div class="type-tag tag-med">Acute stress · Short burst</div>
+          <h4>The jolt you can recover from</h4>
+          <p>Sudden and intense but time-limited. Fully recoverable with proper rest. The danger is when these pile up without real recovery between them — that's when acute stress starts becoming chronic.</p>
+        </div>
+      </div>
+      <div class="type-block">
+        <div class="type-icon" style="background:#F5D5D5;">🔥</div>
+        <div class="type-info">
+          <div class="type-tag tag-bad">Chronic stress · The silent one</div>
+          <h4>The one that actually harms you</h4>
+          <p>Stress that never fully resolves. Cortisol stays elevated — suppressing immunity, disrupting sleep, accelerating cellular aging, and over time literally shrinking the hippocampus (your memory center).</p>
+        </div>
+      </div>
+      <div class="type-block">
+        <div class="type-icon" style="background:#EEF2F8;">🧊</div>
+        <div class="type-info">
+          <div class="type-tag tag-bad">Toxic stress · Systemic breakdown</div>
+          <h4>When the system stops responding</h4>
+          <p>Prolonged extreme stress without support or recovery. At this level, the HPA axis dysregulates entirely — cortisol rhythms flatten, and the body loses its ability to mount a normal stress response at all. This is clinical burnout territory.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight">
+      <div class="insight-icon">💡</div>
+      <div class="insight-text"><strong>The real goal is never zero stress.</strong> Zero stress means zero growth, zero drive, zero aliveness. The goal is <strong>recovery</strong> — returning to baseline quickly after each stress event. That's what a healthy nervous system actually looks like.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section-block">
+    <div class="section-label">
+      <div class="section-num">2</div>
+      <div class="section-title">Your stress threshold</div>
+    </div>
+
+    <div class="card card-night">
+      <h3>Think of it as a bucket</h3>
+      <p style="color:rgba(255,255,255,0.85);">Everyone's stress bucket is a different size — shaped by genetics, childhood, sleep quality, nutrition, and daily habits. When the bucket overflows, that's burnout. The work isn't to avoid filling it. It's to make the bucket bigger — and drain it faster.</p>
+    </div>
+
+    <div class="card">
+      <h3>What sustained stress does over weeks & months</h3>
+      <div class="type-block">
+        <div class="type-icon" style="background:#FDF0E8;">🧬</div>
+        <div class="type-info">
+          <h4>Telomeres shorten</h4>
+          <p>Chronic stress directly accelerates degradation of telomeres — the protective caps on your chromosomes. Shorter telomeres = measurably faster biological aging. This is one of the clearest mechanisms linking chronic stress to premature disease.</p>
+        </div>
+      </div>
+      <div class="type-block">
+        <div class="type-icon" style="background:#F5EEF8;">😮</div>
+        <div class="type-info">
+          <h4>Gut lining weakens</h4>
+          <p>Cortisol compromises the intestinal barrier over time — allowing bacterial fragments into the bloodstream and triggering systemic inflammation. This is the stress–gut–brain axis: your gut health and your stress response are constantly talking to each other.</p>
+        </div>
+      </div>
+      <div class="type-block">
+        <div class="type-icon" style="background:#EEF2F8;">🧠</div>
+        <div class="type-info">
+          <h4>Hippocampus shrinks</h4>
+          <p>High cortisol sustained over time physically reduces hippocampal volume — your learning and memory center. Chronic stress and "I just can't seem to remember anything" are not a coincidence.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-mint">
+      <h3 style="color:#2C5A4A;">How to raise your threshold</h3>
+      <div style="display:flex; flex-direction:column; gap:12px; margin-top:4px;">
+        <div style="display:flex; gap:12px; align-items:flex-start;">
+          <div style="width:28px; height:28px; border-radius:8px; background:rgba(107,158,143,0.3); display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0;">🏋️</div>
+          <div><div style="font-size:13.5px; font-weight:600; color:#2C5A4A; margin-bottom:2px;">Exercise — controlled stress</div><div style="font-size:13px; color:#5A8A78; line-height:1.55;">Exercise spikes cortisol — then teaches your body to clear it. People who exercise regularly show measurably lower cortisol responses to psychological stress in lab settings.</div></div>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start;">
+          <div style="width:28px; height:28px; border-radius:8px; background:rgba(107,158,143,0.3); display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0;">🧊</div>
+          <div><div style="font-size:13.5px; font-weight:600; color:#2C5A4A; margin-bottom:2px;">Cold exposure</div><div style="font-size:13px; color:#5A8A78; line-height:1.55;">Cold activates the same stress circuitry as a real threat — but entirely under your control. Choosing to stay calm in discomfort is literally training your nervous system's regulation pathways.</div></div>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start;">
+          <div style="width:28px; height:28px; border-radius:8px; background:rgba(107,158,143,0.3); display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0;">😴</div>
+          <div><div style="font-size:13.5px; font-weight:600; color:#2C5A4A; margin-bottom:2px;">Sleep — the foundation of everything</div><div style="font-size:13px; color:#5A8A78; line-height:1.55;">One bad night raises cortisol, reduces prefrontal control, and lowers your stress threshold for the entire next day. No tool in this guide works well on sleep debt.</div></div>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start;">
+          <div style="width:28px; height:28px; border-radius:8px; background:rgba(107,158,143,0.3); display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0;">🫂</div>
+          <div><div style="font-size:13.5px; font-weight:600; color:#2C5A4A; margin-bottom:2px;">Genuine connection</div><div style="font-size:13px; color:#5A8A78; line-height:1.55;">Oxytocin — released through real connection, laughter, physical touch — directly antagonizes cortisol. Loneliness, by contrast, raises inflammatory markers as significantly as smoking 15 cigarettes a day.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="science-box">
+      <div class="sci-label">🔬 University of California · MBSR study</div>
+      <p>People who completed 8 weeks of mindfulness-based stress reduction showed measurable reductions in amygdala size and increased prefrontal gray matter volume. Structural brain changes — from behavioral practice alone, in just two months.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section-block">
+    <div class="section-label">
+      <div class="section-num">3</div>
+      <div class="section-title">HRV, stress & your heart</div>
+    </div>
+
+    <div class="card card-terra">
+      <h3>Your heart already knows you're stressed</h3>
+      <p>Every stress response leaves a fingerprint on your heart rhythm. HRV — heart rate variability — is the most sensitive real-time window into your nervous system state. It tells you what stress is doing to your body long before you consciously register it.</p>
+    </div>
+
+    <div class="card">
+      <h3>What HRV actually is</h3>
+      <p style="margin-bottom:12px;">Your heart doesn't beat like a metronome. Between beats there are tiny variations in time — 850ms, 823ms, 871ms... HRV measures this irregularity. Higher variability = your nervous system is flexible and responsive. Lower variability = it's locked in stress mode.</p>
+      <div class="hrv-gauge">
+        <div class="hrv-gauge-title">HRV as a stress signal</div>
+        <div class="hrv-row">
+          <div class="hrv-label">Recovered & calm</div>
+          <div class="hrv-bar-wrap"><div class="hrv-bar" style="width:90%; background:linear-gradient(90deg,#6B9E8F,#4A8A78);"></div></div>
+          <div class="hrv-state" style="color:#3A6A58;">High ↑</div>
+        </div>
+        <div class="hrv-row">
+          <div class="hrv-label">Moderate stress</div>
+          <div class="hrv-bar-wrap"><div class="hrv-bar" style="width:55%; background:linear-gradient(90deg,#D4956C,#B87658);"></div></div>
+          <div class="hrv-state" style="color:var(--terra-deep);">Medium</div>
+        </div>
+        <div class="hrv-row">
+          <div class="hrv-label">High stress</div>
+          <div class="hrv-bar-wrap"><div class="hrv-bar" style="width:28%; background:linear-gradient(90deg,#C05A5A,#A03A3A);"></div></div>
+          <div class="hrv-state" style="color:#8A3A3A;">Low ↓</div>
+        </div>
+        <div class="hrv-row">
+          <div class="hrv-label">Burnout / illness</div>
+          <div class="hrv-bar-wrap"><div class="hrv-bar" style="width:12%; background:#8A3A3A;"></div></div>
+          <div class="hrv-state" style="color:#8A3A3A;">Very low</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-soft">
+      <h3>The vagus nerve connection</h3>
+      <p>HRV is essentially a measure of vagal tone — how active and responsive your vagus nerve is. High vagal tone = high HRV = stress resilience. This is why every practice in this guide that improves HRV — breathing, cold, movement, sleep, connection — also reduces the physical damage of chronic stress. They are all the same pathway.</p>
+    </div>
+
+    <div class="science-box">
+      <div class="sci-label">⌚ Important to know</div>
+      <p>HRV requires a wearable device to measure — it cannot be estimated manually. Most modern fitness trackers measure it overnight. The most useful practice: track your personal trend over 2–4 weeks. A sustained drop from your own baseline (not someone else's) is the most reliable early signal of chronic stress accumulation.</p>
+    </div>
+
+    <div class="insight">
+      <div class="insight-icon">⚠️</div>
+      <div class="insight-text">If your HRV stays low for <strong>7+ days despite rest</strong>, this points to: accumulated sleep debt, chronic psychological stress, nutritional deficiencies (especially magnesium and B vitamins), or subclinical illness. Your body is asking for help before symptoms become obvious.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section-block">
+    <div class="section-label">
+      <div class="section-num">4</div>
+      <div class="section-title">Lab tests & biomarkers</div>
+    </div>
+
+    <div class="card card-night">
+      <h3>What blood tests reveal about your stress load</h3>
+      <p style="color:rgba(255,255,255,0.85);">Chronic stress leaves measurable marks across your biology — long before you consciously register burnout. These are the tests worth asking your doctor about if you suspect stress is actively affecting your health.</p>
+    </div>
+
+    <div class="subgroup-label">🩸 Hormonal markers</div>
+
+    <div class="biomarker-card">
+      <div class="bio-icon">🌊</div>
+      <div class="bio-info">
+        <h4>Cortisol — 4-point salivary test</h4>
+        <p>The most clinically useful cortisol assessment. Samples taken at waking, noon, evening, and bedtime map your full daily curve. Chronic stress flattens it — killing the morning peak and leaving you wired at night. A single morning blood draw completely misses this pattern.</p>
+        <div class="bio-range">Morning: 15–25 mcg/dL · Bedtime: &lt;1.5 mcg/dL</div>
+      </div>
+    </div>
+
+    <div class="biomarker-card">
+      <div class="bio-icon">⚡</div>
+      <div class="bio-info">
+        <h4>DHEA-S — your cortisol buffer</h4>
+        <p>DHEA is the body's natural stress modulator — it protects against cortisol's damaging effects. Chronic stress depletes it. High cortisol + low DHEA is the classic burnout pattern — and one of the most actionable ratios to track.</p>
+        <div class="bio-range">Track the cortisol:DHEA ratio, not values alone</div>
+      </div>
+    </div>
+
+    <div class="biomarker-card">
+      <div class="bio-icon">🦋</div>
+      <div class="bio-info">
+        <h4>Thyroid panel — TSH, Free T3, Free T4, rT3</h4>
+        <p>Chronic stress converts T4 into Reverse T3 (inactive) instead of active T3 — producing fatigue, brain fog, and poor sleep with a "normal" TSH. Always ask for Free T3 and Reverse T3, not just TSH alone. Many cases of chronic exhaustion are missed without them.</p>
+        <div class="bio-range">Free T3 optimal: 3.5–4.3 pg/mL · rT3: &lt;15 ng/dL</div>
+      </div>
+    </div>
+
+    <div class="biomarker-card">
+      <div class="bio-icon">😴</div>
+      <div class="bio-info">
+        <h4>Sex hormones — testosterone, estrogen, progesterone</h4>
+        <p>Cortisol and sex hormones share the same precursor (pregnenolone). Under chronic stress, the body prioritizes cortisol production — essentially stealing from sex hormone synthesis. Low libido, mood swings, and cycle irregularities under stress aren't random — they're downstream effects.</p>
+        <div class="bio-range">Fasted morning serum · day 3 of cycle for women</div>
+      </div>
+    </div>
+
+    <div class="subgroup-label">🧬 Inflammatory & metabolic markers</div>
+
+    <div class="biomarker-card">
+      <div class="bio-icon">🔥</div>
+      <div class="bio-info">
+        <h4>hsCRP — inflammation marker</h4>
+        <p>Chronic stress is fundamentally an inflammatory condition. hsCRP rises with sustained psychological stress, poor sleep, and HPA dysregulation. It's also one of the strongest independent predictors of cardiovascular risk — making it essential to monitor.</p>
+        <div class="bio-range">Optimal: &lt;0.5 mg/L · Elevated: &gt;1.0 mg/L</div>
+      </div>
+    </div>
+
+    <div class="biomarker-card">
+      <div class="bio-icon">🍬</div>
+      <div class="bio-info">
+        <h4>Fasting glucose & HOMA-IR</h4>
+        <p>Cortisol raises blood sugar. Sustained elevation drives insulin resistance over time. HOMA-IR (calculated from fasting glucose + insulin together) is a far more sensitive indicator of metabolic stress impact than glucose levels alone.</p>
+        <div class="bio-range">HOMA-IR: &lt;1.5 optimal · &gt;2.0 indicates resistance</div>
+      </div>
+    </div>
+
+    <div class="biomarker-card">
+      <div class="bio-icon">🔋</div>
+      <div class="bio-info">
+        <h4>Magnesium — RBC, not serum</h4>
+        <p>Serum magnesium appears "normal" even when tissue stores are severely depleted — your body pulls from cells to maintain blood levels. RBC magnesium is the true measure. Deficiency drives anxiety, poor sleep, muscle tension, and worsens HRV.</p>
+        <div class="bio-range">RBC magnesium optimal: 5.5–6.5 mg/dL</div>
+      </div>
+    </div>
+
+    <div class="biomarker-card">
+      <div class="bio-icon">☀️</div>
+      <div class="bio-info">
+        <h4>Vitamin D (25-OH)</h4>
+        <p>Vitamin D receptors are distributed throughout the limbic system — your emotional regulation center. Deficiency is associated with exaggerated cortisol responses to stress, higher anxiety, and lower mood. Extremely common, easily tested, easily corrected.</p>
+        <div class="bio-range">Optimal: 50–80 ng/mL — not just "not deficient"</div>
+      </div>
+    </div>
+
+    <div class="science-box">
+      <div class="sci-label">🔬 Where to start</div>
+      <p>If you're checking for stress impact for the first time: 4-point salivary cortisol + DHEA-S, hsCRP, and vitamin D. These four give the clearest initial picture of whether stress is actively damaging your physiology — and where to intervene first.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section-block">
+    <div class="section-label">
+      <div class="section-num">5</div>
+      <div class="section-title">Your stress toolkit</div>
+    </div>
+
+    <div class="card card-soft">
+      <p>These aren't generic wellness tips. Each tool below has a direct physiological mechanism — something that shifts your nervous system state within minutes. Start with one. Build from there.</p>
+    </div>
+
+    <div class="card">
+      <h3>Breathing — your fastest reset 🌬️</h3>
+      <div class="technique-block">
+        <div class="tech-header"><div class="tech-tag">60 sec</div><div class="tech-name">Physiological sigh</div></div>
+        <p>Double inhale through the nose (short inhale, then a second sharp top-up) followed by a long, slow exhale through the mouth. Re-inflates collapsed alveoli and rapidly offloads CO₂. The fastest known real-time nervous system reset. One or two sighs is enough.</p>
+      </div>
+      <div class="technique-block">
+        <div class="tech-header"><div class="tech-tag">3–5 min</div><div class="tech-name">Extended exhale</div></div>
+        <p>Inhale 4 counts — exhale 6–8 counts. The longer exhale activates the vagus nerve by mechanically slowing the heart. You're not just relaxing — you're applying the physiological brake. Can be done anywhere, silently, invisibly.</p>
+      </div>
+      <div class="technique-block">
+        <div class="tech-header"><div class="tech-tag">5 min</div><div class="tech-name">Box breathing</div></div>
+        <p>Inhale 4 → hold 4 → exhale 4 → hold 4. The holds reset CO₂ tolerance and create space between stimulus and response — exactly what an overloaded nervous system needs. Used in military training for high-pressure performance.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Vision — the overlooked tool 👁️</h3>
+      <p style="margin-bottom:12px;">When stressed, your visual field narrows — pupils dilate, gaze tightens on the threat. This visual state feeds directly back into your alert circuitry. You can reverse it deliberately.</p>
+      <div class="technique-block">
+        <div class="tech-header"><div class="tech-tag">30–60 sec</div><div class="tech-name">Panoramic gaze</div></div>
+        <p>Soften your focus — instead of fixing on one point, let your gaze go "soft" and become aware of your full peripheral field (above, below, left, right) simultaneously. Research from Stanford shows this measurably reduces stress circuit activity within 30 seconds by changing visual input to the amygdala.</p>
+      </div>
+      <div class="technique-block">
+        <div class="tech-header"><div class="tech-tag">5 min</div><div class="tech-name">Distance gazing</div></div>
+        <p>Look at a horizon or far distance. Relaxes the ciliary muscles tensed by screen work and shifts the nervous system toward rest. Especially powerful after extended close-focus work.</p>
+      </div>
+      <div class="technique-block">
+        <div class="tech-header"><div class="tech-tag">20 min</div><div class="tech-name">Green space</div></div>
+        <p>Natural scenes — trees, water, open sky — lower cortisol measurably within 20 minutes. "Soft fascination" requires no focused attention, giving cognitive stress systems a genuine break that screens cannot provide.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Body positions 🧘</h3>
+      <p style="margin-bottom:12px;">Posture isn't just a reflection of how you feel — it actively creates how you feel. These positions stimulate the vagus nerve and signal safety to the nervous system.</p>
+      <div class="technique-block">
+        <div class="tech-header"><div class="tech-tag">5–15 min</div><div class="tech-name">Legs up the wall</div></div>
+        <p>Lie on your back, legs at 90° against a wall. Activates parasympathetic response through baroreceptors in the legs. Reduces blood pressure, drains lymph, calms racing thoughts. Simple and deeply effective.</p>
+      </div>
+      <div class="technique-block">
+        <div class="tech-header"><div class="tech-tag">2–5 min</div><div class="tech-name">Child's pose</div></div>
+        <p>Kneeling with forehead to the ground. The gentle forehead pressure stimulates vagal branches through facial mechanoreceptors. Instinctively used across cultures as a rest posture — there's a reason for that.</p>
+      </div>
+      <div class="technique-block">
+        <div class="tech-header"><div class="tech-tag">1–3 min</div><div class="tech-name">Forward fold</div></div>
+        <p>Bend forward from the hips, let the head hang heavy. Inverts blood flow to the head, activates baroreceptors, creates traction in the cervical spine where many vagal branches run. Even 60 seconds shifts your state noticeably.</p>
+      </div>
+      <div class="technique-block">
+        <div class="tech-header"><div class="tech-tag">2 min</div><div class="tech-name">Humming</div></div>
+        <p>The vagus nerve passes through the larynx. Humming, singing, or gargling water creates vibration that directly stimulates vagal tone. One of the most direct vagus activations available — no equipment, no setup.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>NSDR — Non-Sleep Deep Rest 🌙</h3>
+      <p style="margin-bottom:12px;"><strong>NSDR</strong> is a category of practices that bring the brain into a deeply restored state without full sleep. Think of it as a 10–20 minute recharge that returns hours of cognitive and emotional capacity — without the grogginess of a nap.</p>
+      <div class="technique-block">
+        <div class="tech-header"><div class="tech-tag">10–20 min</div><div class="tech-name">Yoga Nidra</div></div>
+        <p>A guided body-scan practice — systematically relaxing every part of the body while maintaining a thread of awareness. The most studied NSDR protocol. Shown to restore dopamine in the striatum by up to 65% in a single session — the same reward area depleted by burnout.</p>
+      </div>
+      <div class="technique-block">
+        <div class="tech-header"><div class="tech-tag">10–30 min</div><div class="tech-name">Progressive muscle relaxation</div></div>
+        <p>Systematically tensing then releasing muscle groups from feet to face. Interrupts the chronic muscle tension that stress creates — tension most people stop noticing until it's finally gone. Shown to lower cortisol and improve sleep quality with regular practice.</p>
+      </div>
+      <div class="technique-block">
+        <div class="tech-header"><div class="tech-tag">5–15 min</div><div class="tech-name">Deliberate rest after learning</div></div>
+        <p>Lying still with eyes closed for 10 minutes after absorbing new information dramatically increases memory consolidation. Your brain uses this quiet window to replay and cement what it just processed. Zero effort — the absence of stimulation does the work.</p>
+      </div>
+    </div>
+
+    <div class="insight">
+      <div class="insight-icon">🎯</div>
+      <div class="insight-text"><strong>The most important shift:</strong> These tools only work if you use them <em>before</em> you hit a 9/10 stress level. Build the habit of using them at 4–5. Stress management is maintenance, not emergency response.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section-block">
+    <div class="section-label">
+      <div class="section-num">6</div>
+      <div class="section-title">Food & drinks that calm the nervous system</div>
+    </div>
+
+    <div class="card card-soft">
+      <p>What you eat shapes your cortisol rhythm, neurotransmitter balance, and inflammation levels — directly. These aren't comfort foods. They're foods with actual mechanisms that work with your nervous system.</p>
+    </div>
+
+    <div class="card card-mint">
+      <h3 style="color:#2C5A4A; margin-bottom:14px;">Stress-calming foods 🌿</h3>
+      <div class="food-grid">
+        <div class="food-item">
+          <span class="fi-icon">🍫</span>
+          <div class="fi-name">Dark chocolate (70%+)</div>
+          <div class="fi-why">Flavanols reduce cortisol and adrenaline. Small amounts lower blood pressure and lift mood within 30 min.</div>
+        </div>
+        <div class="food-item">
+          <span class="fi-icon">🫐</span>
+          <div class="fi-name">Blueberries</div>
+          <div class="fi-why">Anthocyanins protect neurons from cortisol damage and reduce oxidative stress linked to anxiety.</div>
+        </div>
+        <div class="food-item">
+          <span class="fi-icon">🥑</span>
+          <div class="fi-name">Avocado</div>
+          <div class="fi-why">High in B vitamins and potassium — both rapidly depleted by chronic stress. Supports adrenal function.</div>
+        </div>
+        <div class="food-item">
+          <span class="fi-icon">🐟</span>
+          <div class="fi-name">Fatty fish</div>
+          <div class="fi-why">EPA/DHA lower cortisol, reduce neuroinflammation, and support serotonin receptor function.</div>
+        </div>
+        <div class="food-item">
+          <span class="fi-icon">🌰</span>
+          <div class="fi-name">Cashews & pistachios</div>
+          <div class="fi-why">Rich in zinc and magnesium — both critical for GABA, the brain's primary calming neurotransmitter.</div>
+        </div>
+        <div class="food-item">
+          <span class="fi-icon">🥬</span>
+          <div class="fi-name">Leafy greens</div>
+          <div class="fi-why">Magnesium, folate, B6 — the trifecta for serotonin synthesis and HPA axis regulation.</div>
+        </div>
+        <div class="food-item">
+          <span class="fi-icon">🫚</span>
+          <div class="fi-name">Olive oil</div>
+          <div class="fi-why">Oleocanthal is anti-inflammatory. Mediterranean diet is one of the strongest dietary predictors of lower anxiety.</div>
+        </div>
+        <div class="food-item">
+          <span class="fi-icon">🫘</span>
+          <div class="fi-name">Fermented foods</div>
+          <div class="fi-why">90% of serotonin is made in the gut. Probiotics reduce anxiety via vagus nerve communication with the brain.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Calming drinks 🍵</h3>
+      <div class="type-block">
+        <div class="type-icon" style="background:#EFF7F5;">🍵</div>
+        <div class="type-info">
+          <h4>Green tea</h4>
+          <p>L-theanine increases alpha brain waves — the calm focus state. Combined with moderate caffeine, it produces alert-but-calm instead of wired-and-anxious. One of the cleanest focus + calm combinations available.</p>
+        </div>
+      </div>
+      <div class="type-block">
+        <div class="type-icon" style="background:#F5EEF8;">💜</div>
+        <div class="type-info">
+          <h4>Lemon balm or chamomile</h4>
+          <p>Lemon balm inhibits GABA breakdown — the same mechanism as some anxiety medications, but gently and naturally. Chamomile's apigenin binds directly to GABA-A receptors. Both are well-studied and notably effective.</p>
+        </div>
+      </div>
+      <div class="type-block">
+        <div class="type-icon" style="background:#FDF0E8;">🌿</div>
+        <div class="type-info">
+          <h4>Ashwagandha in warm milk</h4>
+          <p>An ancient preparation now backed by multiple clinical trials. Reduces cortisol by 20–30% with regular use. Warm milk adds tryptophan and calming interoceptive signals. Genuinely one of the most effective stress-calming drinks there is.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight">
+      <div class="insight-icon">⚠️</div>
+      <div class="insight-text"><strong>What silently makes stress worse:</strong> Ultra-processed food spikes and crashes blood sugar — and glucose instability directly mimics a stress response (cortisol rises to compensate). Alcohol feels calming but fragments sleep and raises next-day anxiety. Caffeine after 2pm keeps cortisol elevated hours longer than you feel it.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="section-block">
+    <div class="section-label">
+      <div class="section-num">7</div>
+      <div class="section-title">Supplements</div>
+    </div>
+
+    <div class="card card-soft">
+      <p>These work best as support for a lifestyle that already includes sleep, movement, and stress management. For the right person at the right time, they make a real, measurable difference.</p>
+    </div>
+
+    <div class="supp-card">
+      <div class="supp-header">
+        <div class="supp-icon">🌿</div>
+        <div class="supp-name">Ashwagandha</div>
+        <div class="supp-dose">300–600 mg/day</div>
+      </div>
+      <p>The most clinically studied adaptogen for stress. Multiple RCTs show it reduces cortisol by 20–30%, lowers anxiety, and improves sleep with consistent use over 8 weeks. Works by modulating the HPA axis — not sedating.</p>
+      <div class="supp-evidence"><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot empty"></div><span class="ev-label">Strong evidence</span></div>
+    </div>
+
+    <div class="supp-card">
+      <div class="supp-header">
+        <div class="supp-icon">🧲</div>
+        <div class="supp-name">Magnesium glycinate or threonate</div>
+        <div class="supp-dose">200–400 mg/day</div>
+      </div>
+      <p>Essential for GABA activation — the brain's primary "off" switch. Stress depletes magnesium rapidly, creating a vicious cycle. Glycinate is best for anxiety and sleep; threonate crosses the blood-brain barrier most effectively for cognitive effects.</p>
+      <div class="supp-evidence"><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot filled"></div><span class="ev-label">Very strong evidence</span></div>
+    </div>
+
+    <div class="supp-card">
+      <div class="supp-header">
+        <div class="supp-icon">🍵</div>
+        <div class="supp-name">L-theanine</div>
+        <div class="supp-dose">100–200 mg</div>
+      </div>
+      <p>Promotes calm alertness without drowsiness — increases alpha waves and GABA activity within 30–60 minutes. Particularly effective combined with caffeine to remove jitteriness while preserving focus. One of the most reliable acute stress tools available.</p>
+      <div class="supp-evidence"><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot empty"></div><span class="ev-label">Strong evidence</span></div>
+    </div>
+
+    <div class="supp-card">
+      <div class="supp-header">
+        <div class="supp-icon">🌸</div>
+        <div class="supp-name">Rhodiola rosea</div>
+        <div class="supp-dose">200–400 mg/day</div>
+      </div>
+      <p>Strongest evidence for stress-induced mental fatigue and burnout recovery. Inhibits cortisol-driven breakdown of serotonin and dopamine. Best taken in the morning — can be mildly activating. Most useful during high-demand periods.</p>
+      <div class="supp-evidence"><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot empty"></div><div class="ev-dot empty"></div><span class="ev-label">Good evidence</span></div>
+    </div>
+
+    <div class="supp-card">
+      <div class="supp-header">
+        <div class="supp-icon">⚡</div>
+        <div class="supp-name">B-complex vitamins</div>
+        <div class="supp-dose">Per label daily</div>
+      </div>
+      <p>B5, B6, and B12 are essential cofactors for adrenal hormone production and neurotransmitter synthesis. Chronic stress burns through B vitamins rapidly — deficiency impairs the body's ability to both produce and clear cortisol. Often the most foundational intervention.</p>
+      <div class="supp-evidence"><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot empty"></div><span class="ev-label">Strong evidence</span></div>
+    </div>
+
+    <div class="supp-card">
+      <div class="supp-header">
+        <div class="supp-icon">🐟</div>
+        <div class="supp-name">Omega-3 (EPA + DHA)</div>
+        <div class="supp-dose">1–3 g EPA+DHA/day</div>
+      </div>
+      <p>EPA specifically reduces anxiety and cortisol reactivity — supported by a landmark meta-analysis across clinical populations. DHA maintains structural brain integrity. For stress applications, prioritize a ratio of at least 2:1 EPA to DHA.</p>
+      <div class="supp-evidence"><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot filled"></div><div class="ev-dot empty"></div><span class="ev-label">Strong evidence</span></div>
+    </div>
+
+    <div class="science-box">
+      <div class="sci-label">⚠️ Important</div>
+      <p>Supplements support a healthy lifestyle — they don't replace addressing the root cause of chronic stress. Always consult a healthcare provider before adding new supplements, especially with medication. Introduce one at a time to know what's actually working.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 8 — GRATITUDE -->
+  <div class="section-block">
+    <div class="section-label">
+      <div class="section-num">8</div>
+      <div class="section-title">Gratitude practice</div>
+    </div>
+
+    <div class="card card-gratitude">
+      <h3>The one habit that rewires your stress response</h3>
+      <p>Gratitude isn't a soft wellness trend. It's one of the most well-researched interventions for changing how the brain processes stress — measurably shifting activity away from threat-detection and toward reward and connection.</p>
+      <p style="margin-top:10px;">When you practice gratitude consistently, you're not suppressing stress. You're training your brain to spend less default time scanning for threats — and more time noticing what's actually safe, good, and working.</p>
+    </div>
+
+    <div class="card">
+      <h3>What the research shows</h3>
+      <p style="margin-bottom:12px;">This isn't motivational — it's neuroscience:</p>
+      <div class="type-block">
+        <div class="type-icon" style="background:#EFF7F5;">🧠</div>
+        <div class="type-info">
+          <h4>Activates the medial prefrontal cortex</h4>
+          <p>The same region that's suppressed by stress. Regular gratitude practice strengthens prefrontal activity — improving impulse control, decision-making, and emotional regulation under pressure.</p>
+        </div>
+      </div>
+      <div class="type-block">
+        <div class="type-icon" style="background:#FDF0E8;">💓</div>
+        <div class="type-info">
+          <h4>Raises HRV</h4>
+          <p>A 2015 study published in Applied Psychophysiology and Biofeedback found that feelings of gratitude and appreciation directly increased HRV — the same metric that drops under chronic stress. The effect was measurable within a single session.</p>
+        </div>
+      </div>
+      <div class="type-block">
+        <div class="type-icon" style="background:#F5EEF8;">😴</div>
+        <div class="type-info">
+          <h4>Improves sleep quality</h4>
+          <p>A study in the Journal of Experimental Psychology found that writing gratitude statements before bed reduced pre-sleep cognitive arousal — the racing thoughts that delay sleep onset. Participants fell asleep faster and slept longer.</p>
+        </div>
+      </div>
+      <div class="type-block">
+        <div class="type-icon" style="background:#D5EED5;">🩸</div>
+        <div class="type-info">
+          <h4>Lowers inflammatory markers</h4>
+          <p>Gratitude journaling over 8 weeks was associated with lower levels of inflammatory biomarkers in cardiac patients — including the same markers elevated by chronic psychological stress.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-gratitude">
+      <h3>How to actually do it</h3>
+      <p style="margin-bottom:16px;">The practice only works when it's specific and felt — not a list you rush through. Here's what makes the difference:</p>
+
+      <div class="gratitude-prompt">
+        <div class="gp-label">Reflection 1 · What went well today</div>
+        <div class="gp-question">"What is one small thing that happened today that I'm genuinely glad about?"</div>
+        <div class="gp-hint">Could be tiny — a good cup of coffee, a moment of quiet, a text from a friend. Specificity matters more than scale.</div>
+      </div>
+
+      <div class="gratitude-prompt">
+        <div class="gp-label">Reflection 2 · Who made a difference</div>
+        <div class="gp-question">"Who is someone I'm grateful for today, and what specifically did they do?"</div>
+        <div class="gp-hint">Social gratitude activates the reward system more strongly than general appreciation. Name the person and the action.</div>
+      </div>
+
+      <div class="gratitude-prompt">
+        <div class="gp-label">Reflection 3 · What I have that I take for granted</div>
+        <div class="gp-question">"What is something ordinary in my life right now that I'd miss deeply if it were gone?"</div>
+        <div class="gp-hint">This prompt is the most powerful for rewiring the threat-detection default — it shifts attention from what's missing to what's already here.</div>
+      </div>
+
+      <div class="gratitude-when">
+        <div class="gw-card">
+          <div class="gw-icon">🌅</div>
+          <div class="gw-time">Morning</div>
+          <div class="gw-desc">Sets an intentional tone. Use 1 prompt only — don't overdo it.</div>
+        </div>
+        <div class="gw-card">
+          <div class="gw-icon">🌙</div>
+          <div class="gw-time">Before bed</div>
+          <div class="gw-desc">Most studied timing. Reduces pre-sleep rumination and improves sleep onset.</div>
+        </div>
+        <div class="gw-card">
+          <div class="gw-icon">😤</div>
+          <div class="gw-time">After stress</div>
+          <div class="gw-desc">Use as a recovery tool. One specific thing, written or spoken out loud.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="science-box">
+      <div class="sci-label">🔬 Important nuance</div>
+      <p>Gratitude practice works best when it's genuine and effortful — not mechanical. Writing the same three things every day stops working quickly. The brain needs novelty and specificity to activate the reward response. Aim for at least one prompt you have to actually think about.</p>
+    </div>
+
+    <div class="insight">
+      <div class="insight-icon">✍️</div>
+      <div class="insight-text"><strong>Written vs. mental gratitude:</strong> Research consistently shows that <strong>writing it down</strong> — even just a few sentences — produces stronger neural and physiological effects than simply thinking it. The act of putting words to the experience deepens encoding. A small notebook by the bed is enough.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 9 — CHECKLIST -->
+  <div class="section-block">
+    <div class="section-label">
+      <div class="section-num">9</div>
+      <div class="section-title">Your daily stress reset</div>
+    </div>
+
+    <div class="checklist-section">
+      <h3>Daily checklist</h3>
+      <div class="cl-sub">Small consistent actions build a nervous system that bends without breaking.</div>
+
+      <div class="checklist-group-title">🌅 Morning</div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Got <strong>natural light</strong> within 30 min of waking — sets the cortisol curve correctly</div></div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Took <strong>3 slow breaths</strong> before checking my phone</div></div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Ate a <strong>real breakfast</strong> — blood sugar stability = stress stability all day</div></div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Moved my body — even <strong>10 minutes</strong> counts</div></div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Wrote <strong>one gratitude reflection</strong> before the day starts</div></div>
+
+      <div class="checklist-group-title">☀️ During the day</div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Used a <strong>breathing tool</strong> when stress was rising — not after it peaked</div></div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Took a <strong>5-min panoramic vision break</strong> — eyes off screens, gaze to distance</div></div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Ate <strong>real food</strong> for at least two meals — avoided ultra-processed</div></div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Had a <strong>genuine human conversation</strong> — not just transactional</div></div>
+
+      <div class="checklist-group-title">🌙 Evening</div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Did <strong>10–20 min of NSDR</strong> or Yoga Nidra</div></div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Dimmed lights and <strong>put screens away</strong> 1h before bed</div></div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Wrote <strong>3 things I'm grateful for</strong> — specific, not generic</div></div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Did one <strong>calming body position</strong> — legs up, child's pose, or forward fold</div></div>
+
+      <div class="checklist-group-title">📊 Weekly</div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Checked my <strong>HRV trend</strong> — stable, rising, or dropping?</div></div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Named my <strong>main stressor this week</strong> — is it acute or chronic?</div></div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Did something <strong>purely for joy</strong> — no productivity attached</div></div>
+      <div class="cl-item"><div class="cl-box"></div><div class="cl-text">Checked in: <strong>am I managing stress, or just enduring it?</strong></div></div>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="card card-warm" style="text-align:center;">
+    <div style="font-size:36px; margin-bottom:12px;">🕊️</div>
+    <h3 style="font-size:20px; color:#fff; font-family:'Playfair Display',serif; margin-bottom:10px;">Stress is data, not a verdict</h3>
+    <p>Every stress response is your nervous system doing exactly what it was built to do. Your work isn't to silence it — it's to get better at recovering from it, reading it, and using it. That's what resilience actually looks like from the inside.</p>
+    <p style="margin-top:16px; font-size:14px; font-weight:500; color:#F5EEB0; letter-spacing:0.08em;">Breathe. Reset. Repeat. ✦</p>
+  </div>
+
+  <div class="footer-note">
+    <span>Aura</span> · Master stress guide<br>
+    Evidence-based tools for nervous system resilience
+  </div>
+
+</div>
+</body>
+</html>
