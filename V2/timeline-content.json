@@ -71,9 +71,9 @@
           "day": 7,
           "type": "video",
           "title": "Create energy without caffeine",
-          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/a5e38d20b7ff06a4a83ea62566706c95/manifest/video.m3u8",
-          "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/a5e38d20b7ff06a4a83ea62566706c95/thumbnails/thumbnail.jpg",
-          "thumbnailUrl_v2": null,
+          "videoUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/a8d21d639eadcd8bb8b1c47dda7a0db5/manifest/video.m3u8",
+          "thumbnailUrl": "https://customer-u5zz1gquiwl6h6sh.cloudflarestream.com/a8d21d639eadcd8bb8b1c47dda7a0db5/thumbnails/thumbnail.jpg",
+          "thumbnailUrl_v2": "https://thumbnails.aura-app.com/V2/1-7-v2.jpg",
           "duration": "6:00",
           "contentUrl": "https://content.aura-app.com/V2/1-7-content.html"
         }
