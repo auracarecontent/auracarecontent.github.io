@@ -209,8 +209,8 @@
           "day": 6,
           "type": "article",
           "title": "",
-          "thumbnailUrl": "https://thumbnails.aura-app.com/V2/3-6.jpg",
-          "thumbnailUrl_v2": "https://thumbnails.aura-app.com/V2/3-6-v2.jpg",
+          "thumbnailUrl": "https://thumbnails.aura-app.com/V2/3-6.png",
+          "thumbnailUrl_v2": "https://thumbnails.aura-app.com/V2/3-6.png",
           "duration": "4:00",
           "contentUrl": "https://auracarecontent.github.io/V2/3-6-content.html"
         },
@@ -219,7 +219,7 @@
           "type": "article",
           "title": "",
           "thumbnailUrl": "https://thumbnails.aura-app.com/V2/3-7.jpg",
-          "thumbnailUrl_v2": "https://thumbnails.aura-app.com/V2/3-7-v2.jpg",
+          "thumbnailUrl_v2": "https://thumbnails.aura-app.com/V2/3-7.jpg",
           "duration": "6:00",
           "contentUrl": "https://auracarecontent.github.io/V2/3-7-content.html"
         }
